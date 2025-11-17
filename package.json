@@ -1,0 +1,43 @@
+{
+  "name": "@ticketlayer/backstage-sdk",
+  "version": "0.1.0",
+  "description": "TypeScript SDK for Backstage API",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "generate": "npm run generate:client && npm run build",
+    "generate:client": "openapi-typescript openapi.json -o src/generated/schema.ts && openapi-typescript-codegen --input openapi.json --output src/generated --client fetch",
+    "build": "tsc",
+    "clean": "rm -rf dist src/generated",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "backstage",
+    "api",
+    "sdk",
+    "typescript",
+    "openapi"
+  ],
+  "author": "Ticketlayer",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "openapi-typescript": "^7.4.3",
+    "openapi-typescript-codegen": "^0.29.0",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "cross-fetch": "^4.0.0"
+  }
+}
