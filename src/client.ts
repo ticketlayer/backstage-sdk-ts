@@ -8,19 +8,27 @@
 import type { components } from './generated/types';
 
 // Extract schema types
+type AssignRoleRequest = components['schemas']['AssignRoleRequest'];
+type AssignRoleResponse = components['schemas']['AssignRoleResponse'];
 type CreateAccountResponse = components['schemas']['CreateAccountResponse'];
+type CreateRoleRequest = components['schemas']['CreateRoleRequest'];
+type CreateRoleResponse = components['schemas']['CreateRoleResponse'];
 type CreateUserInvitationRequest = components['schemas']['CreateUserInvitationRequest'];
 type CreateUserInvitationResponse = components['schemas']['CreateUserInvitationResponse'];
 type DeleteAccountResponse = components['schemas']['DeleteAccountResponse'];
+type DeleteRoleResponse = components['schemas']['DeleteRoleResponse'];
 type DeleteUserInvitationResponse = components['schemas']['DeleteUserInvitationResponse'];
 type GetAccountResponse = components['schemas']['GetAccountResponse'];
 type GetIdentityProviderResponse = components['schemas']['GetIdentityProviderResponse'];
 type GetOrganisationResponse = components['schemas']['GetOrganisationResponse'];
+type GetRoleResponse = components['schemas']['GetRoleResponse'];
 type GetUserInvitationResponse = components['schemas']['GetUserInvitationResponse'];
 type GetUserMeResponse = components['schemas']['GetUserMeResponse'];
 type GetUserOrganisationsResponse = components['schemas']['GetUserOrganisationsResponse'];
 type ListAccountsResponse = components['schemas']['ListAccountsResponse'];
 type ListIdentityProvidersResponse = components['schemas']['ListIdentityProvidersResponse'];
+type ListRolesResponse = components['schemas']['ListRolesResponse'];
+type ListUserAccountRolesResponse = components['schemas']['ListUserAccountRolesResponse'];
 type ListUserInvitationsResponse = components['schemas']['ListUserInvitationsResponse'];
 type LoginRequest = components['schemas']['LoginRequest'];
 type LoginResponse = components['schemas']['LoginResponse'];
@@ -28,12 +36,60 @@ type RedeemInvitationRequest = components['schemas']['RedeemInvitationRequest'];
 type RedeemInvitationResponse = components['schemas']['RedeemInvitationResponse'];
 type RefreshTokenRequest = components['schemas']['RefreshTokenRequest'];
 type RefreshTokenResponse = components['schemas']['RefreshTokenResponse'];
+type RemoveAssignmentResponse = components['schemas']['RemoveAssignmentResponse'];
 type ResendUserInvitationResponse = components['schemas']['ResendUserInvitationResponse'];
 type UpdateAccountResponse = components['schemas']['UpdateAccountResponse'];
 type UpdateIdentityProviderRequest = components['schemas']['UpdateIdentityProviderRequest'];
 type UpdateIdentityProviderResponse = components['schemas']['UpdateIdentityProviderResponse'];
 type UpdateOrganisationRequest = components['schemas']['UpdateOrganisationRequest'];
 type UpdateOrganisationResponse = components['schemas']['UpdateOrganisationResponse'];
+type UpdateRoleRequest = components['schemas']['UpdateRoleRequest'];
+type UpdateRoleResponse = components['schemas']['UpdateRoleResponse'];
+type UpdateUserAccountRolesRequest = components['schemas']['UpdateUserAccountRolesRequest'];
+type UpdateUserAccountRolesResponse = components['schemas']['UpdateUserAccountRolesResponse'];
+
+/**
+ * Custom error class for API errors with error code support
+ */
+export class BackstageAPIError extends Error {
+  public readonly code: string;
+  public readonly statusCode: number;
+
+  constructor(message: string, code: string, statusCode: number) {
+    super(message);
+    this.name = 'BackstageAPIError';
+    this.code = code;
+    this.statusCode = statusCode;
+  }
+
+  /**
+   * Check if this is a permission denied error
+   */
+  isPermissionDenied(): boolean {
+    return this.code === 'PERMISSION_DENIED';
+  }
+
+  /**
+   * Check if this is an authentication error
+   */
+  isAuthenticationError(): boolean {
+    return this.code === 'AUTHENTICATION_REQUIRED' || this.code === 'INVALID_TOKEN';
+  }
+
+  /**
+   * Check if this is a not found error
+   */
+  isNotFound(): boolean {
+    return this.code === 'NOT_FOUND';
+  }
+
+  /**
+   * Check if this is a validation error
+   */
+  isValidationError(): boolean {
+    return this.code === 'VALIDATION_ERROR';
+  }
+}
 
 export type AuthMode = 'bearer' | 'cookie';
 
@@ -268,11 +324,20 @@ export class BackstageClient {
     }
 
     if (!response.ok) {
-      const error = await response.json().catch(() => ({
-        error: response.statusText,
-        code: 'HTTP_ERROR',
+      const errorBody = await response.json().catch(() => ({
+        error: { message: response.statusText, code: 'HTTP_ERROR' },
       }));
-      throw new Error(error.error || 'Request failed');
+      
+      // API error format: { status: "error", error: { message: "...", code: "..." } }
+      const errorInfo = errorBody.error || errorBody;
+      const message = typeof errorInfo === 'object' && errorInfo !== null
+        ? (errorInfo.message || 'Request failed')
+        : String(errorInfo || 'Request failed');
+      const code = typeof errorInfo === 'object' && errorInfo !== null
+        ? (errorInfo.code || 'UNKNOWN_ERROR')
+        : 'UNKNOWN_ERROR';
+      
+      throw new BackstageAPIError(message, code, response.status);
     }
 
     const json = await response.json();
@@ -575,7 +640,7 @@ export class BackstageClient {
    * Get user invitation
    * Get a specific user invitation by ID
    */
-  get: async (id: string) => {
+  getByInvitations: async (id: string) => {
     const response = await this.request<GetUserInvitationResponse>(`/users/invitations/${id}`, {
       method: 'GET'
     });
@@ -587,7 +652,7 @@ export class BackstageClient {
    * Cancel user invitation
    * Cancel a pending user invitation
    */
-  delete: async (id: string) => {
+  deleteByInvitations: async (id: string) => {
     const response = await this.request<DeleteUserInvitationResponse>(`/users/invitations/${id}`, {
       method: 'DELETE'
     });
@@ -605,6 +670,152 @@ export class BackstageClient {
     });
 
     return response.invitation;
+  }
+  };
+
+  /**
+   * Roles methods
+   */
+  roles = {
+  /**
+   * List roles
+   * List all roles for the organisation. Returns both system-defined and custom roles.
+   */
+  list: async () => {
+    const response = await this.request<ListRolesResponse>(`/roles`, {
+      method: 'GET'
+    });
+
+    return response.roles;
+  },
+
+  /**
+   * Create role
+   * Create a new custom role with specified permissions. Permissions use format: resource.action:scope (e.g., events.create, events.read:all, events.*:acc_123)
+   */
+  create: async (request: CreateRoleRequest) => {
+    const response = await this.request<CreateRoleResponse>(`/roles`, {
+      method: 'POST',
+      body: JSON.stringify(request)
+    });
+
+    return response;
+  },
+
+  /**
+   * Get role
+   * Get a specific role by ID
+   */
+  get: async (id: string) => {
+    const response = await this.request<GetRoleResponse>(`/roles/${id}`, {
+      method: 'GET'
+    });
+
+    return response;
+  },
+
+  /**
+   * Update role
+   * Update an existing custom role. System roles cannot be modified.
+   */
+  update: async (id: string, request: UpdateRoleRequest) => {
+    const response = await this.request<UpdateRoleResponse>(`/roles/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify(request)
+    });
+
+    return response;
+  },
+
+  /**
+   * Delete role
+   * Delete a custom role (soft delete). System roles cannot be deleted.
+   */
+  delete: async (id: string) => {
+    const response = await this.request<DeleteRoleResponse>(`/roles/${id}`, {
+      method: 'DELETE'
+    });
+
+    return response;
+  }
+  };
+
+  /**
+   * User Account Roles methods
+   */
+  userAccountRoles = {
+  /**
+   * List all role assignments
+   * List all role assignments in the organisation. Shows which users have which roles on which accounts.
+   */
+  list: async () => {
+    const response = await this.request<ListUserAccountRolesResponse>(`/user-accounts`, {
+      method: 'GET'
+    });
+
+    return response.assignments;
+  },
+
+  /**
+   * Assign role to user
+   * Assign a role to a user for a specific account. Creates a new role assignment.
+   */
+  create: async (request: AssignRoleRequest) => {
+    const response = await this.request<AssignRoleResponse>(`/user-accounts`, {
+      method: 'POST',
+      body: JSON.stringify(request)
+    });
+
+    return response.assignment;
+  },
+
+  /**
+   * Update user roles on account
+   * Update the roles for a user on an account. Replaces all existing role assignments for this user-account pair.
+   */
+  userAccounts: async (request: UpdateUserAccountRolesRequest) => {
+    const response = await this.request<UpdateUserAccountRolesResponse>(`/user-accounts`, {
+      method: 'PUT',
+      body: JSON.stringify(request)
+    });
+
+    return response.assignments;
+  },
+
+  /**
+   * Remove role assignment
+   * Remove a specific role assignment from a user.
+   */
+  delete: async (id: string) => {
+    const response = await this.request<RemoveAssignmentResponse>(`/user-accounts/${id}`, {
+      method: 'DELETE'
+    });
+
+    return response.success;
+  },
+
+  /**
+   * List role assignments for user
+   * List all role assignments for a specific user across all accounts.
+   */
+  getByUser: async (userId: string) => {
+    const response = await this.request<ListUserAccountRolesResponse>(`/user-accounts/user/${userId}`, {
+      method: 'GET'
+    });
+
+    return response.assignments;
+  },
+
+  /**
+   * List role assignments for account
+   * List all role assignments for a specific account (all users with access).
+   */
+  getByAccount: async (accountId: string) => {
+    const response = await this.request<ListUserAccountRolesResponse>(`/user-accounts/account/${accountId}`, {
+      method: 'GET'
+    });
+
+    return response.assignments;
   }
   };
 }
