@@ -11,21 +11,31 @@ import type { components } from './generated/types';
 type AssignRoleRequest = components['schemas']['AssignRoleRequest'];
 type AssignRoleResponse = components['schemas']['AssignRoleResponse'];
 type CreateAccountResponse = components['schemas']['CreateAccountResponse'];
+type CreateEventOccurrenceResponse = components['schemas']['CreateEventOccurrenceResponse'];
+type CreateEventResponse = components['schemas']['CreateEventResponse'];
 type CreateRoleRequest = components['schemas']['CreateRoleRequest'];
 type CreateRoleResponse = components['schemas']['CreateRoleResponse'];
 type CreateUserInvitationRequest = components['schemas']['CreateUserInvitationRequest'];
 type CreateUserInvitationResponse = components['schemas']['CreateUserInvitationResponse'];
 type DeleteAccountResponse = components['schemas']['DeleteAccountResponse'];
+type DeleteEventOccurrenceResponse = components['schemas']['DeleteEventOccurrenceResponse'];
+type DeleteEventResponse = components['schemas']['DeleteEventResponse'];
 type DeleteRoleResponse = components['schemas']['DeleteRoleResponse'];
 type DeleteUserInvitationResponse = components['schemas']['DeleteUserInvitationResponse'];
 type GetAccountResponse = components['schemas']['GetAccountResponse'];
+type GetEventOccurrenceResponse = components['schemas']['GetEventOccurrenceResponse'];
+type GetEventResponse = components['schemas']['GetEventResponse'];
 type GetIdentityProviderResponse = components['schemas']['GetIdentityProviderResponse'];
+type GetMeOrganisationsResponse = components['schemas']['GetMeOrganisationsResponse'];
+type GetMePermissionsResponse = components['schemas']['GetMePermissionsResponse'];
+type GetMeResponse = components['schemas']['GetMeResponse'];
+type GetMeRolesResponse = components['schemas']['GetMeRolesResponse'];
 type GetOrganisationResponse = components['schemas']['GetOrganisationResponse'];
 type GetRoleResponse = components['schemas']['GetRoleResponse'];
 type GetUserInvitationResponse = components['schemas']['GetUserInvitationResponse'];
-type GetUserMeResponse = components['schemas']['GetUserMeResponse'];
-type GetUserOrganisationsResponse = components['schemas']['GetUserOrganisationsResponse'];
 type ListAccountsResponse = components['schemas']['ListAccountsResponse'];
+type ListEventOccurrencesResponse = components['schemas']['ListEventOccurrencesResponse'];
+type ListEventsResponse = components['schemas']['ListEventsResponse'];
 type ListIdentityProvidersResponse = components['schemas']['ListIdentityProvidersResponse'];
 type ListRolesResponse = components['schemas']['ListRolesResponse'];
 type ListUserAccountRolesResponse = components['schemas']['ListUserAccountRolesResponse'];
@@ -39,6 +49,8 @@ type RefreshTokenResponse = components['schemas']['RefreshTokenResponse'];
 type RemoveAssignmentResponse = components['schemas']['RemoveAssignmentResponse'];
 type ResendUserInvitationResponse = components['schemas']['ResendUserInvitationResponse'];
 type UpdateAccountResponse = components['schemas']['UpdateAccountResponse'];
+type UpdateEventOccurrenceResponse = components['schemas']['UpdateEventOccurrenceResponse'];
+type UpdateEventResponse = components['schemas']['UpdateEventResponse'];
 type UpdateIdentityProviderRequest = components['schemas']['UpdateIdentityProviderRequest'];
 type UpdateIdentityProviderResponse = components['schemas']['UpdateIdentityProviderResponse'];
 type UpdateOrganisationRequest = components['schemas']['UpdateOrganisationRequest'];
@@ -423,15 +435,15 @@ export class BackstageClient {
   };
 
   /**
-   * Users methods
+   * Me methods
    */
-  users = {
+  me = {
   /**
    * Get current user
    * Get the currently authenticated user information
    */
-  getMe: async () => {
-    const response = await this.request<GetUserMeResponse>(`/users/me`, {
+  current: async () => {
+    const response = await this.request<GetMeResponse>(`/me`, {
       method: 'GET'
     });
 
@@ -439,15 +451,45 @@ export class BackstageClient {
   },
 
   /**
-   * Get user organisations
+   * Get my organisations
    * Get all organisations the current user is a member of
    */
-  getMeOrganisations: async () => {
-    const response = await this.request<GetUserOrganisationsResponse>(`/users/me/organisations`, {
+  organisations: async () => {
+    const response = await this.request<GetMeOrganisationsResponse>(`/me/organisations`, {
       method: 'GET'
     });
 
     return response.organisations;
+  },
+
+  /**
+   * Get my roles
+   * Get the current user's role assignments with role info (name, description). Does not include permissions - use /me/permissions for that.
+   */
+  roles: async () => {
+    const response = await this.request<GetMeRolesResponse>(`/me/roles`, {
+      method: 'GET'
+    });
+
+    return response;
+  },
+
+  /**
+   * Get my permissions
+   * Get the current user's effective permissions based on their role assignments. Supports filtering by resource and/or action.
+   */
+  permissions: async (options?: { resource?: string; action?: string }) => {
+    const params = new URLSearchParams();
+    if (options?.resource !== undefined) params.append('resource', String(options.resource));
+    if (options?.action !== undefined) params.append('action', String(options.action));
+    const queryString = params.toString();
+    const requestPath = queryString ? `/me/permissions?${queryString}` : `/me/permissions`;
+
+    const response = await this.request<GetMePermissionsResponse>(requestPath, {
+      method: 'GET'
+    });
+
+    return response;
   }
   };
 
@@ -816,6 +858,160 @@ export class BackstageClient {
     });
 
     return response.assignments;
+  }
+  };
+
+  /**
+   * Events methods
+   */
+  events = {
+  /**
+   * List events
+   * List all events for the organisation with optional filtering and pagination
+   */
+  list: async (options?: { search?: string; status?: 'draft' | 'published' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled'; venueId?: string; accountId?: string; page?: string; limit?: string }) => {
+    const params = new URLSearchParams();
+    if (options?.search !== undefined) params.append('search', String(options.search));
+    if (options?.status !== undefined) params.append('status', String(options.status));
+    if (options?.venueId !== undefined) params.append('venueId', String(options.venueId));
+    if (options?.accountId !== undefined) params.append('accountId', String(options.accountId));
+    if (options?.page !== undefined) params.append('page', String(options.page));
+    if (options?.limit !== undefined) params.append('limit', String(options.limit));
+    const queryString = params.toString();
+    const requestPath = queryString ? `/events?${queryString}` : `/events`;
+
+    const response = await this.request<ListEventsResponse>(requestPath, {
+      method: 'GET'
+    });
+
+    return response;
+  },
+
+  /**
+   * Create event
+   * Create a new event in the organisation
+   */
+  create: async (request: { accountId: string; name: string; description?: string; status?: 'draft' | 'published' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled'; venueId?: string; timezone?: string; onSaleDate?: string; offSaleDate?: string; tags?: string[] }) => {
+    const response = await this.request<CreateEventResponse>(`/events`, {
+      method: 'POST',
+      body: JSON.stringify(request)
+    });
+
+    return response.event;
+  },
+
+  /**
+   * Get event
+   * Get a specific event by ID
+   */
+  get: async (id: string) => {
+    const response = await this.request<GetEventResponse>(`/events/${id}`, {
+      method: 'GET'
+    });
+
+    return response.event;
+  },
+
+  /**
+   * Update event
+   * Update an existing event
+   */
+  update: async (id: string, request: { name?: string; description?: string; status?: 'draft' | 'published' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled'; venueId?: any; timezone?: string; onSaleDate?: any; offSaleDate?: any; tags?: string[] }) => {
+    const response = await this.request<UpdateEventResponse>(`/events/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify(request)
+    });
+
+    return response.event;
+  },
+
+  /**
+   * Delete event
+   * Delete an event (soft delete)
+   */
+  delete: async (id: string) => {
+    const response = await this.request<DeleteEventResponse>(`/events/${id}`, {
+      method: 'DELETE'
+    });
+
+    return response;
+  }
+  };
+
+  /**
+   * Event Occurrences methods
+   */
+  eventOccurrences = {
+  /**
+   * List occurrences for event
+   * List all occurrences for a specific event with optional filtering and pagination
+   */
+  list: async (eventId: string, options?: { status?: 'draft' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled'; venueId?: string; startDateFrom?: string; startDateTo?: string; page?: string; limit?: string }) => {
+    const params = new URLSearchParams();
+    if (options?.status !== undefined) params.append('status', String(options.status));
+    if (options?.venueId !== undefined) params.append('venueId', String(options.venueId));
+    if (options?.startDateFrom !== undefined) params.append('startDateFrom', String(options.startDateFrom));
+    if (options?.startDateTo !== undefined) params.append('startDateTo', String(options.startDateTo));
+    if (options?.page !== undefined) params.append('page', String(options.page));
+    if (options?.limit !== undefined) params.append('limit', String(options.limit));
+    const queryString = params.toString();
+    const requestPath = queryString ? `/events/${eventId}/occurrences?${queryString}` : `/events/${eventId}/occurrences`;
+
+    const response = await this.request<ListEventOccurrencesResponse>(requestPath, {
+      method: 'GET'
+    });
+
+    return response;
+  },
+
+  /**
+   * Create event occurrence
+   * Create a new occurrence for an event
+   */
+  occurrences: async (eventId: string, request: { startDate: string; startTime: string; endDate: string; endTime: string; timezone?: string; venueId?: string; status: 'draft' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled' }) => {
+    const response = await this.request<CreateEventOccurrenceResponse>(`/events/${eventId}/occurrences`, {
+      method: 'POST',
+      body: JSON.stringify(request)
+    });
+
+    return response.eventOccurrence;
+  },
+
+  /**
+   * Get event occurrence
+   * Get a specific event occurrence by ID
+   */
+  get: async (eventId: string, occurrenceId: string) => {
+    const response = await this.request<GetEventOccurrenceResponse>(`/events/${eventId}/occurrences/${occurrenceId}`, {
+      method: 'GET'
+    });
+
+    return response.eventOccurrence;
+  },
+
+  /**
+   * Update event occurrence
+   * Update an existing event occurrence
+   */
+  update: async (eventId: string, occurrenceId: string, request: { startDate?: string; startTime?: string; endDate?: string; endTime?: string; timezone?: string; venueId?: any; status?: 'draft' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled' }) => {
+    const response = await this.request<UpdateEventOccurrenceResponse>(`/events/${eventId}/occurrences/${occurrenceId}`, {
+      method: 'PATCH',
+      body: JSON.stringify(request)
+    });
+
+    return response.eventOccurrence;
+  },
+
+  /**
+   * Delete event occurrence
+   * Delete an event occurrence (soft delete)
+   */
+  delete: async (eventId: string, occurrenceId: string) => {
+    const response = await this.request<DeleteEventOccurrenceResponse>(`/events/${eventId}/occurrences/${occurrenceId}`, {
+      method: 'DELETE'
+    });
+
+    return response;
   }
   };
 }
