@@ -64,6 +64,7 @@ type RefreshTokenRequest = components['schemas']['RefreshTokenRequest'];
 type RefreshTokenResponse = components['schemas']['RefreshTokenResponse'];
 type RemoveAssignmentResponse = components['schemas']['RemoveAssignmentResponse'];
 type ResendUserInvitationResponse = components['schemas']['ResendUserInvitationResponse'];
+type SyncSeatsResponse = components['schemas']['SyncSeatsResponse'];
 type UpdateAccountResponse = components['schemas']['UpdateAccountResponse'];
 type UpdateAreaResponse = components['schemas']['UpdateAreaResponse'];
 type UpdateCategoryResponse = components['schemas']['UpdateCategoryResponse'];
@@ -1115,7 +1116,7 @@ export class BackstageClient {
      * Create a new layout for a venue
      * @operationId createVenueLayout
      */
-      create: async (request: { name: string; description?: string; status?: 'active' | 'archived'; totalCapacity?: number; categories?: { id?: string; name: string; description?: string; displayOrder: number; color?: string }[]; areas?: { id?: string; name: string; description?: string; type: 'unallocated' | 'allocated'; status?: 'active' | 'inactive'; capacity: number; displayOrder: number; color?: string; seats?: { id?: string; section: string; row: string; number: string; label: string; categoryId: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }[] }[]; tags?: string[] }) => {
+      create: async (request: { name: string; description?: string; status?: 'active' | 'archived'; totalCapacity?: number; floors?: { id?: string; name: string; displayOrder: number; description?: string }[]; categories?: { id?: string; name: string; description?: string; displayOrder: number; color?: string }[]; areas?: { id?: string; name: string; description?: string; type: 'unallocated' | 'allocated'; status?: 'active' | 'inactive'; floorId?: string; capacity: number; displayOrder: number; color?: string; sections?: { id?: string; name: string; displayOrder: number; description?: string }[]; position?: { x: number; y: number; width: number; height: number }; seats?: { id?: string; sectionId?: string; section?: string; row: string; number: string; label: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }[] }[]; tags?: string[] }) => {
       const response = await this.request<CreateVenueLayoutResponse>(`/venues/${id}/layouts`, {
         method: 'POST',
         body: JSON.stringify(request)
@@ -1142,7 +1143,7 @@ export class BackstageClient {
      * Update an existing venue layout
      * @operationId updateVenueLayout
      */
-      update: async (layoutId: string, request: { name?: string; description?: string; status?: 'active' | 'archived'; totalCapacity?: number; categories?: { id?: string; name: string; description?: string; displayOrder: number; color?: string }[]; areas?: { id?: string; name: string; description?: string; type: 'unallocated' | 'allocated'; status?: 'active' | 'inactive'; capacity: number; displayOrder: number; color?: string; seats?: { id?: string; section: string; row: string; number: string; label: string; categoryId: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }[] }[]; tags?: string[] }) => {
+      update: async (layoutId: string, request: { name?: string; description?: string; status?: 'active' | 'archived'; totalCapacity?: number; floors?: { id?: string; name: string; displayOrder: number; description?: string }[]; categories?: { id?: string; name: string; description?: string; displayOrder: number; color?: string }[]; areas?: { id?: string; name: string; description?: string; type: 'unallocated' | 'allocated'; status?: 'active' | 'inactive'; floorId?: string; capacity: number; displayOrder: number; color?: string; sections?: { id?: string; name: string; displayOrder: number; description?: string }[]; position?: { x: number; y: number; width: number; height: number }; seats?: { id?: string; sectionId?: string; section?: string; row: string; number: string; label: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }[] }[]; tags?: string[] }) => {
       const response = await this.request<UpdateVenueLayoutResponse>(`/venues/${id}/layouts/${layoutId}`, {
         method: 'PATCH',
         body: JSON.stringify(request)
@@ -1170,7 +1171,7 @@ export class BackstageClient {
      * Add a new area to a venue layout
      * @operationId addAreaToVenueLayout
      */
-      addArea: async (layoutId: string, request: { name: string; description?: string; type: 'unallocated' | 'allocated'; status?: 'active' | 'inactive'; capacity: number; displayOrder?: number; color?: string; seats?: any[] }) => {
+      addArea: async (layoutId: string, request: { name: string; description?: string; type: 'unallocated' | 'allocated'; status?: 'active' | 'inactive'; capacity: number; displayOrder?: number; color?: string; seats?: any[]; position?: { x: number; y: number; width: number; height: number }; categoryId?: string }) => {
       const response = await this.request<AddAreaResponse>(`/venues/${id}/layouts/${layoutId}/areas`, {
         method: 'POST',
         body: JSON.stringify(request)
@@ -1184,7 +1185,7 @@ export class BackstageClient {
      * Update an area in a venue layout
      * @operationId updateVenueLayoutArea
      */
-      updateArea: async (layoutId: string, areaId: string, request: { name?: string; description?: string; type?: 'unallocated' | 'allocated'; status?: 'active' | 'inactive'; capacity?: number; displayOrder?: number; color?: string; seats?: any[] }) => {
+      updateArea: async (layoutId: string, areaId: string, request: { name?: string; description?: string; type?: 'unallocated' | 'allocated'; status?: 'active' | 'inactive'; capacity?: number; displayOrder?: number; color?: string; seats?: any[]; position?: { x: number; y: number; width: number; height: number }; categoryId?: string }) => {
       const response = await this.request<UpdateAreaResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}`, {
         method: 'PATCH',
         body: JSON.stringify(request)
@@ -1285,6 +1286,20 @@ export class BackstageClient {
       generateSeats: async (layoutId: string, areaId: string, request: { section?: string; startRow: string; endRow: string; seatsPerRow: number; rowPrefix?: string; seatPrefix?: string; categoryId?: string; skipRows?: string[]; skipSeats?: string[] }) => {
       const response = await this.request<GenerateSeatsResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}/seats/generate`, {
         method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+      },
+
+          /**
+     * Sync seats in area
+     * Replace all seats in an allocated seating area with the provided seats. Used by the visual seating map editor for full saves.
+     * @operationId syncSeatsInArea
+     */
+      syncSeats: async (layoutId: string, areaId: string, request: { seats: { id?: string; section?: string; row: string; number: string; label?: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }[]; clearExisting?: boolean }) => {
+      const response = await this.request<SyncSeatsResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}/seats/sync`, {
+        method: 'PUT',
         body: JSON.stringify(request)
       });
 
