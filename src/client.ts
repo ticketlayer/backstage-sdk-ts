@@ -107,7 +107,14 @@ export class BackstageAPIError extends Error {
    * Check if this is an authentication error
    */
   isAuthenticationError(): boolean {
-    return this.code === 'AUTHENTICATION_REQUIRED' || this.code === 'INVALID_TOKEN';
+    return this.code === 'AUTHENTICATION_REQUIRED' || this.code === 'INVALID_TOKEN' || this.code === 'SESSION_EXPIRED';
+  }
+
+  /**
+   * Check if this is a session expired error (401 that couldn't be refreshed)
+   */
+  isSessionExpired(): boolean {
+    return this.code === 'SESSION_EXPIRED';
   }
 
   /**
@@ -127,6 +134,31 @@ export class BackstageAPIError extends Error {
 
 export type AuthMode = 'bearer' | 'cookie';
 
+/**
+ * Debug logging configuration
+ */
+export interface DebugConfig {
+  /**
+   * Log requests before they are sent
+   */
+  logRequests?: boolean;
+  /**
+   * Log successful responses
+   */
+  logResponses?: boolean;
+  /**
+   * Log errors
+   */
+  logErrors?: boolean;
+  /**
+   * Custom logger function. Defaults to console.log/console.error
+   */
+  logger?: {
+    log: (...args: unknown[]) => void;
+    error: (...args: unknown[]) => void;
+  };
+}
+
 export interface BackstageClientConfig {
   baseUrl: string;
   /**
@@ -135,11 +167,27 @@ export interface BackstageClientConfig {
    * - 'cookie': Use HTTP-only cookies (for Next.js apps with OAuth)
    */
   authMode?: AuthMode;
+  /**
+   * Enable debug mode for logging all SDK operations.
+   * Can be a boolean (enables all logging) or a DebugConfig object for fine-grained control.
+   */
+  debug?: boolean | DebugConfig;
   accessToken?: string;
   refreshToken?: string;
+  /**
+   * Called after successful token refresh (bearer mode only).
+   * Use this to persist the new tokens.
+   */
   onTokenRefresh?: (accessToken: string, refreshToken: string) => void | Promise<void>;
   /**
-   * Custom refresh endpoint for cookie-based auth
+   * Called when a 401 is received. Return true if refresh was successful and the request should be retried.
+   * If not provided, default behaviour depends on authMode:
+   * - cookie mode: calls refreshEndpoint automatically
+   * - bearer mode: uses refreshToken if available
+   */
+  onAuthFailure?: () => Promise<boolean>;
+  /**
+   * Custom refresh endpoint.
    * Default: '/api/oauth/refresh' for cookie mode, '/v1/auth/refresh' for bearer mode
    */
   refreshEndpoint?: string;
@@ -153,7 +201,10 @@ export class BackstageClient {
   private refreshToken?: string;
   private headers: Record<string, string>;
   private onTokenRefresh?: (accessToken: string, refreshToken: string) => void | Promise<void>;
+  private onAuthFailure?: () => Promise<boolean>;
   private refreshEndpoint: string;
+  private debugConfig: DebugConfig | null;
+  private logger: { log: (...args: unknown[]) => void; error: (...args: unknown[]) => void };
 
   constructor(config: BackstageClientConfig) {
     this.baseUrl = config.baseUrl.replace(/\/$/, ''); // Remove trailing slash
@@ -161,11 +212,42 @@ export class BackstageClient {
     this.accessToken = config.accessToken;
     this.refreshToken = config.refreshToken;
     this.onTokenRefresh = config.onTokenRefresh;
+    this.onAuthFailure = config.onAuthFailure;
     this.headers = config.headers || {};
     
     // Set default refresh endpoint based on auth mode
     this.refreshEndpoint = config.refreshEndpoint || 
       (this.authMode === 'cookie' ? '/api/oauth/refresh' : '/v1/auth/refresh');
+    
+    // Configure debug mode
+    if (config.debug === true) {
+      this.debugConfig = { logRequests: true, logResponses: true, logErrors: true };
+    } else if (config.debug && typeof config.debug === 'object') {
+      this.debugConfig = config.debug;
+    } else {
+      this.debugConfig = null;
+    }
+    
+    // Set up logger
+    this.logger = this.debugConfig?.logger || {
+      log: (...args: unknown[]) => console.log('[BackstageSDK]', ...args),
+      error: (...args: unknown[]) => console.error('[BackstageSDK]', ...args),
+    };
+  }
+
+  /**
+   * Log a debug message if debug mode is enabled
+   */
+  private debugLog(type: 'request' | 'response' | 'error', ...args: unknown[]): void {
+    if (!this.debugConfig) return;
+    
+    if (type === 'request' && this.debugConfig.logRequests) {
+      this.logger.log('→', ...args);
+    } else if (type === 'response' && this.debugConfig.logResponses) {
+      this.logger.log('←', ...args);
+    } else if (type === 'error' && this.debugConfig.logErrors) {
+      this.logger.error('✗', ...args);
+    }
   }
 
   /**
@@ -251,11 +333,73 @@ export class BackstageClient {
   }
 
   /**
+   * Attempt to refresh the authentication token.
+   * Returns true if refresh was successful and the request should be retried.
+   */
+  private async attemptTokenRefresh(): Promise<boolean> {
+    // If consumer provided custom auth failure handler, use it
+    if (this.onAuthFailure) {
+      return await this.onAuthFailure();
+    }
+    
+    // Otherwise, use default behaviour based on auth mode
+    if (this.authMode === 'cookie') {
+      // Cookie mode: Call the refresh endpoint (browser only)
+      try {
+        const refreshResponse = await fetch(this.refreshEndpoint, {
+          method: 'POST',
+          credentials: 'include',
+        });
+        return refreshResponse.ok;
+      } catch {
+        return false;
+      }
+    } else if (this.refreshToken) {
+      // Bearer mode: Use refresh token to get new access token
+      try {
+        const refreshUrl = this.refreshEndpoint.startsWith('http')
+          ? this.refreshEndpoint
+          : `${this.baseUrl}${this.refreshEndpoint}`;
+        
+        const refreshResponse = await fetch(refreshUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ refreshToken: this.refreshToken }),
+        });
+        
+        if (!refreshResponse.ok) {
+          return false;
+        }
+        
+        const refreshJson = await refreshResponse.json();
+        const refreshData = refreshJson.status === 'success' && refreshJson.data !== undefined 
+          ? refreshJson.data 
+          : refreshJson;
+        
+        this.accessToken = refreshData.accessToken;
+        this.refreshToken = refreshData.refreshToken;
+        
+        if (this.onTokenRefresh) {
+          await this.onTokenRefresh(refreshData.accessToken, refreshData.refreshToken);
+        }
+        
+        return true;
+      } catch {
+        return false;
+      }
+    }
+    
+    return false;
+  }
+
+  /**
    * Make an authenticated API request
    * - Adds /v1 prefix for API versioning
    * - For bearer mode: Injects Authorization header if token available
    * - For cookie mode: Includes credentials for HTTP-only cookies
-   * - Automatically refreshes token on 401
+   * - Automatically attempts to refresh token on 401
    * - Unwraps JSend format responses
    */
   private async request<T>(
@@ -301,6 +445,10 @@ export class BackstageClient {
       fetchOptions.credentials = 'include';
     }
 
+    // Debug: Log request
+    const requestBody = options.body ? JSON.parse(options.body as string) : undefined;
+    this.debugLog('request', options.method || 'GET', versionedPath, requestBody ? { body: requestBody } : '');
+
     let response = await fetch(url, fetchOptions);
 
     // Handle token refresh on 401
@@ -309,51 +457,31 @@ export class BackstageClient {
       !path.includes('/oauth/refresh');
     
     if (shouldRefresh) {
-      if (this.authMode === 'cookie') {
-        // Cookie mode: OAuth refresh not implemented yet
-        // For now, just throw authentication error
-        // TODO: Implement refresh token flow for OAuth
-        throw new Error('Authentication failed. Please log in again.');
-      } else if (this.refreshToken) {
-        // Bearer mode: Use refresh token to get new access token
-        try {
-          const refreshUrl = this.refreshEndpoint.startsWith('http')
-            ? this.refreshEndpoint
-            : `${this.baseUrl}${this.refreshEndpoint}`;
-          
-          const refreshResponse = await fetch(refreshUrl, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ refreshToken: this.refreshToken }),
-          });
-          
-          if (!refreshResponse.ok) {
-            throw new Error('Token refresh failed');
-          }
-          
-          const refreshJson = await refreshResponse.json();
-          const refreshData = refreshJson.status === 'success' && refreshJson.data !== undefined 
-            ? refreshJson.data 
-            : refreshJson;
-          
-          this.accessToken = refreshData.accessToken;
-          this.refreshToken = refreshData.refreshToken;
-          
-          if (this.onTokenRefresh) {
-            await this.onTokenRefresh(refreshData.accessToken, refreshData.refreshToken);
-          }
-
-          // Retry original request with new token
+      const refreshSuccessful = await this.attemptTokenRefresh();
+      
+      if (refreshSuccessful) {
+        // Update headers with new token (for bearer mode)
+        if (this.authMode === 'bearer' && this.accessToken) {
           headers['Authorization'] = `Bearer ${this.accessToken}`;
-          response = await fetch(url, {
-            ...options,
-            headers,
-          });
-        } catch (refreshError) {
-          throw new Error('Authentication failed. Please log in again.');
         }
+        // For cookie mode, the cookie was updated by the refresh endpoint
+        // Re-read it for the retry request
+        if (this.authMode === 'cookie') {
+          const newCookieToken = this.getCookie('access_token');
+          if (newCookieToken) {
+            headers['Authorization'] = `Bearer ${newCookieToken}`;
+          }
+        }
+        
+        // Retry original request
+        response = await fetch(url, {
+          ...options,
+          headers,
+          credentials: this.authMode === 'cookie' ? 'include' : undefined,
+        });
+      } else {
+        // Refresh failed - throw session expired error
+        throw new BackstageAPIError('Session expired. Please log in again.', 'SESSION_EXPIRED', 401);
       }
     }
 
@@ -371,17 +499,27 @@ export class BackstageClient {
         ? (errorInfo.code || 'UNKNOWN_ERROR')
         : 'UNKNOWN_ERROR';
       
-      throw new BackstageAPIError(message, code, response.status);
+      // Debug: Log error
+      const error = new BackstageAPIError(message, code, response.status);
+      this.debugLog('error', options.method || 'GET', versionedPath, { status: response.status, code, message });
+      
+      throw error;
     }
 
     const json = await response.json();
     
     // Unwrap JSend format if present
+    let result: T;
     if (json.status === 'success' && json.data !== undefined) {
-      return json.data as T;
+      result = json.data as T;
+    } else {
+      result = json as T;
     }
     
-    return json as T;
+    // Debug: Log response
+    this.debugLog('response', options.method || 'GET', versionedPath, { status: response.status, data: result });
+    
+    return result;
   }
 
   /**
