@@ -17,7 +17,9 @@
     "build": "tsc",
     "clean": "rm -rf dist src/generated",
     "prepublishOnly": "npm run build",
-    "publish:npm": "npm publish --access public"
+    "publish:npm": "npm publish --access public",
+    "docs": "typedoc",
+    "docs:gen": "typedoc"
   },
   "keywords": [
     "backstage",
@@ -40,6 +42,8 @@
     "@types/node": "^20.10.0",
     "openapi-typescript": "^7.4.3",
     "openapi-typescript-codegen": "^0.29.0",
+    "typedoc": "^0.28.4",
+    "typedoc-plugin-markdown": "^4.6.0",
     "typescript": "^5.9.2"
   },
   "dependencies": {

@@ -17,6 +17,7 @@ type BulkAddSeatsResponse = components['schemas']['BulkAddSeatsResponse'];
 type CreateAccountResponse = components['schemas']['CreateAccountResponse'];
 type CreateEventOccurrenceResponse = components['schemas']['CreateEventOccurrenceResponse'];
 type CreateEventResponse = components['schemas']['CreateEventResponse'];
+type CreatePriceSchemeResponse = components['schemas']['CreatePriceSchemeResponse'];
 type CreateRoleRequest = components['schemas']['CreateRoleRequest'];
 type CreateRoleResponse = components['schemas']['CreateRoleResponse'];
 type CreateUserInvitationRequest = components['schemas']['CreateUserInvitationRequest'];
@@ -28,11 +29,13 @@ type DeleteAreaResponse = components['schemas']['DeleteAreaResponse'];
 type DeleteCategoryResponse = components['schemas']['DeleteCategoryResponse'];
 type DeleteEventOccurrenceResponse = components['schemas']['DeleteEventOccurrenceResponse'];
 type DeleteEventResponse = components['schemas']['DeleteEventResponse'];
+type DeletePriceSchemeResponse = components['schemas']['DeletePriceSchemeResponse'];
 type DeleteRoleResponse = components['schemas']['DeleteRoleResponse'];
 type DeleteSeatResponse = components['schemas']['DeleteSeatResponse'];
 type DeleteUserInvitationResponse = components['schemas']['DeleteUserInvitationResponse'];
 type DeleteVenueLayoutResponse = components['schemas']['DeleteVenueLayoutResponse'];
 type DeleteVenueResponse = components['schemas']['DeleteVenueResponse'];
+type FederateRequest = components['schemas']['FederateRequest'];
 type GenerateSeatsResponse = components['schemas']['GenerateSeatsResponse'];
 type GetAccountResponse = components['schemas']['GetAccountResponse'];
 type GetEventOccurrenceResponse = components['schemas']['GetEventOccurrenceResponse'];
@@ -43,6 +46,7 @@ type GetMePermissionsResponse = components['schemas']['GetMePermissionsResponse'
 type GetMeResponse = components['schemas']['GetMeResponse'];
 type GetMeRolesResponse = components['schemas']['GetMeRolesResponse'];
 type GetOrganisationResponse = components['schemas']['GetOrganisationResponse'];
+type GetPriceSchemeResponse = components['schemas']['GetPriceSchemeResponse'];
 type GetRoleResponse = components['schemas']['GetRoleResponse'];
 type GetUserInvitationResponse = components['schemas']['GetUserInvitationResponse'];
 type GetVenueLayoutResponse = components['schemas']['GetVenueLayoutResponse'];
@@ -51,6 +55,7 @@ type ListAccountsResponse = components['schemas']['ListAccountsResponse'];
 type ListEventOccurrencesResponse = components['schemas']['ListEventOccurrencesResponse'];
 type ListEventsResponse = components['schemas']['ListEventsResponse'];
 type ListIdentityProvidersResponse = components['schemas']['ListIdentityProvidersResponse'];
+type ListPriceSchemesResponse = components['schemas']['ListPriceSchemesResponse'];
 type ListRolesResponse = components['schemas']['ListRolesResponse'];
 type ListUserAccountRolesResponse = components['schemas']['ListUserAccountRolesResponse'];
 type ListUserInvitationsResponse = components['schemas']['ListUserInvitationsResponse'];
@@ -74,6 +79,7 @@ type UpdateIdentityProviderRequest = components['schemas']['UpdateIdentityProvid
 type UpdateIdentityProviderResponse = components['schemas']['UpdateIdentityProviderResponse'];
 type UpdateOrganisationRequest = components['schemas']['UpdateOrganisationRequest'];
 type UpdateOrganisationResponse = components['schemas']['UpdateOrganisationResponse'];
+type UpdatePriceSchemeResponse = components['schemas']['UpdatePriceSchemeResponse'];
 type UpdateRoleRequest = components['schemas']['UpdateRoleRequest'];
 type UpdateRoleResponse = components['schemas']['UpdateRoleResponse'];
 type UpdateSeatResponse = components['schemas']['UpdateSeatResponse'];
@@ -526,12 +532,12 @@ export class BackstageClient {
    * Authentication methods
    */
   authentication = {
-    /**
+            /**
      * User login
      * Authenticate a user with email and password, returns access and refresh tokens
      * @operationId login
      */
-    login: async (request: LoginRequest) => {
+        login: async (request: LoginRequest) => {
       const response = await this.request<LoginResponse>(`/auth/login`, {
         method: 'POST',
         body: JSON.stringify(request)
@@ -541,14 +547,14 @@ export class BackstageClient {
       this.setRefreshToken(response.refreshToken);
 
       return response;
-    },
+        },
 
-    /**
+            /**
      * Refresh access token
      * Exchange a refresh token for a new access token and refresh token
      * @operationId refresh
      */
-    refresh: async (request: RefreshTokenRequest) => {
+        refresh: async (request: RefreshTokenRequest) => {
       const response = await this.request<RefreshTokenResponse>(`/auth/refresh`, {
         method: 'POST',
         body: JSON.stringify(request)
@@ -562,14 +568,14 @@ export class BackstageClient {
       }
 
       return response;
-    },
+        },
 
-    /**
+            /**
      * Redeem invitation
      * Redeem an invitation code and set up a new user account
      * @operationId redeem
      */
-    redeem: async (request: RedeemInvitationRequest) => {
+        redeem: async (request: RedeemInvitationRequest) => {
       const response = await this.request<RedeemInvitationResponse>(`/auth/redeem`, {
         method: 'POST',
         body: JSON.stringify(request)
@@ -579,74 +585,75 @@ export class BackstageClient {
       this.setRefreshToken(response.refreshToken);
 
       return response;
-    },
+        },
 
-    /**
+            /**
      * Federate user to organisation
      * Exchange a Stagedoor JWT token for API access and refresh tokens
      * @operationId federate
      */
-    federate: async () => {
+        federate: async (request: FederateRequest) => {
       const response = await this.request<LoginResponse>(`/auth/federate`, {
-        method: 'POST'
+        method: 'POST',
+        body: JSON.stringify(request)
       });
 
       this.setAccessToken(response.accessToken);
       this.setRefreshToken(response.refreshToken);
 
       return response;
-    }
+        }
   };
 
   /**
    * Me methods
    */
   me = {
-    /**
+            /**
      * Get current user
      * Get the currently authenticated user information
      * @operationId getCurrentUser
      */
-    current: async () => {
+        current: async () => {
       const response = await this.request<GetMeResponse>(`/me`, {
         method: 'GET'
       });
 
       return response.user;
-    },
+        },
 
-    /**
+            /**
      * Get my organisations
      * Get all organisations the current user is a member of
      * @operationId getMyOrganisations
      */
-    organisations: async () => {
+        organisations: async () => {
       const response = await this.request<GetMeOrganisationsResponse>(`/me/organisations`, {
         method: 'GET'
       });
 
       return response.organisations;
-    },
+        },
 
-    /**
+            /**
      * Get my roles
      * Get the current user's role assignments with role info (name, description). Does not include permissions - use /me/permissions for that.
      * @operationId getMyRoles
      */
-    roles: async () => {
+        roles: async () => {
       const response = await this.request<GetMeRolesResponse>(`/me/roles`, {
         method: 'GET'
       });
 
       return response;
-    },
+        },
 
-    /**
+            /**
      * Get my permissions
      * Get the current user's effective permissions based on their role assignments. Supports filtering by resource and/or action.
      * @operationId getMyPermissions
      */
-    permissions: async (options?: { resource?: string; action?: string }) => {
+        permissions: async (options?: { resource?: string; action?: string }) => {
       const params = new URLSearchParams();
       if (options?.resource !== undefined) params.append('resource', String(options.resource));
       if (options?.action !== undefined) params.append('action', String(options.action));
@@ -658,51 +665,51 @@ export class BackstageClient {
       });
 
       return response;
-    }
+        }
   };
 
   /**
    * Organisations methods
    */
   organisations = {
-    /**
+            /**
      * Get organisation
      * Get organisation details including branding information
      * @operationId getOrganisation
      */
-    get: async (id: string) => {
+        get: async (id: string) => {
       const response = await this.request<GetOrganisationResponse>(`/organisations/${id}`, {
         method: 'GET'
       });
 
       return response.organisation;
-    },
+        },
 
-    /**
+            /**
      * Update organisation
      * Update organisation details and branding (owner permission required)
      * @operationId updateOrganisation
      */
-    update: async (id: string, request: UpdateOrganisationRequest) => {
+        update: async (id: string, request: UpdateOrganisationRequest) => {
       const response = await this.request<UpdateOrganisationResponse>(`/organisations/${id}`, {
         method: 'PATCH',
         body: JSON.stringify(request)
       });
 
       return response.organisation;
-    }
+        }
   };
 
   /**
    * Accounts methods
    */
   accounts = {
-    /**
+            /**
      * List accounts
      * List all accounts for the organisation with optional filtering
      * @operationId listAccounts
      */
-    list: async (options?: { search?: string; status?: 'active' | 'inactive' }) => {
+        list: async (options?: { search?: string; status?: 'active' | 'inactive' }) => {
       const params = new URLSearchParams();
       if (options?.search !== undefined) params.append('search', String(options.search));
       if (options?.status !== undefined) params.append('status', String(options.status));
@@ -714,73 +721,73 @@ export class BackstageClient {
       });
 
       return response.accounts;
-    },
+        },
 
-    /**
+            /**
      * Create account
      * Create a new account in the organisation
      * @operationId createAccount
      */
-    create: async (request: { name: string; status?: 'active' | 'inactive' }) => {
+        create: async (request: { name: string; status?: 'active' | 'inactive' }) => {
       const response = await this.request<CreateAccountResponse>(`/accounts`, {
         method: 'POST',
         body: JSON.stringify(request)
       });
 
       return response.account;
-    },
+        },
 
-    /**
+            /**
      * Get account
      * Get a specific account by ID
      * @operationId getAccount
      */
-    get: async (id: string) => {
+        get: async (id: string) => {
       const response = await this.request<GetAccountResponse>(`/accounts/${id}`, {
         method: 'GET'
       });
 
       return response.account;
-    },
+        },
 
-    /**
+            /**
      * Update account
      * Update an existing account
      * @operationId updateAccount
      */
-    update: async (id: string, request: { name?: string; status?: 'active' | 'inactive' }) => {
+        update: async (id: string, request: { name?: string; status?: 'active' | 'inactive' }) => {
       const response = await this.request<UpdateAccountResponse>(`/accounts/${id}`, {
         method: 'PATCH',
         body: JSON.stringify(request)
       });
 
       return response.account;
-    },
+        },
 
-    /**
+            /**
      * Delete account
      * Delete an account (soft delete)
      * @operationId deleteAccount
      */
-    delete: async (id: string) => {
+        delete: async (id: string) => {
       const response = await this.request<DeleteAccountResponse>(`/accounts/${id}`, {
         method: 'DELETE'
       });
 
       return response;
-    }
+        }
   };
 
   /**
    * Identity Providers methods
    */
   identityProviders = {
-    /**
+            /**
      * List identity providers
      * List all identity providers for the organisation
      * @operationId listIdentityProviders
      */
-    list: async (options?: { organisationId?: string }) => {
+        list: async (options?: { organisationId?: string }) => {
       const params = new URLSearchParams();
       if (options?.organisationId !== undefined) params.append('organisationId', String(options.organisationId));
       const queryString = params.toString();
@@ -791,60 +798,60 @@ export class BackstageClient {
       });
 
       return response.providers;
-    },
+        },
 
-    /**
+            /**
      * Get identity provider
      * Get a specific identity provider by ID
      * @operationId getIdentityProvider
      */
-    get: async (id: string) => {
+        get: async (id: string) => {
       const response = await this.request<GetIdentityProviderResponse>(`/identity-providers/${id}`, {
         method: 'GET'
       });
 
       return response.provider;
-    },
+        },
 
-    /**
+            /**
      * Update identity provider
      * Update an identity provider configuration
      * @operationId updateIdentityProvider
      */
-    update: async (id: string, request: UpdateIdentityProviderRequest) => {
+        update: async (id: string, request: UpdateIdentityProviderRequest) => {
       const response = await this.request<UpdateIdentityProviderResponse>(`/identity-providers/${id}`, {
         method: 'PATCH',
         body: JSON.stringify(request)
       });
 
       return response.provider;
-    }
+        }
   };
 
   /**
    * User Invitations methods
    */
   userInvitations = {
-    /**
+            /**
      * Create user invitation
      * Create a new user invitation and send invitation email
      * @operationId createUserInvitation
      */
-    create: async (request: CreateUserInvitationRequest) => {
+        create: async (request: CreateUserInvitationRequest) => {
       const response = await this.request<CreateUserInvitationResponse>(`/users/invitations`, {
         method: 'POST',
         body: JSON.stringify(request)
       });
 
       return response.invitation;
-    },
+        },
 
-    /**
+            /**
      * List user invitations
      * List all user invitations for the organisation
      * @operationId listUserInvitations
      */
-    list: async (options?: { organisationId?: string; status?: 'pending' | 'redeemed' | 'expired' | 'all' }) => {
+        list: async (options?: { organisationId?: string; status?: 'pending' | 'redeemed' | 'expired' | 'all' }) => {
       const params = new URLSearchParams();
       if (options?.organisationId !== undefined) params.append('organisationId', String(options.organisationId));
       if (options?.status !== undefined) params.append('status', String(options.status));
@@ -856,366 +863,440 @@ export class BackstageClient {
       });
 
       return response.invitations;
-    },
+        },
 
-    /**
+            /**
      * Get user invitation
      * Get a specific user invitation by ID
      * @operationId getUserInvitation
      */
-    get: async (id: string) => {
+        get: async (id: string) => {
       const response = await this.request<GetUserInvitationResponse>(`/users/invitations/${id}`, {
         method: 'GET'
       });
 
       return response.invitation;
-    },
+        },
 
-    /**
+            /**
      * Cancel user invitation
      * Cancel a pending user invitation
      * @operationId cancelUserInvitation
      */
-    cancel: async (id: string) => {
+        cancel: async (id: string) => {
       const response = await this.request<DeleteUserInvitationResponse>(`/users/invitations/${id}`, {
         method: 'DELETE'
       });
 
       return response;
-    },
+        },
 
-    /**
+            /**
      * Resend user invitation
      * Resend a user invitation email
      * @operationId resendUserInvitation
      */
-    resend: async (id: string) => {
+        resend: async (id: string) => {
       const response = await this.request<ResendUserInvitationResponse>(`/users/invitations/${id}/resend`, {
         method: 'POST'
       });
 
       return response.invitation;
-    }
+        }
   };
 
   /**
    * Roles methods
    */
   roles = {
-    /**
+            /**
      * List roles
      * List all roles for the organisation. Returns both system-defined and custom roles.
      * @operationId listRoles
      */
-    list: async () => {
+        list: async () => {
       const response = await this.request<ListRolesResponse>(`/roles`, {
         method: 'GET'
       });
 
       return response.roles;
-    },
+        },
 
-    /**
+            /**
      * Create role
      * Create a new custom role with specified permissions. Permissions use format: resource.action:scope (e.g., events.create, events.read:all, events.*:acc_123)
      * @operationId createRole
      */
-    create: async (request: CreateRoleRequest) => {
+        create: async (request: CreateRoleRequest) => {
       const response = await this.request<CreateRoleResponse>(`/roles`, {
         method: 'POST',
         body: JSON.stringify(request)
       });
 
       return response;
-    },
+        },
 
-    /**
+            /**
      * Get role
      * Get a specific role by ID
      * @operationId getRole
      */
-    get: async (id: string) => {
+        get: async (id: string) => {
       const response = await this.request<GetRoleResponse>(`/roles/${id}`, {
         method: 'GET'
       });
 
       return response;
-    },
+        },
 
-    /**
+            /**
      * Update role
      * Update an existing custom role. System roles cannot be modified.
      * @operationId updateRole
      */
-    update: async (id: string, request: UpdateRoleRequest) => {
+        update: async (id: string, request: UpdateRoleRequest) => {
       const response = await this.request<UpdateRoleResponse>(`/roles/${id}`, {
         method: 'PATCH',
         body: JSON.stringify(request)
       });
 
       return response;
-    },
+        },
 
-    /**
+            /**
      * Delete role
      * Delete a custom role (soft delete). System roles cannot be deleted.
      * @operationId deleteRole
      */
-    delete: async (id: string) => {
+        delete: async (id: string) => {
       const response = await this.request<DeleteRoleResponse>(`/roles/${id}`, {
         method: 'DELETE'
       });
 
       return response;
-    }
+        }
   };
 
   /**
    * User Account Roles methods
    */
   userAccountRoles = {
-    /**
+            /**
      * List all role assignments
      * List all role assignments in the organisation. Shows which users have which roles on which accounts.
      * @operationId listUserAccountRoles
      */
-    list: async () => {
+        list: async () => {
       const response = await this.request<ListUserAccountRolesResponse>(`/user-accounts`, {
         method: 'GET'
       });
 
       return response.assignments;
-    },
+        },
 
-    /**
+            /**
      * Assign role to user
      * Assign a role to a user for a specific account. Creates a new role assignment.
      * @operationId assignRole
      */
-    assign: async (request: AssignRoleRequest) => {
+        assign: async (request: AssignRoleRequest) => {
       const response = await this.request<AssignRoleResponse>(`/user-accounts`, {
         method: 'POST',
         body: JSON.stringify(request)
       });
 
       return response.assignment;
-    },
+        },
 
-    /**
+            /**
      * Update user roles on account
      * Update the roles for a user on an account. Replaces all existing role assignments for this user-account pair.
      * @operationId updateUserAccountRoles
      */
-    update: async (request: UpdateUserAccountRolesRequest) => {
+        update: async (request: UpdateUserAccountRolesRequest) => {
       const response = await this.request<UpdateUserAccountRolesResponse>(`/user-accounts`, {
         method: 'PUT',
         body: JSON.stringify(request)
       });
 
       return response.assignments;
-    },
+        },
 
-    /**
+            /**
      * Remove role assignment
      * Remove a specific role assignment from a user.
      * @operationId removeRoleAssignment
      */
-    remove: async (id: string) => {
+        remove: async (id: string) => {
       const response = await this.request<RemoveAssignmentResponse>(`/user-accounts/${id}`, {
         method: 'DELETE'
       });
 
       return response.success;
-    },
+        },
 
-    /**
+            /**
      * List role assignments for user
      * List all role assignments for a specific user across all accounts.
      * @operationId listUserAccountRolesByUser
      */
-    listByUser: async (userId: string) => {
+        listByUser: async (userId: string) => {
       const response = await this.request<ListUserAccountRolesResponse>(`/user-accounts/user/${userId}`, {
         method: 'GET'
       });
 
       return response.assignments;
-    },
+        },
 
-    /**
+            /**
      * List role assignments for account
      * List all role assignments for a specific account (all users with access).
      * @operationId listUserAccountRolesByAccount
      */
-    listByAccount: async (accountId: string) => {
+        listByAccount: async (accountId: string) => {
       const response = await this.request<ListUserAccountRolesResponse>(`/user-accounts/account/${accountId}`, {
         method: 'GET'
       });
 
       return response.assignments;
-    }
+        }
   };
 
   /**
    * Events methods
-   * Use events() to access nested resources: events(id).occurrences
+   * Use events() to access nested resources: events(id).occurrences, priceschemes
    */
   events = Object.assign(
     (eventId: string) => ({
       occurrences: {
-          /**
+            /**
      * List occurrences for event
      * List all occurrences for a specific event with optional filtering and pagination
      * @operationId listEventOccurrences
      */
-      list: async (options?: { status?: 'draft' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled'; venueId?: string; startDateFrom?: string; startDateTo?: string; page?: string; limit?: string }) => {
-      const params = new URLSearchParams();
-      if (options?.status !== undefined) params.append('status', String(options.status));
-      if (options?.venueId !== undefined) params.append('venueId', String(options.venueId));
-      if (options?.startDateFrom !== undefined) params.append('startDateFrom', String(options.startDateFrom));
-      if (options?.startDateTo !== undefined) params.append('startDateTo', String(options.startDateTo));
-      if (options?.page !== undefined) params.append('page', String(options.page));
-      if (options?.limit !== undefined) params.append('limit', String(options.limit));
-      const queryString = params.toString();
-      const requestPath = queryString ? `/events/${eventId}/occurrences?${queryString}` : `/events/${eventId}/occurrences`;
+        list: async (options?: { status?: 'draft' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled'; venueId?: string; startDateFrom?: string; startDateTo?: string; page?: string; limit?: string }) => {
+          const params = new URLSearchParams();
+          if (options?.status !== undefined) params.append('status', String(options.status));
+          if (options?.venueId !== undefined) params.append('venueId', String(options.venueId));
+          if (options?.startDateFrom !== undefined) params.append('startDateFrom', String(options.startDateFrom));
+          if (options?.startDateTo !== undefined) params.append('startDateTo', String(options.startDateTo));
+          if (options?.page !== undefined) params.append('page', String(options.page));
+          if (options?.limit !== undefined) params.append('limit', String(options.limit));
+          const queryString = params.toString();
+          const requestPath = queryString ? `/events/${eventId}/occurrences?${queryString}` : `/events/${eventId}/occurrences`;
 
-      const response = await this.request<ListEventOccurrencesResponse>(requestPath, {
-        method: 'GET'
-      });
+          const response = await this.request<ListEventOccurrencesResponse>(requestPath, {
+            method: 'GET'
+          });
 
-      return response;
-      },
+          return response;
+        },
 
-          /**
+            /**
      * Create event occurrence
      * Create a new occurrence for an event
      * @operationId createEventOccurrence
      */
-      create: async (request: { startDate: string; startTime: string; endDate: string; endTime: string; timezone?: string; venueId?: string; status: 'draft' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled' }) => {
-      const response = await this.request<CreateEventOccurrenceResponse>(`/events/${eventId}/occurrences`, {
-        method: 'POST',
-        body: JSON.stringify(request)
-      });
+        create: async (request: { startDate: string; startTime: string; endDate: string; endTime: string; timezone?: string; venueId?: string; venueLayoutId?: string; ticketSchemeId?: string; priceSchemeId?: string; categoryMapping?: { ticketCategoryId: string; venueLayoutCategoryId: string; enabled?: boolean }[]; status: 'draft' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled' }) => {
+          const response = await this.request<CreateEventOccurrenceResponse>(`/events/${eventId}/occurrences`, {
+            method: 'POST',
+            body: JSON.stringify(request)
+          });
 
-      return response.eventOccurrence;
-      },
+          return response.eventOccurrence;
+        },
 
-          /**
+            /**
      * Get event occurrence
      * Get a specific event occurrence by ID
      * @operationId getEventOccurrence
      */
-      get: async (occurrenceId: string) => {
-      const response = await this.request<GetEventOccurrenceResponse>(`/events/${eventId}/occurrences/${occurrenceId}`, {
-        method: 'GET'
-      });
+        get: async (occurrenceId: string) => {
+          const response = await this.request<GetEventOccurrenceResponse>(`/events/${eventId}/occurrences/${occurrenceId}`, {
+            method: 'GET'
+          });
 
-      return response.eventOccurrence;
-      },
+          return response.eventOccurrence;
+        },
 
-          /**
+            /**
      * Update event occurrence
      * Update an existing event occurrence
      * @operationId updateEventOccurrence
      */
-      update: async (occurrenceId: string, request: { startDate?: string; startTime?: string; endDate?: string; endTime?: string; timezone?: string; venueId?: any; status?: 'draft' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled' }) => {
-      const response = await this.request<UpdateEventOccurrenceResponse>(`/events/${eventId}/occurrences/${occurrenceId}`, {
-        method: 'PATCH',
-        body: JSON.stringify(request)
-      });
+        update: async (occurrenceId: string, request: { startDate?: string; startTime?: string; endDate?: string; endTime?: string; timezone?: string; venueId?: any; venueLayoutId?: any; ticketSchemeId?: any; priceSchemeId?: any; categoryMapping?: any; status?: 'draft' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled' }) => {
+          const response = await this.request<UpdateEventOccurrenceResponse>(`/events/${eventId}/occurrences/${occurrenceId}`, {
+            method: 'PATCH',
+            body: JSON.stringify(request)
+          });
 
-      return response.eventOccurrence;
-      },
+          return response.eventOccurrence;
+        },
 
-          /**
+            /**
      * Delete event occurrence
      * Delete an event occurrence (soft delete)
      * @operationId deleteEventOccurrence
      */
-      delete: async (occurrenceId: string) => {
-      const response = await this.request<DeleteEventOccurrenceResponse>(`/events/${eventId}/occurrences/${occurrenceId}`, {
+        delete: async (occurrenceId: string) => {
+          const response = await this.request<DeleteEventOccurrenceResponse>(`/events/${eventId}/occurrences/${occurrenceId}`, {
+            method: 'DELETE'
+          });
+
+          return response;
+        }
+      },
+priceschemes: {
+            /**
+     * List price schemes for event
+     * List all price schemes for a specific event
+     * @operationId listEventPriceSchemes
+     */
+        list: async () => {
+          const response = await this.request<ListPriceSchemesResponse>(`/events/${eventId}/price-schemes`, {
+            method: 'GET'
+          });
+
+          return response.priceSchemes;
+        },
+
+            /**
+     * Create price scheme for event
+     * Create a new price scheme for an event
+     * @operationId createEventPriceScheme
+     */
+        create: async (request: { name: string; description?: string; status?: 'draft' | 'active' | 'archived'; parentPriceSchemeId?: string; ticketPrices?: { categoryId: string; typeId: string; price: number; currency?: 'GBP' | 'USD' | 'EUR' | 'AUD' | 'CAD' }[] }) => {
+          const response = await this.request<CreatePriceSchemeResponse>(`/events/${eventId}/price-schemes`, {
+            method: 'POST',
+            body: JSON.stringify(request)
+          });
+
+          return response.priceScheme;
+        },
+
+            /**
+     * Get price scheme
+     * Get a specific price scheme by ID
+     * @operationId getEventPriceScheme
+     */
+        get: async (priceSchemeId: string) => {
+          const response = await this.request<GetPriceSchemeResponse>(`/events/${eventId}/price-schemes/${priceSchemeId}`, {
+            method: 'GET'
+          });
+
+          return response.priceScheme;
+        },
+
+            /**
+     * Update price scheme
+     * Update an existing price scheme
+     * @operationId updateEventPriceScheme
+     */
+        update: async (priceSchemeId: string, request: { name?: string; description?: any; status?: 'draft' | 'active' | 'archived'; ticketPrices?: { categoryId: string; typeId: string; price: number; currency?: 'GBP' | 'USD' | 'EUR' | 'AUD' | 'CAD' }[] }) => {
+          const response = await this.request<UpdatePriceSchemeResponse>(`/events/${eventId}/price-schemes/${priceSchemeId}`, {
+            method: 'PATCH',
+            body: JSON.stringify(request)
+          });
+
+          return response.priceScheme;
+        },
+
+            /**
+     * Delete price scheme
+     * Delete a price scheme (soft delete)
+     * @operationId deleteEventPriceScheme
+     */
+        delete: async (priceSchemeId: string) => {
+          const response = await this.request<DeletePriceSchemeResponse>(`/events/${eventId}/price-schemes/${priceSchemeId}`, {
+            method: 'DELETE'
+          });
+
+          return response;
+        }
+      }
+    }),
+    {
+            /**
+     * List events
+     * List all events for the organisation with optional filtering and pagination. Use expand=venue to embed venue details.
+     * @operationId listEvents
+     */
+        list: async (options?: { search?: string; status?: 'draft' | 'published' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled'; venueId?: string; accountId?: string; expand?: string; page?: string; limit?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.search !== undefined) params.append('search', String(options.search));
+      if (options?.status !== undefined) params.append('status', String(options.status));
+      if (options?.venueId !== undefined) params.append('venueId', String(options.venueId));
+      if (options?.accountId !== undefined) params.append('accountId', String(options.accountId));
+      if (options?.expand !== undefined) params.append('expand', String(options.expand));
+      if (options?.page !== undefined) params.append('page', String(options.page));
+      if (options?.limit !== undefined) params.append('limit', String(options.limit));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/events?${queryString}` : `/events`;
+
+      const response = await this.request<ListEventsResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Create event
+     * Create a new event in the organisation
+     * @operationId createEvent
+     */
+        create: async (request: { accountId: string; name: string; description?: string; status?: 'draft' | 'published' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled'; venueId?: any; venueName?: any; timezone?: string; onSaleDate?: string; offSaleDate?: string; tags?: string[]; ticketTypes?: { id?: string; name: string; description?: string; displayOrder: number }[]; layout?: { categories?: { id?: string; name: string; description?: string; displayOrder?: number; color?: string }[]; areas?: { id?: string; name: string; description?: string; type: 'unallocated' | 'allocated'; capacity: number; categoryId?: string; displayOrder?: number }[]; venueLayoutTemplateId?: string } }) => {
+      const response = await this.request<CreateEventResponse>(`/events`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.event;
+        },
+
+            /**
+     * Get event
+     * Get a specific event by ID. Use expand=venue to embed venue details.
+     * @operationId getEvent
+     */
+        get: async (id: string, options?: { expand?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.expand !== undefined) params.append('expand', String(options.expand));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/events/${id}?${queryString}` : `/events/${id}`;
+
+      const response = await this.request<GetEventResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response.event;
+        },
+
+            /**
+     * Update event
+     * Update an existing event
+     * @operationId updateEvent
+     */
+        update: async (id: string, request: { name?: string; description?: any; status?: 'draft' | 'published' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled'; venueId?: any; venueName?: any; timezone?: string; onSaleDate?: any; offSaleDate?: any; tags?: string[]; ticketTypes?: { id?: string; name: string; description?: string; displayOrder: number }[]; layout?: { categories?: { id?: string; name: string; description?: string; displayOrder?: number; color?: string }[]; areas?: { id?: string; name: string; description?: string; type: 'unallocated' | 'allocated'; capacity: number; categoryId?: string; displayOrder?: number }[]; venueLayoutTemplateId?: string } }) => {
+      const response = await this.request<UpdateEventResponse>(`/events/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify(request)
+      });
+
+      return response.event;
+        },
+
+            /**
+     * Delete event
+     * Delete an event (soft delete)
+     * @operationId deleteEvent
+     */
+        delete: async (id: string) => {
+      const response = await this.request<DeleteEventResponse>(`/events/${id}`, {
         method: 'DELETE'
       });
 
       return response;
-      }
-      }
-    }),
-    {
-        /**
-         * List events
-         * List all events for the organisation with optional filtering and pagination
-         * @operationId listEvents
-         */
-        list: async (options?: { search?: string; status?: 'draft' | 'published' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled'; venueId?: string; accountId?: string; page?: string; limit?: string }) => {
-          const params = new URLSearchParams();
-          if (options?.search !== undefined) params.append('search', String(options.search));
-          if (options?.status !== undefined) params.append('status', String(options.status));
-          if (options?.venueId !== undefined) params.append('venueId', String(options.venueId));
-          if (options?.accountId !== undefined) params.append('accountId', String(options.accountId));
-          if (options?.page !== undefined) params.append('page', String(options.page));
-          if (options?.limit !== undefined) params.append('limit', String(options.limit));
-          const queryString = params.toString();
-          const requestPath = queryString ? `/events?${queryString}` : `/events`;
-    
-          const response = await this.request<ListEventsResponse>(requestPath, {
-            method: 'GET'
-          });
-    
-          return response;
-        },
-
-        /**
-         * Create event
-         * Create a new event in the organisation
-         * @operationId createEvent
-         */
-        create: async (request: { accountId: string; name: string; description?: string; status?: 'draft' | 'published' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled'; venueId?: string; timezone?: string; onSaleDate?: string; offSaleDate?: string; tags?: string[] }) => {
-          const response = await this.request<CreateEventResponse>(`/events`, {
-            method: 'POST',
-            body: JSON.stringify(request)
-          });
-    
-          return response.event;
-        },
-
-        /**
-         * Get event
-         * Get a specific event by ID
-         * @operationId getEvent
-         */
-        get: async (id: string) => {
-          const response = await this.request<GetEventResponse>(`/events/${id}`, {
-            method: 'GET'
-          });
-    
-          return response.event;
-        },
-
-        /**
-         * Update event
-         * Update an existing event
-         * @operationId updateEvent
-         */
-        update: async (id: string, request: { name?: string; description?: string; status?: 'draft' | 'published' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled'; venueId?: any; timezone?: string; onSaleDate?: any; offSaleDate?: any; tags?: string[] }) => {
-          const response = await this.request<UpdateEventResponse>(`/events/${id}`, {
-            method: 'PATCH',
-            body: JSON.stringify(request)
-          });
-    
-          return response.event;
-        },
-
-        /**
-         * Delete event
-         * Delete an event (soft delete)
-         * @operationId deleteEvent
-         */
-        delete: async (id: string) => {
-          const response = await this.request<DeleteEventResponse>(`/events/${id}`, {
-            method: 'DELETE'
-          });
-    
-          return response;
         }
     }
   );
@@ -1227,257 +1308,11 @@ export class BackstageClient {
   venues = Object.assign(
     (id: string) => ({
       venuelayouts: {
-          /**
+            /**
      * List layouts for venue
      * List all layouts for a specific venue with optional filtering and pagination
      * @operationId listVenueLayouts
      */
-      list: async (options?: { search?: string; status?: 'active' | 'archived'; accountId?: string; page?: string; limit?: string }) => {
-      const params = new URLSearchParams();
-      if (options?.search !== undefined) params.append('search', String(options.search));
-      if (options?.status !== undefined) params.append('status', String(options.status));
-      if (options?.accountId !== undefined) params.append('accountId', String(options.accountId));
-      if (options?.page !== undefined) params.append('page', String(options.page));
-      if (options?.limit !== undefined) params.append('limit', String(options.limit));
-      const queryString = params.toString();
-      const requestPath = queryString ? `/venues/${id}/layouts?${queryString}` : `/venues/${id}/layouts`;
-
-      const response = await this.request<ListVenueLayoutsResponse>(requestPath, {
-        method: 'GET'
-      });
-
-      return response;
-      },
-
-          /**
-     * Create venue layout
-     * Create a new layout for a venue
-     * @operationId createVenueLayout
-     */
-      create: async (request: { name: string; description?: string; status?: 'active' | 'archived'; totalCapacity?: number; floors?: { id?: string; name: string; displayOrder: number; description?: string }[]; categories?: { id?: string; name: string; description?: string; displayOrder: number; color?: string }[]; areas?: { id?: string; name: string; description?: string; type: 'unallocated' | 'allocated'; status?: 'active' | 'inactive'; floorId?: string; capacity: number; displayOrder: number; color?: string; sections?: { id?: string; name: string; displayOrder: number; description?: string }[]; position?: { x: number; y: number; width: number; height: number }; seats?: { id?: string; sectionId?: string; section?: string; row: string; number: string; label: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }[] }[]; decorations?: { id?: string; type: 'stage' | 'pillar' | 'barrier' | 'aisle' | 'wall' | 'exit' | 'entrance' | 'bar' | 'restroom' | 'label' | 'custom'; name?: string; position: { x: number; y: number; width: number; height: number; rotation?: number }; label?: string; style?: { fill?: string; stroke?: string; fontSize?: number; fontWeight?: string } }[]; tags?: string[] }) => {
-      const response = await this.request<CreateVenueLayoutResponse>(`/venues/${id}/layouts`, {
-        method: 'POST',
-        body: JSON.stringify(request)
-      });
-
-      return response.venueLayout;
-      },
-
-          /**
-     * Get venue layout
-     * Get a specific venue layout by ID
-     * @operationId getVenueLayout
-     */
-      get: async (layoutId: string) => {
-      const response = await this.request<GetVenueLayoutResponse>(`/venues/${id}/layouts/${layoutId}`, {
-        method: 'GET'
-      });
-
-      return response.venueLayout;
-      },
-
-          /**
-     * Update venue layout
-     * Update an existing venue layout
-     * @operationId updateVenueLayout
-     */
-      update: async (layoutId: string, request: { name?: string; description?: string; status?: 'active' | 'archived'; totalCapacity?: number; floors?: { id?: string; name: string; displayOrder: number; description?: string }[]; categories?: { id?: string; name: string; description?: string; displayOrder: number; color?: string }[]; areas?: { id?: string; name: string; description?: string; type: 'unallocated' | 'allocated'; status?: 'active' | 'inactive'; floorId?: string; capacity: number; displayOrder: number; color?: string; sections?: { id?: string; name: string; displayOrder: number; description?: string }[]; position?: { x: number; y: number; width: number; height: number }; seats?: { id?: string; sectionId?: string; section?: string; row: string; number: string; label: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }[] }[]; decorations?: { id?: string; type: 'stage' | 'pillar' | 'barrier' | 'aisle' | 'wall' | 'exit' | 'entrance' | 'bar' | 'restroom' | 'label' | 'custom'; name?: string; position: { x: number; y: number; width: number; height: number; rotation?: number }; label?: string; style?: { fill?: string; stroke?: string; fontSize?: number; fontWeight?: string } }[]; tags?: string[] }) => {
-      const response = await this.request<UpdateVenueLayoutResponse>(`/venues/${id}/layouts/${layoutId}`, {
-        method: 'PATCH',
-        body: JSON.stringify(request)
-      });
-
-      return response.venueLayout;
-      },
-
-          /**
-     * Delete venue layout
-     * Delete a venue layout (soft delete)
-     * @operationId deleteVenueLayout
-     */
-      delete: async (layoutId: string) => {
-      const response = await this.request<DeleteVenueLayoutResponse>(`/venues/${id}/layouts/${layoutId}`, {
-        method: 'DELETE'
-      });
-
-      return response;
-      }
-      },
-      venuelayoutareas: {
-          /**
-     * Add area to venue layout
-     * Add a new area to a venue layout
-     * @operationId addAreaToVenueLayout
-     */
-      addArea: async (layoutId: string, request: { name: string; description?: string; type: 'unallocated' | 'allocated'; status?: 'active' | 'inactive'; capacity: number; displayOrder?: number; color?: string; seats?: any[]; position?: { x: number; y: number; width: number; height: number }; categoryId?: string }) => {
-      const response = await this.request<AddAreaResponse>(`/venues/${id}/layouts/${layoutId}/areas`, {
-        method: 'POST',
-        body: JSON.stringify(request)
-      });
-
-      return response;
-      },
-
-          /**
-     * Update venue layout area
-     * Update an area in a venue layout
-     * @operationId updateVenueLayoutArea
-     */
-      updateArea: async (layoutId: string, areaId: string, request: { name?: string; description?: string; type?: 'unallocated' | 'allocated'; status?: 'active' | 'inactive'; capacity?: number; displayOrder?: number; color?: string; seats?: any[]; position?: { x: number; y: number; width: number; height: number }; categoryId?: string }) => {
-      const response = await this.request<UpdateAreaResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}`, {
-        method: 'PATCH',
-        body: JSON.stringify(request)
-      });
-
-      return response;
-      },
-
-          /**
-     * Delete venue layout area
-     * Delete an area from a venue layout
-     * @operationId deleteVenueLayoutArea
-     */
-      deleteArea: async (layoutId: string, areaId: string) => {
-      const response = await this.request<DeleteAreaResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}`, {
-        method: 'DELETE'
-      });
-
-      return response;
-      }
-      },
-      venuelayoutcategories: {
-          /**
-     * Add category to venue layout
-     * Add a new pricing category to a venue layout
-     * @operationId addCategoryToVenueLayout
-     */
-      addCategory: async (layoutId: string, request: { name: string; description?: string; displayOrder?: number; color?: string }) => {
-      const response = await this.request<AddCategoryResponse>(`/venues/${id}/layouts/${layoutId}/categories`, {
-        method: 'POST',
-        body: JSON.stringify(request)
-      });
-
-      return response;
-      },
-
-          /**
-     * Update venue layout category
-     * Update a pricing category in a venue layout
-     * @operationId updateVenueLayoutCategory
-     */
-      updateCategory: async (layoutId: string, categoryId: string, request: { name?: string; description?: string; displayOrder?: number; color?: string }) => {
-      const response = await this.request<UpdateCategoryResponse>(`/venues/${id}/layouts/${layoutId}/categories/${categoryId}`, {
-        method: 'PATCH',
-        body: JSON.stringify(request)
-      });
-
-      return response;
-      },
-
-          /**
-     * Delete venue layout category
-     * Delete a pricing category from a venue layout
-     * @operationId deleteVenueLayoutCategory
-     */
-      deleteCategory: async (layoutId: string, categoryId: string) => {
-      const response = await this.request<DeleteCategoryResponse>(`/venues/${id}/layouts/${layoutId}/categories/${categoryId}`, {
-        method: 'DELETE'
-      });
-
-      return response;
-      }
-      },
-      venuelayoutseats: {
-          /**
-     * Add seat to area
-     * Add a single seat to an allocated seating area
-     * @operationId addSeatToArea
-     */
-      addSeat: async (layoutId: string, areaId: string, request: { section?: string; row: string; number: string; label?: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }) => {
-      const response = await this.request<AddSeatResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}/seats`, {
-        method: 'POST',
-        body: JSON.stringify(request)
-      });
-
-      return response;
-      },
-
-          /**
-     * Bulk add seats to area
-     * Add multiple seats to an allocated seating area at once
-     * @operationId bulkAddSeatsToArea
-     */
-      bulkAddSeats: async (layoutId: string, areaId: string, request: { seats: { section?: string; row: string; number: string; label?: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }[] }) => {
-      const response = await this.request<BulkAddSeatsResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}/seats/bulk`, {
-        method: 'POST',
-        body: JSON.stringify(request)
-      });
-
-      return response;
-      },
-
-          /**
-     * Generate seats for area
-     * Generate seats from a template specifying rows and seats per row
-     * @operationId generateSeatsForArea
-     */
-      generateSeats: async (layoutId: string, areaId: string, request: { section?: string; startRow: string; endRow: string; seatsPerRow: number; rowPrefix?: string; seatPrefix?: string; categoryId?: string; skipRows?: string[]; skipSeats?: string[] }) => {
-      const response = await this.request<GenerateSeatsResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}/seats/generate`, {
-        method: 'POST',
-        body: JSON.stringify(request)
-      });
-
-      return response;
-      },
-
-          /**
-     * Sync seats in area
-     * Replace all seats in an allocated seating area with the provided seats. Used by the visual seating map editor for full saves.
-     * @operationId syncSeatsInArea
-     */
-      syncSeats: async (layoutId: string, areaId: string, request: { seats: { id?: string; section?: string; row: string; number: string; label?: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }[]; clearExisting?: boolean }) => {
-      const response = await this.request<SyncSeatsResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}/seats/sync`, {
-        method: 'PUT',
-        body: JSON.stringify(request)
-      });
-
-      return response;
-      },
-
-          /**
-     * Update seat in area
-     * Update a seat in an allocated seating area
-     * @operationId updateSeatInArea
-     */
-      updateSeat: async (layoutId: string, areaId: string, seatId: string, request: { section?: string; row?: string; number?: string; label?: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }) => {
-      const response = await this.request<UpdateSeatResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}/seats/${seatId}`, {
-        method: 'PATCH',
-        body: JSON.stringify(request)
-      });
-
-      return response;
-      },
-
-          /**
-     * Delete seat from area
-     * Delete a seat from an allocated seating area
-     * @operationId deleteSeatFromArea
-     */
-      deleteSeat: async (layoutId: string, areaId: string, seatId: string) => {
-      const response = await this.request<DeleteSeatResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}/seats/${seatId}`, {
-        method: 'DELETE'
-      });
-
-      return response;
-      }
-      }
-    }),
-    {
-        /**
-         * List venues
-         * List all venues for the organisation with optional filtering and pagination
-         * @operationId listVenues
-         */
         list: async (options?: { search?: string; status?: 'active' | 'archived'; accountId?: string; page?: string; limit?: string }) => {
           const params = new URLSearchParams();
           if (options?.search !== undefined) params.append('search', String(options.search));
@@ -1486,67 +1321,313 @@ export class BackstageClient {
           if (options?.page !== undefined) params.append('page', String(options.page));
           if (options?.limit !== undefined) params.append('limit', String(options.limit));
           const queryString = params.toString();
-          const requestPath = queryString ? `/venues?${queryString}` : `/venues`;
-    
-          const response = await this.request<ListVenuesResponse>(requestPath, {
+          const requestPath = queryString ? `/venues/${id}/layouts?${queryString}` : `/venues/${id}/layouts`;
+
+          const response = await this.request<ListVenueLayoutsResponse>(requestPath, {
             method: 'GET'
           });
-    
+
           return response;
         },
 
-        /**
-         * Create venue
-         * Create a new venue in the organisation
-         * @operationId createVenue
-         */
-        create: async (request: { accountId: string; name: string; description?: string; status?: 'active' | 'archived'; streetAddress?: string; country?: string; coordinates?: { longitude: number; latitude: number }; timezone?: string; phone?: string; email?: string; website?: string; features?: string[]; tags?: string[] }) => {
-          const response = await this.request<CreateVenueResponse>(`/venues`, {
+            /**
+     * Create venue layout
+     * Create a new layout for a venue
+     * @operationId createVenueLayout
+     */
+        create: async (request: { name: string; description?: string; status?: 'active' | 'archived'; totalCapacity?: number; floors?: { id?: string; name: string; displayOrder: number; description?: string }[]; categories?: { id?: string; name: string; description?: string; displayOrder: number; color?: string }[]; areas?: { id?: string; name: string; description?: string; type: 'unallocated' | 'allocated'; status?: 'active' | 'inactive'; floorId?: string; capacity: number; displayOrder: number; color?: string; sections?: { id?: string; name: string; displayOrder: number; description?: string }[]; position?: { x: number; y: number; width: number; height: number }; seats?: { id?: string; sectionId?: string; section?: string; row: string; number: string; label: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }[] }[]; decorations?: { id?: string; type: 'stage' | 'pillar' | 'barrier' | 'aisle' | 'wall' | 'exit' | 'entrance' | 'bar' | 'restroom' | 'label' | 'custom'; name?: string; position: { x: number; y: number; width: number; height: number; rotation?: number }; label?: string; style?: { fill?: string; stroke?: string; fontSize?: number; fontWeight?: string } }[]; tags?: string[] }) => {
+          const response = await this.request<CreateVenueLayoutResponse>(`/venues/${id}/layouts`, {
             method: 'POST',
             body: JSON.stringify(request)
           });
-    
-          return response.venue;
+
+          return response.venueLayout;
         },
 
-        /**
-         * Get venue
-         * Get a specific venue by ID
-         * @operationId getVenue
-         */
-        get: async (id: string) => {
-          const response = await this.request<GetVenueResponse>(`/venues/${id}`, {
+            /**
+     * Get venue layout
+     * Get a specific venue layout by ID
+     * @operationId getVenueLayout
+     */
+        get: async (layoutId: string) => {
+          const response = await this.request<GetVenueLayoutResponse>(`/venues/${id}/layouts/${layoutId}`, {
             method: 'GET'
           });
-    
-          return response.venue;
+
+          return response.venueLayout;
         },
 
-        /**
-         * Update venue
-         * Update an existing venue
-         * @operationId updateVenue
-         */
-        update: async (id: string, request: { name?: string; description?: string; status?: 'active' | 'archived'; streetAddress?: string; country?: string; coordinates?: any; timezone?: string; phone?: any; email?: any; website?: any; features?: string[]; tags?: string[] }) => {
-          const response = await this.request<UpdateVenueResponse>(`/venues/${id}`, {
+            /**
+     * Update venue layout
+     * Update an existing venue layout
+     * @operationId updateVenueLayout
+     */
+        update: async (layoutId: string, request: { name?: string; description?: string; status?: 'active' | 'archived'; totalCapacity?: number; floors?: { id?: string; name: string; displayOrder: number; description?: string }[]; categories?: { id?: string; name: string; description?: string; displayOrder: number; color?: string }[]; areas?: { id?: string; name: string; description?: string; type: 'unallocated' | 'allocated'; status?: 'active' | 'inactive'; floorId?: string; capacity: number; displayOrder: number; color?: string; sections?: { id?: string; name: string; displayOrder: number; description?: string }[]; position?: { x: number; y: number; width: number; height: number }; seats?: { id?: string; sectionId?: string; section?: string; row: string; number: string; label: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }[] }[]; decorations?: { id?: string; type: 'stage' | 'pillar' | 'barrier' | 'aisle' | 'wall' | 'exit' | 'entrance' | 'bar' | 'restroom' | 'label' | 'custom'; name?: string; position: { x: number; y: number; width: number; height: number; rotation?: number }; label?: string; style?: { fill?: string; stroke?: string; fontSize?: number; fontWeight?: string } }[]; tags?: string[] }) => {
+          const response = await this.request<UpdateVenueLayoutResponse>(`/venues/${id}/layouts/${layoutId}`, {
             method: 'PATCH',
             body: JSON.stringify(request)
           });
-    
-          return response.venue;
+
+          return response.venueLayout;
         },
 
-        /**
-         * Delete venue
-         * Delete a venue (soft delete)
-         * @operationId deleteVenue
-         */
-        delete: async (id: string) => {
-          const response = await this.request<DeleteVenueResponse>(`/venues/${id}`, {
+            /**
+     * Delete venue layout
+     * Delete a venue layout (soft delete)
+     * @operationId deleteVenueLayout
+     */
+        delete: async (layoutId: string) => {
+          const response = await this.request<DeleteVenueLayoutResponse>(`/venues/${id}/layouts/${layoutId}`, {
             method: 'DELETE'
           });
-    
+
           return response;
+        }
+      },
+venuelayoutareas: {
+            /**
+     * Add area to venue layout
+     * Add a new area to a venue layout
+     * @operationId addAreaToVenueLayout
+     */
+        addArea: async (layoutId: string, request: { name: string; description?: string; type: 'unallocated' | 'allocated'; status?: 'active' | 'inactive'; capacity: number; displayOrder?: number; color?: string; seats?: any[]; position?: { x: number; y: number; width: number; height: number }; categoryId?: string }) => {
+          const response = await this.request<AddAreaResponse>(`/venues/${id}/layouts/${layoutId}/areas`, {
+            method: 'POST',
+            body: JSON.stringify(request)
+          });
+
+          return response;
+        },
+
+            /**
+     * Update venue layout area
+     * Update an area in a venue layout
+     * @operationId updateVenueLayoutArea
+     */
+        updateArea: async (layoutId: string, areaId: string, request: { name?: string; description?: string; type?: 'unallocated' | 'allocated'; status?: 'active' | 'inactive'; capacity?: number; displayOrder?: number; color?: string; seats?: any[]; position?: { x: number; y: number; width: number; height: number }; categoryId?: string }) => {
+          const response = await this.request<UpdateAreaResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}`, {
+            method: 'PATCH',
+            body: JSON.stringify(request)
+          });
+
+          return response;
+        },
+
+            /**
+     * Delete venue layout area
+     * Delete an area from a venue layout
+     * @operationId deleteVenueLayoutArea
+     */
+        deleteArea: async (layoutId: string, areaId: string) => {
+          const response = await this.request<DeleteAreaResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}`, {
+            method: 'DELETE'
+          });
+
+          return response;
+        }
+      },
+venuelayoutcategories: {
+            /**
+     * Add category to venue layout
+     * Add a new pricing category to a venue layout
+     * @operationId addCategoryToVenueLayout
+     */
+        addCategory: async (layoutId: string, request: { name: string; description?: string; displayOrder?: number; color?: string }) => {
+          const response = await this.request<AddCategoryResponse>(`/venues/${id}/layouts/${layoutId}/categories`, {
+            method: 'POST',
+            body: JSON.stringify(request)
+          });
+
+          return response;
+        },
+
+            /**
+     * Update venue layout category
+     * Update a pricing category in a venue layout
+     * @operationId updateVenueLayoutCategory
+     */
+        updateCategory: async (layoutId: string, categoryId: string, request: { name?: string; description?: string; displayOrder?: number; color?: string }) => {
+          const response = await this.request<UpdateCategoryResponse>(`/venues/${id}/layouts/${layoutId}/categories/${categoryId}`, {
+            method: 'PATCH',
+            body: JSON.stringify(request)
+          });
+
+          return response;
+        },
+
+            /**
+     * Delete venue layout category
+     * Delete a pricing category from a venue layout
+     * @operationId deleteVenueLayoutCategory
+     */
+        deleteCategory: async (layoutId: string, categoryId: string) => {
+          const response = await this.request<DeleteCategoryResponse>(`/venues/${id}/layouts/${layoutId}/categories/${categoryId}`, {
+            method: 'DELETE'
+          });
+
+          return response;
+        }
+      },
+venuelayoutseats: {
+            /**
+     * Add seat to area
+     * Add a single seat to an allocated seating area
+     * @operationId addSeatToArea
+     */
+        addSeat: async (layoutId: string, areaId: string, request: { section?: string; row: string; number: string; label?: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }) => {
+          const response = await this.request<AddSeatResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}/seats`, {
+            method: 'POST',
+            body: JSON.stringify(request)
+          });
+
+          return response;
+        },
+
+            /**
+     * Bulk add seats to area
+     * Add multiple seats to an allocated seating area at once
+     * @operationId bulkAddSeatsToArea
+     */
+        bulkAddSeats: async (layoutId: string, areaId: string, request: { seats: { section?: string; row: string; number: string; label?: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }[] }) => {
+          const response = await this.request<BulkAddSeatsResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}/seats/bulk`, {
+            method: 'POST',
+            body: JSON.stringify(request)
+          });
+
+          return response;
+        },
+
+            /**
+     * Generate seats for area
+     * Generate seats from a template specifying rows and seats per row
+     * @operationId generateSeatsForArea
+     */
+        generateSeats: async (layoutId: string, areaId: string, request: { section?: string; startRow: string; endRow: string; seatsPerRow: number; rowPrefix?: string; seatPrefix?: string; categoryId?: string; skipRows?: string[]; skipSeats?: string[] }) => {
+          const response = await this.request<GenerateSeatsResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}/seats/generate`, {
+            method: 'POST',
+            body: JSON.stringify(request)
+          });
+
+          return response;
+        },
+
+            /**
+     * Sync seats in area
+     * Replace all seats in an allocated seating area with the provided seats. Used by the visual seating map editor for full saves.
+     * @operationId syncSeatsInArea
+     */
+        syncSeats: async (layoutId: string, areaId: string, request: { seats: { id?: string; section?: string; row: string; number: string; label?: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }[]; clearExisting?: boolean }) => {
+          const response = await this.request<SyncSeatsResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}/seats/sync`, {
+            method: 'PUT',
+            body: JSON.stringify(request)
+          });
+
+          return response;
+        },
+
+            /**
+     * Update seat in area
+     * Update a seat in an allocated seating area
+     * @operationId updateSeatInArea
+     */
+        updateSeat: async (layoutId: string, areaId: string, seatId: string, request: { section?: string; row?: string; number?: string; label?: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }) => {
+          const response = await this.request<UpdateSeatResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}/seats/${seatId}`, {
+            method: 'PATCH',
+            body: JSON.stringify(request)
+          });
+
+          return response;
+        },
+
+            /**
+     * Delete seat from area
+     * Delete a seat from an allocated seating area
+     * @operationId deleteSeatFromArea
+     */
+        deleteSeat: async (layoutId: string, areaId: string, seatId: string) => {
+          const response = await this.request<DeleteSeatResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}/seats/${seatId}`, {
+            method: 'DELETE'
+          });
+
+          return response;
+        }
+      }
+    }),
+    {
+            /**
+     * List venues
+     * List all venues for the organisation with optional filtering and pagination
+     * @operationId listVenues
+     */
+        list: async (options?: { search?: string; status?: 'active' | 'archived'; accountId?: string; page?: string; limit?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.search !== undefined) params.append('search', String(options.search));
+      if (options?.status !== undefined) params.append('status', String(options.status));
+      if (options?.accountId !== undefined) params.append('accountId', String(options.accountId));
+      if (options?.page !== undefined) params.append('page', String(options.page));
+      if (options?.limit !== undefined) params.append('limit', String(options.limit));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/venues?${queryString}` : `/venues`;
+
+      const response = await this.request<ListVenuesResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Create venue
+     * Create a new venue in the organisation
+     * @operationId createVenue
+     */
+        create: async (request: { accountId: string; name: string; description?: string; status?: 'active' | 'archived'; streetAddress?: string; country?: string; coordinates?: { longitude: number; latitude: number }; timezone?: string; phone?: string; email?: string; website?: string; features?: string[]; tags?: string[] }) => {
+      const response = await this.request<CreateVenueResponse>(`/venues`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.venue;
+        },
+
+            /**
+     * Get venue
+     * Get a specific venue by ID
+     * @operationId getVenue
+     */
+        get: async (id: string) => {
+      const response = await this.request<GetVenueResponse>(`/venues/${id}`, {
+        method: 'GET'
+      });
+
+      return response.venue;
+        },
+
+            /**
+     * Update venue
+     * Update an existing venue
+     * @operationId updateVenue
+     */
+        update: async (id: string, request: { name?: string; description?: string; status?: 'active' | 'archived'; streetAddress?: string; country?: string; coordinates?: any; timezone?: string; phone?: any; email?: any; website?: any; features?: string[]; tags?: string[] }) => {
+      const response = await this.request<UpdateVenueResponse>(`/venues/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify(request)
+      });
+
+      return response.venue;
+        },
+
+            /**
+     * Delete venue
+     * Delete a venue (soft delete)
+     * @operationId deleteVenue
+     */
+        delete: async (id: string) => {
+      const response = await this.request<DeleteVenueResponse>(`/venues/${id}`, {
+        method: 'DELETE'
+      });
+
+      return response;
         }
     }
   );
