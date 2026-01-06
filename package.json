@@ -16,7 +16,8 @@
     "generate:client": "openapi-typescript openapi.json -o src/generated/schema.ts && openapi-typescript-codegen --input openapi.json --output src/generated --client fetch",
     "build": "tsc",
     "clean": "rm -rf dist src/generated",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "publish:npm": "npm publish --access public"
   },
   "keywords": [
     "backstage",
@@ -31,6 +32,10 @@
     "dist",
     "README.md"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "devDependencies": {
     "@types/node": "^20.10.0",
     "openapi-typescript": "^7.4.3",
