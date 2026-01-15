@@ -6,7 +6,7 @@
 
 # Interface: BackstageClientConfig
 
-Defined in: [client.ts:168](https://github.com/tomhartford/backstage-sdk-ts/blob/bbe3ce496eab6fe8b440aa2a85ced9a945b4f9d3/src/client.ts#L168)
+Defined in: [client.ts:229](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L229)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [client.ts:168](https://github.com/tomhartford/backstage-sdk-ts/blob
 optional accessToken: string;
 ```
 
-Defined in: [client.ts:181](https://github.com/tomhartford/backstage-sdk-ts/blob/bbe3ce496eab6fe8b440aa2a85ced9a945b4f9d3/src/client.ts#L181)
+Defined in: [client.ts:242](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L242)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [client.ts:181](https://github.com/tomhartford/backstage-sdk-ts/blob
 optional authMode: AuthMode;
 ```
 
-Defined in: [client.ts:175](https://github.com/tomhartford/backstage-sdk-ts/blob/bbe3ce496eab6fe8b440aa2a85ced9a945b4f9d3/src/client.ts#L175)
+Defined in: [client.ts:236](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L236)
 
 Authentication mode:
 - 'bearer': Use Authorization header with access/refresh tokens (default)
@@ -40,7 +40,7 @@ Authentication mode:
 baseUrl: string;
 ```
 
-Defined in: [client.ts:169](https://github.com/tomhartford/backstage-sdk-ts/blob/bbe3ce496eab6fe8b440aa2a85ced9a945b4f9d3/src/client.ts#L169)
+Defined in: [client.ts:230](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L230)
 
 ***
 
@@ -50,7 +50,7 @@ Defined in: [client.ts:169](https://github.com/tomhartford/backstage-sdk-ts/blob
 optional debug: boolean | DebugConfig;
 ```
 
-Defined in: [client.ts:180](https://github.com/tomhartford/backstage-sdk-ts/blob/bbe3ce496eab6fe8b440aa2a85ced9a945b4f9d3/src/client.ts#L180)
+Defined in: [client.ts:241](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L241)
 
 Enable debug mode for logging all SDK operations.
 Can be a boolean (enables all logging) or a DebugConfig object for fine-grained control.
@@ -63,7 +63,7 @@ Can be a boolean (enables all logging) or a DebugConfig object for fine-grained 
 optional headers: Record<string, string>;
 ```
 
-Defined in: [client.ts:200](https://github.com/tomhartford/backstage-sdk-ts/blob/bbe3ce496eab6fe8b440aa2a85ced9a945b4f9d3/src/client.ts#L200)
+Defined in: [client.ts:261](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L261)
 
 ***
 
@@ -73,7 +73,7 @@ Defined in: [client.ts:200](https://github.com/tomhartford/backstage-sdk-ts/blob
 optional onAuthFailure: () => Promise<boolean>;
 ```
 
-Defined in: [client.ts:194](https://github.com/tomhartford/backstage-sdk-ts/blob/bbe3ce496eab6fe8b440aa2a85ced9a945b4f9d3/src/client.ts#L194)
+Defined in: [client.ts:255](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L255)
 
 Called when a 401 is received. Return true if refresh was successful and the request should be retried.
 If not provided, default behaviour depends on authMode:
@@ -92,7 +92,7 @@ If not provided, default behaviour depends on authMode:
 optional onTokenRefresh: (accessToken: string, refreshToken: string) => void | Promise<void>;
 ```
 
-Defined in: [client.ts:187](https://github.com/tomhartford/backstage-sdk-ts/blob/bbe3ce496eab6fe8b440aa2a85ced9a945b4f9d3/src/client.ts#L187)
+Defined in: [client.ts:248](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L248)
 
 Called after successful token refresh (bearer mode only).
 Use this to persist the new tokens.
@@ -116,7 +116,7 @@ Use this to persist the new tokens.
 optional refreshEndpoint: string;
 ```
 
-Defined in: [client.ts:199](https://github.com/tomhartford/backstage-sdk-ts/blob/bbe3ce496eab6fe8b440aa2a85ced9a945b4f9d3/src/client.ts#L199)
+Defined in: [client.ts:260](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L260)
 
 Custom refresh endpoint.
 Default: '/api/oauth/refresh' for cookie mode, '/v1/auth/refresh' for bearer mode
@@ -129,4 +129,4 @@ Default: '/api/oauth/refresh' for cookie mode, '/v1/auth/refresh' for bearer mod
 optional refreshToken: string;
 ```
 
-Defined in: [client.ts:182](https://github.com/tomhartford/backstage-sdk-ts/blob/bbe3ce496eab6fe8b440aa2a85ced9a945b4f9d3/src/client.ts#L182)
+Defined in: [client.ts:243](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L243)

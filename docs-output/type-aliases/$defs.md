@@ -10,4 +10,4 @@
 type $defs = Record<string, never>;
 ```
 
-Defined in: generated/types.ts:2150
+Defined in: generated/types.ts:4300

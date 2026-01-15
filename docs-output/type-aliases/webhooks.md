@@ -10,4 +10,4 @@
 type webhooks = Record<string, never>;
 ```
 
-Defined in: generated/types.ts:948
+Defined in: generated/types.ts:1928

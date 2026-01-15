@@ -6,7 +6,7 @@
 
 # Interface: components
 
-Defined in: generated/types.ts:949
+Defined in: generated/types.ts:1929
 
 ## Properties
 
@@ -16,17 +16,29 @@ Defined in: generated/types.ts:949
 headers: never;
 ```
 
-Defined in: generated/types.ts:2147
+Defined in: generated/types.ts:4297
 
 ***
 
 ### parameters
 
 ```ts
-parameters: never;
+parameters: {
+  orgHeader: string;
+};
 ```
 
-Defined in: generated/types.ts:2145
+Defined in: generated/types.ts:4292
+
+#### orgHeader
+
+```ts
+orgHeader: string;
+```
+
+##### Description
+
+Organisation slug to scope the request
 
 ***
 
@@ -36,7 +48,7 @@ Defined in: generated/types.ts:2145
 pathItems: never;
 ```
 
-Defined in: generated/types.ts:2148
+Defined in: generated/types.ts:4298
 
 ***
 
@@ -46,7 +58,7 @@ Defined in: generated/types.ts:2148
 requestBodies: never;
 ```
 
-Defined in: generated/types.ts:2146
+Defined in: generated/types.ts:4296
 
 ***
 
@@ -56,7 +68,7 @@ Defined in: generated/types.ts:2146
 responses: never;
 ```
 
-Defined in: generated/types.ts:2144
+Defined in: generated/types.ts:4291
 
 ***
 
@@ -97,6 +109,100 @@ schemas: {
      };
      venueLayout?: unknown;
   };
+  AddLineItemResponse: {
+     item: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     };
+     order: {
+        accountId: string;
+        cancellationReason: string | null;
+        cancelledAt: string | null;
+        channel: string | null;
+        completedAt: string | null;
+        confirmedAt: string | null;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        customerNotes: string | null;
+        discountTotal: string;
+        expiresAt: string | null;
+        feeTotal: string;
+        id: string;
+        internalNotes: string | null;
+        isGuestCheckout: boolean;
+        items?: {
+           createdAt: string;
+           description: string | null;
+           feeDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           name: string;
+           orderId: string;
+           productDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           quantity: number;
+           ticketDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           totalPrice: string;
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+           updatedAt: string;
+        }[];
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderNumber: string;
+        organisationId: string;
+        status:   | "completed"
+           | "cancelled"
+           | "pending"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+        subtotal: string;
+        taxTotal: string;
+        total: string;
+        updatedAt: string;
+     };
+  };
   AddSeatResponse: {
      seat: {
         attributes?: string[];
@@ -120,6 +226,11 @@ schemas: {
      };
      venueLayout?: unknown;
   };
+  ApplicationFee:   | {
+     type: "percentage" | "fixed";
+     value: number;
+   }
+     | null;
   AssignRoleRequest: {
      accountId: string;
      roleId: string;
@@ -150,9 +261,265 @@ schemas: {
         userId: string;
      };
   };
+  AuditLogEntry: {
+     action: string;
+     actorId: string | null;
+     actorType: string | null;
+     changes: {
+      [key: string]: unknown;
+     };
+     createdAt: string;
+     id: number;
+     inventoryId: string;
+     referenceId: string | null;
+     referenceType: string | null;
+  };
+  AutoTopupConfig:   | {
+     attemptsToday: number;
+     createdAt: string;
+     enabled: boolean;
+     id: string;
+     lastAttemptAt: string | null;
+     maxAttemptsPerDay: number;
+     organisationId: string;
+     thresholdCredits: number;
+     topupPackageId: string;
+     updatedAt: string;
+   }
+     | null;
+  BlockCustomerResponse: {
+     customer: {
+        accountId: string | null;
+        blockedAt: string | null;
+        blockedReason: string | null;
+        createdAt: string;
+        email: string;
+        externalId: string | null;
+        firstName: string | null;
+        id: string;
+        isBlocked: boolean;
+        lastName: string | null;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        phone: string | null;
+        updatedAt: string;
+     };
+  };
   BulkAddSeatsResponse: {
      seatsAdded: number;
      venueLayout?: unknown;
+  };
+  BulkImportSeatsResponse: {
+     count: number;
+     seats: {
+        accountId: string;
+        attributes:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        createdAt: string;
+        eventLayoutSeatId: string | null;
+        id: string;
+        inventoryId: string;
+        isAccessible: boolean;
+        isCompanion: boolean;
+        organisationId: string;
+        priceCategory: string | null;
+        reservationId: string | null;
+        rowName: string;
+        seatNumber: string;
+        status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+        updatedAt: string;
+        version: number;
+     }[];
+  };
+  CancelOrderResponse: {
+     order: {
+        accountId: string;
+        cancellationReason: string | null;
+        cancelledAt: string | null;
+        channel: string | null;
+        completedAt: string | null;
+        confirmedAt: string | null;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        customerNotes: string | null;
+        discountTotal: string;
+        expiresAt: string | null;
+        feeTotal: string;
+        id: string;
+        internalNotes: string | null;
+        isGuestCheckout: boolean;
+        items?: {
+           createdAt: string;
+           description: string | null;
+           feeDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           name: string;
+           orderId: string;
+           productDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           quantity: number;
+           ticketDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           totalPrice: string;
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+           updatedAt: string;
+        }[];
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderNumber: string;
+        organisationId: string;
+        status:   | "completed"
+           | "cancelled"
+           | "pending"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+        subtotal: string;
+        taxTotal: string;
+        total: string;
+        updatedAt: string;
+     };
+  };
+  CancelPaymentResponse: {
+     payment: {
+        amount: string;
+        createdAt: string;
+        currency: string;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        invoiceId: string | null;
+        method: string | null;
+        organisationId: string;
+        paidAt: string | null;
+        status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+        updatedAt: string;
+      } & {
+        accountId: string;
+        amount: number;
+        applicationFee: number | null;
+        cancelledAt: string | null;
+        capturedAt: string | null;
+        clientSecret: string | null;
+        createdAt: string;
+        currency: string;
+        expiresAt: string | null;
+        externalPaymentId: string | null;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        isPartialPayment: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        netAmount: number | null;
+        orderId: string;
+        orderNumber: string;
+        organisationId: string;
+        paymentMethod:   | {
+           brand: string | null;
+           expiryMonth: number | null;
+           expiryYear: number | null;
+           last4: string | null;
+           type: "card" | "bank_transfer" | "cash" | "wallet";
+         }
+           | null;
+        paymentProviderId: string;
+        paymentType:   | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+           | "cheque";
+        processingFee: number | null;
+        redirectUrl: string | null;
+        remainingBalance: number | null;
+        status:   | "cancelled"
+           | "pending"
+           | "succeeded"
+           | "failed"
+           | "processing"
+           | "expired"
+           | "requires_action"
+           | "created";
+        updatedAt: string;
+     };
+  };
+  CancelSubscriptionResponse: {
+     subscription: {
+        cancelledAt: string | null;
+        createdAt: string;
+        credits: number;
+        currency: string;
+        currentPeriodEnd: string | null;
+        currentPeriodStart: string | null;
+        endedAt: string | null;
+        id: string;
+        interval: "month" | "year";
+        organisationId: string;
+        packageId: string;
+        price: string;
+        status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+        updatedAt: string;
+     };
+  };
+  CanSellResponse: {
+     canSell: boolean;
+     currentBalance: number;
+     reason: string | null;
+  };
+  CheckAvailabilityResponse: {
+     available: boolean;
+     availableQuantity: number;
+     requestedQuantity: number;
+  };
+  ConfirmReservationResponse: {
+     reservation: {
+        accountId: string;
+        createdAt: string;
+        expiresAt: string | null;
+        heldBy: string | null;
+        id: string;
+        inventoryId: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        quantity: number;
+        reason: string | null;
+        referenceId: string | null;
+        referenceType: "subscription" | "order" | "hold" | null;
+        seatIds: string[] | null;
+        type: "confirmed" | "maintenance" | "hold" | "temporary";
+        updatedAt: string;
+     };
   };
   CreateAccountResponse: {
      account: {
@@ -162,6 +529,27 @@ schemas: {
         name: string;
         organisationId: string;
         status: "active" | "inactive";
+        updatedAt: string;
+     };
+  };
+  CreateCustomerResponse: {
+     customer: {
+        accountId: string | null;
+        blockedAt: string | null;
+        blockedReason: string | null;
+        createdAt: string;
+        email: string;
+        externalId: string | null;
+        firstName: string | null;
+        id: string;
+        isBlocked: boolean;
+        lastName: string | null;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        phone: string | null;
         updatedAt: string;
      };
   };
@@ -210,6 +598,249 @@ schemas: {
         venueId?: string;
      };
   };
+  CreateHoldResponse: {
+     reservation: {
+        accountId: string;
+        createdAt: string;
+        expiresAt: string | null;
+        heldBy: string | null;
+        id: string;
+        inventoryId: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        quantity: number;
+        reason: string | null;
+        referenceId: string | null;
+        referenceType: "subscription" | "order" | "hold" | null;
+        seatIds: string[] | null;
+        type: "confirmed" | "maintenance" | "hold" | "temporary";
+        updatedAt: string;
+     };
+  };
+  CreateInventoryResponse: {
+     inventory: {
+        accountId: string;
+        available: number;
+        confirmed: number;
+        createdAt: string;
+        eventId: string | null;
+        eventLayoutAreaId: string | null;
+        eventOccurrenceId: string | null;
+        held: number;
+        id: string;
+        isAllocated: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        productId: string | null;
+        reserved: number;
+        sourceType: "event_occurrence_area" | "product";
+        totalCapacity: number;
+        updatedAt: string;
+        version: number;
+     };
+  };
+  CreateOrderResponse: {
+     order: {
+        accountId: string;
+        cancellationReason: string | null;
+        cancelledAt: string | null;
+        channel: string | null;
+        completedAt: string | null;
+        confirmedAt: string | null;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        customerNotes: string | null;
+        discountTotal: string;
+        expiresAt: string | null;
+        feeTotal: string;
+        id: string;
+        internalNotes: string | null;
+        isGuestCheckout: boolean;
+        items?: {
+           createdAt: string;
+           description: string | null;
+           feeDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           name: string;
+           orderId: string;
+           productDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           quantity: number;
+           ticketDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           totalPrice: string;
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+           updatedAt: string;
+        }[];
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderNumber: string;
+        organisationId: string;
+        status:   | "completed"
+           | "cancelled"
+           | "pending"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+        subtotal: string;
+        taxTotal: string;
+        total: string;
+        updatedAt: string;
+     };
+  };
+  CreatePaymentProviderResponse: {
+     provider: {
+        accountId: string | null;
+        applicationFee:   | {
+           type: "percentage" | "fixed";
+           value: number;
+         }
+           | null;
+        capabilities:   | {
+           maxAmount?: number;
+           minAmount?: number;
+           requiresCustomerAction?: boolean;
+           supportedCurrencies?: string[];
+           supportsDelayedCapture?: boolean;
+           supportsInstantCapture?: boolean;
+           supportsPartialRefunds?: boolean;
+           supportsRefunds?: boolean;
+         }
+           | null;
+        configuration: {
+         [key: string]: unknown;
+        };
+        createdAt: string;
+        description: string | null;
+        feeStructure:   | {
+           currency?: string;
+           fixed?: number;
+           percentage?: number;
+           type: "percentage" | "fixed" | "percentage_plus_fixed";
+         }
+           | null;
+        id: string;
+        integrationServiceUrl: string | null;
+        integrationServiceVersion: string;
+        isDefault: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        organisationId: string;
+        priority: number;
+        status: "active" | "inactive" | "pending_setup";
+        supportedPaymentTypes: (
+           | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+          | "cheque")[];
+        type:   | "bank_transfer"
+           | "cash"
+           | "stripe_connect"
+           | "stripe_direct"
+           | "adyen"
+           | "square"
+           | "paypal";
+        updatedAt: string;
+     };
+  };
+  CreatePaymentResponse: {
+     payment: {
+        amount: string;
+        createdAt: string;
+        currency: string;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        invoiceId: string | null;
+        method: string | null;
+        organisationId: string;
+        paidAt: string | null;
+        status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+        updatedAt: string;
+      } & {
+        accountId: string;
+        amount: number;
+        applicationFee: number | null;
+        cancelledAt: string | null;
+        capturedAt: string | null;
+        clientSecret: string | null;
+        createdAt: string;
+        currency: string;
+        expiresAt: string | null;
+        externalPaymentId: string | null;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        isPartialPayment: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        netAmount: number | null;
+        orderId: string;
+        orderNumber: string;
+        organisationId: string;
+        paymentMethod:   | {
+           brand: string | null;
+           expiryMonth: number | null;
+           expiryYear: number | null;
+           last4: string | null;
+           type: "card" | "bank_transfer" | "cash" | "wallet";
+         }
+           | null;
+        paymentProviderId: string;
+        paymentType:   | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+           | "cheque";
+        processingFee: number | null;
+        redirectUrl: string | null;
+        remainingBalance: number | null;
+        status:   | "cancelled"
+           | "pending"
+           | "succeeded"
+           | "failed"
+           | "processing"
+           | "expired"
+           | "requires_action"
+           | "created";
+        updatedAt: string;
+     };
+  };
   CreatePriceSchemeResponse: {
      priceScheme: {
         accountId: string;
@@ -231,6 +862,33 @@ schemas: {
         updatedAt: string;
      };
   };
+  CreatePurchaseRequest: {
+     currency?: string;
+     email?: string;
+     packageId: string;
+     paymentMethodId: string;
+  };
+  CreateRefundResponse: {
+     refund: {
+        amount: number;
+        completedAt: string | null;
+        createdAt: string;
+        externalRefundId: string | null;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        notes: string | null;
+        paymentId: string;
+        reason: string;
+        status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+        updatedAt: string;
+     };
+  };
   CreateRoleRequest: {
      description?: string;
      name: string;
@@ -246,6 +904,31 @@ schemas: {
      organisationId: string;
      permissions: string[];
      updatedAt: string;
+  };
+  CreateSubscriptionRequest: {
+     currency?: string;
+     email?: string;
+     interval: "month" | "year";
+     packageId: string;
+     paymentMethodId: string;
+  };
+  CreateSubscriptionResponse: {
+     subscription: {
+        cancelledAt: string | null;
+        createdAt: string;
+        credits: number;
+        currency: string;
+        currentPeriodEnd: string | null;
+        currentPeriodStart: string | null;
+        endedAt: string | null;
+        id: string;
+        interval: "month" | "year";
+        organisationId: string;
+        packageId: string;
+        price: string;
+        status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+        updatedAt: string;
+     };
   };
   CreateUserInvitationRequest: {
      email: string;
@@ -340,6 +1023,67 @@ schemas: {
         website?: string;
      };
   };
+  CreditBalance: {
+     balance: number;
+     createdAt: string;
+     id: string;
+     isSuspended: boolean;
+     lifetimeCredits: number;
+     lifetimeUsed: number;
+     organisationId: string;
+     status: "healthy" | "low" | "depleted" | "negative" | "suspended";
+     suspendedAt: string | null;
+     suspendedReason: string | null;
+     updatedAt: string;
+  };
+  CreditPackage: {
+     baseCurrency: string;
+     basePrice: string;
+     credits: number;
+     discountPercent: string;
+     displayOrder: number;
+     finalPrice: string;
+     id: string;
+     isActive: boolean;
+     name: string;
+  };
+  CreditTransaction: {
+     amount: number;
+     balanceAfter: number;
+     balanceBefore: number;
+     createdAt: string;
+     description: string | null;
+     id: string;
+     invoiceId: string | null;
+     orderId: string | null;
+     organisationId: string;
+     subscriptionId: string | null;
+     type:   | "initial"
+        | "purchase"
+        | "subscription"
+        | "ticket_sale"
+        | "adjustment"
+        | "refund";
+  };
+  Customer: {
+     accountId: string | null;
+     blockedAt: string | null;
+     blockedReason: string | null;
+     createdAt: string;
+     email: string;
+     externalId: string | null;
+     firstName: string | null;
+     id: string;
+     isBlocked: boolean;
+     lastName: string | null;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     phone: string | null;
+     updatedAt: string;
+  };
   Decoration: {
      id: string;
      label?: string;
@@ -386,6 +1130,13 @@ schemas: {
      success: boolean;
   };
   DeleteEventResponse: {
+     id: string;
+     success: boolean;
+  };
+  DeleteInventoryResponse: {
+     message: string;
+  };
+  DeletePaymentProviderResponse: {
      id: string;
      success: boolean;
   };
@@ -460,9 +1211,38 @@ schemas: {
      updatedAt: string;
      venueId?: string;
   };
+  ExtendReservationResponse: {
+     reservation: {
+        accountId: string;
+        createdAt: string;
+        expiresAt: string | null;
+        heldBy: string | null;
+        id: string;
+        inventoryId: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        quantity: number;
+        reason: string | null;
+        referenceId: string | null;
+        referenceType: "subscription" | "order" | "hold" | null;
+        seatIds: string[] | null;
+        type: "confirmed" | "maintenance" | "hold" | "temporary";
+        updatedAt: string;
+     };
+  };
   FederateRequest: {
      token: string;
   };
+  FeeStructure:   | {
+     currency?: string;
+     fixed?: number;
+     percentage?: number;
+     type: "percentage" | "fixed" | "percentage_plus_fixed";
+   }
+     | null;
   GenerateSeatsResponse: {
      seats: {
         attributes?: string[];
@@ -499,6 +1279,72 @@ schemas: {
         name: string;
         organisationId: string;
         status: "active" | "inactive";
+        updatedAt: string;
+     };
+  };
+  GetAuditLogResponse: {
+     auditLog: {
+        action: string;
+        actorId: string | null;
+        actorType: string | null;
+        changes: {
+         [key: string]: unknown;
+        };
+        createdAt: string;
+        id: number;
+        inventoryId: string;
+        referenceId: string | null;
+        referenceType: string | null;
+     }[];
+  };
+  GetAutoTopupResponse: {
+     autoTopup:   | {
+        attemptsToday: number;
+        createdAt: string;
+        enabled: boolean;
+        id: string;
+        lastAttemptAt: string | null;
+        maxAttemptsPerDay: number;
+        organisationId: string;
+        thresholdCredits: number;
+        topupPackageId: string;
+        updatedAt: string;
+      }
+        | null;
+  };
+  GetBalanceResponse: {
+     balance: {
+        balance: number;
+        createdAt: string;
+        id: string;
+        isSuspended: boolean;
+        lifetimeCredits: number;
+        lifetimeUsed: number;
+        organisationId: string;
+        status: "healthy" | "low" | "depleted" | "negative" | "suspended";
+        suspendedAt: string | null;
+        suspendedReason: string | null;
+        updatedAt: string;
+     };
+  };
+  GetCustomerResponse: {
+     customer: {
+        accountId: string | null;
+        blockedAt: string | null;
+        blockedReason: string | null;
+        createdAt: string;
+        email: string;
+        externalId: string | null;
+        firstName: string | null;
+        id: string;
+        isBlocked: boolean;
+        lastName: string | null;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        phone: string | null;
         updatedAt: string;
      };
   };
@@ -576,6 +1422,52 @@ schemas: {
         userinfoEndpointInternal: string | null;
      };
   };
+  GetInventoryResponse: {
+     inventory: {
+        accountId: string;
+        available: number;
+        confirmed: number;
+        createdAt: string;
+        eventId: string | null;
+        eventLayoutAreaId: string | null;
+        eventOccurrenceId: string | null;
+        held: number;
+        id: string;
+        isAllocated: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        productId: string | null;
+        reserved: number;
+        sourceType: "event_occurrence_area" | "product";
+        totalCapacity: number;
+        updatedAt: string;
+        version: number;
+     };
+  };
+  GetInvoiceResponse: {
+     invoice: {
+        amountDue: string;
+        amountPaid: string;
+        createdAt: string;
+        currency: string;
+        dueDate: string | null;
+        id: string;
+        invoiceNumber: string;
+        issueDate: string;
+        organisationId: string;
+        paidAt: string | null;
+        pdfUrl: string | null;
+        status: "draft" | "open" | "paid" | "void" | "uncollectible";
+        subtotal: string;
+        tax: string;
+        total: string;
+        type: "purchase" | "subscription" | "payg";
+        updatedAt: string;
+     };
+  };
   GetMeOrganisationsResponse: {
      organisations: {
         id: string;
@@ -618,6 +1510,72 @@ schemas: {
         name: string | null;
      }[];
   };
+  GetOrderResponse: {
+     order: {
+        accountId: string;
+        cancellationReason: string | null;
+        cancelledAt: string | null;
+        channel: string | null;
+        completedAt: string | null;
+        confirmedAt: string | null;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        customerNotes: string | null;
+        discountTotal: string;
+        expiresAt: string | null;
+        feeTotal: string;
+        id: string;
+        internalNotes: string | null;
+        isGuestCheckout: boolean;
+        items?: {
+           createdAt: string;
+           description: string | null;
+           feeDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           name: string;
+           orderId: string;
+           productDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           quantity: number;
+           ticketDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           totalPrice: string;
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+           updatedAt: string;
+        }[];
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderNumber: string;
+        organisationId: string;
+        status:   | "completed"
+           | "cancelled"
+           | "pending"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+        subtotal: string;
+        taxTotal: string;
+        total: string;
+        updatedAt: string;
+     };
+  };
   GetOrganisationResponse: {
      organisation: {
         createdAt: string;
@@ -631,6 +1589,151 @@ schemas: {
         secondaryColor?: string;
         updatedAt: string;
      };
+  };
+  GetPaymentProviderResponse: {
+     provider: {
+        accountId: string | null;
+        applicationFee:   | {
+           type: "percentage" | "fixed";
+           value: number;
+         }
+           | null;
+        capabilities:   | {
+           maxAmount?: number;
+           minAmount?: number;
+           requiresCustomerAction?: boolean;
+           supportedCurrencies?: string[];
+           supportsDelayedCapture?: boolean;
+           supportsInstantCapture?: boolean;
+           supportsPartialRefunds?: boolean;
+           supportsRefunds?: boolean;
+         }
+           | null;
+        configuration: {
+         [key: string]: unknown;
+        };
+        createdAt: string;
+        description: string | null;
+        feeStructure:   | {
+           currency?: string;
+           fixed?: number;
+           percentage?: number;
+           type: "percentage" | "fixed" | "percentage_plus_fixed";
+         }
+           | null;
+        id: string;
+        integrationServiceUrl: string | null;
+        integrationServiceVersion: string;
+        isDefault: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        organisationId: string;
+        priority: number;
+        status: "active" | "inactive" | "pending_setup";
+        supportedPaymentTypes: (
+           | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+          | "cheque")[];
+        type:   | "bank_transfer"
+           | "cash"
+           | "stripe_connect"
+           | "stripe_direct"
+           | "adyen"
+           | "square"
+           | "paypal";
+        updatedAt: string;
+     };
+  };
+  GetPaymentResponse: {
+     payment: {
+        amount: string;
+        createdAt: string;
+        currency: string;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        invoiceId: string | null;
+        method: string | null;
+        organisationId: string;
+        paidAt: string | null;
+        status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+        updatedAt: string;
+      } & {
+        accountId: string;
+        amount: number;
+        applicationFee: number | null;
+        cancelledAt: string | null;
+        capturedAt: string | null;
+        clientSecret: string | null;
+        createdAt: string;
+        currency: string;
+        expiresAt: string | null;
+        externalPaymentId: string | null;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        isPartialPayment: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        netAmount: number | null;
+        orderId: string;
+        orderNumber: string;
+        organisationId: string;
+        paymentMethod:   | {
+           brand: string | null;
+           expiryMonth: number | null;
+           expiryYear: number | null;
+           last4: string | null;
+           type: "card" | "bank_transfer" | "cash" | "wallet";
+         }
+           | null;
+        paymentProviderId: string;
+        paymentType:   | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+           | "cheque";
+        processingFee: number | null;
+        redirectUrl: string | null;
+        remainingBalance: number | null;
+        status:   | "cancelled"
+           | "pending"
+           | "succeeded"
+           | "failed"
+           | "processing"
+           | "expired"
+           | "requires_action"
+           | "created";
+        updatedAt: string;
+     };
+  };
+  GetPaymentStatusResponse: {
+     amount: string | null;
+     currency: string | null;
+     failedAt: string | null;
+     failureReason: string | null;
+     paidAt: string | null;
+     paymentId: string | null;
+     status:   | "cancelled"
+        | "pending"
+        | "succeeded"
+        | "failed"
+        | "processing"
+        | "requires_action"
+        | "none";
   };
   GetPriceSchemeResponse: {
      priceScheme: {
@@ -650,6 +1753,28 @@ schemas: {
            price: number;
            typeId: string;
         }[];
+        updatedAt: string;
+     };
+  };
+  GetReservationResponse: {
+     reservation: {
+        accountId: string;
+        createdAt: string;
+        expiresAt: string | null;
+        heldBy: string | null;
+        id: string;
+        inventoryId: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        quantity: number;
+        reason: string | null;
+        referenceId: string | null;
+        referenceType: "subscription" | "order" | "hold" | null;
+        seatIds: string[] | null;
+        type: "confirmed" | "maintenance" | "hold" | "temporary";
         updatedAt: string;
      };
   };
@@ -777,6 +1902,96 @@ schemas: {
      userinfoEndpoint: string | null;
      userinfoEndpointInternal: string | null;
   };
+  InitiatePaymentResponse: {
+     clientSecret: string | null;
+     expiresAt: string | null;
+     paymentId: string;
+     redirectUrl: string | null;
+     status: "pending" | "succeeded" | "failed" | "processing" | "requires_action";
+  };
+  Inventory: {
+     accountId: string;
+     available: number;
+     confirmed: number;
+     createdAt: string;
+     eventId: string | null;
+     eventLayoutAreaId: string | null;
+     eventOccurrenceId: string | null;
+     held: number;
+     id: string;
+     isAllocated: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     productId: string | null;
+     reserved: number;
+     sourceType: "event_occurrence_area" | "product";
+     totalCapacity: number;
+     updatedAt: string;
+     version: number;
+  };
+  InventoryReservation: {
+     accountId: string;
+     createdAt: string;
+     expiresAt: string | null;
+     heldBy: string | null;
+     id: string;
+     inventoryId: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     quantity: number;
+     reason: string | null;
+     referenceId: string | null;
+     referenceType: "subscription" | "order" | "hold" | null;
+     seatIds: string[] | null;
+     type: "confirmed" | "maintenance" | "hold" | "temporary";
+     updatedAt: string;
+  };
+  InventorySeat: {
+     accountId: string;
+     attributes:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     createdAt: string;
+     eventLayoutSeatId: string | null;
+     id: string;
+     inventoryId: string;
+     isAccessible: boolean;
+     isCompanion: boolean;
+     organisationId: string;
+     priceCategory: string | null;
+     reservationId: string | null;
+     rowName: string;
+     seatNumber: string;
+     status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+     updatedAt: string;
+     version: number;
+  };
+  Invoice: {
+     amountDue: string;
+     amountPaid: string;
+     createdAt: string;
+     currency: string;
+     dueDate: string | null;
+     id: string;
+     invoiceNumber: string;
+     issueDate: string;
+     organisationId: string;
+     paidAt: string | null;
+     pdfUrl: string | null;
+     status: "draft" | "open" | "paid" | "void" | "uncollectible";
+     subtotal: string;
+     tax: string;
+     total: string;
+     type: "purchase" | "subscription" | "payg";
+     updatedAt: string;
+  };
   ListAccountsResponse: {
      accounts: {
         createdAt: string;
@@ -787,6 +2002,33 @@ schemas: {
         status: "active" | "inactive";
         updatedAt: string;
      }[];
+  };
+  ListCustomersResponse: {
+     customers: {
+        accountId: string | null;
+        blockedAt: string | null;
+        blockedReason: string | null;
+        createdAt: string;
+        email: string;
+        externalId: string | null;
+        firstName: string | null;
+        id: string;
+        isBlocked: boolean;
+        lastName: string | null;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        phone: string | null;
+        updatedAt: string;
+     }[];
+     pagination: {
+        limit: number;
+        page: number;
+        total: number;
+        totalPages: number;
+     };
   };
   ListEventOccurrencesResponse: {
      eventOccurrences: {
@@ -878,6 +2120,221 @@ schemas: {
         userinfoEndpointInternal: string | null;
      }[];
   };
+  ListInventoryResponse: {
+     inventory: {
+        accountId: string;
+        available: number;
+        confirmed: number;
+        createdAt: string;
+        eventId: string | null;
+        eventLayoutAreaId: string | null;
+        eventOccurrenceId: string | null;
+        held: number;
+        id: string;
+        isAllocated: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        productId: string | null;
+        reserved: number;
+        sourceType: "event_occurrence_area" | "product";
+        totalCapacity: number;
+        updatedAt: string;
+        version: number;
+     }[];
+  };
+  ListInvoicesResponse: {
+     invoices: {
+        amountDue: string;
+        amountPaid: string;
+        createdAt: string;
+        currency: string;
+        dueDate: string | null;
+        id: string;
+        invoiceNumber: string;
+        issueDate: string;
+        organisationId: string;
+        paidAt: string | null;
+        pdfUrl: string | null;
+        status: "draft" | "open" | "paid" | "void" | "uncollectible";
+        subtotal: string;
+        tax: string;
+        total: string;
+        type: "purchase" | "subscription" | "payg";
+        updatedAt: string;
+     }[];
+  };
+  ListOrdersResponse: {
+     orders: {
+        accountId: string;
+        cancellationReason: string | null;
+        cancelledAt: string | null;
+        channel: string | null;
+        completedAt: string | null;
+        confirmedAt: string | null;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        customerNotes: string | null;
+        discountTotal: string;
+        expiresAt: string | null;
+        feeTotal: string;
+        id: string;
+        internalNotes: string | null;
+        isGuestCheckout: boolean;
+        items?: {
+           createdAt: string;
+           description: string | null;
+           feeDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           name: string;
+           orderId: string;
+           productDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           quantity: number;
+           ticketDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           totalPrice: string;
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+           updatedAt: string;
+        }[];
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderNumber: string;
+        organisationId: string;
+        status:   | "completed"
+           | "cancelled"
+           | "pending"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+        subtotal: string;
+        taxTotal: string;
+        total: string;
+        updatedAt: string;
+     }[];
+     pagination: {
+        limit: number;
+        page: number;
+        total: number;
+        totalPages: number;
+     };
+  };
+  ListPackagesResponse: {
+     packages: {
+        baseCurrency: string;
+        basePrice: string;
+        credits: number;
+        discountPercent: string;
+        displayOrder: number;
+        finalPrice: string;
+        id: string;
+        isActive: boolean;
+        name: string;
+     }[];
+  };
+  ListPaymentProvidersResponse: {
+     pagination: {
+        limit: number;
+        page: number;
+        total: number;
+        totalPages: number;
+     };
+     providers: {
+        accountId: string | null;
+        applicationFee:   | {
+           type: "percentage" | "fixed";
+           value: number;
+         }
+           | null;
+        capabilities:   | {
+           maxAmount?: number;
+           minAmount?: number;
+           requiresCustomerAction?: boolean;
+           supportedCurrencies?: string[];
+           supportsDelayedCapture?: boolean;
+           supportsInstantCapture?: boolean;
+           supportsPartialRefunds?: boolean;
+           supportsRefunds?: boolean;
+         }
+           | null;
+        configuration: {
+         [key: string]: unknown;
+        };
+        createdAt: string;
+        description: string | null;
+        feeStructure:   | {
+           currency?: string;
+           fixed?: number;
+           percentage?: number;
+           type: "percentage" | "fixed" | "percentage_plus_fixed";
+         }
+           | null;
+        id: string;
+        integrationServiceUrl: string | null;
+        integrationServiceVersion: string;
+        isDefault: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        organisationId: string;
+        priority: number;
+        status: "active" | "inactive" | "pending_setup";
+        supportedPaymentTypes: (
+           | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+          | "cheque")[];
+        type:   | "bank_transfer"
+           | "cash"
+           | "stripe_connect"
+           | "stripe_direct"
+           | "adyen"
+           | "square"
+           | "paypal";
+        updatedAt: string;
+     }[];
+  };
+  ListPaymentsResponse: {
+     payments: {
+        amount: string;
+        createdAt: string;
+        currency: string;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        invoiceId: string | null;
+        method: string | null;
+        organisationId: string;
+        paidAt: string | null;
+        status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+        updatedAt: string;
+     }[];
+  };
   ListPriceSchemesResponse: {
      priceSchemes: {
         accountId: string;
@@ -899,6 +2356,49 @@ schemas: {
         updatedAt: string;
      }[];
   };
+  ListRefundsResponse: {
+     refunds: {
+        amount: number;
+        completedAt: string | null;
+        createdAt: string;
+        externalRefundId: string | null;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        notes: string | null;
+        paymentId: string;
+        reason: string;
+        status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+        updatedAt: string;
+     }[];
+  };
+  ListReservationsResponse: {
+     reservations: {
+        accountId: string;
+        createdAt: string;
+        expiresAt: string | null;
+        heldBy: string | null;
+        id: string;
+        inventoryId: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        quantity: number;
+        reason: string | null;
+        referenceId: string | null;
+        referenceType: "subscription" | "order" | "hold" | null;
+        seatIds: string[] | null;
+        type: "confirmed" | "maintenance" | "hold" | "temporary";
+        updatedAt: string;
+     }[];
+  };
   ListRolesResponse: {
      roles: {
         createdAt: string;
@@ -910,6 +2410,67 @@ schemas: {
         organisationId: string;
         permissions: string[];
         updatedAt: string;
+     }[];
+  };
+  ListSeatsResponse: {
+     seats: {
+        accountId: string;
+        attributes:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        createdAt: string;
+        eventLayoutSeatId: string | null;
+        id: string;
+        inventoryId: string;
+        isAccessible: boolean;
+        isCompanion: boolean;
+        organisationId: string;
+        priceCategory: string | null;
+        reservationId: string | null;
+        rowName: string;
+        seatNumber: string;
+        status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+        updatedAt: string;
+        version: number;
+     }[];
+  };
+  ListSubscriptionsResponse: {
+     subscriptions: {
+        cancelledAt: string | null;
+        createdAt: string;
+        credits: number;
+        currency: string;
+        currentPeriodEnd: string | null;
+        currentPeriodStart: string | null;
+        endedAt: string | null;
+        id: string;
+        interval: "month" | "year";
+        organisationId: string;
+        packageId: string;
+        price: string;
+        status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+        updatedAt: string;
+     }[];
+  };
+  ListTransactionsResponse: {
+     transactions: {
+        amount: number;
+        balanceAfter: number;
+        balanceBefore: number;
+        createdAt: string;
+        description: string | null;
+        id: string;
+        invoiceId: string | null;
+        orderId: string | null;
+        organisationId: string;
+        subscriptionId: string | null;
+        type:   | "initial"
+           | "purchase"
+           | "subscription"
+           | "ticket_sale"
+           | "adjustment"
+           | "refund";
      }[];
   };
   ListUserAccountRolesResponse: {
@@ -1081,6 +2642,98 @@ schemas: {
      identityProvider?: string;
      lastName?: string;
   };
+  Order: {
+     accountId: string;
+     cancellationReason: string | null;
+     cancelledAt: string | null;
+     channel: string | null;
+     completedAt: string | null;
+     confirmedAt: string | null;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     customerNotes: string | null;
+     discountTotal: string;
+     expiresAt: string | null;
+     feeTotal: string;
+     id: string;
+     internalNotes: string | null;
+     isGuestCheckout: boolean;
+     items?: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     }[];
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderNumber: string;
+     organisationId: string;
+     status:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     subtotal: string;
+     taxTotal: string;
+     total: string;
+     updatedAt: string;
+  };
+  OrderLineItem: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  };
   Organisation: {
      createdAt: string;
      id: string;
@@ -1101,6 +2754,99 @@ schemas: {
      total: number;
      totalPages: number;
   };
+  Payment: {
+     amount: string;
+     createdAt: string;
+     currency: string;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     invoiceId: string | null;
+     method: string | null;
+     organisationId: string;
+     paidAt: string | null;
+     status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+     updatedAt: string;
+  };
+  PaymentMethodDetails:   | {
+     brand: string | null;
+     expiryMonth: number | null;
+     expiryYear: number | null;
+     last4: string | null;
+     type: "card" | "bank_transfer" | "cash" | "wallet";
+   }
+     | null;
+  PaymentProvider: {
+     accountId: string | null;
+     applicationFee:   | {
+        type: "percentage" | "fixed";
+        value: number;
+      }
+        | null;
+     capabilities:   | {
+        maxAmount?: number;
+        minAmount?: number;
+        requiresCustomerAction?: boolean;
+        supportedCurrencies?: string[];
+        supportsDelayedCapture?: boolean;
+        supportsInstantCapture?: boolean;
+        supportsPartialRefunds?: boolean;
+        supportsRefunds?: boolean;
+      }
+        | null;
+     configuration: {
+      [key: string]: unknown;
+     };
+     createdAt: string;
+     description: string | null;
+     feeStructure:   | {
+        currency?: string;
+        fixed?: number;
+        percentage?: number;
+        type: "percentage" | "fixed" | "percentage_plus_fixed";
+      }
+        | null;
+     id: string;
+     integrationServiceUrl: string | null;
+     integrationServiceVersion: string;
+     isDefault: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     organisationId: string;
+     priority: number;
+     status: "active" | "inactive" | "pending_setup";
+     supportedPaymentTypes: (
+        | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+       | "cheque")[];
+     type:   | "bank_transfer"
+        | "cash"
+        | "stripe_connect"
+        | "stripe_direct"
+        | "adyen"
+        | "square"
+        | "paypal";
+     updatedAt: string;
+  };
+  PaymentProviderCapabilities:   | {
+     maxAmount?: number;
+     minAmount?: number;
+     requiresCustomerAction?: boolean;
+     supportedCurrencies?: string[];
+     supportsDelayedCapture?: boolean;
+     supportsInstantCapture?: boolean;
+     supportsPartialRefunds?: boolean;
+     supportsRefunds?: boolean;
+   }
+     | null;
   PriceScheme: {
      accountId: string;
      createdAt: string;
@@ -1119,6 +2865,62 @@ schemas: {
         typeId: string;
      }[];
      updatedAt: string;
+  };
+  PurchaseResult: {
+     invoice: {
+        amountDue: string;
+        amountPaid: string;
+        createdAt: string;
+        currency: string;
+        dueDate: string | null;
+        id: string;
+        invoiceNumber: string;
+        issueDate: string;
+        organisationId: string;
+        paidAt: string | null;
+        pdfUrl: string | null;
+        status: "draft" | "open" | "paid" | "void" | "uncollectible";
+        subtotal: string;
+        tax: string;
+        total: string;
+        type: "purchase" | "subscription" | "payg";
+        updatedAt: string;
+     };
+     newBalance: number;
+     payment: {
+        amount: string;
+        createdAt: string;
+        currency: string;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        invoiceId: string | null;
+        method: string | null;
+        organisationId: string;
+        paidAt: string | null;
+        status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+        updatedAt: string;
+     };
+     success: boolean;
+     transaction: {
+        amount: number;
+        balanceAfter: number;
+        balanceBefore: number;
+        createdAt: string;
+        description: string | null;
+        id: string;
+        invoiceId: string | null;
+        orderId: string | null;
+        organisationId: string;
+        subscriptionId: string | null;
+        type:   | "initial"
+           | "purchase"
+           | "subscription"
+           | "ticket_sale"
+           | "adjustment"
+           | "refund";
+     };
   };
   RedeemInvitationRequest: {
      code: string;
@@ -1141,8 +2943,99 @@ schemas: {
      accessToken: string;
      refreshToken: string;
   };
+  Refund: {
+     amount: number;
+     completedAt: string | null;
+     createdAt: string;
+     externalRefundId: string | null;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     notes: string | null;
+     paymentId: string;
+     reason: string;
+     status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+     updatedAt: string;
+  };
+  ReleaseHoldResponse: {
+     message: string;
+  };
+  ReleaseReservationResponse: {
+     message: string;
+  };
   RemoveAssignmentResponse: {
      success: boolean;
+  };
+  RemoveLineItemResponse: {
+     order: {
+        accountId: string;
+        cancellationReason: string | null;
+        cancelledAt: string | null;
+        channel: string | null;
+        completedAt: string | null;
+        confirmedAt: string | null;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        customerNotes: string | null;
+        discountTotal: string;
+        expiresAt: string | null;
+        feeTotal: string;
+        id: string;
+        internalNotes: string | null;
+        isGuestCheckout: boolean;
+        items?: {
+           createdAt: string;
+           description: string | null;
+           feeDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           name: string;
+           orderId: string;
+           productDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           quantity: number;
+           ticketDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           totalPrice: string;
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+           updatedAt: string;
+        }[];
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderNumber: string;
+        organisationId: string;
+        status:   | "completed"
+           | "cancelled"
+           | "pending"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+        subtotal: string;
+        taxTotal: string;
+        total: string;
+        updatedAt: string;
+     };
   };
   ResendUserInvitationResponse: {
      invitation: {
@@ -1156,6 +3049,28 @@ schemas: {
         userId: string;
      };
   };
+  ReserveInventoryResponse: {
+     reservation: {
+        accountId: string;
+        createdAt: string;
+        expiresAt: string | null;
+        heldBy: string | null;
+        id: string;
+        inventoryId: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        quantity: number;
+        reason: string | null;
+        referenceId: string | null;
+        referenceType: "subscription" | "order" | "hold" | null;
+        seatIds: string[] | null;
+        type: "confirmed" | "maintenance" | "hold" | "temporary";
+        updatedAt: string;
+     };
+  };
   Role: {
      createdAt: string;
      description: string | null;
@@ -1165,6 +3080,22 @@ schemas: {
      name: string;
      organisationId: string;
      permissions: string[];
+     updatedAt: string;
+  };
+  Subscription: {
+     cancelledAt: string | null;
+     createdAt: string;
+     credits: number;
+     currency: string;
+     currentPeriodEnd: string | null;
+     currentPeriodStart: string | null;
+     endedAt: string | null;
+     id: string;
+     interval: "month" | "year";
+     organisationId: string;
+     packageId: string;
+     price: string;
+     status: "active" | "cancelled" | "paused" | "past_due" | "ended";
      updatedAt: string;
   };
   SuccessResponse: {
@@ -1201,6 +3132,93 @@ schemas: {
      price: number;
      typeId: string;
   };
+  TransitionOrderStatusResponse: {
+     order: {
+        accountId: string;
+        cancellationReason: string | null;
+        cancelledAt: string | null;
+        channel: string | null;
+        completedAt: string | null;
+        confirmedAt: string | null;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        customerNotes: string | null;
+        discountTotal: string;
+        expiresAt: string | null;
+        feeTotal: string;
+        id: string;
+        internalNotes: string | null;
+        isGuestCheckout: boolean;
+        items?: {
+           createdAt: string;
+           description: string | null;
+           feeDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           name: string;
+           orderId: string;
+           productDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           quantity: number;
+           ticketDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           totalPrice: string;
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+           updatedAt: string;
+        }[];
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderNumber: string;
+        organisationId: string;
+        status:   | "completed"
+           | "cancelled"
+           | "pending"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+        subtotal: string;
+        taxTotal: string;
+        total: string;
+        updatedAt: string;
+     };
+  };
+  UnblockCustomerResponse: {
+     customer: {
+        accountId: string | null;
+        blockedAt: string | null;
+        blockedReason: string | null;
+        createdAt: string;
+        email: string;
+        externalId: string | null;
+        firstName: string | null;
+        id: string;
+        isBlocked: boolean;
+        lastName: string | null;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        phone: string | null;
+        updatedAt: string;
+     };
+  };
   UpdateAccountResponse: {
      account: {
         createdAt: string;
@@ -1226,6 +3244,25 @@ schemas: {
      };
      venueLayout?: unknown;
   };
+  UpdateAutoTopupRequest: {
+     enabled: boolean;
+     thresholdCredits: number;
+     topupPackageId: string;
+  };
+  UpdateAutoTopupResponse: {
+     autoTopup: {
+        attemptsToday: number;
+        createdAt: string;
+        enabled: boolean;
+        id: string;
+        lastAttemptAt: string | null;
+        maxAttemptsPerDay: number;
+        organisationId: string;
+        thresholdCredits: number;
+        topupPackageId: string;
+        updatedAt: string;
+     } & Record<string, never>;
+  };
   UpdateCategoryResponse: {
      category: {
         color?: string;
@@ -1235,6 +3272,27 @@ schemas: {
         name: string;
      };
      venueLayout?: unknown;
+  };
+  UpdateCustomerResponse: {
+     customer: {
+        accountId: string | null;
+        blockedAt: string | null;
+        blockedReason: string | null;
+        createdAt: string;
+        email: string;
+        externalId: string | null;
+        firstName: string | null;
+        id: string;
+        isBlocked: boolean;
+        lastName: string | null;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        phone: string | null;
+        updatedAt: string;
+     };
   };
   UpdateEventOccurrenceResponse: {
      eventOccurrence: {
@@ -1321,6 +3379,191 @@ schemas: {
         userinfoEndpointInternal: string | null;
      };
   };
+  UpdateInventoryResponse: {
+     inventory: {
+        accountId: string;
+        available: number;
+        confirmed: number;
+        createdAt: string;
+        eventId: string | null;
+        eventLayoutAreaId: string | null;
+        eventOccurrenceId: string | null;
+        held: number;
+        id: string;
+        isAllocated: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        productId: string | null;
+        reserved: number;
+        sourceType: "event_occurrence_area" | "product";
+        totalCapacity: number;
+        updatedAt: string;
+        version: number;
+     };
+  };
+  UpdateLineItemResponse: {
+     item: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     };
+     order: {
+        accountId: string;
+        cancellationReason: string | null;
+        cancelledAt: string | null;
+        channel: string | null;
+        completedAt: string | null;
+        confirmedAt: string | null;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        customerNotes: string | null;
+        discountTotal: string;
+        expiresAt: string | null;
+        feeTotal: string;
+        id: string;
+        internalNotes: string | null;
+        isGuestCheckout: boolean;
+        items?: {
+           createdAt: string;
+           description: string | null;
+           feeDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           name: string;
+           orderId: string;
+           productDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           quantity: number;
+           ticketDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           totalPrice: string;
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+           updatedAt: string;
+        }[];
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderNumber: string;
+        organisationId: string;
+        status:   | "completed"
+           | "cancelled"
+           | "pending"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+        subtotal: string;
+        taxTotal: string;
+        total: string;
+        updatedAt: string;
+     };
+  };
+  UpdateOrderResponse: {
+     order: {
+        accountId: string;
+        cancellationReason: string | null;
+        cancelledAt: string | null;
+        channel: string | null;
+        completedAt: string | null;
+        confirmedAt: string | null;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        customerNotes: string | null;
+        discountTotal: string;
+        expiresAt: string | null;
+        feeTotal: string;
+        id: string;
+        internalNotes: string | null;
+        isGuestCheckout: boolean;
+        items?: {
+           createdAt: string;
+           description: string | null;
+           feeDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           name: string;
+           orderId: string;
+           productDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           quantity: number;
+           ticketDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           totalPrice: string;
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+           updatedAt: string;
+        }[];
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderNumber: string;
+        organisationId: string;
+        status:   | "completed"
+           | "cancelled"
+           | "pending"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+        subtotal: string;
+        taxTotal: string;
+        total: string;
+        updatedAt: string;
+     };
+  };
   UpdateOrganisationRequest: {
      logoUrl?: string;
      metadata?: {
@@ -1341,6 +3584,67 @@ schemas: {
         name: string;
         primaryColor?: string;
         secondaryColor?: string;
+        updatedAt: string;
+     };
+  };
+  UpdatePaymentProviderResponse: {
+     provider: {
+        accountId: string | null;
+        applicationFee:   | {
+           type: "percentage" | "fixed";
+           value: number;
+         }
+           | null;
+        capabilities:   | {
+           maxAmount?: number;
+           minAmount?: number;
+           requiresCustomerAction?: boolean;
+           supportedCurrencies?: string[];
+           supportsDelayedCapture?: boolean;
+           supportsInstantCapture?: boolean;
+           supportsPartialRefunds?: boolean;
+           supportsRefunds?: boolean;
+         }
+           | null;
+        configuration: {
+         [key: string]: unknown;
+        };
+        createdAt: string;
+        description: string | null;
+        feeStructure:   | {
+           currency?: string;
+           fixed?: number;
+           percentage?: number;
+           type: "percentage" | "fixed" | "percentage_plus_fixed";
+         }
+           | null;
+        id: string;
+        integrationServiceUrl: string | null;
+        integrationServiceVersion: string;
+        isDefault: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        organisationId: string;
+        priority: number;
+        status: "active" | "inactive" | "pending_setup";
+        supportedPaymentTypes: (
+           | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+          | "cheque")[];
+        type:   | "bank_transfer"
+           | "cash"
+           | "stripe_connect"
+           | "stripe_direct"
+           | "adyen"
+           | "square"
+           | "paypal";
         updatedAt: string;
      };
   };
@@ -1541,6 +3845,14 @@ schemas: {
      redeemedAt: string | null;
      userId: string;
   };
+  ValidateOrderResponse: {
+     errors: {
+        code: string;
+        itemId?: string;
+        message: string;
+     }[];
+     valid: boolean;
+  };
   Venue: {
      accountId: string;
      coordinates?: {
@@ -1652,7 +3964,7 @@ schemas: {
 };
 ```
 
-Defined in: generated/types.ts:950
+Defined in: generated/types.ts:1930
 
 #### Account
 
@@ -1997,6 +4309,736 @@ Premium
 optional venueLayout: unknown;
 ```
 
+#### AddLineItemResponse
+
+```ts
+AddLineItemResponse: {
+  item: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  };
+  order: {
+     accountId: string;
+     cancellationReason: string | null;
+     cancelledAt: string | null;
+     channel: string | null;
+     completedAt: string | null;
+     confirmedAt: string | null;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     customerNotes: string | null;
+     discountTotal: string;
+     expiresAt: string | null;
+     feeTotal: string;
+     id: string;
+     internalNotes: string | null;
+     isGuestCheckout: boolean;
+     items?: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     }[];
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderNumber: string;
+     organisationId: string;
+     status:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     subtotal: string;
+     taxTotal: string;
+     total: string;
+     updatedAt: string;
+  };
+};
+```
+
+##### AddLineItemResponse.item
+
+```ts
+item: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+};
+```
+
+##### AddLineItemResponse.item.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### AddLineItemResponse.item.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Entry to main event area
+```
+
+##### AddLineItemResponse.item.feeDetails
+
+```ts
+feeDetails: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### AddLineItemResponse.item.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+oli_abc123
+```
+
+##### AddLineItemResponse.item.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "source": "web"
+             *     }
+```
+
+##### AddLineItemResponse.item.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+General Admission
+```
+
+##### AddLineItemResponse.item.orderId
+
+```ts
+orderId: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### AddLineItemResponse.item.productDetails
+
+```ts
+productDetails: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### AddLineItemResponse.item.quantity
+
+```ts
+quantity: number;
+```
+
+###### Example
+
+```ts
+2
+```
+
+##### AddLineItemResponse.item.ticketDetails
+
+```ts
+ticketDetails: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "eventId": "evt_123"
+             *     }
+```
+
+##### AddLineItemResponse.item.totalPrice
+
+```ts
+totalPrice: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### AddLineItemResponse.item.type
+
+```ts
+type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+```
+
+###### Example
+
+```ts
+ticket
+@enum {string}
+```
+
+##### AddLineItemResponse.item.unitPrice
+
+```ts
+unitPrice: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### AddLineItemResponse.item.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### AddLineItemResponse.order
+
+```ts
+order: {
+  accountId: string;
+  cancellationReason: string | null;
+  cancelledAt: string | null;
+  channel: string | null;
+  completedAt: string | null;
+  confirmedAt: string | null;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  customerNotes: string | null;
+  discountTotal: string;
+  expiresAt: string | null;
+  feeTotal: string;
+  id: string;
+  internalNotes: string | null;
+  isGuestCheckout: boolean;
+  items?: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  }[];
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderNumber: string;
+  organisationId: string;
+  status:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  subtotal: string;
+  taxTotal: string;
+  total: string;
+  updatedAt: string;
+};
+```
+
+##### AddLineItemResponse.order.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### AddLineItemResponse.order.cancellationReason
+
+```ts
+cancellationReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### AddLineItemResponse.order.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### AddLineItemResponse.order.channel
+
+```ts
+channel: string | null;
+```
+
+###### Example
+
+```ts
+web
+```
+
+##### AddLineItemResponse.order.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### AddLineItemResponse.order.confirmedAt
+
+```ts
+confirmedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### AddLineItemResponse.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### AddLineItemResponse.order.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### AddLineItemResponse.order.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### AddLineItemResponse.order.customerNotes
+
+```ts
+customerNotes: string | null;
+```
+
+###### Example
+
+```ts
+Please contact me before delivery
+```
+
+##### AddLineItemResponse.order.discountTotal
+
+```ts
+discountTotal: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### AddLineItemResponse.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+##### AddLineItemResponse.order.feeTotal
+
+```ts
+feeTotal: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### AddLineItemResponse.order.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### AddLineItemResponse.order.internalNotes
+
+```ts
+internalNotes: string | null;
+```
+
+###### Example
+
+```ts
+VIP customer
+```
+
+##### AddLineItemResponse.order.isGuestCheckout
+
+```ts
+isGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### AddLineItemResponse.order.items?
+
+```ts
+optional items: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+}[];
+```
+
+###### Description
+
+Order line items
+
+##### AddLineItemResponse.order.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "promoCode": "SUMMER20"
+             *     }
+```
+
+##### AddLineItemResponse.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### AddLineItemResponse.order.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### AddLineItemResponse.order.status
+
+```ts
+status: 
+  | "completed"
+  | "cancelled"
+  | "pending"
+  | "failed"
+  | "refunded"
+  | "confirmed"
+  | "processing"
+  | "expired";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+##### AddLineItemResponse.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### AddLineItemResponse.order.taxTotal
+
+```ts
+taxTotal: string;
+```
+
+###### Example
+
+```ts
+10.00
+```
+
+##### AddLineItemResponse.order.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+62.50
+```
+
+##### AddLineItemResponse.order.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
 #### AddSeatResponse
 
 ```ts
@@ -2204,6 +5246,32 @@ available
 ```ts
 optional venueLayout: unknown;
 ```
+
+#### ApplicationFee
+
+```ts
+ApplicationFee: 
+  | {
+  type: "percentage" | "fixed";
+  value: number;
+}
+  | null;
+```
+
+##### Type Declaration
+
+```ts
+{
+  type: "percentage" | "fixed";
+  value: number;
+}
+```
+
+`null`
+
+##### Description
+
+Application fee configuration
 
 #### AssignRoleRequest
 
@@ -2489,6 +5557,405 @@ userId: string;
 usr_abc123
 ```
 
+#### AuditLogEntry
+
+```ts
+AuditLogEntry: {
+  action: string;
+  actorId: string | null;
+  actorType: string | null;
+  changes: {
+   [key: string]: unknown;
+  };
+  createdAt: string;
+  id: number;
+  inventoryId: string;
+  referenceId: string | null;
+  referenceType: string | null;
+};
+```
+
+##### AuditLogEntry.action
+
+```ts
+action: string;
+```
+
+###### Example
+
+```ts
+reserve
+```
+
+##### AuditLogEntry.actorId
+
+```ts
+actorId: string | null;
+```
+
+###### Example
+
+```ts
+usr_abc123
+```
+
+##### AuditLogEntry.actorType
+
+```ts
+actorType: string | null;
+```
+
+###### Example
+
+```ts
+user
+```
+
+##### AuditLogEntry.changes
+
+```ts
+changes: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Example
+
+```ts
+{
+             *       "quantity": 2,
+             *       "type": "temporary"
+             *     }
+```
+
+##### AuditLogEntry.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:30:00Z
+```
+
+##### AuditLogEntry.id
+
+```ts
+id: number;
+```
+
+###### Example
+
+```ts
+1
+```
+
+##### AuditLogEntry.inventoryId
+
+```ts
+inventoryId: string;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### AuditLogEntry.referenceId
+
+```ts
+referenceId: string | null;
+```
+
+###### Example
+
+```ts
+ord_def456
+```
+
+##### AuditLogEntry.referenceType
+
+```ts
+referenceType: string | null;
+```
+
+###### Example
+
+```ts
+order
+```
+
+#### AutoTopupConfig
+
+```ts
+AutoTopupConfig: 
+  | {
+  attemptsToday: number;
+  createdAt: string;
+  enabled: boolean;
+  id: string;
+  lastAttemptAt: string | null;
+  maxAttemptsPerDay: number;
+  organisationId: string;
+  thresholdCredits: number;
+  topupPackageId: string;
+  updatedAt: string;
+}
+  | null;
+```
+
+##### Type Declaration
+
+```ts
+{
+  attemptsToday: number;
+  createdAt: string;
+  enabled: boolean;
+  id: string;
+  lastAttemptAt: string | null;
+  maxAttemptsPerDay: number;
+  organisationId: string;
+  thresholdCredits: number;
+  topupPackageId: string;
+  updatedAt: string;
+}
+```
+
+`null`
+
+#### BlockCustomerResponse
+
+```ts
+BlockCustomerResponse: {
+  customer: {
+     accountId: string | null;
+     blockedAt: string | null;
+     blockedReason: string | null;
+     createdAt: string;
+     email: string;
+     externalId: string | null;
+     firstName: string | null;
+     id: string;
+     isBlocked: boolean;
+     lastName: string | null;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     phone: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### BlockCustomerResponse.customer
+
+```ts
+customer: {
+  accountId: string | null;
+  blockedAt: string | null;
+  blockedReason: string | null;
+  createdAt: string;
+  email: string;
+  externalId: string | null;
+  firstName: string | null;
+  id: string;
+  isBlocked: boolean;
+  lastName: string | null;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  phone: string | null;
+  updatedAt: string;
+};
+```
+
+##### BlockCustomerResponse.customer.accountId
+
+```ts
+accountId: string | null;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### BlockCustomerResponse.customer.blockedAt
+
+```ts
+blockedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### BlockCustomerResponse.customer.blockedReason
+
+```ts
+blockedReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### BlockCustomerResponse.customer.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### BlockCustomerResponse.customer.email
+
+```ts
+email: string;
+```
+
+###### Example
+
+```ts
+customer@example.com
+```
+
+##### BlockCustomerResponse.customer.externalId
+
+```ts
+externalId: string | null;
+```
+
+###### Example
+
+```ts
+ext_cust_12345
+```
+
+##### BlockCustomerResponse.customer.firstName
+
+```ts
+firstName: string | null;
+```
+
+###### Example
+
+```ts
+John
+```
+
+##### BlockCustomerResponse.customer.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### BlockCustomerResponse.customer.isBlocked
+
+```ts
+isBlocked: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### BlockCustomerResponse.customer.lastName
+
+```ts
+lastName: string | null;
+```
+
+###### Example
+
+```ts
+Doe
+```
+
+##### BlockCustomerResponse.customer.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "loyaltyTier": "gold"
+             *     }
+```
+
+##### BlockCustomerResponse.customer.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### BlockCustomerResponse.customer.phone
+
+```ts
+phone: string | null;
+```
+
+###### Example
+
+```ts
++44 7700 900000
+```
+
+##### BlockCustomerResponse.customer.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-20T14:45:00Z
+```
+
 #### BulkAddSeatsResponse
 
 ```ts
@@ -2514,6 +5981,1790 @@ seatsAdded: number;
 
 ```ts
 optional venueLayout: unknown;
+```
+
+#### BulkImportSeatsResponse
+
+```ts
+BulkImportSeatsResponse: {
+  count: number;
+  seats: {
+     accountId: string;
+     attributes:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     createdAt: string;
+     eventLayoutSeatId: string | null;
+     id: string;
+     inventoryId: string;
+     isAccessible: boolean;
+     isCompanion: boolean;
+     organisationId: string;
+     priceCategory: string | null;
+     reservationId: string | null;
+     rowName: string;
+     seatNumber: string;
+     status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+     updatedAt: string;
+     version: number;
+  }[];
+};
+```
+
+##### BulkImportSeatsResponse.count
+
+```ts
+count: number;
+```
+
+###### Example
+
+```ts
+100
+```
+
+##### BulkImportSeatsResponse.seats
+
+```ts
+seats: {
+  accountId: string;
+  attributes:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  createdAt: string;
+  eventLayoutSeatId: string | null;
+  id: string;
+  inventoryId: string;
+  isAccessible: boolean;
+  isCompanion: boolean;
+  organisationId: string;
+  priceCategory: string | null;
+  reservationId: string | null;
+  rowName: string;
+  seatNumber: string;
+  status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+  updatedAt: string;
+  version: number;
+}[];
+```
+
+#### CancelOrderResponse
+
+```ts
+CancelOrderResponse: {
+  order: {
+     accountId: string;
+     cancellationReason: string | null;
+     cancelledAt: string | null;
+     channel: string | null;
+     completedAt: string | null;
+     confirmedAt: string | null;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     customerNotes: string | null;
+     discountTotal: string;
+     expiresAt: string | null;
+     feeTotal: string;
+     id: string;
+     internalNotes: string | null;
+     isGuestCheckout: boolean;
+     items?: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     }[];
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderNumber: string;
+     organisationId: string;
+     status:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     subtotal: string;
+     taxTotal: string;
+     total: string;
+     updatedAt: string;
+  };
+};
+```
+
+##### CancelOrderResponse.order
+
+```ts
+order: {
+  accountId: string;
+  cancellationReason: string | null;
+  cancelledAt: string | null;
+  channel: string | null;
+  completedAt: string | null;
+  confirmedAt: string | null;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  customerNotes: string | null;
+  discountTotal: string;
+  expiresAt: string | null;
+  feeTotal: string;
+  id: string;
+  internalNotes: string | null;
+  isGuestCheckout: boolean;
+  items?: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  }[];
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderNumber: string;
+  organisationId: string;
+  status:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  subtotal: string;
+  taxTotal: string;
+  total: string;
+  updatedAt: string;
+};
+```
+
+##### CancelOrderResponse.order.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### CancelOrderResponse.order.cancellationReason
+
+```ts
+cancellationReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CancelOrderResponse.order.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CancelOrderResponse.order.channel
+
+```ts
+channel: string | null;
+```
+
+###### Example
+
+```ts
+web
+```
+
+##### CancelOrderResponse.order.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CancelOrderResponse.order.confirmedAt
+
+```ts
+confirmedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CancelOrderResponse.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### CancelOrderResponse.order.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### CancelOrderResponse.order.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### CancelOrderResponse.order.customerNotes
+
+```ts
+customerNotes: string | null;
+```
+
+###### Example
+
+```ts
+Please contact me before delivery
+```
+
+##### CancelOrderResponse.order.discountTotal
+
+```ts
+discountTotal: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### CancelOrderResponse.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+##### CancelOrderResponse.order.feeTotal
+
+```ts
+feeTotal: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### CancelOrderResponse.order.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### CancelOrderResponse.order.internalNotes
+
+```ts
+internalNotes: string | null;
+```
+
+###### Example
+
+```ts
+VIP customer
+```
+
+##### CancelOrderResponse.order.isGuestCheckout
+
+```ts
+isGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### CancelOrderResponse.order.items?
+
+```ts
+optional items: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+}[];
+```
+
+###### Description
+
+Order line items
+
+##### CancelOrderResponse.order.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "promoCode": "SUMMER20"
+             *     }
+```
+
+##### CancelOrderResponse.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### CancelOrderResponse.order.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### CancelOrderResponse.order.status
+
+```ts
+status: 
+  | "completed"
+  | "cancelled"
+  | "pending"
+  | "failed"
+  | "refunded"
+  | "confirmed"
+  | "processing"
+  | "expired";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+##### CancelOrderResponse.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### CancelOrderResponse.order.taxTotal
+
+```ts
+taxTotal: string;
+```
+
+###### Example
+
+```ts
+10.00
+```
+
+##### CancelOrderResponse.order.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+62.50
+```
+
+##### CancelOrderResponse.order.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+#### CancelPaymentResponse
+
+```ts
+CancelPaymentResponse: {
+  payment: {
+     amount: string;
+     createdAt: string;
+     currency: string;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     invoiceId: string | null;
+     method: string | null;
+     organisationId: string;
+     paidAt: string | null;
+     status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+     updatedAt: string;
+   } & {
+     accountId: string;
+     amount: number;
+     applicationFee: number | null;
+     cancelledAt: string | null;
+     capturedAt: string | null;
+     clientSecret: string | null;
+     createdAt: string;
+     currency: string;
+     expiresAt: string | null;
+     externalPaymentId: string | null;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     isPartialPayment: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     netAmount: number | null;
+     orderId: string;
+     orderNumber: string;
+     organisationId: string;
+     paymentMethod:   | {
+        brand: string | null;
+        expiryMonth: number | null;
+        expiryYear: number | null;
+        last4: string | null;
+        type: "card" | "bank_transfer" | "cash" | "wallet";
+      }
+        | null;
+     paymentProviderId: string;
+     paymentType:   | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+        | "cheque";
+     processingFee: number | null;
+     redirectUrl: string | null;
+     remainingBalance: number | null;
+     status:   | "cancelled"
+        | "pending"
+        | "succeeded"
+        | "failed"
+        | "processing"
+        | "expired"
+        | "requires_action"
+        | "created";
+     updatedAt: string;
+  };
+};
+```
+
+##### CancelPaymentResponse.payment
+
+```ts
+payment: {
+  amount: string;
+  createdAt: string;
+  currency: string;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  invoiceId: string | null;
+  method: string | null;
+  organisationId: string;
+  paidAt: string | null;
+  status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+  updatedAt: string;
+} & {
+  accountId: string;
+  amount: number;
+  applicationFee: number | null;
+  cancelledAt: string | null;
+  capturedAt: string | null;
+  clientSecret: string | null;
+  createdAt: string;
+  currency: string;
+  expiresAt: string | null;
+  externalPaymentId: string | null;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  isPartialPayment: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  netAmount: number | null;
+  orderId: string;
+  orderNumber: string;
+  organisationId: string;
+  paymentMethod:   | {
+     brand: string | null;
+     expiryMonth: number | null;
+     expiryYear: number | null;
+     last4: string | null;
+     type: "card" | "bank_transfer" | "cash" | "wallet";
+   }
+     | null;
+  paymentProviderId: string;
+  paymentType:   | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+     | "cheque";
+  processingFee: number | null;
+  redirectUrl: string | null;
+  remainingBalance: number | null;
+  status:   | "cancelled"
+     | "pending"
+     | "succeeded"
+     | "failed"
+     | "processing"
+     | "expired"
+     | "requires_action"
+     | "created";
+  updatedAt: string;
+};
+```
+
+###### Type Declaration
+
+###### amount
+
+```ts
+amount: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+###### createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+###### currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+USD
+```
+
+###### failedAt
+
+```ts
+failedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureCode
+
+```ts
+failureCode: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureMessage
+
+```ts
+failureMessage: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pay_abc123
+```
+
+###### invoiceId
+
+```ts
+invoiceId: string | null;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+###### method
+
+```ts
+method: string | null;
+```
+
+###### Example
+
+```ts
+card
+```
+
+###### organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+###### paidAt
+
+```ts
+paidAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+###### status
+
+```ts
+status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+```
+
+###### Example
+
+```ts
+succeeded
+@enum {string}
+```
+
+###### updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+###### Type Declaration
+
+###### accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+###### amount
+
+```ts
+amount: number;
+```
+
+###### Example
+
+```ts
+97
+```
+
+###### applicationFee
+
+```ts
+applicationFee: number | null;
+```
+
+###### Example
+
+```ts
+2
+```
+
+###### cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### capturedAt
+
+```ts
+capturedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### clientSecret
+
+```ts
+clientSecret: string | null;
+```
+
+###### Example
+
+```ts
+pi_xxx_secret_yyy
+```
+
+###### createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+###### currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+###### expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+###### externalPaymentId
+
+```ts
+externalPaymentId: string | null;
+```
+
+###### Example
+
+```ts
+pi_1234567890abcdef
+```
+
+###### failedAt
+
+```ts
+failedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureCode
+
+```ts
+failureCode: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureMessage
+
+```ts
+failureMessage: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pay_abc123xyz789
+```
+
+###### isPartialPayment
+
+```ts
+isPartialPayment: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+###### metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+                 *       "customerEmail": "customer@example.com"
+                 *     }
+```
+
+###### netAmount
+
+```ts
+netAmount: number | null;
+```
+
+###### Example
+
+```ts
+92.09
+```
+
+###### orderId
+
+```ts
+orderId: string;
+```
+
+###### Example
+
+```ts
+ord_abc123
+```
+
+###### orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+###### organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+###### paymentMethod
+
+```ts
+paymentMethod: 
+  | {
+  brand: string | null;
+  expiryMonth: number | null;
+  expiryYear: number | null;
+  last4: string | null;
+  type: "card" | "bank_transfer" | "cash" | "wallet";
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  brand: string | null;
+  expiryMonth: number | null;
+  expiryYear: number | null;
+  last4: string | null;
+  type: "card" | "bank_transfer" | "cash" | "wallet";
+}
+```
+
+`null`
+
+###### paymentProviderId
+
+```ts
+paymentProviderId: string;
+```
+
+###### Example
+
+```ts
+pp_stripeXxx123
+```
+
+###### paymentType
+
+```ts
+paymentType: 
+  | "bank_transfer"
+  | "online_card"
+  | "online_bank_transfer"
+  | "online_wallet"
+  | "in_person_card"
+  | "in_person_cash"
+  | "cheque";
+```
+
+###### Example
+
+```ts
+online_card
+@enum {string}
+```
+
+###### processingFee
+
+```ts
+processingFee: number | null;
+```
+
+###### Example
+
+```ts
+2.91
+```
+
+###### redirectUrl
+
+```ts
+redirectUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://checkout.stripe.com/pay/xxx
+```
+
+###### remainingBalance
+
+```ts
+remainingBalance: number | null;
+```
+
+###### Example
+
+```ts
+0
+```
+
+###### status
+
+```ts
+status: 
+  | "cancelled"
+  | "pending"
+  | "succeeded"
+  | "failed"
+  | "processing"
+  | "expired"
+  | "requires_action"
+  | "created";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+###### updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+#### CancelSubscriptionResponse
+
+```ts
+CancelSubscriptionResponse: {
+  subscription: {
+     cancelledAt: string | null;
+     createdAt: string;
+     credits: number;
+     currency: string;
+     currentPeriodEnd: string | null;
+     currentPeriodStart: string | null;
+     endedAt: string | null;
+     id: string;
+     interval: "month" | "year";
+     organisationId: string;
+     packageId: string;
+     price: string;
+     status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+     updatedAt: string;
+  };
+};
+```
+
+##### CancelSubscriptionResponse.subscription
+
+```ts
+subscription: {
+  cancelledAt: string | null;
+  createdAt: string;
+  credits: number;
+  currency: string;
+  currentPeriodEnd: string | null;
+  currentPeriodStart: string | null;
+  endedAt: string | null;
+  id: string;
+  interval: "month" | "year";
+  organisationId: string;
+  packageId: string;
+  price: string;
+  status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+  updatedAt: string;
+};
+```
+
+##### CancelSubscriptionResponse.subscription.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CancelSubscriptionResponse.subscription.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### CancelSubscriptionResponse.subscription.credits
+
+```ts
+credits: number;
+```
+
+###### Example
+
+```ts
+100
+```
+
+##### CancelSubscriptionResponse.subscription.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+USD
+```
+
+##### CancelSubscriptionResponse.subscription.currentPeriodEnd
+
+```ts
+currentPeriodEnd: string | null;
+```
+
+###### Example
+
+```ts
+2024-02-15T00:00:00Z
+```
+
+##### CancelSubscriptionResponse.subscription.currentPeriodStart
+
+```ts
+currentPeriodStart: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T00:00:00Z
+```
+
+##### CancelSubscriptionResponse.subscription.endedAt
+
+```ts
+endedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CancelSubscriptionResponse.subscription.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sub_abc123
+```
+
+##### CancelSubscriptionResponse.subscription.interval
+
+```ts
+interval: "month" | "year";
+```
+
+###### Example
+
+```ts
+month
+@enum {string}
+```
+
+##### CancelSubscriptionResponse.subscription.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+##### CancelSubscriptionResponse.subscription.packageId
+
+```ts
+packageId: string;
+```
+
+###### Example
+
+```ts
+pkg_100
+```
+
+##### CancelSubscriptionResponse.subscription.price
+
+```ts
+price: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### CancelSubscriptionResponse.subscription.status
+
+```ts
+status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### CancelSubscriptionResponse.subscription.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+#### CanSellResponse
+
+```ts
+CanSellResponse: {
+  canSell: boolean;
+  currentBalance: number;
+  reason: string | null;
+};
+```
+
+##### CanSellResponse.canSell
+
+```ts
+canSell: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### CanSellResponse.currentBalance
+
+```ts
+currentBalance: number;
+```
+
+###### Example
+
+```ts
+150
+```
+
+##### CanSellResponse.reason
+
+```ts
+reason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+#### CheckAvailabilityResponse
+
+```ts
+CheckAvailabilityResponse: {
+  available: boolean;
+  availableQuantity: number;
+  requestedQuantity: number;
+};
+```
+
+##### CheckAvailabilityResponse.available
+
+```ts
+available: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### CheckAvailabilityResponse.availableQuantity
+
+```ts
+availableQuantity: number;
+```
+
+###### Example
+
+```ts
+50
+```
+
+##### CheckAvailabilityResponse.requestedQuantity
+
+```ts
+requestedQuantity: number;
+```
+
+###### Example
+
+```ts
+2
+```
+
+#### ConfirmReservationResponse
+
+```ts
+ConfirmReservationResponse: {
+  reservation: {
+     accountId: string;
+     createdAt: string;
+     expiresAt: string | null;
+     heldBy: string | null;
+     id: string;
+     inventoryId: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     quantity: number;
+     reason: string | null;
+     referenceId: string | null;
+     referenceType: "subscription" | "order" | "hold" | null;
+     seatIds: string[] | null;
+     type: "confirmed" | "maintenance" | "hold" | "temporary";
+     updatedAt: string;
+  };
+};
+```
+
+##### ConfirmReservationResponse.reservation
+
+```ts
+reservation: {
+  accountId: string;
+  createdAt: string;
+  expiresAt: string | null;
+  heldBy: string | null;
+  id: string;
+  inventoryId: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  quantity: number;
+  reason: string | null;
+  referenceId: string | null;
+  referenceType: "subscription" | "order" | "hold" | null;
+  seatIds: string[] | null;
+  type: "confirmed" | "maintenance" | "hold" | "temporary";
+  updatedAt: string;
+};
+```
+
+##### ConfirmReservationResponse.reservation.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### ConfirmReservationResponse.reservation.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:30:00Z
+```
+
+##### ConfirmReservationResponse.reservation.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:45:00Z
+```
+
+##### ConfirmReservationResponse.reservation.heldBy
+
+```ts
+heldBy: string | null;
+```
+
+###### Example
+
+```ts
+usr_abc123
+```
+
+##### ConfirmReservationResponse.reservation.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ivr_abc123
+```
+
+##### ConfirmReservationResponse.reservation.inventoryId
+
+```ts
+inventoryId: string;
+```
+
+###### Example
+
+```ts
+inv_ghi789
+```
+
+##### ConfirmReservationResponse.reservation.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### ConfirmReservationResponse.reservation.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### ConfirmReservationResponse.reservation.quantity
+
+```ts
+quantity: number;
+```
+
+###### Example
+
+```ts
+2
+```
+
+##### ConfirmReservationResponse.reservation.reason
+
+```ts
+reason: string | null;
+```
+
+###### Example
+
+```ts
+Customer checkout
+```
+
+##### ConfirmReservationResponse.reservation.referenceId
+
+```ts
+referenceId: string | null;
+```
+
+###### Example
+
+```ts
+ord_jkl012
+```
+
+##### ConfirmReservationResponse.reservation.referenceType
+
+```ts
+referenceType: "subscription" | "order" | "hold" | null;
+```
+
+###### Description
+
+Type of reference for this reservation
+
+###### Example
+
+```ts
+order
+@enum {string|null}
+```
+
+##### ConfirmReservationResponse.reservation.seatIds
+
+```ts
+seatIds: string[] | null;
+```
+
+###### Example
+
+```ts
+[
+      "ivs_abc123",
+      "ivs_def456"
+    ]
+```
+
+##### ConfirmReservationResponse.reservation.type
+
+```ts
+type: "confirmed" | "maintenance" | "hold" | "temporary";
+```
+
+###### Description
+
+Type of reservation
+
+###### Example
+
+```ts
+temporary
+@enum {string}
+```
+
+##### ConfirmReservationResponse.reservation.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T14:45:00Z
 ```
 
 #### CreateAccountResponse
@@ -2620,6 +7871,230 @@ active
 ```
 
 ##### CreateAccountResponse.account.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-20T14:45:00Z
+```
+
+#### CreateCustomerResponse
+
+```ts
+CreateCustomerResponse: {
+  customer: {
+     accountId: string | null;
+     blockedAt: string | null;
+     blockedReason: string | null;
+     createdAt: string;
+     email: string;
+     externalId: string | null;
+     firstName: string | null;
+     id: string;
+     isBlocked: boolean;
+     lastName: string | null;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     phone: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### CreateCustomerResponse.customer
+
+```ts
+customer: {
+  accountId: string | null;
+  blockedAt: string | null;
+  blockedReason: string | null;
+  createdAt: string;
+  email: string;
+  externalId: string | null;
+  firstName: string | null;
+  id: string;
+  isBlocked: boolean;
+  lastName: string | null;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  phone: string | null;
+  updatedAt: string;
+};
+```
+
+##### CreateCustomerResponse.customer.accountId
+
+```ts
+accountId: string | null;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### CreateCustomerResponse.customer.blockedAt
+
+```ts
+blockedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CreateCustomerResponse.customer.blockedReason
+
+```ts
+blockedReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CreateCustomerResponse.customer.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### CreateCustomerResponse.customer.email
+
+```ts
+email: string;
+```
+
+###### Example
+
+```ts
+customer@example.com
+```
+
+##### CreateCustomerResponse.customer.externalId
+
+```ts
+externalId: string | null;
+```
+
+###### Example
+
+```ts
+ext_cust_12345
+```
+
+##### CreateCustomerResponse.customer.firstName
+
+```ts
+firstName: string | null;
+```
+
+###### Example
+
+```ts
+John
+```
+
+##### CreateCustomerResponse.customer.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### CreateCustomerResponse.customer.isBlocked
+
+```ts
+isBlocked: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### CreateCustomerResponse.customer.lastName
+
+```ts
+lastName: string | null;
+```
+
+###### Example
+
+```ts
+Doe
+```
+
+##### CreateCustomerResponse.customer.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "loyaltyTier": "gold"
+             *     }
+```
+
+##### CreateCustomerResponse.customer.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### CreateCustomerResponse.customer.phone
+
+```ts
+phone: string | null;
+```
+
+###### Example
+
+```ts
++44 7700 900000
+```
+
+##### CreateCustomerResponse.customer.updatedAt
 
 ```ts
 updatedAt: string;
@@ -3132,6 +8607,2143 @@ optional venueId: string;
 vnu_ghi789
 ```
 
+#### CreateHoldResponse
+
+```ts
+CreateHoldResponse: {
+  reservation: {
+     accountId: string;
+     createdAt: string;
+     expiresAt: string | null;
+     heldBy: string | null;
+     id: string;
+     inventoryId: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     quantity: number;
+     reason: string | null;
+     referenceId: string | null;
+     referenceType: "subscription" | "order" | "hold" | null;
+     seatIds: string[] | null;
+     type: "confirmed" | "maintenance" | "hold" | "temporary";
+     updatedAt: string;
+  };
+};
+```
+
+##### CreateHoldResponse.reservation
+
+```ts
+reservation: {
+  accountId: string;
+  createdAt: string;
+  expiresAt: string | null;
+  heldBy: string | null;
+  id: string;
+  inventoryId: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  quantity: number;
+  reason: string | null;
+  referenceId: string | null;
+  referenceType: "subscription" | "order" | "hold" | null;
+  seatIds: string[] | null;
+  type: "confirmed" | "maintenance" | "hold" | "temporary";
+  updatedAt: string;
+};
+```
+
+##### CreateHoldResponse.reservation.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### CreateHoldResponse.reservation.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:30:00Z
+```
+
+##### CreateHoldResponse.reservation.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:45:00Z
+```
+
+##### CreateHoldResponse.reservation.heldBy
+
+```ts
+heldBy: string | null;
+```
+
+###### Example
+
+```ts
+usr_abc123
+```
+
+##### CreateHoldResponse.reservation.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ivr_abc123
+```
+
+##### CreateHoldResponse.reservation.inventoryId
+
+```ts
+inventoryId: string;
+```
+
+###### Example
+
+```ts
+inv_ghi789
+```
+
+##### CreateHoldResponse.reservation.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CreateHoldResponse.reservation.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### CreateHoldResponse.reservation.quantity
+
+```ts
+quantity: number;
+```
+
+###### Example
+
+```ts
+2
+```
+
+##### CreateHoldResponse.reservation.reason
+
+```ts
+reason: string | null;
+```
+
+###### Example
+
+```ts
+Customer checkout
+```
+
+##### CreateHoldResponse.reservation.referenceId
+
+```ts
+referenceId: string | null;
+```
+
+###### Example
+
+```ts
+ord_jkl012
+```
+
+##### CreateHoldResponse.reservation.referenceType
+
+```ts
+referenceType: "subscription" | "order" | "hold" | null;
+```
+
+###### Description
+
+Type of reference for this reservation
+
+###### Example
+
+```ts
+order
+@enum {string|null}
+```
+
+##### CreateHoldResponse.reservation.seatIds
+
+```ts
+seatIds: string[] | null;
+```
+
+###### Example
+
+```ts
+[
+      "ivs_abc123",
+      "ivs_def456"
+    ]
+```
+
+##### CreateHoldResponse.reservation.type
+
+```ts
+type: "confirmed" | "maintenance" | "hold" | "temporary";
+```
+
+###### Description
+
+Type of reservation
+
+###### Example
+
+```ts
+temporary
+@enum {string}
+```
+
+##### CreateHoldResponse.reservation.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T14:45:00Z
+```
+
+#### CreateInventoryResponse
+
+```ts
+CreateInventoryResponse: {
+  inventory: {
+     accountId: string;
+     available: number;
+     confirmed: number;
+     createdAt: string;
+     eventId: string | null;
+     eventLayoutAreaId: string | null;
+     eventOccurrenceId: string | null;
+     held: number;
+     id: string;
+     isAllocated: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     productId: string | null;
+     reserved: number;
+     sourceType: "event_occurrence_area" | "product";
+     totalCapacity: number;
+     updatedAt: string;
+     version: number;
+  };
+};
+```
+
+##### CreateInventoryResponse.inventory
+
+```ts
+inventory: {
+  accountId: string;
+  available: number;
+  confirmed: number;
+  createdAt: string;
+  eventId: string | null;
+  eventLayoutAreaId: string | null;
+  eventOccurrenceId: string | null;
+  held: number;
+  id: string;
+  isAllocated: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  productId: string | null;
+  reserved: number;
+  sourceType: "event_occurrence_area" | "product";
+  totalCapacity: number;
+  updatedAt: string;
+  version: number;
+};
+```
+
+##### CreateInventoryResponse.inventory.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### CreateInventoryResponse.inventory.available
+
+```ts
+available: number;
+```
+
+###### Example
+
+```ts
+450
+```
+
+##### CreateInventoryResponse.inventory.confirmed
+
+```ts
+confirmed: number;
+```
+
+###### Example
+
+```ts
+20
+```
+
+##### CreateInventoryResponse.inventory.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:30:00Z
+```
+
+##### CreateInventoryResponse.inventory.eventId
+
+```ts
+eventId: string | null;
+```
+
+###### Example
+
+```ts
+evt_ghi789
+```
+
+##### CreateInventoryResponse.inventory.eventLayoutAreaId
+
+```ts
+eventLayoutAreaId: string | null;
+```
+
+###### Example
+
+```ts
+ela_mno345
+```
+
+##### CreateInventoryResponse.inventory.eventOccurrenceId
+
+```ts
+eventOccurrenceId: string | null;
+```
+
+###### Example
+
+```ts
+evo_jkl012
+```
+
+##### CreateInventoryResponse.inventory.held
+
+```ts
+held: number;
+```
+
+###### Example
+
+```ts
+0
+```
+
+##### CreateInventoryResponse.inventory.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### CreateInventoryResponse.inventory.isAllocated
+
+```ts
+isAllocated: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### CreateInventoryResponse.inventory.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CreateInventoryResponse.inventory.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### CreateInventoryResponse.inventory.productId
+
+```ts
+productId: string | null;
+```
+
+###### Example
+
+```ts
+prd_pqr678
+```
+
+##### CreateInventoryResponse.inventory.reserved
+
+```ts
+reserved: number;
+```
+
+###### Example
+
+```ts
+30
+```
+
+##### CreateInventoryResponse.inventory.sourceType
+
+```ts
+sourceType: "event_occurrence_area" | "product";
+```
+
+###### Description
+
+Type of inventory source
+
+###### Example
+
+```ts
+event_occurrence_area
+@enum {string}
+```
+
+##### CreateInventoryResponse.inventory.totalCapacity
+
+```ts
+totalCapacity: number;
+```
+
+###### Example
+
+```ts
+500
+```
+
+##### CreateInventoryResponse.inventory.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T14:45:00Z
+```
+
+##### CreateInventoryResponse.inventory.version
+
+```ts
+version: number;
+```
+
+###### Example
+
+```ts
+1
+```
+
+#### CreateOrderResponse
+
+```ts
+CreateOrderResponse: {
+  order: {
+     accountId: string;
+     cancellationReason: string | null;
+     cancelledAt: string | null;
+     channel: string | null;
+     completedAt: string | null;
+     confirmedAt: string | null;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     customerNotes: string | null;
+     discountTotal: string;
+     expiresAt: string | null;
+     feeTotal: string;
+     id: string;
+     internalNotes: string | null;
+     isGuestCheckout: boolean;
+     items?: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     }[];
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderNumber: string;
+     organisationId: string;
+     status:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     subtotal: string;
+     taxTotal: string;
+     total: string;
+     updatedAt: string;
+  };
+};
+```
+
+##### CreateOrderResponse.order
+
+```ts
+order: {
+  accountId: string;
+  cancellationReason: string | null;
+  cancelledAt: string | null;
+  channel: string | null;
+  completedAt: string | null;
+  confirmedAt: string | null;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  customerNotes: string | null;
+  discountTotal: string;
+  expiresAt: string | null;
+  feeTotal: string;
+  id: string;
+  internalNotes: string | null;
+  isGuestCheckout: boolean;
+  items?: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  }[];
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderNumber: string;
+  organisationId: string;
+  status:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  subtotal: string;
+  taxTotal: string;
+  total: string;
+  updatedAt: string;
+};
+```
+
+##### CreateOrderResponse.order.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### CreateOrderResponse.order.cancellationReason
+
+```ts
+cancellationReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CreateOrderResponse.order.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CreateOrderResponse.order.channel
+
+```ts
+channel: string | null;
+```
+
+###### Example
+
+```ts
+web
+```
+
+##### CreateOrderResponse.order.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CreateOrderResponse.order.confirmedAt
+
+```ts
+confirmedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CreateOrderResponse.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### CreateOrderResponse.order.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### CreateOrderResponse.order.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### CreateOrderResponse.order.customerNotes
+
+```ts
+customerNotes: string | null;
+```
+
+###### Example
+
+```ts
+Please contact me before delivery
+```
+
+##### CreateOrderResponse.order.discountTotal
+
+```ts
+discountTotal: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### CreateOrderResponse.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+##### CreateOrderResponse.order.feeTotal
+
+```ts
+feeTotal: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### CreateOrderResponse.order.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### CreateOrderResponse.order.internalNotes
+
+```ts
+internalNotes: string | null;
+```
+
+###### Example
+
+```ts
+VIP customer
+```
+
+##### CreateOrderResponse.order.isGuestCheckout
+
+```ts
+isGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### CreateOrderResponse.order.items?
+
+```ts
+optional items: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+}[];
+```
+
+###### Description
+
+Order line items
+
+##### CreateOrderResponse.order.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "promoCode": "SUMMER20"
+             *     }
+```
+
+##### CreateOrderResponse.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### CreateOrderResponse.order.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### CreateOrderResponse.order.status
+
+```ts
+status: 
+  | "completed"
+  | "cancelled"
+  | "pending"
+  | "failed"
+  | "refunded"
+  | "confirmed"
+  | "processing"
+  | "expired";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+##### CreateOrderResponse.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### CreateOrderResponse.order.taxTotal
+
+```ts
+taxTotal: string;
+```
+
+###### Example
+
+```ts
+10.00
+```
+
+##### CreateOrderResponse.order.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+62.50
+```
+
+##### CreateOrderResponse.order.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+#### CreatePaymentProviderResponse
+
+```ts
+CreatePaymentProviderResponse: {
+  provider: {
+     accountId: string | null;
+     applicationFee:   | {
+        type: "percentage" | "fixed";
+        value: number;
+      }
+        | null;
+     capabilities:   | {
+        maxAmount?: number;
+        minAmount?: number;
+        requiresCustomerAction?: boolean;
+        supportedCurrencies?: string[];
+        supportsDelayedCapture?: boolean;
+        supportsInstantCapture?: boolean;
+        supportsPartialRefunds?: boolean;
+        supportsRefunds?: boolean;
+      }
+        | null;
+     configuration: {
+      [key: string]: unknown;
+     };
+     createdAt: string;
+     description: string | null;
+     feeStructure:   | {
+        currency?: string;
+        fixed?: number;
+        percentage?: number;
+        type: "percentage" | "fixed" | "percentage_plus_fixed";
+      }
+        | null;
+     id: string;
+     integrationServiceUrl: string | null;
+     integrationServiceVersion: string;
+     isDefault: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     organisationId: string;
+     priority: number;
+     status: "active" | "inactive" | "pending_setup";
+     supportedPaymentTypes: (
+        | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+       | "cheque")[];
+     type:   | "bank_transfer"
+        | "cash"
+        | "stripe_connect"
+        | "stripe_direct"
+        | "adyen"
+        | "square"
+        | "paypal";
+     updatedAt: string;
+  };
+};
+```
+
+##### CreatePaymentProviderResponse.provider
+
+```ts
+provider: {
+  accountId: string | null;
+  applicationFee:   | {
+     type: "percentage" | "fixed";
+     value: number;
+   }
+     | null;
+  capabilities:   | {
+     maxAmount?: number;
+     minAmount?: number;
+     requiresCustomerAction?: boolean;
+     supportedCurrencies?: string[];
+     supportsDelayedCapture?: boolean;
+     supportsInstantCapture?: boolean;
+     supportsPartialRefunds?: boolean;
+     supportsRefunds?: boolean;
+   }
+     | null;
+  configuration: {
+   [key: string]: unknown;
+  };
+  createdAt: string;
+  description: string | null;
+  feeStructure:   | {
+     currency?: string;
+     fixed?: number;
+     percentage?: number;
+     type: "percentage" | "fixed" | "percentage_plus_fixed";
+   }
+     | null;
+  id: string;
+  integrationServiceUrl: string | null;
+  integrationServiceVersion: string;
+  isDefault: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  organisationId: string;
+  priority: number;
+  status: "active" | "inactive" | "pending_setup";
+  supportedPaymentTypes: (
+     | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+    | "cheque")[];
+  type:   | "bank_transfer"
+     | "cash"
+     | "stripe_connect"
+     | "stripe_direct"
+     | "adyen"
+     | "square"
+     | "paypal";
+  updatedAt: string;
+};
+```
+
+##### CreatePaymentProviderResponse.provider.accountId
+
+```ts
+accountId: string | null;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### CreatePaymentProviderResponse.provider.applicationFee
+
+```ts
+applicationFee: 
+  | {
+  type: "percentage" | "fixed";
+  value: number;
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  type: "percentage" | "fixed";
+  value: number;
+}
+```
+
+`null`
+
+##### CreatePaymentProviderResponse.provider.capabilities
+
+```ts
+capabilities: 
+  | {
+  maxAmount?: number;
+  minAmount?: number;
+  requiresCustomerAction?: boolean;
+  supportedCurrencies?: string[];
+  supportsDelayedCapture?: boolean;
+  supportsInstantCapture?: boolean;
+  supportsPartialRefunds?: boolean;
+  supportsRefunds?: boolean;
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  maxAmount?: number;
+  minAmount?: number;
+  requiresCustomerAction?: boolean;
+  supportedCurrencies?: string[];
+  supportsDelayedCapture?: boolean;
+  supportsInstantCapture?: boolean;
+  supportsPartialRefunds?: boolean;
+  supportsRefunds?: boolean;
+}
+```
+
+`null`
+
+##### CreatePaymentProviderResponse.provider.configuration
+
+```ts
+configuration: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Provider-specific configuration (sensitive fields redacted)
+
+###### Example
+
+```ts
+{
+             *       "stripeConnectedAccountId": "acct_xxx"
+             *     }
+```
+
+##### CreatePaymentProviderResponse.provider.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### CreatePaymentProviderResponse.provider.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Primary payment processor for online orders
+```
+
+##### CreatePaymentProviderResponse.provider.feeStructure
+
+```ts
+feeStructure: 
+  | {
+  currency?: string;
+  fixed?: number;
+  percentage?: number;
+  type: "percentage" | "fixed" | "percentage_plus_fixed";
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  currency?: string;
+  fixed?: number;
+  percentage?: number;
+  type: "percentage" | "fixed" | "percentage_plus_fixed";
+}
+```
+
+`null`
+
+##### CreatePaymentProviderResponse.provider.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pp_stripeXxx123
+```
+
+##### CreatePaymentProviderResponse.provider.integrationServiceUrl
+
+```ts
+integrationServiceUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://stripe.paymentintegration.ticketlayer.com
+```
+
+##### CreatePaymentProviderResponse.provider.integrationServiceVersion
+
+```ts
+integrationServiceVersion: string;
+```
+
+###### Example
+
+```ts
+v1
+```
+
+##### CreatePaymentProviderResponse.provider.isDefault
+
+```ts
+isDefault: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### CreatePaymentProviderResponse.provider.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "environment": "production"
+             *     }
+```
+
+##### CreatePaymentProviderResponse.provider.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Main Stripe Account
+```
+
+##### CreatePaymentProviderResponse.provider.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### CreatePaymentProviderResponse.provider.priority
+
+```ts
+priority: number;
+```
+
+###### Example
+
+```ts
+100
+```
+
+##### CreatePaymentProviderResponse.provider.status
+
+```ts
+status: "active" | "inactive" | "pending_setup";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### CreatePaymentProviderResponse.provider.supportedPaymentTypes
+
+```ts
+supportedPaymentTypes: (
+  | "bank_transfer"
+  | "online_card"
+  | "online_bank_transfer"
+  | "online_wallet"
+  | "in_person_card"
+  | "in_person_cash"
+  | "cheque")[];
+```
+
+###### Example
+
+```ts
+[
+      "online_card",
+      "online_wallet"
+    ]
+```
+
+##### CreatePaymentProviderResponse.provider.type
+
+```ts
+type: 
+  | "bank_transfer"
+  | "cash"
+  | "stripe_connect"
+  | "stripe_direct"
+  | "adyen"
+  | "square"
+  | "paypal";
+```
+
+###### Example
+
+```ts
+stripe_connect
+@enum {string}
+```
+
+##### CreatePaymentProviderResponse.provider.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+#### CreatePaymentResponse
+
+```ts
+CreatePaymentResponse: {
+  payment: {
+     amount: string;
+     createdAt: string;
+     currency: string;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     invoiceId: string | null;
+     method: string | null;
+     organisationId: string;
+     paidAt: string | null;
+     status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+     updatedAt: string;
+   } & {
+     accountId: string;
+     amount: number;
+     applicationFee: number | null;
+     cancelledAt: string | null;
+     capturedAt: string | null;
+     clientSecret: string | null;
+     createdAt: string;
+     currency: string;
+     expiresAt: string | null;
+     externalPaymentId: string | null;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     isPartialPayment: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     netAmount: number | null;
+     orderId: string;
+     orderNumber: string;
+     organisationId: string;
+     paymentMethod:   | {
+        brand: string | null;
+        expiryMonth: number | null;
+        expiryYear: number | null;
+        last4: string | null;
+        type: "card" | "bank_transfer" | "cash" | "wallet";
+      }
+        | null;
+     paymentProviderId: string;
+     paymentType:   | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+        | "cheque";
+     processingFee: number | null;
+     redirectUrl: string | null;
+     remainingBalance: number | null;
+     status:   | "cancelled"
+        | "pending"
+        | "succeeded"
+        | "failed"
+        | "processing"
+        | "expired"
+        | "requires_action"
+        | "created";
+     updatedAt: string;
+  };
+};
+```
+
+##### CreatePaymentResponse.payment
+
+```ts
+payment: {
+  amount: string;
+  createdAt: string;
+  currency: string;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  invoiceId: string | null;
+  method: string | null;
+  organisationId: string;
+  paidAt: string | null;
+  status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+  updatedAt: string;
+} & {
+  accountId: string;
+  amount: number;
+  applicationFee: number | null;
+  cancelledAt: string | null;
+  capturedAt: string | null;
+  clientSecret: string | null;
+  createdAt: string;
+  currency: string;
+  expiresAt: string | null;
+  externalPaymentId: string | null;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  isPartialPayment: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  netAmount: number | null;
+  orderId: string;
+  orderNumber: string;
+  organisationId: string;
+  paymentMethod:   | {
+     brand: string | null;
+     expiryMonth: number | null;
+     expiryYear: number | null;
+     last4: string | null;
+     type: "card" | "bank_transfer" | "cash" | "wallet";
+   }
+     | null;
+  paymentProviderId: string;
+  paymentType:   | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+     | "cheque";
+  processingFee: number | null;
+  redirectUrl: string | null;
+  remainingBalance: number | null;
+  status:   | "cancelled"
+     | "pending"
+     | "succeeded"
+     | "failed"
+     | "processing"
+     | "expired"
+     | "requires_action"
+     | "created";
+  updatedAt: string;
+};
+```
+
+###### Type Declaration
+
+###### amount
+
+```ts
+amount: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+###### createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+###### currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+USD
+```
+
+###### failedAt
+
+```ts
+failedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureCode
+
+```ts
+failureCode: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureMessage
+
+```ts
+failureMessage: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pay_abc123
+```
+
+###### invoiceId
+
+```ts
+invoiceId: string | null;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+###### method
+
+```ts
+method: string | null;
+```
+
+###### Example
+
+```ts
+card
+```
+
+###### organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+###### paidAt
+
+```ts
+paidAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+###### status
+
+```ts
+status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+```
+
+###### Example
+
+```ts
+succeeded
+@enum {string}
+```
+
+###### updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+###### Type Declaration
+
+###### accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+###### amount
+
+```ts
+amount: number;
+```
+
+###### Example
+
+```ts
+97
+```
+
+###### applicationFee
+
+```ts
+applicationFee: number | null;
+```
+
+###### Example
+
+```ts
+2
+```
+
+###### cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### capturedAt
+
+```ts
+capturedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### clientSecret
+
+```ts
+clientSecret: string | null;
+```
+
+###### Example
+
+```ts
+pi_xxx_secret_yyy
+```
+
+###### createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+###### currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+###### expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+###### externalPaymentId
+
+```ts
+externalPaymentId: string | null;
+```
+
+###### Example
+
+```ts
+pi_1234567890abcdef
+```
+
+###### failedAt
+
+```ts
+failedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureCode
+
+```ts
+failureCode: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureMessage
+
+```ts
+failureMessage: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pay_abc123xyz789
+```
+
+###### isPartialPayment
+
+```ts
+isPartialPayment: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+###### metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+                 *       "customerEmail": "customer@example.com"
+                 *     }
+```
+
+###### netAmount
+
+```ts
+netAmount: number | null;
+```
+
+###### Example
+
+```ts
+92.09
+```
+
+###### orderId
+
+```ts
+orderId: string;
+```
+
+###### Example
+
+```ts
+ord_abc123
+```
+
+###### orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+###### organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+###### paymentMethod
+
+```ts
+paymentMethod: 
+  | {
+  brand: string | null;
+  expiryMonth: number | null;
+  expiryYear: number | null;
+  last4: string | null;
+  type: "card" | "bank_transfer" | "cash" | "wallet";
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  brand: string | null;
+  expiryMonth: number | null;
+  expiryYear: number | null;
+  last4: string | null;
+  type: "card" | "bank_transfer" | "cash" | "wallet";
+}
+```
+
+`null`
+
+###### paymentProviderId
+
+```ts
+paymentProviderId: string;
+```
+
+###### Example
+
+```ts
+pp_stripeXxx123
+```
+
+###### paymentType
+
+```ts
+paymentType: 
+  | "bank_transfer"
+  | "online_card"
+  | "online_bank_transfer"
+  | "online_wallet"
+  | "in_person_card"
+  | "in_person_cash"
+  | "cheque";
+```
+
+###### Example
+
+```ts
+online_card
+@enum {string}
+```
+
+###### processingFee
+
+```ts
+processingFee: number | null;
+```
+
+###### Example
+
+```ts
+2.91
+```
+
+###### redirectUrl
+
+```ts
+redirectUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://checkout.stripe.com/pay/xxx
+```
+
+###### remainingBalance
+
+```ts
+remainingBalance: number | null;
+```
+
+###### Example
+
+```ts
+0
+```
+
+###### status
+
+```ts
+status: 
+  | "cancelled"
+  | "pending"
+  | "succeeded"
+  | "failed"
+  | "processing"
+  | "expired"
+  | "requires_action"
+  | "created";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+###### updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
 #### CreatePriceSchemeResponse
 
 ```ts
@@ -3330,6 +10942,268 @@ updatedAt: string;
 2024-12-28T14:45:00Z
 ```
 
+#### CreatePurchaseRequest
+
+```ts
+CreatePurchaseRequest: {
+  currency?: string;
+  email?: string;
+  packageId: string;
+  paymentMethodId: string;
+};
+```
+
+##### CreatePurchaseRequest.currency?
+
+```ts
+optional currency: string;
+```
+
+##### CreatePurchaseRequest.email?
+
+```ts
+optional email: string;
+```
+
+Format: email
+
+##### CreatePurchaseRequest.packageId
+
+```ts
+packageId: string;
+```
+
+##### CreatePurchaseRequest.paymentMethodId
+
+```ts
+paymentMethodId: string;
+```
+
+#### CreateRefundResponse
+
+```ts
+CreateRefundResponse: {
+  refund: {
+     amount: number;
+     completedAt: string | null;
+     createdAt: string;
+     externalRefundId: string | null;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     notes: string | null;
+     paymentId: string;
+     reason: string;
+     status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+     updatedAt: string;
+  };
+};
+```
+
+##### CreateRefundResponse.refund
+
+```ts
+refund: {
+  amount: number;
+  completedAt: string | null;
+  createdAt: string;
+  externalRefundId: string | null;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  notes: string | null;
+  paymentId: string;
+  reason: string;
+  status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+  updatedAt: string;
+};
+```
+
+##### CreateRefundResponse.refund.amount
+
+```ts
+amount: number;
+```
+
+###### Example
+
+```ts
+48.5
+```
+
+##### CreateRefundResponse.refund.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T11:00:00Z
+```
+
+##### CreateRefundResponse.refund.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:50:00Z
+```
+
+##### CreateRefundResponse.refund.externalRefundId
+
+```ts
+externalRefundId: string | null;
+```
+
+###### Example
+
+```ts
+re_xxx
+```
+
+##### CreateRefundResponse.refund.failedAt
+
+```ts
+failedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CreateRefundResponse.refund.failureCode
+
+```ts
+failureCode: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CreateRefundResponse.refund.failureMessage
+
+```ts
+failureMessage: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CreateRefundResponse.refund.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ref_abc123xyz789
+```
+
+##### CreateRefundResponse.refund.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "ticketNumber": "T-001"
+             *     }
+```
+
+##### CreateRefundResponse.refund.notes
+
+```ts
+notes: string | null;
+```
+
+###### Example
+
+```ts
+Customer unable to attend
+```
+
+##### CreateRefundResponse.refund.paymentId
+
+```ts
+paymentId: string;
+```
+
+###### Example
+
+```ts
+pay_abc123xyz789
+```
+
+##### CreateRefundResponse.refund.reason
+
+```ts
+reason: string;
+```
+
+###### Example
+
+```ts
+requested_by_customer
+```
+
+##### CreateRefundResponse.refund.status
+
+```ts
+status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+```
+
+###### Example
+
+```ts
+succeeded
+@enum {string}
+```
+
+##### CreateRefundResponse.refund.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T11:00:00Z
+```
+
 #### CreateRoleRequest
 
 ```ts
@@ -3526,6 +11400,264 @@ updatedAt: string;
 
 ```ts
 2024-01-20T14:45:00Z
+```
+
+#### CreateSubscriptionRequest
+
+```ts
+CreateSubscriptionRequest: {
+  currency?: string;
+  email?: string;
+  interval: "month" | "year";
+  packageId: string;
+  paymentMethodId: string;
+};
+```
+
+##### CreateSubscriptionRequest.currency?
+
+```ts
+optional currency: string;
+```
+
+##### CreateSubscriptionRequest.email?
+
+```ts
+optional email: string;
+```
+
+Format: email
+
+##### CreateSubscriptionRequest.interval
+
+```ts
+interval: "month" | "year";
+```
+
+##### CreateSubscriptionRequest.packageId
+
+```ts
+packageId: string;
+```
+
+##### CreateSubscriptionRequest.paymentMethodId
+
+```ts
+paymentMethodId: string;
+```
+
+#### CreateSubscriptionResponse
+
+```ts
+CreateSubscriptionResponse: {
+  subscription: {
+     cancelledAt: string | null;
+     createdAt: string;
+     credits: number;
+     currency: string;
+     currentPeriodEnd: string | null;
+     currentPeriodStart: string | null;
+     endedAt: string | null;
+     id: string;
+     interval: "month" | "year";
+     organisationId: string;
+     packageId: string;
+     price: string;
+     status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+     updatedAt: string;
+  };
+};
+```
+
+##### CreateSubscriptionResponse.subscription
+
+```ts
+subscription: {
+  cancelledAt: string | null;
+  createdAt: string;
+  credits: number;
+  currency: string;
+  currentPeriodEnd: string | null;
+  currentPeriodStart: string | null;
+  endedAt: string | null;
+  id: string;
+  interval: "month" | "year";
+  organisationId: string;
+  packageId: string;
+  price: string;
+  status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+  updatedAt: string;
+};
+```
+
+##### CreateSubscriptionResponse.subscription.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CreateSubscriptionResponse.subscription.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### CreateSubscriptionResponse.subscription.credits
+
+```ts
+credits: number;
+```
+
+###### Example
+
+```ts
+100
+```
+
+##### CreateSubscriptionResponse.subscription.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+USD
+```
+
+##### CreateSubscriptionResponse.subscription.currentPeriodEnd
+
+```ts
+currentPeriodEnd: string | null;
+```
+
+###### Example
+
+```ts
+2024-02-15T00:00:00Z
+```
+
+##### CreateSubscriptionResponse.subscription.currentPeriodStart
+
+```ts
+currentPeriodStart: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T00:00:00Z
+```
+
+##### CreateSubscriptionResponse.subscription.endedAt
+
+```ts
+endedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CreateSubscriptionResponse.subscription.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sub_abc123
+```
+
+##### CreateSubscriptionResponse.subscription.interval
+
+```ts
+interval: "month" | "year";
+```
+
+###### Example
+
+```ts
+month
+@enum {string}
+```
+
+##### CreateSubscriptionResponse.subscription.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+##### CreateSubscriptionResponse.subscription.packageId
+
+```ts
+packageId: string;
+```
+
+###### Example
+
+```ts
+pkg_100
+```
+
+##### CreateSubscriptionResponse.subscription.price
+
+```ts
+price: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### CreateSubscriptionResponse.subscription.status
+
+```ts
+status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### CreateSubscriptionResponse.subscription.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
 ```
 
 #### CreateUserInvitationRequest
@@ -4383,6 +12515,641 @@ optional website: string;
 https://www.royalalberthall.com
 ```
 
+#### CreditBalance
+
+```ts
+CreditBalance: {
+  balance: number;
+  createdAt: string;
+  id: string;
+  isSuspended: boolean;
+  lifetimeCredits: number;
+  lifetimeUsed: number;
+  organisationId: string;
+  status: "healthy" | "low" | "depleted" | "negative" | "suspended";
+  suspendedAt: string | null;
+  suspendedReason: string | null;
+  updatedAt: string;
+};
+```
+
+##### CreditBalance.balance
+
+```ts
+balance: number;
+```
+
+###### Example
+
+```ts
+150
+```
+
+##### CreditBalance.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### CreditBalance.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+bal_abc123
+```
+
+##### CreditBalance.isSuspended
+
+```ts
+isSuspended: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### CreditBalance.lifetimeCredits
+
+```ts
+lifetimeCredits: number;
+```
+
+###### Example
+
+```ts
+500
+```
+
+##### CreditBalance.lifetimeUsed
+
+```ts
+lifetimeUsed: number;
+```
+
+###### Example
+
+```ts
+350
+```
+
+##### CreditBalance.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+##### CreditBalance.status
+
+```ts
+status: "healthy" | "low" | "depleted" | "negative" | "suspended";
+```
+
+###### Example
+
+```ts
+healthy
+@enum {string}
+```
+
+##### CreditBalance.suspendedAt
+
+```ts
+suspendedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CreditBalance.suspendedReason
+
+```ts
+suspendedReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CreditBalance.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-20T14:45:00Z
+```
+
+#### CreditPackage
+
+```ts
+CreditPackage: {
+  baseCurrency: string;
+  basePrice: string;
+  credits: number;
+  discountPercent: string;
+  displayOrder: number;
+  finalPrice: string;
+  id: string;
+  isActive: boolean;
+  name: string;
+};
+```
+
+##### CreditPackage.baseCurrency
+
+```ts
+baseCurrency: string;
+```
+
+###### Example
+
+```ts
+USD
+```
+
+##### CreditPackage.basePrice
+
+```ts
+basePrice: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### CreditPackage.credits
+
+```ts
+credits: number;
+```
+
+###### Example
+
+```ts
+100
+```
+
+##### CreditPackage.discountPercent
+
+```ts
+discountPercent: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### CreditPackage.displayOrder
+
+```ts
+displayOrder: number;
+```
+
+###### Example
+
+```ts
+1
+```
+
+##### CreditPackage.finalPrice
+
+```ts
+finalPrice: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### CreditPackage.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pkg_100
+```
+
+##### CreditPackage.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### CreditPackage.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+100 Credits
+```
+
+#### CreditTransaction
+
+```ts
+CreditTransaction: {
+  amount: number;
+  balanceAfter: number;
+  balanceBefore: number;
+  createdAt: string;
+  description: string | null;
+  id: string;
+  invoiceId: string | null;
+  orderId: string | null;
+  organisationId: string;
+  subscriptionId: string | null;
+  type:   | "initial"
+     | "purchase"
+     | "subscription"
+     | "ticket_sale"
+     | "adjustment"
+     | "refund";
+};
+```
+
+##### CreditTransaction.amount
+
+```ts
+amount: number;
+```
+
+###### Example
+
+```ts
+100
+```
+
+##### CreditTransaction.balanceAfter
+
+```ts
+balanceAfter: number;
+```
+
+###### Example
+
+```ts
+150
+```
+
+##### CreditTransaction.balanceBefore
+
+```ts
+balanceBefore: number;
+```
+
+###### Example
+
+```ts
+50
+```
+
+##### CreditTransaction.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### CreditTransaction.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Credit purchase - 100 Credits
+```
+
+##### CreditTransaction.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+txn_abc123
+```
+
+##### CreditTransaction.invoiceId
+
+```ts
+invoiceId: string | null;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### CreditTransaction.orderId
+
+```ts
+orderId: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CreditTransaction.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+##### CreditTransaction.subscriptionId
+
+```ts
+subscriptionId: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### CreditTransaction.type
+
+```ts
+type: 
+  | "initial"
+  | "purchase"
+  | "subscription"
+  | "ticket_sale"
+  | "adjustment"
+  | "refund";
+```
+
+###### Example
+
+```ts
+purchase
+@enum {string}
+```
+
+#### Customer
+
+```ts
+Customer: {
+  accountId: string | null;
+  blockedAt: string | null;
+  blockedReason: string | null;
+  createdAt: string;
+  email: string;
+  externalId: string | null;
+  firstName: string | null;
+  id: string;
+  isBlocked: boolean;
+  lastName: string | null;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  phone: string | null;
+  updatedAt: string;
+};
+```
+
+##### Customer.accountId
+
+```ts
+accountId: string | null;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### Customer.blockedAt
+
+```ts
+blockedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### Customer.blockedReason
+
+```ts
+blockedReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### Customer.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### Customer.email
+
+```ts
+email: string;
+```
+
+###### Example
+
+```ts
+customer@example.com
+```
+
+##### Customer.externalId
+
+```ts
+externalId: string | null;
+```
+
+###### Example
+
+```ts
+ext_cust_12345
+```
+
+##### Customer.firstName
+
+```ts
+firstName: string | null;
+```
+
+###### Example
+
+```ts
+John
+```
+
+##### Customer.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### Customer.isBlocked
+
+```ts
+isBlocked: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### Customer.lastName
+
+```ts
+lastName: string | null;
+```
+
+###### Example
+
+```ts
+Doe
+```
+
+##### Customer.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "loyaltyTier": "gold"
+             *     }
+```
+
+##### Customer.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### Customer.phone
+
+```ts
+phone: string | null;
+```
+
+###### Example
+
+```ts
++44 7700 900000
+```
+
+##### Customer.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-20T14:45:00Z
+```
+
 #### Decoration
 
 ```ts
@@ -4750,6 +13517,59 @@ evt_abc123
 ```
 
 ##### DeleteEventResponse.success
+
+```ts
+success: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+#### DeleteInventoryResponse
+
+```ts
+DeleteInventoryResponse: {
+  message: string;
+};
+```
+
+##### DeleteInventoryResponse.message
+
+```ts
+message: string;
+```
+
+###### Example
+
+```ts
+Inventory deleted successfully
+```
+
+#### DeletePaymentProviderResponse
+
+```ts
+DeletePaymentProviderResponse: {
+  id: string;
+  success: boolean;
+};
+```
+
+##### DeletePaymentProviderResponse.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pp_stripeXxx123
+```
+
+##### DeletePaymentProviderResponse.success
 
 ```ts
 success: boolean;
@@ -5434,6 +14254,255 @@ optional venueId: string;
 vnu_abc123
 ```
 
+#### ExtendReservationResponse
+
+```ts
+ExtendReservationResponse: {
+  reservation: {
+     accountId: string;
+     createdAt: string;
+     expiresAt: string | null;
+     heldBy: string | null;
+     id: string;
+     inventoryId: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     quantity: number;
+     reason: string | null;
+     referenceId: string | null;
+     referenceType: "subscription" | "order" | "hold" | null;
+     seatIds: string[] | null;
+     type: "confirmed" | "maintenance" | "hold" | "temporary";
+     updatedAt: string;
+  };
+};
+```
+
+##### ExtendReservationResponse.reservation
+
+```ts
+reservation: {
+  accountId: string;
+  createdAt: string;
+  expiresAt: string | null;
+  heldBy: string | null;
+  id: string;
+  inventoryId: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  quantity: number;
+  reason: string | null;
+  referenceId: string | null;
+  referenceType: "subscription" | "order" | "hold" | null;
+  seatIds: string[] | null;
+  type: "confirmed" | "maintenance" | "hold" | "temporary";
+  updatedAt: string;
+};
+```
+
+##### ExtendReservationResponse.reservation.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### ExtendReservationResponse.reservation.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:30:00Z
+```
+
+##### ExtendReservationResponse.reservation.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:45:00Z
+```
+
+##### ExtendReservationResponse.reservation.heldBy
+
+```ts
+heldBy: string | null;
+```
+
+###### Example
+
+```ts
+usr_abc123
+```
+
+##### ExtendReservationResponse.reservation.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ivr_abc123
+```
+
+##### ExtendReservationResponse.reservation.inventoryId
+
+```ts
+inventoryId: string;
+```
+
+###### Example
+
+```ts
+inv_ghi789
+```
+
+##### ExtendReservationResponse.reservation.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### ExtendReservationResponse.reservation.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### ExtendReservationResponse.reservation.quantity
+
+```ts
+quantity: number;
+```
+
+###### Example
+
+```ts
+2
+```
+
+##### ExtendReservationResponse.reservation.reason
+
+```ts
+reason: string | null;
+```
+
+###### Example
+
+```ts
+Customer checkout
+```
+
+##### ExtendReservationResponse.reservation.referenceId
+
+```ts
+referenceId: string | null;
+```
+
+###### Example
+
+```ts
+ord_jkl012
+```
+
+##### ExtendReservationResponse.reservation.referenceType
+
+```ts
+referenceType: "subscription" | "order" | "hold" | null;
+```
+
+###### Description
+
+Type of reference for this reservation
+
+###### Example
+
+```ts
+order
+@enum {string|null}
+```
+
+##### ExtendReservationResponse.reservation.seatIds
+
+```ts
+seatIds: string[] | null;
+```
+
+###### Example
+
+```ts
+[
+      "ivs_abc123",
+      "ivs_def456"
+    ]
+```
+
+##### ExtendReservationResponse.reservation.type
+
+```ts
+type: "confirmed" | "maintenance" | "hold" | "temporary";
+```
+
+###### Description
+
+Type of reservation
+
+###### Example
+
+```ts
+temporary
+@enum {string}
+```
+
+##### ExtendReservationResponse.reservation.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T14:45:00Z
+```
+
 #### FederateRequest
 
 ```ts
@@ -5457,6 +14526,36 @@ Stagedoor JWT token to federate
 ```ts
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
+
+#### FeeStructure
+
+```ts
+FeeStructure: 
+  | {
+  currency?: string;
+  fixed?: number;
+  percentage?: number;
+  type: "percentage" | "fixed" | "percentage_plus_fixed";
+}
+  | null;
+```
+
+##### Type Declaration
+
+```ts
+{
+  currency?: string;
+  fixed?: number;
+  percentage?: number;
+  type: "percentage" | "fixed" | "percentage_plus_fixed";
+}
+```
+
+`null`
+
+##### Description
+
+Fee structure
 
 #### GenerateSeatsResponse
 
@@ -5671,6 +14770,497 @@ active
 ```
 
 ##### GetAccountResponse.account.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-20T14:45:00Z
+```
+
+#### GetAuditLogResponse
+
+```ts
+GetAuditLogResponse: {
+  auditLog: {
+     action: string;
+     actorId: string | null;
+     actorType: string | null;
+     changes: {
+      [key: string]: unknown;
+     };
+     createdAt: string;
+     id: number;
+     inventoryId: string;
+     referenceId: string | null;
+     referenceType: string | null;
+  }[];
+};
+```
+
+##### GetAuditLogResponse.auditLog
+
+```ts
+auditLog: {
+  action: string;
+  actorId: string | null;
+  actorType: string | null;
+  changes: {
+   [key: string]: unknown;
+  };
+  createdAt: string;
+  id: number;
+  inventoryId: string;
+  referenceId: string | null;
+  referenceType: string | null;
+}[];
+```
+
+#### GetAutoTopupResponse
+
+```ts
+GetAutoTopupResponse: {
+  autoTopup:   | {
+     attemptsToday: number;
+     createdAt: string;
+     enabled: boolean;
+     id: string;
+     lastAttemptAt: string | null;
+     maxAttemptsPerDay: number;
+     organisationId: string;
+     thresholdCredits: number;
+     topupPackageId: string;
+     updatedAt: string;
+   }
+     | null;
+};
+```
+
+##### GetAutoTopupResponse.autoTopup
+
+```ts
+autoTopup: 
+  | {
+  attemptsToday: number;
+  createdAt: string;
+  enabled: boolean;
+  id: string;
+  lastAttemptAt: string | null;
+  maxAttemptsPerDay: number;
+  organisationId: string;
+  thresholdCredits: number;
+  topupPackageId: string;
+  updatedAt: string;
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  attemptsToday: number;
+  createdAt: string;
+  enabled: boolean;
+  id: string;
+  lastAttemptAt: string | null;
+  maxAttemptsPerDay: number;
+  organisationId: string;
+  thresholdCredits: number;
+  topupPackageId: string;
+  updatedAt: string;
+}
+```
+
+`null`
+
+#### GetBalanceResponse
+
+```ts
+GetBalanceResponse: {
+  balance: {
+     balance: number;
+     createdAt: string;
+     id: string;
+     isSuspended: boolean;
+     lifetimeCredits: number;
+     lifetimeUsed: number;
+     organisationId: string;
+     status: "healthy" | "low" | "depleted" | "negative" | "suspended";
+     suspendedAt: string | null;
+     suspendedReason: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### GetBalanceResponse.balance
+
+```ts
+balance: {
+  balance: number;
+  createdAt: string;
+  id: string;
+  isSuspended: boolean;
+  lifetimeCredits: number;
+  lifetimeUsed: number;
+  organisationId: string;
+  status: "healthy" | "low" | "depleted" | "negative" | "suspended";
+  suspendedAt: string | null;
+  suspendedReason: string | null;
+  updatedAt: string;
+};
+```
+
+##### GetBalanceResponse.balance.balance
+
+```ts
+balance: number;
+```
+
+###### Example
+
+```ts
+150
+```
+
+##### GetBalanceResponse.balance.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### GetBalanceResponse.balance.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+bal_abc123
+```
+
+##### GetBalanceResponse.balance.isSuspended
+
+```ts
+isSuspended: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### GetBalanceResponse.balance.lifetimeCredits
+
+```ts
+lifetimeCredits: number;
+```
+
+###### Example
+
+```ts
+500
+```
+
+##### GetBalanceResponse.balance.lifetimeUsed
+
+```ts
+lifetimeUsed: number;
+```
+
+###### Example
+
+```ts
+350
+```
+
+##### GetBalanceResponse.balance.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+##### GetBalanceResponse.balance.status
+
+```ts
+status: "healthy" | "low" | "depleted" | "negative" | "suspended";
+```
+
+###### Example
+
+```ts
+healthy
+@enum {string}
+```
+
+##### GetBalanceResponse.balance.suspendedAt
+
+```ts
+suspendedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### GetBalanceResponse.balance.suspendedReason
+
+```ts
+suspendedReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### GetBalanceResponse.balance.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-20T14:45:00Z
+```
+
+#### GetCustomerResponse
+
+```ts
+GetCustomerResponse: {
+  customer: {
+     accountId: string | null;
+     blockedAt: string | null;
+     blockedReason: string | null;
+     createdAt: string;
+     email: string;
+     externalId: string | null;
+     firstName: string | null;
+     id: string;
+     isBlocked: boolean;
+     lastName: string | null;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     phone: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### GetCustomerResponse.customer
+
+```ts
+customer: {
+  accountId: string | null;
+  blockedAt: string | null;
+  blockedReason: string | null;
+  createdAt: string;
+  email: string;
+  externalId: string | null;
+  firstName: string | null;
+  id: string;
+  isBlocked: boolean;
+  lastName: string | null;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  phone: string | null;
+  updatedAt: string;
+};
+```
+
+##### GetCustomerResponse.customer.accountId
+
+```ts
+accountId: string | null;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### GetCustomerResponse.customer.blockedAt
+
+```ts
+blockedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### GetCustomerResponse.customer.blockedReason
+
+```ts
+blockedReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### GetCustomerResponse.customer.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### GetCustomerResponse.customer.email
+
+```ts
+email: string;
+```
+
+###### Example
+
+```ts
+customer@example.com
+```
+
+##### GetCustomerResponse.customer.externalId
+
+```ts
+externalId: string | null;
+```
+
+###### Example
+
+```ts
+ext_cust_12345
+```
+
+##### GetCustomerResponse.customer.firstName
+
+```ts
+firstName: string | null;
+```
+
+###### Example
+
+```ts
+John
+```
+
+##### GetCustomerResponse.customer.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### GetCustomerResponse.customer.isBlocked
+
+```ts
+isBlocked: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### GetCustomerResponse.customer.lastName
+
+```ts
+lastName: string | null;
+```
+
+###### Example
+
+```ts
+Doe
+```
+
+##### GetCustomerResponse.customer.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "loyaltyTier": "gold"
+             *     }
+```
+
+##### GetCustomerResponse.customer.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### GetCustomerResponse.customer.phone
+
+```ts
+phone: string | null;
+```
+
+###### Example
+
+```ts
++44 7700 900000
+```
+
+##### GetCustomerResponse.customer.updatedAt
 
 ```ts
 updatedAt: string;
@@ -6524,6 +16114,545 @@ userinfoEndpointInternal: string | null;
 http://stagedoor:3000/api/oauth/userinfo
 ```
 
+#### GetInventoryResponse
+
+```ts
+GetInventoryResponse: {
+  inventory: {
+     accountId: string;
+     available: number;
+     confirmed: number;
+     createdAt: string;
+     eventId: string | null;
+     eventLayoutAreaId: string | null;
+     eventOccurrenceId: string | null;
+     held: number;
+     id: string;
+     isAllocated: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     productId: string | null;
+     reserved: number;
+     sourceType: "event_occurrence_area" | "product";
+     totalCapacity: number;
+     updatedAt: string;
+     version: number;
+  };
+};
+```
+
+##### GetInventoryResponse.inventory
+
+```ts
+inventory: {
+  accountId: string;
+  available: number;
+  confirmed: number;
+  createdAt: string;
+  eventId: string | null;
+  eventLayoutAreaId: string | null;
+  eventOccurrenceId: string | null;
+  held: number;
+  id: string;
+  isAllocated: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  productId: string | null;
+  reserved: number;
+  sourceType: "event_occurrence_area" | "product";
+  totalCapacity: number;
+  updatedAt: string;
+  version: number;
+};
+```
+
+##### GetInventoryResponse.inventory.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### GetInventoryResponse.inventory.available
+
+```ts
+available: number;
+```
+
+###### Example
+
+```ts
+450
+```
+
+##### GetInventoryResponse.inventory.confirmed
+
+```ts
+confirmed: number;
+```
+
+###### Example
+
+```ts
+20
+```
+
+##### GetInventoryResponse.inventory.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:30:00Z
+```
+
+##### GetInventoryResponse.inventory.eventId
+
+```ts
+eventId: string | null;
+```
+
+###### Example
+
+```ts
+evt_ghi789
+```
+
+##### GetInventoryResponse.inventory.eventLayoutAreaId
+
+```ts
+eventLayoutAreaId: string | null;
+```
+
+###### Example
+
+```ts
+ela_mno345
+```
+
+##### GetInventoryResponse.inventory.eventOccurrenceId
+
+```ts
+eventOccurrenceId: string | null;
+```
+
+###### Example
+
+```ts
+evo_jkl012
+```
+
+##### GetInventoryResponse.inventory.held
+
+```ts
+held: number;
+```
+
+###### Example
+
+```ts
+0
+```
+
+##### GetInventoryResponse.inventory.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### GetInventoryResponse.inventory.isAllocated
+
+```ts
+isAllocated: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### GetInventoryResponse.inventory.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### GetInventoryResponse.inventory.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### GetInventoryResponse.inventory.productId
+
+```ts
+productId: string | null;
+```
+
+###### Example
+
+```ts
+prd_pqr678
+```
+
+##### GetInventoryResponse.inventory.reserved
+
+```ts
+reserved: number;
+```
+
+###### Example
+
+```ts
+30
+```
+
+##### GetInventoryResponse.inventory.sourceType
+
+```ts
+sourceType: "event_occurrence_area" | "product";
+```
+
+###### Description
+
+Type of inventory source
+
+###### Example
+
+```ts
+event_occurrence_area
+@enum {string}
+```
+
+##### GetInventoryResponse.inventory.totalCapacity
+
+```ts
+totalCapacity: number;
+```
+
+###### Example
+
+```ts
+500
+```
+
+##### GetInventoryResponse.inventory.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T14:45:00Z
+```
+
+##### GetInventoryResponse.inventory.version
+
+```ts
+version: number;
+```
+
+###### Example
+
+```ts
+1
+```
+
+#### GetInvoiceResponse
+
+```ts
+GetInvoiceResponse: {
+  invoice: {
+     amountDue: string;
+     amountPaid: string;
+     createdAt: string;
+     currency: string;
+     dueDate: string | null;
+     id: string;
+     invoiceNumber: string;
+     issueDate: string;
+     organisationId: string;
+     paidAt: string | null;
+     pdfUrl: string | null;
+     status: "draft" | "open" | "paid" | "void" | "uncollectible";
+     subtotal: string;
+     tax: string;
+     total: string;
+     type: "purchase" | "subscription" | "payg";
+     updatedAt: string;
+  };
+};
+```
+
+##### GetInvoiceResponse.invoice
+
+```ts
+invoice: {
+  amountDue: string;
+  amountPaid: string;
+  createdAt: string;
+  currency: string;
+  dueDate: string | null;
+  id: string;
+  invoiceNumber: string;
+  issueDate: string;
+  organisationId: string;
+  paidAt: string | null;
+  pdfUrl: string | null;
+  status: "draft" | "open" | "paid" | "void" | "uncollectible";
+  subtotal: string;
+  tax: string;
+  total: string;
+  type: "purchase" | "subscription" | "payg";
+  updatedAt: string;
+};
+```
+
+##### GetInvoiceResponse.invoice.amountDue
+
+```ts
+amountDue: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### GetInvoiceResponse.invoice.amountPaid
+
+```ts
+amountPaid: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### GetInvoiceResponse.invoice.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### GetInvoiceResponse.invoice.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+USD
+```
+
+##### GetInvoiceResponse.invoice.dueDate
+
+```ts
+dueDate: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-30
+```
+
+##### GetInvoiceResponse.invoice.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### GetInvoiceResponse.invoice.invoiceNumber
+
+```ts
+invoiceNumber: string;
+```
+
+###### Example
+
+```ts
+INV-2024-0001
+```
+
+##### GetInvoiceResponse.invoice.issueDate
+
+```ts
+issueDate: string;
+```
+
+###### Example
+
+```ts
+2024-01-15
+```
+
+##### GetInvoiceResponse.invoice.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+##### GetInvoiceResponse.invoice.paidAt
+
+```ts
+paidAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+##### GetInvoiceResponse.invoice.pdfUrl
+
+```ts
+pdfUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://invoice.stripe.com/...
+```
+
+##### GetInvoiceResponse.invoice.status
+
+```ts
+status: "draft" | "open" | "paid" | "void" | "uncollectible";
+```
+
+###### Example
+
+```ts
+paid
+@enum {string}
+```
+
+##### GetInvoiceResponse.invoice.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### GetInvoiceResponse.invoice.tax
+
+```ts
+tax: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### GetInvoiceResponse.invoice.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### GetInvoiceResponse.invoice.type
+
+```ts
+type: "purchase" | "subscription" | "payg";
+```
+
+###### Example
+
+```ts
+purchase
+@enum {string}
+```
+
+##### GetInvoiceResponse.invoice.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
 #### GetMeOrganisationsResponse
 
 ```ts
@@ -6769,6 +16898,486 @@ roles: {
 }[];
 ```
 
+#### GetOrderResponse
+
+```ts
+GetOrderResponse: {
+  order: {
+     accountId: string;
+     cancellationReason: string | null;
+     cancelledAt: string | null;
+     channel: string | null;
+     completedAt: string | null;
+     confirmedAt: string | null;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     customerNotes: string | null;
+     discountTotal: string;
+     expiresAt: string | null;
+     feeTotal: string;
+     id: string;
+     internalNotes: string | null;
+     isGuestCheckout: boolean;
+     items?: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     }[];
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderNumber: string;
+     organisationId: string;
+     status:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     subtotal: string;
+     taxTotal: string;
+     total: string;
+     updatedAt: string;
+  };
+};
+```
+
+##### GetOrderResponse.order
+
+```ts
+order: {
+  accountId: string;
+  cancellationReason: string | null;
+  cancelledAt: string | null;
+  channel: string | null;
+  completedAt: string | null;
+  confirmedAt: string | null;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  customerNotes: string | null;
+  discountTotal: string;
+  expiresAt: string | null;
+  feeTotal: string;
+  id: string;
+  internalNotes: string | null;
+  isGuestCheckout: boolean;
+  items?: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  }[];
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderNumber: string;
+  organisationId: string;
+  status:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  subtotal: string;
+  taxTotal: string;
+  total: string;
+  updatedAt: string;
+};
+```
+
+##### GetOrderResponse.order.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### GetOrderResponse.order.cancellationReason
+
+```ts
+cancellationReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### GetOrderResponse.order.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### GetOrderResponse.order.channel
+
+```ts
+channel: string | null;
+```
+
+###### Example
+
+```ts
+web
+```
+
+##### GetOrderResponse.order.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### GetOrderResponse.order.confirmedAt
+
+```ts
+confirmedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### GetOrderResponse.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### GetOrderResponse.order.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### GetOrderResponse.order.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### GetOrderResponse.order.customerNotes
+
+```ts
+customerNotes: string | null;
+```
+
+###### Example
+
+```ts
+Please contact me before delivery
+```
+
+##### GetOrderResponse.order.discountTotal
+
+```ts
+discountTotal: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### GetOrderResponse.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+##### GetOrderResponse.order.feeTotal
+
+```ts
+feeTotal: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### GetOrderResponse.order.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### GetOrderResponse.order.internalNotes
+
+```ts
+internalNotes: string | null;
+```
+
+###### Example
+
+```ts
+VIP customer
+```
+
+##### GetOrderResponse.order.isGuestCheckout
+
+```ts
+isGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### GetOrderResponse.order.items?
+
+```ts
+optional items: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+}[];
+```
+
+###### Description
+
+Order line items
+
+##### GetOrderResponse.order.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "promoCode": "SUMMER20"
+             *     }
+```
+
+##### GetOrderResponse.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### GetOrderResponse.order.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### GetOrderResponse.order.status
+
+```ts
+status: 
+  | "completed"
+  | "cancelled"
+  | "pending"
+  | "failed"
+  | "refunded"
+  | "confirmed"
+  | "processing"
+  | "expired";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+##### GetOrderResponse.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### GetOrderResponse.order.taxTotal
+
+```ts
+taxTotal: string;
+```
+
+###### Example
+
+```ts
+10.00
+```
+
+##### GetOrderResponse.order.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+62.50
+```
+
+##### GetOrderResponse.order.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
 #### GetOrganisationResponse
 
 ```ts
@@ -6910,6 +17519,1243 @@ updatedAt: string;
 
 ```ts
 2024-01-20T14:45:00Z
+```
+
+#### GetPaymentProviderResponse
+
+```ts
+GetPaymentProviderResponse: {
+  provider: {
+     accountId: string | null;
+     applicationFee:   | {
+        type: "percentage" | "fixed";
+        value: number;
+      }
+        | null;
+     capabilities:   | {
+        maxAmount?: number;
+        minAmount?: number;
+        requiresCustomerAction?: boolean;
+        supportedCurrencies?: string[];
+        supportsDelayedCapture?: boolean;
+        supportsInstantCapture?: boolean;
+        supportsPartialRefunds?: boolean;
+        supportsRefunds?: boolean;
+      }
+        | null;
+     configuration: {
+      [key: string]: unknown;
+     };
+     createdAt: string;
+     description: string | null;
+     feeStructure:   | {
+        currency?: string;
+        fixed?: number;
+        percentage?: number;
+        type: "percentage" | "fixed" | "percentage_plus_fixed";
+      }
+        | null;
+     id: string;
+     integrationServiceUrl: string | null;
+     integrationServiceVersion: string;
+     isDefault: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     organisationId: string;
+     priority: number;
+     status: "active" | "inactive" | "pending_setup";
+     supportedPaymentTypes: (
+        | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+       | "cheque")[];
+     type:   | "bank_transfer"
+        | "cash"
+        | "stripe_connect"
+        | "stripe_direct"
+        | "adyen"
+        | "square"
+        | "paypal";
+     updatedAt: string;
+  };
+};
+```
+
+##### GetPaymentProviderResponse.provider
+
+```ts
+provider: {
+  accountId: string | null;
+  applicationFee:   | {
+     type: "percentage" | "fixed";
+     value: number;
+   }
+     | null;
+  capabilities:   | {
+     maxAmount?: number;
+     minAmount?: number;
+     requiresCustomerAction?: boolean;
+     supportedCurrencies?: string[];
+     supportsDelayedCapture?: boolean;
+     supportsInstantCapture?: boolean;
+     supportsPartialRefunds?: boolean;
+     supportsRefunds?: boolean;
+   }
+     | null;
+  configuration: {
+   [key: string]: unknown;
+  };
+  createdAt: string;
+  description: string | null;
+  feeStructure:   | {
+     currency?: string;
+     fixed?: number;
+     percentage?: number;
+     type: "percentage" | "fixed" | "percentage_plus_fixed";
+   }
+     | null;
+  id: string;
+  integrationServiceUrl: string | null;
+  integrationServiceVersion: string;
+  isDefault: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  organisationId: string;
+  priority: number;
+  status: "active" | "inactive" | "pending_setup";
+  supportedPaymentTypes: (
+     | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+    | "cheque")[];
+  type:   | "bank_transfer"
+     | "cash"
+     | "stripe_connect"
+     | "stripe_direct"
+     | "adyen"
+     | "square"
+     | "paypal";
+  updatedAt: string;
+};
+```
+
+##### GetPaymentProviderResponse.provider.accountId
+
+```ts
+accountId: string | null;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### GetPaymentProviderResponse.provider.applicationFee
+
+```ts
+applicationFee: 
+  | {
+  type: "percentage" | "fixed";
+  value: number;
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  type: "percentage" | "fixed";
+  value: number;
+}
+```
+
+`null`
+
+##### GetPaymentProviderResponse.provider.capabilities
+
+```ts
+capabilities: 
+  | {
+  maxAmount?: number;
+  minAmount?: number;
+  requiresCustomerAction?: boolean;
+  supportedCurrencies?: string[];
+  supportsDelayedCapture?: boolean;
+  supportsInstantCapture?: boolean;
+  supportsPartialRefunds?: boolean;
+  supportsRefunds?: boolean;
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  maxAmount?: number;
+  minAmount?: number;
+  requiresCustomerAction?: boolean;
+  supportedCurrencies?: string[];
+  supportsDelayedCapture?: boolean;
+  supportsInstantCapture?: boolean;
+  supportsPartialRefunds?: boolean;
+  supportsRefunds?: boolean;
+}
+```
+
+`null`
+
+##### GetPaymentProviderResponse.provider.configuration
+
+```ts
+configuration: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Provider-specific configuration (sensitive fields redacted)
+
+###### Example
+
+```ts
+{
+             *       "stripeConnectedAccountId": "acct_xxx"
+             *     }
+```
+
+##### GetPaymentProviderResponse.provider.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### GetPaymentProviderResponse.provider.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Primary payment processor for online orders
+```
+
+##### GetPaymentProviderResponse.provider.feeStructure
+
+```ts
+feeStructure: 
+  | {
+  currency?: string;
+  fixed?: number;
+  percentage?: number;
+  type: "percentage" | "fixed" | "percentage_plus_fixed";
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  currency?: string;
+  fixed?: number;
+  percentage?: number;
+  type: "percentage" | "fixed" | "percentage_plus_fixed";
+}
+```
+
+`null`
+
+##### GetPaymentProviderResponse.provider.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pp_stripeXxx123
+```
+
+##### GetPaymentProviderResponse.provider.integrationServiceUrl
+
+```ts
+integrationServiceUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://stripe.paymentintegration.ticketlayer.com
+```
+
+##### GetPaymentProviderResponse.provider.integrationServiceVersion
+
+```ts
+integrationServiceVersion: string;
+```
+
+###### Example
+
+```ts
+v1
+```
+
+##### GetPaymentProviderResponse.provider.isDefault
+
+```ts
+isDefault: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### GetPaymentProviderResponse.provider.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "environment": "production"
+             *     }
+```
+
+##### GetPaymentProviderResponse.provider.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Main Stripe Account
+```
+
+##### GetPaymentProviderResponse.provider.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### GetPaymentProviderResponse.provider.priority
+
+```ts
+priority: number;
+```
+
+###### Example
+
+```ts
+100
+```
+
+##### GetPaymentProviderResponse.provider.status
+
+```ts
+status: "active" | "inactive" | "pending_setup";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### GetPaymentProviderResponse.provider.supportedPaymentTypes
+
+```ts
+supportedPaymentTypes: (
+  | "bank_transfer"
+  | "online_card"
+  | "online_bank_transfer"
+  | "online_wallet"
+  | "in_person_card"
+  | "in_person_cash"
+  | "cheque")[];
+```
+
+###### Example
+
+```ts
+[
+      "online_card",
+      "online_wallet"
+    ]
+```
+
+##### GetPaymentProviderResponse.provider.type
+
+```ts
+type: 
+  | "bank_transfer"
+  | "cash"
+  | "stripe_connect"
+  | "stripe_direct"
+  | "adyen"
+  | "square"
+  | "paypal";
+```
+
+###### Example
+
+```ts
+stripe_connect
+@enum {string}
+```
+
+##### GetPaymentProviderResponse.provider.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+#### GetPaymentResponse
+
+```ts
+GetPaymentResponse: {
+  payment: {
+     amount: string;
+     createdAt: string;
+     currency: string;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     invoiceId: string | null;
+     method: string | null;
+     organisationId: string;
+     paidAt: string | null;
+     status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+     updatedAt: string;
+   } & {
+     accountId: string;
+     amount: number;
+     applicationFee: number | null;
+     cancelledAt: string | null;
+     capturedAt: string | null;
+     clientSecret: string | null;
+     createdAt: string;
+     currency: string;
+     expiresAt: string | null;
+     externalPaymentId: string | null;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     isPartialPayment: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     netAmount: number | null;
+     orderId: string;
+     orderNumber: string;
+     organisationId: string;
+     paymentMethod:   | {
+        brand: string | null;
+        expiryMonth: number | null;
+        expiryYear: number | null;
+        last4: string | null;
+        type: "card" | "bank_transfer" | "cash" | "wallet";
+      }
+        | null;
+     paymentProviderId: string;
+     paymentType:   | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+        | "cheque";
+     processingFee: number | null;
+     redirectUrl: string | null;
+     remainingBalance: number | null;
+     status:   | "cancelled"
+        | "pending"
+        | "succeeded"
+        | "failed"
+        | "processing"
+        | "expired"
+        | "requires_action"
+        | "created";
+     updatedAt: string;
+  };
+};
+```
+
+##### GetPaymentResponse.payment
+
+```ts
+payment: {
+  amount: string;
+  createdAt: string;
+  currency: string;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  invoiceId: string | null;
+  method: string | null;
+  organisationId: string;
+  paidAt: string | null;
+  status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+  updatedAt: string;
+} & {
+  accountId: string;
+  amount: number;
+  applicationFee: number | null;
+  cancelledAt: string | null;
+  capturedAt: string | null;
+  clientSecret: string | null;
+  createdAt: string;
+  currency: string;
+  expiresAt: string | null;
+  externalPaymentId: string | null;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  isPartialPayment: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  netAmount: number | null;
+  orderId: string;
+  orderNumber: string;
+  organisationId: string;
+  paymentMethod:   | {
+     brand: string | null;
+     expiryMonth: number | null;
+     expiryYear: number | null;
+     last4: string | null;
+     type: "card" | "bank_transfer" | "cash" | "wallet";
+   }
+     | null;
+  paymentProviderId: string;
+  paymentType:   | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+     | "cheque";
+  processingFee: number | null;
+  redirectUrl: string | null;
+  remainingBalance: number | null;
+  status:   | "cancelled"
+     | "pending"
+     | "succeeded"
+     | "failed"
+     | "processing"
+     | "expired"
+     | "requires_action"
+     | "created";
+  updatedAt: string;
+};
+```
+
+###### Type Declaration
+
+###### amount
+
+```ts
+amount: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+###### createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+###### currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+USD
+```
+
+###### failedAt
+
+```ts
+failedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureCode
+
+```ts
+failureCode: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureMessage
+
+```ts
+failureMessage: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pay_abc123
+```
+
+###### invoiceId
+
+```ts
+invoiceId: string | null;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+###### method
+
+```ts
+method: string | null;
+```
+
+###### Example
+
+```ts
+card
+```
+
+###### organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+###### paidAt
+
+```ts
+paidAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+###### status
+
+```ts
+status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+```
+
+###### Example
+
+```ts
+succeeded
+@enum {string}
+```
+
+###### updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+###### Type Declaration
+
+###### accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+###### amount
+
+```ts
+amount: number;
+```
+
+###### Example
+
+```ts
+97
+```
+
+###### applicationFee
+
+```ts
+applicationFee: number | null;
+```
+
+###### Example
+
+```ts
+2
+```
+
+###### cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### capturedAt
+
+```ts
+capturedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### clientSecret
+
+```ts
+clientSecret: string | null;
+```
+
+###### Example
+
+```ts
+pi_xxx_secret_yyy
+```
+
+###### createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+###### currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+###### expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+###### externalPaymentId
+
+```ts
+externalPaymentId: string | null;
+```
+
+###### Example
+
+```ts
+pi_1234567890abcdef
+```
+
+###### failedAt
+
+```ts
+failedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureCode
+
+```ts
+failureCode: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureMessage
+
+```ts
+failureMessage: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pay_abc123xyz789
+```
+
+###### isPartialPayment
+
+```ts
+isPartialPayment: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+###### metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+                 *       "customerEmail": "customer@example.com"
+                 *     }
+```
+
+###### netAmount
+
+```ts
+netAmount: number | null;
+```
+
+###### Example
+
+```ts
+92.09
+```
+
+###### orderId
+
+```ts
+orderId: string;
+```
+
+###### Example
+
+```ts
+ord_abc123
+```
+
+###### orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+###### organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+###### paymentMethod
+
+```ts
+paymentMethod: 
+  | {
+  brand: string | null;
+  expiryMonth: number | null;
+  expiryYear: number | null;
+  last4: string | null;
+  type: "card" | "bank_transfer" | "cash" | "wallet";
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  brand: string | null;
+  expiryMonth: number | null;
+  expiryYear: number | null;
+  last4: string | null;
+  type: "card" | "bank_transfer" | "cash" | "wallet";
+}
+```
+
+`null`
+
+###### paymentProviderId
+
+```ts
+paymentProviderId: string;
+```
+
+###### Example
+
+```ts
+pp_stripeXxx123
+```
+
+###### paymentType
+
+```ts
+paymentType: 
+  | "bank_transfer"
+  | "online_card"
+  | "online_bank_transfer"
+  | "online_wallet"
+  | "in_person_card"
+  | "in_person_cash"
+  | "cheque";
+```
+
+###### Example
+
+```ts
+online_card
+@enum {string}
+```
+
+###### processingFee
+
+```ts
+processingFee: number | null;
+```
+
+###### Example
+
+```ts
+2.91
+```
+
+###### redirectUrl
+
+```ts
+redirectUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://checkout.stripe.com/pay/xxx
+```
+
+###### remainingBalance
+
+```ts
+remainingBalance: number | null;
+```
+
+###### Example
+
+```ts
+0
+```
+
+###### status
+
+```ts
+status: 
+  | "cancelled"
+  | "pending"
+  | "succeeded"
+  | "failed"
+  | "processing"
+  | "expired"
+  | "requires_action"
+  | "created";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+###### updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+#### GetPaymentStatusResponse
+
+```ts
+GetPaymentStatusResponse: {
+  amount: string | null;
+  currency: string | null;
+  failedAt: string | null;
+  failureReason: string | null;
+  paidAt: string | null;
+  paymentId: string | null;
+  status:   | "cancelled"
+     | "pending"
+     | "succeeded"
+     | "failed"
+     | "processing"
+     | "requires_action"
+     | "none";
+};
+```
+
+##### GetPaymentStatusResponse.amount
+
+```ts
+amount: string | null;
+```
+
+###### Example
+
+```ts
+62.50
+```
+
+##### GetPaymentStatusResponse.currency
+
+```ts
+currency: string | null;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### GetPaymentStatusResponse.failedAt
+
+```ts
+failedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### GetPaymentStatusResponse.failureReason
+
+```ts
+failureReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### GetPaymentStatusResponse.paidAt
+
+```ts
+paidAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### GetPaymentStatusResponse.paymentId
+
+```ts
+paymentId: string | null;
+```
+
+###### Example
+
+```ts
+pay_abc123xyz789
+```
+
+##### GetPaymentStatusResponse.status
+
+```ts
+status: 
+  | "cancelled"
+  | "pending"
+  | "succeeded"
+  | "failed"
+  | "processing"
+  | "requires_action"
+  | "none";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
 ```
 
 #### GetPriceSchemeResponse
@@ -7099,6 +18945,255 @@ ticketPrices: {
 Price matrix entries
 
 ##### GetPriceSchemeResponse.priceScheme.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T14:45:00Z
+```
+
+#### GetReservationResponse
+
+```ts
+GetReservationResponse: {
+  reservation: {
+     accountId: string;
+     createdAt: string;
+     expiresAt: string | null;
+     heldBy: string | null;
+     id: string;
+     inventoryId: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     quantity: number;
+     reason: string | null;
+     referenceId: string | null;
+     referenceType: "subscription" | "order" | "hold" | null;
+     seatIds: string[] | null;
+     type: "confirmed" | "maintenance" | "hold" | "temporary";
+     updatedAt: string;
+  };
+};
+```
+
+##### GetReservationResponse.reservation
+
+```ts
+reservation: {
+  accountId: string;
+  createdAt: string;
+  expiresAt: string | null;
+  heldBy: string | null;
+  id: string;
+  inventoryId: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  quantity: number;
+  reason: string | null;
+  referenceId: string | null;
+  referenceType: "subscription" | "order" | "hold" | null;
+  seatIds: string[] | null;
+  type: "confirmed" | "maintenance" | "hold" | "temporary";
+  updatedAt: string;
+};
+```
+
+##### GetReservationResponse.reservation.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### GetReservationResponse.reservation.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:30:00Z
+```
+
+##### GetReservationResponse.reservation.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:45:00Z
+```
+
+##### GetReservationResponse.reservation.heldBy
+
+```ts
+heldBy: string | null;
+```
+
+###### Example
+
+```ts
+usr_abc123
+```
+
+##### GetReservationResponse.reservation.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ivr_abc123
+```
+
+##### GetReservationResponse.reservation.inventoryId
+
+```ts
+inventoryId: string;
+```
+
+###### Example
+
+```ts
+inv_ghi789
+```
+
+##### GetReservationResponse.reservation.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### GetReservationResponse.reservation.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### GetReservationResponse.reservation.quantity
+
+```ts
+quantity: number;
+```
+
+###### Example
+
+```ts
+2
+```
+
+##### GetReservationResponse.reservation.reason
+
+```ts
+reason: string | null;
+```
+
+###### Example
+
+```ts
+Customer checkout
+```
+
+##### GetReservationResponse.reservation.referenceId
+
+```ts
+referenceId: string | null;
+```
+
+###### Example
+
+```ts
+ord_jkl012
+```
+
+##### GetReservationResponse.reservation.referenceType
+
+```ts
+referenceType: "subscription" | "order" | "hold" | null;
+```
+
+###### Description
+
+Type of reference for this reservation
+
+###### Example
+
+```ts
+order
+@enum {string|null}
+```
+
+##### GetReservationResponse.reservation.seatIds
+
+```ts
+seatIds: string[] | null;
+```
+
+###### Example
+
+```ts
+[
+      "ivs_abc123",
+      "ivs_def456"
+    ]
+```
+
+##### GetReservationResponse.reservation.type
+
+```ts
+type: "confirmed" | "maintenance" | "hold" | "temporary";
+```
+
+###### Description
+
+Type of reservation
+
+###### Example
+
+```ts
+temporary
+@enum {string}
+```
+
+##### GetReservationResponse.reservation.updatedAt
 
 ```ts
 updatedAt: string;
@@ -8332,6 +20427,1011 @@ userinfoEndpointInternal: string | null;
 http://stagedoor:3000/api/oauth/userinfo
 ```
 
+#### InitiatePaymentResponse
+
+```ts
+InitiatePaymentResponse: {
+  clientSecret: string | null;
+  expiresAt: string | null;
+  paymentId: string;
+  redirectUrl: string | null;
+  status: "pending" | "succeeded" | "failed" | "processing" | "requires_action";
+};
+```
+
+##### InitiatePaymentResponse.clientSecret
+
+```ts
+clientSecret: string | null;
+```
+
+###### Example
+
+```ts
+pi_xxx_secret_yyy
+```
+
+##### InitiatePaymentResponse.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+##### InitiatePaymentResponse.paymentId
+
+```ts
+paymentId: string;
+```
+
+###### Example
+
+```ts
+pay_abc123xyz789
+```
+
+##### InitiatePaymentResponse.redirectUrl
+
+```ts
+redirectUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://checkout.stripe.com/pay/xxx
+```
+
+##### InitiatePaymentResponse.status
+
+```ts
+status: "pending" | "succeeded" | "failed" | "processing" | "requires_action";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+#### Inventory
+
+```ts
+Inventory: {
+  accountId: string;
+  available: number;
+  confirmed: number;
+  createdAt: string;
+  eventId: string | null;
+  eventLayoutAreaId: string | null;
+  eventOccurrenceId: string | null;
+  held: number;
+  id: string;
+  isAllocated: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  productId: string | null;
+  reserved: number;
+  sourceType: "event_occurrence_area" | "product";
+  totalCapacity: number;
+  updatedAt: string;
+  version: number;
+};
+```
+
+##### Inventory.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### Inventory.available
+
+```ts
+available: number;
+```
+
+###### Example
+
+```ts
+450
+```
+
+##### Inventory.confirmed
+
+```ts
+confirmed: number;
+```
+
+###### Example
+
+```ts
+20
+```
+
+##### Inventory.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:30:00Z
+```
+
+##### Inventory.eventId
+
+```ts
+eventId: string | null;
+```
+
+###### Example
+
+```ts
+evt_ghi789
+```
+
+##### Inventory.eventLayoutAreaId
+
+```ts
+eventLayoutAreaId: string | null;
+```
+
+###### Example
+
+```ts
+ela_mno345
+```
+
+##### Inventory.eventOccurrenceId
+
+```ts
+eventOccurrenceId: string | null;
+```
+
+###### Example
+
+```ts
+evo_jkl012
+```
+
+##### Inventory.held
+
+```ts
+held: number;
+```
+
+###### Example
+
+```ts
+0
+```
+
+##### Inventory.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### Inventory.isAllocated
+
+```ts
+isAllocated: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### Inventory.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### Inventory.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### Inventory.productId
+
+```ts
+productId: string | null;
+```
+
+###### Example
+
+```ts
+prd_pqr678
+```
+
+##### Inventory.reserved
+
+```ts
+reserved: number;
+```
+
+###### Example
+
+```ts
+30
+```
+
+##### Inventory.sourceType
+
+```ts
+sourceType: "event_occurrence_area" | "product";
+```
+
+###### Description
+
+Type of inventory source
+
+###### Example
+
+```ts
+event_occurrence_area
+@enum {string}
+```
+
+##### Inventory.totalCapacity
+
+```ts
+totalCapacity: number;
+```
+
+###### Example
+
+```ts
+500
+```
+
+##### Inventory.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T14:45:00Z
+```
+
+##### Inventory.version
+
+```ts
+version: number;
+```
+
+###### Example
+
+```ts
+1
+```
+
+#### InventoryReservation
+
+```ts
+InventoryReservation: {
+  accountId: string;
+  createdAt: string;
+  expiresAt: string | null;
+  heldBy: string | null;
+  id: string;
+  inventoryId: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  quantity: number;
+  reason: string | null;
+  referenceId: string | null;
+  referenceType: "subscription" | "order" | "hold" | null;
+  seatIds: string[] | null;
+  type: "confirmed" | "maintenance" | "hold" | "temporary";
+  updatedAt: string;
+};
+```
+
+##### InventoryReservation.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### InventoryReservation.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:30:00Z
+```
+
+##### InventoryReservation.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:45:00Z
+```
+
+##### InventoryReservation.heldBy
+
+```ts
+heldBy: string | null;
+```
+
+###### Example
+
+```ts
+usr_abc123
+```
+
+##### InventoryReservation.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ivr_abc123
+```
+
+##### InventoryReservation.inventoryId
+
+```ts
+inventoryId: string;
+```
+
+###### Example
+
+```ts
+inv_ghi789
+```
+
+##### InventoryReservation.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### InventoryReservation.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### InventoryReservation.quantity
+
+```ts
+quantity: number;
+```
+
+###### Example
+
+```ts
+2
+```
+
+##### InventoryReservation.reason
+
+```ts
+reason: string | null;
+```
+
+###### Example
+
+```ts
+Customer checkout
+```
+
+##### InventoryReservation.referenceId
+
+```ts
+referenceId: string | null;
+```
+
+###### Example
+
+```ts
+ord_jkl012
+```
+
+##### InventoryReservation.referenceType
+
+```ts
+referenceType: "subscription" | "order" | "hold" | null;
+```
+
+###### Description
+
+Type of reference for this reservation
+
+###### Example
+
+```ts
+order
+@enum {string|null}
+```
+
+##### InventoryReservation.seatIds
+
+```ts
+seatIds: string[] | null;
+```
+
+###### Example
+
+```ts
+[
+      "ivs_abc123",
+      "ivs_def456"
+    ]
+```
+
+##### InventoryReservation.type
+
+```ts
+type: "confirmed" | "maintenance" | "hold" | "temporary";
+```
+
+###### Description
+
+Type of reservation
+
+###### Example
+
+```ts
+temporary
+@enum {string}
+```
+
+##### InventoryReservation.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T14:45:00Z
+```
+
+#### InventorySeat
+
+```ts
+InventorySeat: {
+  accountId: string;
+  attributes:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  createdAt: string;
+  eventLayoutSeatId: string | null;
+  id: string;
+  inventoryId: string;
+  isAccessible: boolean;
+  isCompanion: boolean;
+  organisationId: string;
+  priceCategory: string | null;
+  reservationId: string | null;
+  rowName: string;
+  seatNumber: string;
+  status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+  updatedAt: string;
+  version: number;
+};
+```
+
+##### InventorySeat.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_ghi012
+```
+
+##### InventorySeat.attributes
+
+```ts
+attributes: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### InventorySeat.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:30:00Z
+```
+
+##### InventorySeat.eventLayoutSeatId
+
+```ts
+eventLayoutSeatId: string | null;
+```
+
+###### Example
+
+```ts
+eas_jkl345
+```
+
+##### InventorySeat.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ivs_abc123
+```
+
+##### InventorySeat.inventoryId
+
+```ts
+inventoryId: string;
+```
+
+###### Example
+
+```ts
+inv_def456
+```
+
+##### InventorySeat.isAccessible
+
+```ts
+isAccessible: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### InventorySeat.isCompanion
+
+```ts
+isCompanion: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### InventorySeat.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### InventorySeat.priceCategory
+
+```ts
+priceCategory: string | null;
+```
+
+###### Example
+
+```ts
+premium
+```
+
+##### InventorySeat.reservationId
+
+```ts
+reservationId: string | null;
+```
+
+###### Example
+
+```ts
+ivr_mno678
+```
+
+##### InventorySeat.rowName
+
+```ts
+rowName: string;
+```
+
+###### Example
+
+```ts
+A
+```
+
+##### InventorySeat.seatNumber
+
+```ts
+seatNumber: string;
+```
+
+###### Example
+
+```ts
+12
+```
+
+##### InventorySeat.status
+
+```ts
+status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+```
+
+###### Description
+
+Current status of the seat
+
+###### Example
+
+```ts
+available
+@enum {string}
+```
+
+##### InventorySeat.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T14:45:00Z
+```
+
+##### InventorySeat.version
+
+```ts
+version: number;
+```
+
+###### Example
+
+```ts
+1
+```
+
+#### Invoice
+
+```ts
+Invoice: {
+  amountDue: string;
+  amountPaid: string;
+  createdAt: string;
+  currency: string;
+  dueDate: string | null;
+  id: string;
+  invoiceNumber: string;
+  issueDate: string;
+  organisationId: string;
+  paidAt: string | null;
+  pdfUrl: string | null;
+  status: "draft" | "open" | "paid" | "void" | "uncollectible";
+  subtotal: string;
+  tax: string;
+  total: string;
+  type: "purchase" | "subscription" | "payg";
+  updatedAt: string;
+};
+```
+
+##### Invoice.amountDue
+
+```ts
+amountDue: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### Invoice.amountPaid
+
+```ts
+amountPaid: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### Invoice.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### Invoice.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+USD
+```
+
+##### Invoice.dueDate
+
+```ts
+dueDate: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-30
+```
+
+##### Invoice.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### Invoice.invoiceNumber
+
+```ts
+invoiceNumber: string;
+```
+
+###### Example
+
+```ts
+INV-2024-0001
+```
+
+##### Invoice.issueDate
+
+```ts
+issueDate: string;
+```
+
+###### Example
+
+```ts
+2024-01-15
+```
+
+##### Invoice.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+##### Invoice.paidAt
+
+```ts
+paidAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+##### Invoice.pdfUrl
+
+```ts
+pdfUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://invoice.stripe.com/...
+```
+
+##### Invoice.status
+
+```ts
+status: "draft" | "open" | "paid" | "void" | "uncollectible";
+```
+
+###### Example
+
+```ts
+paid
+@enum {string}
+```
+
+##### Invoice.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### Invoice.tax
+
+```ts
+tax: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### Invoice.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### Invoice.type
+
+```ts
+type: "purchase" | "subscription" | "payg";
+```
+
+###### Example
+
+```ts
+purchase
+@enum {string}
+```
+
+##### Invoice.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
 #### ListAccountsResponse
 
 ```ts
@@ -8360,6 +21460,121 @@ accounts: {
   status: "active" | "inactive";
   updatedAt: string;
 }[];
+```
+
+#### ListCustomersResponse
+
+```ts
+ListCustomersResponse: {
+  customers: {
+     accountId: string | null;
+     blockedAt: string | null;
+     blockedReason: string | null;
+     createdAt: string;
+     email: string;
+     externalId: string | null;
+     firstName: string | null;
+     id: string;
+     isBlocked: boolean;
+     lastName: string | null;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     phone: string | null;
+     updatedAt: string;
+  }[];
+  pagination: {
+     limit: number;
+     page: number;
+     total: number;
+     totalPages: number;
+  };
+};
+```
+
+##### ListCustomersResponse.customers
+
+```ts
+customers: {
+  accountId: string | null;
+  blockedAt: string | null;
+  blockedReason: string | null;
+  createdAt: string;
+  email: string;
+  externalId: string | null;
+  firstName: string | null;
+  id: string;
+  isBlocked: boolean;
+  lastName: string | null;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  phone: string | null;
+  updatedAt: string;
+}[];
+```
+
+##### ListCustomersResponse.pagination
+
+```ts
+pagination: {
+  limit: number;
+  page: number;
+  total: number;
+  totalPages: number;
+};
+```
+
+##### ListCustomersResponse.pagination.limit
+
+```ts
+limit: number;
+```
+
+###### Example
+
+```ts
+20
+```
+
+##### ListCustomersResponse.pagination.page
+
+```ts
+page: number;
+```
+
+###### Example
+
+```ts
+1
+```
+
+##### ListCustomersResponse.pagination.total
+
+```ts
+total: number;
+```
+
+###### Example
+
+```ts
+150
+```
+
+##### ListCustomersResponse.pagination.totalPages
+
+```ts
+totalPages: number;
+```
+
+###### Example
+
+```ts
+8
 ```
 
 #### ListEventOccurrencesResponse
@@ -8720,6 +21935,590 @@ providers: {
 }[];
 ```
 
+#### ListInventoryResponse
+
+```ts
+ListInventoryResponse: {
+  inventory: {
+     accountId: string;
+     available: number;
+     confirmed: number;
+     createdAt: string;
+     eventId: string | null;
+     eventLayoutAreaId: string | null;
+     eventOccurrenceId: string | null;
+     held: number;
+     id: string;
+     isAllocated: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     productId: string | null;
+     reserved: number;
+     sourceType: "event_occurrence_area" | "product";
+     totalCapacity: number;
+     updatedAt: string;
+     version: number;
+  }[];
+};
+```
+
+##### ListInventoryResponse.inventory
+
+```ts
+inventory: {
+  accountId: string;
+  available: number;
+  confirmed: number;
+  createdAt: string;
+  eventId: string | null;
+  eventLayoutAreaId: string | null;
+  eventOccurrenceId: string | null;
+  held: number;
+  id: string;
+  isAllocated: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  productId: string | null;
+  reserved: number;
+  sourceType: "event_occurrence_area" | "product";
+  totalCapacity: number;
+  updatedAt: string;
+  version: number;
+}[];
+```
+
+#### ListInvoicesResponse
+
+```ts
+ListInvoicesResponse: {
+  invoices: {
+     amountDue: string;
+     amountPaid: string;
+     createdAt: string;
+     currency: string;
+     dueDate: string | null;
+     id: string;
+     invoiceNumber: string;
+     issueDate: string;
+     organisationId: string;
+     paidAt: string | null;
+     pdfUrl: string | null;
+     status: "draft" | "open" | "paid" | "void" | "uncollectible";
+     subtotal: string;
+     tax: string;
+     total: string;
+     type: "purchase" | "subscription" | "payg";
+     updatedAt: string;
+  }[];
+};
+```
+
+##### ListInvoicesResponse.invoices
+
+```ts
+invoices: {
+  amountDue: string;
+  amountPaid: string;
+  createdAt: string;
+  currency: string;
+  dueDate: string | null;
+  id: string;
+  invoiceNumber: string;
+  issueDate: string;
+  organisationId: string;
+  paidAt: string | null;
+  pdfUrl: string | null;
+  status: "draft" | "open" | "paid" | "void" | "uncollectible";
+  subtotal: string;
+  tax: string;
+  total: string;
+  type: "purchase" | "subscription" | "payg";
+  updatedAt: string;
+}[];
+```
+
+#### ListOrdersResponse
+
+```ts
+ListOrdersResponse: {
+  orders: {
+     accountId: string;
+     cancellationReason: string | null;
+     cancelledAt: string | null;
+     channel: string | null;
+     completedAt: string | null;
+     confirmedAt: string | null;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     customerNotes: string | null;
+     discountTotal: string;
+     expiresAt: string | null;
+     feeTotal: string;
+     id: string;
+     internalNotes: string | null;
+     isGuestCheckout: boolean;
+     items?: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     }[];
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderNumber: string;
+     organisationId: string;
+     status:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     subtotal: string;
+     taxTotal: string;
+     total: string;
+     updatedAt: string;
+  }[];
+  pagination: {
+     limit: number;
+     page: number;
+     total: number;
+     totalPages: number;
+  };
+};
+```
+
+##### ListOrdersResponse.orders
+
+```ts
+orders: {
+  accountId: string;
+  cancellationReason: string | null;
+  cancelledAt: string | null;
+  channel: string | null;
+  completedAt: string | null;
+  confirmedAt: string | null;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  customerNotes: string | null;
+  discountTotal: string;
+  expiresAt: string | null;
+  feeTotal: string;
+  id: string;
+  internalNotes: string | null;
+  isGuestCheckout: boolean;
+  items?: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  }[];
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderNumber: string;
+  organisationId: string;
+  status:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  subtotal: string;
+  taxTotal: string;
+  total: string;
+  updatedAt: string;
+}[];
+```
+
+##### ListOrdersResponse.pagination
+
+```ts
+pagination: {
+  limit: number;
+  page: number;
+  total: number;
+  totalPages: number;
+};
+```
+
+##### ListOrdersResponse.pagination.limit
+
+```ts
+limit: number;
+```
+
+###### Example
+
+```ts
+20
+```
+
+##### ListOrdersResponse.pagination.page
+
+```ts
+page: number;
+```
+
+###### Example
+
+```ts
+1
+```
+
+##### ListOrdersResponse.pagination.total
+
+```ts
+total: number;
+```
+
+###### Example
+
+```ts
+150
+```
+
+##### ListOrdersResponse.pagination.totalPages
+
+```ts
+totalPages: number;
+```
+
+###### Example
+
+```ts
+8
+```
+
+#### ListPackagesResponse
+
+```ts
+ListPackagesResponse: {
+  packages: {
+     baseCurrency: string;
+     basePrice: string;
+     credits: number;
+     discountPercent: string;
+     displayOrder: number;
+     finalPrice: string;
+     id: string;
+     isActive: boolean;
+     name: string;
+  }[];
+};
+```
+
+##### ListPackagesResponse.packages
+
+```ts
+packages: {
+  baseCurrency: string;
+  basePrice: string;
+  credits: number;
+  discountPercent: string;
+  displayOrder: number;
+  finalPrice: string;
+  id: string;
+  isActive: boolean;
+  name: string;
+}[];
+```
+
+#### ListPaymentProvidersResponse
+
+```ts
+ListPaymentProvidersResponse: {
+  pagination: {
+     limit: number;
+     page: number;
+     total: number;
+     totalPages: number;
+  };
+  providers: {
+     accountId: string | null;
+     applicationFee:   | {
+        type: "percentage" | "fixed";
+        value: number;
+      }
+        | null;
+     capabilities:   | {
+        maxAmount?: number;
+        minAmount?: number;
+        requiresCustomerAction?: boolean;
+        supportedCurrencies?: string[];
+        supportsDelayedCapture?: boolean;
+        supportsInstantCapture?: boolean;
+        supportsPartialRefunds?: boolean;
+        supportsRefunds?: boolean;
+      }
+        | null;
+     configuration: {
+      [key: string]: unknown;
+     };
+     createdAt: string;
+     description: string | null;
+     feeStructure:   | {
+        currency?: string;
+        fixed?: number;
+        percentage?: number;
+        type: "percentage" | "fixed" | "percentage_plus_fixed";
+      }
+        | null;
+     id: string;
+     integrationServiceUrl: string | null;
+     integrationServiceVersion: string;
+     isDefault: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     organisationId: string;
+     priority: number;
+     status: "active" | "inactive" | "pending_setup";
+     supportedPaymentTypes: (
+        | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+       | "cheque")[];
+     type:   | "bank_transfer"
+        | "cash"
+        | "stripe_connect"
+        | "stripe_direct"
+        | "adyen"
+        | "square"
+        | "paypal";
+     updatedAt: string;
+  }[];
+};
+```
+
+##### ListPaymentProvidersResponse.pagination
+
+```ts
+pagination: {
+  limit: number;
+  page: number;
+  total: number;
+  totalPages: number;
+};
+```
+
+##### ListPaymentProvidersResponse.pagination.limit
+
+```ts
+limit: number;
+```
+
+###### Example
+
+```ts
+20
+```
+
+##### ListPaymentProvidersResponse.pagination.page
+
+```ts
+page: number;
+```
+
+###### Example
+
+```ts
+1
+```
+
+##### ListPaymentProvidersResponse.pagination.total
+
+```ts
+total: number;
+```
+
+###### Example
+
+```ts
+5
+```
+
+##### ListPaymentProvidersResponse.pagination.totalPages
+
+```ts
+totalPages: number;
+```
+
+###### Example
+
+```ts
+1
+```
+
+##### ListPaymentProvidersResponse.providers
+
+```ts
+providers: {
+  accountId: string | null;
+  applicationFee:   | {
+     type: "percentage" | "fixed";
+     value: number;
+   }
+     | null;
+  capabilities:   | {
+     maxAmount?: number;
+     minAmount?: number;
+     requiresCustomerAction?: boolean;
+     supportedCurrencies?: string[];
+     supportsDelayedCapture?: boolean;
+     supportsInstantCapture?: boolean;
+     supportsPartialRefunds?: boolean;
+     supportsRefunds?: boolean;
+   }
+     | null;
+  configuration: {
+   [key: string]: unknown;
+  };
+  createdAt: string;
+  description: string | null;
+  feeStructure:   | {
+     currency?: string;
+     fixed?: number;
+     percentage?: number;
+     type: "percentage" | "fixed" | "percentage_plus_fixed";
+   }
+     | null;
+  id: string;
+  integrationServiceUrl: string | null;
+  integrationServiceVersion: string;
+  isDefault: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  organisationId: string;
+  priority: number;
+  status: "active" | "inactive" | "pending_setup";
+  supportedPaymentTypes: (
+     | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+    | "cheque")[];
+  type:   | "bank_transfer"
+     | "cash"
+     | "stripe_connect"
+     | "stripe_direct"
+     | "adyen"
+     | "square"
+     | "paypal";
+  updatedAt: string;
+}[];
+```
+
+#### ListPaymentsResponse
+
+```ts
+ListPaymentsResponse: {
+  payments: {
+     amount: string;
+     createdAt: string;
+     currency: string;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     invoiceId: string | null;
+     method: string | null;
+     organisationId: string;
+     paidAt: string | null;
+     status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+     updatedAt: string;
+  }[];
+};
+```
+
+##### ListPaymentsResponse.payments
+
+```ts
+payments: {
+  amount: string;
+  createdAt: string;
+  currency: string;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  invoiceId: string | null;
+  method: string | null;
+  organisationId: string;
+  paidAt: string | null;
+  status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+  updatedAt: string;
+}[];
+```
+
 #### ListPriceSchemesResponse
 
 ```ts
@@ -8770,6 +22569,108 @@ priceSchemes: {
 }[];
 ```
 
+#### ListRefundsResponse
+
+```ts
+ListRefundsResponse: {
+  refunds: {
+     amount: number;
+     completedAt: string | null;
+     createdAt: string;
+     externalRefundId: string | null;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     notes: string | null;
+     paymentId: string;
+     reason: string;
+     status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+     updatedAt: string;
+  }[];
+};
+```
+
+##### ListRefundsResponse.refunds
+
+```ts
+refunds: {
+  amount: number;
+  completedAt: string | null;
+  createdAt: string;
+  externalRefundId: string | null;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  notes: string | null;
+  paymentId: string;
+  reason: string;
+  status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+  updatedAt: string;
+}[];
+```
+
+#### ListReservationsResponse
+
+```ts
+ListReservationsResponse: {
+  reservations: {
+     accountId: string;
+     createdAt: string;
+     expiresAt: string | null;
+     heldBy: string | null;
+     id: string;
+     inventoryId: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     quantity: number;
+     reason: string | null;
+     referenceId: string | null;
+     referenceType: "subscription" | "order" | "hold" | null;
+     seatIds: string[] | null;
+     type: "confirmed" | "maintenance" | "hold" | "temporary";
+     updatedAt: string;
+  }[];
+};
+```
+
+##### ListReservationsResponse.reservations
+
+```ts
+reservations: {
+  accountId: string;
+  createdAt: string;
+  expiresAt: string | null;
+  heldBy: string | null;
+  id: string;
+  inventoryId: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  quantity: number;
+  reason: string | null;
+  referenceId: string | null;
+  referenceType: "subscription" | "order" | "hold" | null;
+  seatIds: string[] | null;
+  type: "confirmed" | "maintenance" | "hold" | "temporary";
+  updatedAt: string;
+}[];
+```
+
 #### ListRolesResponse
 
 ```ts
@@ -8801,6 +22702,152 @@ roles: {
   organisationId: string;
   permissions: string[];
   updatedAt: string;
+}[];
+```
+
+#### ListSeatsResponse
+
+```ts
+ListSeatsResponse: {
+  seats: {
+     accountId: string;
+     attributes:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     createdAt: string;
+     eventLayoutSeatId: string | null;
+     id: string;
+     inventoryId: string;
+     isAccessible: boolean;
+     isCompanion: boolean;
+     organisationId: string;
+     priceCategory: string | null;
+     reservationId: string | null;
+     rowName: string;
+     seatNumber: string;
+     status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+     updatedAt: string;
+     version: number;
+  }[];
+};
+```
+
+##### ListSeatsResponse.seats
+
+```ts
+seats: {
+  accountId: string;
+  attributes:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  createdAt: string;
+  eventLayoutSeatId: string | null;
+  id: string;
+  inventoryId: string;
+  isAccessible: boolean;
+  isCompanion: boolean;
+  organisationId: string;
+  priceCategory: string | null;
+  reservationId: string | null;
+  rowName: string;
+  seatNumber: string;
+  status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+  updatedAt: string;
+  version: number;
+}[];
+```
+
+#### ListSubscriptionsResponse
+
+```ts
+ListSubscriptionsResponse: {
+  subscriptions: {
+     cancelledAt: string | null;
+     createdAt: string;
+     credits: number;
+     currency: string;
+     currentPeriodEnd: string | null;
+     currentPeriodStart: string | null;
+     endedAt: string | null;
+     id: string;
+     interval: "month" | "year";
+     organisationId: string;
+     packageId: string;
+     price: string;
+     status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+     updatedAt: string;
+  }[];
+};
+```
+
+##### ListSubscriptionsResponse.subscriptions
+
+```ts
+subscriptions: {
+  cancelledAt: string | null;
+  createdAt: string;
+  credits: number;
+  currency: string;
+  currentPeriodEnd: string | null;
+  currentPeriodStart: string | null;
+  endedAt: string | null;
+  id: string;
+  interval: "month" | "year";
+  organisationId: string;
+  packageId: string;
+  price: string;
+  status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+  updatedAt: string;
+}[];
+```
+
+#### ListTransactionsResponse
+
+```ts
+ListTransactionsResponse: {
+  transactions: {
+     amount: number;
+     balanceAfter: number;
+     balanceBefore: number;
+     createdAt: string;
+     description: string | null;
+     id: string;
+     invoiceId: string | null;
+     orderId: string | null;
+     organisationId: string;
+     subscriptionId: string | null;
+     type:   | "initial"
+        | "purchase"
+        | "subscription"
+        | "ticket_sale"
+        | "adjustment"
+        | "refund";
+  }[];
+};
+```
+
+##### ListTransactionsResponse.transactions
+
+```ts
+transactions: {
+  amount: number;
+  balanceAfter: number;
+  balanceBefore: number;
+  createdAt: string;
+  description: string | null;
+  id: string;
+  invoiceId: string | null;
+  orderId: string | null;
+  organisationId: string;
+  subscriptionId: string | null;
+  type:   | "initial"
+     | "purchase"
+     | "subscription"
+     | "ticket_sale"
+     | "adjustment"
+     | "refund";
 }[];
 ```
 
@@ -9669,6 +23716,637 @@ optional lastName: string;
 Doe
 ```
 
+#### Order
+
+```ts
+Order: {
+  accountId: string;
+  cancellationReason: string | null;
+  cancelledAt: string | null;
+  channel: string | null;
+  completedAt: string | null;
+  confirmedAt: string | null;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  customerNotes: string | null;
+  discountTotal: string;
+  expiresAt: string | null;
+  feeTotal: string;
+  id: string;
+  internalNotes: string | null;
+  isGuestCheckout: boolean;
+  items?: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  }[];
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderNumber: string;
+  organisationId: string;
+  status:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  subtotal: string;
+  taxTotal: string;
+  total: string;
+  updatedAt: string;
+};
+```
+
+##### Order.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### Order.cancellationReason
+
+```ts
+cancellationReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### Order.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### Order.channel
+
+```ts
+channel: string | null;
+```
+
+###### Example
+
+```ts
+web
+```
+
+##### Order.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### Order.confirmedAt
+
+```ts
+confirmedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### Order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### Order.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### Order.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### Order.customerNotes
+
+```ts
+customerNotes: string | null;
+```
+
+###### Example
+
+```ts
+Please contact me before delivery
+```
+
+##### Order.discountTotal
+
+```ts
+discountTotal: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### Order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+##### Order.feeTotal
+
+```ts
+feeTotal: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### Order.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### Order.internalNotes
+
+```ts
+internalNotes: string | null;
+```
+
+###### Example
+
+```ts
+VIP customer
+```
+
+##### Order.isGuestCheckout
+
+```ts
+isGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### Order.items?
+
+```ts
+optional items: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+}[];
+```
+
+###### Description
+
+Order line items
+
+##### Order.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "promoCode": "SUMMER20"
+             *     }
+```
+
+##### Order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### Order.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### Order.status
+
+```ts
+status: 
+  | "completed"
+  | "cancelled"
+  | "pending"
+  | "failed"
+  | "refunded"
+  | "confirmed"
+  | "processing"
+  | "expired";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+##### Order.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### Order.taxTotal
+
+```ts
+taxTotal: string;
+```
+
+###### Example
+
+```ts
+10.00
+```
+
+##### Order.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+62.50
+```
+
+##### Order.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+#### OrderLineItem
+
+```ts
+OrderLineItem: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+};
+```
+
+##### OrderLineItem.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### OrderLineItem.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Entry to main event area
+```
+
+##### OrderLineItem.feeDetails
+
+```ts
+feeDetails: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### OrderLineItem.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+oli_abc123
+```
+
+##### OrderLineItem.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "source": "web"
+             *     }
+```
+
+##### OrderLineItem.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+General Admission
+```
+
+##### OrderLineItem.orderId
+
+```ts
+orderId: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### OrderLineItem.productDetails
+
+```ts
+productDetails: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### OrderLineItem.quantity
+
+```ts
+quantity: number;
+```
+
+###### Example
+
+```ts
+2
+```
+
+##### OrderLineItem.ticketDetails
+
+```ts
+ticketDetails: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "eventId": "evt_123"
+             *     }
+```
+
+##### OrderLineItem.totalPrice
+
+```ts
+totalPrice: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### OrderLineItem.type
+
+```ts
+type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+```
+
+###### Example
+
+```ts
+ticket
+@enum {string}
+```
+
+##### OrderLineItem.unitPrice
+
+```ts
+unitPrice: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### OrderLineItem.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
 #### Organisation
 
 ```ts
@@ -9878,6 +24556,630 @@ totalPages: number;
 3
 ```
 
+#### Payment
+
+```ts
+Payment: {
+  amount: string;
+  createdAt: string;
+  currency: string;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  invoiceId: string | null;
+  method: string | null;
+  organisationId: string;
+  paidAt: string | null;
+  status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+  updatedAt: string;
+};
+```
+
+##### Payment.amount
+
+```ts
+amount: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### Payment.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### Payment.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+USD
+```
+
+##### Payment.failedAt
+
+```ts
+failedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### Payment.failureCode
+
+```ts
+failureCode: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### Payment.failureMessage
+
+```ts
+failureMessage: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### Payment.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pay_abc123
+```
+
+##### Payment.invoiceId
+
+```ts
+invoiceId: string | null;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### Payment.method
+
+```ts
+method: string | null;
+```
+
+###### Example
+
+```ts
+card
+```
+
+##### Payment.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+##### Payment.paidAt
+
+```ts
+paidAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+##### Payment.status
+
+```ts
+status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+```
+
+###### Example
+
+```ts
+succeeded
+@enum {string}
+```
+
+##### Payment.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+#### PaymentMethodDetails
+
+```ts
+PaymentMethodDetails: 
+  | {
+  brand: string | null;
+  expiryMonth: number | null;
+  expiryYear: number | null;
+  last4: string | null;
+  type: "card" | "bank_transfer" | "cash" | "wallet";
+}
+  | null;
+```
+
+##### Type Declaration
+
+```ts
+{
+  brand: string | null;
+  expiryMonth: number | null;
+  expiryYear: number | null;
+  last4: string | null;
+  type: "card" | "bank_transfer" | "cash" | "wallet";
+}
+```
+
+`null`
+
+##### Description
+
+Payment method details
+
+#### PaymentProvider
+
+```ts
+PaymentProvider: {
+  accountId: string | null;
+  applicationFee:   | {
+     type: "percentage" | "fixed";
+     value: number;
+   }
+     | null;
+  capabilities:   | {
+     maxAmount?: number;
+     minAmount?: number;
+     requiresCustomerAction?: boolean;
+     supportedCurrencies?: string[];
+     supportsDelayedCapture?: boolean;
+     supportsInstantCapture?: boolean;
+     supportsPartialRefunds?: boolean;
+     supportsRefunds?: boolean;
+   }
+     | null;
+  configuration: {
+   [key: string]: unknown;
+  };
+  createdAt: string;
+  description: string | null;
+  feeStructure:   | {
+     currency?: string;
+     fixed?: number;
+     percentage?: number;
+     type: "percentage" | "fixed" | "percentage_plus_fixed";
+   }
+     | null;
+  id: string;
+  integrationServiceUrl: string | null;
+  integrationServiceVersion: string;
+  isDefault: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  organisationId: string;
+  priority: number;
+  status: "active" | "inactive" | "pending_setup";
+  supportedPaymentTypes: (
+     | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+    | "cheque")[];
+  type:   | "bank_transfer"
+     | "cash"
+     | "stripe_connect"
+     | "stripe_direct"
+     | "adyen"
+     | "square"
+     | "paypal";
+  updatedAt: string;
+};
+```
+
+##### PaymentProvider.accountId
+
+```ts
+accountId: string | null;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### PaymentProvider.applicationFee
+
+```ts
+applicationFee: 
+  | {
+  type: "percentage" | "fixed";
+  value: number;
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  type: "percentage" | "fixed";
+  value: number;
+}
+```
+
+`null`
+
+##### PaymentProvider.capabilities
+
+```ts
+capabilities: 
+  | {
+  maxAmount?: number;
+  minAmount?: number;
+  requiresCustomerAction?: boolean;
+  supportedCurrencies?: string[];
+  supportsDelayedCapture?: boolean;
+  supportsInstantCapture?: boolean;
+  supportsPartialRefunds?: boolean;
+  supportsRefunds?: boolean;
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  maxAmount?: number;
+  minAmount?: number;
+  requiresCustomerAction?: boolean;
+  supportedCurrencies?: string[];
+  supportsDelayedCapture?: boolean;
+  supportsInstantCapture?: boolean;
+  supportsPartialRefunds?: boolean;
+  supportsRefunds?: boolean;
+}
+```
+
+`null`
+
+##### PaymentProvider.configuration
+
+```ts
+configuration: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Provider-specific configuration (sensitive fields redacted)
+
+###### Example
+
+```ts
+{
+             *       "stripeConnectedAccountId": "acct_xxx"
+             *     }
+```
+
+##### PaymentProvider.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### PaymentProvider.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Primary payment processor for online orders
+```
+
+##### PaymentProvider.feeStructure
+
+```ts
+feeStructure: 
+  | {
+  currency?: string;
+  fixed?: number;
+  percentage?: number;
+  type: "percentage" | "fixed" | "percentage_plus_fixed";
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  currency?: string;
+  fixed?: number;
+  percentage?: number;
+  type: "percentage" | "fixed" | "percentage_plus_fixed";
+}
+```
+
+`null`
+
+##### PaymentProvider.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pp_stripeXxx123
+```
+
+##### PaymentProvider.integrationServiceUrl
+
+```ts
+integrationServiceUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://stripe.paymentintegration.ticketlayer.com
+```
+
+##### PaymentProvider.integrationServiceVersion
+
+```ts
+integrationServiceVersion: string;
+```
+
+###### Example
+
+```ts
+v1
+```
+
+##### PaymentProvider.isDefault
+
+```ts
+isDefault: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### PaymentProvider.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "environment": "production"
+             *     }
+```
+
+##### PaymentProvider.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Main Stripe Account
+```
+
+##### PaymentProvider.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### PaymentProvider.priority
+
+```ts
+priority: number;
+```
+
+###### Example
+
+```ts
+100
+```
+
+##### PaymentProvider.status
+
+```ts
+status: "active" | "inactive" | "pending_setup";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### PaymentProvider.supportedPaymentTypes
+
+```ts
+supportedPaymentTypes: (
+  | "bank_transfer"
+  | "online_card"
+  | "online_bank_transfer"
+  | "online_wallet"
+  | "in_person_card"
+  | "in_person_cash"
+  | "cheque")[];
+```
+
+###### Example
+
+```ts
+[
+      "online_card",
+      "online_wallet"
+    ]
+```
+
+##### PaymentProvider.type
+
+```ts
+type: 
+  | "bank_transfer"
+  | "cash"
+  | "stripe_connect"
+  | "stripe_direct"
+  | "adyen"
+  | "square"
+  | "paypal";
+```
+
+###### Example
+
+```ts
+stripe_connect
+@enum {string}
+```
+
+##### PaymentProvider.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+#### PaymentProviderCapabilities
+
+```ts
+PaymentProviderCapabilities: 
+  | {
+  maxAmount?: number;
+  minAmount?: number;
+  requiresCustomerAction?: boolean;
+  supportedCurrencies?: string[];
+  supportsDelayedCapture?: boolean;
+  supportsInstantCapture?: boolean;
+  supportsPartialRefunds?: boolean;
+  supportsRefunds?: boolean;
+}
+  | null;
+```
+
+##### Type Declaration
+
+```ts
+{
+  maxAmount?: number;
+  minAmount?: number;
+  requiresCustomerAction?: boolean;
+  supportedCurrencies?: string[];
+  supportsDelayedCapture?: boolean;
+  supportsInstantCapture?: boolean;
+  supportsPartialRefunds?: boolean;
+  supportsRefunds?: boolean;
+}
+```
+
+`null`
+
+##### Description
+
+Provider capabilities
+
 #### PriceScheme
 
 ```ts
@@ -10048,6 +25350,660 @@ updatedAt: string;
 
 ```ts
 2024-12-28T14:45:00Z
+```
+
+#### PurchaseResult
+
+```ts
+PurchaseResult: {
+  invoice: {
+     amountDue: string;
+     amountPaid: string;
+     createdAt: string;
+     currency: string;
+     dueDate: string | null;
+     id: string;
+     invoiceNumber: string;
+     issueDate: string;
+     organisationId: string;
+     paidAt: string | null;
+     pdfUrl: string | null;
+     status: "draft" | "open" | "paid" | "void" | "uncollectible";
+     subtotal: string;
+     tax: string;
+     total: string;
+     type: "purchase" | "subscription" | "payg";
+     updatedAt: string;
+  };
+  newBalance: number;
+  payment: {
+     amount: string;
+     createdAt: string;
+     currency: string;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     invoiceId: string | null;
+     method: string | null;
+     organisationId: string;
+     paidAt: string | null;
+     status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+     updatedAt: string;
+  };
+  success: boolean;
+  transaction: {
+     amount: number;
+     balanceAfter: number;
+     balanceBefore: number;
+     createdAt: string;
+     description: string | null;
+     id: string;
+     invoiceId: string | null;
+     orderId: string | null;
+     organisationId: string;
+     subscriptionId: string | null;
+     type:   | "initial"
+        | "purchase"
+        | "subscription"
+        | "ticket_sale"
+        | "adjustment"
+        | "refund";
+  };
+};
+```
+
+##### PurchaseResult.invoice
+
+```ts
+invoice: {
+  amountDue: string;
+  amountPaid: string;
+  createdAt: string;
+  currency: string;
+  dueDate: string | null;
+  id: string;
+  invoiceNumber: string;
+  issueDate: string;
+  organisationId: string;
+  paidAt: string | null;
+  pdfUrl: string | null;
+  status: "draft" | "open" | "paid" | "void" | "uncollectible";
+  subtotal: string;
+  tax: string;
+  total: string;
+  type: "purchase" | "subscription" | "payg";
+  updatedAt: string;
+};
+```
+
+##### PurchaseResult.invoice.amountDue
+
+```ts
+amountDue: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### PurchaseResult.invoice.amountPaid
+
+```ts
+amountPaid: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### PurchaseResult.invoice.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### PurchaseResult.invoice.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+USD
+```
+
+##### PurchaseResult.invoice.dueDate
+
+```ts
+dueDate: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-30
+```
+
+##### PurchaseResult.invoice.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### PurchaseResult.invoice.invoiceNumber
+
+```ts
+invoiceNumber: string;
+```
+
+###### Example
+
+```ts
+INV-2024-0001
+```
+
+##### PurchaseResult.invoice.issueDate
+
+```ts
+issueDate: string;
+```
+
+###### Example
+
+```ts
+2024-01-15
+```
+
+##### PurchaseResult.invoice.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+##### PurchaseResult.invoice.paidAt
+
+```ts
+paidAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+##### PurchaseResult.invoice.pdfUrl
+
+```ts
+pdfUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://invoice.stripe.com/...
+```
+
+##### PurchaseResult.invoice.status
+
+```ts
+status: "draft" | "open" | "paid" | "void" | "uncollectible";
+```
+
+###### Example
+
+```ts
+paid
+@enum {string}
+```
+
+##### PurchaseResult.invoice.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### PurchaseResult.invoice.tax
+
+```ts
+tax: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### PurchaseResult.invoice.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### PurchaseResult.invoice.type
+
+```ts
+type: "purchase" | "subscription" | "payg";
+```
+
+###### Example
+
+```ts
+purchase
+@enum {string}
+```
+
+##### PurchaseResult.invoice.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+##### PurchaseResult.newBalance
+
+```ts
+newBalance: number;
+```
+
+###### Example
+
+```ts
+150
+```
+
+##### PurchaseResult.payment
+
+```ts
+payment: {
+  amount: string;
+  createdAt: string;
+  currency: string;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  invoiceId: string | null;
+  method: string | null;
+  organisationId: string;
+  paidAt: string | null;
+  status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+  updatedAt: string;
+};
+```
+
+##### PurchaseResult.payment.amount
+
+```ts
+amount: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### PurchaseResult.payment.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### PurchaseResult.payment.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+USD
+```
+
+##### PurchaseResult.payment.failedAt
+
+```ts
+failedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### PurchaseResult.payment.failureCode
+
+```ts
+failureCode: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### PurchaseResult.payment.failureMessage
+
+```ts
+failureMessage: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### PurchaseResult.payment.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pay_abc123
+```
+
+##### PurchaseResult.payment.invoiceId
+
+```ts
+invoiceId: string | null;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### PurchaseResult.payment.method
+
+```ts
+method: string | null;
+```
+
+###### Example
+
+```ts
+card
+```
+
+##### PurchaseResult.payment.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+##### PurchaseResult.payment.paidAt
+
+```ts
+paidAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+##### PurchaseResult.payment.status
+
+```ts
+status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+```
+
+###### Example
+
+```ts
+succeeded
+@enum {string}
+```
+
+##### PurchaseResult.payment.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+##### PurchaseResult.success
+
+```ts
+success: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### PurchaseResult.transaction
+
+```ts
+transaction: {
+  amount: number;
+  balanceAfter: number;
+  balanceBefore: number;
+  createdAt: string;
+  description: string | null;
+  id: string;
+  invoiceId: string | null;
+  orderId: string | null;
+  organisationId: string;
+  subscriptionId: string | null;
+  type:   | "initial"
+     | "purchase"
+     | "subscription"
+     | "ticket_sale"
+     | "adjustment"
+     | "refund";
+};
+```
+
+##### PurchaseResult.transaction.amount
+
+```ts
+amount: number;
+```
+
+###### Example
+
+```ts
+100
+```
+
+##### PurchaseResult.transaction.balanceAfter
+
+```ts
+balanceAfter: number;
+```
+
+###### Example
+
+```ts
+150
+```
+
+##### PurchaseResult.transaction.balanceBefore
+
+```ts
+balanceBefore: number;
+```
+
+###### Example
+
+```ts
+50
+```
+
+##### PurchaseResult.transaction.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### PurchaseResult.transaction.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Credit purchase - 100 Credits
+```
+
+##### PurchaseResult.transaction.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+txn_abc123
+```
+
+##### PurchaseResult.transaction.invoiceId
+
+```ts
+invoiceId: string | null;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### PurchaseResult.transaction.orderId
+
+```ts
+orderId: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### PurchaseResult.transaction.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+##### PurchaseResult.transaction.subscriptionId
+
+```ts
+subscriptionId: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### PurchaseResult.transaction.type
+
+```ts
+type: 
+  | "initial"
+  | "purchase"
+  | "subscription"
+  | "ticket_sale"
+  | "adjustment"
+  | "refund";
+```
+
+###### Example
+
+```ts
+purchase
+@enum {string}
 ```
 
 #### RedeemInvitationRequest
@@ -10238,6 +26194,245 @@ New JWT refresh token
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 
+#### Refund
+
+```ts
+Refund: {
+  amount: number;
+  completedAt: string | null;
+  createdAt: string;
+  externalRefundId: string | null;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  notes: string | null;
+  paymentId: string;
+  reason: string;
+  status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+  updatedAt: string;
+};
+```
+
+##### Refund.amount
+
+```ts
+amount: number;
+```
+
+###### Example
+
+```ts
+48.5
+```
+
+##### Refund.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T11:00:00Z
+```
+
+##### Refund.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:50:00Z
+```
+
+##### Refund.externalRefundId
+
+```ts
+externalRefundId: string | null;
+```
+
+###### Example
+
+```ts
+re_xxx
+```
+
+##### Refund.failedAt
+
+```ts
+failedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### Refund.failureCode
+
+```ts
+failureCode: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### Refund.failureMessage
+
+```ts
+failureMessage: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### Refund.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ref_abc123xyz789
+```
+
+##### Refund.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "ticketNumber": "T-001"
+             *     }
+```
+
+##### Refund.notes
+
+```ts
+notes: string | null;
+```
+
+###### Example
+
+```ts
+Customer unable to attend
+```
+
+##### Refund.paymentId
+
+```ts
+paymentId: string;
+```
+
+###### Example
+
+```ts
+pay_abc123xyz789
+```
+
+##### Refund.reason
+
+```ts
+reason: string;
+```
+
+###### Example
+
+```ts
+requested_by_customer
+```
+
+##### Refund.status
+
+```ts
+status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+```
+
+###### Example
+
+```ts
+succeeded
+@enum {string}
+```
+
+##### Refund.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T11:00:00Z
+```
+
+#### ReleaseHoldResponse
+
+```ts
+ReleaseHoldResponse: {
+  message: string;
+};
+```
+
+##### ReleaseHoldResponse.message
+
+```ts
+message: string;
+```
+
+###### Example
+
+```ts
+Hold released successfully
+```
+
+#### ReleaseReservationResponse
+
+```ts
+ReleaseReservationResponse: {
+  message: string;
+};
+```
+
+##### ReleaseReservationResponse.message
+
+```ts
+message: string;
+```
+
+###### Example
+
+```ts
+Reservation released successfully
+```
+
 #### RemoveAssignmentResponse
 
 ```ts
@@ -10256,6 +26451,486 @@ success: boolean;
 
 ```ts
 true
+```
+
+#### RemoveLineItemResponse
+
+```ts
+RemoveLineItemResponse: {
+  order: {
+     accountId: string;
+     cancellationReason: string | null;
+     cancelledAt: string | null;
+     channel: string | null;
+     completedAt: string | null;
+     confirmedAt: string | null;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     customerNotes: string | null;
+     discountTotal: string;
+     expiresAt: string | null;
+     feeTotal: string;
+     id: string;
+     internalNotes: string | null;
+     isGuestCheckout: boolean;
+     items?: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     }[];
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderNumber: string;
+     organisationId: string;
+     status:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     subtotal: string;
+     taxTotal: string;
+     total: string;
+     updatedAt: string;
+  };
+};
+```
+
+##### RemoveLineItemResponse.order
+
+```ts
+order: {
+  accountId: string;
+  cancellationReason: string | null;
+  cancelledAt: string | null;
+  channel: string | null;
+  completedAt: string | null;
+  confirmedAt: string | null;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  customerNotes: string | null;
+  discountTotal: string;
+  expiresAt: string | null;
+  feeTotal: string;
+  id: string;
+  internalNotes: string | null;
+  isGuestCheckout: boolean;
+  items?: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  }[];
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderNumber: string;
+  organisationId: string;
+  status:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  subtotal: string;
+  taxTotal: string;
+  total: string;
+  updatedAt: string;
+};
+```
+
+##### RemoveLineItemResponse.order.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### RemoveLineItemResponse.order.cancellationReason
+
+```ts
+cancellationReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### RemoveLineItemResponse.order.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### RemoveLineItemResponse.order.channel
+
+```ts
+channel: string | null;
+```
+
+###### Example
+
+```ts
+web
+```
+
+##### RemoveLineItemResponse.order.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### RemoveLineItemResponse.order.confirmedAt
+
+```ts
+confirmedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### RemoveLineItemResponse.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### RemoveLineItemResponse.order.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### RemoveLineItemResponse.order.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### RemoveLineItemResponse.order.customerNotes
+
+```ts
+customerNotes: string | null;
+```
+
+###### Example
+
+```ts
+Please contact me before delivery
+```
+
+##### RemoveLineItemResponse.order.discountTotal
+
+```ts
+discountTotal: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### RemoveLineItemResponse.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+##### RemoveLineItemResponse.order.feeTotal
+
+```ts
+feeTotal: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### RemoveLineItemResponse.order.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### RemoveLineItemResponse.order.internalNotes
+
+```ts
+internalNotes: string | null;
+```
+
+###### Example
+
+```ts
+VIP customer
+```
+
+##### RemoveLineItemResponse.order.isGuestCheckout
+
+```ts
+isGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### RemoveLineItemResponse.order.items?
+
+```ts
+optional items: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+}[];
+```
+
+###### Description
+
+Order line items
+
+##### RemoveLineItemResponse.order.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "promoCode": "SUMMER20"
+             *     }
+```
+
+##### RemoveLineItemResponse.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### RemoveLineItemResponse.order.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### RemoveLineItemResponse.order.status
+
+```ts
+status: 
+  | "completed"
+  | "cancelled"
+  | "pending"
+  | "failed"
+  | "refunded"
+  | "confirmed"
+  | "processing"
+  | "expired";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+##### RemoveLineItemResponse.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### RemoveLineItemResponse.order.taxTotal
+
+```ts
+taxTotal: string;
+```
+
+###### Example
+
+```ts
+10.00
+```
+
+##### RemoveLineItemResponse.order.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+62.50
+```
+
+##### RemoveLineItemResponse.order.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
 ```
 
 #### ResendUserInvitationResponse
@@ -10386,6 +27061,255 @@ userId: string;
 
 ```ts
 usr_pending123
+```
+
+#### ReserveInventoryResponse
+
+```ts
+ReserveInventoryResponse: {
+  reservation: {
+     accountId: string;
+     createdAt: string;
+     expiresAt: string | null;
+     heldBy: string | null;
+     id: string;
+     inventoryId: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     quantity: number;
+     reason: string | null;
+     referenceId: string | null;
+     referenceType: "subscription" | "order" | "hold" | null;
+     seatIds: string[] | null;
+     type: "confirmed" | "maintenance" | "hold" | "temporary";
+     updatedAt: string;
+  };
+};
+```
+
+##### ReserveInventoryResponse.reservation
+
+```ts
+reservation: {
+  accountId: string;
+  createdAt: string;
+  expiresAt: string | null;
+  heldBy: string | null;
+  id: string;
+  inventoryId: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  quantity: number;
+  reason: string | null;
+  referenceId: string | null;
+  referenceType: "subscription" | "order" | "hold" | null;
+  seatIds: string[] | null;
+  type: "confirmed" | "maintenance" | "hold" | "temporary";
+  updatedAt: string;
+};
+```
+
+##### ReserveInventoryResponse.reservation.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### ReserveInventoryResponse.reservation.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:30:00Z
+```
+
+##### ReserveInventoryResponse.reservation.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:45:00Z
+```
+
+##### ReserveInventoryResponse.reservation.heldBy
+
+```ts
+heldBy: string | null;
+```
+
+###### Example
+
+```ts
+usr_abc123
+```
+
+##### ReserveInventoryResponse.reservation.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ivr_abc123
+```
+
+##### ReserveInventoryResponse.reservation.inventoryId
+
+```ts
+inventoryId: string;
+```
+
+###### Example
+
+```ts
+inv_ghi789
+```
+
+##### ReserveInventoryResponse.reservation.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### ReserveInventoryResponse.reservation.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### ReserveInventoryResponse.reservation.quantity
+
+```ts
+quantity: number;
+```
+
+###### Example
+
+```ts
+2
+```
+
+##### ReserveInventoryResponse.reservation.reason
+
+```ts
+reason: string | null;
+```
+
+###### Example
+
+```ts
+Customer checkout
+```
+
+##### ReserveInventoryResponse.reservation.referenceId
+
+```ts
+referenceId: string | null;
+```
+
+###### Example
+
+```ts
+ord_jkl012
+```
+
+##### ReserveInventoryResponse.reservation.referenceType
+
+```ts
+referenceType: "subscription" | "order" | "hold" | null;
+```
+
+###### Description
+
+Type of reference for this reservation
+
+###### Example
+
+```ts
+order
+@enum {string|null}
+```
+
+##### ReserveInventoryResponse.reservation.seatIds
+
+```ts
+seatIds: string[] | null;
+```
+
+###### Example
+
+```ts
+[
+      "ivs_abc123",
+      "ivs_def456"
+    ]
+```
+
+##### ReserveInventoryResponse.reservation.type
+
+```ts
+type: "confirmed" | "maintenance" | "hold" | "temporary";
+```
+
+###### Description
+
+Type of reservation
+
+###### Example
+
+```ts
+temporary
+@enum {string}
+```
+
+##### ReserveInventoryResponse.reservation.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T14:45:00Z
 ```
 
 #### Role
@@ -10522,6 +27446,197 @@ updatedAt: string;
 
 ```ts
 2024-01-20T14:45:00Z
+```
+
+#### Subscription
+
+```ts
+Subscription: {
+  cancelledAt: string | null;
+  createdAt: string;
+  credits: number;
+  currency: string;
+  currentPeriodEnd: string | null;
+  currentPeriodStart: string | null;
+  endedAt: string | null;
+  id: string;
+  interval: "month" | "year";
+  organisationId: string;
+  packageId: string;
+  price: string;
+  status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+  updatedAt: string;
+};
+```
+
+##### Subscription.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### Subscription.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### Subscription.credits
+
+```ts
+credits: number;
+```
+
+###### Example
+
+```ts
+100
+```
+
+##### Subscription.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+USD
+```
+
+##### Subscription.currentPeriodEnd
+
+```ts
+currentPeriodEnd: string | null;
+```
+
+###### Example
+
+```ts
+2024-02-15T00:00:00Z
+```
+
+##### Subscription.currentPeriodStart
+
+```ts
+currentPeriodStart: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T00:00:00Z
+```
+
+##### Subscription.endedAt
+
+```ts
+endedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### Subscription.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sub_abc123
+```
+
+##### Subscription.interval
+
+```ts
+interval: "month" | "year";
+```
+
+###### Example
+
+```ts
+month
+@enum {string}
+```
+
+##### Subscription.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+##### Subscription.packageId
+
+```ts
+packageId: string;
+```
+
+###### Example
+
+```ts
+pkg_100
+```
+
+##### Subscription.price
+
+```ts
+price: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### Subscription.status
+
+```ts
+status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### Subscription.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
 ```
 
 #### SuccessResponse
@@ -10679,6 +27794,710 @@ typeId: string;
 
 ```ts
 tt_def456
+```
+
+#### TransitionOrderStatusResponse
+
+```ts
+TransitionOrderStatusResponse: {
+  order: {
+     accountId: string;
+     cancellationReason: string | null;
+     cancelledAt: string | null;
+     channel: string | null;
+     completedAt: string | null;
+     confirmedAt: string | null;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     customerNotes: string | null;
+     discountTotal: string;
+     expiresAt: string | null;
+     feeTotal: string;
+     id: string;
+     internalNotes: string | null;
+     isGuestCheckout: boolean;
+     items?: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     }[];
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderNumber: string;
+     organisationId: string;
+     status:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     subtotal: string;
+     taxTotal: string;
+     total: string;
+     updatedAt: string;
+  };
+};
+```
+
+##### TransitionOrderStatusResponse.order
+
+```ts
+order: {
+  accountId: string;
+  cancellationReason: string | null;
+  cancelledAt: string | null;
+  channel: string | null;
+  completedAt: string | null;
+  confirmedAt: string | null;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  customerNotes: string | null;
+  discountTotal: string;
+  expiresAt: string | null;
+  feeTotal: string;
+  id: string;
+  internalNotes: string | null;
+  isGuestCheckout: boolean;
+  items?: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  }[];
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderNumber: string;
+  organisationId: string;
+  status:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  subtotal: string;
+  taxTotal: string;
+  total: string;
+  updatedAt: string;
+};
+```
+
+##### TransitionOrderStatusResponse.order.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### TransitionOrderStatusResponse.order.cancellationReason
+
+```ts
+cancellationReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### TransitionOrderStatusResponse.order.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### TransitionOrderStatusResponse.order.channel
+
+```ts
+channel: string | null;
+```
+
+###### Example
+
+```ts
+web
+```
+
+##### TransitionOrderStatusResponse.order.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### TransitionOrderStatusResponse.order.confirmedAt
+
+```ts
+confirmedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### TransitionOrderStatusResponse.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### TransitionOrderStatusResponse.order.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### TransitionOrderStatusResponse.order.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### TransitionOrderStatusResponse.order.customerNotes
+
+```ts
+customerNotes: string | null;
+```
+
+###### Example
+
+```ts
+Please contact me before delivery
+```
+
+##### TransitionOrderStatusResponse.order.discountTotal
+
+```ts
+discountTotal: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### TransitionOrderStatusResponse.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+##### TransitionOrderStatusResponse.order.feeTotal
+
+```ts
+feeTotal: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### TransitionOrderStatusResponse.order.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### TransitionOrderStatusResponse.order.internalNotes
+
+```ts
+internalNotes: string | null;
+```
+
+###### Example
+
+```ts
+VIP customer
+```
+
+##### TransitionOrderStatusResponse.order.isGuestCheckout
+
+```ts
+isGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### TransitionOrderStatusResponse.order.items?
+
+```ts
+optional items: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+}[];
+```
+
+###### Description
+
+Order line items
+
+##### TransitionOrderStatusResponse.order.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "promoCode": "SUMMER20"
+             *     }
+```
+
+##### TransitionOrderStatusResponse.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### TransitionOrderStatusResponse.order.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### TransitionOrderStatusResponse.order.status
+
+```ts
+status: 
+  | "completed"
+  | "cancelled"
+  | "pending"
+  | "failed"
+  | "refunded"
+  | "confirmed"
+  | "processing"
+  | "expired";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+##### TransitionOrderStatusResponse.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### TransitionOrderStatusResponse.order.taxTotal
+
+```ts
+taxTotal: string;
+```
+
+###### Example
+
+```ts
+10.00
+```
+
+##### TransitionOrderStatusResponse.order.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+62.50
+```
+
+##### TransitionOrderStatusResponse.order.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+#### UnblockCustomerResponse
+
+```ts
+UnblockCustomerResponse: {
+  customer: {
+     accountId: string | null;
+     blockedAt: string | null;
+     blockedReason: string | null;
+     createdAt: string;
+     email: string;
+     externalId: string | null;
+     firstName: string | null;
+     id: string;
+     isBlocked: boolean;
+     lastName: string | null;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     phone: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### UnblockCustomerResponse.customer
+
+```ts
+customer: {
+  accountId: string | null;
+  blockedAt: string | null;
+  blockedReason: string | null;
+  createdAt: string;
+  email: string;
+  externalId: string | null;
+  firstName: string | null;
+  id: string;
+  isBlocked: boolean;
+  lastName: string | null;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  phone: string | null;
+  updatedAt: string;
+};
+```
+
+##### UnblockCustomerResponse.customer.accountId
+
+```ts
+accountId: string | null;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### UnblockCustomerResponse.customer.blockedAt
+
+```ts
+blockedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### UnblockCustomerResponse.customer.blockedReason
+
+```ts
+blockedReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### UnblockCustomerResponse.customer.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### UnblockCustomerResponse.customer.email
+
+```ts
+email: string;
+```
+
+###### Example
+
+```ts
+customer@example.com
+```
+
+##### UnblockCustomerResponse.customer.externalId
+
+```ts
+externalId: string | null;
+```
+
+###### Example
+
+```ts
+ext_cust_12345
+```
+
+##### UnblockCustomerResponse.customer.firstName
+
+```ts
+firstName: string | null;
+```
+
+###### Example
+
+```ts
+John
+```
+
+##### UnblockCustomerResponse.customer.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### UnblockCustomerResponse.customer.isBlocked
+
+```ts
+isBlocked: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### UnblockCustomerResponse.customer.lastName
+
+```ts
+lastName: string | null;
+```
+
+###### Example
+
+```ts
+Doe
+```
+
+##### UnblockCustomerResponse.customer.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "loyaltyTier": "gold"
+             *     }
+```
+
+##### UnblockCustomerResponse.customer.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### UnblockCustomerResponse.customer.phone
+
+```ts
+phone: string | null;
+```
+
+###### Example
+
+```ts
++44 7700 900000
+```
+
+##### UnblockCustomerResponse.customer.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-20T14:45:00Z
 ```
 
 #### UpdateAccountResponse
@@ -10947,6 +28766,192 @@ unallocated
 optional venueLayout: unknown;
 ```
 
+#### UpdateAutoTopupRequest
+
+```ts
+UpdateAutoTopupRequest: {
+  enabled: boolean;
+  thresholdCredits: number;
+  topupPackageId: string;
+};
+```
+
+##### UpdateAutoTopupRequest.enabled
+
+```ts
+enabled: boolean;
+```
+
+##### UpdateAutoTopupRequest.thresholdCredits
+
+```ts
+thresholdCredits: number;
+```
+
+##### UpdateAutoTopupRequest.topupPackageId
+
+```ts
+topupPackageId: string;
+```
+
+#### UpdateAutoTopupResponse
+
+```ts
+UpdateAutoTopupResponse: {
+  autoTopup: {
+     attemptsToday: number;
+     createdAt: string;
+     enabled: boolean;
+     id: string;
+     lastAttemptAt: string | null;
+     maxAttemptsPerDay: number;
+     organisationId: string;
+     thresholdCredits: number;
+     topupPackageId: string;
+     updatedAt: string;
+  } & Record<string, never>;
+};
+```
+
+##### UpdateAutoTopupResponse.autoTopup
+
+```ts
+autoTopup: {
+  attemptsToday: number;
+  createdAt: string;
+  enabled: boolean;
+  id: string;
+  lastAttemptAt: string | null;
+  maxAttemptsPerDay: number;
+  organisationId: string;
+  thresholdCredits: number;
+  topupPackageId: string;
+  updatedAt: string;
+} & Record<string, never>;
+```
+
+###### Type Declaration
+
+###### attemptsToday
+
+```ts
+attemptsToday: number;
+```
+
+###### Example
+
+```ts
+0
+```
+
+###### createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+###### enabled
+
+```ts
+enabled: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+###### id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+atu_abc123
+```
+
+###### lastAttemptAt
+
+```ts
+lastAttemptAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### maxAttemptsPerDay
+
+```ts
+maxAttemptsPerDay: number;
+```
+
+###### Example
+
+```ts
+3
+```
+
+###### organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+###### thresholdCredits
+
+```ts
+thresholdCredits: number;
+```
+
+###### Example
+
+```ts
+50
+```
+
+###### topupPackageId
+
+```ts
+topupPackageId: string;
+```
+
+###### Example
+
+```ts
+pkg_100
+```
+
+###### updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
 #### UpdateCategoryResponse
 
 ```ts
@@ -11038,6 +29043,230 @@ Premium
 
 ```ts
 optional venueLayout: unknown;
+```
+
+#### UpdateCustomerResponse
+
+```ts
+UpdateCustomerResponse: {
+  customer: {
+     accountId: string | null;
+     blockedAt: string | null;
+     blockedReason: string | null;
+     createdAt: string;
+     email: string;
+     externalId: string | null;
+     firstName: string | null;
+     id: string;
+     isBlocked: boolean;
+     lastName: string | null;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     phone: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### UpdateCustomerResponse.customer
+
+```ts
+customer: {
+  accountId: string | null;
+  blockedAt: string | null;
+  blockedReason: string | null;
+  createdAt: string;
+  email: string;
+  externalId: string | null;
+  firstName: string | null;
+  id: string;
+  isBlocked: boolean;
+  lastName: string | null;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  phone: string | null;
+  updatedAt: string;
+};
+```
+
+##### UpdateCustomerResponse.customer.accountId
+
+```ts
+accountId: string | null;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### UpdateCustomerResponse.customer.blockedAt
+
+```ts
+blockedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### UpdateCustomerResponse.customer.blockedReason
+
+```ts
+blockedReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### UpdateCustomerResponse.customer.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### UpdateCustomerResponse.customer.email
+
+```ts
+email: string;
+```
+
+###### Example
+
+```ts
+customer@example.com
+```
+
+##### UpdateCustomerResponse.customer.externalId
+
+```ts
+externalId: string | null;
+```
+
+###### Example
+
+```ts
+ext_cust_12345
+```
+
+##### UpdateCustomerResponse.customer.firstName
+
+```ts
+firstName: string | null;
+```
+
+###### Example
+
+```ts
+John
+```
+
+##### UpdateCustomerResponse.customer.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### UpdateCustomerResponse.customer.isBlocked
+
+```ts
+isBlocked: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### UpdateCustomerResponse.customer.lastName
+
+```ts
+lastName: string | null;
+```
+
+###### Example
+
+```ts
+Doe
+```
+
+##### UpdateCustomerResponse.customer.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "loyaltyTier": "gold"
+             *     }
+```
+
+##### UpdateCustomerResponse.customer.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### UpdateCustomerResponse.customer.phone
+
+```ts
+phone: string | null;
+```
+
+###### Example
+
+```ts
++44 7700 900000
+```
+
+##### UpdateCustomerResponse.customer.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-20T14:45:00Z
 ```
 
 #### UpdateEventOccurrenceResponse
@@ -11996,6 +30225,1499 @@ userinfoEndpointInternal: string | null;
 http://stagedoor:3000/api/oauth/userinfo
 ```
 
+#### UpdateInventoryResponse
+
+```ts
+UpdateInventoryResponse: {
+  inventory: {
+     accountId: string;
+     available: number;
+     confirmed: number;
+     createdAt: string;
+     eventId: string | null;
+     eventLayoutAreaId: string | null;
+     eventOccurrenceId: string | null;
+     held: number;
+     id: string;
+     isAllocated: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     productId: string | null;
+     reserved: number;
+     sourceType: "event_occurrence_area" | "product";
+     totalCapacity: number;
+     updatedAt: string;
+     version: number;
+  };
+};
+```
+
+##### UpdateInventoryResponse.inventory
+
+```ts
+inventory: {
+  accountId: string;
+  available: number;
+  confirmed: number;
+  createdAt: string;
+  eventId: string | null;
+  eventLayoutAreaId: string | null;
+  eventOccurrenceId: string | null;
+  held: number;
+  id: string;
+  isAllocated: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  productId: string | null;
+  reserved: number;
+  sourceType: "event_occurrence_area" | "product";
+  totalCapacity: number;
+  updatedAt: string;
+  version: number;
+};
+```
+
+##### UpdateInventoryResponse.inventory.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### UpdateInventoryResponse.inventory.available
+
+```ts
+available: number;
+```
+
+###### Example
+
+```ts
+450
+```
+
+##### UpdateInventoryResponse.inventory.confirmed
+
+```ts
+confirmed: number;
+```
+
+###### Example
+
+```ts
+20
+```
+
+##### UpdateInventoryResponse.inventory.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:30:00Z
+```
+
+##### UpdateInventoryResponse.inventory.eventId
+
+```ts
+eventId: string | null;
+```
+
+###### Example
+
+```ts
+evt_ghi789
+```
+
+##### UpdateInventoryResponse.inventory.eventLayoutAreaId
+
+```ts
+eventLayoutAreaId: string | null;
+```
+
+###### Example
+
+```ts
+ela_mno345
+```
+
+##### UpdateInventoryResponse.inventory.eventOccurrenceId
+
+```ts
+eventOccurrenceId: string | null;
+```
+
+###### Example
+
+```ts
+evo_jkl012
+```
+
+##### UpdateInventoryResponse.inventory.held
+
+```ts
+held: number;
+```
+
+###### Example
+
+```ts
+0
+```
+
+##### UpdateInventoryResponse.inventory.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### UpdateInventoryResponse.inventory.isAllocated
+
+```ts
+isAllocated: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### UpdateInventoryResponse.inventory.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### UpdateInventoryResponse.inventory.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### UpdateInventoryResponse.inventory.productId
+
+```ts
+productId: string | null;
+```
+
+###### Example
+
+```ts
+prd_pqr678
+```
+
+##### UpdateInventoryResponse.inventory.reserved
+
+```ts
+reserved: number;
+```
+
+###### Example
+
+```ts
+30
+```
+
+##### UpdateInventoryResponse.inventory.sourceType
+
+```ts
+sourceType: "event_occurrence_area" | "product";
+```
+
+###### Description
+
+Type of inventory source
+
+###### Example
+
+```ts
+event_occurrence_area
+@enum {string}
+```
+
+##### UpdateInventoryResponse.inventory.totalCapacity
+
+```ts
+totalCapacity: number;
+```
+
+###### Example
+
+```ts
+500
+```
+
+##### UpdateInventoryResponse.inventory.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T14:45:00Z
+```
+
+##### UpdateInventoryResponse.inventory.version
+
+```ts
+version: number;
+```
+
+###### Example
+
+```ts
+1
+```
+
+#### UpdateLineItemResponse
+
+```ts
+UpdateLineItemResponse: {
+  item: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  };
+  order: {
+     accountId: string;
+     cancellationReason: string | null;
+     cancelledAt: string | null;
+     channel: string | null;
+     completedAt: string | null;
+     confirmedAt: string | null;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     customerNotes: string | null;
+     discountTotal: string;
+     expiresAt: string | null;
+     feeTotal: string;
+     id: string;
+     internalNotes: string | null;
+     isGuestCheckout: boolean;
+     items?: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     }[];
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderNumber: string;
+     organisationId: string;
+     status:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     subtotal: string;
+     taxTotal: string;
+     total: string;
+     updatedAt: string;
+  };
+};
+```
+
+##### UpdateLineItemResponse.item
+
+```ts
+item: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+};
+```
+
+##### UpdateLineItemResponse.item.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### UpdateLineItemResponse.item.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Entry to main event area
+```
+
+##### UpdateLineItemResponse.item.feeDetails
+
+```ts
+feeDetails: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### UpdateLineItemResponse.item.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+oli_abc123
+```
+
+##### UpdateLineItemResponse.item.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "source": "web"
+             *     }
+```
+
+##### UpdateLineItemResponse.item.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+General Admission
+```
+
+##### UpdateLineItemResponse.item.orderId
+
+```ts
+orderId: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### UpdateLineItemResponse.item.productDetails
+
+```ts
+productDetails: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### UpdateLineItemResponse.item.quantity
+
+```ts
+quantity: number;
+```
+
+###### Example
+
+```ts
+2
+```
+
+##### UpdateLineItemResponse.item.ticketDetails
+
+```ts
+ticketDetails: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "eventId": "evt_123"
+             *     }
+```
+
+##### UpdateLineItemResponse.item.totalPrice
+
+```ts
+totalPrice: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### UpdateLineItemResponse.item.type
+
+```ts
+type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+```
+
+###### Example
+
+```ts
+ticket
+@enum {string}
+```
+
+##### UpdateLineItemResponse.item.unitPrice
+
+```ts
+unitPrice: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### UpdateLineItemResponse.item.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### UpdateLineItemResponse.order
+
+```ts
+order: {
+  accountId: string;
+  cancellationReason: string | null;
+  cancelledAt: string | null;
+  channel: string | null;
+  completedAt: string | null;
+  confirmedAt: string | null;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  customerNotes: string | null;
+  discountTotal: string;
+  expiresAt: string | null;
+  feeTotal: string;
+  id: string;
+  internalNotes: string | null;
+  isGuestCheckout: boolean;
+  items?: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  }[];
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderNumber: string;
+  organisationId: string;
+  status:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  subtotal: string;
+  taxTotal: string;
+  total: string;
+  updatedAt: string;
+};
+```
+
+##### UpdateLineItemResponse.order.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### UpdateLineItemResponse.order.cancellationReason
+
+```ts
+cancellationReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### UpdateLineItemResponse.order.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### UpdateLineItemResponse.order.channel
+
+```ts
+channel: string | null;
+```
+
+###### Example
+
+```ts
+web
+```
+
+##### UpdateLineItemResponse.order.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### UpdateLineItemResponse.order.confirmedAt
+
+```ts
+confirmedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### UpdateLineItemResponse.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### UpdateLineItemResponse.order.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### UpdateLineItemResponse.order.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### UpdateLineItemResponse.order.customerNotes
+
+```ts
+customerNotes: string | null;
+```
+
+###### Example
+
+```ts
+Please contact me before delivery
+```
+
+##### UpdateLineItemResponse.order.discountTotal
+
+```ts
+discountTotal: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### UpdateLineItemResponse.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+##### UpdateLineItemResponse.order.feeTotal
+
+```ts
+feeTotal: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### UpdateLineItemResponse.order.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### UpdateLineItemResponse.order.internalNotes
+
+```ts
+internalNotes: string | null;
+```
+
+###### Example
+
+```ts
+VIP customer
+```
+
+##### UpdateLineItemResponse.order.isGuestCheckout
+
+```ts
+isGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### UpdateLineItemResponse.order.items?
+
+```ts
+optional items: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+}[];
+```
+
+###### Description
+
+Order line items
+
+##### UpdateLineItemResponse.order.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "promoCode": "SUMMER20"
+             *     }
+```
+
+##### UpdateLineItemResponse.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### UpdateLineItemResponse.order.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### UpdateLineItemResponse.order.status
+
+```ts
+status: 
+  | "completed"
+  | "cancelled"
+  | "pending"
+  | "failed"
+  | "refunded"
+  | "confirmed"
+  | "processing"
+  | "expired";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+##### UpdateLineItemResponse.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### UpdateLineItemResponse.order.taxTotal
+
+```ts
+taxTotal: string;
+```
+
+###### Example
+
+```ts
+10.00
+```
+
+##### UpdateLineItemResponse.order.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+62.50
+```
+
+##### UpdateLineItemResponse.order.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+#### UpdateOrderResponse
+
+```ts
+UpdateOrderResponse: {
+  order: {
+     accountId: string;
+     cancellationReason: string | null;
+     cancelledAt: string | null;
+     channel: string | null;
+     completedAt: string | null;
+     confirmedAt: string | null;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     customerNotes: string | null;
+     discountTotal: string;
+     expiresAt: string | null;
+     feeTotal: string;
+     id: string;
+     internalNotes: string | null;
+     isGuestCheckout: boolean;
+     items?: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     }[];
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderNumber: string;
+     organisationId: string;
+     status:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     subtotal: string;
+     taxTotal: string;
+     total: string;
+     updatedAt: string;
+  };
+};
+```
+
+##### UpdateOrderResponse.order
+
+```ts
+order: {
+  accountId: string;
+  cancellationReason: string | null;
+  cancelledAt: string | null;
+  channel: string | null;
+  completedAt: string | null;
+  confirmedAt: string | null;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  customerNotes: string | null;
+  discountTotal: string;
+  expiresAt: string | null;
+  feeTotal: string;
+  id: string;
+  internalNotes: string | null;
+  isGuestCheckout: boolean;
+  items?: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  }[];
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderNumber: string;
+  organisationId: string;
+  status:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  subtotal: string;
+  taxTotal: string;
+  total: string;
+  updatedAt: string;
+};
+```
+
+##### UpdateOrderResponse.order.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### UpdateOrderResponse.order.cancellationReason
+
+```ts
+cancellationReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### UpdateOrderResponse.order.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### UpdateOrderResponse.order.channel
+
+```ts
+channel: string | null;
+```
+
+###### Example
+
+```ts
+web
+```
+
+##### UpdateOrderResponse.order.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### UpdateOrderResponse.order.confirmedAt
+
+```ts
+confirmedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### UpdateOrderResponse.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### UpdateOrderResponse.order.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### UpdateOrderResponse.order.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### UpdateOrderResponse.order.customerNotes
+
+```ts
+customerNotes: string | null;
+```
+
+###### Example
+
+```ts
+Please contact me before delivery
+```
+
+##### UpdateOrderResponse.order.discountTotal
+
+```ts
+discountTotal: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### UpdateOrderResponse.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+##### UpdateOrderResponse.order.feeTotal
+
+```ts
+feeTotal: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### UpdateOrderResponse.order.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### UpdateOrderResponse.order.internalNotes
+
+```ts
+internalNotes: string | null;
+```
+
+###### Example
+
+```ts
+VIP customer
+```
+
+##### UpdateOrderResponse.order.isGuestCheckout
+
+```ts
+isGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### UpdateOrderResponse.order.items?
+
+```ts
+optional items: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+}[];
+```
+
+###### Description
+
+Order line items
+
+##### UpdateOrderResponse.order.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "promoCode": "SUMMER20"
+             *     }
+```
+
+##### UpdateOrderResponse.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### UpdateOrderResponse.order.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### UpdateOrderResponse.order.status
+
+```ts
+status: 
+  | "completed"
+  | "cancelled"
+  | "pending"
+  | "failed"
+  | "refunded"
+  | "confirmed"
+  | "processing"
+  | "expired";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+##### UpdateOrderResponse.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### UpdateOrderResponse.order.taxTotal
+
+```ts
+taxTotal: string;
+```
+
+###### Example
+
+```ts
+10.00
+```
+
+##### UpdateOrderResponse.order.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+62.50
+```
+
+##### UpdateOrderResponse.order.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
 #### UpdateOrganisationRequest
 
 ```ts
@@ -12244,6 +31966,449 @@ updatedAt: string;
 
 ```ts
 2024-01-20T14:45:00Z
+```
+
+#### UpdatePaymentProviderResponse
+
+```ts
+UpdatePaymentProviderResponse: {
+  provider: {
+     accountId: string | null;
+     applicationFee:   | {
+        type: "percentage" | "fixed";
+        value: number;
+      }
+        | null;
+     capabilities:   | {
+        maxAmount?: number;
+        minAmount?: number;
+        requiresCustomerAction?: boolean;
+        supportedCurrencies?: string[];
+        supportsDelayedCapture?: boolean;
+        supportsInstantCapture?: boolean;
+        supportsPartialRefunds?: boolean;
+        supportsRefunds?: boolean;
+      }
+        | null;
+     configuration: {
+      [key: string]: unknown;
+     };
+     createdAt: string;
+     description: string | null;
+     feeStructure:   | {
+        currency?: string;
+        fixed?: number;
+        percentage?: number;
+        type: "percentage" | "fixed" | "percentage_plus_fixed";
+      }
+        | null;
+     id: string;
+     integrationServiceUrl: string | null;
+     integrationServiceVersion: string;
+     isDefault: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     organisationId: string;
+     priority: number;
+     status: "active" | "inactive" | "pending_setup";
+     supportedPaymentTypes: (
+        | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+       | "cheque")[];
+     type:   | "bank_transfer"
+        | "cash"
+        | "stripe_connect"
+        | "stripe_direct"
+        | "adyen"
+        | "square"
+        | "paypal";
+     updatedAt: string;
+  };
+};
+```
+
+##### UpdatePaymentProviderResponse.provider
+
+```ts
+provider: {
+  accountId: string | null;
+  applicationFee:   | {
+     type: "percentage" | "fixed";
+     value: number;
+   }
+     | null;
+  capabilities:   | {
+     maxAmount?: number;
+     minAmount?: number;
+     requiresCustomerAction?: boolean;
+     supportedCurrencies?: string[];
+     supportsDelayedCapture?: boolean;
+     supportsInstantCapture?: boolean;
+     supportsPartialRefunds?: boolean;
+     supportsRefunds?: boolean;
+   }
+     | null;
+  configuration: {
+   [key: string]: unknown;
+  };
+  createdAt: string;
+  description: string | null;
+  feeStructure:   | {
+     currency?: string;
+     fixed?: number;
+     percentage?: number;
+     type: "percentage" | "fixed" | "percentage_plus_fixed";
+   }
+     | null;
+  id: string;
+  integrationServiceUrl: string | null;
+  integrationServiceVersion: string;
+  isDefault: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  organisationId: string;
+  priority: number;
+  status: "active" | "inactive" | "pending_setup";
+  supportedPaymentTypes: (
+     | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+    | "cheque")[];
+  type:   | "bank_transfer"
+     | "cash"
+     | "stripe_connect"
+     | "stripe_direct"
+     | "adyen"
+     | "square"
+     | "paypal";
+  updatedAt: string;
+};
+```
+
+##### UpdatePaymentProviderResponse.provider.accountId
+
+```ts
+accountId: string | null;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### UpdatePaymentProviderResponse.provider.applicationFee
+
+```ts
+applicationFee: 
+  | {
+  type: "percentage" | "fixed";
+  value: number;
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  type: "percentage" | "fixed";
+  value: number;
+}
+```
+
+`null`
+
+##### UpdatePaymentProviderResponse.provider.capabilities
+
+```ts
+capabilities: 
+  | {
+  maxAmount?: number;
+  minAmount?: number;
+  requiresCustomerAction?: boolean;
+  supportedCurrencies?: string[];
+  supportsDelayedCapture?: boolean;
+  supportsInstantCapture?: boolean;
+  supportsPartialRefunds?: boolean;
+  supportsRefunds?: boolean;
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  maxAmount?: number;
+  minAmount?: number;
+  requiresCustomerAction?: boolean;
+  supportedCurrencies?: string[];
+  supportsDelayedCapture?: boolean;
+  supportsInstantCapture?: boolean;
+  supportsPartialRefunds?: boolean;
+  supportsRefunds?: boolean;
+}
+```
+
+`null`
+
+##### UpdatePaymentProviderResponse.provider.configuration
+
+```ts
+configuration: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Provider-specific configuration (sensitive fields redacted)
+
+###### Example
+
+```ts
+{
+             *       "stripeConnectedAccountId": "acct_xxx"
+             *     }
+```
+
+##### UpdatePaymentProviderResponse.provider.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### UpdatePaymentProviderResponse.provider.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Primary payment processor for online orders
+```
+
+##### UpdatePaymentProviderResponse.provider.feeStructure
+
+```ts
+feeStructure: 
+  | {
+  currency?: string;
+  fixed?: number;
+  percentage?: number;
+  type: "percentage" | "fixed" | "percentage_plus_fixed";
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  currency?: string;
+  fixed?: number;
+  percentage?: number;
+  type: "percentage" | "fixed" | "percentage_plus_fixed";
+}
+```
+
+`null`
+
+##### UpdatePaymentProviderResponse.provider.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pp_stripeXxx123
+```
+
+##### UpdatePaymentProviderResponse.provider.integrationServiceUrl
+
+```ts
+integrationServiceUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://stripe.paymentintegration.ticketlayer.com
+```
+
+##### UpdatePaymentProviderResponse.provider.integrationServiceVersion
+
+```ts
+integrationServiceVersion: string;
+```
+
+###### Example
+
+```ts
+v1
+```
+
+##### UpdatePaymentProviderResponse.provider.isDefault
+
+```ts
+isDefault: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### UpdatePaymentProviderResponse.provider.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "environment": "production"
+             *     }
+```
+
+##### UpdatePaymentProviderResponse.provider.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Main Stripe Account
+```
+
+##### UpdatePaymentProviderResponse.provider.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### UpdatePaymentProviderResponse.provider.priority
+
+```ts
+priority: number;
+```
+
+###### Example
+
+```ts
+100
+```
+
+##### UpdatePaymentProviderResponse.provider.status
+
+```ts
+status: "active" | "inactive" | "pending_setup";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### UpdatePaymentProviderResponse.provider.supportedPaymentTypes
+
+```ts
+supportedPaymentTypes: (
+  | "bank_transfer"
+  | "online_card"
+  | "online_bank_transfer"
+  | "online_wallet"
+  | "in_person_card"
+  | "in_person_cash"
+  | "cheque")[];
+```
+
+###### Example
+
+```ts
+[
+      "online_card",
+      "online_wallet"
+    ]
+```
+
+##### UpdatePaymentProviderResponse.provider.type
+
+```ts
+type: 
+  | "bank_transfer"
+  | "cash"
+  | "stripe_connect"
+  | "stripe_direct"
+  | "adyen"
+  | "square"
+  | "paypal";
+```
+
+###### Example
+
+```ts
+stripe_connect
+@enum {string}
+```
+
+##### UpdatePaymentProviderResponse.provider.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
 ```
 
 #### UpdatePriceSchemeResponse
@@ -13925,6 +34090,45 @@ userId: string;
 
 ```ts
 usr_pending123
+```
+
+#### ValidateOrderResponse
+
+```ts
+ValidateOrderResponse: {
+  errors: {
+     code: string;
+     itemId?: string;
+     message: string;
+  }[];
+  valid: boolean;
+};
+```
+
+##### ValidateOrderResponse.errors
+
+```ts
+errors: {
+  code: string;
+  itemId?: string;
+  message: string;
+}[];
+```
+
+###### Description
+
+Validation errors if any
+
+##### ValidateOrderResponse.valid
+
+```ts
+valid: boolean;
+```
+
+###### Example
+
+```ts
+true
 ```
 
 #### Venue

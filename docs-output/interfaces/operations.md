@@ -6,7 +6,7 @@
 
 # Interface: operations
 
-Defined in: generated/types.ts:2151
+Defined in: generated/types.ts:4301
 
 ## Properties
 
@@ -100,7 +100,7 @@ addAreaToVenueLayout: {
 };
 ```
 
-Defined in: generated/types.ts:7136
+Defined in: generated/types.ts:9286
 
 #### parameters
 
@@ -957,7 +957,7 @@ addCategoryToVenueLayout: {
 };
 ```
 
-Defined in: generated/types.ts:7449
+Defined in: generated/types.ts:9599
 
 #### parameters
 
@@ -1504,6 +1504,1769 @@ headers: {
 
 ***
 
+### addOrderLineItem
+
+```ts
+addOrderLineItem: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        orderId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           description?: string;
+           feeDetails?: {
+            [key: string]: unknown;
+           };
+           metadata?: {
+            [key: string]: unknown;
+           };
+           name: string;
+           productDetails?: {
+            [key: string]: unknown;
+           };
+           quantity?: number;
+           ticketDetails?: {
+            [key: string]: unknown;
+           };
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              item: {
+                 createdAt: string;
+                 description: string | null;
+                 feeDetails:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 id: string;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 name: string;
+                 orderId: string;
+                 productDetails:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 quantity: number;
+                 ticketDetails:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 totalPrice: string;
+                 type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+                 unitPrice: string;
+                 updatedAt: string;
+              };
+              order: {
+                 accountId: string;
+                 cancellationReason: string | null;
+                 cancelledAt: string | null;
+                 channel: string | null;
+                 completedAt: string | null;
+                 confirmedAt: string | null;
+                 createdAt: string;
+                 currency: string;
+                 customerId: string | null;
+                 customerNotes: string | null;
+                 discountTotal: string;
+                 expiresAt: string | null;
+                 feeTotal: string;
+                 id: string;
+                 internalNotes: string | null;
+                 isGuestCheckout: boolean;
+                 items?: {
+                    createdAt: string;
+                    description: string | null;
+                    feeDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    id: string;
+                    metadata:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    name: string;
+                    orderId: string;
+                    productDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    quantity: number;
+                    ticketDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    totalPrice: string;
+                    type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+                    unitPrice: string;
+                    updatedAt: string;
+                 }[];
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 orderNumber: string;
+                 organisationId: string;
+                 status:   | "completed"
+                    | "cancelled"
+                    | "pending"
+                    | "failed"
+                    | "refunded"
+                    | "confirmed"
+                    | "processing"
+                    | "expired";
+                 subtotal: string;
+                 taxTotal: string;
+                 total: string;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:13898
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     orderId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  orderId: string;
+};
+```
+
+##### parameters.path.orderId
+
+```ts
+orderId: string;
+```
+
+###### Description
+
+Order ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        description?: string;
+        feeDetails?: {
+         [key: string]: unknown;
+        };
+        metadata?: {
+         [key: string]: unknown;
+        };
+        name: string;
+        productDetails?: {
+         [key: string]: unknown;
+        };
+        quantity?: number;
+        ticketDetails?: {
+         [key: string]: unknown;
+        };
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     description?: string;
+     feeDetails?: {
+      [key: string]: unknown;
+     };
+     metadata?: {
+      [key: string]: unknown;
+     };
+     name: string;
+     productDetails?: {
+      [key: string]: unknown;
+     };
+     quantity?: number;
+     ticketDetails?: {
+      [key: string]: unknown;
+     };
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  description?: string;
+  feeDetails?: {
+   [key: string]: unknown;
+  };
+  metadata?: {
+   [key: string]: unknown;
+  };
+  name: string;
+  productDetails?: {
+   [key: string]: unknown;
+  };
+  quantity?: number;
+  ticketDetails?: {
+   [key: string]: unknown;
+  };
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+};
+```
+
+##### requestBody.content.application/json.description?
+
+```ts
+optional description: string;
+```
+
+###### Description
+
+Line item description
+
+###### Example
+
+```ts
+Entry to main event area
+```
+
+##### requestBody.content.application/json.feeDetails?
+
+```ts
+optional feeDetails: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Fee-specific details
+
+###### Example
+
+```ts
+{
+                     *       "feeType": "service_fee"
+                     *     }
+```
+
+##### requestBody.content.application/json.metadata?
+
+```ts
+optional metadata: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Custom metadata
+
+###### Example
+
+```ts
+{
+                     *       "source": "web"
+                     *     }
+```
+
+##### requestBody.content.application/json.name
+
+```ts
+name: string;
+```
+
+###### Description
+
+Line item name
+
+###### Example
+
+```ts
+General Admission
+```
+
+##### requestBody.content.application/json.productDetails?
+
+```ts
+optional productDetails: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Product-specific details
+
+###### Example
+
+```ts
+{
+                     *       "productId": "prod_123",
+                     *       "sku": "TSHIRT-L"
+                     *     }
+```
+
+##### requestBody.content.application/json.quantity?
+
+```ts
+optional quantity: number;
+```
+
+###### Description
+
+Quantity (defaults to 1)
+
+###### Default
+
+```ts
+1
+```
+
+###### Example
+
+```ts
+2
+```
+
+##### requestBody.content.application/json.ticketDetails?
+
+```ts
+optional ticketDetails: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Ticket-specific details
+
+###### Example
+
+```ts
+{
+                     *       "eventId": "evt_123",
+                     *       "ticketTypeId": "tt_456"
+                     *     }
+```
+
+##### requestBody.content.application/json.type
+
+```ts
+type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+```
+
+###### Description
+
+Type of line item
+
+###### Example
+
+```ts
+ticket
+@enum {string}
+```
+
+##### requestBody.content.application/json.unitPrice
+
+```ts
+unitPrice: string;
+```
+
+###### Description
+
+Unit price in decimal format
+
+###### Example
+
+```ts
+25.00
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           item: {
+              createdAt: string;
+              description: string | null;
+              feeDetails:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              id: string;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              name: string;
+              orderId: string;
+              productDetails:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              quantity: number;
+              ticketDetails:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              totalPrice: string;
+              type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+              unitPrice: string;
+              updatedAt: string;
+           };
+           order: {
+              accountId: string;
+              cancellationReason: string | null;
+              cancelledAt: string | null;
+              channel: string | null;
+              completedAt: string | null;
+              confirmedAt: string | null;
+              createdAt: string;
+              currency: string;
+              customerId: string | null;
+              customerNotes: string | null;
+              discountTotal: string;
+              expiresAt: string | null;
+              feeTotal: string;
+              id: string;
+              internalNotes: string | null;
+              isGuestCheckout: boolean;
+              items?: {
+                 createdAt: string;
+                 description: string | null;
+                 feeDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 id: string;
+                 metadata:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 name: string;
+                 orderId: string;
+                 productDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 quantity: number;
+                 ticketDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 totalPrice: string;
+                 type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+                 unitPrice: string;
+                 updatedAt: string;
+              }[];
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              orderNumber: string;
+              organisationId: string;
+              status:   | "completed"
+                 | "cancelled"
+                 | "pending"
+                 | "failed"
+                 | "refunded"
+                 | "confirmed"
+                 | "processing"
+                 | "expired";
+              subtotal: string;
+              taxTotal: string;
+              total: string;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        item: {
+           createdAt: string;
+           description: string | null;
+           feeDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           name: string;
+           orderId: string;
+           productDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           quantity: number;
+           ticketDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           totalPrice: string;
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+           updatedAt: string;
+        };
+        order: {
+           accountId: string;
+           cancellationReason: string | null;
+           cancelledAt: string | null;
+           channel: string | null;
+           completedAt: string | null;
+           confirmedAt: string | null;
+           createdAt: string;
+           currency: string;
+           customerId: string | null;
+           customerNotes: string | null;
+           discountTotal: string;
+           expiresAt: string | null;
+           feeTotal: string;
+           id: string;
+           internalNotes: string | null;
+           isGuestCheckout: boolean;
+           items?: {
+              createdAt: string;
+              description: string | null;
+              feeDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              id: string;
+              metadata:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              name: string;
+              orderId: string;
+              productDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              quantity: number;
+              ticketDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              totalPrice: string;
+              type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+              unitPrice: string;
+              updatedAt: string;
+           }[];
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           orderNumber: string;
+           organisationId: string;
+           status:   | "completed"
+              | "cancelled"
+              | "pending"
+              | "failed"
+              | "refunded"
+              | "confirmed"
+              | "processing"
+              | "expired";
+           subtotal: string;
+           taxTotal: string;
+           total: string;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Line item added successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     item: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     };
+     order: {
+        accountId: string;
+        cancellationReason: string | null;
+        cancelledAt: string | null;
+        channel: string | null;
+        completedAt: string | null;
+        confirmedAt: string | null;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        customerNotes: string | null;
+        discountTotal: string;
+        expiresAt: string | null;
+        feeTotal: string;
+        id: string;
+        internalNotes: string | null;
+        isGuestCheckout: boolean;
+        items?: {
+           createdAt: string;
+           description: string | null;
+           feeDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           id: string;
+           metadata:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           name: string;
+           orderId: string;
+           productDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           quantity: number;
+           ticketDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           totalPrice: string;
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+           updatedAt: string;
+        }[];
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderNumber: string;
+        organisationId: string;
+        status:   | "completed"
+           | "cancelled"
+           | "pending"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+        subtotal: string;
+        taxTotal: string;
+        total: string;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  item: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  };
+  order: {
+     accountId: string;
+     cancellationReason: string | null;
+     cancelledAt: string | null;
+     channel: string | null;
+     completedAt: string | null;
+     confirmedAt: string | null;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     customerNotes: string | null;
+     discountTotal: string;
+     expiresAt: string | null;
+     feeTotal: string;
+     id: string;
+     internalNotes: string | null;
+     isGuestCheckout: boolean;
+     items?: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     }[];
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderNumber: string;
+     organisationId: string;
+     status:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     subtotal: string;
+     taxTotal: string;
+     total: string;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.201.content.application/json.item
+
+```ts
+item: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+};
+```
+
+##### responses.201.content.application/json.item.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.item.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Entry to main event area
+```
+
+##### responses.201.content.application/json.item.feeDetails
+
+```ts
+feeDetails: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.item.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+oli_abc123
+```
+
+##### responses.201.content.application/json.item.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "source": "web"
+             *     }
+```
+
+##### responses.201.content.application/json.item.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+General Admission
+```
+
+##### responses.201.content.application/json.item.orderId
+
+```ts
+orderId: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### responses.201.content.application/json.item.productDetails
+
+```ts
+productDetails: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.item.quantity
+
+```ts
+quantity: number;
+```
+
+###### Example
+
+```ts
+2
+```
+
+##### responses.201.content.application/json.item.ticketDetails
+
+```ts
+ticketDetails: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "eventId": "evt_123"
+             *     }
+```
+
+##### responses.201.content.application/json.item.totalPrice
+
+```ts
+totalPrice: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### responses.201.content.application/json.item.type
+
+```ts
+type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+```
+
+###### Example
+
+```ts
+ticket
+@enum {string}
+```
+
+##### responses.201.content.application/json.item.unitPrice
+
+```ts
+unitPrice: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### responses.201.content.application/json.item.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.order
+
+```ts
+order: {
+  accountId: string;
+  cancellationReason: string | null;
+  cancelledAt: string | null;
+  channel: string | null;
+  completedAt: string | null;
+  confirmedAt: string | null;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  customerNotes: string | null;
+  discountTotal: string;
+  expiresAt: string | null;
+  feeTotal: string;
+  id: string;
+  internalNotes: string | null;
+  isGuestCheckout: boolean;
+  items?: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  }[];
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderNumber: string;
+  organisationId: string;
+  status:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  subtotal: string;
+  taxTotal: string;
+  total: string;
+  updatedAt: string;
+};
+```
+
+##### responses.201.content.application/json.order.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### responses.201.content.application/json.order.cancellationReason
+
+```ts
+cancellationReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.order.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.order.channel
+
+```ts
+channel: string | null;
+```
+
+###### Example
+
+```ts
+web
+```
+
+##### responses.201.content.application/json.order.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.order.confirmedAt
+
+```ts
+confirmedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.order.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### responses.201.content.application/json.order.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### responses.201.content.application/json.order.customerNotes
+
+```ts
+customerNotes: string | null;
+```
+
+###### Example
+
+```ts
+Please contact me before delivery
+```
+
+##### responses.201.content.application/json.order.discountTotal
+
+```ts
+discountTotal: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### responses.201.content.application/json.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+##### responses.201.content.application/json.order.feeTotal
+
+```ts
+feeTotal: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### responses.201.content.application/json.order.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### responses.201.content.application/json.order.internalNotes
+
+```ts
+internalNotes: string | null;
+```
+
+###### Example
+
+```ts
+VIP customer
+```
+
+##### responses.201.content.application/json.order.isGuestCheckout
+
+```ts
+isGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.201.content.application/json.order.items?
+
+```ts
+optional items: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+}[];
+```
+
+###### Description
+
+Order line items
+
+##### responses.201.content.application/json.order.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "promoCode": "SUMMER20"
+             *     }
+```
+
+##### responses.201.content.application/json.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### responses.201.content.application/json.order.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.201.content.application/json.order.status
+
+```ts
+status: 
+  | "completed"
+  | "cancelled"
+  | "pending"
+  | "failed"
+  | "refunded"
+  | "confirmed"
+  | "processing"
+  | "expired";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+##### responses.201.content.application/json.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### responses.201.content.application/json.order.taxTotal
+
+```ts
+taxTotal: string;
+```
+
+###### Example
+
+```ts
+10.00
+```
+
+##### responses.201.content.application/json.order.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+62.50
+```
+
+##### responses.201.content.application/json.order.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### addSeatToArea
 
 ```ts
@@ -1621,7 +3384,7 @@ addSeatToArea: {
 };
 ```
 
-Defined in: generated/types.ts:7683
+Defined in: generated/types.ts:9833
 
 #### parameters
 
@@ -2712,7 +4475,7 @@ assignRole: {
 };
 ```
 
-Defined in: generated/types.ts:3924
+Defined in: generated/types.ts:6074
 
 #### parameters
 
@@ -3392,6 +5155,730 @@ headers: {
 
 ***
 
+### blockCustomer
+
+```ts
+blockCustomer: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        customerId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           reason?: string;
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              customer: {
+                 accountId: string | null;
+                 blockedAt: string | null;
+                 blockedReason: string | null;
+                 createdAt: string;
+                 email: string;
+                 externalId: string | null;
+                 firstName: string | null;
+                 id: string;
+                 isBlocked: boolean;
+                 lastName: string | null;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 organisationId: string;
+                 phone: string | null;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:13009
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     customerId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  customerId: string;
+};
+```
+
+##### parameters.path.customerId
+
+```ts
+customerId: string;
+```
+
+###### Description
+
+Customer ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        reason?: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     reason?: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  reason?: string;
+};
+```
+
+##### requestBody.content.application/json.reason?
+
+```ts
+optional reason: string;
+```
+
+###### Description
+
+Reason for blocking the customer
+
+###### Example
+
+```ts
+Repeated chargebacks
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           customer: {
+              accountId: string | null;
+              blockedAt: string | null;
+              blockedReason: string | null;
+              createdAt: string;
+              email: string;
+              externalId: string | null;
+              firstName: string | null;
+              id: string;
+              isBlocked: boolean;
+              lastName: string | null;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              organisationId: string;
+              phone: string | null;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        customer: {
+           accountId: string | null;
+           blockedAt: string | null;
+           blockedReason: string | null;
+           createdAt: string;
+           email: string;
+           externalId: string | null;
+           firstName: string | null;
+           id: string;
+           isBlocked: boolean;
+           lastName: string | null;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           organisationId: string;
+           phone: string | null;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Customer blocked successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     customer: {
+        accountId: string | null;
+        blockedAt: string | null;
+        blockedReason: string | null;
+        createdAt: string;
+        email: string;
+        externalId: string | null;
+        firstName: string | null;
+        id: string;
+        isBlocked: boolean;
+        lastName: string | null;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        phone: string | null;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  customer: {
+     accountId: string | null;
+     blockedAt: string | null;
+     blockedReason: string | null;
+     createdAt: string;
+     email: string;
+     externalId: string | null;
+     firstName: string | null;
+     id: string;
+     isBlocked: boolean;
+     lastName: string | null;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     phone: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.customer
+
+```ts
+customer: {
+  accountId: string | null;
+  blockedAt: string | null;
+  blockedReason: string | null;
+  createdAt: string;
+  email: string;
+  externalId: string | null;
+  firstName: string | null;
+  id: string;
+  isBlocked: boolean;
+  lastName: string | null;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  phone: string | null;
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.customer.accountId
+
+```ts
+accountId: string | null;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### responses.200.content.application/json.customer.blockedAt
+
+```ts
+blockedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.customer.blockedReason
+
+```ts
+blockedReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.customer.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.customer.email
+
+```ts
+email: string;
+```
+
+###### Example
+
+```ts
+customer@example.com
+```
+
+##### responses.200.content.application/json.customer.externalId
+
+```ts
+externalId: string | null;
+```
+
+###### Example
+
+```ts
+ext_cust_12345
+```
+
+##### responses.200.content.application/json.customer.firstName
+
+```ts
+firstName: string | null;
+```
+
+###### Example
+
+```ts
+John
+```
+
+##### responses.200.content.application/json.customer.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### responses.200.content.application/json.customer.isBlocked
+
+```ts
+isBlocked: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.customer.lastName
+
+```ts
+lastName: string | null;
+```
+
+###### Example
+
+```ts
+Doe
+```
+
+##### responses.200.content.application/json.customer.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "loyaltyTier": "gold"
+             *     }
+```
+
+##### responses.200.content.application/json.customer.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.customer.phone
+
+```ts
+phone: string | null;
+```
+
+###### Example
+
+```ts
++44 7700 900000
+```
+
+##### responses.200.content.application/json.customer.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-20T14:45:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### bulkAddSeatsToArea
 
 ```ts
@@ -3492,7 +5979,7 @@ bulkAddSeatsToArea: {
 };
 ```
 
-Defined in: generated/types.ts:7834
+Defined in: generated/types.ts:9984
 
 #### parameters
 
@@ -4036,6 +6523,3832 @@ headers: {
 
 ***
 
+### bulkImportSeats
+
+```ts
+bulkImportSeats: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        id: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           seats: {
+              attributes?: {
+               [key: string]: unknown;
+              };
+              eventLayoutSeatId?: string;
+              isAccessible?: boolean;
+              isCompanion?: boolean;
+              priceCategory?: string;
+              rowName: string;
+              seatNumber: string;
+           }[];
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              count: number;
+              seats: {
+                 accountId: string;
+                 attributes:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 createdAt: string;
+                 eventLayoutSeatId: string | null;
+                 id: string;
+                 inventoryId: string;
+                 isAccessible: boolean;
+                 isCompanion: boolean;
+                 organisationId: string;
+                 priceCategory: string | null;
+                 reservationId: string | null;
+                 rowName: string;
+                 seatNumber: string;
+                 status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+                 updatedAt: string;
+                 version: number;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:11894
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     id: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  id: string;
+};
+```
+
+##### parameters.path.id
+
+```ts
+id: string;
+```
+
+###### Description
+
+Inventory ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        seats: {
+           attributes?: {
+            [key: string]: unknown;
+           };
+           eventLayoutSeatId?: string;
+           isAccessible?: boolean;
+           isCompanion?: boolean;
+           priceCategory?: string;
+           rowName: string;
+           seatNumber: string;
+        }[];
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     seats: {
+        attributes?: {
+         [key: string]: unknown;
+        };
+        eventLayoutSeatId?: string;
+        isAccessible?: boolean;
+        isCompanion?: boolean;
+        priceCategory?: string;
+        rowName: string;
+        seatNumber: string;
+     }[];
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  seats: {
+     attributes?: {
+      [key: string]: unknown;
+     };
+     eventLayoutSeatId?: string;
+     isAccessible?: boolean;
+     isCompanion?: boolean;
+     priceCategory?: string;
+     rowName: string;
+     seatNumber: string;
+  }[];
+};
+```
+
+##### requestBody.content.application/json.seats
+
+```ts
+seats: {
+  attributes?: {
+   [key: string]: unknown;
+  };
+  eventLayoutSeatId?: string;
+  isAccessible?: boolean;
+  isCompanion?: boolean;
+  priceCategory?: string;
+  rowName: string;
+  seatNumber: string;
+}[];
+```
+
+###### Description
+
+List of seats to import
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           count: number;
+           seats: {
+              accountId: string;
+              attributes:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              createdAt: string;
+              eventLayoutSeatId: string | null;
+              id: string;
+              inventoryId: string;
+              isAccessible: boolean;
+              isCompanion: boolean;
+              organisationId: string;
+              priceCategory: string | null;
+              reservationId: string | null;
+              rowName: string;
+              seatNumber: string;
+              status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+              updatedAt: string;
+              version: number;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        count: number;
+        seats: {
+           accountId: string;
+           attributes:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           createdAt: string;
+           eventLayoutSeatId: string | null;
+           id: string;
+           inventoryId: string;
+           isAccessible: boolean;
+           isCompanion: boolean;
+           organisationId: string;
+           priceCategory: string | null;
+           reservationId: string | null;
+           rowName: string;
+           seatNumber: string;
+           status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+           updatedAt: string;
+           version: number;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Seats imported successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     count: number;
+     seats: {
+        accountId: string;
+        attributes:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        createdAt: string;
+        eventLayoutSeatId: string | null;
+        id: string;
+        inventoryId: string;
+        isAccessible: boolean;
+        isCompanion: boolean;
+        organisationId: string;
+        priceCategory: string | null;
+        reservationId: string | null;
+        rowName: string;
+        seatNumber: string;
+        status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+        updatedAt: string;
+        version: number;
+     }[];
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  count: number;
+  seats: {
+     accountId: string;
+     attributes:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     createdAt: string;
+     eventLayoutSeatId: string | null;
+     id: string;
+     inventoryId: string;
+     isAccessible: boolean;
+     isCompanion: boolean;
+     organisationId: string;
+     priceCategory: string | null;
+     reservationId: string | null;
+     rowName: string;
+     seatNumber: string;
+     status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+     updatedAt: string;
+     version: number;
+  }[];
+};
+```
+
+##### responses.201.content.application/json.count
+
+```ts
+count: number;
+```
+
+###### Example
+
+```ts
+100
+```
+
+##### responses.201.content.application/json.seats
+
+```ts
+seats: {
+  accountId: string;
+  attributes:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  createdAt: string;
+  eventLayoutSeatId: string | null;
+  id: string;
+  inventoryId: string;
+  isAccessible: boolean;
+  isCompanion: boolean;
+  organisationId: string;
+  priceCategory: string | null;
+  reservationId: string | null;
+  rowName: string;
+  seatNumber: string;
+  status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+  updatedAt: string;
+  version: number;
+}[];
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### cancelOrder
+
+```ts
+cancelOrder: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        orderId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           reason: string;
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              order: {
+                 accountId: string;
+                 cancellationReason: string | null;
+                 cancelledAt: string | null;
+                 channel: string | null;
+                 completedAt: string | null;
+                 confirmedAt: string | null;
+                 createdAt: string;
+                 currency: string;
+                 customerId: string | null;
+                 customerNotes: string | null;
+                 discountTotal: string;
+                 expiresAt: string | null;
+                 feeTotal: string;
+                 id: string;
+                 internalNotes: string | null;
+                 isGuestCheckout: boolean;
+                 items?: {
+                    createdAt: string;
+                    description: string | null;
+                    feeDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    id: string;
+                    metadata:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    name: string;
+                    orderId: string;
+                    productDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    quantity: number;
+                    ticketDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    totalPrice: string;
+                    type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+                    unitPrice: string;
+                    updatedAt: string;
+                 }[];
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 orderNumber: string;
+                 organisationId: string;
+                 status:   | "completed"
+                    | "cancelled"
+                    | "pending"
+                    | "failed"
+                    | "refunded"
+                    | "confirmed"
+                    | "processing"
+                    | "expired";
+                 subtotal: string;
+                 taxTotal: string;
+                 total: string;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:13699
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     orderId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  orderId: string;
+};
+```
+
+##### parameters.path.orderId
+
+```ts
+orderId: string;
+```
+
+###### Description
+
+Order ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        reason: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     reason: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  reason: string;
+};
+```
+
+##### requestBody.content.application/json.reason
+
+```ts
+reason: string;
+```
+
+###### Description
+
+Reason for cancellation
+
+###### Example
+
+```ts
+Customer requested cancellation
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           order: {
+              accountId: string;
+              cancellationReason: string | null;
+              cancelledAt: string | null;
+              channel: string | null;
+              completedAt: string | null;
+              confirmedAt: string | null;
+              createdAt: string;
+              currency: string;
+              customerId: string | null;
+              customerNotes: string | null;
+              discountTotal: string;
+              expiresAt: string | null;
+              feeTotal: string;
+              id: string;
+              internalNotes: string | null;
+              isGuestCheckout: boolean;
+              items?: {
+                 createdAt: string;
+                 description: string | null;
+                 feeDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 id: string;
+                 metadata:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 name: string;
+                 orderId: string;
+                 productDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 quantity: number;
+                 ticketDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 totalPrice: string;
+                 type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+                 unitPrice: string;
+                 updatedAt: string;
+              }[];
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              orderNumber: string;
+              organisationId: string;
+              status:   | "completed"
+                 | "cancelled"
+                 | "pending"
+                 | "failed"
+                 | "refunded"
+                 | "confirmed"
+                 | "processing"
+                 | "expired";
+              subtotal: string;
+              taxTotal: string;
+              total: string;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        order: {
+           accountId: string;
+           cancellationReason: string | null;
+           cancelledAt: string | null;
+           channel: string | null;
+           completedAt: string | null;
+           confirmedAt: string | null;
+           createdAt: string;
+           currency: string;
+           customerId: string | null;
+           customerNotes: string | null;
+           discountTotal: string;
+           expiresAt: string | null;
+           feeTotal: string;
+           id: string;
+           internalNotes: string | null;
+           isGuestCheckout: boolean;
+           items?: {
+              createdAt: string;
+              description: string | null;
+              feeDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              id: string;
+              metadata:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              name: string;
+              orderId: string;
+              productDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              quantity: number;
+              ticketDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              totalPrice: string;
+              type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+              unitPrice: string;
+              updatedAt: string;
+           }[];
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           orderNumber: string;
+           organisationId: string;
+           status:   | "completed"
+              | "cancelled"
+              | "pending"
+              | "failed"
+              | "refunded"
+              | "confirmed"
+              | "processing"
+              | "expired";
+           subtotal: string;
+           taxTotal: string;
+           total: string;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Order cancelled successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     order: {
+        accountId: string;
+        cancellationReason: string | null;
+        cancelledAt: string | null;
+        channel: string | null;
+        completedAt: string | null;
+        confirmedAt: string | null;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        customerNotes: string | null;
+        discountTotal: string;
+        expiresAt: string | null;
+        feeTotal: string;
+        id: string;
+        internalNotes: string | null;
+        isGuestCheckout: boolean;
+        items?: {
+           createdAt: string;
+           description: string | null;
+           feeDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           id: string;
+           metadata:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           name: string;
+           orderId: string;
+           productDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           quantity: number;
+           ticketDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           totalPrice: string;
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+           updatedAt: string;
+        }[];
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderNumber: string;
+        organisationId: string;
+        status:   | "completed"
+           | "cancelled"
+           | "pending"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+        subtotal: string;
+        taxTotal: string;
+        total: string;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  order: {
+     accountId: string;
+     cancellationReason: string | null;
+     cancelledAt: string | null;
+     channel: string | null;
+     completedAt: string | null;
+     confirmedAt: string | null;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     customerNotes: string | null;
+     discountTotal: string;
+     expiresAt: string | null;
+     feeTotal: string;
+     id: string;
+     internalNotes: string | null;
+     isGuestCheckout: boolean;
+     items?: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     }[];
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderNumber: string;
+     organisationId: string;
+     status:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     subtotal: string;
+     taxTotal: string;
+     total: string;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.order
+
+```ts
+order: {
+  accountId: string;
+  cancellationReason: string | null;
+  cancelledAt: string | null;
+  channel: string | null;
+  completedAt: string | null;
+  confirmedAt: string | null;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  customerNotes: string | null;
+  discountTotal: string;
+  expiresAt: string | null;
+  feeTotal: string;
+  id: string;
+  internalNotes: string | null;
+  isGuestCheckout: boolean;
+  items?: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  }[];
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderNumber: string;
+  organisationId: string;
+  status:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  subtotal: string;
+  taxTotal: string;
+  total: string;
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.order.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### responses.200.content.application/json.order.cancellationReason
+
+```ts
+cancellationReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.channel
+
+```ts
+channel: string | null;
+```
+
+###### Example
+
+```ts
+web
+```
+
+##### responses.200.content.application/json.order.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.confirmedAt
+
+```ts
+confirmedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.order.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### responses.200.content.application/json.order.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### responses.200.content.application/json.order.customerNotes
+
+```ts
+customerNotes: string | null;
+```
+
+###### Example
+
+```ts
+Please contact me before delivery
+```
+
+##### responses.200.content.application/json.order.discountTotal
+
+```ts
+discountTotal: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### responses.200.content.application/json.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+##### responses.200.content.application/json.order.feeTotal
+
+```ts
+feeTotal: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### responses.200.content.application/json.order.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### responses.200.content.application/json.order.internalNotes
+
+```ts
+internalNotes: string | null;
+```
+
+###### Example
+
+```ts
+VIP customer
+```
+
+##### responses.200.content.application/json.order.isGuestCheckout
+
+```ts
+isGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.order.items?
+
+```ts
+optional items: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+}[];
+```
+
+###### Description
+
+Order line items
+
+##### responses.200.content.application/json.order.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "promoCode": "SUMMER20"
+             *     }
+```
+
+##### responses.200.content.application/json.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### responses.200.content.application/json.order.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.order.status
+
+```ts
+status: 
+  | "completed"
+  | "cancelled"
+  | "pending"
+  | "failed"
+  | "refunded"
+  | "confirmed"
+  | "processing"
+  | "expired";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+##### responses.200.content.application/json.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### responses.200.content.application/json.order.taxTotal
+
+```ts
+taxTotal: string;
+```
+
+###### Example
+
+```ts
+10.00
+```
+
+##### responses.200.content.application/json.order.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+62.50
+```
+
+##### responses.200.content.application/json.order.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### cancelPayment
+
+```ts
+cancelPayment: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        paymentId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           reason?: string;
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              payment: {
+                 amount: string;
+                 createdAt: string;
+                 currency: string;
+                 failedAt: string | null;
+                 failureCode: string | null;
+                 failureMessage: string | null;
+                 id: string;
+                 invoiceId: string | null;
+                 method: string | null;
+                 organisationId: string;
+                 paidAt: string | null;
+                 status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+                 updatedAt: string;
+               } & {
+                 accountId: string;
+                 amount: number;
+                 applicationFee: number | null;
+                 cancelledAt: string | null;
+                 capturedAt: string | null;
+                 clientSecret: string | null;
+                 createdAt: string;
+                 currency: string;
+                 expiresAt: string | null;
+                 externalPaymentId: string | null;
+                 failedAt: string | null;
+                 failureCode: string | null;
+                 failureMessage: string | null;
+                 id: string;
+                 isPartialPayment: boolean;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 netAmount: number | null;
+                 orderId: string;
+                 orderNumber: string;
+                 organisationId: string;
+                 paymentMethod:   | {
+                    brand: string | null;
+                    expiryMonth: number | null;
+                    expiryYear: number | null;
+                    last4: string | null;
+                    type: "card" | "bank_transfer" | "cash" | "wallet";
+                  }
+                    | null;
+                 paymentProviderId: string;
+                 paymentType:   | "bank_transfer"
+                    | "online_card"
+                    | "online_bank_transfer"
+                    | "online_wallet"
+                    | "in_person_card"
+                    | "in_person_cash"
+                    | "cheque";
+                 processingFee: number | null;
+                 redirectUrl: string | null;
+                 remainingBalance: number | null;
+                 status:   | "cancelled"
+                    | "pending"
+                    | "succeeded"
+                    | "failed"
+                    | "processing"
+                    | "expired"
+                    | "requires_action"
+                    | "created";
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:14645
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     paymentId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  paymentId: string;
+};
+```
+
+##### parameters.path.paymentId
+
+```ts
+paymentId: string;
+```
+
+###### Description
+
+Payment ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        reason?: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     reason?: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  reason?: string;
+};
+```
+
+##### requestBody.content.application/json.reason?
+
+```ts
+optional reason: string;
+```
+
+###### Description
+
+Reason for cancellation
+
+###### Example
+
+```ts
+Customer requested cancellation
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           payment: {
+              amount: string;
+              createdAt: string;
+              currency: string;
+              failedAt: string | null;
+              failureCode: string | null;
+              failureMessage: string | null;
+              id: string;
+              invoiceId: string | null;
+              method: string | null;
+              organisationId: string;
+              paidAt: string | null;
+              status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+              updatedAt: string;
+            } & {
+              accountId: string;
+              amount: number;
+              applicationFee: number | null;
+              cancelledAt: string | null;
+              capturedAt: string | null;
+              clientSecret: string | null;
+              createdAt: string;
+              currency: string;
+              expiresAt: string | null;
+              externalPaymentId: string | null;
+              failedAt: string | null;
+              failureCode: string | null;
+              failureMessage: string | null;
+              id: string;
+              isPartialPayment: boolean;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              netAmount: number | null;
+              orderId: string;
+              orderNumber: string;
+              organisationId: string;
+              paymentMethod:   | {
+                 brand: string | null;
+                 expiryMonth: number | null;
+                 expiryYear: number | null;
+                 last4: string | null;
+                 type: "card" | "bank_transfer" | "cash" | "wallet";
+               }
+                 | null;
+              paymentProviderId: string;
+              paymentType:   | "bank_transfer"
+                 | "online_card"
+                 | "online_bank_transfer"
+                 | "online_wallet"
+                 | "in_person_card"
+                 | "in_person_cash"
+                 | "cheque";
+              processingFee: number | null;
+              redirectUrl: string | null;
+              remainingBalance: number | null;
+              status:   | "cancelled"
+                 | "pending"
+                 | "succeeded"
+                 | "failed"
+                 | "processing"
+                 | "expired"
+                 | "requires_action"
+                 | "created";
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        payment: {
+           amount: string;
+           createdAt: string;
+           currency: string;
+           failedAt: string | null;
+           failureCode: string | null;
+           failureMessage: string | null;
+           id: string;
+           invoiceId: string | null;
+           method: string | null;
+           organisationId: string;
+           paidAt: string | null;
+           status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+           updatedAt: string;
+         } & {
+           accountId: string;
+           amount: number;
+           applicationFee: number | null;
+           cancelledAt: string | null;
+           capturedAt: string | null;
+           clientSecret: string | null;
+           createdAt: string;
+           currency: string;
+           expiresAt: string | null;
+           externalPaymentId: string | null;
+           failedAt: string | null;
+           failureCode: string | null;
+           failureMessage: string | null;
+           id: string;
+           isPartialPayment: boolean;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           netAmount: number | null;
+           orderId: string;
+           orderNumber: string;
+           organisationId: string;
+           paymentMethod:   | {
+              brand: string | null;
+              expiryMonth: number | null;
+              expiryYear: number | null;
+              last4: string | null;
+              type: "card" | "bank_transfer" | "cash" | "wallet";
+            }
+              | null;
+           paymentProviderId: string;
+           paymentType:   | "bank_transfer"
+              | "online_card"
+              | "online_bank_transfer"
+              | "online_wallet"
+              | "in_person_card"
+              | "in_person_cash"
+              | "cheque";
+           processingFee: number | null;
+           redirectUrl: string | null;
+           remainingBalance: number | null;
+           status:   | "cancelled"
+              | "pending"
+              | "succeeded"
+              | "failed"
+              | "processing"
+              | "expired"
+              | "requires_action"
+              | "created";
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Payment cancelled successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     payment: {
+        amount: string;
+        createdAt: string;
+        currency: string;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        invoiceId: string | null;
+        method: string | null;
+        organisationId: string;
+        paidAt: string | null;
+        status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+        updatedAt: string;
+      } & {
+        accountId: string;
+        amount: number;
+        applicationFee: number | null;
+        cancelledAt: string | null;
+        capturedAt: string | null;
+        clientSecret: string | null;
+        createdAt: string;
+        currency: string;
+        expiresAt: string | null;
+        externalPaymentId: string | null;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        isPartialPayment: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        netAmount: number | null;
+        orderId: string;
+        orderNumber: string;
+        organisationId: string;
+        paymentMethod:   | {
+           brand: string | null;
+           expiryMonth: number | null;
+           expiryYear: number | null;
+           last4: string | null;
+           type: "card" | "bank_transfer" | "cash" | "wallet";
+         }
+           | null;
+        paymentProviderId: string;
+        paymentType:   | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+           | "cheque";
+        processingFee: number | null;
+        redirectUrl: string | null;
+        remainingBalance: number | null;
+        status:   | "cancelled"
+           | "pending"
+           | "succeeded"
+           | "failed"
+           | "processing"
+           | "expired"
+           | "requires_action"
+           | "created";
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  payment: {
+     amount: string;
+     createdAt: string;
+     currency: string;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     invoiceId: string | null;
+     method: string | null;
+     organisationId: string;
+     paidAt: string | null;
+     status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+     updatedAt: string;
+   } & {
+     accountId: string;
+     amount: number;
+     applicationFee: number | null;
+     cancelledAt: string | null;
+     capturedAt: string | null;
+     clientSecret: string | null;
+     createdAt: string;
+     currency: string;
+     expiresAt: string | null;
+     externalPaymentId: string | null;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     isPartialPayment: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     netAmount: number | null;
+     orderId: string;
+     orderNumber: string;
+     organisationId: string;
+     paymentMethod:   | {
+        brand: string | null;
+        expiryMonth: number | null;
+        expiryYear: number | null;
+        last4: string | null;
+        type: "card" | "bank_transfer" | "cash" | "wallet";
+      }
+        | null;
+     paymentProviderId: string;
+     paymentType:   | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+        | "cheque";
+     processingFee: number | null;
+     redirectUrl: string | null;
+     remainingBalance: number | null;
+     status:   | "cancelled"
+        | "pending"
+        | "succeeded"
+        | "failed"
+        | "processing"
+        | "expired"
+        | "requires_action"
+        | "created";
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.payment
+
+```ts
+payment: {
+  amount: string;
+  createdAt: string;
+  currency: string;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  invoiceId: string | null;
+  method: string | null;
+  organisationId: string;
+  paidAt: string | null;
+  status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+  updatedAt: string;
+} & {
+  accountId: string;
+  amount: number;
+  applicationFee: number | null;
+  cancelledAt: string | null;
+  capturedAt: string | null;
+  clientSecret: string | null;
+  createdAt: string;
+  currency: string;
+  expiresAt: string | null;
+  externalPaymentId: string | null;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  isPartialPayment: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  netAmount: number | null;
+  orderId: string;
+  orderNumber: string;
+  organisationId: string;
+  paymentMethod:   | {
+     brand: string | null;
+     expiryMonth: number | null;
+     expiryYear: number | null;
+     last4: string | null;
+     type: "card" | "bank_transfer" | "cash" | "wallet";
+   }
+     | null;
+  paymentProviderId: string;
+  paymentType:   | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+     | "cheque";
+  processingFee: number | null;
+  redirectUrl: string | null;
+  remainingBalance: number | null;
+  status:   | "cancelled"
+     | "pending"
+     | "succeeded"
+     | "failed"
+     | "processing"
+     | "expired"
+     | "requires_action"
+     | "created";
+  updatedAt: string;
+};
+```
+
+###### Type Declaration
+
+###### amount
+
+```ts
+amount: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+###### createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+###### currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+USD
+```
+
+###### failedAt
+
+```ts
+failedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureCode
+
+```ts
+failureCode: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureMessage
+
+```ts
+failureMessage: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pay_abc123
+```
+
+###### invoiceId
+
+```ts
+invoiceId: string | null;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+###### method
+
+```ts
+method: string | null;
+```
+
+###### Example
+
+```ts
+card
+```
+
+###### organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+###### paidAt
+
+```ts
+paidAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+###### status
+
+```ts
+status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+```
+
+###### Example
+
+```ts
+succeeded
+@enum {string}
+```
+
+###### updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+###### Type Declaration
+
+###### accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+###### amount
+
+```ts
+amount: number;
+```
+
+###### Example
+
+```ts
+97
+```
+
+###### applicationFee
+
+```ts
+applicationFee: number | null;
+```
+
+###### Example
+
+```ts
+2
+```
+
+###### cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### capturedAt
+
+```ts
+capturedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### clientSecret
+
+```ts
+clientSecret: string | null;
+```
+
+###### Example
+
+```ts
+pi_xxx_secret_yyy
+```
+
+###### createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+###### currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+###### expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+###### externalPaymentId
+
+```ts
+externalPaymentId: string | null;
+```
+
+###### Example
+
+```ts
+pi_1234567890abcdef
+```
+
+###### failedAt
+
+```ts
+failedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureCode
+
+```ts
+failureCode: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureMessage
+
+```ts
+failureMessage: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pay_abc123xyz789
+```
+
+###### isPartialPayment
+
+```ts
+isPartialPayment: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+###### metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+                 *       "customerEmail": "customer@example.com"
+                 *     }
+```
+
+###### netAmount
+
+```ts
+netAmount: number | null;
+```
+
+###### Example
+
+```ts
+92.09
+```
+
+###### orderId
+
+```ts
+orderId: string;
+```
+
+###### Example
+
+```ts
+ord_abc123
+```
+
+###### orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+###### organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+###### paymentMethod
+
+```ts
+paymentMethod: 
+  | {
+  brand: string | null;
+  expiryMonth: number | null;
+  expiryYear: number | null;
+  last4: string | null;
+  type: "card" | "bank_transfer" | "cash" | "wallet";
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  brand: string | null;
+  expiryMonth: number | null;
+  expiryYear: number | null;
+  last4: string | null;
+  type: "card" | "bank_transfer" | "cash" | "wallet";
+}
+```
+
+`null`
+
+###### paymentProviderId
+
+```ts
+paymentProviderId: string;
+```
+
+###### Example
+
+```ts
+pp_stripeXxx123
+```
+
+###### paymentType
+
+```ts
+paymentType: 
+  | "bank_transfer"
+  | "online_card"
+  | "online_bank_transfer"
+  | "online_wallet"
+  | "in_person_card"
+  | "in_person_cash"
+  | "cheque";
+```
+
+###### Example
+
+```ts
+online_card
+@enum {string}
+```
+
+###### processingFee
+
+```ts
+processingFee: number | null;
+```
+
+###### Example
+
+```ts
+2.91
+```
+
+###### redirectUrl
+
+```ts
+redirectUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://checkout.stripe.com/pay/xxx
+```
+
+###### remainingBalance
+
+```ts
+remainingBalance: number | null;
+```
+
+###### Example
+
+```ts
+0
+```
+
+###### status
+
+```ts
+status: 
+  | "cancelled"
+  | "pending"
+  | "succeeded"
+  | "failed"
+  | "processing"
+  | "expired"
+  | "requires_action"
+  | "created";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+###### updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### cancelSubscription
+
+```ts
+cancelSubscription: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        organisationId: string;
+        subscriptionId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              subscription: {
+                 cancelledAt: string | null;
+                 createdAt: string;
+                 credits: number;
+                 currency: string;
+                 currentPeriodEnd: string | null;
+                 currentPeriodStart: string | null;
+                 endedAt: string | null;
+                 id: string;
+                 interval: "month" | "year";
+                 organisationId: string;
+                 packageId: string;
+                 price: string;
+                 status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:11226
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     organisationId: string;
+     subscriptionId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  organisationId: string;
+  subscriptionId: string;
+};
+```
+
+##### parameters.path.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Description
+
+Organisation ID
+
+##### parameters.path.subscriptionId
+
+```ts
+subscriptionId: string;
+```
+
+###### Description
+
+Subscription ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           subscription: {
+              cancelledAt: string | null;
+              createdAt: string;
+              credits: number;
+              currency: string;
+              currentPeriodEnd: string | null;
+              currentPeriodStart: string | null;
+              endedAt: string | null;
+              id: string;
+              interval: "month" | "year";
+              organisationId: string;
+              packageId: string;
+              price: string;
+              status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        subscription: {
+           cancelledAt: string | null;
+           createdAt: string;
+           credits: number;
+           currency: string;
+           currentPeriodEnd: string | null;
+           currentPeriodStart: string | null;
+           endedAt: string | null;
+           id: string;
+           interval: "month" | "year";
+           organisationId: string;
+           packageId: string;
+           price: string;
+           status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Subscription cancelled successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     subscription: {
+        cancelledAt: string | null;
+        createdAt: string;
+        credits: number;
+        currency: string;
+        currentPeriodEnd: string | null;
+        currentPeriodStart: string | null;
+        endedAt: string | null;
+        id: string;
+        interval: "month" | "year";
+        organisationId: string;
+        packageId: string;
+        price: string;
+        status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  subscription: {
+     cancelledAt: string | null;
+     createdAt: string;
+     credits: number;
+     currency: string;
+     currentPeriodEnd: string | null;
+     currentPeriodStart: string | null;
+     endedAt: string | null;
+     id: string;
+     interval: "month" | "year";
+     organisationId: string;
+     packageId: string;
+     price: string;
+     status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.subscription
+
+```ts
+subscription: {
+  cancelledAt: string | null;
+  createdAt: string;
+  credits: number;
+  currency: string;
+  currentPeriodEnd: string | null;
+  currentPeriodStart: string | null;
+  endedAt: string | null;
+  id: string;
+  interval: "month" | "year";
+  organisationId: string;
+  packageId: string;
+  price: string;
+  status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.subscription.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.subscription.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.subscription.credits
+
+```ts
+credits: number;
+```
+
+###### Example
+
+```ts
+100
+```
+
+##### responses.200.content.application/json.subscription.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+USD
+```
+
+##### responses.200.content.application/json.subscription.currentPeriodEnd
+
+```ts
+currentPeriodEnd: string | null;
+```
+
+###### Example
+
+```ts
+2024-02-15T00:00:00Z
+```
+
+##### responses.200.content.application/json.subscription.currentPeriodStart
+
+```ts
+currentPeriodStart: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T00:00:00Z
+```
+
+##### responses.200.content.application/json.subscription.endedAt
+
+```ts
+endedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.subscription.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sub_abc123
+```
+
+##### responses.200.content.application/json.subscription.interval
+
+```ts
+interval: "month" | "year";
+```
+
+###### Example
+
+```ts
+month
+@enum {string}
+```
+
+##### responses.200.content.application/json.subscription.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+##### responses.200.content.application/json.subscription.packageId
+
+```ts
+packageId: string;
+```
+
+###### Example
+
+```ts
+pkg_100
+```
+
+##### responses.200.content.application/json.subscription.price
+
+```ts
+price: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### responses.200.content.application/json.subscription.status
+
+```ts
+status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### responses.200.content.application/json.subscription.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### cancelUserInvitation
 
 ```ts
@@ -4095,7 +10408,7 @@ cancelUserInvitation: {
 };
 ```
 
-Defined in: generated/types.ts:3404
+Defined in: generated/types.ts:5554
 
 #### parameters
 
@@ -4451,6 +10764,1716 @@ headers: {
 
 ***
 
+### checkAvailability
+
+```ts
+checkAvailability: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           requests: {
+              inventoryId: string;
+              quantity?: number;
+              seatIds?: string[];
+           }[];
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              available: boolean;
+              availableQuantity: number;
+              requestedQuantity: number;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:12096
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        requests: {
+           inventoryId: string;
+           quantity?: number;
+           seatIds?: string[];
+        }[];
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     requests: {
+        inventoryId: string;
+        quantity?: number;
+        seatIds?: string[];
+     }[];
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  requests: {
+     inventoryId: string;
+     quantity?: number;
+     seatIds?: string[];
+  }[];
+};
+```
+
+##### requestBody.content.application/json.requests
+
+```ts
+requests: {
+  inventoryId: string;
+  quantity?: number;
+  seatIds?: string[];
+}[];
+```
+
+###### Description
+
+List of availability check requests
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           available: boolean;
+           availableQuantity: number;
+           requestedQuantity: number;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        available: boolean;
+        availableQuantity: number;
+        requestedQuantity: number;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Availability check completed
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     available: boolean;
+     availableQuantity: number;
+     requestedQuantity: number;
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  available: boolean;
+  availableQuantity: number;
+  requestedQuantity: number;
+};
+```
+
+##### responses.200.content.application/json.available
+
+```ts
+available: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.content.application/json.availableQuantity
+
+```ts
+availableQuantity: number;
+```
+
+###### Example
+
+```ts
+50
+```
+
+##### responses.200.content.application/json.requestedQuantity
+
+```ts
+requestedQuantity: number;
+```
+
+###### Example
+
+```ts
+2
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### checkCanSell
+
+```ts
+checkCanSell: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        organisationId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              canSell: boolean;
+              currentBalance: number;
+              reason: string | null;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:10673
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     organisationId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  organisationId: string;
+};
+```
+
+##### parameters.path.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Description
+
+Organisation ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           canSell: boolean;
+           currentBalance: number;
+           reason: string | null;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        canSell: boolean;
+        currentBalance: number;
+        reason: string | null;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Can sell status retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     canSell: boolean;
+     currentBalance: number;
+     reason: string | null;
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  canSell: boolean;
+  currentBalance: number;
+  reason: string | null;
+};
+```
+
+##### responses.200.content.application/json.canSell
+
+```ts
+canSell: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.content.application/json.currentBalance
+
+```ts
+currentBalance: number;
+```
+
+###### Example
+
+```ts
+150
+```
+
+##### responses.200.content.application/json.reason
+
+```ts
+reason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### confirmReservation
+
+```ts
+confirmReservation: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        id: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           accountId: string;
+           referenceId?: string;
+           referenceType?: "subscription" | "order" | "hold";
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              reservation: {
+                 accountId: string;
+                 createdAt: string;
+                 expiresAt: string | null;
+                 heldBy: string | null;
+                 id: string;
+                 inventoryId: string;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 organisationId: string;
+                 quantity: number;
+                 reason: string | null;
+                 referenceId: string | null;
+                 referenceType: "subscription" | "order" | "hold" | null;
+                 seatIds: string[] | null;
+                 type: "confirmed" | "maintenance" | "hold" | "temporary";
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:12301
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     id: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  id: string;
+};
+```
+
+##### parameters.path.id
+
+```ts
+id: string;
+```
+
+###### Description
+
+Reservation ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        accountId: string;
+        referenceId?: string;
+        referenceType?: "subscription" | "order" | "hold";
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     accountId: string;
+     referenceId?: string;
+     referenceType?: "subscription" | "order" | "hold";
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  accountId: string;
+  referenceId?: string;
+  referenceType?: "subscription" | "order" | "hold";
+};
+```
+
+##### requestBody.content.application/json.accountId
+
+```ts
+accountId: string;
+```
+
+###### Description
+
+Account ID
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### requestBody.content.application/json.referenceId?
+
+```ts
+optional referenceId: string;
+```
+
+###### Description
+
+Reference ID (e.g., order ID)
+
+###### Example
+
+```ts
+ord_ghi789
+```
+
+##### requestBody.content.application/json.referenceType?
+
+```ts
+optional referenceType: "subscription" | "order" | "hold";
+```
+
+###### Description
+
+Type of reference for this reservation
+
+###### Example
+
+```ts
+order
+@enum {string}
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           reservation: {
+              accountId: string;
+              createdAt: string;
+              expiresAt: string | null;
+              heldBy: string | null;
+              id: string;
+              inventoryId: string;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              organisationId: string;
+              quantity: number;
+              reason: string | null;
+              referenceId: string | null;
+              referenceType: "subscription" | "order" | "hold" | null;
+              seatIds: string[] | null;
+              type: "confirmed" | "maintenance" | "hold" | "temporary";
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        reservation: {
+           accountId: string;
+           createdAt: string;
+           expiresAt: string | null;
+           heldBy: string | null;
+           id: string;
+           inventoryId: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           organisationId: string;
+           quantity: number;
+           reason: string | null;
+           referenceId: string | null;
+           referenceType: "subscription" | "order" | "hold" | null;
+           seatIds: string[] | null;
+           type: "confirmed" | "maintenance" | "hold" | "temporary";
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Reservation confirmed successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     reservation: {
+        accountId: string;
+        createdAt: string;
+        expiresAt: string | null;
+        heldBy: string | null;
+        id: string;
+        inventoryId: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        quantity: number;
+        reason: string | null;
+        referenceId: string | null;
+        referenceType: "subscription" | "order" | "hold" | null;
+        seatIds: string[] | null;
+        type: "confirmed" | "maintenance" | "hold" | "temporary";
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  reservation: {
+     accountId: string;
+     createdAt: string;
+     expiresAt: string | null;
+     heldBy: string | null;
+     id: string;
+     inventoryId: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     quantity: number;
+     reason: string | null;
+     referenceId: string | null;
+     referenceType: "subscription" | "order" | "hold" | null;
+     seatIds: string[] | null;
+     type: "confirmed" | "maintenance" | "hold" | "temporary";
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.reservation
+
+```ts
+reservation: {
+  accountId: string;
+  createdAt: string;
+  expiresAt: string | null;
+  heldBy: string | null;
+  id: string;
+  inventoryId: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  quantity: number;
+  reason: string | null;
+  referenceId: string | null;
+  referenceType: "subscription" | "order" | "hold" | null;
+  seatIds: string[] | null;
+  type: "confirmed" | "maintenance" | "hold" | "temporary";
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.reservation.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### responses.200.content.application/json.reservation.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:30:00Z
+```
+
+##### responses.200.content.application/json.reservation.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:45:00Z
+```
+
+##### responses.200.content.application/json.reservation.heldBy
+
+```ts
+heldBy: string | null;
+```
+
+###### Example
+
+```ts
+usr_abc123
+```
+
+##### responses.200.content.application/json.reservation.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ivr_abc123
+```
+
+##### responses.200.content.application/json.reservation.inventoryId
+
+```ts
+inventoryId: string;
+```
+
+###### Example
+
+```ts
+inv_ghi789
+```
+
+##### responses.200.content.application/json.reservation.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.reservation.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.reservation.quantity
+
+```ts
+quantity: number;
+```
+
+###### Example
+
+```ts
+2
+```
+
+##### responses.200.content.application/json.reservation.reason
+
+```ts
+reason: string | null;
+```
+
+###### Example
+
+```ts
+Customer checkout
+```
+
+##### responses.200.content.application/json.reservation.referenceId
+
+```ts
+referenceId: string | null;
+```
+
+###### Example
+
+```ts
+ord_jkl012
+```
+
+##### responses.200.content.application/json.reservation.referenceType
+
+```ts
+referenceType: "subscription" | "order" | "hold" | null;
+```
+
+###### Description
+
+Type of reference for this reservation
+
+###### Example
+
+```ts
+order
+@enum {string|null}
+```
+
+##### responses.200.content.application/json.reservation.seatIds
+
+```ts
+seatIds: string[] | null;
+```
+
+###### Example
+
+```ts
+[
+      "ivs_abc123",
+      "ivs_def456"
+    ]
+```
+
+##### responses.200.content.application/json.reservation.type
+
+```ts
+type: "confirmed" | "maintenance" | "hold" | "temporary";
+```
+
+###### Description
+
+Type of reservation
+
+###### Example
+
+```ts
+temporary
+@enum {string}
+```
+
+##### responses.200.content.application/json.reservation.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T14:45:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### createAccount
 
 ```ts
@@ -4522,7 +12545,7 @@ createAccount: {
 };
 ```
 
-Defined in: generated/types.ts:2793
+Defined in: generated/types.ts:4943
 
 #### parameters
 
@@ -5037,6 +13060,2171 @@ headers: {
 
 ***
 
+### createCreditPurchase
+
+```ts
+createCreditPurchase: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        organisationId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           currency?: string;
+           email?: string;
+           packageId: string;
+           paymentMethodId: string;
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              invoice: {
+                 amountDue: string;
+                 amountPaid: string;
+                 createdAt: string;
+                 currency: string;
+                 dueDate: string | null;
+                 id: string;
+                 invoiceNumber: string;
+                 issueDate: string;
+                 organisationId: string;
+                 paidAt: string | null;
+                 pdfUrl: string | null;
+                 status: "draft" | "open" | "paid" | "void" | "uncollectible";
+                 subtotal: string;
+                 tax: string;
+                 total: string;
+                 type: "purchase" | "subscription" | "payg";
+                 updatedAt: string;
+              };
+              newBalance: number;
+              payment: {
+                 amount: string;
+                 createdAt: string;
+                 currency: string;
+                 failedAt: string | null;
+                 failureCode: string | null;
+                 failureMessage: string | null;
+                 id: string;
+                 invoiceId: string | null;
+                 method: string | null;
+                 organisationId: string;
+                 paidAt: string | null;
+                 status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+                 updatedAt: string;
+              };
+              success: boolean;
+              transaction: {
+                 amount: number;
+                 balanceAfter: number;
+                 balanceBefore: number;
+                 createdAt: string;
+                 description: string | null;
+                 id: string;
+                 invoiceId: string | null;
+                 orderId: string | null;
+                 organisationId: string;
+                 subscriptionId: string | null;
+                 type:   | "initial"
+                    | "purchase"
+                    | "subscription"
+                    | "ticket_sale"
+                    | "adjustment"
+                    | "refund";
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:10854
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     organisationId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  organisationId: string;
+};
+```
+
+##### parameters.path.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Description
+
+Organisation ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        currency?: string;
+        email?: string;
+        packageId: string;
+        paymentMethodId: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     currency?: string;
+     email?: string;
+     packageId: string;
+     paymentMethodId: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  currency?: string;
+  email?: string;
+  packageId: string;
+  paymentMethodId: string;
+};
+```
+
+##### requestBody.content.application/json.currency?
+
+```ts
+optional currency: string;
+```
+
+##### requestBody.content.application/json.email?
+
+```ts
+optional email: string;
+```
+
+Format: email
+
+##### requestBody.content.application/json.packageId
+
+```ts
+packageId: string;
+```
+
+##### requestBody.content.application/json.paymentMethodId
+
+```ts
+paymentMethodId: string;
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           invoice: {
+              amountDue: string;
+              amountPaid: string;
+              createdAt: string;
+              currency: string;
+              dueDate: string | null;
+              id: string;
+              invoiceNumber: string;
+              issueDate: string;
+              organisationId: string;
+              paidAt: string | null;
+              pdfUrl: string | null;
+              status: "draft" | "open" | "paid" | "void" | "uncollectible";
+              subtotal: string;
+              tax: string;
+              total: string;
+              type: "purchase" | "subscription" | "payg";
+              updatedAt: string;
+           };
+           newBalance: number;
+           payment: {
+              amount: string;
+              createdAt: string;
+              currency: string;
+              failedAt: string | null;
+              failureCode: string | null;
+              failureMessage: string | null;
+              id: string;
+              invoiceId: string | null;
+              method: string | null;
+              organisationId: string;
+              paidAt: string | null;
+              status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+              updatedAt: string;
+           };
+           success: boolean;
+           transaction: {
+              amount: number;
+              balanceAfter: number;
+              balanceBefore: number;
+              createdAt: string;
+              description: string | null;
+              id: string;
+              invoiceId: string | null;
+              orderId: string | null;
+              organisationId: string;
+              subscriptionId: string | null;
+              type:   | "initial"
+                 | "purchase"
+                 | "subscription"
+                 | "ticket_sale"
+                 | "adjustment"
+                 | "refund";
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        invoice: {
+           amountDue: string;
+           amountPaid: string;
+           createdAt: string;
+           currency: string;
+           dueDate: string | null;
+           id: string;
+           invoiceNumber: string;
+           issueDate: string;
+           organisationId: string;
+           paidAt: string | null;
+           pdfUrl: string | null;
+           status: "draft" | "open" | "paid" | "void" | "uncollectible";
+           subtotal: string;
+           tax: string;
+           total: string;
+           type: "purchase" | "subscription" | "payg";
+           updatedAt: string;
+        };
+        newBalance: number;
+        payment: {
+           amount: string;
+           createdAt: string;
+           currency: string;
+           failedAt: string | null;
+           failureCode: string | null;
+           failureMessage: string | null;
+           id: string;
+           invoiceId: string | null;
+           method: string | null;
+           organisationId: string;
+           paidAt: string | null;
+           status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+           updatedAt: string;
+        };
+        success: boolean;
+        transaction: {
+           amount: number;
+           balanceAfter: number;
+           balanceBefore: number;
+           createdAt: string;
+           description: string | null;
+           id: string;
+           invoiceId: string | null;
+           orderId: string | null;
+           organisationId: string;
+           subscriptionId: string | null;
+           type:   | "initial"
+              | "purchase"
+              | "subscription"
+              | "ticket_sale"
+              | "adjustment"
+              | "refund";
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Purchase completed successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     invoice: {
+        amountDue: string;
+        amountPaid: string;
+        createdAt: string;
+        currency: string;
+        dueDate: string | null;
+        id: string;
+        invoiceNumber: string;
+        issueDate: string;
+        organisationId: string;
+        paidAt: string | null;
+        pdfUrl: string | null;
+        status: "draft" | "open" | "paid" | "void" | "uncollectible";
+        subtotal: string;
+        tax: string;
+        total: string;
+        type: "purchase" | "subscription" | "payg";
+        updatedAt: string;
+     };
+     newBalance: number;
+     payment: {
+        amount: string;
+        createdAt: string;
+        currency: string;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        invoiceId: string | null;
+        method: string | null;
+        organisationId: string;
+        paidAt: string | null;
+        status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+        updatedAt: string;
+     };
+     success: boolean;
+     transaction: {
+        amount: number;
+        balanceAfter: number;
+        balanceBefore: number;
+        createdAt: string;
+        description: string | null;
+        id: string;
+        invoiceId: string | null;
+        orderId: string | null;
+        organisationId: string;
+        subscriptionId: string | null;
+        type:   | "initial"
+           | "purchase"
+           | "subscription"
+           | "ticket_sale"
+           | "adjustment"
+           | "refund";
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  invoice: {
+     amountDue: string;
+     amountPaid: string;
+     createdAt: string;
+     currency: string;
+     dueDate: string | null;
+     id: string;
+     invoiceNumber: string;
+     issueDate: string;
+     organisationId: string;
+     paidAt: string | null;
+     pdfUrl: string | null;
+     status: "draft" | "open" | "paid" | "void" | "uncollectible";
+     subtotal: string;
+     tax: string;
+     total: string;
+     type: "purchase" | "subscription" | "payg";
+     updatedAt: string;
+  };
+  newBalance: number;
+  payment: {
+     amount: string;
+     createdAt: string;
+     currency: string;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     invoiceId: string | null;
+     method: string | null;
+     organisationId: string;
+     paidAt: string | null;
+     status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+     updatedAt: string;
+  };
+  success: boolean;
+  transaction: {
+     amount: number;
+     balanceAfter: number;
+     balanceBefore: number;
+     createdAt: string;
+     description: string | null;
+     id: string;
+     invoiceId: string | null;
+     orderId: string | null;
+     organisationId: string;
+     subscriptionId: string | null;
+     type:   | "initial"
+        | "purchase"
+        | "subscription"
+        | "ticket_sale"
+        | "adjustment"
+        | "refund";
+  };
+};
+```
+
+##### responses.201.content.application/json.invoice
+
+```ts
+invoice: {
+  amountDue: string;
+  amountPaid: string;
+  createdAt: string;
+  currency: string;
+  dueDate: string | null;
+  id: string;
+  invoiceNumber: string;
+  issueDate: string;
+  organisationId: string;
+  paidAt: string | null;
+  pdfUrl: string | null;
+  status: "draft" | "open" | "paid" | "void" | "uncollectible";
+  subtotal: string;
+  tax: string;
+  total: string;
+  type: "purchase" | "subscription" | "payg";
+  updatedAt: string;
+};
+```
+
+##### responses.201.content.application/json.invoice.amountDue
+
+```ts
+amountDue: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### responses.201.content.application/json.invoice.amountPaid
+
+```ts
+amountPaid: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### responses.201.content.application/json.invoice.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.invoice.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+USD
+```
+
+##### responses.201.content.application/json.invoice.dueDate
+
+```ts
+dueDate: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-30
+```
+
+##### responses.201.content.application/json.invoice.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### responses.201.content.application/json.invoice.invoiceNumber
+
+```ts
+invoiceNumber: string;
+```
+
+###### Example
+
+```ts
+INV-2024-0001
+```
+
+##### responses.201.content.application/json.invoice.issueDate
+
+```ts
+issueDate: string;
+```
+
+###### Example
+
+```ts
+2024-01-15
+```
+
+##### responses.201.content.application/json.invoice.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+##### responses.201.content.application/json.invoice.paidAt
+
+```ts
+paidAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+##### responses.201.content.application/json.invoice.pdfUrl
+
+```ts
+pdfUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://invoice.stripe.com/...
+```
+
+##### responses.201.content.application/json.invoice.status
+
+```ts
+status: "draft" | "open" | "paid" | "void" | "uncollectible";
+```
+
+###### Example
+
+```ts
+paid
+@enum {string}
+```
+
+##### responses.201.content.application/json.invoice.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### responses.201.content.application/json.invoice.tax
+
+```ts
+tax: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### responses.201.content.application/json.invoice.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### responses.201.content.application/json.invoice.type
+
+```ts
+type: "purchase" | "subscription" | "payg";
+```
+
+###### Example
+
+```ts
+purchase
+@enum {string}
+```
+
+##### responses.201.content.application/json.invoice.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+##### responses.201.content.application/json.newBalance
+
+```ts
+newBalance: number;
+```
+
+###### Example
+
+```ts
+150
+```
+
+##### responses.201.content.application/json.payment
+
+```ts
+payment: {
+  amount: string;
+  createdAt: string;
+  currency: string;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  invoiceId: string | null;
+  method: string | null;
+  organisationId: string;
+  paidAt: string | null;
+  status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+  updatedAt: string;
+};
+```
+
+##### responses.201.content.application/json.payment.amount
+
+```ts
+amount: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### responses.201.content.application/json.payment.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.payment.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+USD
+```
+
+##### responses.201.content.application/json.payment.failedAt
+
+```ts
+failedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.payment.failureCode
+
+```ts
+failureCode: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.payment.failureMessage
+
+```ts
+failureMessage: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.payment.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pay_abc123
+```
+
+##### responses.201.content.application/json.payment.invoiceId
+
+```ts
+invoiceId: string | null;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### responses.201.content.application/json.payment.method
+
+```ts
+method: string | null;
+```
+
+###### Example
+
+```ts
+card
+```
+
+##### responses.201.content.application/json.payment.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+##### responses.201.content.application/json.payment.paidAt
+
+```ts
+paidAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+##### responses.201.content.application/json.payment.status
+
+```ts
+status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+```
+
+###### Example
+
+```ts
+succeeded
+@enum {string}
+```
+
+##### responses.201.content.application/json.payment.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+##### responses.201.content.application/json.success
+
+```ts
+success: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.201.content.application/json.transaction
+
+```ts
+transaction: {
+  amount: number;
+  balanceAfter: number;
+  balanceBefore: number;
+  createdAt: string;
+  description: string | null;
+  id: string;
+  invoiceId: string | null;
+  orderId: string | null;
+  organisationId: string;
+  subscriptionId: string | null;
+  type:   | "initial"
+     | "purchase"
+     | "subscription"
+     | "ticket_sale"
+     | "adjustment"
+     | "refund";
+};
+```
+
+##### responses.201.content.application/json.transaction.amount
+
+```ts
+amount: number;
+```
+
+###### Example
+
+```ts
+100
+```
+
+##### responses.201.content.application/json.transaction.balanceAfter
+
+```ts
+balanceAfter: number;
+```
+
+###### Example
+
+```ts
+150
+```
+
+##### responses.201.content.application/json.transaction.balanceBefore
+
+```ts
+balanceBefore: number;
+```
+
+###### Example
+
+```ts
+50
+```
+
+##### responses.201.content.application/json.transaction.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.transaction.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Credit purchase - 100 Credits
+```
+
+##### responses.201.content.application/json.transaction.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+txn_abc123
+```
+
+##### responses.201.content.application/json.transaction.invoiceId
+
+```ts
+invoiceId: string | null;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### responses.201.content.application/json.transaction.orderId
+
+```ts
+orderId: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.transaction.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+##### responses.201.content.application/json.transaction.subscriptionId
+
+```ts
+subscriptionId: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.transaction.type
+
+```ts
+type: 
+  | "initial"
+  | "purchase"
+  | "subscription"
+  | "ticket_sale"
+  | "adjustment"
+  | "refund";
+```
+
+###### Example
+
+```ts
+purchase
+@enum {string}
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### createCustomer
+
+```ts
+createCustomer: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           accountId?: string;
+           email: string;
+           externalId?: string;
+           firstName?: string;
+           lastName?: string;
+           metadata?: {
+            [key: string]: unknown;
+           };
+           phone?: string;
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              customer: {
+                 accountId: string | null;
+                 blockedAt: string | null;
+                 blockedReason: string | null;
+                 createdAt: string;
+                 email: string;
+                 externalId: string | null;
+                 firstName: string | null;
+                 id: string;
+                 isBlocked: boolean;
+                 lastName: string | null;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 organisationId: string;
+                 phone: string | null;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:12752
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        accountId?: string;
+        email: string;
+        externalId?: string;
+        firstName?: string;
+        lastName?: string;
+        metadata?: {
+         [key: string]: unknown;
+        };
+        phone?: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     accountId?: string;
+     email: string;
+     externalId?: string;
+     firstName?: string;
+     lastName?: string;
+     metadata?: {
+      [key: string]: unknown;
+     };
+     phone?: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  accountId?: string;
+  email: string;
+  externalId?: string;
+  firstName?: string;
+  lastName?: string;
+  metadata?: {
+   [key: string]: unknown;
+  };
+  phone?: string;
+};
+```
+
+##### requestBody.content.application/json.accountId?
+
+```ts
+optional accountId: string;
+```
+
+###### Description
+
+Account ID that owns this customer
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### requestBody.content.application/json.email
+
+```ts
+email: string;
+```
+
+Format: email
+
+###### Description
+
+Customer email address (must be unique per organisation)
+
+###### Example
+
+```ts
+customer@example.com
+```
+
+##### requestBody.content.application/json.externalId?
+
+```ts
+optional externalId: string;
+```
+
+###### Description
+
+External system customer ID
+
+###### Example
+
+```ts
+ext_cust_12345
+```
+
+##### requestBody.content.application/json.firstName?
+
+```ts
+optional firstName: string;
+```
+
+###### Description
+
+Customer first name
+
+###### Example
+
+```ts
+John
+```
+
+##### requestBody.content.application/json.lastName?
+
+```ts
+optional lastName: string;
+```
+
+###### Description
+
+Customer last name
+
+###### Example
+
+```ts
+Doe
+```
+
+##### requestBody.content.application/json.metadata?
+
+```ts
+optional metadata: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Custom metadata for the customer
+
+###### Example
+
+```ts
+{
+                     *       "loyaltyTier": "gold",
+                     *       "signupSource": "web"
+                     *     }
+```
+
+##### requestBody.content.application/json.phone?
+
+```ts
+optional phone: string;
+```
+
+###### Description
+
+Customer phone number
+
+###### Example
+
+```ts
++44 7700 900000
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           customer: {
+              accountId: string | null;
+              blockedAt: string | null;
+              blockedReason: string | null;
+              createdAt: string;
+              email: string;
+              externalId: string | null;
+              firstName: string | null;
+              id: string;
+              isBlocked: boolean;
+              lastName: string | null;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              organisationId: string;
+              phone: string | null;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        customer: {
+           accountId: string | null;
+           blockedAt: string | null;
+           blockedReason: string | null;
+           createdAt: string;
+           email: string;
+           externalId: string | null;
+           firstName: string | null;
+           id: string;
+           isBlocked: boolean;
+           lastName: string | null;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           organisationId: string;
+           phone: string | null;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Customer created successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     customer: {
+        accountId: string | null;
+        blockedAt: string | null;
+        blockedReason: string | null;
+        createdAt: string;
+        email: string;
+        externalId: string | null;
+        firstName: string | null;
+        id: string;
+        isBlocked: boolean;
+        lastName: string | null;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        phone: string | null;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  customer: {
+     accountId: string | null;
+     blockedAt: string | null;
+     blockedReason: string | null;
+     createdAt: string;
+     email: string;
+     externalId: string | null;
+     firstName: string | null;
+     id: string;
+     isBlocked: boolean;
+     lastName: string | null;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     phone: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.201.content.application/json.customer
+
+```ts
+customer: {
+  accountId: string | null;
+  blockedAt: string | null;
+  blockedReason: string | null;
+  createdAt: string;
+  email: string;
+  externalId: string | null;
+  firstName: string | null;
+  id: string;
+  isBlocked: boolean;
+  lastName: string | null;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  phone: string | null;
+  updatedAt: string;
+};
+```
+
+##### responses.201.content.application/json.customer.accountId
+
+```ts
+accountId: string | null;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### responses.201.content.application/json.customer.blockedAt
+
+```ts
+blockedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.customer.blockedReason
+
+```ts
+blockedReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.customer.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.customer.email
+
+```ts
+email: string;
+```
+
+###### Example
+
+```ts
+customer@example.com
+```
+
+##### responses.201.content.application/json.customer.externalId
+
+```ts
+externalId: string | null;
+```
+
+###### Example
+
+```ts
+ext_cust_12345
+```
+
+##### responses.201.content.application/json.customer.firstName
+
+```ts
+firstName: string | null;
+```
+
+###### Example
+
+```ts
+John
+```
+
+##### responses.201.content.application/json.customer.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### responses.201.content.application/json.customer.isBlocked
+
+```ts
+isBlocked: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.201.content.application/json.customer.lastName
+
+```ts
+lastName: string | null;
+```
+
+###### Example
+
+```ts
+Doe
+```
+
+##### responses.201.content.application/json.customer.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "loyaltyTier": "gold"
+             *     }
+```
+
+##### responses.201.content.application/json.customer.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.201.content.application/json.customer.phone
+
+```ts
+phone: string | null;
+```
+
+###### Example
+
+```ts
++44 7700 900000
+```
+
+##### responses.201.content.application/json.customer.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-20T14:45:00Z
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### createEvent
 
 ```ts
@@ -5162,7 +15350,7 @@ createEvent: {
 };
 ```
 
-Defined in: generated/types.ts:4227
+Defined in: generated/types.ts:6377
 
 #### parameters
 
@@ -6370,7 +16558,7 @@ createEventOccurrence: {
 };
 ```
 
-Defined in: generated/types.ts:4866
+Defined in: generated/types.ts:7016
 
 #### parameters
 
@@ -7294,7 +17482,7 @@ createEventPriceScheme: {
 };
 ```
 
-Defined in: generated/types.ts:5317
+Defined in: generated/types.ts:7467
 
 #### parameters
 
@@ -8007,6 +18195,7482 @@ headers: {
 
 ***
 
+### createHold
+
+```ts
+createHold: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           accountId: string;
+           expiresAt?: string;
+           heldBy: string;
+           inventoryId: string;
+           quantity?: number;
+           reason: string;
+           seatIds?: string[];
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              reservation: {
+                 accountId: string;
+                 createdAt: string;
+                 expiresAt: string | null;
+                 heldBy: string | null;
+                 id: string;
+                 inventoryId: string;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 organisationId: string;
+                 quantity: number;
+                 reason: string | null;
+                 referenceId: string | null;
+                 referenceType: "subscription" | "order" | "hold" | null;
+                 seatIds: string[] | null;
+                 type: "confirmed" | "maintenance" | "hold" | "temporary";
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:12517
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        accountId: string;
+        expiresAt?: string;
+        heldBy: string;
+        inventoryId: string;
+        quantity?: number;
+        reason: string;
+        seatIds?: string[];
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     accountId: string;
+     expiresAt?: string;
+     heldBy: string;
+     inventoryId: string;
+     quantity?: number;
+     reason: string;
+     seatIds?: string[];
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  accountId: string;
+  expiresAt?: string;
+  heldBy: string;
+  inventoryId: string;
+  quantity?: number;
+  reason: string;
+  seatIds?: string[];
+};
+```
+
+##### requestBody.content.application/json.accountId
+
+```ts
+accountId: string;
+```
+
+###### Description
+
+Account ID
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### requestBody.content.application/json.expiresAt?
+
+```ts
+optional expiresAt: string;
+```
+
+Format: date-time
+
+###### Description
+
+Optional expiration timestamp (ISO 8601)
+
+###### Example
+
+```ts
+2025-01-10T18:00:00Z
+```
+
+##### requestBody.content.application/json.heldBy
+
+```ts
+heldBy: string;
+```
+
+###### Description
+
+User ID who created the hold
+
+###### Example
+
+```ts
+usr_abc123
+```
+
+##### requestBody.content.application/json.inventoryId
+
+```ts
+inventoryId: string;
+```
+
+###### Description
+
+Inventory ID to hold
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### requestBody.content.application/json.quantity?
+
+```ts
+optional quantity: number;
+```
+
+###### Description
+
+Quantity for GA hold (mutually exclusive with seatIds)
+
+###### Example
+
+```ts
+5
+```
+
+##### requestBody.content.application/json.reason
+
+```ts
+reason: string;
+```
+
+###### Description
+
+Reason for the hold (required)
+
+###### Example
+
+```ts
+VIP reservation for artist
+```
+
+##### requestBody.content.application/json.seatIds?
+
+```ts
+optional seatIds: string[];
+```
+
+###### Description
+
+Seat IDs for allocated hold (mutually exclusive with quantity)
+
+###### Example
+
+```ts
+[
+      "ivs_seat1",
+      "ivs_seat2"
+    ]
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           reservation: {
+              accountId: string;
+              createdAt: string;
+              expiresAt: string | null;
+              heldBy: string | null;
+              id: string;
+              inventoryId: string;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              organisationId: string;
+              quantity: number;
+              reason: string | null;
+              referenceId: string | null;
+              referenceType: "subscription" | "order" | "hold" | null;
+              seatIds: string[] | null;
+              type: "confirmed" | "maintenance" | "hold" | "temporary";
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        reservation: {
+           accountId: string;
+           createdAt: string;
+           expiresAt: string | null;
+           heldBy: string | null;
+           id: string;
+           inventoryId: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           organisationId: string;
+           quantity: number;
+           reason: string | null;
+           referenceId: string | null;
+           referenceType: "subscription" | "order" | "hold" | null;
+           seatIds: string[] | null;
+           type: "confirmed" | "maintenance" | "hold" | "temporary";
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Hold created successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     reservation: {
+        accountId: string;
+        createdAt: string;
+        expiresAt: string | null;
+        heldBy: string | null;
+        id: string;
+        inventoryId: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        quantity: number;
+        reason: string | null;
+        referenceId: string | null;
+        referenceType: "subscription" | "order" | "hold" | null;
+        seatIds: string[] | null;
+        type: "confirmed" | "maintenance" | "hold" | "temporary";
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  reservation: {
+     accountId: string;
+     createdAt: string;
+     expiresAt: string | null;
+     heldBy: string | null;
+     id: string;
+     inventoryId: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     quantity: number;
+     reason: string | null;
+     referenceId: string | null;
+     referenceType: "subscription" | "order" | "hold" | null;
+     seatIds: string[] | null;
+     type: "confirmed" | "maintenance" | "hold" | "temporary";
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.201.content.application/json.reservation
+
+```ts
+reservation: {
+  accountId: string;
+  createdAt: string;
+  expiresAt: string | null;
+  heldBy: string | null;
+  id: string;
+  inventoryId: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  quantity: number;
+  reason: string | null;
+  referenceId: string | null;
+  referenceType: "subscription" | "order" | "hold" | null;
+  seatIds: string[] | null;
+  type: "confirmed" | "maintenance" | "hold" | "temporary";
+  updatedAt: string;
+};
+```
+
+##### responses.201.content.application/json.reservation.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### responses.201.content.application/json.reservation.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:30:00Z
+```
+
+##### responses.201.content.application/json.reservation.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:45:00Z
+```
+
+##### responses.201.content.application/json.reservation.heldBy
+
+```ts
+heldBy: string | null;
+```
+
+###### Example
+
+```ts
+usr_abc123
+```
+
+##### responses.201.content.application/json.reservation.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ivr_abc123
+```
+
+##### responses.201.content.application/json.reservation.inventoryId
+
+```ts
+inventoryId: string;
+```
+
+###### Example
+
+```ts
+inv_ghi789
+```
+
+##### responses.201.content.application/json.reservation.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.reservation.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.201.content.application/json.reservation.quantity
+
+```ts
+quantity: number;
+```
+
+###### Example
+
+```ts
+2
+```
+
+##### responses.201.content.application/json.reservation.reason
+
+```ts
+reason: string | null;
+```
+
+###### Example
+
+```ts
+Customer checkout
+```
+
+##### responses.201.content.application/json.reservation.referenceId
+
+```ts
+referenceId: string | null;
+```
+
+###### Example
+
+```ts
+ord_jkl012
+```
+
+##### responses.201.content.application/json.reservation.referenceType
+
+```ts
+referenceType: "subscription" | "order" | "hold" | null;
+```
+
+###### Description
+
+Type of reference for this reservation
+
+###### Example
+
+```ts
+order
+@enum {string|null}
+```
+
+##### responses.201.content.application/json.reservation.seatIds
+
+```ts
+seatIds: string[] | null;
+```
+
+###### Example
+
+```ts
+[
+      "ivs_abc123",
+      "ivs_def456"
+    ]
+```
+
+##### responses.201.content.application/json.reservation.type
+
+```ts
+type: "confirmed" | "maintenance" | "hold" | "temporary";
+```
+
+###### Description
+
+Type of reservation
+
+###### Example
+
+```ts
+temporary
+@enum {string}
+```
+
+##### responses.201.content.application/json.reservation.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T14:45:00Z
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### createInventory
+
+```ts
+createInventory: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           accountId: string;
+           eventId?: string;
+           eventLayoutAreaId?: string;
+           eventOccurrenceId?: string;
+           isAllocated?: boolean;
+           metadata?: {
+            [key: string]: unknown;
+           };
+           productId?: string;
+           sourceType: "event_occurrence_area" | "product";
+           totalCapacity: number;
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              inventory: {
+                 accountId: string;
+                 available: number;
+                 confirmed: number;
+                 createdAt: string;
+                 eventId: string | null;
+                 eventLayoutAreaId: string | null;
+                 eventOccurrenceId: string | null;
+                 held: number;
+                 id: string;
+                 isAllocated: boolean;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 organisationId: string;
+                 productId: string | null;
+                 reserved: number;
+                 sourceType: "event_occurrence_area" | "product";
+                 totalCapacity: number;
+                 updatedAt: string;
+                 version: number;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:11468
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        accountId: string;
+        eventId?: string;
+        eventLayoutAreaId?: string;
+        eventOccurrenceId?: string;
+        isAllocated?: boolean;
+        metadata?: {
+         [key: string]: unknown;
+        };
+        productId?: string;
+        sourceType: "event_occurrence_area" | "product";
+        totalCapacity: number;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     accountId: string;
+     eventId?: string;
+     eventLayoutAreaId?: string;
+     eventOccurrenceId?: string;
+     isAllocated?: boolean;
+     metadata?: {
+      [key: string]: unknown;
+     };
+     productId?: string;
+     sourceType: "event_occurrence_area" | "product";
+     totalCapacity: number;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  accountId: string;
+  eventId?: string;
+  eventLayoutAreaId?: string;
+  eventOccurrenceId?: string;
+  isAllocated?: boolean;
+  metadata?: {
+   [key: string]: unknown;
+  };
+  productId?: string;
+  sourceType: "event_occurrence_area" | "product";
+  totalCapacity: number;
+};
+```
+
+##### requestBody.content.application/json.accountId
+
+```ts
+accountId: string;
+```
+
+###### Description
+
+Account ID for the inventory
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### requestBody.content.application/json.eventId?
+
+```ts
+optional eventId: string;
+```
+
+###### Description
+
+Event ID (required for event_occurrence_area)
+
+###### Example
+
+```ts
+evt_abc123
+```
+
+##### requestBody.content.application/json.eventLayoutAreaId?
+
+```ts
+optional eventLayoutAreaId: string;
+```
+
+###### Description
+
+Event layout area ID (required for event_occurrence_area)
+
+###### Example
+
+```ts
+ela_abc123
+```
+
+##### requestBody.content.application/json.eventOccurrenceId?
+
+```ts
+optional eventOccurrenceId: string;
+```
+
+###### Description
+
+Event occurrence ID (required for event_occurrence_area)
+
+###### Example
+
+```ts
+evo_abc123
+```
+
+##### requestBody.content.application/json.isAllocated?
+
+```ts
+optional isAllocated: boolean;
+```
+
+###### Description
+
+Whether this inventory has allocated seating
+
+###### Default
+
+```ts
+false
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### requestBody.content.application/json.metadata?
+
+```ts
+optional metadata: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Additional metadata
+
+##### requestBody.content.application/json.productId?
+
+```ts
+optional productId: string;
+```
+
+###### Description
+
+Product ID (required for product)
+
+###### Example
+
+```ts
+prd_abc123
+```
+
+##### requestBody.content.application/json.sourceType
+
+```ts
+sourceType: "event_occurrence_area" | "product";
+```
+
+###### Description
+
+Type of inventory source
+
+###### Example
+
+```ts
+event_occurrence_area
+@enum {string}
+```
+
+##### requestBody.content.application/json.totalCapacity
+
+```ts
+totalCapacity: number;
+```
+
+###### Description
+
+Total capacity for this inventory
+
+###### Example
+
+```ts
+100
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           inventory: {
+              accountId: string;
+              available: number;
+              confirmed: number;
+              createdAt: string;
+              eventId: string | null;
+              eventLayoutAreaId: string | null;
+              eventOccurrenceId: string | null;
+              held: number;
+              id: string;
+              isAllocated: boolean;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              organisationId: string;
+              productId: string | null;
+              reserved: number;
+              sourceType: "event_occurrence_area" | "product";
+              totalCapacity: number;
+              updatedAt: string;
+              version: number;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        inventory: {
+           accountId: string;
+           available: number;
+           confirmed: number;
+           createdAt: string;
+           eventId: string | null;
+           eventLayoutAreaId: string | null;
+           eventOccurrenceId: string | null;
+           held: number;
+           id: string;
+           isAllocated: boolean;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           organisationId: string;
+           productId: string | null;
+           reserved: number;
+           sourceType: "event_occurrence_area" | "product";
+           totalCapacity: number;
+           updatedAt: string;
+           version: number;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Inventory created successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     inventory: {
+        accountId: string;
+        available: number;
+        confirmed: number;
+        createdAt: string;
+        eventId: string | null;
+        eventLayoutAreaId: string | null;
+        eventOccurrenceId: string | null;
+        held: number;
+        id: string;
+        isAllocated: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        productId: string | null;
+        reserved: number;
+        sourceType: "event_occurrence_area" | "product";
+        totalCapacity: number;
+        updatedAt: string;
+        version: number;
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  inventory: {
+     accountId: string;
+     available: number;
+     confirmed: number;
+     createdAt: string;
+     eventId: string | null;
+     eventLayoutAreaId: string | null;
+     eventOccurrenceId: string | null;
+     held: number;
+     id: string;
+     isAllocated: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     productId: string | null;
+     reserved: number;
+     sourceType: "event_occurrence_area" | "product";
+     totalCapacity: number;
+     updatedAt: string;
+     version: number;
+  };
+};
+```
+
+##### responses.201.content.application/json.inventory
+
+```ts
+inventory: {
+  accountId: string;
+  available: number;
+  confirmed: number;
+  createdAt: string;
+  eventId: string | null;
+  eventLayoutAreaId: string | null;
+  eventOccurrenceId: string | null;
+  held: number;
+  id: string;
+  isAllocated: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  productId: string | null;
+  reserved: number;
+  sourceType: "event_occurrence_area" | "product";
+  totalCapacity: number;
+  updatedAt: string;
+  version: number;
+};
+```
+
+##### responses.201.content.application/json.inventory.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### responses.201.content.application/json.inventory.available
+
+```ts
+available: number;
+```
+
+###### Example
+
+```ts
+450
+```
+
+##### responses.201.content.application/json.inventory.confirmed
+
+```ts
+confirmed: number;
+```
+
+###### Example
+
+```ts
+20
+```
+
+##### responses.201.content.application/json.inventory.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:30:00Z
+```
+
+##### responses.201.content.application/json.inventory.eventId
+
+```ts
+eventId: string | null;
+```
+
+###### Example
+
+```ts
+evt_ghi789
+```
+
+##### responses.201.content.application/json.inventory.eventLayoutAreaId
+
+```ts
+eventLayoutAreaId: string | null;
+```
+
+###### Example
+
+```ts
+ela_mno345
+```
+
+##### responses.201.content.application/json.inventory.eventOccurrenceId
+
+```ts
+eventOccurrenceId: string | null;
+```
+
+###### Example
+
+```ts
+evo_jkl012
+```
+
+##### responses.201.content.application/json.inventory.held
+
+```ts
+held: number;
+```
+
+###### Example
+
+```ts
+0
+```
+
+##### responses.201.content.application/json.inventory.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### responses.201.content.application/json.inventory.isAllocated
+
+```ts
+isAllocated: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.201.content.application/json.inventory.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.inventory.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.201.content.application/json.inventory.productId
+
+```ts
+productId: string | null;
+```
+
+###### Example
+
+```ts
+prd_pqr678
+```
+
+##### responses.201.content.application/json.inventory.reserved
+
+```ts
+reserved: number;
+```
+
+###### Example
+
+```ts
+30
+```
+
+##### responses.201.content.application/json.inventory.sourceType
+
+```ts
+sourceType: "event_occurrence_area" | "product";
+```
+
+###### Description
+
+Type of inventory source
+
+###### Example
+
+```ts
+event_occurrence_area
+@enum {string}
+```
+
+##### responses.201.content.application/json.inventory.totalCapacity
+
+```ts
+totalCapacity: number;
+```
+
+###### Example
+
+```ts
+500
+```
+
+##### responses.201.content.application/json.inventory.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T14:45:00Z
+```
+
+##### responses.201.content.application/json.inventory.version
+
+```ts
+version: number;
+```
+
+###### Example
+
+```ts
+1
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### createOrder
+
+```ts
+createOrder: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           accountId: string;
+           channel?: string;
+           currency?: string;
+           customerId?: string;
+           customerNotes?: string;
+           expiresInMinutes?: number;
+           internalNotes?: string;
+           isGuestCheckout?: boolean;
+           items?: {
+              description?: string;
+              feeDetails?: {
+               [key: string]: unknown;
+              };
+              metadata?: {
+               [key: string]: unknown;
+              };
+              name: string;
+              productDetails?: {
+               [key: string]: unknown;
+              };
+              quantity?: number;
+              ticketDetails?: {
+               [key: string]: unknown;
+              };
+              type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+              unitPrice: string;
+           }[];
+           metadata?: {
+            [key: string]: unknown;
+           };
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              order: {
+                 accountId: string;
+                 cancellationReason: string | null;
+                 cancelledAt: string | null;
+                 channel: string | null;
+                 completedAt: string | null;
+                 confirmedAt: string | null;
+                 createdAt: string;
+                 currency: string;
+                 customerId: string | null;
+                 customerNotes: string | null;
+                 discountTotal: string;
+                 expiresAt: string | null;
+                 feeTotal: string;
+                 id: string;
+                 internalNotes: string | null;
+                 isGuestCheckout: boolean;
+                 items?: {
+                    createdAt: string;
+                    description: string | null;
+                    feeDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    id: string;
+                    metadata:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    name: string;
+                    orderId: string;
+                    productDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    quantity: number;
+                    ticketDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    totalPrice: string;
+                    type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+                    unitPrice: string;
+                    updatedAt: string;
+                 }[];
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 orderNumber: string;
+                 organisationId: string;
+                 status:   | "completed"
+                    | "cancelled"
+                    | "pending"
+                    | "failed"
+                    | "refunded"
+                    | "confirmed"
+                    | "processing"
+                    | "expired";
+                 subtotal: string;
+                 taxTotal: string;
+                 total: string;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:13207
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        accountId: string;
+        channel?: string;
+        currency?: string;
+        customerId?: string;
+        customerNotes?: string;
+        expiresInMinutes?: number;
+        internalNotes?: string;
+        isGuestCheckout?: boolean;
+        items?: {
+           description?: string;
+           feeDetails?: {
+            [key: string]: unknown;
+           };
+           metadata?: {
+            [key: string]: unknown;
+           };
+           name: string;
+           productDetails?: {
+            [key: string]: unknown;
+           };
+           quantity?: number;
+           ticketDetails?: {
+            [key: string]: unknown;
+           };
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+        }[];
+        metadata?: {
+         [key: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     accountId: string;
+     channel?: string;
+     currency?: string;
+     customerId?: string;
+     customerNotes?: string;
+     expiresInMinutes?: number;
+     internalNotes?: string;
+     isGuestCheckout?: boolean;
+     items?: {
+        description?: string;
+        feeDetails?: {
+         [key: string]: unknown;
+        };
+        metadata?: {
+         [key: string]: unknown;
+        };
+        name: string;
+        productDetails?: {
+         [key: string]: unknown;
+        };
+        quantity?: number;
+        ticketDetails?: {
+         [key: string]: unknown;
+        };
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+     }[];
+     metadata?: {
+      [key: string]: unknown;
+     };
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  accountId: string;
+  channel?: string;
+  currency?: string;
+  customerId?: string;
+  customerNotes?: string;
+  expiresInMinutes?: number;
+  internalNotes?: string;
+  isGuestCheckout?: boolean;
+  items?: {
+     description?: string;
+     feeDetails?: {
+      [key: string]: unknown;
+     };
+     metadata?: {
+      [key: string]: unknown;
+     };
+     name: string;
+     productDetails?: {
+      [key: string]: unknown;
+     };
+     quantity?: number;
+     ticketDetails?: {
+      [key: string]: unknown;
+     };
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+  }[];
+  metadata?: {
+   [key: string]: unknown;
+  };
+};
+```
+
+##### requestBody.content.application/json.accountId
+
+```ts
+accountId: string;
+```
+
+###### Description
+
+Account ID that owns this order
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### requestBody.content.application/json.channel?
+
+```ts
+optional channel: string;
+```
+
+###### Description
+
+Sales channel (web, mobile, pos, api)
+
+###### Example
+
+```ts
+web
+```
+
+##### requestBody.content.application/json.currency?
+
+```ts
+optional currency: string;
+```
+
+###### Description
+
+Currency code (ISO 4217)
+
+###### Default
+
+```ts
+GBP
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### requestBody.content.application/json.customerId?
+
+```ts
+optional customerId: string;
+```
+
+###### Description
+
+Customer ID (optional for guest checkout)
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### requestBody.content.application/json.customerNotes?
+
+```ts
+optional customerNotes: string;
+```
+
+###### Description
+
+Notes from the customer
+
+###### Example
+
+```ts
+Please contact me before delivery
+```
+
+##### requestBody.content.application/json.expiresInMinutes?
+
+```ts
+optional expiresInMinutes: number;
+```
+
+###### Description
+
+Order expiry time in minutes (defaults to 15)
+
+###### Example
+
+```ts
+15
+```
+
+##### requestBody.content.application/json.internalNotes?
+
+```ts
+optional internalNotes: string;
+```
+
+###### Description
+
+Internal notes (not visible to customer)
+
+###### Example
+
+```ts
+VIP customer - priority handling
+```
+
+##### requestBody.content.application/json.isGuestCheckout?
+
+```ts
+optional isGuestCheckout: boolean;
+```
+
+###### Description
+
+Whether this is a guest checkout
+
+###### Default
+
+```ts
+false
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### requestBody.content.application/json.items?
+
+```ts
+optional items: {
+  description?: string;
+  feeDetails?: {
+   [key: string]: unknown;
+  };
+  metadata?: {
+   [key: string]: unknown;
+  };
+  name: string;
+  productDetails?: {
+   [key: string]: unknown;
+  };
+  quantity?: number;
+  ticketDetails?: {
+   [key: string]: unknown;
+  };
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+}[];
+```
+
+###### Description
+
+Initial line items to add to the order
+
+##### requestBody.content.application/json.metadata?
+
+```ts
+optional metadata: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Custom metadata
+
+###### Example
+
+```ts
+{
+                     *       "promoCode": "SUMMER20"
+                     *     }
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           order: {
+              accountId: string;
+              cancellationReason: string | null;
+              cancelledAt: string | null;
+              channel: string | null;
+              completedAt: string | null;
+              confirmedAt: string | null;
+              createdAt: string;
+              currency: string;
+              customerId: string | null;
+              customerNotes: string | null;
+              discountTotal: string;
+              expiresAt: string | null;
+              feeTotal: string;
+              id: string;
+              internalNotes: string | null;
+              isGuestCheckout: boolean;
+              items?: {
+                 createdAt: string;
+                 description: string | null;
+                 feeDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 id: string;
+                 metadata:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 name: string;
+                 orderId: string;
+                 productDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 quantity: number;
+                 ticketDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 totalPrice: string;
+                 type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+                 unitPrice: string;
+                 updatedAt: string;
+              }[];
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              orderNumber: string;
+              organisationId: string;
+              status:   | "completed"
+                 | "cancelled"
+                 | "pending"
+                 | "failed"
+                 | "refunded"
+                 | "confirmed"
+                 | "processing"
+                 | "expired";
+              subtotal: string;
+              taxTotal: string;
+              total: string;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        order: {
+           accountId: string;
+           cancellationReason: string | null;
+           cancelledAt: string | null;
+           channel: string | null;
+           completedAt: string | null;
+           confirmedAt: string | null;
+           createdAt: string;
+           currency: string;
+           customerId: string | null;
+           customerNotes: string | null;
+           discountTotal: string;
+           expiresAt: string | null;
+           feeTotal: string;
+           id: string;
+           internalNotes: string | null;
+           isGuestCheckout: boolean;
+           items?: {
+              createdAt: string;
+              description: string | null;
+              feeDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              id: string;
+              metadata:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              name: string;
+              orderId: string;
+              productDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              quantity: number;
+              ticketDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              totalPrice: string;
+              type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+              unitPrice: string;
+              updatedAt: string;
+           }[];
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           orderNumber: string;
+           organisationId: string;
+           status:   | "completed"
+              | "cancelled"
+              | "pending"
+              | "failed"
+              | "refunded"
+              | "confirmed"
+              | "processing"
+              | "expired";
+           subtotal: string;
+           taxTotal: string;
+           total: string;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Order created successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     order: {
+        accountId: string;
+        cancellationReason: string | null;
+        cancelledAt: string | null;
+        channel: string | null;
+        completedAt: string | null;
+        confirmedAt: string | null;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        customerNotes: string | null;
+        discountTotal: string;
+        expiresAt: string | null;
+        feeTotal: string;
+        id: string;
+        internalNotes: string | null;
+        isGuestCheckout: boolean;
+        items?: {
+           createdAt: string;
+           description: string | null;
+           feeDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           id: string;
+           metadata:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           name: string;
+           orderId: string;
+           productDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           quantity: number;
+           ticketDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           totalPrice: string;
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+           updatedAt: string;
+        }[];
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderNumber: string;
+        organisationId: string;
+        status:   | "completed"
+           | "cancelled"
+           | "pending"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+        subtotal: string;
+        taxTotal: string;
+        total: string;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  order: {
+     accountId: string;
+     cancellationReason: string | null;
+     cancelledAt: string | null;
+     channel: string | null;
+     completedAt: string | null;
+     confirmedAt: string | null;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     customerNotes: string | null;
+     discountTotal: string;
+     expiresAt: string | null;
+     feeTotal: string;
+     id: string;
+     internalNotes: string | null;
+     isGuestCheckout: boolean;
+     items?: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     }[];
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderNumber: string;
+     organisationId: string;
+     status:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     subtotal: string;
+     taxTotal: string;
+     total: string;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.201.content.application/json.order
+
+```ts
+order: {
+  accountId: string;
+  cancellationReason: string | null;
+  cancelledAt: string | null;
+  channel: string | null;
+  completedAt: string | null;
+  confirmedAt: string | null;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  customerNotes: string | null;
+  discountTotal: string;
+  expiresAt: string | null;
+  feeTotal: string;
+  id: string;
+  internalNotes: string | null;
+  isGuestCheckout: boolean;
+  items?: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  }[];
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderNumber: string;
+  organisationId: string;
+  status:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  subtotal: string;
+  taxTotal: string;
+  total: string;
+  updatedAt: string;
+};
+```
+
+##### responses.201.content.application/json.order.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### responses.201.content.application/json.order.cancellationReason
+
+```ts
+cancellationReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.order.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.order.channel
+
+```ts
+channel: string | null;
+```
+
+###### Example
+
+```ts
+web
+```
+
+##### responses.201.content.application/json.order.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.order.confirmedAt
+
+```ts
+confirmedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.order.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### responses.201.content.application/json.order.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### responses.201.content.application/json.order.customerNotes
+
+```ts
+customerNotes: string | null;
+```
+
+###### Example
+
+```ts
+Please contact me before delivery
+```
+
+##### responses.201.content.application/json.order.discountTotal
+
+```ts
+discountTotal: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### responses.201.content.application/json.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+##### responses.201.content.application/json.order.feeTotal
+
+```ts
+feeTotal: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### responses.201.content.application/json.order.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### responses.201.content.application/json.order.internalNotes
+
+```ts
+internalNotes: string | null;
+```
+
+###### Example
+
+```ts
+VIP customer
+```
+
+##### responses.201.content.application/json.order.isGuestCheckout
+
+```ts
+isGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.201.content.application/json.order.items?
+
+```ts
+optional items: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+}[];
+```
+
+###### Description
+
+Order line items
+
+##### responses.201.content.application/json.order.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "promoCode": "SUMMER20"
+             *     }
+```
+
+##### responses.201.content.application/json.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### responses.201.content.application/json.order.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.201.content.application/json.order.status
+
+```ts
+status: 
+  | "completed"
+  | "cancelled"
+  | "pending"
+  | "failed"
+  | "refunded"
+  | "confirmed"
+  | "processing"
+  | "expired";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+##### responses.201.content.application/json.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### responses.201.content.application/json.order.taxTotal
+
+```ts
+taxTotal: string;
+```
+
+###### Example
+
+```ts
+10.00
+```
+
+##### responses.201.content.application/json.order.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+62.50
+```
+
+##### responses.201.content.application/json.order.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### createPayment
+
+```ts
+createPayment: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           accountId: string;
+           amount: number;
+           currency: string;
+           isPartialPayment?: boolean;
+           metadata?: {
+            [key: string]: unknown;
+           };
+           orderId: string;
+           orderNumber: string;
+           paymentProviderId?: string;
+           paymentType:   | "bank_transfer"
+              | "online_card"
+              | "online_bank_transfer"
+              | "online_wallet"
+              | "in_person_card"
+              | "in_person_cash"
+              | "cheque";
+           remainingBalance?: number;
+           returnUrl?: string;
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              payment: {
+                 amount: string;
+                 createdAt: string;
+                 currency: string;
+                 failedAt: string | null;
+                 failureCode: string | null;
+                 failureMessage: string | null;
+                 id: string;
+                 invoiceId: string | null;
+                 method: string | null;
+                 organisationId: string;
+                 paidAt: string | null;
+                 status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+                 updatedAt: string;
+               } & {
+                 accountId: string;
+                 amount: number;
+                 applicationFee: number | null;
+                 cancelledAt: string | null;
+                 capturedAt: string | null;
+                 clientSecret: string | null;
+                 createdAt: string;
+                 currency: string;
+                 expiresAt: string | null;
+                 externalPaymentId: string | null;
+                 failedAt: string | null;
+                 failureCode: string | null;
+                 failureMessage: string | null;
+                 id: string;
+                 isPartialPayment: boolean;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 netAmount: number | null;
+                 orderId: string;
+                 orderNumber: string;
+                 organisationId: string;
+                 paymentMethod:   | {
+                    brand: string | null;
+                    expiryMonth: number | null;
+                    expiryYear: number | null;
+                    last4: string | null;
+                    type: "card" | "bank_transfer" | "cash" | "wallet";
+                  }
+                    | null;
+                 paymentProviderId: string;
+                 paymentType:   | "bank_transfer"
+                    | "online_card"
+                    | "online_bank_transfer"
+                    | "online_wallet"
+                    | "in_person_card"
+                    | "in_person_cash"
+                    | "cheque";
+                 processingFee: number | null;
+                 redirectUrl: string | null;
+                 remainingBalance: number | null;
+                 status:   | "cancelled"
+                    | "pending"
+                    | "succeeded"
+                    | "failed"
+                    | "processing"
+                    | "expired"
+                    | "requires_action"
+                    | "created";
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:14465
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        accountId: string;
+        amount: number;
+        currency: string;
+        isPartialPayment?: boolean;
+        metadata?: {
+         [key: string]: unknown;
+        };
+        orderId: string;
+        orderNumber: string;
+        paymentProviderId?: string;
+        paymentType:   | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+           | "cheque";
+        remainingBalance?: number;
+        returnUrl?: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     accountId: string;
+     amount: number;
+     currency: string;
+     isPartialPayment?: boolean;
+     metadata?: {
+      [key: string]: unknown;
+     };
+     orderId: string;
+     orderNumber: string;
+     paymentProviderId?: string;
+     paymentType:   | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+        | "cheque";
+     remainingBalance?: number;
+     returnUrl?: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  accountId: string;
+  amount: number;
+  currency: string;
+  isPartialPayment?: boolean;
+  metadata?: {
+   [key: string]: unknown;
+  };
+  orderId: string;
+  orderNumber: string;
+  paymentProviderId?: string;
+  paymentType:   | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+     | "cheque";
+  remainingBalance?: number;
+  returnUrl?: string;
+};
+```
+
+##### requestBody.content.application/json.accountId
+
+```ts
+accountId: string;
+```
+
+###### Description
+
+Account ID for tenant isolation
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### requestBody.content.application/json.amount
+
+```ts
+amount: number;
+```
+
+###### Description
+
+Payment amount
+
+###### Example
+
+```ts
+97
+```
+
+##### requestBody.content.application/json.currency
+
+```ts
+currency: string;
+```
+
+###### Description
+
+Currency code (ISO 4217)
+
+###### Example
+
+```ts
+GBP
+```
+
+##### requestBody.content.application/json.isPartialPayment?
+
+```ts
+optional isPartialPayment: boolean;
+```
+
+###### Description
+
+Whether this is a partial payment
+
+###### Default
+
+```ts
+false
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### requestBody.content.application/json.metadata?
+
+```ts
+optional metadata: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Custom metadata
+
+###### Example
+
+```ts
+{
+                     *       "customerEmail": "customer@example.com"
+                     *     }
+```
+
+##### requestBody.content.application/json.orderId
+
+```ts
+orderId: string;
+```
+
+###### Description
+
+Order ID this payment is for
+
+###### Example
+
+```ts
+ord_abc123
+```
+
+##### requestBody.content.application/json.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Description
+
+Human-readable order number
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### requestBody.content.application/json.paymentProviderId?
+
+```ts
+optional paymentProviderId: string;
+```
+
+###### Description
+
+Payment provider ID (optional - will find by type if not provided)
+
+###### Example
+
+```ts
+pp_stripeXxx123
+```
+
+##### requestBody.content.application/json.paymentType
+
+```ts
+paymentType: 
+  | "bank_transfer"
+  | "online_card"
+  | "online_bank_transfer"
+  | "online_wallet"
+  | "in_person_card"
+  | "in_person_cash"
+  | "cheque";
+```
+
+###### Description
+
+Type of payment
+
+###### Example
+
+```ts
+online_card
+@enum {string}
+```
+
+##### requestBody.content.application/json.remainingBalance?
+
+```ts
+optional remainingBalance: number;
+```
+
+###### Description
+
+Remaining balance after this payment
+
+###### Example
+
+```ts
+0
+```
+
+##### requestBody.content.application/json.returnUrl?
+
+```ts
+optional returnUrl: string;
+```
+
+Format: uri
+
+###### Description
+
+URL to redirect after payment
+
+###### Example
+
+```ts
+https://venue.com/orders/ord_xxx/confirmation
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           payment: {
+              amount: string;
+              createdAt: string;
+              currency: string;
+              failedAt: string | null;
+              failureCode: string | null;
+              failureMessage: string | null;
+              id: string;
+              invoiceId: string | null;
+              method: string | null;
+              organisationId: string;
+              paidAt: string | null;
+              status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+              updatedAt: string;
+            } & {
+              accountId: string;
+              amount: number;
+              applicationFee: number | null;
+              cancelledAt: string | null;
+              capturedAt: string | null;
+              clientSecret: string | null;
+              createdAt: string;
+              currency: string;
+              expiresAt: string | null;
+              externalPaymentId: string | null;
+              failedAt: string | null;
+              failureCode: string | null;
+              failureMessage: string | null;
+              id: string;
+              isPartialPayment: boolean;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              netAmount: number | null;
+              orderId: string;
+              orderNumber: string;
+              organisationId: string;
+              paymentMethod:   | {
+                 brand: string | null;
+                 expiryMonth: number | null;
+                 expiryYear: number | null;
+                 last4: string | null;
+                 type: "card" | "bank_transfer" | "cash" | "wallet";
+               }
+                 | null;
+              paymentProviderId: string;
+              paymentType:   | "bank_transfer"
+                 | "online_card"
+                 | "online_bank_transfer"
+                 | "online_wallet"
+                 | "in_person_card"
+                 | "in_person_cash"
+                 | "cheque";
+              processingFee: number | null;
+              redirectUrl: string | null;
+              remainingBalance: number | null;
+              status:   | "cancelled"
+                 | "pending"
+                 | "succeeded"
+                 | "failed"
+                 | "processing"
+                 | "expired"
+                 | "requires_action"
+                 | "created";
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        payment: {
+           amount: string;
+           createdAt: string;
+           currency: string;
+           failedAt: string | null;
+           failureCode: string | null;
+           failureMessage: string | null;
+           id: string;
+           invoiceId: string | null;
+           method: string | null;
+           organisationId: string;
+           paidAt: string | null;
+           status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+           updatedAt: string;
+         } & {
+           accountId: string;
+           amount: number;
+           applicationFee: number | null;
+           cancelledAt: string | null;
+           capturedAt: string | null;
+           clientSecret: string | null;
+           createdAt: string;
+           currency: string;
+           expiresAt: string | null;
+           externalPaymentId: string | null;
+           failedAt: string | null;
+           failureCode: string | null;
+           failureMessage: string | null;
+           id: string;
+           isPartialPayment: boolean;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           netAmount: number | null;
+           orderId: string;
+           orderNumber: string;
+           organisationId: string;
+           paymentMethod:   | {
+              brand: string | null;
+              expiryMonth: number | null;
+              expiryYear: number | null;
+              last4: string | null;
+              type: "card" | "bank_transfer" | "cash" | "wallet";
+            }
+              | null;
+           paymentProviderId: string;
+           paymentType:   | "bank_transfer"
+              | "online_card"
+              | "online_bank_transfer"
+              | "online_wallet"
+              | "in_person_card"
+              | "in_person_cash"
+              | "cheque";
+           processingFee: number | null;
+           redirectUrl: string | null;
+           remainingBalance: number | null;
+           status:   | "cancelled"
+              | "pending"
+              | "succeeded"
+              | "failed"
+              | "processing"
+              | "expired"
+              | "requires_action"
+              | "created";
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Payment created successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     payment: {
+        amount: string;
+        createdAt: string;
+        currency: string;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        invoiceId: string | null;
+        method: string | null;
+        organisationId: string;
+        paidAt: string | null;
+        status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+        updatedAt: string;
+      } & {
+        accountId: string;
+        amount: number;
+        applicationFee: number | null;
+        cancelledAt: string | null;
+        capturedAt: string | null;
+        clientSecret: string | null;
+        createdAt: string;
+        currency: string;
+        expiresAt: string | null;
+        externalPaymentId: string | null;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        isPartialPayment: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        netAmount: number | null;
+        orderId: string;
+        orderNumber: string;
+        organisationId: string;
+        paymentMethod:   | {
+           brand: string | null;
+           expiryMonth: number | null;
+           expiryYear: number | null;
+           last4: string | null;
+           type: "card" | "bank_transfer" | "cash" | "wallet";
+         }
+           | null;
+        paymentProviderId: string;
+        paymentType:   | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+           | "cheque";
+        processingFee: number | null;
+        redirectUrl: string | null;
+        remainingBalance: number | null;
+        status:   | "cancelled"
+           | "pending"
+           | "succeeded"
+           | "failed"
+           | "processing"
+           | "expired"
+           | "requires_action"
+           | "created";
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  payment: {
+     amount: string;
+     createdAt: string;
+     currency: string;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     invoiceId: string | null;
+     method: string | null;
+     organisationId: string;
+     paidAt: string | null;
+     status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+     updatedAt: string;
+   } & {
+     accountId: string;
+     amount: number;
+     applicationFee: number | null;
+     cancelledAt: string | null;
+     capturedAt: string | null;
+     clientSecret: string | null;
+     createdAt: string;
+     currency: string;
+     expiresAt: string | null;
+     externalPaymentId: string | null;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     isPartialPayment: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     netAmount: number | null;
+     orderId: string;
+     orderNumber: string;
+     organisationId: string;
+     paymentMethod:   | {
+        brand: string | null;
+        expiryMonth: number | null;
+        expiryYear: number | null;
+        last4: string | null;
+        type: "card" | "bank_transfer" | "cash" | "wallet";
+      }
+        | null;
+     paymentProviderId: string;
+     paymentType:   | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+        | "cheque";
+     processingFee: number | null;
+     redirectUrl: string | null;
+     remainingBalance: number | null;
+     status:   | "cancelled"
+        | "pending"
+        | "succeeded"
+        | "failed"
+        | "processing"
+        | "expired"
+        | "requires_action"
+        | "created";
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.201.content.application/json.payment
+
+```ts
+payment: {
+  amount: string;
+  createdAt: string;
+  currency: string;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  invoiceId: string | null;
+  method: string | null;
+  organisationId: string;
+  paidAt: string | null;
+  status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+  updatedAt: string;
+} & {
+  accountId: string;
+  amount: number;
+  applicationFee: number | null;
+  cancelledAt: string | null;
+  capturedAt: string | null;
+  clientSecret: string | null;
+  createdAt: string;
+  currency: string;
+  expiresAt: string | null;
+  externalPaymentId: string | null;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  isPartialPayment: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  netAmount: number | null;
+  orderId: string;
+  orderNumber: string;
+  organisationId: string;
+  paymentMethod:   | {
+     brand: string | null;
+     expiryMonth: number | null;
+     expiryYear: number | null;
+     last4: string | null;
+     type: "card" | "bank_transfer" | "cash" | "wallet";
+   }
+     | null;
+  paymentProviderId: string;
+  paymentType:   | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+     | "cheque";
+  processingFee: number | null;
+  redirectUrl: string | null;
+  remainingBalance: number | null;
+  status:   | "cancelled"
+     | "pending"
+     | "succeeded"
+     | "failed"
+     | "processing"
+     | "expired"
+     | "requires_action"
+     | "created";
+  updatedAt: string;
+};
+```
+
+###### Type Declaration
+
+###### amount
+
+```ts
+amount: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+###### createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+###### currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+USD
+```
+
+###### failedAt
+
+```ts
+failedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureCode
+
+```ts
+failureCode: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureMessage
+
+```ts
+failureMessage: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pay_abc123
+```
+
+###### invoiceId
+
+```ts
+invoiceId: string | null;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+###### method
+
+```ts
+method: string | null;
+```
+
+###### Example
+
+```ts
+card
+```
+
+###### organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+###### paidAt
+
+```ts
+paidAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+###### status
+
+```ts
+status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+```
+
+###### Example
+
+```ts
+succeeded
+@enum {string}
+```
+
+###### updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+###### Type Declaration
+
+###### accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+###### amount
+
+```ts
+amount: number;
+```
+
+###### Example
+
+```ts
+97
+```
+
+###### applicationFee
+
+```ts
+applicationFee: number | null;
+```
+
+###### Example
+
+```ts
+2
+```
+
+###### cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### capturedAt
+
+```ts
+capturedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### clientSecret
+
+```ts
+clientSecret: string | null;
+```
+
+###### Example
+
+```ts
+pi_xxx_secret_yyy
+```
+
+###### createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+###### currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+###### expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+###### externalPaymentId
+
+```ts
+externalPaymentId: string | null;
+```
+
+###### Example
+
+```ts
+pi_1234567890abcdef
+```
+
+###### failedAt
+
+```ts
+failedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureCode
+
+```ts
+failureCode: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureMessage
+
+```ts
+failureMessage: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pay_abc123xyz789
+```
+
+###### isPartialPayment
+
+```ts
+isPartialPayment: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+###### metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+                 *       "customerEmail": "customer@example.com"
+                 *     }
+```
+
+###### netAmount
+
+```ts
+netAmount: number | null;
+```
+
+###### Example
+
+```ts
+92.09
+```
+
+###### orderId
+
+```ts
+orderId: string;
+```
+
+###### Example
+
+```ts
+ord_abc123
+```
+
+###### orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+###### organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+###### paymentMethod
+
+```ts
+paymentMethod: 
+  | {
+  brand: string | null;
+  expiryMonth: number | null;
+  expiryYear: number | null;
+  last4: string | null;
+  type: "card" | "bank_transfer" | "cash" | "wallet";
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  brand: string | null;
+  expiryMonth: number | null;
+  expiryYear: number | null;
+  last4: string | null;
+  type: "card" | "bank_transfer" | "cash" | "wallet";
+}
+```
+
+`null`
+
+###### paymentProviderId
+
+```ts
+paymentProviderId: string;
+```
+
+###### Example
+
+```ts
+pp_stripeXxx123
+```
+
+###### paymentType
+
+```ts
+paymentType: 
+  | "bank_transfer"
+  | "online_card"
+  | "online_bank_transfer"
+  | "online_wallet"
+  | "in_person_card"
+  | "in_person_cash"
+  | "cheque";
+```
+
+###### Example
+
+```ts
+online_card
+@enum {string}
+```
+
+###### processingFee
+
+```ts
+processingFee: number | null;
+```
+
+###### Example
+
+```ts
+2.91
+```
+
+###### redirectUrl
+
+```ts
+redirectUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://checkout.stripe.com/pay/xxx
+```
+
+###### remainingBalance
+
+```ts
+remainingBalance: number | null;
+```
+
+###### Example
+
+```ts
+0
+```
+
+###### status
+
+```ts
+status: 
+  | "cancelled"
+  | "pending"
+  | "succeeded"
+  | "failed"
+  | "processing"
+  | "expired"
+  | "requires_action"
+  | "created";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+###### updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### createPaymentProvider
+
+```ts
+createPaymentProvider: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           accountId?: string;
+           applicationFee?: {
+              type: "percentage" | "fixed";
+              value: number;
+           };
+           capabilities?: {
+              maxAmount?: number;
+              minAmount?: number;
+              requiresCustomerAction?: boolean;
+              supportedCurrencies?: string[];
+              supportsDelayedCapture?: boolean;
+              supportsInstantCapture?: boolean;
+              supportsPartialRefunds?: boolean;
+              supportsRefunds?: boolean;
+           };
+           configuration: {
+            [key: string]: unknown;
+           };
+           description?: string;
+           feeStructure?: {
+              currency?: string;
+              fixed?: number;
+              percentage?: number;
+              type: "percentage" | "fixed" | "percentage_plus_fixed";
+           };
+           integrationServiceUrl?: string;
+           integrationServiceVersion?: string;
+           integrationType?: "ticketlayer_pay" | "self_service";
+           isDefault?: boolean;
+           metadata?: {
+            [key: string]: unknown;
+           };
+           name: string;
+           priority?: number;
+           supportedPaymentTypes: (
+              | "bank_transfer"
+              | "online_card"
+              | "online_bank_transfer"
+              | "online_wallet"
+              | "in_person_card"
+              | "in_person_cash"
+             | "cheque")[];
+           type:   | "bank_transfer"
+              | "cash"
+              | "stripe_connect"
+              | "stripe_direct"
+              | "adyen"
+              | "square"
+              | "paypal";
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              provider: {
+                 accountId: string | null;
+                 applicationFee:   | {
+                    type: "percentage" | "fixed";
+                    value: number;
+                  }
+                    | null;
+                 capabilities:   | {
+                    maxAmount?: number;
+                    minAmount?: number;
+                    requiresCustomerAction?: boolean;
+                    supportedCurrencies?: string[];
+                    supportsDelayedCapture?: boolean;
+                    supportsInstantCapture?: boolean;
+                    supportsPartialRefunds?: boolean;
+                    supportsRefunds?: boolean;
+                  }
+                    | null;
+                 configuration: {
+                  [key: string]: unknown;
+                 };
+                 createdAt: string;
+                 description: string | null;
+                 feeStructure:   | {
+                    currency?: string;
+                    fixed?: number;
+                    percentage?: number;
+                    type: "percentage" | "fixed" | "percentage_plus_fixed";
+                  }
+                    | null;
+                 id: string;
+                 integrationServiceUrl: string | null;
+                 integrationServiceVersion: string;
+                 isDefault: boolean;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 name: string;
+                 organisationId: string;
+                 priority: number;
+                 status: "active" | "inactive" | "pending_setup";
+                 supportedPaymentTypes: (
+                    | "bank_transfer"
+                    | "online_card"
+                    | "online_bank_transfer"
+                    | "online_wallet"
+                    | "in_person_card"
+                    | "in_person_cash"
+                   | "cheque")[];
+                 type:   | "bank_transfer"
+                    | "cash"
+                    | "stripe_connect"
+                    | "stripe_direct"
+                    | "adyen"
+                    | "square"
+                    | "paypal";
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:14930
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        accountId?: string;
+        applicationFee?: {
+           type: "percentage" | "fixed";
+           value: number;
+        };
+        capabilities?: {
+           maxAmount?: number;
+           minAmount?: number;
+           requiresCustomerAction?: boolean;
+           supportedCurrencies?: string[];
+           supportsDelayedCapture?: boolean;
+           supportsInstantCapture?: boolean;
+           supportsPartialRefunds?: boolean;
+           supportsRefunds?: boolean;
+        };
+        configuration: {
+         [key: string]: unknown;
+        };
+        description?: string;
+        feeStructure?: {
+           currency?: string;
+           fixed?: number;
+           percentage?: number;
+           type: "percentage" | "fixed" | "percentage_plus_fixed";
+        };
+        integrationServiceUrl?: string;
+        integrationServiceVersion?: string;
+        integrationType?: "ticketlayer_pay" | "self_service";
+        isDefault?: boolean;
+        metadata?: {
+         [key: string]: unknown;
+        };
+        name: string;
+        priority?: number;
+        supportedPaymentTypes: (
+           | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+          | "cheque")[];
+        type:   | "bank_transfer"
+           | "cash"
+           | "stripe_connect"
+           | "stripe_direct"
+           | "adyen"
+           | "square"
+           | "paypal";
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     accountId?: string;
+     applicationFee?: {
+        type: "percentage" | "fixed";
+        value: number;
+     };
+     capabilities?: {
+        maxAmount?: number;
+        minAmount?: number;
+        requiresCustomerAction?: boolean;
+        supportedCurrencies?: string[];
+        supportsDelayedCapture?: boolean;
+        supportsInstantCapture?: boolean;
+        supportsPartialRefunds?: boolean;
+        supportsRefunds?: boolean;
+     };
+     configuration: {
+      [key: string]: unknown;
+     };
+     description?: string;
+     feeStructure?: {
+        currency?: string;
+        fixed?: number;
+        percentage?: number;
+        type: "percentage" | "fixed" | "percentage_plus_fixed";
+     };
+     integrationServiceUrl?: string;
+     integrationServiceVersion?: string;
+     integrationType?: "ticketlayer_pay" | "self_service";
+     isDefault?: boolean;
+     metadata?: {
+      [key: string]: unknown;
+     };
+     name: string;
+     priority?: number;
+     supportedPaymentTypes: (
+        | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+       | "cheque")[];
+     type:   | "bank_transfer"
+        | "cash"
+        | "stripe_connect"
+        | "stripe_direct"
+        | "adyen"
+        | "square"
+        | "paypal";
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  accountId?: string;
+  applicationFee?: {
+     type: "percentage" | "fixed";
+     value: number;
+  };
+  capabilities?: {
+     maxAmount?: number;
+     minAmount?: number;
+     requiresCustomerAction?: boolean;
+     supportedCurrencies?: string[];
+     supportsDelayedCapture?: boolean;
+     supportsInstantCapture?: boolean;
+     supportsPartialRefunds?: boolean;
+     supportsRefunds?: boolean;
+  };
+  configuration: {
+   [key: string]: unknown;
+  };
+  description?: string;
+  feeStructure?: {
+     currency?: string;
+     fixed?: number;
+     percentage?: number;
+     type: "percentage" | "fixed" | "percentage_plus_fixed";
+  };
+  integrationServiceUrl?: string;
+  integrationServiceVersion?: string;
+  integrationType?: "ticketlayer_pay" | "self_service";
+  isDefault?: boolean;
+  metadata?: {
+   [key: string]: unknown;
+  };
+  name: string;
+  priority?: number;
+  supportedPaymentTypes: (
+     | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+    | "cheque")[];
+  type:   | "bank_transfer"
+     | "cash"
+     | "stripe_connect"
+     | "stripe_direct"
+     | "adyen"
+     | "square"
+     | "paypal";
+};
+```
+
+##### requestBody.content.application/json.accountId?
+
+```ts
+optional accountId: string;
+```
+
+###### Description
+
+Account ID (optional - null for org-wide provider)
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### requestBody.content.application/json.applicationFee?
+
+```ts
+optional applicationFee: {
+  type: "percentage" | "fixed";
+  value: number;
+};
+```
+
+###### Description
+
+Application fee configuration (for platform)
+
+##### requestBody.content.application/json.applicationFee.type
+
+```ts
+type: "percentage" | "fixed";
+```
+
+###### Description
+
+Application fee type
+
+###### Example
+
+```ts
+percentage
+@enum {string}
+```
+
+##### requestBody.content.application/json.applicationFee.value
+
+```ts
+value: number;
+```
+
+###### Description
+
+Application fee value
+
+###### Example
+
+```ts
+2
+```
+
+##### requestBody.content.application/json.capabilities?
+
+```ts
+optional capabilities: {
+  maxAmount?: number;
+  minAmount?: number;
+  requiresCustomerAction?: boolean;
+  supportedCurrencies?: string[];
+  supportsDelayedCapture?: boolean;
+  supportsInstantCapture?: boolean;
+  supportsPartialRefunds?: boolean;
+  supportsRefunds?: boolean;
+};
+```
+
+###### Description
+
+Provider capabilities (optional - uses defaults for type)
+
+##### requestBody.content.application/json.capabilities.maxAmount?
+
+```ts
+optional maxAmount: number;
+```
+
+###### Description
+
+Maximum transaction amount
+
+###### Example
+
+```ts
+10000
+```
+
+##### requestBody.content.application/json.capabilities.minAmount?
+
+```ts
+optional minAmount: number;
+```
+
+###### Description
+
+Minimum transaction amount
+
+###### Example
+
+```ts
+0.5
+```
+
+##### requestBody.content.application/json.capabilities.requiresCustomerAction?
+
+```ts
+optional requiresCustomerAction: boolean;
+```
+
+###### Description
+
+Requires customer action (3DS, etc.)
+
+###### Example
+
+```ts
+true
+```
+
+##### requestBody.content.application/json.capabilities.supportedCurrencies?
+
+```ts
+optional supportedCurrencies: string[];
+```
+
+###### Description
+
+Supported currencies
+
+###### Example
+
+```ts
+[
+      "GBP",
+      "USD",
+      "EUR"
+    ]
+```
+
+##### requestBody.content.application/json.capabilities.supportsDelayedCapture?
+
+```ts
+optional supportsDelayedCapture: boolean;
+```
+
+###### Description
+
+Supports delayed capture
+
+###### Example
+
+```ts
+true
+```
+
+##### requestBody.content.application/json.capabilities.supportsInstantCapture?
+
+```ts
+optional supportsInstantCapture: boolean;
+```
+
+###### Description
+
+Supports instant capture
+
+###### Example
+
+```ts
+true
+```
+
+##### requestBody.content.application/json.capabilities.supportsPartialRefunds?
+
+```ts
+optional supportsPartialRefunds: boolean;
+```
+
+###### Description
+
+Supports partial refunds
+
+###### Example
+
+```ts
+true
+```
+
+##### requestBody.content.application/json.capabilities.supportsRefunds?
+
+```ts
+optional supportsRefunds: boolean;
+```
+
+###### Description
+
+Supports refunds
+
+###### Example
+
+```ts
+true
+```
+
+##### requestBody.content.application/json.configuration
+
+```ts
+configuration: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Provider-specific configuration
+
+###### Example
+
+```ts
+{
+                     *       "stripeConnectedAccountId": "acct_xxx"
+                     *     }
+```
+
+##### requestBody.content.application/json.description?
+
+```ts
+optional description: string;
+```
+
+###### Description
+
+Provider description
+
+###### Example
+
+```ts
+Primary payment processor for online orders
+```
+
+##### requestBody.content.application/json.feeStructure?
+
+```ts
+optional feeStructure: {
+  currency?: string;
+  fixed?: number;
+  percentage?: number;
+  type: "percentage" | "fixed" | "percentage_plus_fixed";
+};
+```
+
+###### Description
+
+Fee structure for this provider
+
+##### requestBody.content.application/json.feeStructure.currency?
+
+```ts
+optional currency: string;
+```
+
+###### Description
+
+Currency for fixed fee
+
+###### Example
+
+```ts
+GBP
+```
+
+##### requestBody.content.application/json.feeStructure.fixed?
+
+```ts
+optional fixed: number;
+```
+
+###### Description
+
+Fixed fee amount
+
+###### Example
+
+```ts
+0.2
+```
+
+##### requestBody.content.application/json.feeStructure.percentage?
+
+```ts
+optional percentage: number;
+```
+
+###### Description
+
+Percentage fee
+
+###### Example
+
+```ts
+2.9
+```
+
+##### requestBody.content.application/json.feeStructure.type
+
+```ts
+type: "percentage" | "fixed" | "percentage_plus_fixed";
+```
+
+###### Description
+
+Fee structure type
+
+###### Example
+
+```ts
+percentage_plus_fixed
+@enum {string}
+```
+
+##### requestBody.content.application/json.integrationServiceUrl?
+
+```ts
+optional integrationServiceUrl: string;
+```
+
+Format: uri
+
+###### Description
+
+Integration service URL (optional - uses default for type)
+
+###### Example
+
+```ts
+https://stripe.paymentintegration.ticketlayer.com
+```
+
+##### requestBody.content.application/json.integrationServiceVersion?
+
+```ts
+optional integrationServiceVersion: string;
+```
+
+###### Description
+
+Integration service API version
+
+###### Default
+
+```ts
+v1
+```
+
+###### Example
+
+```ts
+v1
+```
+
+##### requestBody.content.application/json.integrationType?
+
+```ts
+optional integrationType: "ticketlayer_pay" | "self_service";
+```
+
+###### Description
+
+Integration type: ticketlayer_pay (managed by Ticketlayer, one per org) or self_service (default)
+
+###### Default
+
+```ts
+self_service
+```
+
+###### Example
+
+```ts
+ticketlayer_pay
+@enum {string}
+```
+
+##### requestBody.content.application/json.isDefault?
+
+```ts
+optional isDefault: boolean;
+```
+
+###### Description
+
+Set as default provider for this account/org
+
+###### Default
+
+```ts
+false
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### requestBody.content.application/json.metadata?
+
+```ts
+optional metadata: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Custom metadata
+
+###### Example
+
+```ts
+{
+                     *       "environment": "production"
+                     *     }
+```
+
+##### requestBody.content.application/json.name
+
+```ts
+name: string;
+```
+
+###### Description
+
+Provider display name
+
+###### Example
+
+```ts
+Main Stripe Account
+```
+
+##### requestBody.content.application/json.priority?
+
+```ts
+optional priority: number;
+```
+
+###### Description
+
+Provider priority (lower = higher priority)
+
+###### Default
+
+```ts
+100
+```
+
+###### Example
+
+```ts
+100
+```
+
+##### requestBody.content.application/json.supportedPaymentTypes
+
+```ts
+supportedPaymentTypes: (
+  | "bank_transfer"
+  | "online_card"
+  | "online_bank_transfer"
+  | "online_wallet"
+  | "in_person_card"
+  | "in_person_cash"
+  | "cheque")[];
+```
+
+###### Description
+
+Supported payment types
+
+###### Example
+
+```ts
+[
+      "online_card",
+      "online_wallet"
+    ]
+```
+
+##### requestBody.content.application/json.type
+
+```ts
+type: 
+  | "bank_transfer"
+  | "cash"
+  | "stripe_connect"
+  | "stripe_direct"
+  | "adyen"
+  | "square"
+  | "paypal";
+```
+
+###### Description
+
+Payment provider type
+
+###### Example
+
+```ts
+stripe_connect
+@enum {string}
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           provider: {
+              accountId: string | null;
+              applicationFee:   | {
+                 type: "percentage" | "fixed";
+                 value: number;
+               }
+                 | null;
+              capabilities:   | {
+                 maxAmount?: number;
+                 minAmount?: number;
+                 requiresCustomerAction?: boolean;
+                 supportedCurrencies?: string[];
+                 supportsDelayedCapture?: boolean;
+                 supportsInstantCapture?: boolean;
+                 supportsPartialRefunds?: boolean;
+                 supportsRefunds?: boolean;
+               }
+                 | null;
+              configuration: {
+               [key: string]: unknown;
+              };
+              createdAt: string;
+              description: string | null;
+              feeStructure:   | {
+                 currency?: string;
+                 fixed?: number;
+                 percentage?: number;
+                 type: "percentage" | "fixed" | "percentage_plus_fixed";
+               }
+                 | null;
+              id: string;
+              integrationServiceUrl: string | null;
+              integrationServiceVersion: string;
+              isDefault: boolean;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              name: string;
+              organisationId: string;
+              priority: number;
+              status: "active" | "inactive" | "pending_setup";
+              supportedPaymentTypes: (
+                 | "bank_transfer"
+                 | "online_card"
+                 | "online_bank_transfer"
+                 | "online_wallet"
+                 | "in_person_card"
+                 | "in_person_cash"
+                | "cheque")[];
+              type:   | "bank_transfer"
+                 | "cash"
+                 | "stripe_connect"
+                 | "stripe_direct"
+                 | "adyen"
+                 | "square"
+                 | "paypal";
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        provider: {
+           accountId: string | null;
+           applicationFee:   | {
+              type: "percentage" | "fixed";
+              value: number;
+            }
+              | null;
+           capabilities:   | {
+              maxAmount?: number;
+              minAmount?: number;
+              requiresCustomerAction?: boolean;
+              supportedCurrencies?: string[];
+              supportsDelayedCapture?: boolean;
+              supportsInstantCapture?: boolean;
+              supportsPartialRefunds?: boolean;
+              supportsRefunds?: boolean;
+            }
+              | null;
+           configuration: {
+            [key: string]: unknown;
+           };
+           createdAt: string;
+           description: string | null;
+           feeStructure:   | {
+              currency?: string;
+              fixed?: number;
+              percentage?: number;
+              type: "percentage" | "fixed" | "percentage_plus_fixed";
+            }
+              | null;
+           id: string;
+           integrationServiceUrl: string | null;
+           integrationServiceVersion: string;
+           isDefault: boolean;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           name: string;
+           organisationId: string;
+           priority: number;
+           status: "active" | "inactive" | "pending_setup";
+           supportedPaymentTypes: (
+              | "bank_transfer"
+              | "online_card"
+              | "online_bank_transfer"
+              | "online_wallet"
+              | "in_person_card"
+              | "in_person_cash"
+             | "cheque")[];
+           type:   | "bank_transfer"
+              | "cash"
+              | "stripe_connect"
+              | "stripe_direct"
+              | "adyen"
+              | "square"
+              | "paypal";
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Payment provider created successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     provider: {
+        accountId: string | null;
+        applicationFee:   | {
+           type: "percentage" | "fixed";
+           value: number;
+         }
+           | null;
+        capabilities:   | {
+           maxAmount?: number;
+           minAmount?: number;
+           requiresCustomerAction?: boolean;
+           supportedCurrencies?: string[];
+           supportsDelayedCapture?: boolean;
+           supportsInstantCapture?: boolean;
+           supportsPartialRefunds?: boolean;
+           supportsRefunds?: boolean;
+         }
+           | null;
+        configuration: {
+         [key: string]: unknown;
+        };
+        createdAt: string;
+        description: string | null;
+        feeStructure:   | {
+           currency?: string;
+           fixed?: number;
+           percentage?: number;
+           type: "percentage" | "fixed" | "percentage_plus_fixed";
+         }
+           | null;
+        id: string;
+        integrationServiceUrl: string | null;
+        integrationServiceVersion: string;
+        isDefault: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        organisationId: string;
+        priority: number;
+        status: "active" | "inactive" | "pending_setup";
+        supportedPaymentTypes: (
+           | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+          | "cheque")[];
+        type:   | "bank_transfer"
+           | "cash"
+           | "stripe_connect"
+           | "stripe_direct"
+           | "adyen"
+           | "square"
+           | "paypal";
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  provider: {
+     accountId: string | null;
+     applicationFee:   | {
+        type: "percentage" | "fixed";
+        value: number;
+      }
+        | null;
+     capabilities:   | {
+        maxAmount?: number;
+        minAmount?: number;
+        requiresCustomerAction?: boolean;
+        supportedCurrencies?: string[];
+        supportsDelayedCapture?: boolean;
+        supportsInstantCapture?: boolean;
+        supportsPartialRefunds?: boolean;
+        supportsRefunds?: boolean;
+      }
+        | null;
+     configuration: {
+      [key: string]: unknown;
+     };
+     createdAt: string;
+     description: string | null;
+     feeStructure:   | {
+        currency?: string;
+        fixed?: number;
+        percentage?: number;
+        type: "percentage" | "fixed" | "percentage_plus_fixed";
+      }
+        | null;
+     id: string;
+     integrationServiceUrl: string | null;
+     integrationServiceVersion: string;
+     isDefault: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     organisationId: string;
+     priority: number;
+     status: "active" | "inactive" | "pending_setup";
+     supportedPaymentTypes: (
+        | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+       | "cheque")[];
+     type:   | "bank_transfer"
+        | "cash"
+        | "stripe_connect"
+        | "stripe_direct"
+        | "adyen"
+        | "square"
+        | "paypal";
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.201.content.application/json.provider
+
+```ts
+provider: {
+  accountId: string | null;
+  applicationFee:   | {
+     type: "percentage" | "fixed";
+     value: number;
+   }
+     | null;
+  capabilities:   | {
+     maxAmount?: number;
+     minAmount?: number;
+     requiresCustomerAction?: boolean;
+     supportedCurrencies?: string[];
+     supportsDelayedCapture?: boolean;
+     supportsInstantCapture?: boolean;
+     supportsPartialRefunds?: boolean;
+     supportsRefunds?: boolean;
+   }
+     | null;
+  configuration: {
+   [key: string]: unknown;
+  };
+  createdAt: string;
+  description: string | null;
+  feeStructure:   | {
+     currency?: string;
+     fixed?: number;
+     percentage?: number;
+     type: "percentage" | "fixed" | "percentage_plus_fixed";
+   }
+     | null;
+  id: string;
+  integrationServiceUrl: string | null;
+  integrationServiceVersion: string;
+  isDefault: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  organisationId: string;
+  priority: number;
+  status: "active" | "inactive" | "pending_setup";
+  supportedPaymentTypes: (
+     | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+    | "cheque")[];
+  type:   | "bank_transfer"
+     | "cash"
+     | "stripe_connect"
+     | "stripe_direct"
+     | "adyen"
+     | "square"
+     | "paypal";
+  updatedAt: string;
+};
+```
+
+##### responses.201.content.application/json.provider.accountId
+
+```ts
+accountId: string | null;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### responses.201.content.application/json.provider.applicationFee
+
+```ts
+applicationFee: 
+  | {
+  type: "percentage" | "fixed";
+  value: number;
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  type: "percentage" | "fixed";
+  value: number;
+}
+```
+
+`null`
+
+##### responses.201.content.application/json.provider.capabilities
+
+```ts
+capabilities: 
+  | {
+  maxAmount?: number;
+  minAmount?: number;
+  requiresCustomerAction?: boolean;
+  supportedCurrencies?: string[];
+  supportsDelayedCapture?: boolean;
+  supportsInstantCapture?: boolean;
+  supportsPartialRefunds?: boolean;
+  supportsRefunds?: boolean;
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  maxAmount?: number;
+  minAmount?: number;
+  requiresCustomerAction?: boolean;
+  supportedCurrencies?: string[];
+  supportsDelayedCapture?: boolean;
+  supportsInstantCapture?: boolean;
+  supportsPartialRefunds?: boolean;
+  supportsRefunds?: boolean;
+}
+```
+
+`null`
+
+##### responses.201.content.application/json.provider.configuration
+
+```ts
+configuration: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Provider-specific configuration (sensitive fields redacted)
+
+###### Example
+
+```ts
+{
+             *       "stripeConnectedAccountId": "acct_xxx"
+             *     }
+```
+
+##### responses.201.content.application/json.provider.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.provider.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Primary payment processor for online orders
+```
+
+##### responses.201.content.application/json.provider.feeStructure
+
+```ts
+feeStructure: 
+  | {
+  currency?: string;
+  fixed?: number;
+  percentage?: number;
+  type: "percentage" | "fixed" | "percentage_plus_fixed";
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  currency?: string;
+  fixed?: number;
+  percentage?: number;
+  type: "percentage" | "fixed" | "percentage_plus_fixed";
+}
+```
+
+`null`
+
+##### responses.201.content.application/json.provider.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pp_stripeXxx123
+```
+
+##### responses.201.content.application/json.provider.integrationServiceUrl
+
+```ts
+integrationServiceUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://stripe.paymentintegration.ticketlayer.com
+```
+
+##### responses.201.content.application/json.provider.integrationServiceVersion
+
+```ts
+integrationServiceVersion: string;
+```
+
+###### Example
+
+```ts
+v1
+```
+
+##### responses.201.content.application/json.provider.isDefault
+
+```ts
+isDefault: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.201.content.application/json.provider.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "environment": "production"
+             *     }
+```
+
+##### responses.201.content.application/json.provider.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Main Stripe Account
+```
+
+##### responses.201.content.application/json.provider.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.201.content.application/json.provider.priority
+
+```ts
+priority: number;
+```
+
+###### Example
+
+```ts
+100
+```
+
+##### responses.201.content.application/json.provider.status
+
+```ts
+status: "active" | "inactive" | "pending_setup";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### responses.201.content.application/json.provider.supportedPaymentTypes
+
+```ts
+supportedPaymentTypes: (
+  | "bank_transfer"
+  | "online_card"
+  | "online_bank_transfer"
+  | "online_wallet"
+  | "in_person_card"
+  | "in_person_cash"
+  | "cheque")[];
+```
+
+###### Example
+
+```ts
+[
+      "online_card",
+      "online_wallet"
+    ]
+```
+
+##### responses.201.content.application/json.provider.type
+
+```ts
+type: 
+  | "bank_transfer"
+  | "cash"
+  | "stripe_connect"
+  | "stripe_direct"
+  | "adyen"
+  | "square"
+  | "paypal";
+```
+
+###### Example
+
+```ts
+stripe_connect
+@enum {string}
+```
+
+##### responses.201.content.application/json.provider.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### createPaymentRefund
+
+```ts
+createPaymentRefund: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        paymentId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           amount: number;
+           metadata?: {
+            [key: string]: unknown;
+           };
+           notes?: string;
+           reason: string;
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              refund: {
+                 amount: number;
+                 completedAt: string | null;
+                 createdAt: string;
+                 externalRefundId: string | null;
+                 failedAt: string | null;
+                 failureCode: string | null;
+                 failureMessage: string | null;
+                 id: string;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 notes: string | null;
+                 paymentId: string;
+                 reason: string;
+                 status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:14771
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     paymentId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  paymentId: string;
+};
+```
+
+##### parameters.path.paymentId
+
+```ts
+paymentId: string;
+```
+
+###### Description
+
+Payment ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        amount: number;
+        metadata?: {
+         [key: string]: unknown;
+        };
+        notes?: string;
+        reason: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     amount: number;
+     metadata?: {
+      [key: string]: unknown;
+     };
+     notes?: string;
+     reason: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  amount: number;
+  metadata?: {
+   [key: string]: unknown;
+  };
+  notes?: string;
+  reason: string;
+};
+```
+
+##### requestBody.content.application/json.amount
+
+```ts
+amount: number;
+```
+
+###### Description
+
+Refund amount
+
+###### Example
+
+```ts
+48.5
+```
+
+##### requestBody.content.application/json.metadata?
+
+```ts
+optional metadata: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Custom metadata
+
+###### Example
+
+```ts
+{
+                     *       "ticketNumber": "T-001"
+                     *     }
+```
+
+##### requestBody.content.application/json.notes?
+
+```ts
+optional notes: string;
+```
+
+###### Description
+
+Additional notes
+
+###### Example
+
+```ts
+Customer unable to attend
+```
+
+##### requestBody.content.application/json.reason
+
+```ts
+reason: string;
+```
+
+###### Description
+
+Reason for refund
+
+###### Example
+
+```ts
+requested_by_customer
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           refund: {
+              amount: number;
+              completedAt: string | null;
+              createdAt: string;
+              externalRefundId: string | null;
+              failedAt: string | null;
+              failureCode: string | null;
+              failureMessage: string | null;
+              id: string;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              notes: string | null;
+              paymentId: string;
+              reason: string;
+              status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        refund: {
+           amount: number;
+           completedAt: string | null;
+           createdAt: string;
+           externalRefundId: string | null;
+           failedAt: string | null;
+           failureCode: string | null;
+           failureMessage: string | null;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           notes: string | null;
+           paymentId: string;
+           reason: string;
+           status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Refund created successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     refund: {
+        amount: number;
+        completedAt: string | null;
+        createdAt: string;
+        externalRefundId: string | null;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        notes: string | null;
+        paymentId: string;
+        reason: string;
+        status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  refund: {
+     amount: number;
+     completedAt: string | null;
+     createdAt: string;
+     externalRefundId: string | null;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     notes: string | null;
+     paymentId: string;
+     reason: string;
+     status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.201.content.application/json.refund
+
+```ts
+refund: {
+  amount: number;
+  completedAt: string | null;
+  createdAt: string;
+  externalRefundId: string | null;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  notes: string | null;
+  paymentId: string;
+  reason: string;
+  status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+  updatedAt: string;
+};
+```
+
+##### responses.201.content.application/json.refund.amount
+
+```ts
+amount: number;
+```
+
+###### Example
+
+```ts
+48.5
+```
+
+##### responses.201.content.application/json.refund.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T11:00:00Z
+```
+
+##### responses.201.content.application/json.refund.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:50:00Z
+```
+
+##### responses.201.content.application/json.refund.externalRefundId
+
+```ts
+externalRefundId: string | null;
+```
+
+###### Example
+
+```ts
+re_xxx
+```
+
+##### responses.201.content.application/json.refund.failedAt
+
+```ts
+failedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.refund.failureCode
+
+```ts
+failureCode: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.refund.failureMessage
+
+```ts
+failureMessage: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.refund.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ref_abc123xyz789
+```
+
+##### responses.201.content.application/json.refund.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "ticketNumber": "T-001"
+             *     }
+```
+
+##### responses.201.content.application/json.refund.notes
+
+```ts
+notes: string | null;
+```
+
+###### Example
+
+```ts
+Customer unable to attend
+```
+
+##### responses.201.content.application/json.refund.paymentId
+
+```ts
+paymentId: string;
+```
+
+###### Example
+
+```ts
+pay_abc123xyz789
+```
+
+##### responses.201.content.application/json.refund.reason
+
+```ts
+reason: string;
+```
+
+###### Example
+
+```ts
+requested_by_customer
+```
+
+##### responses.201.content.application/json.refund.status
+
+```ts
+status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+```
+
+###### Example
+
+```ts
+succeeded
+@enum {string}
+```
+
+##### responses.201.content.application/json.refund.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T11:00:00Z
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### createRole
 
 ```ts
@@ -8079,7 +25743,7 @@ createRole: {
 };
 ```
 
-Defined in: generated/types.ts:3573
+Defined in: generated/types.ts:5723
 
 #### parameters
 
@@ -8631,6 +26295,740 @@ headers: {
 
 ***
 
+### createSubscription
+
+```ts
+createSubscription: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        organisationId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           currency?: string;
+           email?: string;
+           interval: "month" | "year";
+           packageId: string;
+           paymentMethodId: string;
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              subscription: {
+                 cancelledAt: string | null;
+                 createdAt: string;
+                 credits: number;
+                 currency: string;
+                 currentPeriodEnd: string | null;
+                 currentPeriodStart: string | null;
+                 endedAt: string | null;
+                 id: string;
+                 interval: "month" | "year";
+                 organisationId: string;
+                 packageId: string;
+                 price: string;
+                 status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:11164
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     organisationId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  organisationId: string;
+};
+```
+
+##### parameters.path.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Description
+
+Organisation ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        currency?: string;
+        email?: string;
+        interval: "month" | "year";
+        packageId: string;
+        paymentMethodId: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     currency?: string;
+     email?: string;
+     interval: "month" | "year";
+     packageId: string;
+     paymentMethodId: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  currency?: string;
+  email?: string;
+  interval: "month" | "year";
+  packageId: string;
+  paymentMethodId: string;
+};
+```
+
+##### requestBody.content.application/json.currency?
+
+```ts
+optional currency: string;
+```
+
+##### requestBody.content.application/json.email?
+
+```ts
+optional email: string;
+```
+
+Format: email
+
+##### requestBody.content.application/json.interval
+
+```ts
+interval: "month" | "year";
+```
+
+##### requestBody.content.application/json.packageId
+
+```ts
+packageId: string;
+```
+
+##### requestBody.content.application/json.paymentMethodId
+
+```ts
+paymentMethodId: string;
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           subscription: {
+              cancelledAt: string | null;
+              createdAt: string;
+              credits: number;
+              currency: string;
+              currentPeriodEnd: string | null;
+              currentPeriodStart: string | null;
+              endedAt: string | null;
+              id: string;
+              interval: "month" | "year";
+              organisationId: string;
+              packageId: string;
+              price: string;
+              status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        subscription: {
+           cancelledAt: string | null;
+           createdAt: string;
+           credits: number;
+           currency: string;
+           currentPeriodEnd: string | null;
+           currentPeriodStart: string | null;
+           endedAt: string | null;
+           id: string;
+           interval: "month" | "year";
+           organisationId: string;
+           packageId: string;
+           price: string;
+           status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Subscription created successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     subscription: {
+        cancelledAt: string | null;
+        createdAt: string;
+        credits: number;
+        currency: string;
+        currentPeriodEnd: string | null;
+        currentPeriodStart: string | null;
+        endedAt: string | null;
+        id: string;
+        interval: "month" | "year";
+        organisationId: string;
+        packageId: string;
+        price: string;
+        status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  subscription: {
+     cancelledAt: string | null;
+     createdAt: string;
+     credits: number;
+     currency: string;
+     currentPeriodEnd: string | null;
+     currentPeriodStart: string | null;
+     endedAt: string | null;
+     id: string;
+     interval: "month" | "year";
+     organisationId: string;
+     packageId: string;
+     price: string;
+     status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.201.content.application/json.subscription
+
+```ts
+subscription: {
+  cancelledAt: string | null;
+  createdAt: string;
+  credits: number;
+  currency: string;
+  currentPeriodEnd: string | null;
+  currentPeriodStart: string | null;
+  endedAt: string | null;
+  id: string;
+  interval: "month" | "year";
+  organisationId: string;
+  packageId: string;
+  price: string;
+  status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+  updatedAt: string;
+};
+```
+
+##### responses.201.content.application/json.subscription.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.subscription.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.subscription.credits
+
+```ts
+credits: number;
+```
+
+###### Example
+
+```ts
+100
+```
+
+##### responses.201.content.application/json.subscription.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+USD
+```
+
+##### responses.201.content.application/json.subscription.currentPeriodEnd
+
+```ts
+currentPeriodEnd: string | null;
+```
+
+###### Example
+
+```ts
+2024-02-15T00:00:00Z
+```
+
+##### responses.201.content.application/json.subscription.currentPeriodStart
+
+```ts
+currentPeriodStart: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T00:00:00Z
+```
+
+##### responses.201.content.application/json.subscription.endedAt
+
+```ts
+endedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.subscription.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sub_abc123
+```
+
+##### responses.201.content.application/json.subscription.interval
+
+```ts
+interval: "month" | "year";
+```
+
+###### Example
+
+```ts
+month
+@enum {string}
+```
+
+##### responses.201.content.application/json.subscription.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+##### responses.201.content.application/json.subscription.packageId
+
+```ts
+packageId: string;
+```
+
+###### Example
+
+```ts
+pkg_100
+```
+
+##### responses.201.content.application/json.subscription.price
+
+```ts
+price: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### responses.201.content.application/json.subscription.status
+
+```ts
+status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### responses.201.content.application/json.subscription.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### createUserInvitation
 
 ```ts
@@ -8706,7 +27104,7 @@ createUserInvitation: {
 };
 ```
 
-Defined in: generated/types.ts:3288
+Defined in: generated/types.ts:5438
 
 #### parameters
 
@@ -9373,7 +27771,7 @@ createVenue: {
 };
 ```
 
-Defined in: generated/types.ts:5700
+Defined in: generated/types.ts:7850
 
 #### parameters
 
@@ -10612,7 +29010,7 @@ createVenueLayout: {
 };
 ```
 
-Defined in: generated/types.ts:6174
+Defined in: generated/types.ts:8324
 
 #### parameters
 
@@ -11984,7 +30382,7 @@ deleteAccount: {
 };
 ```
 
-Defined in: generated/types.ts:2923
+Defined in: generated/types.ts:5073
 
 #### parameters
 
@@ -12403,7 +30801,7 @@ deleteEvent: {
 };
 ```
 
-Defined in: generated/types.ts:4517
+Defined in: generated/types.ts:6667
 
 #### parameters
 
@@ -12823,7 +31221,7 @@ deleteEventOccurrence: {
 };
 ```
 
-Defined in: generated/types.ts:5062
+Defined in: generated/types.ts:7212
 
 #### parameters
 
@@ -13255,7 +31653,7 @@ deleteEventPriceScheme: {
 };
 ```
 
-Defined in: generated/types.ts:5479
+Defined in: generated/types.ts:7629
 
 #### parameters
 
@@ -13627,6 +32025,843 @@ headers: {
 
 ***
 
+### deleteInventory
+
+```ts
+deleteInventory: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        id: string;
+     };
+     query: {
+        accountId: string;
+     };
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              message: string;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:11635
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     id: string;
+  };
+  query: {
+     accountId: string;
+  };
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  id: string;
+};
+```
+
+##### parameters.path.id
+
+```ts
+id: string;
+```
+
+###### Description
+
+Inventory ID
+
+##### parameters.query
+
+```ts
+query: {
+  accountId: string;
+};
+```
+
+##### parameters.query.accountId
+
+```ts
+accountId: string;
+```
+
+###### Description
+
+Account ID
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           message: string;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        message: string;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Inventory deleted successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     message: string;
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  message: string;
+};
+```
+
+##### responses.200.content.application/json.message
+
+```ts
+message: string;
+```
+
+###### Example
+
+```ts
+Inventory deleted successfully
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### deletePaymentProvider
+
+```ts
+deletePaymentProvider: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        providerId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              id: string;
+              success: boolean;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:15266
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     providerId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  providerId: string;
+};
+```
+
+##### parameters.path.providerId
+
+```ts
+providerId: string;
+```
+
+###### Description
+
+Payment Provider ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           id: string;
+           success: boolean;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        id: string;
+        success: boolean;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Payment provider deleted successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     id: string;
+     success: boolean;
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  id: string;
+  success: boolean;
+};
+```
+
+##### responses.200.content.application/json.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pp_stripeXxx123
+```
+
+##### responses.200.content.application/json.success
+
+```ts
+success: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### deleteRole
 
 ```ts
@@ -13686,7 +32921,7 @@ deleteRole: {
 };
 ```
 
-Defined in: generated/types.ts:3690
+Defined in: generated/types.ts:5840
 
 #### parameters
 
@@ -14108,7 +33343,7 @@ deleteSeatFromArea: {
 };
 ```
 
-Defined in: generated/types.ts:8251
+Defined in: generated/types.ts:10401
 
 #### parameters
 
@@ -14557,7 +33792,7 @@ deleteVenue: {
 };
 ```
 
-Defined in: generated/types.ts:5907
+Defined in: generated/types.ts:8057
 
 #### parameters
 
@@ -14977,7 +34212,7 @@ deleteVenueLayout: {
 };
 ```
 
-Defined in: generated/types.ts:6661
+Defined in: generated/types.ts:8811
 
 #### parameters
 
@@ -15410,7 +34645,7 @@ deleteVenueLayoutArea: {
 };
 ```
 
-Defined in: generated/types.ts:7261
+Defined in: generated/types.ts:9411
 
 #### parameters
 
@@ -15849,7 +35084,7 @@ deleteVenueLayoutCategory: {
 };
 ```
 
-Defined in: generated/types.ts:7534
+Defined in: generated/types.ts:9684
 
 #### parameters
 
@@ -16227,6 +35462,761 @@ headers: {
 
 ***
 
+### extendReservation
+
+```ts
+extendReservation: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        id: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           expiresAt: string;
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              reservation: {
+                 accountId: string;
+                 createdAt: string;
+                 expiresAt: string | null;
+                 heldBy: string | null;
+                 id: string;
+                 inventoryId: string;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 organisationId: string;
+                 quantity: number;
+                 reason: string | null;
+                 referenceId: string | null;
+                 referenceType: "subscription" | "order" | "hold" | null;
+                 seatIds: string[] | null;
+                 type: "confirmed" | "maintenance" | "hold" | "temporary";
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:12448
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     id: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  id: string;
+};
+```
+
+##### parameters.path.id
+
+```ts
+id: string;
+```
+
+###### Description
+
+Reservation ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        expiresAt: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     expiresAt: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  expiresAt: string;
+};
+```
+
+##### requestBody.content.application/json.expiresAt
+
+```ts
+expiresAt: string;
+```
+
+Format: date-time
+
+###### Description
+
+New expiration timestamp (ISO 8601)
+
+###### Example
+
+```ts
+2025-01-05T12:00:00Z
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           reservation: {
+              accountId: string;
+              createdAt: string;
+              expiresAt: string | null;
+              heldBy: string | null;
+              id: string;
+              inventoryId: string;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              organisationId: string;
+              quantity: number;
+              reason: string | null;
+              referenceId: string | null;
+              referenceType: "subscription" | "order" | "hold" | null;
+              seatIds: string[] | null;
+              type: "confirmed" | "maintenance" | "hold" | "temporary";
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        reservation: {
+           accountId: string;
+           createdAt: string;
+           expiresAt: string | null;
+           heldBy: string | null;
+           id: string;
+           inventoryId: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           organisationId: string;
+           quantity: number;
+           reason: string | null;
+           referenceId: string | null;
+           referenceType: "subscription" | "order" | "hold" | null;
+           seatIds: string[] | null;
+           type: "confirmed" | "maintenance" | "hold" | "temporary";
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Reservation extended successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     reservation: {
+        accountId: string;
+        createdAt: string;
+        expiresAt: string | null;
+        heldBy: string | null;
+        id: string;
+        inventoryId: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        quantity: number;
+        reason: string | null;
+        referenceId: string | null;
+        referenceType: "subscription" | "order" | "hold" | null;
+        seatIds: string[] | null;
+        type: "confirmed" | "maintenance" | "hold" | "temporary";
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  reservation: {
+     accountId: string;
+     createdAt: string;
+     expiresAt: string | null;
+     heldBy: string | null;
+     id: string;
+     inventoryId: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     quantity: number;
+     reason: string | null;
+     referenceId: string | null;
+     referenceType: "subscription" | "order" | "hold" | null;
+     seatIds: string[] | null;
+     type: "confirmed" | "maintenance" | "hold" | "temporary";
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.reservation
+
+```ts
+reservation: {
+  accountId: string;
+  createdAt: string;
+  expiresAt: string | null;
+  heldBy: string | null;
+  id: string;
+  inventoryId: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  quantity: number;
+  reason: string | null;
+  referenceId: string | null;
+  referenceType: "subscription" | "order" | "hold" | null;
+  seatIds: string[] | null;
+  type: "confirmed" | "maintenance" | "hold" | "temporary";
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.reservation.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### responses.200.content.application/json.reservation.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:30:00Z
+```
+
+##### responses.200.content.application/json.reservation.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:45:00Z
+```
+
+##### responses.200.content.application/json.reservation.heldBy
+
+```ts
+heldBy: string | null;
+```
+
+###### Example
+
+```ts
+usr_abc123
+```
+
+##### responses.200.content.application/json.reservation.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ivr_abc123
+```
+
+##### responses.200.content.application/json.reservation.inventoryId
+
+```ts
+inventoryId: string;
+```
+
+###### Example
+
+```ts
+inv_ghi789
+```
+
+##### responses.200.content.application/json.reservation.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.reservation.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.reservation.quantity
+
+```ts
+quantity: number;
+```
+
+###### Example
+
+```ts
+2
+```
+
+##### responses.200.content.application/json.reservation.reason
+
+```ts
+reason: string | null;
+```
+
+###### Example
+
+```ts
+Customer checkout
+```
+
+##### responses.200.content.application/json.reservation.referenceId
+
+```ts
+referenceId: string | null;
+```
+
+###### Example
+
+```ts
+ord_jkl012
+```
+
+##### responses.200.content.application/json.reservation.referenceType
+
+```ts
+referenceType: "subscription" | "order" | "hold" | null;
+```
+
+###### Description
+
+Type of reference for this reservation
+
+###### Example
+
+```ts
+order
+@enum {string|null}
+```
+
+##### responses.200.content.application/json.reservation.seatIds
+
+```ts
+seatIds: string[] | null;
+```
+
+###### Example
+
+```ts
+[
+      "ivs_abc123",
+      "ivs_def456"
+    ]
+```
+
+##### responses.200.content.application/json.reservation.type
+
+```ts
+type: "confirmed" | "maintenance" | "hold" | "temporary";
+```
+
+###### Description
+
+Type of reservation
+
+###### Example
+
+```ts
+temporary
+@enum {string}
+```
+
+##### responses.200.content.application/json.reservation.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T14:45:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### federate
 
 ```ts
@@ -16296,7 +36286,7 @@ federate: {
 };
 ```
 
-Defined in: generated/types.ts:2329
+Defined in: generated/types.ts:4479
 
 #### parameters
 
@@ -16844,7 +36834,7 @@ generateSeatsForArea: {
 };
 ```
 
-Defined in: generated/types.ts:7988
+Defined in: generated/types.ts:10138
 
 #### parameters
 
@@ -17591,7 +37581,7 @@ getAccount: {
 };
 ```
 
-Defined in: generated/types.ts:2865
+Defined in: generated/types.ts:5015
 
 #### parameters
 
@@ -18054,6 +38044,1095 @@ headers: {
 
 ***
 
+### getAutoTopup
+
+```ts
+getAutoTopup: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        organisationId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              autoTopup:   | {
+                 attemptsToday: number;
+                 createdAt: string;
+                 enabled: boolean;
+                 id: string;
+                 lastAttemptAt: string | null;
+                 maxAttemptsPerDay: number;
+                 organisationId: string;
+                 thresholdCredits: number;
+                 topupPackageId: string;
+                 updatedAt: string;
+               }
+                 | null;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:11286
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     organisationId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  organisationId: string;
+};
+```
+
+##### parameters.path.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Description
+
+Organisation ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           autoTopup:   | {
+              attemptsToday: number;
+              createdAt: string;
+              enabled: boolean;
+              id: string;
+              lastAttemptAt: string | null;
+              maxAttemptsPerDay: number;
+              organisationId: string;
+              thresholdCredits: number;
+              topupPackageId: string;
+              updatedAt: string;
+            }
+              | null;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        autoTopup:   | {
+           attemptsToday: number;
+           createdAt: string;
+           enabled: boolean;
+           id: string;
+           lastAttemptAt: string | null;
+           maxAttemptsPerDay: number;
+           organisationId: string;
+           thresholdCredits: number;
+           topupPackageId: string;
+           updatedAt: string;
+         }
+           | null;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Auto top-up configuration retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     autoTopup:   | {
+        attemptsToday: number;
+        createdAt: string;
+        enabled: boolean;
+        id: string;
+        lastAttemptAt: string | null;
+        maxAttemptsPerDay: number;
+        organisationId: string;
+        thresholdCredits: number;
+        topupPackageId: string;
+        updatedAt: string;
+      }
+        | null;
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  autoTopup:   | {
+     attemptsToday: number;
+     createdAt: string;
+     enabled: boolean;
+     id: string;
+     lastAttemptAt: string | null;
+     maxAttemptsPerDay: number;
+     organisationId: string;
+     thresholdCredits: number;
+     topupPackageId: string;
+     updatedAt: string;
+   }
+     | null;
+};
+```
+
+##### responses.200.content.application/json.autoTopup
+
+```ts
+autoTopup: 
+  | {
+  attemptsToday: number;
+  createdAt: string;
+  enabled: boolean;
+  id: string;
+  lastAttemptAt: string | null;
+  maxAttemptsPerDay: number;
+  organisationId: string;
+  thresholdCredits: number;
+  topupPackageId: string;
+  updatedAt: string;
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  attemptsToday: number;
+  createdAt: string;
+  enabled: boolean;
+  id: string;
+  lastAttemptAt: string | null;
+  maxAttemptsPerDay: number;
+  organisationId: string;
+  thresholdCredits: number;
+  topupPackageId: string;
+  updatedAt: string;
+}
+```
+
+`null`
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### getCreditBalance
+
+```ts
+getCreditBalance: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        organisationId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              balance: {
+                 balance: number;
+                 createdAt: string;
+                 id: string;
+                 isSuspended: boolean;
+                 lifetimeCredits: number;
+                 lifetimeUsed: number;
+                 organisationId: string;
+                 status: "healthy" | "low" | "depleted" | "negative" | "suspended";
+                 suspendedAt: string | null;
+                 suspendedReason: string | null;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:10731
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     organisationId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  organisationId: string;
+};
+```
+
+##### parameters.path.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Description
+
+Organisation ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           balance: {
+              balance: number;
+              createdAt: string;
+              id: string;
+              isSuspended: boolean;
+              lifetimeCredits: number;
+              lifetimeUsed: number;
+              organisationId: string;
+              status: "healthy" | "low" | "depleted" | "negative" | "suspended";
+              suspendedAt: string | null;
+              suspendedReason: string | null;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        balance: {
+           balance: number;
+           createdAt: string;
+           id: string;
+           isSuspended: boolean;
+           lifetimeCredits: number;
+           lifetimeUsed: number;
+           organisationId: string;
+           status: "healthy" | "low" | "depleted" | "negative" | "suspended";
+           suspendedAt: string | null;
+           suspendedReason: string | null;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Credit balance retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     balance: {
+        balance: number;
+        createdAt: string;
+        id: string;
+        isSuspended: boolean;
+        lifetimeCredits: number;
+        lifetimeUsed: number;
+        organisationId: string;
+        status: "healthy" | "low" | "depleted" | "negative" | "suspended";
+        suspendedAt: string | null;
+        suspendedReason: string | null;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  balance: {
+     balance: number;
+     createdAt: string;
+     id: string;
+     isSuspended: boolean;
+     lifetimeCredits: number;
+     lifetimeUsed: number;
+     organisationId: string;
+     status: "healthy" | "low" | "depleted" | "negative" | "suspended";
+     suspendedAt: string | null;
+     suspendedReason: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.balance
+
+```ts
+balance: {
+  balance: number;
+  createdAt: string;
+  id: string;
+  isSuspended: boolean;
+  lifetimeCredits: number;
+  lifetimeUsed: number;
+  organisationId: string;
+  status: "healthy" | "low" | "depleted" | "negative" | "suspended";
+  suspendedAt: string | null;
+  suspendedReason: string | null;
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.balance.balance
+
+```ts
+balance: number;
+```
+
+###### Example
+
+```ts
+150
+```
+
+##### responses.200.content.application/json.balance.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.balance.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+bal_abc123
+```
+
+##### responses.200.content.application/json.balance.isSuspended
+
+```ts
+isSuspended: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.balance.lifetimeCredits
+
+```ts
+lifetimeCredits: number;
+```
+
+###### Example
+
+```ts
+500
+```
+
+##### responses.200.content.application/json.balance.lifetimeUsed
+
+```ts
+lifetimeUsed: number;
+```
+
+###### Example
+
+```ts
+350
+```
+
+##### responses.200.content.application/json.balance.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+##### responses.200.content.application/json.balance.status
+
+```ts
+status: "healthy" | "low" | "depleted" | "negative" | "suspended";
+```
+
+###### Example
+
+```ts
+healthy
+@enum {string}
+```
+
+##### responses.200.content.application/json.balance.suspendedAt
+
+```ts
+suspendedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.balance.suspendedReason
+
+```ts
+suspendedReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.balance.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-20T14:45:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### getCurrentUser
 
 ```ts
@@ -18117,7 +39196,7 @@ getCurrentUser: {
 };
 ```
 
-Defined in: generated/types.ts:2388
+Defined in: generated/types.ts:4538
 
 #### parameters
 
@@ -18550,6 +39629,1725 @@ headers: {
 
 ***
 
+### getCustomer
+
+```ts
+getCustomer: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        customerId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              customer: {
+                 accountId: string | null;
+                 blockedAt: string | null;
+                 blockedReason: string | null;
+                 createdAt: string;
+                 email: string;
+                 externalId: string | null;
+                 firstName: string | null;
+                 id: string;
+                 isBlocked: boolean;
+                 lastName: string | null;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 organisationId: string;
+                 phone: string | null;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:12853
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     customerId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  customerId: string;
+};
+```
+
+##### parameters.path.customerId
+
+```ts
+customerId: string;
+```
+
+###### Description
+
+Customer ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           customer: {
+              accountId: string | null;
+              blockedAt: string | null;
+              blockedReason: string | null;
+              createdAt: string;
+              email: string;
+              externalId: string | null;
+              firstName: string | null;
+              id: string;
+              isBlocked: boolean;
+              lastName: string | null;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              organisationId: string;
+              phone: string | null;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        customer: {
+           accountId: string | null;
+           blockedAt: string | null;
+           blockedReason: string | null;
+           createdAt: string;
+           email: string;
+           externalId: string | null;
+           firstName: string | null;
+           id: string;
+           isBlocked: boolean;
+           lastName: string | null;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           organisationId: string;
+           phone: string | null;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Customer retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     customer: {
+        accountId: string | null;
+        blockedAt: string | null;
+        blockedReason: string | null;
+        createdAt: string;
+        email: string;
+        externalId: string | null;
+        firstName: string | null;
+        id: string;
+        isBlocked: boolean;
+        lastName: string | null;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        phone: string | null;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  customer: {
+     accountId: string | null;
+     blockedAt: string | null;
+     blockedReason: string | null;
+     createdAt: string;
+     email: string;
+     externalId: string | null;
+     firstName: string | null;
+     id: string;
+     isBlocked: boolean;
+     lastName: string | null;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     phone: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.customer
+
+```ts
+customer: {
+  accountId: string | null;
+  blockedAt: string | null;
+  blockedReason: string | null;
+  createdAt: string;
+  email: string;
+  externalId: string | null;
+  firstName: string | null;
+  id: string;
+  isBlocked: boolean;
+  lastName: string | null;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  phone: string | null;
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.customer.accountId
+
+```ts
+accountId: string | null;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### responses.200.content.application/json.customer.blockedAt
+
+```ts
+blockedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.customer.blockedReason
+
+```ts
+blockedReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.customer.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.customer.email
+
+```ts
+email: string;
+```
+
+###### Example
+
+```ts
+customer@example.com
+```
+
+##### responses.200.content.application/json.customer.externalId
+
+```ts
+externalId: string | null;
+```
+
+###### Example
+
+```ts
+ext_cust_12345
+```
+
+##### responses.200.content.application/json.customer.firstName
+
+```ts
+firstName: string | null;
+```
+
+###### Example
+
+```ts
+John
+```
+
+##### responses.200.content.application/json.customer.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### responses.200.content.application/json.customer.isBlocked
+
+```ts
+isBlocked: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.customer.lastName
+
+```ts
+lastName: string | null;
+```
+
+###### Example
+
+```ts
+Doe
+```
+
+##### responses.200.content.application/json.customer.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "loyaltyTier": "gold"
+             *     }
+```
+
+##### responses.200.content.application/json.customer.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.customer.phone
+
+```ts
+phone: string | null;
+```
+
+###### Example
+
+```ts
++44 7700 900000
+```
+
+##### responses.200.content.application/json.customer.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-20T14:45:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### getDefaultPaymentProvider
+
+```ts
+getDefaultPaymentProvider: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              provider: {
+                 accountId: string | null;
+                 applicationFee:   | {
+                    type: "percentage" | "fixed";
+                    value: number;
+                  }
+                    | null;
+                 capabilities:   | {
+                    maxAmount?: number;
+                    minAmount?: number;
+                    requiresCustomerAction?: boolean;
+                    supportedCurrencies?: string[];
+                    supportsDelayedCapture?: boolean;
+                    supportsInstantCapture?: boolean;
+                    supportsPartialRefunds?: boolean;
+                    supportsRefunds?: boolean;
+                  }
+                    | null;
+                 configuration: {
+                  [key: string]: unknown;
+                 };
+                 createdAt: string;
+                 description: string | null;
+                 feeStructure:   | {
+                    currency?: string;
+                    fixed?: number;
+                    percentage?: number;
+                    type: "percentage" | "fixed" | "percentage_plus_fixed";
+                  }
+                    | null;
+                 id: string;
+                 integrationServiceUrl: string | null;
+                 integrationServiceVersion: string;
+                 isDefault: boolean;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 name: string;
+                 organisationId: string;
+                 priority: number;
+                 status: "active" | "inactive" | "pending_setup";
+                 supportedPaymentTypes: (
+                    | "bank_transfer"
+                    | "online_card"
+                    | "online_bank_transfer"
+                    | "online_wallet"
+                    | "in_person_card"
+                    | "in_person_cash"
+                   | "cheque")[];
+                 type:   | "bank_transfer"
+                    | "cash"
+                    | "stripe_connect"
+                    | "stripe_direct"
+                    | "adyen"
+                    | "square"
+                    | "paypal";
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:15153
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           provider: {
+              accountId: string | null;
+              applicationFee:   | {
+                 type: "percentage" | "fixed";
+                 value: number;
+               }
+                 | null;
+              capabilities:   | {
+                 maxAmount?: number;
+                 minAmount?: number;
+                 requiresCustomerAction?: boolean;
+                 supportedCurrencies?: string[];
+                 supportsDelayedCapture?: boolean;
+                 supportsInstantCapture?: boolean;
+                 supportsPartialRefunds?: boolean;
+                 supportsRefunds?: boolean;
+               }
+                 | null;
+              configuration: {
+               [key: string]: unknown;
+              };
+              createdAt: string;
+              description: string | null;
+              feeStructure:   | {
+                 currency?: string;
+                 fixed?: number;
+                 percentage?: number;
+                 type: "percentage" | "fixed" | "percentage_plus_fixed";
+               }
+                 | null;
+              id: string;
+              integrationServiceUrl: string | null;
+              integrationServiceVersion: string;
+              isDefault: boolean;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              name: string;
+              organisationId: string;
+              priority: number;
+              status: "active" | "inactive" | "pending_setup";
+              supportedPaymentTypes: (
+                 | "bank_transfer"
+                 | "online_card"
+                 | "online_bank_transfer"
+                 | "online_wallet"
+                 | "in_person_card"
+                 | "in_person_cash"
+                | "cheque")[];
+              type:   | "bank_transfer"
+                 | "cash"
+                 | "stripe_connect"
+                 | "stripe_direct"
+                 | "adyen"
+                 | "square"
+                 | "paypal";
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        provider: {
+           accountId: string | null;
+           applicationFee:   | {
+              type: "percentage" | "fixed";
+              value: number;
+            }
+              | null;
+           capabilities:   | {
+              maxAmount?: number;
+              minAmount?: number;
+              requiresCustomerAction?: boolean;
+              supportedCurrencies?: string[];
+              supportsDelayedCapture?: boolean;
+              supportsInstantCapture?: boolean;
+              supportsPartialRefunds?: boolean;
+              supportsRefunds?: boolean;
+            }
+              | null;
+           configuration: {
+            [key: string]: unknown;
+           };
+           createdAt: string;
+           description: string | null;
+           feeStructure:   | {
+              currency?: string;
+              fixed?: number;
+              percentage?: number;
+              type: "percentage" | "fixed" | "percentage_plus_fixed";
+            }
+              | null;
+           id: string;
+           integrationServiceUrl: string | null;
+           integrationServiceVersion: string;
+           isDefault: boolean;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           name: string;
+           organisationId: string;
+           priority: number;
+           status: "active" | "inactive" | "pending_setup";
+           supportedPaymentTypes: (
+              | "bank_transfer"
+              | "online_card"
+              | "online_bank_transfer"
+              | "online_wallet"
+              | "in_person_card"
+              | "in_person_cash"
+             | "cheque")[];
+           type:   | "bank_transfer"
+              | "cash"
+              | "stripe_connect"
+              | "stripe_direct"
+              | "adyen"
+              | "square"
+              | "paypal";
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Default payment provider retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     provider: {
+        accountId: string | null;
+        applicationFee:   | {
+           type: "percentage" | "fixed";
+           value: number;
+         }
+           | null;
+        capabilities:   | {
+           maxAmount?: number;
+           minAmount?: number;
+           requiresCustomerAction?: boolean;
+           supportedCurrencies?: string[];
+           supportsDelayedCapture?: boolean;
+           supportsInstantCapture?: boolean;
+           supportsPartialRefunds?: boolean;
+           supportsRefunds?: boolean;
+         }
+           | null;
+        configuration: {
+         [key: string]: unknown;
+        };
+        createdAt: string;
+        description: string | null;
+        feeStructure:   | {
+           currency?: string;
+           fixed?: number;
+           percentage?: number;
+           type: "percentage" | "fixed" | "percentage_plus_fixed";
+         }
+           | null;
+        id: string;
+        integrationServiceUrl: string | null;
+        integrationServiceVersion: string;
+        isDefault: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        organisationId: string;
+        priority: number;
+        status: "active" | "inactive" | "pending_setup";
+        supportedPaymentTypes: (
+           | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+          | "cheque")[];
+        type:   | "bank_transfer"
+           | "cash"
+           | "stripe_connect"
+           | "stripe_direct"
+           | "adyen"
+           | "square"
+           | "paypal";
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  provider: {
+     accountId: string | null;
+     applicationFee:   | {
+        type: "percentage" | "fixed";
+        value: number;
+      }
+        | null;
+     capabilities:   | {
+        maxAmount?: number;
+        minAmount?: number;
+        requiresCustomerAction?: boolean;
+        supportedCurrencies?: string[];
+        supportsDelayedCapture?: boolean;
+        supportsInstantCapture?: boolean;
+        supportsPartialRefunds?: boolean;
+        supportsRefunds?: boolean;
+      }
+        | null;
+     configuration: {
+      [key: string]: unknown;
+     };
+     createdAt: string;
+     description: string | null;
+     feeStructure:   | {
+        currency?: string;
+        fixed?: number;
+        percentage?: number;
+        type: "percentage" | "fixed" | "percentage_plus_fixed";
+      }
+        | null;
+     id: string;
+     integrationServiceUrl: string | null;
+     integrationServiceVersion: string;
+     isDefault: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     organisationId: string;
+     priority: number;
+     status: "active" | "inactive" | "pending_setup";
+     supportedPaymentTypes: (
+        | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+       | "cheque")[];
+     type:   | "bank_transfer"
+        | "cash"
+        | "stripe_connect"
+        | "stripe_direct"
+        | "adyen"
+        | "square"
+        | "paypal";
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.provider
+
+```ts
+provider: {
+  accountId: string | null;
+  applicationFee:   | {
+     type: "percentage" | "fixed";
+     value: number;
+   }
+     | null;
+  capabilities:   | {
+     maxAmount?: number;
+     minAmount?: number;
+     requiresCustomerAction?: boolean;
+     supportedCurrencies?: string[];
+     supportsDelayedCapture?: boolean;
+     supportsInstantCapture?: boolean;
+     supportsPartialRefunds?: boolean;
+     supportsRefunds?: boolean;
+   }
+     | null;
+  configuration: {
+   [key: string]: unknown;
+  };
+  createdAt: string;
+  description: string | null;
+  feeStructure:   | {
+     currency?: string;
+     fixed?: number;
+     percentage?: number;
+     type: "percentage" | "fixed" | "percentage_plus_fixed";
+   }
+     | null;
+  id: string;
+  integrationServiceUrl: string | null;
+  integrationServiceVersion: string;
+  isDefault: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  organisationId: string;
+  priority: number;
+  status: "active" | "inactive" | "pending_setup";
+  supportedPaymentTypes: (
+     | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+    | "cheque")[];
+  type:   | "bank_transfer"
+     | "cash"
+     | "stripe_connect"
+     | "stripe_direct"
+     | "adyen"
+     | "square"
+     | "paypal";
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.provider.accountId
+
+```ts
+accountId: string | null;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### responses.200.content.application/json.provider.applicationFee
+
+```ts
+applicationFee: 
+  | {
+  type: "percentage" | "fixed";
+  value: number;
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  type: "percentage" | "fixed";
+  value: number;
+}
+```
+
+`null`
+
+##### responses.200.content.application/json.provider.capabilities
+
+```ts
+capabilities: 
+  | {
+  maxAmount?: number;
+  minAmount?: number;
+  requiresCustomerAction?: boolean;
+  supportedCurrencies?: string[];
+  supportsDelayedCapture?: boolean;
+  supportsInstantCapture?: boolean;
+  supportsPartialRefunds?: boolean;
+  supportsRefunds?: boolean;
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  maxAmount?: number;
+  minAmount?: number;
+  requiresCustomerAction?: boolean;
+  supportedCurrencies?: string[];
+  supportsDelayedCapture?: boolean;
+  supportsInstantCapture?: boolean;
+  supportsPartialRefunds?: boolean;
+  supportsRefunds?: boolean;
+}
+```
+
+`null`
+
+##### responses.200.content.application/json.provider.configuration
+
+```ts
+configuration: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Provider-specific configuration (sensitive fields redacted)
+
+###### Example
+
+```ts
+{
+             *       "stripeConnectedAccountId": "acct_xxx"
+             *     }
+```
+
+##### responses.200.content.application/json.provider.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.provider.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Primary payment processor for online orders
+```
+
+##### responses.200.content.application/json.provider.feeStructure
+
+```ts
+feeStructure: 
+  | {
+  currency?: string;
+  fixed?: number;
+  percentage?: number;
+  type: "percentage" | "fixed" | "percentage_plus_fixed";
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  currency?: string;
+  fixed?: number;
+  percentage?: number;
+  type: "percentage" | "fixed" | "percentage_plus_fixed";
+}
+```
+
+`null`
+
+##### responses.200.content.application/json.provider.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pp_stripeXxx123
+```
+
+##### responses.200.content.application/json.provider.integrationServiceUrl
+
+```ts
+integrationServiceUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://stripe.paymentintegration.ticketlayer.com
+```
+
+##### responses.200.content.application/json.provider.integrationServiceVersion
+
+```ts
+integrationServiceVersion: string;
+```
+
+###### Example
+
+```ts
+v1
+```
+
+##### responses.200.content.application/json.provider.isDefault
+
+```ts
+isDefault: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.content.application/json.provider.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "environment": "production"
+             *     }
+```
+
+##### responses.200.content.application/json.provider.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Main Stripe Account
+```
+
+##### responses.200.content.application/json.provider.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.provider.priority
+
+```ts
+priority: number;
+```
+
+###### Example
+
+```ts
+100
+```
+
+##### responses.200.content.application/json.provider.status
+
+```ts
+status: "active" | "inactive" | "pending_setup";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### responses.200.content.application/json.provider.supportedPaymentTypes
+
+```ts
+supportedPaymentTypes: (
+  | "bank_transfer"
+  | "online_card"
+  | "online_bank_transfer"
+  | "online_wallet"
+  | "in_person_card"
+  | "in_person_cash"
+  | "cheque")[];
+```
+
+###### Example
+
+```ts
+[
+      "online_card",
+      "online_wallet"
+    ]
+```
+
+##### responses.200.content.application/json.provider.type
+
+```ts
+type: 
+  | "bank_transfer"
+  | "cash"
+  | "stripe_connect"
+  | "stripe_direct"
+  | "adyen"
+  | "square"
+  | "paypal";
+```
+
+###### Example
+
+```ts
+stripe_connect
+@enum {string}
+```
+
+##### responses.200.content.application/json.provider.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### getEvent
 
 ```ts
@@ -18634,7 +41432,7 @@ getEvent: {
 };
 ```
 
-Defined in: generated/types.ts:4456
+Defined in: generated/types.ts:6606
 
 #### parameters
 
@@ -19406,7 +42204,7 @@ getEventOccurrence: {
 };
 ```
 
-Defined in: generated/types.ts:5002
+Defined in: generated/types.ts:7152
 
 #### parameters
 
@@ -20077,7 +42875,7 @@ getEventPriceScheme: {
 };
 ```
 
-Defined in: generated/types.ts:5419
+Defined in: generated/types.ts:7569
 
 #### parameters
 
@@ -20749,7 +43547,7 @@ getIdentityProvider: {
 };
 ```
 
-Defined in: generated/types.ts:3112
+Defined in: generated/types.ts:5262
 
 #### parameters
 
@@ -21488,6 +44286,1982 @@ headers: {
 
 ***
 
+### getInventory
+
+```ts
+getInventory: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        id: string;
+     };
+     query: {
+        accountId: string;
+     };
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              inventory: {
+                 accountId: string;
+                 available: number;
+                 confirmed: number;
+                 createdAt: string;
+                 eventId: string | null;
+                 eventLayoutAreaId: string | null;
+                 eventOccurrenceId: string | null;
+                 held: number;
+                 id: string;
+                 isAllocated: boolean;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 organisationId: string;
+                 productId: string | null;
+                 reserved: number;
+                 sourceType: "event_occurrence_area" | "product";
+                 totalCapacity: number;
+                 updatedAt: string;
+                 version: number;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:11574
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     id: string;
+  };
+  query: {
+     accountId: string;
+  };
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  id: string;
+};
+```
+
+##### parameters.path.id
+
+```ts
+id: string;
+```
+
+###### Description
+
+Inventory ID
+
+##### parameters.query
+
+```ts
+query: {
+  accountId: string;
+};
+```
+
+##### parameters.query.accountId
+
+```ts
+accountId: string;
+```
+
+###### Description
+
+Account ID
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           inventory: {
+              accountId: string;
+              available: number;
+              confirmed: number;
+              createdAt: string;
+              eventId: string | null;
+              eventLayoutAreaId: string | null;
+              eventOccurrenceId: string | null;
+              held: number;
+              id: string;
+              isAllocated: boolean;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              organisationId: string;
+              productId: string | null;
+              reserved: number;
+              sourceType: "event_occurrence_area" | "product";
+              totalCapacity: number;
+              updatedAt: string;
+              version: number;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        inventory: {
+           accountId: string;
+           available: number;
+           confirmed: number;
+           createdAt: string;
+           eventId: string | null;
+           eventLayoutAreaId: string | null;
+           eventOccurrenceId: string | null;
+           held: number;
+           id: string;
+           isAllocated: boolean;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           organisationId: string;
+           productId: string | null;
+           reserved: number;
+           sourceType: "event_occurrence_area" | "product";
+           totalCapacity: number;
+           updatedAt: string;
+           version: number;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Inventory retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     inventory: {
+        accountId: string;
+        available: number;
+        confirmed: number;
+        createdAt: string;
+        eventId: string | null;
+        eventLayoutAreaId: string | null;
+        eventOccurrenceId: string | null;
+        held: number;
+        id: string;
+        isAllocated: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        productId: string | null;
+        reserved: number;
+        sourceType: "event_occurrence_area" | "product";
+        totalCapacity: number;
+        updatedAt: string;
+        version: number;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  inventory: {
+     accountId: string;
+     available: number;
+     confirmed: number;
+     createdAt: string;
+     eventId: string | null;
+     eventLayoutAreaId: string | null;
+     eventOccurrenceId: string | null;
+     held: number;
+     id: string;
+     isAllocated: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     productId: string | null;
+     reserved: number;
+     sourceType: "event_occurrence_area" | "product";
+     totalCapacity: number;
+     updatedAt: string;
+     version: number;
+  };
+};
+```
+
+##### responses.200.content.application/json.inventory
+
+```ts
+inventory: {
+  accountId: string;
+  available: number;
+  confirmed: number;
+  createdAt: string;
+  eventId: string | null;
+  eventLayoutAreaId: string | null;
+  eventOccurrenceId: string | null;
+  held: number;
+  id: string;
+  isAllocated: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  productId: string | null;
+  reserved: number;
+  sourceType: "event_occurrence_area" | "product";
+  totalCapacity: number;
+  updatedAt: string;
+  version: number;
+};
+```
+
+##### responses.200.content.application/json.inventory.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### responses.200.content.application/json.inventory.available
+
+```ts
+available: number;
+```
+
+###### Example
+
+```ts
+450
+```
+
+##### responses.200.content.application/json.inventory.confirmed
+
+```ts
+confirmed: number;
+```
+
+###### Example
+
+```ts
+20
+```
+
+##### responses.200.content.application/json.inventory.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:30:00Z
+```
+
+##### responses.200.content.application/json.inventory.eventId
+
+```ts
+eventId: string | null;
+```
+
+###### Example
+
+```ts
+evt_ghi789
+```
+
+##### responses.200.content.application/json.inventory.eventLayoutAreaId
+
+```ts
+eventLayoutAreaId: string | null;
+```
+
+###### Example
+
+```ts
+ela_mno345
+```
+
+##### responses.200.content.application/json.inventory.eventOccurrenceId
+
+```ts
+eventOccurrenceId: string | null;
+```
+
+###### Example
+
+```ts
+evo_jkl012
+```
+
+##### responses.200.content.application/json.inventory.held
+
+```ts
+held: number;
+```
+
+###### Example
+
+```ts
+0
+```
+
+##### responses.200.content.application/json.inventory.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### responses.200.content.application/json.inventory.isAllocated
+
+```ts
+isAllocated: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.inventory.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.inventory.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.inventory.productId
+
+```ts
+productId: string | null;
+```
+
+###### Example
+
+```ts
+prd_pqr678
+```
+
+##### responses.200.content.application/json.inventory.reserved
+
+```ts
+reserved: number;
+```
+
+###### Example
+
+```ts
+30
+```
+
+##### responses.200.content.application/json.inventory.sourceType
+
+```ts
+sourceType: "event_occurrence_area" | "product";
+```
+
+###### Description
+
+Type of inventory source
+
+###### Example
+
+```ts
+event_occurrence_area
+@enum {string}
+```
+
+##### responses.200.content.application/json.inventory.totalCapacity
+
+```ts
+totalCapacity: number;
+```
+
+###### Example
+
+```ts
+500
+```
+
+##### responses.200.content.application/json.inventory.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T14:45:00Z
+```
+
+##### responses.200.content.application/json.inventory.version
+
+```ts
+version: number;
+```
+
+###### Example
+
+```ts
+1
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### getInventoryAuditLog
+
+```ts
+getInventoryAuditLog: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        id: string;
+     };
+     query: {
+        accountId: string;
+     };
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              auditLog: {
+                 action: string;
+                 actorId: string | null;
+                 actorType: string | null;
+                 changes: {
+                  [key: string]: unknown;
+                 };
+                 createdAt: string;
+                 id: number;
+                 inventoryId: string;
+                 referenceId: string | null;
+                 referenceType: string | null;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:11769
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     id: string;
+  };
+  query: {
+     accountId: string;
+  };
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  id: string;
+};
+```
+
+##### parameters.path.id
+
+```ts
+id: string;
+```
+
+###### Description
+
+Inventory ID
+
+##### parameters.query
+
+```ts
+query: {
+  accountId: string;
+};
+```
+
+##### parameters.query.accountId
+
+```ts
+accountId: string;
+```
+
+###### Description
+
+Account ID
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           auditLog: {
+              action: string;
+              actorId: string | null;
+              actorType: string | null;
+              changes: {
+               [key: string]: unknown;
+              };
+              createdAt: string;
+              id: number;
+              inventoryId: string;
+              referenceId: string | null;
+              referenceType: string | null;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        auditLog: {
+           action: string;
+           actorId: string | null;
+           actorType: string | null;
+           changes: {
+            [key: string]: unknown;
+           };
+           createdAt: string;
+           id: number;
+           inventoryId: string;
+           referenceId: string | null;
+           referenceType: string | null;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Audit log retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     auditLog: {
+        action: string;
+        actorId: string | null;
+        actorType: string | null;
+        changes: {
+         [key: string]: unknown;
+        };
+        createdAt: string;
+        id: number;
+        inventoryId: string;
+        referenceId: string | null;
+        referenceType: string | null;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  auditLog: {
+     action: string;
+     actorId: string | null;
+     actorType: string | null;
+     changes: {
+      [key: string]: unknown;
+     };
+     createdAt: string;
+     id: number;
+     inventoryId: string;
+     referenceId: string | null;
+     referenceType: string | null;
+  }[];
+};
+```
+
+##### responses.200.content.application/json.auditLog
+
+```ts
+auditLog: {
+  action: string;
+  actorId: string | null;
+  actorType: string | null;
+  changes: {
+   [key: string]: unknown;
+  };
+  createdAt: string;
+  id: number;
+  inventoryId: string;
+  referenceId: string | null;
+  referenceType: string | null;
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### getInvoice
+
+```ts
+getInvoice: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        invoiceId: string;
+        organisationId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              invoice: {
+                 amountDue: string;
+                 amountPaid: string;
+                 createdAt: string;
+                 currency: string;
+                 dueDate: string | null;
+                 id: string;
+                 invoiceNumber: string;
+                 issueDate: string;
+                 organisationId: string;
+                 paidAt: string | null;
+                 pdfUrl: string | null;
+                 status: "draft" | "open" | "paid" | "void" | "uncollectible";
+                 subtotal: string;
+                 tax: string;
+                 total: string;
+                 type: "purchase" | "subscription" | "payg";
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:10981
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     invoiceId: string;
+     organisationId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  invoiceId: string;
+  organisationId: string;
+};
+```
+
+##### parameters.path.invoiceId
+
+```ts
+invoiceId: string;
+```
+
+###### Description
+
+Invoice ID
+
+##### parameters.path.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Description
+
+Organisation ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           invoice: {
+              amountDue: string;
+              amountPaid: string;
+              createdAt: string;
+              currency: string;
+              dueDate: string | null;
+              id: string;
+              invoiceNumber: string;
+              issueDate: string;
+              organisationId: string;
+              paidAt: string | null;
+              pdfUrl: string | null;
+              status: "draft" | "open" | "paid" | "void" | "uncollectible";
+              subtotal: string;
+              tax: string;
+              total: string;
+              type: "purchase" | "subscription" | "payg";
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        invoice: {
+           amountDue: string;
+           amountPaid: string;
+           createdAt: string;
+           currency: string;
+           dueDate: string | null;
+           id: string;
+           invoiceNumber: string;
+           issueDate: string;
+           organisationId: string;
+           paidAt: string | null;
+           pdfUrl: string | null;
+           status: "draft" | "open" | "paid" | "void" | "uncollectible";
+           subtotal: string;
+           tax: string;
+           total: string;
+           type: "purchase" | "subscription" | "payg";
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Invoice retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     invoice: {
+        amountDue: string;
+        amountPaid: string;
+        createdAt: string;
+        currency: string;
+        dueDate: string | null;
+        id: string;
+        invoiceNumber: string;
+        issueDate: string;
+        organisationId: string;
+        paidAt: string | null;
+        pdfUrl: string | null;
+        status: "draft" | "open" | "paid" | "void" | "uncollectible";
+        subtotal: string;
+        tax: string;
+        total: string;
+        type: "purchase" | "subscription" | "payg";
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  invoice: {
+     amountDue: string;
+     amountPaid: string;
+     createdAt: string;
+     currency: string;
+     dueDate: string | null;
+     id: string;
+     invoiceNumber: string;
+     issueDate: string;
+     organisationId: string;
+     paidAt: string | null;
+     pdfUrl: string | null;
+     status: "draft" | "open" | "paid" | "void" | "uncollectible";
+     subtotal: string;
+     tax: string;
+     total: string;
+     type: "purchase" | "subscription" | "payg";
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.invoice
+
+```ts
+invoice: {
+  amountDue: string;
+  amountPaid: string;
+  createdAt: string;
+  currency: string;
+  dueDate: string | null;
+  id: string;
+  invoiceNumber: string;
+  issueDate: string;
+  organisationId: string;
+  paidAt: string | null;
+  pdfUrl: string | null;
+  status: "draft" | "open" | "paid" | "void" | "uncollectible";
+  subtotal: string;
+  tax: string;
+  total: string;
+  type: "purchase" | "subscription" | "payg";
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.invoice.amountDue
+
+```ts
+amountDue: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### responses.200.content.application/json.invoice.amountPaid
+
+```ts
+amountPaid: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### responses.200.content.application/json.invoice.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.invoice.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+USD
+```
+
+##### responses.200.content.application/json.invoice.dueDate
+
+```ts
+dueDate: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-30
+```
+
+##### responses.200.content.application/json.invoice.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### responses.200.content.application/json.invoice.invoiceNumber
+
+```ts
+invoiceNumber: string;
+```
+
+###### Example
+
+```ts
+INV-2024-0001
+```
+
+##### responses.200.content.application/json.invoice.issueDate
+
+```ts
+issueDate: string;
+```
+
+###### Example
+
+```ts
+2024-01-15
+```
+
+##### responses.200.content.application/json.invoice.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+##### responses.200.content.application/json.invoice.paidAt
+
+```ts
+paidAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+##### responses.200.content.application/json.invoice.pdfUrl
+
+```ts
+pdfUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://invoice.stripe.com/...
+```
+
+##### responses.200.content.application/json.invoice.status
+
+```ts
+status: "draft" | "open" | "paid" | "void" | "uncollectible";
+```
+
+###### Example
+
+```ts
+paid
+@enum {string}
+```
+
+##### responses.200.content.application/json.invoice.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### responses.200.content.application/json.invoice.tax
+
+```ts
+tax: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### responses.200.content.application/json.invoice.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### responses.200.content.application/json.invoice.type
+
+```ts
+type: "purchase" | "subscription" | "payg";
+```
+
+###### Example
+
+```ts
+purchase
+@enum {string}
+```
+
+##### responses.200.content.application/json.invoice.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### getMyOrganisations
 
 ```ts
@@ -21551,7 +46325,7 @@ getMyOrganisations: {
 };
 ```
 
-Defined in: generated/types.ts:2443
+Defined in: generated/types.ts:4593
 
 #### parameters
 
@@ -21978,7 +46752,7 @@ getMyPermissions: {
 };
 ```
 
-Defined in: generated/types.ts:2553
+Defined in: generated/types.ts:4703
 
 #### parameters
 
@@ -22476,7 +47250,7 @@ getMyRoles: {
 };
 ```
 
-Defined in: generated/types.ts:2498
+Defined in: generated/types.ts:4648
 
 #### parameters
 
@@ -22850,6 +47624,2776 @@ headers: {
 
 ***
 
+### getOrder
+
+```ts
+getOrder: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        orderId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              order: {
+                 accountId: string;
+                 cancellationReason: string | null;
+                 cancelledAt: string | null;
+                 channel: string | null;
+                 completedAt: string | null;
+                 confirmedAt: string | null;
+                 createdAt: string;
+                 currency: string;
+                 customerId: string | null;
+                 customerNotes: string | null;
+                 discountTotal: string;
+                 expiresAt: string | null;
+                 feeTotal: string;
+                 id: string;
+                 internalNotes: string | null;
+                 isGuestCheckout: boolean;
+                 items?: {
+                    createdAt: string;
+                    description: string | null;
+                    feeDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    id: string;
+                    metadata:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    name: string;
+                    orderId: string;
+                    productDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    quantity: number;
+                    ticketDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    totalPrice: string;
+                    type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+                    unitPrice: string;
+                    updatedAt: string;
+                 }[];
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 orderNumber: string;
+                 organisationId: string;
+                 status:   | "completed"
+                    | "cancelled"
+                    | "pending"
+                    | "failed"
+                    | "refunded"
+                    | "confirmed"
+                    | "processing"
+                    | "expired";
+                 subtotal: string;
+                 taxTotal: string;
+                 total: string;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:13386
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     orderId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  orderId: string;
+};
+```
+
+##### parameters.path.orderId
+
+```ts
+orderId: string;
+```
+
+###### Description
+
+Order ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           order: {
+              accountId: string;
+              cancellationReason: string | null;
+              cancelledAt: string | null;
+              channel: string | null;
+              completedAt: string | null;
+              confirmedAt: string | null;
+              createdAt: string;
+              currency: string;
+              customerId: string | null;
+              customerNotes: string | null;
+              discountTotal: string;
+              expiresAt: string | null;
+              feeTotal: string;
+              id: string;
+              internalNotes: string | null;
+              isGuestCheckout: boolean;
+              items?: {
+                 createdAt: string;
+                 description: string | null;
+                 feeDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 id: string;
+                 metadata:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 name: string;
+                 orderId: string;
+                 productDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 quantity: number;
+                 ticketDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 totalPrice: string;
+                 type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+                 unitPrice: string;
+                 updatedAt: string;
+              }[];
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              orderNumber: string;
+              organisationId: string;
+              status:   | "completed"
+                 | "cancelled"
+                 | "pending"
+                 | "failed"
+                 | "refunded"
+                 | "confirmed"
+                 | "processing"
+                 | "expired";
+              subtotal: string;
+              taxTotal: string;
+              total: string;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        order: {
+           accountId: string;
+           cancellationReason: string | null;
+           cancelledAt: string | null;
+           channel: string | null;
+           completedAt: string | null;
+           confirmedAt: string | null;
+           createdAt: string;
+           currency: string;
+           customerId: string | null;
+           customerNotes: string | null;
+           discountTotal: string;
+           expiresAt: string | null;
+           feeTotal: string;
+           id: string;
+           internalNotes: string | null;
+           isGuestCheckout: boolean;
+           items?: {
+              createdAt: string;
+              description: string | null;
+              feeDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              id: string;
+              metadata:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              name: string;
+              orderId: string;
+              productDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              quantity: number;
+              ticketDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              totalPrice: string;
+              type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+              unitPrice: string;
+              updatedAt: string;
+           }[];
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           orderNumber: string;
+           organisationId: string;
+           status:   | "completed"
+              | "cancelled"
+              | "pending"
+              | "failed"
+              | "refunded"
+              | "confirmed"
+              | "processing"
+              | "expired";
+           subtotal: string;
+           taxTotal: string;
+           total: string;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Order retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     order: {
+        accountId: string;
+        cancellationReason: string | null;
+        cancelledAt: string | null;
+        channel: string | null;
+        completedAt: string | null;
+        confirmedAt: string | null;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        customerNotes: string | null;
+        discountTotal: string;
+        expiresAt: string | null;
+        feeTotal: string;
+        id: string;
+        internalNotes: string | null;
+        isGuestCheckout: boolean;
+        items?: {
+           createdAt: string;
+           description: string | null;
+           feeDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           id: string;
+           metadata:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           name: string;
+           orderId: string;
+           productDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           quantity: number;
+           ticketDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           totalPrice: string;
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+           updatedAt: string;
+        }[];
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderNumber: string;
+        organisationId: string;
+        status:   | "completed"
+           | "cancelled"
+           | "pending"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+        subtotal: string;
+        taxTotal: string;
+        total: string;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  order: {
+     accountId: string;
+     cancellationReason: string | null;
+     cancelledAt: string | null;
+     channel: string | null;
+     completedAt: string | null;
+     confirmedAt: string | null;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     customerNotes: string | null;
+     discountTotal: string;
+     expiresAt: string | null;
+     feeTotal: string;
+     id: string;
+     internalNotes: string | null;
+     isGuestCheckout: boolean;
+     items?: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     }[];
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderNumber: string;
+     organisationId: string;
+     status:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     subtotal: string;
+     taxTotal: string;
+     total: string;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.order
+
+```ts
+order: {
+  accountId: string;
+  cancellationReason: string | null;
+  cancelledAt: string | null;
+  channel: string | null;
+  completedAt: string | null;
+  confirmedAt: string | null;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  customerNotes: string | null;
+  discountTotal: string;
+  expiresAt: string | null;
+  feeTotal: string;
+  id: string;
+  internalNotes: string | null;
+  isGuestCheckout: boolean;
+  items?: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  }[];
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderNumber: string;
+  organisationId: string;
+  status:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  subtotal: string;
+  taxTotal: string;
+  total: string;
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.order.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### responses.200.content.application/json.order.cancellationReason
+
+```ts
+cancellationReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.channel
+
+```ts
+channel: string | null;
+```
+
+###### Example
+
+```ts
+web
+```
+
+##### responses.200.content.application/json.order.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.confirmedAt
+
+```ts
+confirmedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.order.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### responses.200.content.application/json.order.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### responses.200.content.application/json.order.customerNotes
+
+```ts
+customerNotes: string | null;
+```
+
+###### Example
+
+```ts
+Please contact me before delivery
+```
+
+##### responses.200.content.application/json.order.discountTotal
+
+```ts
+discountTotal: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### responses.200.content.application/json.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+##### responses.200.content.application/json.order.feeTotal
+
+```ts
+feeTotal: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### responses.200.content.application/json.order.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### responses.200.content.application/json.order.internalNotes
+
+```ts
+internalNotes: string | null;
+```
+
+###### Example
+
+```ts
+VIP customer
+```
+
+##### responses.200.content.application/json.order.isGuestCheckout
+
+```ts
+isGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.order.items?
+
+```ts
+optional items: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+}[];
+```
+
+###### Description
+
+Order line items
+
+##### responses.200.content.application/json.order.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "promoCode": "SUMMER20"
+             *     }
+```
+
+##### responses.200.content.application/json.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### responses.200.content.application/json.order.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.order.status
+
+```ts
+status: 
+  | "completed"
+  | "cancelled"
+  | "pending"
+  | "failed"
+  | "refunded"
+  | "confirmed"
+  | "processing"
+  | "expired";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+##### responses.200.content.application/json.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### responses.200.content.application/json.order.taxTotal
+
+```ts
+taxTotal: string;
+```
+
+###### Example
+
+```ts
+10.00
+```
+
+##### responses.200.content.application/json.order.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+62.50
+```
+
+##### responses.200.content.application/json.order.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### getOrderByNumber
+
+```ts
+getOrderByNumber: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        orderNumber: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              order: {
+                 accountId: string;
+                 cancellationReason: string | null;
+                 cancelledAt: string | null;
+                 channel: string | null;
+                 completedAt: string | null;
+                 confirmedAt: string | null;
+                 createdAt: string;
+                 currency: string;
+                 customerId: string | null;
+                 customerNotes: string | null;
+                 discountTotal: string;
+                 expiresAt: string | null;
+                 feeTotal: string;
+                 id: string;
+                 internalNotes: string | null;
+                 isGuestCheckout: boolean;
+                 items?: {
+                    createdAt: string;
+                    description: string | null;
+                    feeDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    id: string;
+                    metadata:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    name: string;
+                    orderId: string;
+                    productDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    quantity: number;
+                    ticketDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    totalPrice: string;
+                    type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+                    unitPrice: string;
+                    updatedAt: string;
+                 }[];
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 orderNumber: string;
+                 organisationId: string;
+                 status:   | "completed"
+                    | "cancelled"
+                    | "pending"
+                    | "failed"
+                    | "refunded"
+                    | "confirmed"
+                    | "processing"
+                    | "expired";
+                 subtotal: string;
+                 taxTotal: string;
+                 total: string;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:13641
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     orderNumber: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  orderNumber: string;
+};
+```
+
+##### parameters.path.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Description
+
+Order number
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           order: {
+              accountId: string;
+              cancellationReason: string | null;
+              cancelledAt: string | null;
+              channel: string | null;
+              completedAt: string | null;
+              confirmedAt: string | null;
+              createdAt: string;
+              currency: string;
+              customerId: string | null;
+              customerNotes: string | null;
+              discountTotal: string;
+              expiresAt: string | null;
+              feeTotal: string;
+              id: string;
+              internalNotes: string | null;
+              isGuestCheckout: boolean;
+              items?: {
+                 createdAt: string;
+                 description: string | null;
+                 feeDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 id: string;
+                 metadata:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 name: string;
+                 orderId: string;
+                 productDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 quantity: number;
+                 ticketDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 totalPrice: string;
+                 type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+                 unitPrice: string;
+                 updatedAt: string;
+              }[];
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              orderNumber: string;
+              organisationId: string;
+              status:   | "completed"
+                 | "cancelled"
+                 | "pending"
+                 | "failed"
+                 | "refunded"
+                 | "confirmed"
+                 | "processing"
+                 | "expired";
+              subtotal: string;
+              taxTotal: string;
+              total: string;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        order: {
+           accountId: string;
+           cancellationReason: string | null;
+           cancelledAt: string | null;
+           channel: string | null;
+           completedAt: string | null;
+           confirmedAt: string | null;
+           createdAt: string;
+           currency: string;
+           customerId: string | null;
+           customerNotes: string | null;
+           discountTotal: string;
+           expiresAt: string | null;
+           feeTotal: string;
+           id: string;
+           internalNotes: string | null;
+           isGuestCheckout: boolean;
+           items?: {
+              createdAt: string;
+              description: string | null;
+              feeDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              id: string;
+              metadata:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              name: string;
+              orderId: string;
+              productDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              quantity: number;
+              ticketDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              totalPrice: string;
+              type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+              unitPrice: string;
+              updatedAt: string;
+           }[];
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           orderNumber: string;
+           organisationId: string;
+           status:   | "completed"
+              | "cancelled"
+              | "pending"
+              | "failed"
+              | "refunded"
+              | "confirmed"
+              | "processing"
+              | "expired";
+           subtotal: string;
+           taxTotal: string;
+           total: string;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Order retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     order: {
+        accountId: string;
+        cancellationReason: string | null;
+        cancelledAt: string | null;
+        channel: string | null;
+        completedAt: string | null;
+        confirmedAt: string | null;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        customerNotes: string | null;
+        discountTotal: string;
+        expiresAt: string | null;
+        feeTotal: string;
+        id: string;
+        internalNotes: string | null;
+        isGuestCheckout: boolean;
+        items?: {
+           createdAt: string;
+           description: string | null;
+           feeDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           id: string;
+           metadata:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           name: string;
+           orderId: string;
+           productDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           quantity: number;
+           ticketDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           totalPrice: string;
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+           updatedAt: string;
+        }[];
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderNumber: string;
+        organisationId: string;
+        status:   | "completed"
+           | "cancelled"
+           | "pending"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+        subtotal: string;
+        taxTotal: string;
+        total: string;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  order: {
+     accountId: string;
+     cancellationReason: string | null;
+     cancelledAt: string | null;
+     channel: string | null;
+     completedAt: string | null;
+     confirmedAt: string | null;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     customerNotes: string | null;
+     discountTotal: string;
+     expiresAt: string | null;
+     feeTotal: string;
+     id: string;
+     internalNotes: string | null;
+     isGuestCheckout: boolean;
+     items?: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     }[];
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderNumber: string;
+     organisationId: string;
+     status:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     subtotal: string;
+     taxTotal: string;
+     total: string;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.order
+
+```ts
+order: {
+  accountId: string;
+  cancellationReason: string | null;
+  cancelledAt: string | null;
+  channel: string | null;
+  completedAt: string | null;
+  confirmedAt: string | null;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  customerNotes: string | null;
+  discountTotal: string;
+  expiresAt: string | null;
+  feeTotal: string;
+  id: string;
+  internalNotes: string | null;
+  isGuestCheckout: boolean;
+  items?: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  }[];
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderNumber: string;
+  organisationId: string;
+  status:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  subtotal: string;
+  taxTotal: string;
+  total: string;
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.order.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### responses.200.content.application/json.order.cancellationReason
+
+```ts
+cancellationReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.channel
+
+```ts
+channel: string | null;
+```
+
+###### Example
+
+```ts
+web
+```
+
+##### responses.200.content.application/json.order.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.confirmedAt
+
+```ts
+confirmedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.order.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### responses.200.content.application/json.order.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### responses.200.content.application/json.order.customerNotes
+
+```ts
+customerNotes: string | null;
+```
+
+###### Example
+
+```ts
+Please contact me before delivery
+```
+
+##### responses.200.content.application/json.order.discountTotal
+
+```ts
+discountTotal: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### responses.200.content.application/json.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+##### responses.200.content.application/json.order.feeTotal
+
+```ts
+feeTotal: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### responses.200.content.application/json.order.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### responses.200.content.application/json.order.internalNotes
+
+```ts
+internalNotes: string | null;
+```
+
+###### Example
+
+```ts
+VIP customer
+```
+
+##### responses.200.content.application/json.order.isGuestCheckout
+
+```ts
+isGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.order.items?
+
+```ts
+optional items: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+}[];
+```
+
+###### Description
+
+Order line items
+
+##### responses.200.content.application/json.order.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "promoCode": "SUMMER20"
+             *     }
+```
+
+##### responses.200.content.application/json.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### responses.200.content.application/json.order.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.order.status
+
+```ts
+status: 
+  | "completed"
+  | "cancelled"
+  | "pending"
+  | "failed"
+  | "refunded"
+  | "confirmed"
+  | "processing"
+  | "expired";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+##### responses.200.content.application/json.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### responses.200.content.application/json.order.taxTotal
+
+```ts
+taxTotal: string;
+```
+
+###### Example
+
+```ts
+10.00
+```
+
+##### responses.200.content.application/json.order.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+62.50
+```
+
+##### responses.200.content.application/json.order.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### getOrderPaymentStatus
+
+```ts
+getOrderPaymentStatus: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        orderId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              amount: string | null;
+              currency: string | null;
+              failedAt: string | null;
+              failureReason: string | null;
+              paidAt: string | null;
+              paymentId: string | null;
+              status:   | "cancelled"
+                 | "pending"
+                 | "succeeded"
+                 | "failed"
+                 | "processing"
+                 | "requires_action"
+                 | "none";
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:14255
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     orderId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  orderId: string;
+};
+```
+
+##### parameters.path.orderId
+
+```ts
+orderId: string;
+```
+
+###### Description
+
+Order ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           amount: string | null;
+           currency: string | null;
+           failedAt: string | null;
+           failureReason: string | null;
+           paidAt: string | null;
+           paymentId: string | null;
+           status:   | "cancelled"
+              | "pending"
+              | "succeeded"
+              | "failed"
+              | "processing"
+              | "requires_action"
+              | "none";
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        amount: string | null;
+        currency: string | null;
+        failedAt: string | null;
+        failureReason: string | null;
+        paidAt: string | null;
+        paymentId: string | null;
+        status:   | "cancelled"
+           | "pending"
+           | "succeeded"
+           | "failed"
+           | "processing"
+           | "requires_action"
+           | "none";
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Payment status retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     amount: string | null;
+     currency: string | null;
+     failedAt: string | null;
+     failureReason: string | null;
+     paidAt: string | null;
+     paymentId: string | null;
+     status:   | "cancelled"
+        | "pending"
+        | "succeeded"
+        | "failed"
+        | "processing"
+        | "requires_action"
+        | "none";
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  amount: string | null;
+  currency: string | null;
+  failedAt: string | null;
+  failureReason: string | null;
+  paidAt: string | null;
+  paymentId: string | null;
+  status:   | "cancelled"
+     | "pending"
+     | "succeeded"
+     | "failed"
+     | "processing"
+     | "requires_action"
+     | "none";
+};
+```
+
+##### responses.200.content.application/json.amount
+
+```ts
+amount: string | null;
+```
+
+###### Example
+
+```ts
+62.50
+```
+
+##### responses.200.content.application/json.currency
+
+```ts
+currency: string | null;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### responses.200.content.application/json.failedAt
+
+```ts
+failedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.failureReason
+
+```ts
+failureReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.paidAt
+
+```ts
+paidAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.paymentId
+
+```ts
+paymentId: string | null;
+```
+
+###### Example
+
+```ts
+pay_abc123xyz789
+```
+
+##### responses.200.content.application/json.status
+
+```ts
+status: 
+  | "cancelled"
+  | "pending"
+  | "succeeded"
+  | "failed"
+  | "processing"
+  | "requires_action"
+  | "none";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### getOrganisation
 
 ```ts
@@ -22919,7 +50463,7 @@ getOrganisation: {
 };
 ```
 
-Defined in: generated/types.ts:2613
+Defined in: generated/types.ts:4763
 
 #### parameters
 
@@ -23419,6 +50963,3114 @@ headers: {
 
 ***
 
+### getPayment
+
+```ts
+getPayment: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        paymentId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              payment: {
+                 amount: string;
+                 createdAt: string;
+                 currency: string;
+                 failedAt: string | null;
+                 failureCode: string | null;
+                 failureMessage: string | null;
+                 id: string;
+                 invoiceId: string | null;
+                 method: string | null;
+                 organisationId: string;
+                 paidAt: string | null;
+                 status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+                 updatedAt: string;
+               } & {
+                 accountId: string;
+                 amount: number;
+                 applicationFee: number | null;
+                 cancelledAt: string | null;
+                 capturedAt: string | null;
+                 clientSecret: string | null;
+                 createdAt: string;
+                 currency: string;
+                 expiresAt: string | null;
+                 externalPaymentId: string | null;
+                 failedAt: string | null;
+                 failureCode: string | null;
+                 failureMessage: string | null;
+                 id: string;
+                 isPartialPayment: boolean;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 netAmount: number | null;
+                 orderId: string;
+                 orderNumber: string;
+                 organisationId: string;
+                 paymentMethod:   | {
+                    brand: string | null;
+                    expiryMonth: number | null;
+                    expiryYear: number | null;
+                    last4: string | null;
+                    type: "card" | "bank_transfer" | "cash" | "wallet";
+                  }
+                    | null;
+                 paymentProviderId: string;
+                 paymentType:   | "bank_transfer"
+                    | "online_card"
+                    | "online_bank_transfer"
+                    | "online_wallet"
+                    | "in_person_card"
+                    | "in_person_cash"
+                    | "cheque";
+                 processingFee: number | null;
+                 redirectUrl: string | null;
+                 remainingBalance: number | null;
+                 status:   | "cancelled"
+                    | "pending"
+                    | "succeeded"
+                    | "failed"
+                    | "processing"
+                    | "expired"
+                    | "requires_action"
+                    | "created";
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:14587
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     paymentId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  paymentId: string;
+};
+```
+
+##### parameters.path.paymentId
+
+```ts
+paymentId: string;
+```
+
+###### Description
+
+Payment ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           payment: {
+              amount: string;
+              createdAt: string;
+              currency: string;
+              failedAt: string | null;
+              failureCode: string | null;
+              failureMessage: string | null;
+              id: string;
+              invoiceId: string | null;
+              method: string | null;
+              organisationId: string;
+              paidAt: string | null;
+              status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+              updatedAt: string;
+            } & {
+              accountId: string;
+              amount: number;
+              applicationFee: number | null;
+              cancelledAt: string | null;
+              capturedAt: string | null;
+              clientSecret: string | null;
+              createdAt: string;
+              currency: string;
+              expiresAt: string | null;
+              externalPaymentId: string | null;
+              failedAt: string | null;
+              failureCode: string | null;
+              failureMessage: string | null;
+              id: string;
+              isPartialPayment: boolean;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              netAmount: number | null;
+              orderId: string;
+              orderNumber: string;
+              organisationId: string;
+              paymentMethod:   | {
+                 brand: string | null;
+                 expiryMonth: number | null;
+                 expiryYear: number | null;
+                 last4: string | null;
+                 type: "card" | "bank_transfer" | "cash" | "wallet";
+               }
+                 | null;
+              paymentProviderId: string;
+              paymentType:   | "bank_transfer"
+                 | "online_card"
+                 | "online_bank_transfer"
+                 | "online_wallet"
+                 | "in_person_card"
+                 | "in_person_cash"
+                 | "cheque";
+              processingFee: number | null;
+              redirectUrl: string | null;
+              remainingBalance: number | null;
+              status:   | "cancelled"
+                 | "pending"
+                 | "succeeded"
+                 | "failed"
+                 | "processing"
+                 | "expired"
+                 | "requires_action"
+                 | "created";
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        payment: {
+           amount: string;
+           createdAt: string;
+           currency: string;
+           failedAt: string | null;
+           failureCode: string | null;
+           failureMessage: string | null;
+           id: string;
+           invoiceId: string | null;
+           method: string | null;
+           organisationId: string;
+           paidAt: string | null;
+           status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+           updatedAt: string;
+         } & {
+           accountId: string;
+           amount: number;
+           applicationFee: number | null;
+           cancelledAt: string | null;
+           capturedAt: string | null;
+           clientSecret: string | null;
+           createdAt: string;
+           currency: string;
+           expiresAt: string | null;
+           externalPaymentId: string | null;
+           failedAt: string | null;
+           failureCode: string | null;
+           failureMessage: string | null;
+           id: string;
+           isPartialPayment: boolean;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           netAmount: number | null;
+           orderId: string;
+           orderNumber: string;
+           organisationId: string;
+           paymentMethod:   | {
+              brand: string | null;
+              expiryMonth: number | null;
+              expiryYear: number | null;
+              last4: string | null;
+              type: "card" | "bank_transfer" | "cash" | "wallet";
+            }
+              | null;
+           paymentProviderId: string;
+           paymentType:   | "bank_transfer"
+              | "online_card"
+              | "online_bank_transfer"
+              | "online_wallet"
+              | "in_person_card"
+              | "in_person_cash"
+              | "cheque";
+           processingFee: number | null;
+           redirectUrl: string | null;
+           remainingBalance: number | null;
+           status:   | "cancelled"
+              | "pending"
+              | "succeeded"
+              | "failed"
+              | "processing"
+              | "expired"
+              | "requires_action"
+              | "created";
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Payment retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     payment: {
+        amount: string;
+        createdAt: string;
+        currency: string;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        invoiceId: string | null;
+        method: string | null;
+        organisationId: string;
+        paidAt: string | null;
+        status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+        updatedAt: string;
+      } & {
+        accountId: string;
+        amount: number;
+        applicationFee: number | null;
+        cancelledAt: string | null;
+        capturedAt: string | null;
+        clientSecret: string | null;
+        createdAt: string;
+        currency: string;
+        expiresAt: string | null;
+        externalPaymentId: string | null;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        isPartialPayment: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        netAmount: number | null;
+        orderId: string;
+        orderNumber: string;
+        organisationId: string;
+        paymentMethod:   | {
+           brand: string | null;
+           expiryMonth: number | null;
+           expiryYear: number | null;
+           last4: string | null;
+           type: "card" | "bank_transfer" | "cash" | "wallet";
+         }
+           | null;
+        paymentProviderId: string;
+        paymentType:   | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+           | "cheque";
+        processingFee: number | null;
+        redirectUrl: string | null;
+        remainingBalance: number | null;
+        status:   | "cancelled"
+           | "pending"
+           | "succeeded"
+           | "failed"
+           | "processing"
+           | "expired"
+           | "requires_action"
+           | "created";
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  payment: {
+     amount: string;
+     createdAt: string;
+     currency: string;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     invoiceId: string | null;
+     method: string | null;
+     organisationId: string;
+     paidAt: string | null;
+     status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+     updatedAt: string;
+   } & {
+     accountId: string;
+     amount: number;
+     applicationFee: number | null;
+     cancelledAt: string | null;
+     capturedAt: string | null;
+     clientSecret: string | null;
+     createdAt: string;
+     currency: string;
+     expiresAt: string | null;
+     externalPaymentId: string | null;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     isPartialPayment: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     netAmount: number | null;
+     orderId: string;
+     orderNumber: string;
+     organisationId: string;
+     paymentMethod:   | {
+        brand: string | null;
+        expiryMonth: number | null;
+        expiryYear: number | null;
+        last4: string | null;
+        type: "card" | "bank_transfer" | "cash" | "wallet";
+      }
+        | null;
+     paymentProviderId: string;
+     paymentType:   | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+        | "cheque";
+     processingFee: number | null;
+     redirectUrl: string | null;
+     remainingBalance: number | null;
+     status:   | "cancelled"
+        | "pending"
+        | "succeeded"
+        | "failed"
+        | "processing"
+        | "expired"
+        | "requires_action"
+        | "created";
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.payment
+
+```ts
+payment: {
+  amount: string;
+  createdAt: string;
+  currency: string;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  invoiceId: string | null;
+  method: string | null;
+  organisationId: string;
+  paidAt: string | null;
+  status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+  updatedAt: string;
+} & {
+  accountId: string;
+  amount: number;
+  applicationFee: number | null;
+  cancelledAt: string | null;
+  capturedAt: string | null;
+  clientSecret: string | null;
+  createdAt: string;
+  currency: string;
+  expiresAt: string | null;
+  externalPaymentId: string | null;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  isPartialPayment: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  netAmount: number | null;
+  orderId: string;
+  orderNumber: string;
+  organisationId: string;
+  paymentMethod:   | {
+     brand: string | null;
+     expiryMonth: number | null;
+     expiryYear: number | null;
+     last4: string | null;
+     type: "card" | "bank_transfer" | "cash" | "wallet";
+   }
+     | null;
+  paymentProviderId: string;
+  paymentType:   | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+     | "cheque";
+  processingFee: number | null;
+  redirectUrl: string | null;
+  remainingBalance: number | null;
+  status:   | "cancelled"
+     | "pending"
+     | "succeeded"
+     | "failed"
+     | "processing"
+     | "expired"
+     | "requires_action"
+     | "created";
+  updatedAt: string;
+};
+```
+
+###### Type Declaration
+
+###### amount
+
+```ts
+amount: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+###### createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+###### currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+USD
+```
+
+###### failedAt
+
+```ts
+failedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureCode
+
+```ts
+failureCode: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureMessage
+
+```ts
+failureMessage: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pay_abc123
+```
+
+###### invoiceId
+
+```ts
+invoiceId: string | null;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+###### method
+
+```ts
+method: string | null;
+```
+
+###### Example
+
+```ts
+card
+```
+
+###### organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+###### paidAt
+
+```ts
+paidAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+###### status
+
+```ts
+status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+```
+
+###### Example
+
+```ts
+succeeded
+@enum {string}
+```
+
+###### updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:35:00Z
+```
+
+###### Type Declaration
+
+###### accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+###### amount
+
+```ts
+amount: number;
+```
+
+###### Example
+
+```ts
+97
+```
+
+###### applicationFee
+
+```ts
+applicationFee: number | null;
+```
+
+###### Example
+
+```ts
+2
+```
+
+###### cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### capturedAt
+
+```ts
+capturedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### clientSecret
+
+```ts
+clientSecret: string | null;
+```
+
+###### Example
+
+```ts
+pi_xxx_secret_yyy
+```
+
+###### createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+###### currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+###### expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+###### externalPaymentId
+
+```ts
+externalPaymentId: string | null;
+```
+
+###### Example
+
+```ts
+pi_1234567890abcdef
+```
+
+###### failedAt
+
+```ts
+failedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureCode
+
+```ts
+failureCode: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### failureMessage
+
+```ts
+failureMessage: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pay_abc123xyz789
+```
+
+###### isPartialPayment
+
+```ts
+isPartialPayment: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+###### metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+                 *       "customerEmail": "customer@example.com"
+                 *     }
+```
+
+###### netAmount
+
+```ts
+netAmount: number | null;
+```
+
+###### Example
+
+```ts
+92.09
+```
+
+###### orderId
+
+```ts
+orderId: string;
+```
+
+###### Example
+
+```ts
+ord_abc123
+```
+
+###### orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+###### organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+###### paymentMethod
+
+```ts
+paymentMethod: 
+  | {
+  brand: string | null;
+  expiryMonth: number | null;
+  expiryYear: number | null;
+  last4: string | null;
+  type: "card" | "bank_transfer" | "cash" | "wallet";
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  brand: string | null;
+  expiryMonth: number | null;
+  expiryYear: number | null;
+  last4: string | null;
+  type: "card" | "bank_transfer" | "cash" | "wallet";
+}
+```
+
+`null`
+
+###### paymentProviderId
+
+```ts
+paymentProviderId: string;
+```
+
+###### Example
+
+```ts
+pp_stripeXxx123
+```
+
+###### paymentType
+
+```ts
+paymentType: 
+  | "bank_transfer"
+  | "online_card"
+  | "online_bank_transfer"
+  | "online_wallet"
+  | "in_person_card"
+  | "in_person_cash"
+  | "cheque";
+```
+
+###### Example
+
+```ts
+online_card
+@enum {string}
+```
+
+###### processingFee
+
+```ts
+processingFee: number | null;
+```
+
+###### Example
+
+```ts
+2.91
+```
+
+###### redirectUrl
+
+```ts
+redirectUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://checkout.stripe.com/pay/xxx
+```
+
+###### remainingBalance
+
+```ts
+remainingBalance: number | null;
+```
+
+###### Example
+
+```ts
+0
+```
+
+###### status
+
+```ts
+status: 
+  | "cancelled"
+  | "pending"
+  | "succeeded"
+  | "failed"
+  | "processing"
+  | "expired"
+  | "requires_action"
+  | "created";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+###### updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### getPaymentProvider
+
+```ts
+getPaymentProvider: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        providerId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              provider: {
+                 accountId: string | null;
+                 applicationFee:   | {
+                    type: "percentage" | "fixed";
+                    value: number;
+                  }
+                    | null;
+                 capabilities:   | {
+                    maxAmount?: number;
+                    minAmount?: number;
+                    requiresCustomerAction?: boolean;
+                    supportedCurrencies?: string[];
+                    supportsDelayedCapture?: boolean;
+                    supportsInstantCapture?: boolean;
+                    supportsPartialRefunds?: boolean;
+                    supportsRefunds?: boolean;
+                  }
+                    | null;
+                 configuration: {
+                  [key: string]: unknown;
+                 };
+                 createdAt: string;
+                 description: string | null;
+                 feeStructure:   | {
+                    currency?: string;
+                    fixed?: number;
+                    percentage?: number;
+                    type: "percentage" | "fixed" | "percentage_plus_fixed";
+                  }
+                    | null;
+                 id: string;
+                 integrationServiceUrl: string | null;
+                 integrationServiceVersion: string;
+                 isDefault: boolean;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 name: string;
+                 organisationId: string;
+                 priority: number;
+                 status: "active" | "inactive" | "pending_setup";
+                 supportedPaymentTypes: (
+                    | "bank_transfer"
+                    | "online_card"
+                    | "online_bank_transfer"
+                    | "online_wallet"
+                    | "in_person_card"
+                    | "in_person_cash"
+                   | "cheque")[];
+                 type:   | "bank_transfer"
+                    | "cash"
+                    | "stripe_connect"
+                    | "stripe_direct"
+                    | "adyen"
+                    | "square"
+                    | "paypal";
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:15208
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     providerId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  providerId: string;
+};
+```
+
+##### parameters.path.providerId
+
+```ts
+providerId: string;
+```
+
+###### Description
+
+Payment Provider ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           provider: {
+              accountId: string | null;
+              applicationFee:   | {
+                 type: "percentage" | "fixed";
+                 value: number;
+               }
+                 | null;
+              capabilities:   | {
+                 maxAmount?: number;
+                 minAmount?: number;
+                 requiresCustomerAction?: boolean;
+                 supportedCurrencies?: string[];
+                 supportsDelayedCapture?: boolean;
+                 supportsInstantCapture?: boolean;
+                 supportsPartialRefunds?: boolean;
+                 supportsRefunds?: boolean;
+               }
+                 | null;
+              configuration: {
+               [key: string]: unknown;
+              };
+              createdAt: string;
+              description: string | null;
+              feeStructure:   | {
+                 currency?: string;
+                 fixed?: number;
+                 percentage?: number;
+                 type: "percentage" | "fixed" | "percentage_plus_fixed";
+               }
+                 | null;
+              id: string;
+              integrationServiceUrl: string | null;
+              integrationServiceVersion: string;
+              isDefault: boolean;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              name: string;
+              organisationId: string;
+              priority: number;
+              status: "active" | "inactive" | "pending_setup";
+              supportedPaymentTypes: (
+                 | "bank_transfer"
+                 | "online_card"
+                 | "online_bank_transfer"
+                 | "online_wallet"
+                 | "in_person_card"
+                 | "in_person_cash"
+                | "cheque")[];
+              type:   | "bank_transfer"
+                 | "cash"
+                 | "stripe_connect"
+                 | "stripe_direct"
+                 | "adyen"
+                 | "square"
+                 | "paypal";
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        provider: {
+           accountId: string | null;
+           applicationFee:   | {
+              type: "percentage" | "fixed";
+              value: number;
+            }
+              | null;
+           capabilities:   | {
+              maxAmount?: number;
+              minAmount?: number;
+              requiresCustomerAction?: boolean;
+              supportedCurrencies?: string[];
+              supportsDelayedCapture?: boolean;
+              supportsInstantCapture?: boolean;
+              supportsPartialRefunds?: boolean;
+              supportsRefunds?: boolean;
+            }
+              | null;
+           configuration: {
+            [key: string]: unknown;
+           };
+           createdAt: string;
+           description: string | null;
+           feeStructure:   | {
+              currency?: string;
+              fixed?: number;
+              percentage?: number;
+              type: "percentage" | "fixed" | "percentage_plus_fixed";
+            }
+              | null;
+           id: string;
+           integrationServiceUrl: string | null;
+           integrationServiceVersion: string;
+           isDefault: boolean;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           name: string;
+           organisationId: string;
+           priority: number;
+           status: "active" | "inactive" | "pending_setup";
+           supportedPaymentTypes: (
+              | "bank_transfer"
+              | "online_card"
+              | "online_bank_transfer"
+              | "online_wallet"
+              | "in_person_card"
+              | "in_person_cash"
+             | "cheque")[];
+           type:   | "bank_transfer"
+              | "cash"
+              | "stripe_connect"
+              | "stripe_direct"
+              | "adyen"
+              | "square"
+              | "paypal";
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Payment provider retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     provider: {
+        accountId: string | null;
+        applicationFee:   | {
+           type: "percentage" | "fixed";
+           value: number;
+         }
+           | null;
+        capabilities:   | {
+           maxAmount?: number;
+           minAmount?: number;
+           requiresCustomerAction?: boolean;
+           supportedCurrencies?: string[];
+           supportsDelayedCapture?: boolean;
+           supportsInstantCapture?: boolean;
+           supportsPartialRefunds?: boolean;
+           supportsRefunds?: boolean;
+         }
+           | null;
+        configuration: {
+         [key: string]: unknown;
+        };
+        createdAt: string;
+        description: string | null;
+        feeStructure:   | {
+           currency?: string;
+           fixed?: number;
+           percentage?: number;
+           type: "percentage" | "fixed" | "percentage_plus_fixed";
+         }
+           | null;
+        id: string;
+        integrationServiceUrl: string | null;
+        integrationServiceVersion: string;
+        isDefault: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        organisationId: string;
+        priority: number;
+        status: "active" | "inactive" | "pending_setup";
+        supportedPaymentTypes: (
+           | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+          | "cheque")[];
+        type:   | "bank_transfer"
+           | "cash"
+           | "stripe_connect"
+           | "stripe_direct"
+           | "adyen"
+           | "square"
+           | "paypal";
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  provider: {
+     accountId: string | null;
+     applicationFee:   | {
+        type: "percentage" | "fixed";
+        value: number;
+      }
+        | null;
+     capabilities:   | {
+        maxAmount?: number;
+        minAmount?: number;
+        requiresCustomerAction?: boolean;
+        supportedCurrencies?: string[];
+        supportsDelayedCapture?: boolean;
+        supportsInstantCapture?: boolean;
+        supportsPartialRefunds?: boolean;
+        supportsRefunds?: boolean;
+      }
+        | null;
+     configuration: {
+      [key: string]: unknown;
+     };
+     createdAt: string;
+     description: string | null;
+     feeStructure:   | {
+        currency?: string;
+        fixed?: number;
+        percentage?: number;
+        type: "percentage" | "fixed" | "percentage_plus_fixed";
+      }
+        | null;
+     id: string;
+     integrationServiceUrl: string | null;
+     integrationServiceVersion: string;
+     isDefault: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     organisationId: string;
+     priority: number;
+     status: "active" | "inactive" | "pending_setup";
+     supportedPaymentTypes: (
+        | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+       | "cheque")[];
+     type:   | "bank_transfer"
+        | "cash"
+        | "stripe_connect"
+        | "stripe_direct"
+        | "adyen"
+        | "square"
+        | "paypal";
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.provider
+
+```ts
+provider: {
+  accountId: string | null;
+  applicationFee:   | {
+     type: "percentage" | "fixed";
+     value: number;
+   }
+     | null;
+  capabilities:   | {
+     maxAmount?: number;
+     minAmount?: number;
+     requiresCustomerAction?: boolean;
+     supportedCurrencies?: string[];
+     supportsDelayedCapture?: boolean;
+     supportsInstantCapture?: boolean;
+     supportsPartialRefunds?: boolean;
+     supportsRefunds?: boolean;
+   }
+     | null;
+  configuration: {
+   [key: string]: unknown;
+  };
+  createdAt: string;
+  description: string | null;
+  feeStructure:   | {
+     currency?: string;
+     fixed?: number;
+     percentage?: number;
+     type: "percentage" | "fixed" | "percentage_plus_fixed";
+   }
+     | null;
+  id: string;
+  integrationServiceUrl: string | null;
+  integrationServiceVersion: string;
+  isDefault: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  organisationId: string;
+  priority: number;
+  status: "active" | "inactive" | "pending_setup";
+  supportedPaymentTypes: (
+     | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+    | "cheque")[];
+  type:   | "bank_transfer"
+     | "cash"
+     | "stripe_connect"
+     | "stripe_direct"
+     | "adyen"
+     | "square"
+     | "paypal";
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.provider.accountId
+
+```ts
+accountId: string | null;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### responses.200.content.application/json.provider.applicationFee
+
+```ts
+applicationFee: 
+  | {
+  type: "percentage" | "fixed";
+  value: number;
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  type: "percentage" | "fixed";
+  value: number;
+}
+```
+
+`null`
+
+##### responses.200.content.application/json.provider.capabilities
+
+```ts
+capabilities: 
+  | {
+  maxAmount?: number;
+  minAmount?: number;
+  requiresCustomerAction?: boolean;
+  supportedCurrencies?: string[];
+  supportsDelayedCapture?: boolean;
+  supportsInstantCapture?: boolean;
+  supportsPartialRefunds?: boolean;
+  supportsRefunds?: boolean;
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  maxAmount?: number;
+  minAmount?: number;
+  requiresCustomerAction?: boolean;
+  supportedCurrencies?: string[];
+  supportsDelayedCapture?: boolean;
+  supportsInstantCapture?: boolean;
+  supportsPartialRefunds?: boolean;
+  supportsRefunds?: boolean;
+}
+```
+
+`null`
+
+##### responses.200.content.application/json.provider.configuration
+
+```ts
+configuration: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Provider-specific configuration (sensitive fields redacted)
+
+###### Example
+
+```ts
+{
+             *       "stripeConnectedAccountId": "acct_xxx"
+             *     }
+```
+
+##### responses.200.content.application/json.provider.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.provider.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Primary payment processor for online orders
+```
+
+##### responses.200.content.application/json.provider.feeStructure
+
+```ts
+feeStructure: 
+  | {
+  currency?: string;
+  fixed?: number;
+  percentage?: number;
+  type: "percentage" | "fixed" | "percentage_plus_fixed";
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  currency?: string;
+  fixed?: number;
+  percentage?: number;
+  type: "percentage" | "fixed" | "percentage_plus_fixed";
+}
+```
+
+`null`
+
+##### responses.200.content.application/json.provider.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pp_stripeXxx123
+```
+
+##### responses.200.content.application/json.provider.integrationServiceUrl
+
+```ts
+integrationServiceUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://stripe.paymentintegration.ticketlayer.com
+```
+
+##### responses.200.content.application/json.provider.integrationServiceVersion
+
+```ts
+integrationServiceVersion: string;
+```
+
+###### Example
+
+```ts
+v1
+```
+
+##### responses.200.content.application/json.provider.isDefault
+
+```ts
+isDefault: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.content.application/json.provider.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "environment": "production"
+             *     }
+```
+
+##### responses.200.content.application/json.provider.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Main Stripe Account
+```
+
+##### responses.200.content.application/json.provider.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.provider.priority
+
+```ts
+priority: number;
+```
+
+###### Example
+
+```ts
+100
+```
+
+##### responses.200.content.application/json.provider.status
+
+```ts
+status: "active" | "inactive" | "pending_setup";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### responses.200.content.application/json.provider.supportedPaymentTypes
+
+```ts
+supportedPaymentTypes: (
+  | "bank_transfer"
+  | "online_card"
+  | "online_bank_transfer"
+  | "online_wallet"
+  | "in_person_card"
+  | "in_person_cash"
+  | "cheque")[];
+```
+
+###### Example
+
+```ts
+[
+      "online_card",
+      "online_wallet"
+    ]
+```
+
+##### responses.200.content.application/json.provider.type
+
+```ts
+type: 
+  | "bank_transfer"
+  | "cash"
+  | "stripe_connect"
+  | "stripe_direct"
+  | "adyen"
+  | "square"
+  | "paypal";
+```
+
+###### Example
+
+```ts
+stripe_connect
+@enum {string}
+```
+
+##### responses.200.content.application/json.provider.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### getReservation
+
+```ts
+getReservation: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        id: string;
+     };
+     query: {
+        accountId: string;
+     };
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              reservation: {
+                 accountId: string;
+                 createdAt: string;
+                 expiresAt: string | null;
+                 heldBy: string | null;
+                 id: string;
+                 inventoryId: string;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 organisationId: string;
+                 quantity: number;
+                 reason: string | null;
+                 referenceId: string | null;
+                 referenceType: "subscription" | "order" | "hold" | null;
+                 seatIds: string[] | null;
+                 type: "confirmed" | "maintenance" | "hold" | "temporary";
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:12240
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     id: string;
+  };
+  query: {
+     accountId: string;
+  };
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  id: string;
+};
+```
+
+##### parameters.path.id
+
+```ts
+id: string;
+```
+
+###### Description
+
+Reservation ID
+
+##### parameters.query
+
+```ts
+query: {
+  accountId: string;
+};
+```
+
+##### parameters.query.accountId
+
+```ts
+accountId: string;
+```
+
+###### Description
+
+Account ID
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           reservation: {
+              accountId: string;
+              createdAt: string;
+              expiresAt: string | null;
+              heldBy: string | null;
+              id: string;
+              inventoryId: string;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              organisationId: string;
+              quantity: number;
+              reason: string | null;
+              referenceId: string | null;
+              referenceType: "subscription" | "order" | "hold" | null;
+              seatIds: string[] | null;
+              type: "confirmed" | "maintenance" | "hold" | "temporary";
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        reservation: {
+           accountId: string;
+           createdAt: string;
+           expiresAt: string | null;
+           heldBy: string | null;
+           id: string;
+           inventoryId: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           organisationId: string;
+           quantity: number;
+           reason: string | null;
+           referenceId: string | null;
+           referenceType: "subscription" | "order" | "hold" | null;
+           seatIds: string[] | null;
+           type: "confirmed" | "maintenance" | "hold" | "temporary";
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Reservation retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     reservation: {
+        accountId: string;
+        createdAt: string;
+        expiresAt: string | null;
+        heldBy: string | null;
+        id: string;
+        inventoryId: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        quantity: number;
+        reason: string | null;
+        referenceId: string | null;
+        referenceType: "subscription" | "order" | "hold" | null;
+        seatIds: string[] | null;
+        type: "confirmed" | "maintenance" | "hold" | "temporary";
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  reservation: {
+     accountId: string;
+     createdAt: string;
+     expiresAt: string | null;
+     heldBy: string | null;
+     id: string;
+     inventoryId: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     quantity: number;
+     reason: string | null;
+     referenceId: string | null;
+     referenceType: "subscription" | "order" | "hold" | null;
+     seatIds: string[] | null;
+     type: "confirmed" | "maintenance" | "hold" | "temporary";
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.reservation
+
+```ts
+reservation: {
+  accountId: string;
+  createdAt: string;
+  expiresAt: string | null;
+  heldBy: string | null;
+  id: string;
+  inventoryId: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  quantity: number;
+  reason: string | null;
+  referenceId: string | null;
+  referenceType: "subscription" | "order" | "hold" | null;
+  seatIds: string[] | null;
+  type: "confirmed" | "maintenance" | "hold" | "temporary";
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.reservation.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### responses.200.content.application/json.reservation.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:30:00Z
+```
+
+##### responses.200.content.application/json.reservation.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:45:00Z
+```
+
+##### responses.200.content.application/json.reservation.heldBy
+
+```ts
+heldBy: string | null;
+```
+
+###### Example
+
+```ts
+usr_abc123
+```
+
+##### responses.200.content.application/json.reservation.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ivr_abc123
+```
+
+##### responses.200.content.application/json.reservation.inventoryId
+
+```ts
+inventoryId: string;
+```
+
+###### Example
+
+```ts
+inv_ghi789
+```
+
+##### responses.200.content.application/json.reservation.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.reservation.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.reservation.quantity
+
+```ts
+quantity: number;
+```
+
+###### Example
+
+```ts
+2
+```
+
+##### responses.200.content.application/json.reservation.reason
+
+```ts
+reason: string | null;
+```
+
+###### Example
+
+```ts
+Customer checkout
+```
+
+##### responses.200.content.application/json.reservation.referenceId
+
+```ts
+referenceId: string | null;
+```
+
+###### Example
+
+```ts
+ord_jkl012
+```
+
+##### responses.200.content.application/json.reservation.referenceType
+
+```ts
+referenceType: "subscription" | "order" | "hold" | null;
+```
+
+###### Description
+
+Type of reference for this reservation
+
+###### Example
+
+```ts
+order
+@enum {string|null}
+```
+
+##### responses.200.content.application/json.reservation.seatIds
+
+```ts
+seatIds: string[] | null;
+```
+
+###### Example
+
+```ts
+[
+      "ivs_abc123",
+      "ivs_def456"
+    ]
+```
+
+##### responses.200.content.application/json.reservation.type
+
+```ts
+type: "confirmed" | "maintenance" | "hold" | "temporary";
+```
+
+###### Description
+
+Type of reservation
+
+###### Example
+
+```ts
+temporary
+@enum {string}
+```
+
+##### responses.200.content.application/json.reservation.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T14:45:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### getRole
 
 ```ts
@@ -23485,7 +54137,7 @@ getRole: {
 };
 ```
 
-Defined in: generated/types.ts:3632
+Defined in: generated/types.ts:5782
 
 #### parameters
 
@@ -24036,7 +54688,7 @@ getUserInvitation: {
 };
 ```
 
-Defined in: generated/types.ts:3347
+Defined in: generated/types.ts:5497
 
 #### parameters
 
@@ -24594,7 +55246,7 @@ getVenue: {
 };
 ```
 
-Defined in: generated/types.ts:5849
+Defined in: generated/types.ts:7999
 
 #### parameters
 
@@ -25412,7 +56064,7 @@ getVenueLayout: {
 };
 ```
 
-Defined in: generated/types.ts:6601
+Defined in: generated/types.ts:8751
 
 #### parameters
 
@@ -26211,6 +56863,616 @@ headers: {
 
 ***
 
+### initiateOrderPayment
+
+```ts
+initiateOrderPayment: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        orderId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           metadata?: {
+            [key: string]: unknown;
+           };
+           paymentMethod:   | "bank_transfer"
+              | "online_card"
+              | "online_bank_transfer"
+              | "online_wallet"
+              | "in_person_card"
+              | "in_person_cash"
+              | "cheque";
+           returnUrl?: string;
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              clientSecret: string | null;
+              expiresAt: string | null;
+              paymentId: string;
+              redirectUrl: string | null;
+              status: "pending" | "succeeded" | "failed" | "processing" | "requires_action";
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:14170
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     orderId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  orderId: string;
+};
+```
+
+##### parameters.path.orderId
+
+```ts
+orderId: string;
+```
+
+###### Description
+
+Order ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        metadata?: {
+         [key: string]: unknown;
+        };
+        paymentMethod:   | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+           | "cheque";
+        returnUrl?: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     metadata?: {
+      [key: string]: unknown;
+     };
+     paymentMethod:   | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+        | "cheque";
+     returnUrl?: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  metadata?: {
+   [key: string]: unknown;
+  };
+  paymentMethod:   | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+     | "cheque";
+  returnUrl?: string;
+};
+```
+
+##### requestBody.content.application/json.metadata?
+
+```ts
+optional metadata: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Additional metadata to attach to the payment
+
+###### Example
+
+```ts
+{
+                     *       "source": "web_checkout",
+                     *       "promoCode": "SUMMER20"
+                     *     }
+```
+
+##### requestBody.content.application/json.paymentMethod
+
+```ts
+paymentMethod: 
+  | "bank_transfer"
+  | "online_card"
+  | "online_bank_transfer"
+  | "online_wallet"
+  | "in_person_card"
+  | "in_person_cash"
+  | "cheque";
+```
+
+###### Description
+
+The type of payment method to use
+
+###### Example
+
+```ts
+online_card
+@enum {string}
+```
+
+##### requestBody.content.application/json.returnUrl?
+
+```ts
+optional returnUrl: string;
+```
+
+Format: uri
+
+###### Description
+
+URL to redirect to after payment (for 3DS, etc.)
+
+###### Example
+
+```ts
+https://example.com/checkout/complete
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           clientSecret: string | null;
+           expiresAt: string | null;
+           paymentId: string;
+           redirectUrl: string | null;
+           status: "pending" | "succeeded" | "failed" | "processing" | "requires_action";
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        clientSecret: string | null;
+        expiresAt: string | null;
+        paymentId: string;
+        redirectUrl: string | null;
+        status: "pending" | "succeeded" | "failed" | "processing" | "requires_action";
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Payment initiated successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     clientSecret: string | null;
+     expiresAt: string | null;
+     paymentId: string;
+     redirectUrl: string | null;
+     status: "pending" | "succeeded" | "failed" | "processing" | "requires_action";
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  clientSecret: string | null;
+  expiresAt: string | null;
+  paymentId: string;
+  redirectUrl: string | null;
+  status: "pending" | "succeeded" | "failed" | "processing" | "requires_action";
+};
+```
+
+##### responses.200.content.application/json.clientSecret
+
+```ts
+clientSecret: string | null;
+```
+
+###### Example
+
+```ts
+pi_xxx_secret_yyy
+```
+
+##### responses.200.content.application/json.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+##### responses.200.content.application/json.paymentId
+
+```ts
+paymentId: string;
+```
+
+###### Example
+
+```ts
+pay_abc123xyz789
+```
+
+##### responses.200.content.application/json.redirectUrl
+
+```ts
+redirectUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://checkout.stripe.com/pay/xxx
+```
+
+##### responses.200.content.application/json.status
+
+```ts
+status: "pending" | "succeeded" | "failed" | "processing" | "requires_action";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### listAccounts
 
 ```ts
@@ -26278,7 +57540,7 @@ listAccounts: {
 };
 ```
 
-Defined in: generated/types.ts:2733
+Defined in: generated/types.ts:4883
 
 #### parameters
 
@@ -26668,6 +57930,2166 @@ headers: {
 
 ***
 
+### listBillingPayments
+
+```ts
+listBillingPayments: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        organisationId: string;
+     };
+     query?: {
+        limit?: string;
+        page?: string;
+        status?: string;
+     };
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              payments: {
+                 amount: string;
+                 createdAt: string;
+                 currency: string;
+                 failedAt: string | null;
+                 failureCode: string | null;
+                 failureMessage: string | null;
+                 id: string;
+                 invoiceId: string | null;
+                 method: string | null;
+                 organisationId: string;
+                 paidAt: string | null;
+                 status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+                 updatedAt: string;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:11041
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     organisationId: string;
+  };
+  query?: {
+     limit?: string;
+     page?: string;
+     status?: string;
+  };
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  organisationId: string;
+};
+```
+
+##### parameters.path.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Description
+
+Organisation ID
+
+##### parameters.query?
+
+```ts
+optional query: {
+  limit?: string;
+  page?: string;
+  status?: string;
+};
+```
+
+##### parameters.query.limit?
+
+```ts
+optional limit: string;
+```
+
+###### Description
+
+Items per page
+
+##### parameters.query.page?
+
+```ts
+optional page: string;
+```
+
+###### Description
+
+Page number
+
+##### parameters.query.status?
+
+```ts
+optional status: string;
+```
+
+###### Description
+
+Filter by payment status
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           payments: {
+              amount: string;
+              createdAt: string;
+              currency: string;
+              failedAt: string | null;
+              failureCode: string | null;
+              failureMessage: string | null;
+              id: string;
+              invoiceId: string | null;
+              method: string | null;
+              organisationId: string;
+              paidAt: string | null;
+              status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+              updatedAt: string;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        payments: {
+           amount: string;
+           createdAt: string;
+           currency: string;
+           failedAt: string | null;
+           failureCode: string | null;
+           failureMessage: string | null;
+           id: string;
+           invoiceId: string | null;
+           method: string | null;
+           organisationId: string;
+           paidAt: string | null;
+           status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+           updatedAt: string;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Payments retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     payments: {
+        amount: string;
+        createdAt: string;
+        currency: string;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        invoiceId: string | null;
+        method: string | null;
+        organisationId: string;
+        paidAt: string | null;
+        status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+        updatedAt: string;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  payments: {
+     amount: string;
+     createdAt: string;
+     currency: string;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     invoiceId: string | null;
+     method: string | null;
+     organisationId: string;
+     paidAt: string | null;
+     status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+     updatedAt: string;
+  }[];
+};
+```
+
+##### responses.200.content.application/json.payments
+
+```ts
+payments: {
+  amount: string;
+  createdAt: string;
+  currency: string;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  invoiceId: string | null;
+  method: string | null;
+  organisationId: string;
+  paidAt: string | null;
+  status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+  updatedAt: string;
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### listCreditPackages
+
+```ts
+listCreditPackages: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              packages: {
+                 baseCurrency: string;
+                 basePrice: string;
+                 credits: number;
+                 discountPercent: string;
+                 displayOrder: number;
+                 finalPrice: string;
+                 id: string;
+                 isActive: boolean;
+                 name: string;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:10618
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           packages: {
+              baseCurrency: string;
+              basePrice: string;
+              credits: number;
+              discountPercent: string;
+              displayOrder: number;
+              finalPrice: string;
+              id: string;
+              isActive: boolean;
+              name: string;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        packages: {
+           baseCurrency: string;
+           basePrice: string;
+           credits: number;
+           discountPercent: string;
+           displayOrder: number;
+           finalPrice: string;
+           id: string;
+           isActive: boolean;
+           name: string;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Credit packages retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     packages: {
+        baseCurrency: string;
+        basePrice: string;
+        credits: number;
+        discountPercent: string;
+        displayOrder: number;
+        finalPrice: string;
+        id: string;
+        isActive: boolean;
+        name: string;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  packages: {
+     baseCurrency: string;
+     basePrice: string;
+     credits: number;
+     discountPercent: string;
+     displayOrder: number;
+     finalPrice: string;
+     id: string;
+     isActive: boolean;
+     name: string;
+  }[];
+};
+```
+
+##### responses.200.content.application/json.packages
+
+```ts
+packages: {
+  baseCurrency: string;
+  basePrice: string;
+  credits: number;
+  discountPercent: string;
+  displayOrder: number;
+  finalPrice: string;
+  id: string;
+  isActive: boolean;
+  name: string;
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### listCreditTransactions
+
+```ts
+listCreditTransactions: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        organisationId: string;
+     };
+     query?: {
+        limit?: string;
+        page?: string;
+        type?: string;
+     };
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              transactions: {
+                 amount: number;
+                 balanceAfter: number;
+                 balanceBefore: number;
+                 createdAt: string;
+                 description: string | null;
+                 id: string;
+                 invoiceId: string | null;
+                 orderId: string | null;
+                 organisationId: string;
+                 subscriptionId: string | null;
+                 type:   | "initial"
+                    | "purchase"
+                    | "subscription"
+                    | "ticket_sale"
+                    | "adjustment"
+                    | "refund";
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:10789
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     organisationId: string;
+  };
+  query?: {
+     limit?: string;
+     page?: string;
+     type?: string;
+  };
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  organisationId: string;
+};
+```
+
+##### parameters.path.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Description
+
+Organisation ID
+
+##### parameters.query?
+
+```ts
+optional query: {
+  limit?: string;
+  page?: string;
+  type?: string;
+};
+```
+
+##### parameters.query.limit?
+
+```ts
+optional limit: string;
+```
+
+###### Description
+
+Items per page
+
+##### parameters.query.page?
+
+```ts
+optional page: string;
+```
+
+###### Description
+
+Page number
+
+##### parameters.query.type?
+
+```ts
+optional type: string;
+```
+
+###### Description
+
+Filter by transaction type
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           transactions: {
+              amount: number;
+              balanceAfter: number;
+              balanceBefore: number;
+              createdAt: string;
+              description: string | null;
+              id: string;
+              invoiceId: string | null;
+              orderId: string | null;
+              organisationId: string;
+              subscriptionId: string | null;
+              type:   | "initial"
+                 | "purchase"
+                 | "subscription"
+                 | "ticket_sale"
+                 | "adjustment"
+                 | "refund";
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        transactions: {
+           amount: number;
+           balanceAfter: number;
+           balanceBefore: number;
+           createdAt: string;
+           description: string | null;
+           id: string;
+           invoiceId: string | null;
+           orderId: string | null;
+           organisationId: string;
+           subscriptionId: string | null;
+           type:   | "initial"
+              | "purchase"
+              | "subscription"
+              | "ticket_sale"
+              | "adjustment"
+              | "refund";
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Transactions retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     transactions: {
+        amount: number;
+        balanceAfter: number;
+        balanceBefore: number;
+        createdAt: string;
+        description: string | null;
+        id: string;
+        invoiceId: string | null;
+        orderId: string | null;
+        organisationId: string;
+        subscriptionId: string | null;
+        type:   | "initial"
+           | "purchase"
+           | "subscription"
+           | "ticket_sale"
+           | "adjustment"
+           | "refund";
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  transactions: {
+     amount: number;
+     balanceAfter: number;
+     balanceBefore: number;
+     createdAt: string;
+     description: string | null;
+     id: string;
+     invoiceId: string | null;
+     orderId: string | null;
+     organisationId: string;
+     subscriptionId: string | null;
+     type:   | "initial"
+        | "purchase"
+        | "subscription"
+        | "ticket_sale"
+        | "adjustment"
+        | "refund";
+  }[];
+};
+```
+
+##### responses.200.content.application/json.transactions
+
+```ts
+transactions: {
+  amount: number;
+  balanceAfter: number;
+  balanceBefore: number;
+  createdAt: string;
+  description: string | null;
+  id: string;
+  invoiceId: string | null;
+  orderId: string | null;
+  organisationId: string;
+  subscriptionId: string | null;
+  type:   | "initial"
+     | "purchase"
+     | "subscription"
+     | "ticket_sale"
+     | "adjustment"
+     | "refund";
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### listCustomers
+
+```ts
+listCustomers: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: {
+        accountId?: string;
+        email?: string;
+        isBlocked?: string;
+        limit?: string;
+        page?: string;
+        search?: string;
+     };
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              customers: {
+                 accountId: string | null;
+                 blockedAt: string | null;
+                 blockedReason: string | null;
+                 createdAt: string;
+                 email: string;
+                 externalId: string | null;
+                 firstName: string | null;
+                 id: string;
+                 isBlocked: boolean;
+                 lastName: string | null;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 organisationId: string;
+                 phone: string | null;
+                 updatedAt: string;
+              }[];
+              pagination: {
+                 limit: number;
+                 page: number;
+                 total: number;
+                 totalPages: number;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:12684
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: {
+     accountId?: string;
+     email?: string;
+     isBlocked?: string;
+     limit?: string;
+     page?: string;
+     search?: string;
+  };
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: {
+  accountId?: string;
+  email?: string;
+  isBlocked?: string;
+  limit?: string;
+  page?: string;
+  search?: string;
+};
+```
+
+##### parameters.query.accountId?
+
+```ts
+optional accountId: string;
+```
+
+###### Description
+
+Filter by account ID
+
+##### parameters.query.email?
+
+```ts
+optional email: string;
+```
+
+###### Description
+
+Filter by exact email address
+
+##### parameters.query.isBlocked?
+
+```ts
+optional isBlocked: string;
+```
+
+###### Description
+
+Filter by blocked status (true/false)
+
+##### parameters.query.limit?
+
+```ts
+optional limit: string;
+```
+
+###### Description
+
+Items per page (max 100)
+
+##### parameters.query.page?
+
+```ts
+optional page: string;
+```
+
+###### Description
+
+Page number
+
+##### parameters.query.search?
+
+```ts
+optional search: string;
+```
+
+###### Description
+
+Search customers by email, first name, or last name
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           customers: {
+              accountId: string | null;
+              blockedAt: string | null;
+              blockedReason: string | null;
+              createdAt: string;
+              email: string;
+              externalId: string | null;
+              firstName: string | null;
+              id: string;
+              isBlocked: boolean;
+              lastName: string | null;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              organisationId: string;
+              phone: string | null;
+              updatedAt: string;
+           }[];
+           pagination: {
+              limit: number;
+              page: number;
+              total: number;
+              totalPages: number;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        customers: {
+           accountId: string | null;
+           blockedAt: string | null;
+           blockedReason: string | null;
+           createdAt: string;
+           email: string;
+           externalId: string | null;
+           firstName: string | null;
+           id: string;
+           isBlocked: boolean;
+           lastName: string | null;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           organisationId: string;
+           phone: string | null;
+           updatedAt: string;
+        }[];
+        pagination: {
+           limit: number;
+           page: number;
+           total: number;
+           totalPages: number;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Customers retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     customers: {
+        accountId: string | null;
+        blockedAt: string | null;
+        blockedReason: string | null;
+        createdAt: string;
+        email: string;
+        externalId: string | null;
+        firstName: string | null;
+        id: string;
+        isBlocked: boolean;
+        lastName: string | null;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        phone: string | null;
+        updatedAt: string;
+     }[];
+     pagination: {
+        limit: number;
+        page: number;
+        total: number;
+        totalPages: number;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  customers: {
+     accountId: string | null;
+     blockedAt: string | null;
+     blockedReason: string | null;
+     createdAt: string;
+     email: string;
+     externalId: string | null;
+     firstName: string | null;
+     id: string;
+     isBlocked: boolean;
+     lastName: string | null;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     phone: string | null;
+     updatedAt: string;
+  }[];
+  pagination: {
+     limit: number;
+     page: number;
+     total: number;
+     totalPages: number;
+  };
+};
+```
+
+##### responses.200.content.application/json.customers
+
+```ts
+customers: {
+  accountId: string | null;
+  blockedAt: string | null;
+  blockedReason: string | null;
+  createdAt: string;
+  email: string;
+  externalId: string | null;
+  firstName: string | null;
+  id: string;
+  isBlocked: boolean;
+  lastName: string | null;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  phone: string | null;
+  updatedAt: string;
+}[];
+```
+
+##### responses.200.content.application/json.pagination
+
+```ts
+pagination: {
+  limit: number;
+  page: number;
+  total: number;
+  totalPages: number;
+};
+```
+
+##### responses.200.content.application/json.pagination.limit
+
+```ts
+limit: number;
+```
+
+###### Example
+
+```ts
+20
+```
+
+##### responses.200.content.application/json.pagination.page
+
+```ts
+page: number;
+```
+
+###### Example
+
+```ts
+1
+```
+
+##### responses.200.content.application/json.pagination.total
+
+```ts
+total: number;
+```
+
+###### Example
+
+```ts
+150
+```
+
+##### responses.200.content.application/json.pagination.totalPages
+
+```ts
+totalPages: number;
+```
+
+###### Example
+
+```ts
+8
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### listEventOccurrences
 
 ```ts
@@ -26756,7 +60178,7 @@ listEventOccurrences: {
 };
 ```
 
-Defined in: generated/types.ts:4795
+Defined in: generated/types.ts:6945
 
 #### parameters
 
@@ -27436,7 +60858,7 @@ listEventPriceSchemes: {
 };
 ```
 
-Defined in: generated/types.ts:5259
+Defined in: generated/types.ts:7409
 
 #### parameters
 
@@ -27965,7 +61387,7 @@ listEvents: {
 };
 ```
 
-Defined in: generated/types.ts:4157
+Defined in: generated/types.ts:6307
 
 #### parameters
 
@@ -28712,7 +62134,7 @@ listIdentityProviders: {
 };
 ```
 
-Defined in: generated/types.ts:3055
+Defined in: generated/types.ts:5205
 
 #### parameters
 
@@ -29176,6 +62598,5744 @@ headers: {
 
 ***
 
+### listInventory
+
+```ts
+listInventory: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: {
+        eventId?: string;
+        eventOccurrenceId?: string;
+        isAllocated?: "true" | "false";
+        productId?: string;
+        sourceType?: "event_occurrence_area" | "product";
+     };
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              inventory: {
+                 accountId: string;
+                 available: number;
+                 confirmed: number;
+                 createdAt: string;
+                 eventId: string | null;
+                 eventLayoutAreaId: string | null;
+                 eventOccurrenceId: string | null;
+                 held: number;
+                 id: string;
+                 isAllocated: boolean;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 organisationId: string;
+                 productId: string | null;
+                 reserved: number;
+                 sourceType: "event_occurrence_area" | "product";
+                 totalCapacity: number;
+                 updatedAt: string;
+                 version: number;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:11406
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: {
+     eventId?: string;
+     eventOccurrenceId?: string;
+     isAllocated?: "true" | "false";
+     productId?: string;
+     sourceType?: "event_occurrence_area" | "product";
+  };
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: {
+  eventId?: string;
+  eventOccurrenceId?: string;
+  isAllocated?: "true" | "false";
+  productId?: string;
+  sourceType?: "event_occurrence_area" | "product";
+};
+```
+
+##### parameters.query.eventId?
+
+```ts
+optional eventId: string;
+```
+
+##### parameters.query.eventOccurrenceId?
+
+```ts
+optional eventOccurrenceId: string;
+```
+
+##### parameters.query.isAllocated?
+
+```ts
+optional isAllocated: "true" | "false";
+```
+
+##### parameters.query.productId?
+
+```ts
+optional productId: string;
+```
+
+##### parameters.query.sourceType?
+
+```ts
+optional sourceType: "event_occurrence_area" | "product";
+```
+
+###### Description
+
+Type of inventory source
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           inventory: {
+              accountId: string;
+              available: number;
+              confirmed: number;
+              createdAt: string;
+              eventId: string | null;
+              eventLayoutAreaId: string | null;
+              eventOccurrenceId: string | null;
+              held: number;
+              id: string;
+              isAllocated: boolean;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              organisationId: string;
+              productId: string | null;
+              reserved: number;
+              sourceType: "event_occurrence_area" | "product";
+              totalCapacity: number;
+              updatedAt: string;
+              version: number;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        inventory: {
+           accountId: string;
+           available: number;
+           confirmed: number;
+           createdAt: string;
+           eventId: string | null;
+           eventLayoutAreaId: string | null;
+           eventOccurrenceId: string | null;
+           held: number;
+           id: string;
+           isAllocated: boolean;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           organisationId: string;
+           productId: string | null;
+           reserved: number;
+           sourceType: "event_occurrence_area" | "product";
+           totalCapacity: number;
+           updatedAt: string;
+           version: number;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Inventory retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     inventory: {
+        accountId: string;
+        available: number;
+        confirmed: number;
+        createdAt: string;
+        eventId: string | null;
+        eventLayoutAreaId: string | null;
+        eventOccurrenceId: string | null;
+        held: number;
+        id: string;
+        isAllocated: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        productId: string | null;
+        reserved: number;
+        sourceType: "event_occurrence_area" | "product";
+        totalCapacity: number;
+        updatedAt: string;
+        version: number;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  inventory: {
+     accountId: string;
+     available: number;
+     confirmed: number;
+     createdAt: string;
+     eventId: string | null;
+     eventLayoutAreaId: string | null;
+     eventOccurrenceId: string | null;
+     held: number;
+     id: string;
+     isAllocated: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     productId: string | null;
+     reserved: number;
+     sourceType: "event_occurrence_area" | "product";
+     totalCapacity: number;
+     updatedAt: string;
+     version: number;
+  }[];
+};
+```
+
+##### responses.200.content.application/json.inventory
+
+```ts
+inventory: {
+  accountId: string;
+  available: number;
+  confirmed: number;
+  createdAt: string;
+  eventId: string | null;
+  eventLayoutAreaId: string | null;
+  eventOccurrenceId: string | null;
+  held: number;
+  id: string;
+  isAllocated: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  productId: string | null;
+  reserved: number;
+  sourceType: "event_occurrence_area" | "product";
+  totalCapacity: number;
+  updatedAt: string;
+  version: number;
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### listInventorySeats
+
+```ts
+listInventorySeats: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        id: string;
+     };
+     query?: {
+        isAccessible?: "true" | "false";
+        priceCategory?: string;
+        rowName?: string;
+        status?: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+     };
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              seats: {
+                 accountId: string;
+                 attributes:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 createdAt: string;
+                 eventLayoutSeatId: string | null;
+                 id: string;
+                 inventoryId: string;
+                 isAccessible: boolean;
+                 isCompanion: boolean;
+                 organisationId: string;
+                 priceCategory: string | null;
+                 reservationId: string | null;
+                 rowName: string;
+                 seatNumber: string;
+                 status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+                 updatedAt: string;
+                 version: number;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:11830
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     id: string;
+  };
+  query?: {
+     isAccessible?: "true" | "false";
+     priceCategory?: string;
+     rowName?: string;
+     status?: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+  };
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  id: string;
+};
+```
+
+##### parameters.path.id
+
+```ts
+id: string;
+```
+
+###### Description
+
+Inventory ID
+
+##### parameters.query?
+
+```ts
+optional query: {
+  isAccessible?: "true" | "false";
+  priceCategory?: string;
+  rowName?: string;
+  status?: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+};
+```
+
+##### parameters.query.isAccessible?
+
+```ts
+optional isAccessible: "true" | "false";
+```
+
+##### parameters.query.priceCategory?
+
+```ts
+optional priceCategory: string;
+```
+
+##### parameters.query.rowName?
+
+```ts
+optional rowName: string;
+```
+
+##### parameters.query.status?
+
+```ts
+optional status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+```
+
+###### Description
+
+Seat status
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           seats: {
+              accountId: string;
+              attributes:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              createdAt: string;
+              eventLayoutSeatId: string | null;
+              id: string;
+              inventoryId: string;
+              isAccessible: boolean;
+              isCompanion: boolean;
+              organisationId: string;
+              priceCategory: string | null;
+              reservationId: string | null;
+              rowName: string;
+              seatNumber: string;
+              status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+              updatedAt: string;
+              version: number;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        seats: {
+           accountId: string;
+           attributes:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           createdAt: string;
+           eventLayoutSeatId: string | null;
+           id: string;
+           inventoryId: string;
+           isAccessible: boolean;
+           isCompanion: boolean;
+           organisationId: string;
+           priceCategory: string | null;
+           reservationId: string | null;
+           rowName: string;
+           seatNumber: string;
+           status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+           updatedAt: string;
+           version: number;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Seats retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     seats: {
+        accountId: string;
+        attributes:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        createdAt: string;
+        eventLayoutSeatId: string | null;
+        id: string;
+        inventoryId: string;
+        isAccessible: boolean;
+        isCompanion: boolean;
+        organisationId: string;
+        priceCategory: string | null;
+        reservationId: string | null;
+        rowName: string;
+        seatNumber: string;
+        status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+        updatedAt: string;
+        version: number;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  seats: {
+     accountId: string;
+     attributes:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     createdAt: string;
+     eventLayoutSeatId: string | null;
+     id: string;
+     inventoryId: string;
+     isAccessible: boolean;
+     isCompanion: boolean;
+     organisationId: string;
+     priceCategory: string | null;
+     reservationId: string | null;
+     rowName: string;
+     seatNumber: string;
+     status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+     updatedAt: string;
+     version: number;
+  }[];
+};
+```
+
+##### responses.200.content.application/json.seats
+
+```ts
+seats: {
+  accountId: string;
+  attributes:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  createdAt: string;
+  eventLayoutSeatId: string | null;
+  id: string;
+  inventoryId: string;
+  isAccessible: boolean;
+  isCompanion: boolean;
+  organisationId: string;
+  priceCategory: string | null;
+  reservationId: string | null;
+  rowName: string;
+  seatNumber: string;
+  status: "available" | "held" | "reserved" | "confirmed" | "maintenance";
+  updatedAt: string;
+  version: number;
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### listInvoices
+
+```ts
+listInvoices: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        organisationId: string;
+     };
+     query?: {
+        limit?: string;
+        page?: string;
+        status?: string;
+     };
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              invoices: {
+                 amountDue: string;
+                 amountPaid: string;
+                 createdAt: string;
+                 currency: string;
+                 dueDate: string | null;
+                 id: string;
+                 invoiceNumber: string;
+                 issueDate: string;
+                 organisationId: string;
+                 paidAt: string | null;
+                 pdfUrl: string | null;
+                 status: "draft" | "open" | "paid" | "void" | "uncollectible";
+                 subtotal: string;
+                 tax: string;
+                 total: string;
+                 type: "purchase" | "subscription" | "payg";
+                 updatedAt: string;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:10916
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     organisationId: string;
+  };
+  query?: {
+     limit?: string;
+     page?: string;
+     status?: string;
+  };
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  organisationId: string;
+};
+```
+
+##### parameters.path.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Description
+
+Organisation ID
+
+##### parameters.query?
+
+```ts
+optional query: {
+  limit?: string;
+  page?: string;
+  status?: string;
+};
+```
+
+##### parameters.query.limit?
+
+```ts
+optional limit: string;
+```
+
+###### Description
+
+Items per page
+
+##### parameters.query.page?
+
+```ts
+optional page: string;
+```
+
+###### Description
+
+Page number
+
+##### parameters.query.status?
+
+```ts
+optional status: string;
+```
+
+###### Description
+
+Filter by invoice status
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           invoices: {
+              amountDue: string;
+              amountPaid: string;
+              createdAt: string;
+              currency: string;
+              dueDate: string | null;
+              id: string;
+              invoiceNumber: string;
+              issueDate: string;
+              organisationId: string;
+              paidAt: string | null;
+              pdfUrl: string | null;
+              status: "draft" | "open" | "paid" | "void" | "uncollectible";
+              subtotal: string;
+              tax: string;
+              total: string;
+              type: "purchase" | "subscription" | "payg";
+              updatedAt: string;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        invoices: {
+           amountDue: string;
+           amountPaid: string;
+           createdAt: string;
+           currency: string;
+           dueDate: string | null;
+           id: string;
+           invoiceNumber: string;
+           issueDate: string;
+           organisationId: string;
+           paidAt: string | null;
+           pdfUrl: string | null;
+           status: "draft" | "open" | "paid" | "void" | "uncollectible";
+           subtotal: string;
+           tax: string;
+           total: string;
+           type: "purchase" | "subscription" | "payg";
+           updatedAt: string;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Invoices retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     invoices: {
+        amountDue: string;
+        amountPaid: string;
+        createdAt: string;
+        currency: string;
+        dueDate: string | null;
+        id: string;
+        invoiceNumber: string;
+        issueDate: string;
+        organisationId: string;
+        paidAt: string | null;
+        pdfUrl: string | null;
+        status: "draft" | "open" | "paid" | "void" | "uncollectible";
+        subtotal: string;
+        tax: string;
+        total: string;
+        type: "purchase" | "subscription" | "payg";
+        updatedAt: string;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  invoices: {
+     amountDue: string;
+     amountPaid: string;
+     createdAt: string;
+     currency: string;
+     dueDate: string | null;
+     id: string;
+     invoiceNumber: string;
+     issueDate: string;
+     organisationId: string;
+     paidAt: string | null;
+     pdfUrl: string | null;
+     status: "draft" | "open" | "paid" | "void" | "uncollectible";
+     subtotal: string;
+     tax: string;
+     total: string;
+     type: "purchase" | "subscription" | "payg";
+     updatedAt: string;
+  }[];
+};
+```
+
+##### responses.200.content.application/json.invoices
+
+```ts
+invoices: {
+  amountDue: string;
+  amountPaid: string;
+  createdAt: string;
+  currency: string;
+  dueDate: string | null;
+  id: string;
+  invoiceNumber: string;
+  issueDate: string;
+  organisationId: string;
+  paidAt: string | null;
+  pdfUrl: string | null;
+  status: "draft" | "open" | "paid" | "void" | "uncollectible";
+  subtotal: string;
+  tax: string;
+  total: string;
+  type: "purchase" | "subscription" | "payg";
+  updatedAt: string;
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### listOrders
+
+```ts
+listOrders: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: {
+        channel?: string;
+        customerId?: string;
+        fromDate?: string;
+        limit?: string;
+        page?: string;
+        search?: string;
+        status?:   | "completed"
+           | "cancelled"
+           | "pending"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+        toDate?: string;
+     };
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              orders: {
+                 accountId: string;
+                 cancellationReason: string | null;
+                 cancelledAt: string | null;
+                 channel: string | null;
+                 completedAt: string | null;
+                 confirmedAt: string | null;
+                 createdAt: string;
+                 currency: string;
+                 customerId: string | null;
+                 customerNotes: string | null;
+                 discountTotal: string;
+                 expiresAt: string | null;
+                 feeTotal: string;
+                 id: string;
+                 internalNotes: string | null;
+                 isGuestCheckout: boolean;
+                 items?: {
+                    createdAt: string;
+                    description: ... | ...;
+                    feeDetails: ... | ...;
+                    id: string;
+                    metadata: ... | ...;
+                    name: string;
+                    orderId: string;
+                    productDetails: ... | ...;
+                    quantity: number;
+                    ticketDetails: ... | ...;
+                    totalPrice: string;
+                    type: ... | ... | ... | ... | ... | ...;
+                    unitPrice: string;
+                    updatedAt: string;
+                 }[];
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 orderNumber: string;
+                 organisationId: string;
+                 status:   | "completed"
+                    | "cancelled"
+                    | "pending"
+                    | "failed"
+                    | "refunded"
+                    | "confirmed"
+                    | "processing"
+                    | "expired";
+                 subtotal: string;
+                 taxTotal: string;
+                 total: string;
+                 updatedAt: string;
+              }[];
+              pagination: {
+                 limit: number;
+                 page: number;
+                 total: number;
+                 totalPages: number;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:13135
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: {
+     channel?: string;
+     customerId?: string;
+     fromDate?: string;
+     limit?: string;
+     page?: string;
+     search?: string;
+     status?:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     toDate?: string;
+  };
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: {
+  channel?: string;
+  customerId?: string;
+  fromDate?: string;
+  limit?: string;
+  page?: string;
+  search?: string;
+  status?:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  toDate?: string;
+};
+```
+
+##### parameters.query.channel?
+
+```ts
+optional channel: string;
+```
+
+###### Description
+
+Filter by sales channel
+
+##### parameters.query.customerId?
+
+```ts
+optional customerId: string;
+```
+
+###### Description
+
+Filter by customer ID
+
+##### parameters.query.fromDate?
+
+```ts
+optional fromDate: string;
+```
+
+###### Description
+
+Filter by created date (from)
+
+##### parameters.query.limit?
+
+```ts
+optional limit: string;
+```
+
+###### Description
+
+Items per page (max 100)
+
+##### parameters.query.page?
+
+```ts
+optional page: string;
+```
+
+###### Description
+
+Page number
+
+##### parameters.query.search?
+
+```ts
+optional search: string;
+```
+
+###### Description
+
+Search by order number
+
+##### parameters.query.status?
+
+```ts
+optional status: 
+  | "completed"
+  | "cancelled"
+  | "pending"
+  | "failed"
+  | "refunded"
+  | "confirmed"
+  | "processing"
+  | "expired";
+```
+
+###### Description
+
+Filter by order status
+
+##### parameters.query.toDate?
+
+```ts
+optional toDate: string;
+```
+
+###### Description
+
+Filter by created date (to)
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           orders: {
+              accountId: string;
+              cancellationReason: string | null;
+              cancelledAt: string | null;
+              channel: string | null;
+              completedAt: string | null;
+              confirmedAt: string | null;
+              createdAt: string;
+              currency: string;
+              customerId: string | null;
+              customerNotes: string | null;
+              discountTotal: string;
+              expiresAt: string | null;
+              feeTotal: string;
+              id: string;
+              internalNotes: string | null;
+              isGuestCheckout: boolean;
+              items?: {
+                 createdAt: string;
+                 description: ... | ...;
+                 feeDetails: ... | ...;
+                 id: string;
+                 metadata: ... | ...;
+                 name: string;
+                 orderId: string;
+                 productDetails: ... | ...;
+                 quantity: number;
+                 ticketDetails: ... | ...;
+                 totalPrice: string;
+                 type: ... | ... | ... | ... | ... | ...;
+                 unitPrice: string;
+                 updatedAt: string;
+              }[];
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              orderNumber: string;
+              organisationId: string;
+              status:   | "completed"
+                 | "cancelled"
+                 | "pending"
+                 | "failed"
+                 | "refunded"
+                 | "confirmed"
+                 | "processing"
+                 | "expired";
+              subtotal: string;
+              taxTotal: string;
+              total: string;
+              updatedAt: string;
+           }[];
+           pagination: {
+              limit: number;
+              page: number;
+              total: number;
+              totalPages: number;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        orders: {
+           accountId: string;
+           cancellationReason: string | null;
+           cancelledAt: string | null;
+           channel: string | null;
+           completedAt: string | null;
+           confirmedAt: string | null;
+           createdAt: string;
+           currency: string;
+           customerId: string | null;
+           customerNotes: string | null;
+           discountTotal: string;
+           expiresAt: string | null;
+           feeTotal: string;
+           id: string;
+           internalNotes: string | null;
+           isGuestCheckout: boolean;
+           items?: {
+              createdAt: string;
+              description: ... | ...;
+              feeDetails: ... | ...;
+              id: string;
+              metadata: ... | ...;
+              name: string;
+              orderId: string;
+              productDetails: ... | ...;
+              quantity: number;
+              ticketDetails: ... | ...;
+              totalPrice: string;
+              type: ... | ... | ... | ... | ... | ...;
+              unitPrice: string;
+              updatedAt: string;
+           }[];
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           orderNumber: string;
+           organisationId: string;
+           status:   | "completed"
+              | "cancelled"
+              | "pending"
+              | "failed"
+              | "refunded"
+              | "confirmed"
+              | "processing"
+              | "expired";
+           subtotal: string;
+           taxTotal: string;
+           total: string;
+           updatedAt: string;
+        }[];
+        pagination: {
+           limit: number;
+           page: number;
+           total: number;
+           totalPages: number;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Orders retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     orders: {
+        accountId: string;
+        cancellationReason: string | null;
+        cancelledAt: string | null;
+        channel: string | null;
+        completedAt: string | null;
+        confirmedAt: string | null;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        customerNotes: string | null;
+        discountTotal: string;
+        expiresAt: string | null;
+        feeTotal: string;
+        id: string;
+        internalNotes: string | null;
+        isGuestCheckout: boolean;
+        items?: {
+           createdAt: string;
+           description: ... | ...;
+           feeDetails: ... | ...;
+           id: string;
+           metadata: ... | ...;
+           name: string;
+           orderId: string;
+           productDetails: ... | ...;
+           quantity: number;
+           ticketDetails: ... | ...;
+           totalPrice: string;
+           type: ... | ... | ... | ... | ... | ...;
+           unitPrice: string;
+           updatedAt: string;
+        }[];
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderNumber: string;
+        organisationId: string;
+        status:   | "completed"
+           | "cancelled"
+           | "pending"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+        subtotal: string;
+        taxTotal: string;
+        total: string;
+        updatedAt: string;
+     }[];
+     pagination: {
+        limit: number;
+        page: number;
+        total: number;
+        totalPages: number;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  orders: {
+     accountId: string;
+     cancellationReason: string | null;
+     cancelledAt: string | null;
+     channel: string | null;
+     completedAt: string | null;
+     confirmedAt: string | null;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     customerNotes: string | null;
+     discountTotal: string;
+     expiresAt: string | null;
+     feeTotal: string;
+     id: string;
+     internalNotes: string | null;
+     isGuestCheckout: boolean;
+     items?: {
+        createdAt: string;
+        description: ... | ...;
+        feeDetails: ... | ...;
+        id: string;
+        metadata: ... | ...;
+        name: string;
+        orderId: string;
+        productDetails: ... | ...;
+        quantity: number;
+        ticketDetails: ... | ...;
+        totalPrice: string;
+        type: ... | ... | ... | ... | ... | ...;
+        unitPrice: string;
+        updatedAt: string;
+     }[];
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderNumber: string;
+     organisationId: string;
+     status:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     subtotal: string;
+     taxTotal: string;
+     total: string;
+     updatedAt: string;
+  }[];
+  pagination: {
+     limit: number;
+     page: number;
+     total: number;
+     totalPages: number;
+  };
+};
+```
+
+##### responses.200.content.application/json.orders
+
+```ts
+orders: {
+  accountId: string;
+  cancellationReason: string | null;
+  cancelledAt: string | null;
+  channel: string | null;
+  completedAt: string | null;
+  confirmedAt: string | null;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  customerNotes: string | null;
+  discountTotal: string;
+  expiresAt: string | null;
+  feeTotal: string;
+  id: string;
+  internalNotes: string | null;
+  isGuestCheckout: boolean;
+  items?: {
+     createdAt: string;
+     description: ... | ...;
+     feeDetails: ... | ...;
+     id: string;
+     metadata: ... | ...;
+     name: string;
+     orderId: string;
+     productDetails: ... | ...;
+     quantity: number;
+     ticketDetails: ... | ...;
+     totalPrice: string;
+     type: ... | ... | ... | ... | ... | ...;
+     unitPrice: string;
+     updatedAt: string;
+  }[];
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderNumber: string;
+  organisationId: string;
+  status:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  subtotal: string;
+  taxTotal: string;
+  total: string;
+  updatedAt: string;
+}[];
+```
+
+##### responses.200.content.application/json.pagination
+
+```ts
+pagination: {
+  limit: number;
+  page: number;
+  total: number;
+  totalPages: number;
+};
+```
+
+##### responses.200.content.application/json.pagination.limit
+
+```ts
+limit: number;
+```
+
+###### Example
+
+```ts
+20
+```
+
+##### responses.200.content.application/json.pagination.page
+
+```ts
+page: number;
+```
+
+###### Example
+
+```ts
+1
+```
+
+##### responses.200.content.application/json.pagination.total
+
+```ts
+total: number;
+```
+
+###### Example
+
+```ts
+150
+```
+
+##### responses.200.content.application/json.pagination.totalPages
+
+```ts
+totalPages: number;
+```
+
+###### Example
+
+```ts
+8
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### listPaymentProviders
+
+```ts
+listPaymentProviders: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: {
+        accountId?: string;
+        integrationType?: "ticketlayer_pay" | "self_service";
+        isDefault?: string;
+        limit?: string;
+        page?: string;
+        paymentType?:   | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+           | "cheque";
+        status?: "active" | "inactive" | "pending_setup";
+        type?:   | "bank_transfer"
+           | "cash"
+           | "stripe_connect"
+           | "stripe_direct"
+           | "adyen"
+           | "square"
+           | "paypal";
+     };
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              pagination: {
+                 limit: number;
+                 page: number;
+                 total: number;
+                 totalPages: number;
+              };
+              providers: {
+                 accountId: string | null;
+                 applicationFee:   | {
+                    type: "percentage" | "fixed";
+                    value: number;
+                  }
+                    | null;
+                 capabilities:   | {
+                    maxAmount?: number;
+                    minAmount?: number;
+                    requiresCustomerAction?: boolean;
+                    supportedCurrencies?: ...[];
+                    supportsDelayedCapture?: boolean;
+                    supportsInstantCapture?: boolean;
+                    supportsPartialRefunds?: boolean;
+                    supportsRefunds?: boolean;
+                  }
+                    | null;
+                 configuration: {
+                  [key: string]: unknown;
+                 };
+                 createdAt: string;
+                 description: string | null;
+                 feeStructure:   | {
+                    currency?: string;
+                    fixed?: number;
+                    percentage?: number;
+                    type: "percentage" | "fixed" | "percentage_plus_fixed";
+                  }
+                    | null;
+                 id: string;
+                 integrationServiceUrl: string | null;
+                 integrationServiceVersion: string;
+                 isDefault: boolean;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 name: string;
+                 organisationId: string;
+                 priority: number;
+                 status: "active" | "inactive" | "pending_setup";
+                 supportedPaymentTypes: (
+                    | "bank_transfer"
+                    | "online_card"
+                    | "online_bank_transfer"
+                    | "online_wallet"
+                    | "in_person_card"
+                    | "in_person_cash"
+                   | "cheque")[];
+                 type:   | "bank_transfer"
+                    | "cash"
+                    | "stripe_connect"
+                    | "stripe_direct"
+                    | "adyen"
+                    | "square"
+                    | "paypal";
+                 updatedAt: string;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:14858
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: {
+     accountId?: string;
+     integrationType?: "ticketlayer_pay" | "self_service";
+     isDefault?: string;
+     limit?: string;
+     page?: string;
+     paymentType?:   | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+        | "cheque";
+     status?: "active" | "inactive" | "pending_setup";
+     type?:   | "bank_transfer"
+        | "cash"
+        | "stripe_connect"
+        | "stripe_direct"
+        | "adyen"
+        | "square"
+        | "paypal";
+  };
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: {
+  accountId?: string;
+  integrationType?: "ticketlayer_pay" | "self_service";
+  isDefault?: string;
+  limit?: string;
+  page?: string;
+  paymentType?:   | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+     | "cheque";
+  status?: "active" | "inactive" | "pending_setup";
+  type?:   | "bank_transfer"
+     | "cash"
+     | "stripe_connect"
+     | "stripe_direct"
+     | "adyen"
+     | "square"
+     | "paypal";
+};
+```
+
+##### parameters.query.accountId?
+
+```ts
+optional accountId: string;
+```
+
+###### Description
+
+Filter by account ID
+
+##### parameters.query.integrationType?
+
+```ts
+optional integrationType: "ticketlayer_pay" | "self_service";
+```
+
+###### Description
+
+Filter by integration type
+
+##### parameters.query.isDefault?
+
+```ts
+optional isDefault: string;
+```
+
+###### Description
+
+Filter for default providers
+
+##### parameters.query.limit?
+
+```ts
+optional limit: string;
+```
+
+###### Description
+
+Items per page (max 100)
+
+##### parameters.query.page?
+
+```ts
+optional page: string;
+```
+
+###### Description
+
+Page number
+
+##### parameters.query.paymentType?
+
+```ts
+optional paymentType: 
+  | "bank_transfer"
+  | "online_card"
+  | "online_bank_transfer"
+  | "online_wallet"
+  | "in_person_card"
+  | "in_person_cash"
+  | "cheque";
+```
+
+###### Description
+
+Filter by supported payment type
+
+##### parameters.query.status?
+
+```ts
+optional status: "active" | "inactive" | "pending_setup";
+```
+
+###### Description
+
+Filter by status
+
+##### parameters.query.type?
+
+```ts
+optional type: 
+  | "bank_transfer"
+  | "cash"
+  | "stripe_connect"
+  | "stripe_direct"
+  | "adyen"
+  | "square"
+  | "paypal";
+```
+
+###### Description
+
+Filter by provider type
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           pagination: {
+              limit: number;
+              page: number;
+              total: number;
+              totalPages: number;
+           };
+           providers: {
+              accountId: string | null;
+              applicationFee:   | {
+                 type: "percentage" | "fixed";
+                 value: number;
+               }
+                 | null;
+              capabilities:   | {
+                 maxAmount?: number;
+                 minAmount?: number;
+                 requiresCustomerAction?: boolean;
+                 supportedCurrencies?: ...[];
+                 supportsDelayedCapture?: boolean;
+                 supportsInstantCapture?: boolean;
+                 supportsPartialRefunds?: boolean;
+                 supportsRefunds?: boolean;
+               }
+                 | null;
+              configuration: {
+               [key: string]: unknown;
+              };
+              createdAt: string;
+              description: string | null;
+              feeStructure:   | {
+                 currency?: string;
+                 fixed?: number;
+                 percentage?: number;
+                 type: "percentage" | "fixed" | "percentage_plus_fixed";
+               }
+                 | null;
+              id: string;
+              integrationServiceUrl: string | null;
+              integrationServiceVersion: string;
+              isDefault: boolean;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              name: string;
+              organisationId: string;
+              priority: number;
+              status: "active" | "inactive" | "pending_setup";
+              supportedPaymentTypes: (
+                 | "bank_transfer"
+                 | "online_card"
+                 | "online_bank_transfer"
+                 | "online_wallet"
+                 | "in_person_card"
+                 | "in_person_cash"
+                | "cheque")[];
+              type:   | "bank_transfer"
+                 | "cash"
+                 | "stripe_connect"
+                 | "stripe_direct"
+                 | "adyen"
+                 | "square"
+                 | "paypal";
+              updatedAt: string;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        pagination: {
+           limit: number;
+           page: number;
+           total: number;
+           totalPages: number;
+        };
+        providers: {
+           accountId: string | null;
+           applicationFee:   | {
+              type: "percentage" | "fixed";
+              value: number;
+            }
+              | null;
+           capabilities:   | {
+              maxAmount?: number;
+              minAmount?: number;
+              requiresCustomerAction?: boolean;
+              supportedCurrencies?: ...[];
+              supportsDelayedCapture?: boolean;
+              supportsInstantCapture?: boolean;
+              supportsPartialRefunds?: boolean;
+              supportsRefunds?: boolean;
+            }
+              | null;
+           configuration: {
+            [key: string]: unknown;
+           };
+           createdAt: string;
+           description: string | null;
+           feeStructure:   | {
+              currency?: string;
+              fixed?: number;
+              percentage?: number;
+              type: "percentage" | "fixed" | "percentage_plus_fixed";
+            }
+              | null;
+           id: string;
+           integrationServiceUrl: string | null;
+           integrationServiceVersion: string;
+           isDefault: boolean;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           name: string;
+           organisationId: string;
+           priority: number;
+           status: "active" | "inactive" | "pending_setup";
+           supportedPaymentTypes: (
+              | "bank_transfer"
+              | "online_card"
+              | "online_bank_transfer"
+              | "online_wallet"
+              | "in_person_card"
+              | "in_person_cash"
+             | "cheque")[];
+           type:   | "bank_transfer"
+              | "cash"
+              | "stripe_connect"
+              | "stripe_direct"
+              | "adyen"
+              | "square"
+              | "paypal";
+           updatedAt: string;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Payment providers retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     pagination: {
+        limit: number;
+        page: number;
+        total: number;
+        totalPages: number;
+     };
+     providers: {
+        accountId: string | null;
+        applicationFee:   | {
+           type: "percentage" | "fixed";
+           value: number;
+         }
+           | null;
+        capabilities:   | {
+           maxAmount?: number;
+           minAmount?: number;
+           requiresCustomerAction?: boolean;
+           supportedCurrencies?: ...[];
+           supportsDelayedCapture?: boolean;
+           supportsInstantCapture?: boolean;
+           supportsPartialRefunds?: boolean;
+           supportsRefunds?: boolean;
+         }
+           | null;
+        configuration: {
+         [key: string]: unknown;
+        };
+        createdAt: string;
+        description: string | null;
+        feeStructure:   | {
+           currency?: string;
+           fixed?: number;
+           percentage?: number;
+           type: "percentage" | "fixed" | "percentage_plus_fixed";
+         }
+           | null;
+        id: string;
+        integrationServiceUrl: string | null;
+        integrationServiceVersion: string;
+        isDefault: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        organisationId: string;
+        priority: number;
+        status: "active" | "inactive" | "pending_setup";
+        supportedPaymentTypes: (
+           | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+          | "cheque")[];
+        type:   | "bank_transfer"
+           | "cash"
+           | "stripe_connect"
+           | "stripe_direct"
+           | "adyen"
+           | "square"
+           | "paypal";
+        updatedAt: string;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  pagination: {
+     limit: number;
+     page: number;
+     total: number;
+     totalPages: number;
+  };
+  providers: {
+     accountId: string | null;
+     applicationFee:   | {
+        type: "percentage" | "fixed";
+        value: number;
+      }
+        | null;
+     capabilities:   | {
+        maxAmount?: number;
+        minAmount?: number;
+        requiresCustomerAction?: boolean;
+        supportedCurrencies?: ...[];
+        supportsDelayedCapture?: boolean;
+        supportsInstantCapture?: boolean;
+        supportsPartialRefunds?: boolean;
+        supportsRefunds?: boolean;
+      }
+        | null;
+     configuration: {
+      [key: string]: unknown;
+     };
+     createdAt: string;
+     description: string | null;
+     feeStructure:   | {
+        currency?: string;
+        fixed?: number;
+        percentage?: number;
+        type: "percentage" | "fixed" | "percentage_plus_fixed";
+      }
+        | null;
+     id: string;
+     integrationServiceUrl: string | null;
+     integrationServiceVersion: string;
+     isDefault: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     organisationId: string;
+     priority: number;
+     status: "active" | "inactive" | "pending_setup";
+     supportedPaymentTypes: (
+        | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+       | "cheque")[];
+     type:   | "bank_transfer"
+        | "cash"
+        | "stripe_connect"
+        | "stripe_direct"
+        | "adyen"
+        | "square"
+        | "paypal";
+     updatedAt: string;
+  }[];
+};
+```
+
+##### responses.200.content.application/json.pagination
+
+```ts
+pagination: {
+  limit: number;
+  page: number;
+  total: number;
+  totalPages: number;
+};
+```
+
+##### responses.200.content.application/json.pagination.limit
+
+```ts
+limit: number;
+```
+
+###### Example
+
+```ts
+20
+```
+
+##### responses.200.content.application/json.pagination.page
+
+```ts
+page: number;
+```
+
+###### Example
+
+```ts
+1
+```
+
+##### responses.200.content.application/json.pagination.total
+
+```ts
+total: number;
+```
+
+###### Example
+
+```ts
+5
+```
+
+##### responses.200.content.application/json.pagination.totalPages
+
+```ts
+totalPages: number;
+```
+
+###### Example
+
+```ts
+1
+```
+
+##### responses.200.content.application/json.providers
+
+```ts
+providers: {
+  accountId: string | null;
+  applicationFee:   | {
+     type: "percentage" | "fixed";
+     value: number;
+   }
+     | null;
+  capabilities:   | {
+     maxAmount?: number;
+     minAmount?: number;
+     requiresCustomerAction?: boolean;
+     supportedCurrencies?: ...[];
+     supportsDelayedCapture?: boolean;
+     supportsInstantCapture?: boolean;
+     supportsPartialRefunds?: boolean;
+     supportsRefunds?: boolean;
+   }
+     | null;
+  configuration: {
+   [key: string]: unknown;
+  };
+  createdAt: string;
+  description: string | null;
+  feeStructure:   | {
+     currency?: string;
+     fixed?: number;
+     percentage?: number;
+     type: "percentage" | "fixed" | "percentage_plus_fixed";
+   }
+     | null;
+  id: string;
+  integrationServiceUrl: string | null;
+  integrationServiceVersion: string;
+  isDefault: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  organisationId: string;
+  priority: number;
+  status: "active" | "inactive" | "pending_setup";
+  supportedPaymentTypes: (
+     | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+    | "cheque")[];
+  type:   | "bank_transfer"
+     | "cash"
+     | "stripe_connect"
+     | "stripe_direct"
+     | "adyen"
+     | "square"
+     | "paypal";
+  updatedAt: string;
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### listPaymentRefunds
+
+```ts
+listPaymentRefunds: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        paymentId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              refunds: {
+                 amount: number;
+                 completedAt: string | null;
+                 createdAt: string;
+                 externalRefundId: string | null;
+                 failedAt: string | null;
+                 failureCode: string | null;
+                 failureMessage: string | null;
+                 id: string;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 notes: string | null;
+                 paymentId: string;
+                 reason: string;
+                 status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+                 updatedAt: string;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:14713
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     paymentId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  paymentId: string;
+};
+```
+
+##### parameters.path.paymentId
+
+```ts
+paymentId: string;
+```
+
+###### Description
+
+Payment ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           refunds: {
+              amount: number;
+              completedAt: string | null;
+              createdAt: string;
+              externalRefundId: string | null;
+              failedAt: string | null;
+              failureCode: string | null;
+              failureMessage: string | null;
+              id: string;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              notes: string | null;
+              paymentId: string;
+              reason: string;
+              status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+              updatedAt: string;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        refunds: {
+           amount: number;
+           completedAt: string | null;
+           createdAt: string;
+           externalRefundId: string | null;
+           failedAt: string | null;
+           failureCode: string | null;
+           failureMessage: string | null;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           notes: string | null;
+           paymentId: string;
+           reason: string;
+           status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+           updatedAt: string;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Refunds retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     refunds: {
+        amount: number;
+        completedAt: string | null;
+        createdAt: string;
+        externalRefundId: string | null;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        notes: string | null;
+        paymentId: string;
+        reason: string;
+        status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+        updatedAt: string;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  refunds: {
+     amount: number;
+     completedAt: string | null;
+     createdAt: string;
+     externalRefundId: string | null;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     notes: string | null;
+     paymentId: string;
+     reason: string;
+     status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+     updatedAt: string;
+  }[];
+};
+```
+
+##### responses.200.content.application/json.refunds
+
+```ts
+refunds: {
+  amount: number;
+  completedAt: string | null;
+  createdAt: string;
+  externalRefundId: string | null;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  notes: string | null;
+  paymentId: string;
+  reason: string;
+  status: "cancelled" | "pending" | "succeeded" | "failed" | "processing";
+  updatedAt: string;
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### listPayments
+
+```ts
+listPayments: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: {
+        fromDate?: string;
+        limit?: string;
+        orderId?: string;
+        page?: string;
+        paymentProviderId?: string;
+        paymentType?:   | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+           | "cheque";
+        status?:   | "cancelled"
+           | "pending"
+           | "succeeded"
+           | "failed"
+           | "processing"
+           | "expired"
+           | "requires_action"
+           | "created";
+        toDate?: string;
+     };
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              payments: {
+                 amount: string;
+                 createdAt: string;
+                 currency: string;
+                 failedAt: string | null;
+                 failureCode: string | null;
+                 failureMessage: string | null;
+                 id: string;
+                 invoiceId: string | null;
+                 method: string | null;
+                 organisationId: string;
+                 paidAt: string | null;
+                 status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+                 updatedAt: string;
+              }[];
+            } & {
+              pagination: {
+                 limit: number;
+                 page: number;
+                 total: number;
+                 totalPages: number;
+              };
+              payments: {
+                 amount: string;
+                 createdAt: string;
+                 currency: string;
+                 failedAt: string | null;
+                 failureCode: string | null;
+                 failureMessage: string | null;
+                 id: string;
+                 invoiceId: string | null;
+                 method: string | null;
+                 organisationId: string;
+                 paidAt: string | null;
+                 status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+                 updatedAt: string;
+               } & {
+                 accountId: string;
+                 amount: number;
+                 applicationFee: number | null;
+                 cancelledAt: string | null;
+                 capturedAt: string | null;
+                 clientSecret: string | null;
+                 createdAt: string;
+                 currency: string;
+                 expiresAt: string | null;
+                 externalPaymentId: string | null;
+                 failedAt: string | null;
+                 failureCode: string | null;
+                 failureMessage: string | null;
+                 id: string;
+                 isPartialPayment: boolean;
+                 metadata:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 netAmount: number | null;
+                 orderId: string;
+                 orderNumber: string;
+                 organisationId: string;
+                 paymentMethod:   | {
+                    brand: ...;
+                    expiryMonth: ...;
+                    expiryYear: ...;
+                    last4: ...;
+                    type: ...;
+                  }
+                    | null;
+                 paymentProviderId: string;
+                 paymentType:   | "bank_transfer"
+                    | "online_card"
+                    | "online_bank_transfer"
+                    | "online_wallet"
+                    | "in_person_card"
+                    | "in_person_cash"
+                    | "cheque";
+                 processingFee: number | null;
+                 redirectUrl: string | null;
+                 remainingBalance: number | null;
+                 status:   | "cancelled"
+                    | "pending"
+                    | "succeeded"
+                    | "failed"
+                    | "processing"
+                    | "expired"
+                    | "requires_action"
+                    | "created";
+                 updatedAt: string;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:14313
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: {
+     fromDate?: string;
+     limit?: string;
+     orderId?: string;
+     page?: string;
+     paymentProviderId?: string;
+     paymentType?:   | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+        | "cheque";
+     status?:   | "cancelled"
+        | "pending"
+        | "succeeded"
+        | "failed"
+        | "processing"
+        | "expired"
+        | "requires_action"
+        | "created";
+     toDate?: string;
+  };
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: {
+  fromDate?: string;
+  limit?: string;
+  orderId?: string;
+  page?: string;
+  paymentProviderId?: string;
+  paymentType?:   | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+     | "cheque";
+  status?:   | "cancelled"
+     | "pending"
+     | "succeeded"
+     | "failed"
+     | "processing"
+     | "expired"
+     | "requires_action"
+     | "created";
+  toDate?: string;
+};
+```
+
+##### parameters.query.fromDate?
+
+```ts
+optional fromDate: string;
+```
+
+###### Description
+
+Filter by created date (from)
+
+##### parameters.query.limit?
+
+```ts
+optional limit: string;
+```
+
+###### Description
+
+Items per page (max 100)
+
+##### parameters.query.orderId?
+
+```ts
+optional orderId: string;
+```
+
+###### Description
+
+Filter by order ID
+
+##### parameters.query.page?
+
+```ts
+optional page: string;
+```
+
+###### Description
+
+Page number
+
+##### parameters.query.paymentProviderId?
+
+```ts
+optional paymentProviderId: string;
+```
+
+###### Description
+
+Filter by payment provider
+
+##### parameters.query.paymentType?
+
+```ts
+optional paymentType: 
+  | "bank_transfer"
+  | "online_card"
+  | "online_bank_transfer"
+  | "online_wallet"
+  | "in_person_card"
+  | "in_person_cash"
+  | "cheque";
+```
+
+###### Description
+
+Filter by payment type
+
+##### parameters.query.status?
+
+```ts
+optional status: 
+  | "cancelled"
+  | "pending"
+  | "succeeded"
+  | "failed"
+  | "processing"
+  | "expired"
+  | "requires_action"
+  | "created";
+```
+
+###### Description
+
+Filter by payment status
+
+##### parameters.query.toDate?
+
+```ts
+optional toDate: string;
+```
+
+###### Description
+
+Filter by created date (to)
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           payments: {
+              amount: string;
+              createdAt: string;
+              currency: string;
+              failedAt: string | null;
+              failureCode: string | null;
+              failureMessage: string | null;
+              id: string;
+              invoiceId: string | null;
+              method: string | null;
+              organisationId: string;
+              paidAt: string | null;
+              status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+              updatedAt: string;
+           }[];
+         } & {
+           pagination: {
+              limit: number;
+              page: number;
+              total: number;
+              totalPages: number;
+           };
+           payments: {
+              amount: string;
+              createdAt: string;
+              currency: string;
+              failedAt: string | null;
+              failureCode: string | null;
+              failureMessage: string | null;
+              id: string;
+              invoiceId: string | null;
+              method: string | null;
+              organisationId: string;
+              paidAt: string | null;
+              status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+              updatedAt: string;
+            } & {
+              accountId: string;
+              amount: number;
+              applicationFee: number | null;
+              cancelledAt: string | null;
+              capturedAt: string | null;
+              clientSecret: string | null;
+              createdAt: string;
+              currency: string;
+              expiresAt: string | null;
+              externalPaymentId: string | null;
+              failedAt: string | null;
+              failureCode: string | null;
+              failureMessage: string | null;
+              id: string;
+              isPartialPayment: boolean;
+              metadata:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              netAmount: number | null;
+              orderId: string;
+              orderNumber: string;
+              organisationId: string;
+              paymentMethod:   | {
+                 brand: ...;
+                 expiryMonth: ...;
+                 expiryYear: ...;
+                 last4: ...;
+                 type: ...;
+               }
+                 | null;
+              paymentProviderId: string;
+              paymentType:   | "bank_transfer"
+                 | "online_card"
+                 | "online_bank_transfer"
+                 | "online_wallet"
+                 | "in_person_card"
+                 | "in_person_cash"
+                 | "cheque";
+              processingFee: number | null;
+              redirectUrl: string | null;
+              remainingBalance: number | null;
+              status:   | "cancelled"
+                 | "pending"
+                 | "succeeded"
+                 | "failed"
+                 | "processing"
+                 | "expired"
+                 | "requires_action"
+                 | "created";
+              updatedAt: string;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        payments: {
+           amount: string;
+           createdAt: string;
+           currency: string;
+           failedAt: string | null;
+           failureCode: string | null;
+           failureMessage: string | null;
+           id: string;
+           invoiceId: string | null;
+           method: string | null;
+           organisationId: string;
+           paidAt: string | null;
+           status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+           updatedAt: string;
+        }[];
+      } & {
+        pagination: {
+           limit: number;
+           page: number;
+           total: number;
+           totalPages: number;
+        };
+        payments: {
+           amount: string;
+           createdAt: string;
+           currency: string;
+           failedAt: string | null;
+           failureCode: string | null;
+           failureMessage: string | null;
+           id: string;
+           invoiceId: string | null;
+           method: string | null;
+           organisationId: string;
+           paidAt: string | null;
+           status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+           updatedAt: string;
+         } & {
+           accountId: string;
+           amount: number;
+           applicationFee: number | null;
+           cancelledAt: string | null;
+           capturedAt: string | null;
+           clientSecret: string | null;
+           createdAt: string;
+           currency: string;
+           expiresAt: string | null;
+           externalPaymentId: string | null;
+           failedAt: string | null;
+           failureCode: string | null;
+           failureMessage: string | null;
+           id: string;
+           isPartialPayment: boolean;
+           metadata:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           netAmount: number | null;
+           orderId: string;
+           orderNumber: string;
+           organisationId: string;
+           paymentMethod:   | {
+              brand: ...;
+              expiryMonth: ...;
+              expiryYear: ...;
+              last4: ...;
+              type: ...;
+            }
+              | null;
+           paymentProviderId: string;
+           paymentType:   | "bank_transfer"
+              | "online_card"
+              | "online_bank_transfer"
+              | "online_wallet"
+              | "in_person_card"
+              | "in_person_cash"
+              | "cheque";
+           processingFee: number | null;
+           redirectUrl: string | null;
+           remainingBalance: number | null;
+           status:   | "cancelled"
+              | "pending"
+              | "succeeded"
+              | "failed"
+              | "processing"
+              | "expired"
+              | "requires_action"
+              | "created";
+           updatedAt: string;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Payments retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     payments: {
+        amount: string;
+        createdAt: string;
+        currency: string;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        invoiceId: string | null;
+        method: string | null;
+        organisationId: string;
+        paidAt: string | null;
+        status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+        updatedAt: string;
+     }[];
+   } & {
+     pagination: {
+        limit: number;
+        page: number;
+        total: number;
+        totalPages: number;
+     };
+     payments: {
+        amount: string;
+        createdAt: string;
+        currency: string;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        invoiceId: string | null;
+        method: string | null;
+        organisationId: string;
+        paidAt: string | null;
+        status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+        updatedAt: string;
+      } & {
+        accountId: string;
+        amount: number;
+        applicationFee: number | null;
+        cancelledAt: string | null;
+        capturedAt: string | null;
+        clientSecret: string | null;
+        createdAt: string;
+        currency: string;
+        expiresAt: string | null;
+        externalPaymentId: string | null;
+        failedAt: string | null;
+        failureCode: string | null;
+        failureMessage: string | null;
+        id: string;
+        isPartialPayment: boolean;
+        metadata:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        netAmount: number | null;
+        orderId: string;
+        orderNumber: string;
+        organisationId: string;
+        paymentMethod:   | {
+           brand: ...;
+           expiryMonth: ...;
+           expiryYear: ...;
+           last4: ...;
+           type: ...;
+         }
+           | null;
+        paymentProviderId: string;
+        paymentType:   | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+           | "cheque";
+        processingFee: number | null;
+        redirectUrl: string | null;
+        remainingBalance: number | null;
+        status:   | "cancelled"
+           | "pending"
+           | "succeeded"
+           | "failed"
+           | "processing"
+           | "expired"
+           | "requires_action"
+           | "created";
+        updatedAt: string;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  payments: {
+     amount: string;
+     createdAt: string;
+     currency: string;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     invoiceId: string | null;
+     method: string | null;
+     organisationId: string;
+     paidAt: string | null;
+     status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+     updatedAt: string;
+  }[];
+} & {
+  pagination: {
+     limit: number;
+     page: number;
+     total: number;
+     totalPages: number;
+  };
+  payments: {
+     amount: string;
+     createdAt: string;
+     currency: string;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     invoiceId: string | null;
+     method: string | null;
+     organisationId: string;
+     paidAt: string | null;
+     status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+     updatedAt: string;
+   } & {
+     accountId: string;
+     amount: number;
+     applicationFee: number | null;
+     cancelledAt: string | null;
+     capturedAt: string | null;
+     clientSecret: string | null;
+     createdAt: string;
+     currency: string;
+     expiresAt: string | null;
+     externalPaymentId: string | null;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     isPartialPayment: boolean;
+     metadata:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     netAmount: number | null;
+     orderId: string;
+     orderNumber: string;
+     organisationId: string;
+     paymentMethod:   | {
+        brand: ...;
+        expiryMonth: ...;
+        expiryYear: ...;
+        last4: ...;
+        type: ...;
+      }
+        | null;
+     paymentProviderId: string;
+     paymentType:   | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+        | "cheque";
+     processingFee: number | null;
+     redirectUrl: string | null;
+     remainingBalance: number | null;
+     status:   | "cancelled"
+        | "pending"
+        | "succeeded"
+        | "failed"
+        | "processing"
+        | "expired"
+        | "requires_action"
+        | "created";
+     updatedAt: string;
+  }[];
+};
+```
+
+###### Type Declaration
+
+###### payments
+
+```ts
+payments: {
+  amount: string;
+  createdAt: string;
+  currency: string;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  invoiceId: string | null;
+  method: string | null;
+  organisationId: string;
+  paidAt: string | null;
+  status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+  updatedAt: string;
+}[];
+```
+
+###### Type Declaration
+
+###### pagination
+
+```ts
+pagination: {
+  limit: number;
+  page: number;
+  total: number;
+  totalPages: number;
+};
+```
+
+###### pagination.limit
+
+```ts
+limit: number;
+```
+
+###### Example
+
+```ts
+20
+```
+
+###### pagination.page
+
+```ts
+page: number;
+```
+
+###### Example
+
+```ts
+1
+```
+
+###### pagination.total
+
+```ts
+total: number;
+```
+
+###### Example
+
+```ts
+150
+```
+
+###### pagination.totalPages
+
+```ts
+totalPages: number;
+```
+
+###### Example
+
+```ts
+8
+```
+
+###### payments
+
+```ts
+payments: {
+  amount: string;
+  createdAt: string;
+  currency: string;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  invoiceId: string | null;
+  method: string | null;
+  organisationId: string;
+  paidAt: string | null;
+  status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+  updatedAt: string;
+} & {
+  accountId: string;
+  amount: number;
+  applicationFee: number | null;
+  cancelledAt: string | null;
+  capturedAt: string | null;
+  clientSecret: string | null;
+  createdAt: string;
+  currency: string;
+  expiresAt: string | null;
+  externalPaymentId: string | null;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  isPartialPayment: boolean;
+  metadata:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  netAmount: number | null;
+  orderId: string;
+  orderNumber: string;
+  organisationId: string;
+  paymentMethod:   | {
+     brand: ...;
+     expiryMonth: ...;
+     expiryYear: ...;
+     last4: ...;
+     type: ...;
+   }
+     | null;
+  paymentProviderId: string;
+  paymentType:   | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+     | "cheque";
+  processingFee: number | null;
+  redirectUrl: string | null;
+  remainingBalance: number | null;
+  status:   | "cancelled"
+     | "pending"
+     | "succeeded"
+     | "failed"
+     | "processing"
+     | "expired"
+     | "requires_action"
+     | "created";
+  updatedAt: string;
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### listReservations
+
+```ts
+listReservations: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: {
+        accountId?: string;
+        inventoryId?: string;
+        referenceId?: string;
+        referenceType?: "subscription" | "order" | "hold";
+        type?: "confirmed" | "maintenance" | "hold" | "temporary";
+     };
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              reservations: {
+                 accountId: string;
+                 createdAt: string;
+                 expiresAt: string | null;
+                 heldBy: string | null;
+                 id: string;
+                 inventoryId: string;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 organisationId: string;
+                 quantity: number;
+                 reason: string | null;
+                 referenceId: string | null;
+                 referenceType: "subscription" | "order" | "hold" | null;
+                 seatIds: string[] | null;
+                 type: "confirmed" | "maintenance" | "hold" | "temporary";
+                 updatedAt: string;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:12177
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: {
+     accountId?: string;
+     inventoryId?: string;
+     referenceId?: string;
+     referenceType?: "subscription" | "order" | "hold";
+     type?: "confirmed" | "maintenance" | "hold" | "temporary";
+  };
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: {
+  accountId?: string;
+  inventoryId?: string;
+  referenceId?: string;
+  referenceType?: "subscription" | "order" | "hold";
+  type?: "confirmed" | "maintenance" | "hold" | "temporary";
+};
+```
+
+##### parameters.query.accountId?
+
+```ts
+optional accountId: string;
+```
+
+##### parameters.query.inventoryId?
+
+```ts
+optional inventoryId: string;
+```
+
+##### parameters.query.referenceId?
+
+```ts
+optional referenceId: string;
+```
+
+##### parameters.query.referenceType?
+
+```ts
+optional referenceType: "subscription" | "order" | "hold";
+```
+
+###### Description
+
+Type of reference (order, hold, or subscription)
+
+##### parameters.query.type?
+
+```ts
+optional type: "confirmed" | "maintenance" | "hold" | "temporary";
+```
+
+###### Description
+
+Type of reservation
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           reservations: {
+              accountId: string;
+              createdAt: string;
+              expiresAt: string | null;
+              heldBy: string | null;
+              id: string;
+              inventoryId: string;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              organisationId: string;
+              quantity: number;
+              reason: string | null;
+              referenceId: string | null;
+              referenceType: "subscription" | "order" | "hold" | null;
+              seatIds: string[] | null;
+              type: "confirmed" | "maintenance" | "hold" | "temporary";
+              updatedAt: string;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        reservations: {
+           accountId: string;
+           createdAt: string;
+           expiresAt: string | null;
+           heldBy: string | null;
+           id: string;
+           inventoryId: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           organisationId: string;
+           quantity: number;
+           reason: string | null;
+           referenceId: string | null;
+           referenceType: "subscription" | "order" | "hold" | null;
+           seatIds: string[] | null;
+           type: "confirmed" | "maintenance" | "hold" | "temporary";
+           updatedAt: string;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Reservations retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     reservations: {
+        accountId: string;
+        createdAt: string;
+        expiresAt: string | null;
+        heldBy: string | null;
+        id: string;
+        inventoryId: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        quantity: number;
+        reason: string | null;
+        referenceId: string | null;
+        referenceType: "subscription" | "order" | "hold" | null;
+        seatIds: string[] | null;
+        type: "confirmed" | "maintenance" | "hold" | "temporary";
+        updatedAt: string;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  reservations: {
+     accountId: string;
+     createdAt: string;
+     expiresAt: string | null;
+     heldBy: string | null;
+     id: string;
+     inventoryId: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     quantity: number;
+     reason: string | null;
+     referenceId: string | null;
+     referenceType: "subscription" | "order" | "hold" | null;
+     seatIds: string[] | null;
+     type: "confirmed" | "maintenance" | "hold" | "temporary";
+     updatedAt: string;
+  }[];
+};
+```
+
+##### responses.200.content.application/json.reservations
+
+```ts
+reservations: {
+  accountId: string;
+  createdAt: string;
+  expiresAt: string | null;
+  heldBy: string | null;
+  id: string;
+  inventoryId: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  quantity: number;
+  reason: string | null;
+  referenceId: string | null;
+  referenceType: "subscription" | "order" | "hold" | null;
+  seatIds: string[] | null;
+  type: "confirmed" | "maintenance" | "hold" | "temporary";
+  updatedAt: string;
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### listRoles
 
 ```ts
@@ -29242,7 +68402,7 @@ listRoles: {
 };
 ```
 
-Defined in: generated/types.ts:3518
+Defined in: generated/types.ts:5668
 
 #### parameters
 
@@ -29616,6 +68776,492 @@ headers: {
 
 ***
 
+### listSubscriptions
+
+```ts
+listSubscriptions: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        organisationId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              subscriptions: {
+                 cancelledAt: string | null;
+                 createdAt: string;
+                 credits: number;
+                 currency: string;
+                 currentPeriodEnd: string | null;
+                 currentPeriodStart: string | null;
+                 endedAt: string | null;
+                 id: string;
+                 interval: "month" | "year";
+                 organisationId: string;
+                 packageId: string;
+                 price: string;
+                 status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+                 updatedAt: string;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:11106
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     organisationId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  organisationId: string;
+};
+```
+
+##### parameters.path.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Description
+
+Organisation ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           subscriptions: {
+              cancelledAt: string | null;
+              createdAt: string;
+              credits: number;
+              currency: string;
+              currentPeriodEnd: string | null;
+              currentPeriodStart: string | null;
+              endedAt: string | null;
+              id: string;
+              interval: "month" | "year";
+              organisationId: string;
+              packageId: string;
+              price: string;
+              status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+              updatedAt: string;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        subscriptions: {
+           cancelledAt: string | null;
+           createdAt: string;
+           credits: number;
+           currency: string;
+           currentPeriodEnd: string | null;
+           currentPeriodStart: string | null;
+           endedAt: string | null;
+           id: string;
+           interval: "month" | "year";
+           organisationId: string;
+           packageId: string;
+           price: string;
+           status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+           updatedAt: string;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Subscriptions retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     subscriptions: {
+        cancelledAt: string | null;
+        createdAt: string;
+        credits: number;
+        currency: string;
+        currentPeriodEnd: string | null;
+        currentPeriodStart: string | null;
+        endedAt: string | null;
+        id: string;
+        interval: "month" | "year";
+        organisationId: string;
+        packageId: string;
+        price: string;
+        status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+        updatedAt: string;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  subscriptions: {
+     cancelledAt: string | null;
+     createdAt: string;
+     credits: number;
+     currency: string;
+     currentPeriodEnd: string | null;
+     currentPeriodStart: string | null;
+     endedAt: string | null;
+     id: string;
+     interval: "month" | "year";
+     organisationId: string;
+     packageId: string;
+     price: string;
+     status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+     updatedAt: string;
+  }[];
+};
+```
+
+##### responses.200.content.application/json.subscriptions
+
+```ts
+subscriptions: {
+  cancelledAt: string | null;
+  createdAt: string;
+  credits: number;
+  currency: string;
+  currentPeriodEnd: string | null;
+  currentPeriodStart: string | null;
+  endedAt: string | null;
+  id: string;
+  interval: "month" | "year";
+  organisationId: string;
+  packageId: string;
+  price: string;
+  status: "active" | "cancelled" | "paused" | "past_due" | "ended";
+  updatedAt: string;
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### listUserAccountRoles
 
 ```ts
@@ -29694,7 +69340,7 @@ listUserAccountRoles: {
 };
 ```
 
-Defined in: generated/types.ts:3810
+Defined in: generated/types.ts:5960
 
 #### parameters
 
@@ -30208,7 +69854,7 @@ listUserAccountRolesByAccount: {
 };
 ```
 
-Defined in: generated/types.ts:4099
+Defined in: generated/types.ts:6249
 
 #### parameters
 
@@ -30736,7 +70382,7 @@ listUserAccountRolesByUser: {
 };
 ```
 
-Defined in: generated/types.ts:4041
+Defined in: generated/types.ts:6191
 
 #### parameters
 
@@ -31194,7 +70840,7 @@ listUserInvitations: {
      path?: undefined;
      query?: {
         organisationId?: string;
-        status?: "pending" | "redeemed" | "expired" | "all";
+        status?: "pending" | "expired" | "redeemed" | "all";
      };
   };
   requestBody?: undefined;
@@ -31252,7 +70898,7 @@ listUserInvitations: {
 };
 ```
 
-Defined in: generated/types.ts:3230
+Defined in: generated/types.ts:5380
 
 #### parameters
 
@@ -31263,7 +70909,7 @@ parameters: {
   path?: undefined;
   query?: {
      organisationId?: string;
-     status?: "pending" | "redeemed" | "expired" | "all";
+     status?: "pending" | "expired" | "redeemed" | "all";
   };
 };
 ```
@@ -31291,7 +70937,7 @@ optional path: undefined;
 ```ts
 optional query: {
   organisationId?: string;
-  status?: "pending" | "redeemed" | "expired" | "all";
+  status?: "pending" | "expired" | "redeemed" | "all";
 };
 ```
 
@@ -31304,7 +70950,7 @@ optional organisationId: string;
 ##### parameters.query.status?
 
 ```ts
-optional status: "pending" | "redeemed" | "expired" | "all";
+optional status: "pending" | "expired" | "redeemed" | "all";
 ```
 
 #### requestBody?
@@ -31741,7 +71387,7 @@ listVenueLayouts: {
 };
 ```
 
-Defined in: generated/types.ts:6105
+Defined in: generated/types.ts:8255
 
 #### parameters
 
@@ -32501,7 +72147,7 @@ listVenues: {
 };
 ```
 
-Defined in: generated/types.ts:5634
+Defined in: generated/types.ts:7784
 
 #### parameters
 
@@ -33189,7 +72835,7 @@ login: {
 };
 ```
 
-Defined in: generated/types.ts:2152
+Defined in: generated/types.ts:4302
 
 #### parameters
 
@@ -33733,7 +73379,7 @@ redeem: {
 };
 ```
 
-Defined in: generated/types.ts:2270
+Defined in: generated/types.ts:4420
 
 #### parameters
 
@@ -34268,7 +73914,7 @@ refresh: {
 };
 ```
 
-Defined in: generated/types.ts:2211
+Defined in: generated/types.ts:4361
 
 #### parameters
 
@@ -34662,6 +74308,2029 @@ headers: {
 
 ***
 
+### releaseHold
+
+```ts
+releaseHold: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        id: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           accountId: string;
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              message: string;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:12616
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     id: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  id: string;
+};
+```
+
+##### parameters.path.id
+
+```ts
+id: string;
+```
+
+###### Description
+
+Hold ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        accountId: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     accountId: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  accountId: string;
+};
+```
+
+##### requestBody.content.application/json.accountId
+
+```ts
+accountId: string;
+```
+
+###### Description
+
+Account ID
+
+###### Example
+
+```ts
+acc_def456
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           message: string;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        message: string;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Hold released successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     message: string;
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  message: string;
+};
+```
+
+##### responses.200.content.application/json.message
+
+```ts
+message: string;
+```
+
+###### Example
+
+```ts
+Hold released successfully
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### releaseReservation
+
+```ts
+releaseReservation: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        id: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           accountId: string;
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              message: string;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:12380
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     id: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  id: string;
+};
+```
+
+##### parameters.path.id
+
+```ts
+id: string;
+```
+
+###### Description
+
+Reservation ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        accountId: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     accountId: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  accountId: string;
+};
+```
+
+##### requestBody.content.application/json.accountId
+
+```ts
+accountId: string;
+```
+
+###### Description
+
+Account ID
+
+###### Example
+
+```ts
+acc_def456
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           message: string;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        message: string;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Reservation released successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     message: string;
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  message: string;
+};
+```
+
+##### responses.200.content.application/json.message
+
+```ts
+message: string;
+```
+
+###### Example
+
+```ts
+Reservation released successfully
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### removeOrderLineItem
+
+```ts
+removeOrderLineItem: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        itemId: string;
+        orderId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              order: {
+                 accountId: string;
+                 cancellationReason: string | null;
+                 cancelledAt: string | null;
+                 channel: string | null;
+                 completedAt: string | null;
+                 confirmedAt: string | null;
+                 createdAt: string;
+                 currency: string;
+                 customerId: string | null;
+                 customerNotes: string | null;
+                 discountTotal: string;
+                 expiresAt: string | null;
+                 feeTotal: string;
+                 id: string;
+                 internalNotes: string | null;
+                 isGuestCheckout: boolean;
+                 items?: {
+                    createdAt: string;
+                    description: string | null;
+                    feeDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    id: string;
+                    metadata:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    name: string;
+                    orderId: string;
+                    productDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    quantity: number;
+                    ticketDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    totalPrice: string;
+                    type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+                    unitPrice: string;
+                    updatedAt: string;
+                 }[];
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 orderNumber: string;
+                 organisationId: string;
+                 status:   | "completed"
+                    | "cancelled"
+                    | "pending"
+                    | "failed"
+                    | "refunded"
+                    | "confirmed"
+                    | "processing"
+                    | "expired";
+                 subtotal: string;
+                 taxTotal: string;
+                 total: string;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:14026
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     itemId: string;
+     orderId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  itemId: string;
+  orderId: string;
+};
+```
+
+##### parameters.path.itemId
+
+```ts
+itemId: string;
+```
+
+###### Description
+
+Line item ID
+
+##### parameters.path.orderId
+
+```ts
+orderId: string;
+```
+
+###### Description
+
+Order ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           order: {
+              accountId: string;
+              cancellationReason: string | null;
+              cancelledAt: string | null;
+              channel: string | null;
+              completedAt: string | null;
+              confirmedAt: string | null;
+              createdAt: string;
+              currency: string;
+              customerId: string | null;
+              customerNotes: string | null;
+              discountTotal: string;
+              expiresAt: string | null;
+              feeTotal: string;
+              id: string;
+              internalNotes: string | null;
+              isGuestCheckout: boolean;
+              items?: {
+                 createdAt: string;
+                 description: string | null;
+                 feeDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 id: string;
+                 metadata:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 name: string;
+                 orderId: string;
+                 productDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 quantity: number;
+                 ticketDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 totalPrice: string;
+                 type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+                 unitPrice: string;
+                 updatedAt: string;
+              }[];
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              orderNumber: string;
+              organisationId: string;
+              status:   | "completed"
+                 | "cancelled"
+                 | "pending"
+                 | "failed"
+                 | "refunded"
+                 | "confirmed"
+                 | "processing"
+                 | "expired";
+              subtotal: string;
+              taxTotal: string;
+              total: string;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        order: {
+           accountId: string;
+           cancellationReason: string | null;
+           cancelledAt: string | null;
+           channel: string | null;
+           completedAt: string | null;
+           confirmedAt: string | null;
+           createdAt: string;
+           currency: string;
+           customerId: string | null;
+           customerNotes: string | null;
+           discountTotal: string;
+           expiresAt: string | null;
+           feeTotal: string;
+           id: string;
+           internalNotes: string | null;
+           isGuestCheckout: boolean;
+           items?: {
+              createdAt: string;
+              description: string | null;
+              feeDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              id: string;
+              metadata:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              name: string;
+              orderId: string;
+              productDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              quantity: number;
+              ticketDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              totalPrice: string;
+              type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+              unitPrice: string;
+              updatedAt: string;
+           }[];
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           orderNumber: string;
+           organisationId: string;
+           status:   | "completed"
+              | "cancelled"
+              | "pending"
+              | "failed"
+              | "refunded"
+              | "confirmed"
+              | "processing"
+              | "expired";
+           subtotal: string;
+           taxTotal: string;
+           total: string;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Line item removed successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     order: {
+        accountId: string;
+        cancellationReason: string | null;
+        cancelledAt: string | null;
+        channel: string | null;
+        completedAt: string | null;
+        confirmedAt: string | null;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        customerNotes: string | null;
+        discountTotal: string;
+        expiresAt: string | null;
+        feeTotal: string;
+        id: string;
+        internalNotes: string | null;
+        isGuestCheckout: boolean;
+        items?: {
+           createdAt: string;
+           description: string | null;
+           feeDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           id: string;
+           metadata:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           name: string;
+           orderId: string;
+           productDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           quantity: number;
+           ticketDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           totalPrice: string;
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+           updatedAt: string;
+        }[];
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderNumber: string;
+        organisationId: string;
+        status:   | "completed"
+           | "cancelled"
+           | "pending"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+        subtotal: string;
+        taxTotal: string;
+        total: string;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  order: {
+     accountId: string;
+     cancellationReason: string | null;
+     cancelledAt: string | null;
+     channel: string | null;
+     completedAt: string | null;
+     confirmedAt: string | null;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     customerNotes: string | null;
+     discountTotal: string;
+     expiresAt: string | null;
+     feeTotal: string;
+     id: string;
+     internalNotes: string | null;
+     isGuestCheckout: boolean;
+     items?: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     }[];
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderNumber: string;
+     organisationId: string;
+     status:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     subtotal: string;
+     taxTotal: string;
+     total: string;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.order
+
+```ts
+order: {
+  accountId: string;
+  cancellationReason: string | null;
+  cancelledAt: string | null;
+  channel: string | null;
+  completedAt: string | null;
+  confirmedAt: string | null;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  customerNotes: string | null;
+  discountTotal: string;
+  expiresAt: string | null;
+  feeTotal: string;
+  id: string;
+  internalNotes: string | null;
+  isGuestCheckout: boolean;
+  items?: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  }[];
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderNumber: string;
+  organisationId: string;
+  status:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  subtotal: string;
+  taxTotal: string;
+  total: string;
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.order.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### responses.200.content.application/json.order.cancellationReason
+
+```ts
+cancellationReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.channel
+
+```ts
+channel: string | null;
+```
+
+###### Example
+
+```ts
+web
+```
+
+##### responses.200.content.application/json.order.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.confirmedAt
+
+```ts
+confirmedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.order.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### responses.200.content.application/json.order.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### responses.200.content.application/json.order.customerNotes
+
+```ts
+customerNotes: string | null;
+```
+
+###### Example
+
+```ts
+Please contact me before delivery
+```
+
+##### responses.200.content.application/json.order.discountTotal
+
+```ts
+discountTotal: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### responses.200.content.application/json.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+##### responses.200.content.application/json.order.feeTotal
+
+```ts
+feeTotal: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### responses.200.content.application/json.order.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### responses.200.content.application/json.order.internalNotes
+
+```ts
+internalNotes: string | null;
+```
+
+###### Example
+
+```ts
+VIP customer
+```
+
+##### responses.200.content.application/json.order.isGuestCheckout
+
+```ts
+isGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.order.items?
+
+```ts
+optional items: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+}[];
+```
+
+###### Description
+
+Order line items
+
+##### responses.200.content.application/json.order.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "promoCode": "SUMMER20"
+             *     }
+```
+
+##### responses.200.content.application/json.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### responses.200.content.application/json.order.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.order.status
+
+```ts
+status: 
+  | "completed"
+  | "cancelled"
+  | "pending"
+  | "failed"
+  | "refunded"
+  | "confirmed"
+  | "processing"
+  | "expired";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+##### responses.200.content.application/json.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### responses.200.content.application/json.order.taxTotal
+
+```ts
+taxTotal: string;
+```
+
+###### Example
+
+```ts
+10.00
+```
+
+##### responses.200.content.application/json.order.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+62.50
+```
+
+##### responses.200.content.application/json.order.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### removeRoleAssignment
 
 ```ts
@@ -34720,7 +76389,7 @@ removeRoleAssignment: {
 };
 ```
 
-Defined in: generated/types.ts:3983
+Defined in: generated/types.ts:6133
 
 #### parameters
 
@@ -35131,7 +76800,7 @@ resendUserInvitation: {
 };
 ```
 
-Defined in: generated/types.ts:3461
+Defined in: generated/types.ts:5611
 
 #### parameters
 
@@ -35608,6 +77277,873 @@ headers: {
 
 ***
 
+### reserveInventory
+
+```ts
+reserveInventory: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           accountId: string;
+           inventoryId: string;
+           quantity?: number;
+           referenceId: string;
+           referenceType: "subscription" | "order" | "hold";
+           seatIds?: string[];
+           ttlSeconds?: number;
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              reservation: {
+                 accountId: string;
+                 createdAt: string;
+                 expiresAt: string | null;
+                 heldBy: string | null;
+                 id: string;
+                 inventoryId: string;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 organisationId: string;
+                 quantity: number;
+                 reason: string | null;
+                 referenceId: string | null;
+                 referenceType: "subscription" | "order" | "hold" | null;
+                 seatIds: string[] | null;
+                 type: "confirmed" | "maintenance" | "hold" | "temporary";
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:11996
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        accountId: string;
+        inventoryId: string;
+        quantity?: number;
+        referenceId: string;
+        referenceType: "subscription" | "order" | "hold";
+        seatIds?: string[];
+        ttlSeconds?: number;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     accountId: string;
+     inventoryId: string;
+     quantity?: number;
+     referenceId: string;
+     referenceType: "subscription" | "order" | "hold";
+     seatIds?: string[];
+     ttlSeconds?: number;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  accountId: string;
+  inventoryId: string;
+  quantity?: number;
+  referenceId: string;
+  referenceType: "subscription" | "order" | "hold";
+  seatIds?: string[];
+  ttlSeconds?: number;
+};
+```
+
+##### requestBody.content.application/json.accountId
+
+```ts
+accountId: string;
+```
+
+###### Description
+
+Account ID
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### requestBody.content.application/json.inventoryId
+
+```ts
+inventoryId: string;
+```
+
+###### Description
+
+Inventory ID to reserve from
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### requestBody.content.application/json.quantity?
+
+```ts
+optional quantity: number;
+```
+
+###### Description
+
+Quantity for GA reservation (mutually exclusive with seatIds)
+
+###### Example
+
+```ts
+2
+```
+
+##### requestBody.content.application/json.referenceId
+
+```ts
+referenceId: string;
+```
+
+###### Description
+
+Reference ID (order, subscription, etc.)
+
+###### Example
+
+```ts
+ord_def456
+```
+
+##### requestBody.content.application/json.referenceType
+
+```ts
+referenceType: "subscription" | "order" | "hold";
+```
+
+###### Description
+
+Type of reference (order, hold, or subscription)
+
+###### Example
+
+```ts
+order
+@enum {string}
+```
+
+##### requestBody.content.application/json.seatIds?
+
+```ts
+optional seatIds: string[];
+```
+
+###### Description
+
+Seat IDs for allocated reservation (mutually exclusive with quantity)
+
+###### Example
+
+```ts
+[
+      "ivs_seat1",
+      "ivs_seat2"
+    ]
+```
+
+##### requestBody.content.application/json.ttlSeconds?
+
+```ts
+optional ttlSeconds: number;
+```
+
+###### Description
+
+Time to live in seconds (default 900 = 15 minutes)
+
+###### Default
+
+```ts
+900
+```
+
+###### Example
+
+```ts
+900
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           reservation: {
+              accountId: string;
+              createdAt: string;
+              expiresAt: string | null;
+              heldBy: string | null;
+              id: string;
+              inventoryId: string;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              organisationId: string;
+              quantity: number;
+              reason: string | null;
+              referenceId: string | null;
+              referenceType: "subscription" | "order" | "hold" | null;
+              seatIds: string[] | null;
+              type: "confirmed" | "maintenance" | "hold" | "temporary";
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        reservation: {
+           accountId: string;
+           createdAt: string;
+           expiresAt: string | null;
+           heldBy: string | null;
+           id: string;
+           inventoryId: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           organisationId: string;
+           quantity: number;
+           reason: string | null;
+           referenceId: string | null;
+           referenceType: "subscription" | "order" | "hold" | null;
+           seatIds: string[] | null;
+           type: "confirmed" | "maintenance" | "hold" | "temporary";
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Inventory reserved successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     reservation: {
+        accountId: string;
+        createdAt: string;
+        expiresAt: string | null;
+        heldBy: string | null;
+        id: string;
+        inventoryId: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        quantity: number;
+        reason: string | null;
+        referenceId: string | null;
+        referenceType: "subscription" | "order" | "hold" | null;
+        seatIds: string[] | null;
+        type: "confirmed" | "maintenance" | "hold" | "temporary";
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  reservation: {
+     accountId: string;
+     createdAt: string;
+     expiresAt: string | null;
+     heldBy: string | null;
+     id: string;
+     inventoryId: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     quantity: number;
+     reason: string | null;
+     referenceId: string | null;
+     referenceType: "subscription" | "order" | "hold" | null;
+     seatIds: string[] | null;
+     type: "confirmed" | "maintenance" | "hold" | "temporary";
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.201.content.application/json.reservation
+
+```ts
+reservation: {
+  accountId: string;
+  createdAt: string;
+  expiresAt: string | null;
+  heldBy: string | null;
+  id: string;
+  inventoryId: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  quantity: number;
+  reason: string | null;
+  referenceId: string | null;
+  referenceType: "subscription" | "order" | "hold" | null;
+  seatIds: string[] | null;
+  type: "confirmed" | "maintenance" | "hold" | "temporary";
+  updatedAt: string;
+};
+```
+
+##### responses.201.content.application/json.reservation.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### responses.201.content.application/json.reservation.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:30:00Z
+```
+
+##### responses.201.content.application/json.reservation.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:45:00Z
+```
+
+##### responses.201.content.application/json.reservation.heldBy
+
+```ts
+heldBy: string | null;
+```
+
+###### Example
+
+```ts
+usr_abc123
+```
+
+##### responses.201.content.application/json.reservation.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ivr_abc123
+```
+
+##### responses.201.content.application/json.reservation.inventoryId
+
+```ts
+inventoryId: string;
+```
+
+###### Example
+
+```ts
+inv_ghi789
+```
+
+##### responses.201.content.application/json.reservation.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.reservation.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.201.content.application/json.reservation.quantity
+
+```ts
+quantity: number;
+```
+
+###### Example
+
+```ts
+2
+```
+
+##### responses.201.content.application/json.reservation.reason
+
+```ts
+reason: string | null;
+```
+
+###### Example
+
+```ts
+Customer checkout
+```
+
+##### responses.201.content.application/json.reservation.referenceId
+
+```ts
+referenceId: string | null;
+```
+
+###### Example
+
+```ts
+ord_jkl012
+```
+
+##### responses.201.content.application/json.reservation.referenceType
+
+```ts
+referenceType: "subscription" | "order" | "hold" | null;
+```
+
+###### Description
+
+Type of reference for this reservation
+
+###### Example
+
+```ts
+order
+@enum {string|null}
+```
+
+##### responses.201.content.application/json.reservation.seatIds
+
+```ts
+seatIds: string[] | null;
+```
+
+###### Example
+
+```ts
+[
+      "ivs_abc123",
+      "ivs_def456"
+    ]
+```
+
+##### responses.201.content.application/json.reservation.type
+
+```ts
+type: "confirmed" | "maintenance" | "hold" | "temporary";
+```
+
+###### Description
+
+Type of reservation
+
+###### Example
+
+```ts
+temporary
+@enum {string}
+```
+
+##### responses.201.content.application/json.reservation.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T14:45:00Z
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### syncSeatsInArea
 
 ```ts
@@ -35730,7 +78266,7 @@ syncSeatsInArea: {
 };
 ```
 
-Defined in: generated/types.ts:8106
+Defined in: generated/types.ts:10256
 
 #### parameters
 
@@ -36408,6 +78944,1876 @@ headers: {
 
 ***
 
+### transitionOrderStatus
+
+```ts
+transitionOrderStatus: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        orderId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           status:   | "completed"
+              | "cancelled"
+              | "failed"
+              | "refunded"
+              | "confirmed"
+              | "processing"
+              | "expired";
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              order: {
+                 accountId: string;
+                 cancellationReason: string | null;
+                 cancelledAt: string | null;
+                 channel: string | null;
+                 completedAt: string | null;
+                 confirmedAt: string | null;
+                 createdAt: string;
+                 currency: string;
+                 customerId: string | null;
+                 customerNotes: string | null;
+                 discountTotal: string;
+                 expiresAt: string | null;
+                 feeTotal: string;
+                 id: string;
+                 internalNotes: string | null;
+                 isGuestCheckout: boolean;
+                 items?: {
+                    createdAt: string;
+                    description: string | null;
+                    feeDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    id: string;
+                    metadata:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    name: string;
+                    orderId: string;
+                    productDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    quantity: number;
+                    ticketDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    totalPrice: string;
+                    type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+                    unitPrice: string;
+                    updatedAt: string;
+                 }[];
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 orderNumber: string;
+                 organisationId: string;
+                 status:   | "completed"
+                    | "cancelled"
+                    | "pending"
+                    | "failed"
+                    | "refunded"
+                    | "confirmed"
+                    | "processing"
+                    | "expired";
+                 subtotal: string;
+                 taxTotal: string;
+                 total: string;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:13767
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     orderId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  orderId: string;
+};
+```
+
+##### parameters.path.orderId
+
+```ts
+orderId: string;
+```
+
+###### Description
+
+Order ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        status:   | "completed"
+           | "cancelled"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     status:   | "completed"
+        | "cancelled"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  status:   | "completed"
+     | "cancelled"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+};
+```
+
+##### requestBody.content.application/json.status
+
+```ts
+status: 
+  | "completed"
+  | "cancelled"
+  | "failed"
+  | "refunded"
+  | "confirmed"
+  | "processing"
+  | "expired";
+```
+
+###### Description
+
+New order status
+
+###### Example
+
+```ts
+confirmed
+@enum {string}
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           order: {
+              accountId: string;
+              cancellationReason: string | null;
+              cancelledAt: string | null;
+              channel: string | null;
+              completedAt: string | null;
+              confirmedAt: string | null;
+              createdAt: string;
+              currency: string;
+              customerId: string | null;
+              customerNotes: string | null;
+              discountTotal: string;
+              expiresAt: string | null;
+              feeTotal: string;
+              id: string;
+              internalNotes: string | null;
+              isGuestCheckout: boolean;
+              items?: {
+                 createdAt: string;
+                 description: string | null;
+                 feeDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 id: string;
+                 metadata:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 name: string;
+                 orderId: string;
+                 productDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 quantity: number;
+                 ticketDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 totalPrice: string;
+                 type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+                 unitPrice: string;
+                 updatedAt: string;
+              }[];
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              orderNumber: string;
+              organisationId: string;
+              status:   | "completed"
+                 | "cancelled"
+                 | "pending"
+                 | "failed"
+                 | "refunded"
+                 | "confirmed"
+                 | "processing"
+                 | "expired";
+              subtotal: string;
+              taxTotal: string;
+              total: string;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        order: {
+           accountId: string;
+           cancellationReason: string | null;
+           cancelledAt: string | null;
+           channel: string | null;
+           completedAt: string | null;
+           confirmedAt: string | null;
+           createdAt: string;
+           currency: string;
+           customerId: string | null;
+           customerNotes: string | null;
+           discountTotal: string;
+           expiresAt: string | null;
+           feeTotal: string;
+           id: string;
+           internalNotes: string | null;
+           isGuestCheckout: boolean;
+           items?: {
+              createdAt: string;
+              description: string | null;
+              feeDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              id: string;
+              metadata:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              name: string;
+              orderId: string;
+              productDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              quantity: number;
+              ticketDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              totalPrice: string;
+              type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+              unitPrice: string;
+              updatedAt: string;
+           }[];
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           orderNumber: string;
+           organisationId: string;
+           status:   | "completed"
+              | "cancelled"
+              | "pending"
+              | "failed"
+              | "refunded"
+              | "confirmed"
+              | "processing"
+              | "expired";
+           subtotal: string;
+           taxTotal: string;
+           total: string;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Order status transitioned successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     order: {
+        accountId: string;
+        cancellationReason: string | null;
+        cancelledAt: string | null;
+        channel: string | null;
+        completedAt: string | null;
+        confirmedAt: string | null;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        customerNotes: string | null;
+        discountTotal: string;
+        expiresAt: string | null;
+        feeTotal: string;
+        id: string;
+        internalNotes: string | null;
+        isGuestCheckout: boolean;
+        items?: {
+           createdAt: string;
+           description: string | null;
+           feeDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           id: string;
+           metadata:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           name: string;
+           orderId: string;
+           productDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           quantity: number;
+           ticketDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           totalPrice: string;
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+           updatedAt: string;
+        }[];
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderNumber: string;
+        organisationId: string;
+        status:   | "completed"
+           | "cancelled"
+           | "pending"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+        subtotal: string;
+        taxTotal: string;
+        total: string;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  order: {
+     accountId: string;
+     cancellationReason: string | null;
+     cancelledAt: string | null;
+     channel: string | null;
+     completedAt: string | null;
+     confirmedAt: string | null;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     customerNotes: string | null;
+     discountTotal: string;
+     expiresAt: string | null;
+     feeTotal: string;
+     id: string;
+     internalNotes: string | null;
+     isGuestCheckout: boolean;
+     items?: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     }[];
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderNumber: string;
+     organisationId: string;
+     status:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     subtotal: string;
+     taxTotal: string;
+     total: string;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.order
+
+```ts
+order: {
+  accountId: string;
+  cancellationReason: string | null;
+  cancelledAt: string | null;
+  channel: string | null;
+  completedAt: string | null;
+  confirmedAt: string | null;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  customerNotes: string | null;
+  discountTotal: string;
+  expiresAt: string | null;
+  feeTotal: string;
+  id: string;
+  internalNotes: string | null;
+  isGuestCheckout: boolean;
+  items?: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  }[];
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderNumber: string;
+  organisationId: string;
+  status:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  subtotal: string;
+  taxTotal: string;
+  total: string;
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.order.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### responses.200.content.application/json.order.cancellationReason
+
+```ts
+cancellationReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.channel
+
+```ts
+channel: string | null;
+```
+
+###### Example
+
+```ts
+web
+```
+
+##### responses.200.content.application/json.order.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.confirmedAt
+
+```ts
+confirmedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.order.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### responses.200.content.application/json.order.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### responses.200.content.application/json.order.customerNotes
+
+```ts
+customerNotes: string | null;
+```
+
+###### Example
+
+```ts
+Please contact me before delivery
+```
+
+##### responses.200.content.application/json.order.discountTotal
+
+```ts
+discountTotal: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### responses.200.content.application/json.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+##### responses.200.content.application/json.order.feeTotal
+
+```ts
+feeTotal: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### responses.200.content.application/json.order.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### responses.200.content.application/json.order.internalNotes
+
+```ts
+internalNotes: string | null;
+```
+
+###### Example
+
+```ts
+VIP customer
+```
+
+##### responses.200.content.application/json.order.isGuestCheckout
+
+```ts
+isGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.order.items?
+
+```ts
+optional items: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+}[];
+```
+
+###### Description
+
+Order line items
+
+##### responses.200.content.application/json.order.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "promoCode": "SUMMER20"
+             *     }
+```
+
+##### responses.200.content.application/json.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### responses.200.content.application/json.order.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.order.status
+
+```ts
+status: 
+  | "completed"
+  | "cancelled"
+  | "pending"
+  | "failed"
+  | "refunded"
+  | "confirmed"
+  | "processing"
+  | "expired";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+##### responses.200.content.application/json.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### responses.200.content.application/json.order.taxTotal
+
+```ts
+taxTotal: string;
+```
+
+###### Example
+
+```ts
+10.00
+```
+
+##### responses.200.content.application/json.order.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+62.50
+```
+
+##### responses.200.content.application/json.order.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### unblockCustomer
+
+```ts
+unblockCustomer: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        customerId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              customer: {
+                 accountId: string | null;
+                 blockedAt: string | null;
+                 blockedReason: string | null;
+                 createdAt: string;
+                 email: string;
+                 externalId: string | null;
+                 firstName: string | null;
+                 id: string;
+                 isBlocked: boolean;
+                 lastName: string | null;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 organisationId: string;
+                 phone: string | null;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:13077
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     customerId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  customerId: string;
+};
+```
+
+##### parameters.path.customerId
+
+```ts
+customerId: string;
+```
+
+###### Description
+
+Customer ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           customer: {
+              accountId: string | null;
+              blockedAt: string | null;
+              blockedReason: string | null;
+              createdAt: string;
+              email: string;
+              externalId: string | null;
+              firstName: string | null;
+              id: string;
+              isBlocked: boolean;
+              lastName: string | null;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              organisationId: string;
+              phone: string | null;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        customer: {
+           accountId: string | null;
+           blockedAt: string | null;
+           blockedReason: string | null;
+           createdAt: string;
+           email: string;
+           externalId: string | null;
+           firstName: string | null;
+           id: string;
+           isBlocked: boolean;
+           lastName: string | null;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           organisationId: string;
+           phone: string | null;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Customer unblocked successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     customer: {
+        accountId: string | null;
+        blockedAt: string | null;
+        blockedReason: string | null;
+        createdAt: string;
+        email: string;
+        externalId: string | null;
+        firstName: string | null;
+        id: string;
+        isBlocked: boolean;
+        lastName: string | null;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        phone: string | null;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  customer: {
+     accountId: string | null;
+     blockedAt: string | null;
+     blockedReason: string | null;
+     createdAt: string;
+     email: string;
+     externalId: string | null;
+     firstName: string | null;
+     id: string;
+     isBlocked: boolean;
+     lastName: string | null;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     phone: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.customer
+
+```ts
+customer: {
+  accountId: string | null;
+  blockedAt: string | null;
+  blockedReason: string | null;
+  createdAt: string;
+  email: string;
+  externalId: string | null;
+  firstName: string | null;
+  id: string;
+  isBlocked: boolean;
+  lastName: string | null;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  phone: string | null;
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.customer.accountId
+
+```ts
+accountId: string | null;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### responses.200.content.application/json.customer.blockedAt
+
+```ts
+blockedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.customer.blockedReason
+
+```ts
+blockedReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.customer.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.customer.email
+
+```ts
+email: string;
+```
+
+###### Example
+
+```ts
+customer@example.com
+```
+
+##### responses.200.content.application/json.customer.externalId
+
+```ts
+externalId: string | null;
+```
+
+###### Example
+
+```ts
+ext_cust_12345
+```
+
+##### responses.200.content.application/json.customer.firstName
+
+```ts
+firstName: string | null;
+```
+
+###### Example
+
+```ts
+John
+```
+
+##### responses.200.content.application/json.customer.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### responses.200.content.application/json.customer.isBlocked
+
+```ts
+isBlocked: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.customer.lastName
+
+```ts
+lastName: string | null;
+```
+
+###### Example
+
+```ts
+Doe
+```
+
+##### responses.200.content.application/json.customer.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "loyaltyTier": "gold"
+             *     }
+```
+
+##### responses.200.content.application/json.customer.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.customer.phone
+
+```ts
+phone: string | null;
+```
+
+###### Example
+
+```ts
++44 7700 900000
+```
+
+##### responses.200.content.application/json.customer.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-20T14:45:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### updateAccount
 
 ```ts
@@ -36481,7 +80887,7 @@ updateAccount: {
 };
 ```
 
-Defined in: generated/types.ts:2981
+Defined in: generated/types.ts:5131
 
 #### parameters
 
@@ -37004,6 +81410,1490 @@ headers: {
 
 ***
 
+### updateAutoTopup
+
+```ts
+updateAutoTopup: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        organisationId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           enabled: boolean;
+           thresholdCredits: number;
+           topupPackageId: string;
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              autoTopup: {
+                 attemptsToday: number;
+                 createdAt: string;
+                 enabled: boolean;
+                 id: string;
+                 lastAttemptAt: string | null;
+                 maxAttemptsPerDay: number;
+                 organisationId: string;
+                 thresholdCredits: number;
+                 topupPackageId: string;
+                 updatedAt: string;
+              } & Record<string, never>;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:11344
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     organisationId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  organisationId: string;
+};
+```
+
+##### parameters.path.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Description
+
+Organisation ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        enabled: boolean;
+        thresholdCredits: number;
+        topupPackageId: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     enabled: boolean;
+     thresholdCredits: number;
+     topupPackageId: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  enabled: boolean;
+  thresholdCredits: number;
+  topupPackageId: string;
+};
+```
+
+##### requestBody.content.application/json.enabled
+
+```ts
+enabled: boolean;
+```
+
+##### requestBody.content.application/json.thresholdCredits
+
+```ts
+thresholdCredits: number;
+```
+
+##### requestBody.content.application/json.topupPackageId
+
+```ts
+topupPackageId: string;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           autoTopup: {
+              attemptsToday: number;
+              createdAt: string;
+              enabled: boolean;
+              id: string;
+              lastAttemptAt: string | null;
+              maxAttemptsPerDay: number;
+              organisationId: string;
+              thresholdCredits: number;
+              topupPackageId: string;
+              updatedAt: string;
+           } & Record<string, never>;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        autoTopup: {
+           attemptsToday: number;
+           createdAt: string;
+           enabled: boolean;
+           id: string;
+           lastAttemptAt: string | null;
+           maxAttemptsPerDay: number;
+           organisationId: string;
+           thresholdCredits: number;
+           topupPackageId: string;
+           updatedAt: string;
+        } & Record<string, never>;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Auto top-up configuration updated successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     autoTopup: {
+        attemptsToday: number;
+        createdAt: string;
+        enabled: boolean;
+        id: string;
+        lastAttemptAt: string | null;
+        maxAttemptsPerDay: number;
+        organisationId: string;
+        thresholdCredits: number;
+        topupPackageId: string;
+        updatedAt: string;
+     } & Record<string, never>;
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  autoTopup: {
+     attemptsToday: number;
+     createdAt: string;
+     enabled: boolean;
+     id: string;
+     lastAttemptAt: string | null;
+     maxAttemptsPerDay: number;
+     organisationId: string;
+     thresholdCredits: number;
+     topupPackageId: string;
+     updatedAt: string;
+  } & Record<string, never>;
+};
+```
+
+##### responses.200.content.application/json.autoTopup
+
+```ts
+autoTopup: {
+  attemptsToday: number;
+  createdAt: string;
+  enabled: boolean;
+  id: string;
+  lastAttemptAt: string | null;
+  maxAttemptsPerDay: number;
+  organisationId: string;
+  thresholdCredits: number;
+  topupPackageId: string;
+  updatedAt: string;
+} & Record<string, never>;
+```
+
+###### Type Declaration
+
+###### attemptsToday
+
+```ts
+attemptsToday: number;
+```
+
+###### Example
+
+```ts
+0
+```
+
+###### createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+###### enabled
+
+```ts
+enabled: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+###### id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+atu_abc123
+```
+
+###### lastAttemptAt
+
+```ts
+lastAttemptAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+###### maxAttemptsPerDay
+
+```ts
+maxAttemptsPerDay: number;
+```
+
+###### Example
+
+```ts
+3
+```
+
+###### organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_abc123
+```
+
+###### thresholdCredits
+
+```ts
+thresholdCredits: number;
+```
+
+###### Example
+
+```ts
+50
+```
+
+###### topupPackageId
+
+```ts
+topupPackageId: string;
+```
+
+###### Example
+
+```ts
+pkg_100
+```
+
+###### updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### updateCustomer
+
+```ts
+updateCustomer: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        customerId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           email?: string;
+           externalId?: string | null;
+           firstName?: string | null;
+           lastName?: string | null;
+           metadata?:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           phone?: string | null;
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              customer: {
+                 accountId: string | null;
+                 blockedAt: string | null;
+                 blockedReason: string | null;
+                 createdAt: string;
+                 email: string;
+                 externalId: string | null;
+                 firstName: string | null;
+                 id: string;
+                 isBlocked: boolean;
+                 lastName: string | null;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 organisationId: string;
+                 phone: string | null;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:12911
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     customerId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  customerId: string;
+};
+```
+
+##### parameters.path.customerId
+
+```ts
+customerId: string;
+```
+
+###### Description
+
+Customer ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        email?: string;
+        externalId?: string | null;
+        firstName?: string | null;
+        lastName?: string | null;
+        metadata?:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        phone?: string | null;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     email?: string;
+     externalId?: string | null;
+     firstName?: string | null;
+     lastName?: string | null;
+     metadata?:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     phone?: string | null;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  email?: string;
+  externalId?: string | null;
+  firstName?: string | null;
+  lastName?: string | null;
+  metadata?:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  phone?: string | null;
+};
+```
+
+##### requestBody.content.application/json.email?
+
+```ts
+optional email: string;
+```
+
+Format: email
+
+###### Description
+
+Customer email address
+
+###### Example
+
+```ts
+newemail@example.com
+```
+
+##### requestBody.content.application/json.externalId?
+
+```ts
+optional externalId: string | null;
+```
+
+###### Description
+
+External system customer ID
+
+###### Example
+
+```ts
+ext_cust_67890
+```
+
+##### requestBody.content.application/json.firstName?
+
+```ts
+optional firstName: string | null;
+```
+
+###### Description
+
+Customer first name
+
+###### Example
+
+```ts
+Jane
+```
+
+##### requestBody.content.application/json.lastName?
+
+```ts
+optional lastName: string | null;
+```
+
+###### Description
+
+Customer last name
+
+###### Example
+
+```ts
+Smith
+```
+
+##### requestBody.content.application/json.metadata?
+
+```ts
+optional metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Description
+
+Custom metadata for the customer
+
+###### Example
+
+```ts
+{
+                     *       "loyaltyTier": "platinum"
+                     *     }
+```
+
+##### requestBody.content.application/json.phone?
+
+```ts
+optional phone: string | null;
+```
+
+###### Description
+
+Customer phone number
+
+###### Example
+
+```ts
++44 7700 900001
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           customer: {
+              accountId: string | null;
+              blockedAt: string | null;
+              blockedReason: string | null;
+              createdAt: string;
+              email: string;
+              externalId: string | null;
+              firstName: string | null;
+              id: string;
+              isBlocked: boolean;
+              lastName: string | null;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              organisationId: string;
+              phone: string | null;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        customer: {
+           accountId: string | null;
+           blockedAt: string | null;
+           blockedReason: string | null;
+           createdAt: string;
+           email: string;
+           externalId: string | null;
+           firstName: string | null;
+           id: string;
+           isBlocked: boolean;
+           lastName: string | null;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           organisationId: string;
+           phone: string | null;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Customer updated successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     customer: {
+        accountId: string | null;
+        blockedAt: string | null;
+        blockedReason: string | null;
+        createdAt: string;
+        email: string;
+        externalId: string | null;
+        firstName: string | null;
+        id: string;
+        isBlocked: boolean;
+        lastName: string | null;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        phone: string | null;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  customer: {
+     accountId: string | null;
+     blockedAt: string | null;
+     blockedReason: string | null;
+     createdAt: string;
+     email: string;
+     externalId: string | null;
+     firstName: string | null;
+     id: string;
+     isBlocked: boolean;
+     lastName: string | null;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     phone: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.customer
+
+```ts
+customer: {
+  accountId: string | null;
+  blockedAt: string | null;
+  blockedReason: string | null;
+  createdAt: string;
+  email: string;
+  externalId: string | null;
+  firstName: string | null;
+  id: string;
+  isBlocked: boolean;
+  lastName: string | null;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  phone: string | null;
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.customer.accountId
+
+```ts
+accountId: string | null;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### responses.200.content.application/json.customer.blockedAt
+
+```ts
+blockedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.customer.blockedReason
+
+```ts
+blockedReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.customer.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.customer.email
+
+```ts
+email: string;
+```
+
+###### Example
+
+```ts
+customer@example.com
+```
+
+##### responses.200.content.application/json.customer.externalId
+
+```ts
+externalId: string | null;
+```
+
+###### Example
+
+```ts
+ext_cust_12345
+```
+
+##### responses.200.content.application/json.customer.firstName
+
+```ts
+firstName: string | null;
+```
+
+###### Example
+
+```ts
+John
+```
+
+##### responses.200.content.application/json.customer.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### responses.200.content.application/json.customer.isBlocked
+
+```ts
+isBlocked: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.customer.lastName
+
+```ts
+lastName: string | null;
+```
+
+###### Example
+
+```ts
+Doe
+```
+
+##### responses.200.content.application/json.customer.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "loyaltyTier": "gold"
+             *     }
+```
+
+##### responses.200.content.application/json.customer.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.customer.phone
+
+```ts
+phone: string | null;
+```
+
+###### Example
+
+```ts
++44 7700 900000
+```
+
+##### responses.200.content.application/json.customer.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-20T14:45:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### updateEvent
 
 ```ts
@@ -37130,7 +83020,7 @@ updateEvent: {
 };
 ```
 
-Defined in: generated/types.ts:4575
+Defined in: generated/types.ts:6725
 
 #### parameters
 
@@ -38310,7 +84200,7 @@ updateEventOccurrence: {
 };
 ```
 
-Defined in: generated/types.ts:5122
+Defined in: generated/types.ts:7272
 
 #### parameters
 
@@ -39245,7 +85135,7 @@ updateEventPriceScheme: {
 };
 ```
 
-Defined in: generated/types.ts:5539
+Defined in: generated/types.ts:7689
 
 #### parameters
 
@@ -40043,7 +85933,7 @@ updateIdentityProvider: {
 };
 ```
 
-Defined in: generated/types.ts:3169
+Defined in: generated/types.ts:5319
 
 #### parameters
 
@@ -40928,6 +86818,3862 @@ headers: {
 
 ***
 
+### updateInventoryCapacity
+
+```ts
+updateInventoryCapacity: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        id: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           accountId: string;
+           totalCapacity: number;
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              inventory: {
+                 accountId: string;
+                 available: number;
+                 confirmed: number;
+                 createdAt: string;
+                 eventId: string | null;
+                 eventLayoutAreaId: string | null;
+                 eventOccurrenceId: string | null;
+                 held: number;
+                 id: string;
+                 isAllocated: boolean;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 organisationId: string;
+                 productId: string | null;
+                 reserved: number;
+                 sourceType: "event_occurrence_area" | "product";
+                 totalCapacity: number;
+                 updatedAt: string;
+                 version: number;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:11696
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     id: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  id: string;
+};
+```
+
+##### parameters.path.id
+
+```ts
+id: string;
+```
+
+###### Description
+
+Inventory ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        accountId: string;
+        totalCapacity: number;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     accountId: string;
+     totalCapacity: number;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  accountId: string;
+  totalCapacity: number;
+};
+```
+
+##### requestBody.content.application/json.accountId
+
+```ts
+accountId: string;
+```
+
+###### Description
+
+Account ID
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### requestBody.content.application/json.totalCapacity
+
+```ts
+totalCapacity: number;
+```
+
+###### Description
+
+New total capacity
+
+###### Example
+
+```ts
+150
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           inventory: {
+              accountId: string;
+              available: number;
+              confirmed: number;
+              createdAt: string;
+              eventId: string | null;
+              eventLayoutAreaId: string | null;
+              eventOccurrenceId: string | null;
+              held: number;
+              id: string;
+              isAllocated: boolean;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              organisationId: string;
+              productId: string | null;
+              reserved: number;
+              sourceType: "event_occurrence_area" | "product";
+              totalCapacity: number;
+              updatedAt: string;
+              version: number;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        inventory: {
+           accountId: string;
+           available: number;
+           confirmed: number;
+           createdAt: string;
+           eventId: string | null;
+           eventLayoutAreaId: string | null;
+           eventOccurrenceId: string | null;
+           held: number;
+           id: string;
+           isAllocated: boolean;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           organisationId: string;
+           productId: string | null;
+           reserved: number;
+           sourceType: "event_occurrence_area" | "product";
+           totalCapacity: number;
+           updatedAt: string;
+           version: number;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Inventory capacity updated successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     inventory: {
+        accountId: string;
+        available: number;
+        confirmed: number;
+        createdAt: string;
+        eventId: string | null;
+        eventLayoutAreaId: string | null;
+        eventOccurrenceId: string | null;
+        held: number;
+        id: string;
+        isAllocated: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        organisationId: string;
+        productId: string | null;
+        reserved: number;
+        sourceType: "event_occurrence_area" | "product";
+        totalCapacity: number;
+        updatedAt: string;
+        version: number;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  inventory: {
+     accountId: string;
+     available: number;
+     confirmed: number;
+     createdAt: string;
+     eventId: string | null;
+     eventLayoutAreaId: string | null;
+     eventOccurrenceId: string | null;
+     held: number;
+     id: string;
+     isAllocated: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     organisationId: string;
+     productId: string | null;
+     reserved: number;
+     sourceType: "event_occurrence_area" | "product";
+     totalCapacity: number;
+     updatedAt: string;
+     version: number;
+  };
+};
+```
+
+##### responses.200.content.application/json.inventory
+
+```ts
+inventory: {
+  accountId: string;
+  available: number;
+  confirmed: number;
+  createdAt: string;
+  eventId: string | null;
+  eventLayoutAreaId: string | null;
+  eventOccurrenceId: string | null;
+  held: number;
+  id: string;
+  isAllocated: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  organisationId: string;
+  productId: string | null;
+  reserved: number;
+  sourceType: "event_occurrence_area" | "product";
+  totalCapacity: number;
+  updatedAt: string;
+  version: number;
+};
+```
+
+##### responses.200.content.application/json.inventory.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_def456
+```
+
+##### responses.200.content.application/json.inventory.available
+
+```ts
+available: number;
+```
+
+###### Example
+
+```ts
+450
+```
+
+##### responses.200.content.application/json.inventory.confirmed
+
+```ts
+confirmed: number;
+```
+
+###### Example
+
+```ts
+20
+```
+
+##### responses.200.content.application/json.inventory.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T10:30:00Z
+```
+
+##### responses.200.content.application/json.inventory.eventId
+
+```ts
+eventId: string | null;
+```
+
+###### Example
+
+```ts
+evt_ghi789
+```
+
+##### responses.200.content.application/json.inventory.eventLayoutAreaId
+
+```ts
+eventLayoutAreaId: string | null;
+```
+
+###### Example
+
+```ts
+ela_mno345
+```
+
+##### responses.200.content.application/json.inventory.eventOccurrenceId
+
+```ts
+eventOccurrenceId: string | null;
+```
+
+###### Example
+
+```ts
+evo_jkl012
+```
+
+##### responses.200.content.application/json.inventory.held
+
+```ts
+held: number;
+```
+
+###### Example
+
+```ts
+0
+```
+
+##### responses.200.content.application/json.inventory.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+inv_abc123
+```
+
+##### responses.200.content.application/json.inventory.isAllocated
+
+```ts
+isAllocated: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.inventory.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.inventory.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.inventory.productId
+
+```ts
+productId: string | null;
+```
+
+###### Example
+
+```ts
+prd_pqr678
+```
+
+##### responses.200.content.application/json.inventory.reserved
+
+```ts
+reserved: number;
+```
+
+###### Example
+
+```ts
+30
+```
+
+##### responses.200.content.application/json.inventory.sourceType
+
+```ts
+sourceType: "event_occurrence_area" | "product";
+```
+
+###### Description
+
+Type of inventory source
+
+###### Example
+
+```ts
+event_occurrence_area
+@enum {string}
+```
+
+##### responses.200.content.application/json.inventory.totalCapacity
+
+```ts
+totalCapacity: number;
+```
+
+###### Example
+
+```ts
+500
+```
+
+##### responses.200.content.application/json.inventory.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-12-28T14:45:00Z
+```
+
+##### responses.200.content.application/json.inventory.version
+
+```ts
+version: number;
+```
+
+###### Example
+
+```ts
+1
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### updateOrder
+
+```ts
+updateOrder: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        orderId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           addItems?: {
+              description?: string;
+              feeDetails?: {
+               [key: string]: unknown;
+              };
+              metadata?: {
+               [key: string]: unknown;
+              };
+              name: string;
+              productDetails?: {
+               [key: string]: unknown;
+              };
+              quantity?: number;
+              ticketDetails?: {
+               [key: string]: unknown;
+              };
+              type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+              unitPrice: string;
+           }[];
+           customerId?: string;
+           customerNotes?: string;
+           extendExpiry?: boolean;
+           internalNotes?: string;
+           metadata?: {
+            [key: string]: unknown;
+           };
+           removeItems?: string[];
+           updateItems?: {
+              itemId: string;
+              updates: {
+                 metadata?: {
+                  [key: ...]: ...;
+                 };
+                 quantity?: number;
+                 unitPrice?: string;
+              };
+           }[];
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              order: {
+                 accountId: string;
+                 cancellationReason: string | null;
+                 cancelledAt: string | null;
+                 channel: string | null;
+                 completedAt: string | null;
+                 confirmedAt: string | null;
+                 createdAt: string;
+                 currency: string;
+                 customerId: string | null;
+                 customerNotes: string | null;
+                 discountTotal: string;
+                 expiresAt: string | null;
+                 feeTotal: string;
+                 id: string;
+                 internalNotes: string | null;
+                 isGuestCheckout: boolean;
+                 items?: {
+                    createdAt: string;
+                    description: string | null;
+                    feeDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    id: string;
+                    metadata:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    name: string;
+                    orderId: string;
+                    productDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    quantity: number;
+                    ticketDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    totalPrice: string;
+                    type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+                    unitPrice: string;
+                    updatedAt: string;
+                 }[];
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 orderNumber: string;
+                 organisationId: string;
+                 status:   | "completed"
+                    | "cancelled"
+                    | "pending"
+                    | "failed"
+                    | "refunded"
+                    | "confirmed"
+                    | "processing"
+                    | "expired";
+                 subtotal: string;
+                 taxTotal: string;
+                 total: string;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:13444
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     orderId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  orderId: string;
+};
+```
+
+##### parameters.path.orderId
+
+```ts
+orderId: string;
+```
+
+###### Description
+
+Order ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        addItems?: {
+           description?: string;
+           feeDetails?: {
+            [key: string]: unknown;
+           };
+           metadata?: {
+            [key: string]: unknown;
+           };
+           name: string;
+           productDetails?: {
+            [key: string]: unknown;
+           };
+           quantity?: number;
+           ticketDetails?: {
+            [key: string]: unknown;
+           };
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+        }[];
+        customerId?: string;
+        customerNotes?: string;
+        extendExpiry?: boolean;
+        internalNotes?: string;
+        metadata?: {
+         [key: string]: unknown;
+        };
+        removeItems?: string[];
+        updateItems?: {
+           itemId: string;
+           updates: {
+              metadata?: {
+               [key: ...]: ...;
+              };
+              quantity?: number;
+              unitPrice?: string;
+           };
+        }[];
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     addItems?: {
+        description?: string;
+        feeDetails?: {
+         [key: string]: unknown;
+        };
+        metadata?: {
+         [key: string]: unknown;
+        };
+        name: string;
+        productDetails?: {
+         [key: string]: unknown;
+        };
+        quantity?: number;
+        ticketDetails?: {
+         [key: string]: unknown;
+        };
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+     }[];
+     customerId?: string;
+     customerNotes?: string;
+     extendExpiry?: boolean;
+     internalNotes?: string;
+     metadata?: {
+      [key: string]: unknown;
+     };
+     removeItems?: string[];
+     updateItems?: {
+        itemId: string;
+        updates: {
+           metadata?: {
+            [key: ...]: ...;
+           };
+           quantity?: number;
+           unitPrice?: string;
+        };
+     }[];
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  addItems?: {
+     description?: string;
+     feeDetails?: {
+      [key: string]: unknown;
+     };
+     metadata?: {
+      [key: string]: unknown;
+     };
+     name: string;
+     productDetails?: {
+      [key: string]: unknown;
+     };
+     quantity?: number;
+     ticketDetails?: {
+      [key: string]: unknown;
+     };
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+  }[];
+  customerId?: string;
+  customerNotes?: string;
+  extendExpiry?: boolean;
+  internalNotes?: string;
+  metadata?: {
+   [key: string]: unknown;
+  };
+  removeItems?: string[];
+  updateItems?: {
+     itemId: string;
+     updates: {
+        metadata?: {
+         [key: ...]: ...;
+        };
+        quantity?: number;
+        unitPrice?: string;
+     };
+  }[];
+};
+```
+
+##### requestBody.content.application/json.addItems?
+
+```ts
+optional addItems: {
+  description?: string;
+  feeDetails?: {
+   [key: string]: unknown;
+  };
+  metadata?: {
+   [key: string]: unknown;
+  };
+  name: string;
+  productDetails?: {
+   [key: string]: unknown;
+  };
+  quantity?: number;
+  ticketDetails?: {
+   [key: string]: unknown;
+  };
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+}[];
+```
+
+###### Description
+
+Line items to add to the order
+
+##### requestBody.content.application/json.customerId?
+
+```ts
+optional customerId: string;
+```
+
+###### Description
+
+New customer ID
+
+###### Example
+
+```ts
+cus_newcust123
+```
+
+##### requestBody.content.application/json.customerNotes?
+
+```ts
+optional customerNotes: string;
+```
+
+###### Description
+
+Updated customer notes
+
+###### Example
+
+```ts
+Updated delivery instructions
+```
+
+##### requestBody.content.application/json.extendExpiry?
+
+```ts
+optional extendExpiry: boolean;
+```
+
+###### Description
+
+Extend the order expiry time
+
+###### Example
+
+```ts
+true
+```
+
+##### requestBody.content.application/json.internalNotes?
+
+```ts
+optional internalNotes: string;
+```
+
+###### Description
+
+Updated internal notes
+
+###### Example
+
+```ts
+Escalated to manager
+```
+
+##### requestBody.content.application/json.metadata?
+
+```ts
+optional metadata: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Updated metadata (merged with existing)
+
+###### Example
+
+```ts
+{
+                     *       "priority": "high"
+                     *     }
+```
+
+##### requestBody.content.application/json.removeItems?
+
+```ts
+optional removeItems: string[];
+```
+
+###### Description
+
+Line item IDs to remove
+
+###### Example
+
+```ts
+[
+      "oli_remove1",
+      "oli_remove2"
+    ]
+```
+
+##### requestBody.content.application/json.updateItems?
+
+```ts
+optional updateItems: {
+  itemId: string;
+  updates: {
+     metadata?: {
+      [key: ...]: ...;
+     };
+     quantity?: number;
+     unitPrice?: string;
+  };
+}[];
+```
+
+###### Description
+
+Line items to update
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           order: {
+              accountId: string;
+              cancellationReason: string | null;
+              cancelledAt: string | null;
+              channel: string | null;
+              completedAt: string | null;
+              confirmedAt: string | null;
+              createdAt: string;
+              currency: string;
+              customerId: string | null;
+              customerNotes: string | null;
+              discountTotal: string;
+              expiresAt: string | null;
+              feeTotal: string;
+              id: string;
+              internalNotes: string | null;
+              isGuestCheckout: boolean;
+              items?: {
+                 createdAt: string;
+                 description: string | null;
+                 feeDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 id: string;
+                 metadata:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 name: string;
+                 orderId: string;
+                 productDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 quantity: number;
+                 ticketDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 totalPrice: string;
+                 type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+                 unitPrice: string;
+                 updatedAt: string;
+              }[];
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              orderNumber: string;
+              organisationId: string;
+              status:   | "completed"
+                 | "cancelled"
+                 | "pending"
+                 | "failed"
+                 | "refunded"
+                 | "confirmed"
+                 | "processing"
+                 | "expired";
+              subtotal: string;
+              taxTotal: string;
+              total: string;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        order: {
+           accountId: string;
+           cancellationReason: string | null;
+           cancelledAt: string | null;
+           channel: string | null;
+           completedAt: string | null;
+           confirmedAt: string | null;
+           createdAt: string;
+           currency: string;
+           customerId: string | null;
+           customerNotes: string | null;
+           discountTotal: string;
+           expiresAt: string | null;
+           feeTotal: string;
+           id: string;
+           internalNotes: string | null;
+           isGuestCheckout: boolean;
+           items?: {
+              createdAt: string;
+              description: string | null;
+              feeDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              id: string;
+              metadata:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              name: string;
+              orderId: string;
+              productDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              quantity: number;
+              ticketDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              totalPrice: string;
+              type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+              unitPrice: string;
+              updatedAt: string;
+           }[];
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           orderNumber: string;
+           organisationId: string;
+           status:   | "completed"
+              | "cancelled"
+              | "pending"
+              | "failed"
+              | "refunded"
+              | "confirmed"
+              | "processing"
+              | "expired";
+           subtotal: string;
+           taxTotal: string;
+           total: string;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Order updated successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     order: {
+        accountId: string;
+        cancellationReason: string | null;
+        cancelledAt: string | null;
+        channel: string | null;
+        completedAt: string | null;
+        confirmedAt: string | null;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        customerNotes: string | null;
+        discountTotal: string;
+        expiresAt: string | null;
+        feeTotal: string;
+        id: string;
+        internalNotes: string | null;
+        isGuestCheckout: boolean;
+        items?: {
+           createdAt: string;
+           description: string | null;
+           feeDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           id: string;
+           metadata:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           name: string;
+           orderId: string;
+           productDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           quantity: number;
+           ticketDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           totalPrice: string;
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+           updatedAt: string;
+        }[];
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderNumber: string;
+        organisationId: string;
+        status:   | "completed"
+           | "cancelled"
+           | "pending"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+        subtotal: string;
+        taxTotal: string;
+        total: string;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  order: {
+     accountId: string;
+     cancellationReason: string | null;
+     cancelledAt: string | null;
+     channel: string | null;
+     completedAt: string | null;
+     confirmedAt: string | null;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     customerNotes: string | null;
+     discountTotal: string;
+     expiresAt: string | null;
+     feeTotal: string;
+     id: string;
+     internalNotes: string | null;
+     isGuestCheckout: boolean;
+     items?: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     }[];
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderNumber: string;
+     organisationId: string;
+     status:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     subtotal: string;
+     taxTotal: string;
+     total: string;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.order
+
+```ts
+order: {
+  accountId: string;
+  cancellationReason: string | null;
+  cancelledAt: string | null;
+  channel: string | null;
+  completedAt: string | null;
+  confirmedAt: string | null;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  customerNotes: string | null;
+  discountTotal: string;
+  expiresAt: string | null;
+  feeTotal: string;
+  id: string;
+  internalNotes: string | null;
+  isGuestCheckout: boolean;
+  items?: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  }[];
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderNumber: string;
+  organisationId: string;
+  status:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  subtotal: string;
+  taxTotal: string;
+  total: string;
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.order.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### responses.200.content.application/json.order.cancellationReason
+
+```ts
+cancellationReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.channel
+
+```ts
+channel: string | null;
+```
+
+###### Example
+
+```ts
+web
+```
+
+##### responses.200.content.application/json.order.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.confirmedAt
+
+```ts
+confirmedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.order.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### responses.200.content.application/json.order.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### responses.200.content.application/json.order.customerNotes
+
+```ts
+customerNotes: string | null;
+```
+
+###### Example
+
+```ts
+Please contact me before delivery
+```
+
+##### responses.200.content.application/json.order.discountTotal
+
+```ts
+discountTotal: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### responses.200.content.application/json.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+##### responses.200.content.application/json.order.feeTotal
+
+```ts
+feeTotal: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### responses.200.content.application/json.order.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### responses.200.content.application/json.order.internalNotes
+
+```ts
+internalNotes: string | null;
+```
+
+###### Example
+
+```ts
+VIP customer
+```
+
+##### responses.200.content.application/json.order.isGuestCheckout
+
+```ts
+isGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.order.items?
+
+```ts
+optional items: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+}[];
+```
+
+###### Description
+
+Order line items
+
+##### responses.200.content.application/json.order.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "promoCode": "SUMMER20"
+             *     }
+```
+
+##### responses.200.content.application/json.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### responses.200.content.application/json.order.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.order.status
+
+```ts
+status: 
+  | "completed"
+  | "cancelled"
+  | "pending"
+  | "failed"
+  | "refunded"
+  | "confirmed"
+  | "processing"
+  | "expired";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+##### responses.200.content.application/json.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### responses.200.content.application/json.order.taxTotal
+
+```ts
+taxTotal: string;
+```
+
+###### Example
+
+```ts
+10.00
+```
+
+##### responses.200.content.application/json.order.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+62.50
+```
+
+##### responses.200.content.application/json.order.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### updateOrderLineItem
+
+```ts
+updateOrderLineItem: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        itemId: string;
+        orderId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           metadata?: {
+            [key: string]: unknown;
+           };
+           quantity?: number;
+           unitPrice?: string;
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              item: {
+                 createdAt: string;
+                 description: string | null;
+                 feeDetails:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 id: string;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 name: string;
+                 orderId: string;
+                 productDetails:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 quantity: number;
+                 ticketDetails:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 totalPrice: string;
+                 type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+                 unitPrice: string;
+                 updatedAt: string;
+              };
+              order: {
+                 accountId: string;
+                 cancellationReason: string | null;
+                 cancelledAt: string | null;
+                 channel: string | null;
+                 completedAt: string | null;
+                 confirmedAt: string | null;
+                 createdAt: string;
+                 currency: string;
+                 customerId: string | null;
+                 customerNotes: string | null;
+                 discountTotal: string;
+                 expiresAt: string | null;
+                 feeTotal: string;
+                 id: string;
+                 internalNotes: string | null;
+                 isGuestCheckout: boolean;
+                 items?: {
+                    createdAt: string;
+                    description: string | null;
+                    feeDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    id: string;
+                    metadata:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    name: string;
+                    orderId: string;
+                    productDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    quantity: number;
+                    ticketDetails:   | {
+                     [key: ...]: ...;
+                     }
+                       | null;
+                    totalPrice: string;
+                    type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+                    unitPrice: string;
+                    updatedAt: string;
+                 }[];
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 orderNumber: string;
+                 organisationId: string;
+                 status:   | "completed"
+                    | "cancelled"
+                    | "pending"
+                    | "failed"
+                    | "refunded"
+                    | "confirmed"
+                    | "processing"
+                    | "expired";
+                 subtotal: string;
+                 taxTotal: string;
+                 total: string;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:14086
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     itemId: string;
+     orderId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  itemId: string;
+  orderId: string;
+};
+```
+
+##### parameters.path.itemId
+
+```ts
+itemId: string;
+```
+
+###### Description
+
+Line item ID
+
+##### parameters.path.orderId
+
+```ts
+orderId: string;
+```
+
+###### Description
+
+Order ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        metadata?: {
+         [key: string]: unknown;
+        };
+        quantity?: number;
+        unitPrice?: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     metadata?: {
+      [key: string]: unknown;
+     };
+     quantity?: number;
+     unitPrice?: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  metadata?: {
+   [key: string]: unknown;
+  };
+  quantity?: number;
+  unitPrice?: string;
+};
+```
+
+##### requestBody.content.application/json.metadata?
+
+```ts
+optional metadata: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Updated metadata
+
+###### Example
+
+```ts
+{
+                     *       "updated": true
+                     *     }
+```
+
+##### requestBody.content.application/json.quantity?
+
+```ts
+optional quantity: number;
+```
+
+###### Description
+
+New quantity
+
+###### Example
+
+```ts
+3
+```
+
+##### requestBody.content.application/json.unitPrice?
+
+```ts
+optional unitPrice: string;
+```
+
+###### Description
+
+New unit price
+
+###### Example
+
+```ts
+30.00
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           item: {
+              createdAt: string;
+              description: string | null;
+              feeDetails:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              id: string;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              name: string;
+              orderId: string;
+              productDetails:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              quantity: number;
+              ticketDetails:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              totalPrice: string;
+              type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+              unitPrice: string;
+              updatedAt: string;
+           };
+           order: {
+              accountId: string;
+              cancellationReason: string | null;
+              cancelledAt: string | null;
+              channel: string | null;
+              completedAt: string | null;
+              confirmedAt: string | null;
+              createdAt: string;
+              currency: string;
+              customerId: string | null;
+              customerNotes: string | null;
+              discountTotal: string;
+              expiresAt: string | null;
+              feeTotal: string;
+              id: string;
+              internalNotes: string | null;
+              isGuestCheckout: boolean;
+              items?: {
+                 createdAt: string;
+                 description: string | null;
+                 feeDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 id: string;
+                 metadata:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 name: string;
+                 orderId: string;
+                 productDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 quantity: number;
+                 ticketDetails:   | {
+                  [key: ...]: ...;
+                  }
+                    | null;
+                 totalPrice: string;
+                 type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+                 unitPrice: string;
+                 updatedAt: string;
+              }[];
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              orderNumber: string;
+              organisationId: string;
+              status:   | "completed"
+                 | "cancelled"
+                 | "pending"
+                 | "failed"
+                 | "refunded"
+                 | "confirmed"
+                 | "processing"
+                 | "expired";
+              subtotal: string;
+              taxTotal: string;
+              total: string;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        item: {
+           createdAt: string;
+           description: string | null;
+           feeDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           name: string;
+           orderId: string;
+           productDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           quantity: number;
+           ticketDetails:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           totalPrice: string;
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+           updatedAt: string;
+        };
+        order: {
+           accountId: string;
+           cancellationReason: string | null;
+           cancelledAt: string | null;
+           channel: string | null;
+           completedAt: string | null;
+           confirmedAt: string | null;
+           createdAt: string;
+           currency: string;
+           customerId: string | null;
+           customerNotes: string | null;
+           discountTotal: string;
+           expiresAt: string | null;
+           feeTotal: string;
+           id: string;
+           internalNotes: string | null;
+           isGuestCheckout: boolean;
+           items?: {
+              createdAt: string;
+              description: string | null;
+              feeDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              id: string;
+              metadata:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              name: string;
+              orderId: string;
+              productDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              quantity: number;
+              ticketDetails:   | {
+               [key: ...]: ...;
+               }
+                 | null;
+              totalPrice: string;
+              type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+              unitPrice: string;
+              updatedAt: string;
+           }[];
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           orderNumber: string;
+           organisationId: string;
+           status:   | "completed"
+              | "cancelled"
+              | "pending"
+              | "failed"
+              | "refunded"
+              | "confirmed"
+              | "processing"
+              | "expired";
+           subtotal: string;
+           taxTotal: string;
+           total: string;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Line item updated successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     item: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     };
+     order: {
+        accountId: string;
+        cancellationReason: string | null;
+        cancelledAt: string | null;
+        channel: string | null;
+        completedAt: string | null;
+        confirmedAt: string | null;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        customerNotes: string | null;
+        discountTotal: string;
+        expiresAt: string | null;
+        feeTotal: string;
+        id: string;
+        internalNotes: string | null;
+        isGuestCheckout: boolean;
+        items?: {
+           createdAt: string;
+           description: string | null;
+           feeDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           id: string;
+           metadata:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           name: string;
+           orderId: string;
+           productDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           quantity: number;
+           ticketDetails:   | {
+            [key: ...]: ...;
+            }
+              | null;
+           totalPrice: string;
+           type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+           unitPrice: string;
+           updatedAt: string;
+        }[];
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderNumber: string;
+        organisationId: string;
+        status:   | "completed"
+           | "cancelled"
+           | "pending"
+           | "failed"
+           | "refunded"
+           | "confirmed"
+           | "processing"
+           | "expired";
+        subtotal: string;
+        taxTotal: string;
+        total: string;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  item: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  };
+  order: {
+     accountId: string;
+     cancellationReason: string | null;
+     cancelledAt: string | null;
+     channel: string | null;
+     completedAt: string | null;
+     confirmedAt: string | null;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     customerNotes: string | null;
+     discountTotal: string;
+     expiresAt: string | null;
+     feeTotal: string;
+     id: string;
+     internalNotes: string | null;
+     isGuestCheckout: boolean;
+     items?: {
+        createdAt: string;
+        description: string | null;
+        feeDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        id: string;
+        metadata:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        name: string;
+        orderId: string;
+        productDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        quantity: number;
+        ticketDetails:   | {
+         [key: ...]: ...;
+         }
+           | null;
+        totalPrice: string;
+        type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+        unitPrice: string;
+        updatedAt: string;
+     }[];
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderNumber: string;
+     organisationId: string;
+     status:   | "completed"
+        | "cancelled"
+        | "pending"
+        | "failed"
+        | "refunded"
+        | "confirmed"
+        | "processing"
+        | "expired";
+     subtotal: string;
+     taxTotal: string;
+     total: string;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.item
+
+```ts
+item: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.item.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.item.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Entry to main event area
+```
+
+##### responses.200.content.application/json.item.feeDetails
+
+```ts
+feeDetails: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.item.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+oli_abc123
+```
+
+##### responses.200.content.application/json.item.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "source": "web"
+             *     }
+```
+
+##### responses.200.content.application/json.item.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+General Admission
+```
+
+##### responses.200.content.application/json.item.orderId
+
+```ts
+orderId: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### responses.200.content.application/json.item.productDetails
+
+```ts
+productDetails: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.item.quantity
+
+```ts
+quantity: number;
+```
+
+###### Example
+
+```ts
+2
+```
+
+##### responses.200.content.application/json.item.ticketDetails
+
+```ts
+ticketDetails: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "eventId": "evt_123"
+             *     }
+```
+
+##### responses.200.content.application/json.item.totalPrice
+
+```ts
+totalPrice: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### responses.200.content.application/json.item.type
+
+```ts
+type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+```
+
+###### Example
+
+```ts
+ticket
+@enum {string}
+```
+
+##### responses.200.content.application/json.item.unitPrice
+
+```ts
+unitPrice: string;
+```
+
+###### Example
+
+```ts
+25.00
+```
+
+##### responses.200.content.application/json.item.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.order
+
+```ts
+order: {
+  accountId: string;
+  cancellationReason: string | null;
+  cancelledAt: string | null;
+  channel: string | null;
+  completedAt: string | null;
+  confirmedAt: string | null;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  customerNotes: string | null;
+  discountTotal: string;
+  expiresAt: string | null;
+  feeTotal: string;
+  id: string;
+  internalNotes: string | null;
+  isGuestCheckout: boolean;
+  items?: {
+     createdAt: string;
+     description: string | null;
+     feeDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     id: string;
+     metadata:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     name: string;
+     orderId: string;
+     productDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     quantity: number;
+     ticketDetails:   | {
+      [key: ...]: ...;
+      }
+        | null;
+     totalPrice: string;
+     type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+     unitPrice: string;
+     updatedAt: string;
+  }[];
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderNumber: string;
+  organisationId: string;
+  status:   | "completed"
+     | "cancelled"
+     | "pending"
+     | "failed"
+     | "refunded"
+     | "confirmed"
+     | "processing"
+     | "expired";
+  subtotal: string;
+  taxTotal: string;
+  total: string;
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.order.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### responses.200.content.application/json.order.cancellationReason
+
+```ts
+cancellationReason: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.cancelledAt
+
+```ts
+cancelledAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.channel
+
+```ts
+channel: string | null;
+```
+
+###### Example
+
+```ts
+web
+```
+
+##### responses.200.content.application/json.order.completedAt
+
+```ts
+completedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.confirmedAt
+
+```ts
+confirmedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.order.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### responses.200.content.application/json.order.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### responses.200.content.application/json.order.customerNotes
+
+```ts
+customerNotes: string | null;
+```
+
+###### Example
+
+```ts
+Please contact me before delivery
+```
+
+##### responses.200.content.application/json.order.discountTotal
+
+```ts
+discountTotal: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### responses.200.content.application/json.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:45:00Z
+```
+
+##### responses.200.content.application/json.order.feeTotal
+
+```ts
+feeTotal: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### responses.200.content.application/json.order.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123xyz789
+```
+
+##### responses.200.content.application/json.order.internalNotes
+
+```ts
+internalNotes: string | null;
+```
+
+###### Example
+
+```ts
+VIP customer
+```
+
+##### responses.200.content.application/json.order.isGuestCheckout
+
+```ts
+isGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.order.items?
+
+```ts
+optional items: {
+  createdAt: string;
+  description: string | null;
+  feeDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  id: string;
+  metadata:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  name: string;
+  orderId: string;
+  productDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  quantity: number;
+  ticketDetails:   | {
+   [key: ...]: ...;
+   }
+     | null;
+  totalPrice: string;
+  type: "product" | "ticket" | "addon" | "fee" | "tax" | "discount";
+  unitPrice: string;
+  updatedAt: string;
+}[];
+```
+
+###### Description
+
+Order line items
+
+##### responses.200.content.application/json.order.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "promoCode": "SUMMER20"
+             *     }
+```
+
+##### responses.200.content.application/json.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### responses.200.content.application/json.order.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.order.status
+
+```ts
+status: 
+  | "completed"
+  | "cancelled"
+  | "pending"
+  | "failed"
+  | "refunded"
+  | "confirmed"
+  | "processing"
+  | "expired";
+```
+
+###### Example
+
+```ts
+pending
+@enum {string}
+```
+
+##### responses.200.content.application/json.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### responses.200.content.application/json.order.taxTotal
+
+```ts
+taxTotal: string;
+```
+
+###### Example
+
+```ts
+10.00
+```
+
+##### responses.200.content.application/json.order.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+62.50
+```
+
+##### responses.200.content.application/json.order.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### updateOrganisation
 
 ```ts
@@ -41009,7 +90755,7 @@ updateOrganisation: {
 };
 ```
 
-Defined in: generated/types.ts:2671
+Defined in: generated/types.ts:4821
 
 #### parameters
 
@@ -41644,6 +91390,1716 @@ headers: {
 
 ***
 
+### updatePaymentProvider
+
+```ts
+updatePaymentProvider: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        providerId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           applicationFee?: {
+              type: "percentage" | "fixed";
+              value: number;
+           };
+           capabilities?: {
+              maxAmount?: number;
+              minAmount?: number;
+              requiresCustomerAction?: boolean;
+              supportedCurrencies?: string[];
+              supportsDelayedCapture?: boolean;
+              supportsInstantCapture?: boolean;
+              supportsPartialRefunds?: boolean;
+              supportsRefunds?: boolean;
+           };
+           configuration?: {
+            [key: string]: unknown;
+           };
+           description?: string;
+           feeStructure?: {
+              currency?: string;
+              fixed?: number;
+              percentage?: number;
+              type: "percentage" | "fixed" | "percentage_plus_fixed";
+           };
+           integrationServiceUrl?: string;
+           integrationServiceVersion?: string;
+           isDefault?: boolean;
+           metadata?: {
+            [key: string]: unknown;
+           };
+           name?: string;
+           priority?: number;
+           status?: "active" | "inactive" | "pending_setup";
+           supportedPaymentTypes?: (
+              | "bank_transfer"
+              | "online_card"
+              | "online_bank_transfer"
+              | "online_wallet"
+              | "in_person_card"
+              | "in_person_cash"
+             | "cheque")[];
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              provider: {
+                 accountId: string | null;
+                 applicationFee:   | {
+                    type: "percentage" | "fixed";
+                    value: number;
+                  }
+                    | null;
+                 capabilities:   | {
+                    maxAmount?: number;
+                    minAmount?: number;
+                    requiresCustomerAction?: boolean;
+                    supportedCurrencies?: string[];
+                    supportsDelayedCapture?: boolean;
+                    supportsInstantCapture?: boolean;
+                    supportsPartialRefunds?: boolean;
+                    supportsRefunds?: boolean;
+                  }
+                    | null;
+                 configuration: {
+                  [key: string]: unknown;
+                 };
+                 createdAt: string;
+                 description: string | null;
+                 feeStructure:   | {
+                    currency?: string;
+                    fixed?: number;
+                    percentage?: number;
+                    type: "percentage" | "fixed" | "percentage_plus_fixed";
+                  }
+                    | null;
+                 id: string;
+                 integrationServiceUrl: string | null;
+                 integrationServiceVersion: string;
+                 isDefault: boolean;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 name: string;
+                 organisationId: string;
+                 priority: number;
+                 status: "active" | "inactive" | "pending_setup";
+                 supportedPaymentTypes: (
+                    | "bank_transfer"
+                    | "online_card"
+                    | "online_bank_transfer"
+                    | "online_wallet"
+                    | "in_person_card"
+                    | "in_person_cash"
+                   | "cheque")[];
+                 type:   | "bank_transfer"
+                    | "cash"
+                    | "stripe_connect"
+                    | "stripe_direct"
+                    | "adyen"
+                    | "square"
+                    | "paypal";
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:15324
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     providerId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  providerId: string;
+};
+```
+
+##### parameters.path.providerId
+
+```ts
+providerId: string;
+```
+
+###### Description
+
+Payment Provider ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        applicationFee?: {
+           type: "percentage" | "fixed";
+           value: number;
+        };
+        capabilities?: {
+           maxAmount?: number;
+           minAmount?: number;
+           requiresCustomerAction?: boolean;
+           supportedCurrencies?: string[];
+           supportsDelayedCapture?: boolean;
+           supportsInstantCapture?: boolean;
+           supportsPartialRefunds?: boolean;
+           supportsRefunds?: boolean;
+        };
+        configuration?: {
+         [key: string]: unknown;
+        };
+        description?: string;
+        feeStructure?: {
+           currency?: string;
+           fixed?: number;
+           percentage?: number;
+           type: "percentage" | "fixed" | "percentage_plus_fixed";
+        };
+        integrationServiceUrl?: string;
+        integrationServiceVersion?: string;
+        isDefault?: boolean;
+        metadata?: {
+         [key: string]: unknown;
+        };
+        name?: string;
+        priority?: number;
+        status?: "active" | "inactive" | "pending_setup";
+        supportedPaymentTypes?: (
+           | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+          | "cheque")[];
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     applicationFee?: {
+        type: "percentage" | "fixed";
+        value: number;
+     };
+     capabilities?: {
+        maxAmount?: number;
+        minAmount?: number;
+        requiresCustomerAction?: boolean;
+        supportedCurrencies?: string[];
+        supportsDelayedCapture?: boolean;
+        supportsInstantCapture?: boolean;
+        supportsPartialRefunds?: boolean;
+        supportsRefunds?: boolean;
+     };
+     configuration?: {
+      [key: string]: unknown;
+     };
+     description?: string;
+     feeStructure?: {
+        currency?: string;
+        fixed?: number;
+        percentage?: number;
+        type: "percentage" | "fixed" | "percentage_plus_fixed";
+     };
+     integrationServiceUrl?: string;
+     integrationServiceVersion?: string;
+     isDefault?: boolean;
+     metadata?: {
+      [key: string]: unknown;
+     };
+     name?: string;
+     priority?: number;
+     status?: "active" | "inactive" | "pending_setup";
+     supportedPaymentTypes?: (
+        | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+       | "cheque")[];
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  applicationFee?: {
+     type: "percentage" | "fixed";
+     value: number;
+  };
+  capabilities?: {
+     maxAmount?: number;
+     minAmount?: number;
+     requiresCustomerAction?: boolean;
+     supportedCurrencies?: string[];
+     supportsDelayedCapture?: boolean;
+     supportsInstantCapture?: boolean;
+     supportsPartialRefunds?: boolean;
+     supportsRefunds?: boolean;
+  };
+  configuration?: {
+   [key: string]: unknown;
+  };
+  description?: string;
+  feeStructure?: {
+     currency?: string;
+     fixed?: number;
+     percentage?: number;
+     type: "percentage" | "fixed" | "percentage_plus_fixed";
+  };
+  integrationServiceUrl?: string;
+  integrationServiceVersion?: string;
+  isDefault?: boolean;
+  metadata?: {
+   [key: string]: unknown;
+  };
+  name?: string;
+  priority?: number;
+  status?: "active" | "inactive" | "pending_setup";
+  supportedPaymentTypes?: (
+     | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+    | "cheque")[];
+};
+```
+
+##### requestBody.content.application/json.applicationFee?
+
+```ts
+optional applicationFee: {
+  type: "percentage" | "fixed";
+  value: number;
+};
+```
+
+###### Description
+
+Application fee configuration
+
+##### requestBody.content.application/json.applicationFee.type
+
+```ts
+type: "percentage" | "fixed";
+```
+
+###### Description
+
+Application fee type
+
+###### Example
+
+```ts
+percentage
+@enum {string}
+```
+
+##### requestBody.content.application/json.applicationFee.value
+
+```ts
+value: number;
+```
+
+###### Description
+
+Application fee value
+
+###### Example
+
+```ts
+2
+```
+
+##### requestBody.content.application/json.capabilities?
+
+```ts
+optional capabilities: {
+  maxAmount?: number;
+  minAmount?: number;
+  requiresCustomerAction?: boolean;
+  supportedCurrencies?: string[];
+  supportsDelayedCapture?: boolean;
+  supportsInstantCapture?: boolean;
+  supportsPartialRefunds?: boolean;
+  supportsRefunds?: boolean;
+};
+```
+
+###### Description
+
+Provider capabilities (merged with existing)
+
+##### requestBody.content.application/json.capabilities.maxAmount?
+
+```ts
+optional maxAmount: number;
+```
+
+###### Description
+
+Maximum transaction amount
+
+###### Example
+
+```ts
+10000
+```
+
+##### requestBody.content.application/json.capabilities.minAmount?
+
+```ts
+optional minAmount: number;
+```
+
+###### Description
+
+Minimum transaction amount
+
+###### Example
+
+```ts
+0.5
+```
+
+##### requestBody.content.application/json.capabilities.requiresCustomerAction?
+
+```ts
+optional requiresCustomerAction: boolean;
+```
+
+###### Description
+
+Requires customer action (3DS, etc.)
+
+###### Example
+
+```ts
+true
+```
+
+##### requestBody.content.application/json.capabilities.supportedCurrencies?
+
+```ts
+optional supportedCurrencies: string[];
+```
+
+###### Description
+
+Supported currencies
+
+###### Example
+
+```ts
+[
+      "GBP",
+      "USD",
+      "EUR"
+    ]
+```
+
+##### requestBody.content.application/json.capabilities.supportsDelayedCapture?
+
+```ts
+optional supportsDelayedCapture: boolean;
+```
+
+###### Description
+
+Supports delayed capture
+
+###### Example
+
+```ts
+true
+```
+
+##### requestBody.content.application/json.capabilities.supportsInstantCapture?
+
+```ts
+optional supportsInstantCapture: boolean;
+```
+
+###### Description
+
+Supports instant capture
+
+###### Example
+
+```ts
+true
+```
+
+##### requestBody.content.application/json.capabilities.supportsPartialRefunds?
+
+```ts
+optional supportsPartialRefunds: boolean;
+```
+
+###### Description
+
+Supports partial refunds
+
+###### Example
+
+```ts
+true
+```
+
+##### requestBody.content.application/json.capabilities.supportsRefunds?
+
+```ts
+optional supportsRefunds: boolean;
+```
+
+###### Description
+
+Supports refunds
+
+###### Example
+
+```ts
+true
+```
+
+##### requestBody.content.application/json.configuration?
+
+```ts
+optional configuration: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Provider-specific configuration (merged with existing)
+
+###### Example
+
+```ts
+{
+                     *       "webhookSecret": "whsec_xxx"
+                     *     }
+```
+
+##### requestBody.content.application/json.description?
+
+```ts
+optional description: string;
+```
+
+###### Description
+
+Provider description
+
+###### Example
+
+```ts
+Updated description
+```
+
+##### requestBody.content.application/json.feeStructure?
+
+```ts
+optional feeStructure: {
+  currency?: string;
+  fixed?: number;
+  percentage?: number;
+  type: "percentage" | "fixed" | "percentage_plus_fixed";
+};
+```
+
+###### Description
+
+Fee structure
+
+##### requestBody.content.application/json.feeStructure.currency?
+
+```ts
+optional currency: string;
+```
+
+###### Description
+
+Currency for fixed fee
+
+###### Example
+
+```ts
+GBP
+```
+
+##### requestBody.content.application/json.feeStructure.fixed?
+
+```ts
+optional fixed: number;
+```
+
+###### Description
+
+Fixed fee amount
+
+###### Example
+
+```ts
+0.2
+```
+
+##### requestBody.content.application/json.feeStructure.percentage?
+
+```ts
+optional percentage: number;
+```
+
+###### Description
+
+Percentage fee
+
+###### Example
+
+```ts
+2.9
+```
+
+##### requestBody.content.application/json.feeStructure.type
+
+```ts
+type: "percentage" | "fixed" | "percentage_plus_fixed";
+```
+
+###### Description
+
+Fee structure type
+
+###### Example
+
+```ts
+percentage_plus_fixed
+@enum {string}
+```
+
+##### requestBody.content.application/json.integrationServiceUrl?
+
+```ts
+optional integrationServiceUrl: string;
+```
+
+Format: uri
+
+###### Description
+
+Integration service URL
+
+###### Example
+
+```ts
+https://stripe.paymentintegration.ticketlayer.com
+```
+
+##### requestBody.content.application/json.integrationServiceVersion?
+
+```ts
+optional integrationServiceVersion: string;
+```
+
+###### Description
+
+Integration service API version
+
+###### Example
+
+```ts
+v2
+```
+
+##### requestBody.content.application/json.isDefault?
+
+```ts
+optional isDefault: boolean;
+```
+
+###### Description
+
+Set as default provider
+
+###### Example
+
+```ts
+true
+```
+
+##### requestBody.content.application/json.metadata?
+
+```ts
+optional metadata: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Custom metadata (merged with existing)
+
+##### requestBody.content.application/json.name?
+
+```ts
+optional name: string;
+```
+
+###### Description
+
+Provider display name
+
+###### Example
+
+```ts
+Updated Provider Name
+```
+
+##### requestBody.content.application/json.priority?
+
+```ts
+optional priority: number;
+```
+
+###### Description
+
+Provider priority
+
+###### Example
+
+```ts
+50
+```
+
+##### requestBody.content.application/json.status?
+
+```ts
+optional status: "active" | "inactive" | "pending_setup";
+```
+
+###### Description
+
+Provider status
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### requestBody.content.application/json.supportedPaymentTypes?
+
+```ts
+optional supportedPaymentTypes: (
+  | "bank_transfer"
+  | "online_card"
+  | "online_bank_transfer"
+  | "online_wallet"
+  | "in_person_card"
+  | "in_person_cash"
+  | "cheque")[];
+```
+
+###### Description
+
+Supported payment types
+
+###### Example
+
+```ts
+[
+      "online_card",
+      "online_wallet",
+      "in_person_card"
+    ]
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           provider: {
+              accountId: string | null;
+              applicationFee:   | {
+                 type: "percentage" | "fixed";
+                 value: number;
+               }
+                 | null;
+              capabilities:   | {
+                 maxAmount?: number;
+                 minAmount?: number;
+                 requiresCustomerAction?: boolean;
+                 supportedCurrencies?: string[];
+                 supportsDelayedCapture?: boolean;
+                 supportsInstantCapture?: boolean;
+                 supportsPartialRefunds?: boolean;
+                 supportsRefunds?: boolean;
+               }
+                 | null;
+              configuration: {
+               [key: string]: unknown;
+              };
+              createdAt: string;
+              description: string | null;
+              feeStructure:   | {
+                 currency?: string;
+                 fixed?: number;
+                 percentage?: number;
+                 type: "percentage" | "fixed" | "percentage_plus_fixed";
+               }
+                 | null;
+              id: string;
+              integrationServiceUrl: string | null;
+              integrationServiceVersion: string;
+              isDefault: boolean;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              name: string;
+              organisationId: string;
+              priority: number;
+              status: "active" | "inactive" | "pending_setup";
+              supportedPaymentTypes: (
+                 | "bank_transfer"
+                 | "online_card"
+                 | "online_bank_transfer"
+                 | "online_wallet"
+                 | "in_person_card"
+                 | "in_person_cash"
+                | "cheque")[];
+              type:   | "bank_transfer"
+                 | "cash"
+                 | "stripe_connect"
+                 | "stripe_direct"
+                 | "adyen"
+                 | "square"
+                 | "paypal";
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        provider: {
+           accountId: string | null;
+           applicationFee:   | {
+              type: "percentage" | "fixed";
+              value: number;
+            }
+              | null;
+           capabilities:   | {
+              maxAmount?: number;
+              minAmount?: number;
+              requiresCustomerAction?: boolean;
+              supportedCurrencies?: string[];
+              supportsDelayedCapture?: boolean;
+              supportsInstantCapture?: boolean;
+              supportsPartialRefunds?: boolean;
+              supportsRefunds?: boolean;
+            }
+              | null;
+           configuration: {
+            [key: string]: unknown;
+           };
+           createdAt: string;
+           description: string | null;
+           feeStructure:   | {
+              currency?: string;
+              fixed?: number;
+              percentage?: number;
+              type: "percentage" | "fixed" | "percentage_plus_fixed";
+            }
+              | null;
+           id: string;
+           integrationServiceUrl: string | null;
+           integrationServiceVersion: string;
+           isDefault: boolean;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           name: string;
+           organisationId: string;
+           priority: number;
+           status: "active" | "inactive" | "pending_setup";
+           supportedPaymentTypes: (
+              | "bank_transfer"
+              | "online_card"
+              | "online_bank_transfer"
+              | "online_wallet"
+              | "in_person_card"
+              | "in_person_cash"
+             | "cheque")[];
+           type:   | "bank_transfer"
+              | "cash"
+              | "stripe_connect"
+              | "stripe_direct"
+              | "adyen"
+              | "square"
+              | "paypal";
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Payment provider updated successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     provider: {
+        accountId: string | null;
+        applicationFee:   | {
+           type: "percentage" | "fixed";
+           value: number;
+         }
+           | null;
+        capabilities:   | {
+           maxAmount?: number;
+           minAmount?: number;
+           requiresCustomerAction?: boolean;
+           supportedCurrencies?: string[];
+           supportsDelayedCapture?: boolean;
+           supportsInstantCapture?: boolean;
+           supportsPartialRefunds?: boolean;
+           supportsRefunds?: boolean;
+         }
+           | null;
+        configuration: {
+         [key: string]: unknown;
+        };
+        createdAt: string;
+        description: string | null;
+        feeStructure:   | {
+           currency?: string;
+           fixed?: number;
+           percentage?: number;
+           type: "percentage" | "fixed" | "percentage_plus_fixed";
+         }
+           | null;
+        id: string;
+        integrationServiceUrl: string | null;
+        integrationServiceVersion: string;
+        isDefault: boolean;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        name: string;
+        organisationId: string;
+        priority: number;
+        status: "active" | "inactive" | "pending_setup";
+        supportedPaymentTypes: (
+           | "bank_transfer"
+           | "online_card"
+           | "online_bank_transfer"
+           | "online_wallet"
+           | "in_person_card"
+           | "in_person_cash"
+          | "cheque")[];
+        type:   | "bank_transfer"
+           | "cash"
+           | "stripe_connect"
+           | "stripe_direct"
+           | "adyen"
+           | "square"
+           | "paypal";
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  provider: {
+     accountId: string | null;
+     applicationFee:   | {
+        type: "percentage" | "fixed";
+        value: number;
+      }
+        | null;
+     capabilities:   | {
+        maxAmount?: number;
+        minAmount?: number;
+        requiresCustomerAction?: boolean;
+        supportedCurrencies?: string[];
+        supportsDelayedCapture?: boolean;
+        supportsInstantCapture?: boolean;
+        supportsPartialRefunds?: boolean;
+        supportsRefunds?: boolean;
+      }
+        | null;
+     configuration: {
+      [key: string]: unknown;
+     };
+     createdAt: string;
+     description: string | null;
+     feeStructure:   | {
+        currency?: string;
+        fixed?: number;
+        percentage?: number;
+        type: "percentage" | "fixed" | "percentage_plus_fixed";
+      }
+        | null;
+     id: string;
+     integrationServiceUrl: string | null;
+     integrationServiceVersion: string;
+     isDefault: boolean;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     name: string;
+     organisationId: string;
+     priority: number;
+     status: "active" | "inactive" | "pending_setup";
+     supportedPaymentTypes: (
+        | "bank_transfer"
+        | "online_card"
+        | "online_bank_transfer"
+        | "online_wallet"
+        | "in_person_card"
+        | "in_person_cash"
+       | "cheque")[];
+     type:   | "bank_transfer"
+        | "cash"
+        | "stripe_connect"
+        | "stripe_direct"
+        | "adyen"
+        | "square"
+        | "paypal";
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.provider
+
+```ts
+provider: {
+  accountId: string | null;
+  applicationFee:   | {
+     type: "percentage" | "fixed";
+     value: number;
+   }
+     | null;
+  capabilities:   | {
+     maxAmount?: number;
+     minAmount?: number;
+     requiresCustomerAction?: boolean;
+     supportedCurrencies?: string[];
+     supportsDelayedCapture?: boolean;
+     supportsInstantCapture?: boolean;
+     supportsPartialRefunds?: boolean;
+     supportsRefunds?: boolean;
+   }
+     | null;
+  configuration: {
+   [key: string]: unknown;
+  };
+  createdAt: string;
+  description: string | null;
+  feeStructure:   | {
+     currency?: string;
+     fixed?: number;
+     percentage?: number;
+     type: "percentage" | "fixed" | "percentage_plus_fixed";
+   }
+     | null;
+  id: string;
+  integrationServiceUrl: string | null;
+  integrationServiceVersion: string;
+  isDefault: boolean;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  name: string;
+  organisationId: string;
+  priority: number;
+  status: "active" | "inactive" | "pending_setup";
+  supportedPaymentTypes: (
+     | "bank_transfer"
+     | "online_card"
+     | "online_bank_transfer"
+     | "online_wallet"
+     | "in_person_card"
+     | "in_person_cash"
+    | "cheque")[];
+  type:   | "bank_transfer"
+     | "cash"
+     | "stripe_connect"
+     | "stripe_direct"
+     | "adyen"
+     | "square"
+     | "paypal";
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.provider.accountId
+
+```ts
+accountId: string | null;
+```
+
+###### Example
+
+```ts
+acc_xyz789
+```
+
+##### responses.200.content.application/json.provider.applicationFee
+
+```ts
+applicationFee: 
+  | {
+  type: "percentage" | "fixed";
+  value: number;
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  type: "percentage" | "fixed";
+  value: number;
+}
+```
+
+`null`
+
+##### responses.200.content.application/json.provider.capabilities
+
+```ts
+capabilities: 
+  | {
+  maxAmount?: number;
+  minAmount?: number;
+  requiresCustomerAction?: boolean;
+  supportedCurrencies?: string[];
+  supportsDelayedCapture?: boolean;
+  supportsInstantCapture?: boolean;
+  supportsPartialRefunds?: boolean;
+  supportsRefunds?: boolean;
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  maxAmount?: number;
+  minAmount?: number;
+  requiresCustomerAction?: boolean;
+  supportedCurrencies?: string[];
+  supportsDelayedCapture?: boolean;
+  supportsInstantCapture?: boolean;
+  supportsPartialRefunds?: boolean;
+  supportsRefunds?: boolean;
+}
+```
+
+`null`
+
+##### responses.200.content.application/json.provider.configuration
+
+```ts
+configuration: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+###### Description
+
+Provider-specific configuration (sensitive fields redacted)
+
+###### Example
+
+```ts
+{
+             *       "stripeConnectedAccountId": "acct_xxx"
+             *     }
+```
+
+##### responses.200.content.application/json.provider.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.provider.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Primary payment processor for online orders
+```
+
+##### responses.200.content.application/json.provider.feeStructure
+
+```ts
+feeStructure: 
+  | {
+  currency?: string;
+  fixed?: number;
+  percentage?: number;
+  type: "percentage" | "fixed" | "percentage_plus_fixed";
+}
+  | null;
+```
+
+###### Type Declaration
+
+```ts
+{
+  currency?: string;
+  fixed?: number;
+  percentage?: number;
+  type: "percentage" | "fixed" | "percentage_plus_fixed";
+}
+```
+
+`null`
+
+##### responses.200.content.application/json.provider.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pp_stripeXxx123
+```
+
+##### responses.200.content.application/json.provider.integrationServiceUrl
+
+```ts
+integrationServiceUrl: string | null;
+```
+
+###### Example
+
+```ts
+https://stripe.paymentintegration.ticketlayer.com
+```
+
+##### responses.200.content.application/json.provider.integrationServiceVersion
+
+```ts
+integrationServiceVersion: string;
+```
+
+###### Example
+
+```ts
+v1
+```
+
+##### responses.200.content.application/json.provider.isDefault
+
+```ts
+isDefault: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.content.application/json.provider.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "environment": "production"
+             *     }
+```
+
+##### responses.200.content.application/json.provider.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Main Stripe Account
+```
+
+##### responses.200.content.application/json.provider.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.provider.priority
+
+```ts
+priority: number;
+```
+
+###### Example
+
+```ts
+100
+```
+
+##### responses.200.content.application/json.provider.status
+
+```ts
+status: "active" | "inactive" | "pending_setup";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### responses.200.content.application/json.provider.supportedPaymentTypes
+
+```ts
+supportedPaymentTypes: (
+  | "bank_transfer"
+  | "online_card"
+  | "online_bank_transfer"
+  | "online_wallet"
+  | "in_person_card"
+  | "in_person_cash"
+  | "cheque")[];
+```
+
+###### Example
+
+```ts
+[
+      "online_card",
+      "online_wallet"
+    ]
+```
+
+##### responses.200.content.application/json.provider.type
+
+```ts
+type: 
+  | "bank_transfer"
+  | "cash"
+  | "stripe_connect"
+  | "stripe_direct"
+  | "adyen"
+  | "square"
+  | "paypal";
+```
+
+###### Example
+
+```ts
+stripe_connect
+@enum {string}
+```
+
+##### responses.200.content.application/json.provider.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### updateRole
 
 ```ts
@@ -41718,7 +93174,7 @@ updateRole: {
 };
 ```
 
-Defined in: generated/types.ts:3748
+Defined in: generated/types.ts:5898
 
 #### parameters
 
@@ -42402,7 +93858,7 @@ updateSeatInArea: {
 };
 ```
 
-Defined in: generated/types.ts:8315
+Defined in: generated/types.ts:10465
 
 #### parameters
 
@@ -43505,7 +94961,7 @@ updateUserAccountRoles: {
 };
 ```
 
-Defined in: generated/types.ts:3865
+Defined in: generated/types.ts:6015
 
 #### parameters
 
@@ -44122,7 +95578,7 @@ updateVenue: {
 };
 ```
 
-Defined in: generated/types.ts:5965
+Defined in: generated/types.ts:8115
 
 #### parameters
 
@@ -45314,7 +96770,7 @@ updateVenueLayout: {
 };
 ```
 
-Defined in: generated/types.ts:6721
+Defined in: generated/types.ts:8871
 
 #### parameters
 
@@ -46689,7 +98145,7 @@ updateVenueLayoutArea: {
 };
 ```
 
-Defined in: generated/types.ts:7323
+Defined in: generated/types.ts:9473
 
 #### parameters
 
@@ -47553,7 +99009,7 @@ updateVenueLayoutCategory: {
 };
 ```
 
-Defined in: generated/types.ts:7596
+Defined in: generated/types.ts:9746
 
 #### parameters
 
@@ -47919,6 +99375,469 @@ Premium
 
 ```ts
 optional venueLayout: unknown;
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### validateOrder
+
+```ts
+validateOrder: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        orderId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: Record<string, never>;
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              errors: {
+                 code: string;
+                 itemId?: string;
+                 message: string;
+              }[];
+              valid: boolean;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:13836
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     orderId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  orderId: string;
+};
+```
+
+##### parameters.path.orderId
+
+```ts
+orderId: string;
+```
+
+###### Description
+
+Order ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: Record<string, never>;
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: Record<string, never>;
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: Record<string, never>;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           errors: {
+              code: string;
+              itemId?: string;
+              message: string;
+           }[];
+           valid: boolean;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        errors: {
+           code: string;
+           itemId?: string;
+           message: string;
+        }[];
+        valid: boolean;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Order validation result
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     errors: {
+        code: string;
+        itemId?: string;
+        message: string;
+     }[];
+     valid: boolean;
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  errors: {
+     code: string;
+     itemId?: string;
+     message: string;
+  }[];
+  valid: boolean;
+};
+```
+
+##### responses.200.content.application/json.errors
+
+```ts
+errors: {
+  code: string;
+  itemId?: string;
+  message: string;
+}[];
+```
+
+###### Description
+
+Validation errors if any
+
+##### responses.200.content.application/json.valid
+
+```ts
+valid: boolean;
+```
+
+###### Example
+
+```ts
+true
 ```
 
 ##### responses.200.headers

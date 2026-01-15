@@ -10,16 +10,36 @@ import type { components } from './generated/types';
 // Extract schema types
 type AddAreaResponse = components['schemas']['AddAreaResponse'];
 type AddCategoryResponse = components['schemas']['AddCategoryResponse'];
+type AddLineItemResponse = components['schemas']['AddLineItemResponse'];
 type AddSeatResponse = components['schemas']['AddSeatResponse'];
 type AssignRoleRequest = components['schemas']['AssignRoleRequest'];
 type AssignRoleResponse = components['schemas']['AssignRoleResponse'];
+type BlockCustomerResponse = components['schemas']['BlockCustomerResponse'];
 type BulkAddSeatsResponse = components['schemas']['BulkAddSeatsResponse'];
+type BulkImportSeatsResponse = components['schemas']['BulkImportSeatsResponse'];
+type CanSellResponse = components['schemas']['CanSellResponse'];
+type CancelOrderResponse = components['schemas']['CancelOrderResponse'];
+type CancelPaymentResponse = components['schemas']['CancelPaymentResponse'];
+type CancelSubscriptionResponse = components['schemas']['CancelSubscriptionResponse'];
+type CheckAvailabilityResponse = components['schemas']['CheckAvailabilityResponse'];
+type ConfirmReservationResponse = components['schemas']['ConfirmReservationResponse'];
 type CreateAccountResponse = components['schemas']['CreateAccountResponse'];
+type CreateCustomerResponse = components['schemas']['CreateCustomerResponse'];
 type CreateEventOccurrenceResponse = components['schemas']['CreateEventOccurrenceResponse'];
 type CreateEventResponse = components['schemas']['CreateEventResponse'];
+type CreateHoldResponse = components['schemas']['CreateHoldResponse'];
+type CreateInventoryResponse = components['schemas']['CreateInventoryResponse'];
+type CreateOrderResponse = components['schemas']['CreateOrderResponse'];
+type CreatePaymentProviderResponse = components['schemas']['CreatePaymentProviderResponse'];
+type CreatePaymentResponse = components['schemas']['CreatePaymentResponse'];
 type CreatePriceSchemeResponse = components['schemas']['CreatePriceSchemeResponse'];
+type CreatePurchaseRequest = components['schemas']['CreatePurchaseRequest'];
+type CreateRefundResponse = components['schemas']['CreateRefundResponse'];
 type CreateRoleRequest = components['schemas']['CreateRoleRequest'];
 type CreateRoleResponse = components['schemas']['CreateRoleResponse'];
+type CreateSetupIntentResponse = components['schemas']['CreateSetupIntentResponse'];
+type CreateSubscriptionRequest = components['schemas']['CreateSubscriptionRequest'];
+type CreateSubscriptionResponse = components['schemas']['CreateSubscriptionResponse'];
 type CreateUserInvitationRequest = components['schemas']['CreateUserInvitationRequest'];
 type CreateUserInvitationResponse = components['schemas']['CreateUserInvitationResponse'];
 type CreateVenueLayoutResponse = components['schemas']['CreateVenueLayoutResponse'];
@@ -29,56 +49,102 @@ type DeleteAreaResponse = components['schemas']['DeleteAreaResponse'];
 type DeleteCategoryResponse = components['schemas']['DeleteCategoryResponse'];
 type DeleteEventOccurrenceResponse = components['schemas']['DeleteEventOccurrenceResponse'];
 type DeleteEventResponse = components['schemas']['DeleteEventResponse'];
+type DeleteInventoryResponse = components['schemas']['DeleteInventoryResponse'];
+type DeletePaymentMethodResponse = components['schemas']['DeletePaymentMethodResponse'];
+type DeletePaymentProviderResponse = components['schemas']['DeletePaymentProviderResponse'];
 type DeletePriceSchemeResponse = components['schemas']['DeletePriceSchemeResponse'];
 type DeleteRoleResponse = components['schemas']['DeleteRoleResponse'];
 type DeleteSeatResponse = components['schemas']['DeleteSeatResponse'];
 type DeleteUserInvitationResponse = components['schemas']['DeleteUserInvitationResponse'];
 type DeleteVenueLayoutResponse = components['schemas']['DeleteVenueLayoutResponse'];
 type DeleteVenueResponse = components['schemas']['DeleteVenueResponse'];
+type ExtendReservationResponse = components['schemas']['ExtendReservationResponse'];
 type FederateRequest = components['schemas']['FederateRequest'];
 type GenerateSeatsResponse = components['schemas']['GenerateSeatsResponse'];
 type GetAccountResponse = components['schemas']['GetAccountResponse'];
+type GetAuditLogResponse = components['schemas']['GetAuditLogResponse'];
+type GetAutoTopupResponse = components['schemas']['GetAutoTopupResponse'];
+type GetBalanceResponse = components['schemas']['GetBalanceResponse'];
+type GetCustomerResponse = components['schemas']['GetCustomerResponse'];
 type GetEventOccurrenceResponse = components['schemas']['GetEventOccurrenceResponse'];
 type GetEventResponse = components['schemas']['GetEventResponse'];
 type GetIdentityProviderResponse = components['schemas']['GetIdentityProviderResponse'];
+type GetInventoryResponse = components['schemas']['GetInventoryResponse'];
+type GetInvoiceResponse = components['schemas']['GetInvoiceResponse'];
 type GetMeOrganisationsResponse = components['schemas']['GetMeOrganisationsResponse'];
 type GetMePermissionsResponse = components['schemas']['GetMePermissionsResponse'];
 type GetMeResponse = components['schemas']['GetMeResponse'];
 type GetMeRolesResponse = components['schemas']['GetMeRolesResponse'];
+type GetOrderResponse = components['schemas']['GetOrderResponse'];
 type GetOrganisationResponse = components['schemas']['GetOrganisationResponse'];
+type GetPaymentProviderResponse = components['schemas']['GetPaymentProviderResponse'];
+type GetPaymentResponse = components['schemas']['GetPaymentResponse'];
+type GetPaymentStatusResponse = components['schemas']['GetPaymentStatusResponse'];
 type GetPriceSchemeResponse = components['schemas']['GetPriceSchemeResponse'];
+type GetReservationResponse = components['schemas']['GetReservationResponse'];
 type GetRoleResponse = components['schemas']['GetRoleResponse'];
 type GetUserInvitationResponse = components['schemas']['GetUserInvitationResponse'];
 type GetVenueLayoutResponse = components['schemas']['GetVenueLayoutResponse'];
 type GetVenueResponse = components['schemas']['GetVenueResponse'];
+type InitiatePaymentResponse = components['schemas']['InitiatePaymentResponse'];
 type ListAccountsResponse = components['schemas']['ListAccountsResponse'];
+type ListCustomersResponse = components['schemas']['ListCustomersResponse'];
 type ListEventOccurrencesResponse = components['schemas']['ListEventOccurrencesResponse'];
 type ListEventsResponse = components['schemas']['ListEventsResponse'];
 type ListIdentityProvidersResponse = components['schemas']['ListIdentityProvidersResponse'];
+type ListInventoryResponse = components['schemas']['ListInventoryResponse'];
+type ListInvoicesResponse = components['schemas']['ListInvoicesResponse'];
+type ListOrdersResponse = components['schemas']['ListOrdersResponse'];
+type ListPackagesResponse = components['schemas']['ListPackagesResponse'];
+type ListPaymentMethodsResponse = components['schemas']['ListPaymentMethodsResponse'];
+type ListPaymentProvidersResponse = components['schemas']['ListPaymentProvidersResponse'];
+type ListPaymentsResponse = components['schemas']['ListPaymentsResponse'];
 type ListPriceSchemesResponse = components['schemas']['ListPriceSchemesResponse'];
+type ListRefundsResponse = components['schemas']['ListRefundsResponse'];
+type ListReservationsResponse = components['schemas']['ListReservationsResponse'];
 type ListRolesResponse = components['schemas']['ListRolesResponse'];
+type ListSeatsResponse = components['schemas']['ListSeatsResponse'];
+type ListSubscriptionsResponse = components['schemas']['ListSubscriptionsResponse'];
+type ListTransactionsResponse = components['schemas']['ListTransactionsResponse'];
 type ListUserAccountRolesResponse = components['schemas']['ListUserAccountRolesResponse'];
 type ListUserInvitationsResponse = components['schemas']['ListUserInvitationsResponse'];
 type ListVenueLayoutsResponse = components['schemas']['ListVenueLayoutsResponse'];
 type ListVenuesResponse = components['schemas']['ListVenuesResponse'];
 type LoginRequest = components['schemas']['LoginRequest'];
 type LoginResponse = components['schemas']['LoginResponse'];
+type PurchaseResult = components['schemas']['PurchaseResult'];
 type RedeemInvitationRequest = components['schemas']['RedeemInvitationRequest'];
 type RedeemInvitationResponse = components['schemas']['RedeemInvitationResponse'];
 type RefreshTokenRequest = components['schemas']['RefreshTokenRequest'];
 type RefreshTokenResponse = components['schemas']['RefreshTokenResponse'];
+type ReleaseHoldResponse = components['schemas']['ReleaseHoldResponse'];
+type ReleaseReservationResponse = components['schemas']['ReleaseReservationResponse'];
 type RemoveAssignmentResponse = components['schemas']['RemoveAssignmentResponse'];
+type RemoveLineItemResponse = components['schemas']['RemoveLineItemResponse'];
 type ResendUserInvitationResponse = components['schemas']['ResendUserInvitationResponse'];
+type ReserveInventoryResponse = components['schemas']['ReserveInventoryResponse'];
+type SavePaymentMethodRequest = components['schemas']['SavePaymentMethodRequest'];
+type SavePaymentMethodResponse = components['schemas']['SavePaymentMethodResponse'];
+type SetDefaultPaymentMethodResponse = components['schemas']['SetDefaultPaymentMethodResponse'];
 type SyncSeatsResponse = components['schemas']['SyncSeatsResponse'];
+type TransitionOrderStatusResponse = components['schemas']['TransitionOrderStatusResponse'];
+type UnblockCustomerResponse = components['schemas']['UnblockCustomerResponse'];
 type UpdateAccountResponse = components['schemas']['UpdateAccountResponse'];
 type UpdateAreaResponse = components['schemas']['UpdateAreaResponse'];
+type UpdateAutoTopupRequest = components['schemas']['UpdateAutoTopupRequest'];
+type UpdateAutoTopupResponse = components['schemas']['UpdateAutoTopupResponse'];
 type UpdateCategoryResponse = components['schemas']['UpdateCategoryResponse'];
+type UpdateCustomerResponse = components['schemas']['UpdateCustomerResponse'];
 type UpdateEventOccurrenceResponse = components['schemas']['UpdateEventOccurrenceResponse'];
 type UpdateEventResponse = components['schemas']['UpdateEventResponse'];
 type UpdateIdentityProviderRequest = components['schemas']['UpdateIdentityProviderRequest'];
 type UpdateIdentityProviderResponse = components['schemas']['UpdateIdentityProviderResponse'];
+type UpdateInventoryResponse = components['schemas']['UpdateInventoryResponse'];
+type UpdateLineItemResponse = components['schemas']['UpdateLineItemResponse'];
+type UpdateOrderResponse = components['schemas']['UpdateOrderResponse'];
 type UpdateOrganisationRequest = components['schemas']['UpdateOrganisationRequest'];
 type UpdateOrganisationResponse = components['schemas']['UpdateOrganisationResponse'];
+type UpdatePaymentProviderResponse = components['schemas']['UpdatePaymentProviderResponse'];
 type UpdatePriceSchemeResponse = components['schemas']['UpdatePriceSchemeResponse'];
 type UpdateRoleRequest = components['schemas']['UpdateRoleRequest'];
 type UpdateRoleResponse = components['schemas']['UpdateRoleResponse'];
@@ -87,6 +153,7 @@ type UpdateUserAccountRolesRequest = components['schemas']['UpdateUserAccountRol
 type UpdateUserAccountRolesResponse = components['schemas']['UpdateUserAccountRolesResponse'];
 type UpdateVenueLayoutResponse = components['schemas']['UpdateVenueLayoutResponse'];
 type UpdateVenueResponse = components['schemas']['UpdateVenueResponse'];
+type ValidateOrderResponse = components['schemas']['ValidateOrderResponse'];
 
 /**
  * Custom error class for API errors with error code support
@@ -1631,4 +1698,1050 @@ venuelayoutseats: {
         }
     }
   );
+
+  /**
+   * Billing methods
+   */
+  billing = {
+            /**
+     * List credit packages
+     * List all available credit packages for purchase
+     * @operationId listCreditPackages
+     */
+        listPackages: async () => {
+      const response = await this.request<ListPackagesResponse>(`/billing/packages`, {
+        method: 'GET'
+      });
+
+      return response.packages;
+        },
+
+            /**
+     * Check if organisation can sell
+     * Check if an organisation has sufficient credits to process sales
+     * @operationId checkCanSell
+     */
+        canSell: async (organisationId: string) => {
+      const response = await this.request<CanSellResponse>(`/organisations/${organisationId}/billing/can-sell`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Get credit balance
+     * Get the current credit balance for an organisation
+     * @operationId getCreditBalance
+     */
+        getBalance: async () => {
+      const response = await this.request<GetBalanceResponse>(`/billing/balance`, {
+        method: 'GET'
+      });
+
+      return response.balance;
+        },
+
+            /**
+     * List credit transactions
+     * List all credit transactions for an organisation
+     * @operationId listCreditTransactions
+     */
+        listTransactions: async (options?: { page?: string; limit?: string; type?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.page !== undefined) params.append('page', String(options.page));
+      if (options?.limit !== undefined) params.append('limit', String(options.limit));
+      if (options?.type !== undefined) params.append('type', String(options.type));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/billing/transactions?${queryString}` : `/billing/transactions`;
+
+      const response = await this.request<ListTransactionsResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response.transactions;
+        },
+
+            /**
+     * Purchase credits
+     * Purchase a credit package for an organisation
+     * @operationId createCreditPurchase
+     */
+        createPurchase: async (request: CreatePurchaseRequest) => {
+      const response = await this.request<PurchaseResult>(`/billing/purchases`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * List invoices
+     * List all invoices for an organisation
+     * @operationId listInvoices
+     */
+        listInvoices: async (options?: { page?: string; limit?: string; status?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.page !== undefined) params.append('page', String(options.page));
+      if (options?.limit !== undefined) params.append('limit', String(options.limit));
+      if (options?.status !== undefined) params.append('status', String(options.status));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/billing/invoices?${queryString}` : `/billing/invoices`;
+
+      const response = await this.request<ListInvoicesResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response.invoices;
+        },
+
+            /**
+     * Get invoice
+     * Get a specific invoice by ID
+     * @operationId getInvoice
+     */
+        getInvoice: async (invoiceId: string) => {
+      const response = await this.request<GetInvoiceResponse>(`/billing/invoices/${invoiceId}`, {
+        method: 'GET'
+      });
+
+      return response.invoice;
+        },
+
+            /**
+     * List billing payments
+     * List all billing payments for an organisation
+     * @operationId listBillingPayments
+     */
+        listPayments: async (options?: { page?: string; limit?: string; status?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.page !== undefined) params.append('page', String(options.page));
+      if (options?.limit !== undefined) params.append('limit', String(options.limit));
+      if (options?.status !== undefined) params.append('status', String(options.status));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/billing/payments?${queryString}` : `/billing/payments`;
+
+      const response = await this.request<ListPaymentsResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response.payments;
+        },
+
+            /**
+     * Create subscription
+     * Create a new credit subscription for an organisation
+     * @operationId createSubscription
+     */
+        createSubscription: async (request: CreateSubscriptionRequest) => {
+      const response = await this.request<CreateSubscriptionResponse>(`/billing/subscriptions`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.subscription;
+        },
+
+            /**
+     * List subscriptions
+     * List all subscriptions for an organisation
+     * @operationId listSubscriptions
+     */
+        listSubscriptions: async () => {
+      const response = await this.request<ListSubscriptionsResponse>(`/billing/subscriptions`, {
+        method: 'GET'
+      });
+
+      return response.subscriptions;
+        },
+
+            /**
+     * Cancel subscription
+     * Cancel an active subscription
+     * @operationId cancelSubscription
+     */
+        cancelSubscription: async (subscriptionId: string) => {
+      const response = await this.request<CancelSubscriptionResponse>(`/billing/subscriptions/${subscriptionId}`, {
+        method: 'DELETE'
+      });
+
+      return response.subscription;
+        },
+
+            /**
+     * Get auto top-up configuration
+     * Get the auto top-up configuration for an organisation
+     * @operationId getAutoTopup
+     */
+        getAutoTopup: async () => {
+      const response = await this.request<GetAutoTopupResponse>(`/billing/auto-topup`, {
+        method: 'GET'
+      });
+
+      return response.autoTopup;
+        },
+
+            /**
+     * Update auto top-up configuration
+     * Update the auto top-up configuration for an organisation
+     * @operationId updateAutoTopup
+     */
+        updateAutoTopup: async (request: UpdateAutoTopupRequest) => {
+      const response = await this.request<UpdateAutoTopupResponse>(`/billing/auto-topup`, {
+        method: 'PUT',
+        body: JSON.stringify(request)
+      });
+
+      return response.autoTopup;
+        },
+
+            /**
+     * List payment methods
+     * List all saved payment methods for the organisation
+     * @operationId listPaymentMethods
+     */
+        listPaymentMethods: async () => {
+      const response = await this.request<ListPaymentMethodsResponse>(`/billing/payment-methods`, {
+        method: 'GET'
+      });
+
+      return response.paymentMethods;
+        },
+
+            /**
+     * Save payment method
+     * Save a payment method after Stripe confirms the setup intent
+     * @operationId savePaymentMethod
+     */
+        savePaymentMethod: async (request: SavePaymentMethodRequest) => {
+      const response = await this.request<SavePaymentMethodResponse>(`/billing/payment-methods`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.paymentMethod;
+        },
+
+            /**
+     * Create setup intent
+     * Create a Stripe setup intent for saving a new payment method
+     * @operationId createSetupIntent
+     */
+        createSetupIntent: async () => {
+      const response = await this.request<CreateSetupIntentResponse>(`/billing/setup-intent`, {
+        method: 'POST'
+      });
+
+      return response.clientSecret;
+        },
+
+            /**
+     * Delete payment method
+     * Delete a saved payment method
+     * @operationId deletePaymentMethod
+     */
+        deletePaymentMethod: async (paymentMethodId: string) => {
+      const response = await this.request<DeletePaymentMethodResponse>(`/billing/payment-methods/${paymentMethodId}`, {
+        method: 'DELETE'
+      });
+
+      return response.success;
+        },
+
+            /**
+     * Set default payment method
+     * Set a payment method as the default for the organisation
+     * @operationId setDefaultPaymentMethod
+     */
+        setDefaultPaymentMethod: async (paymentMethodId: string) => {
+      const response = await this.request<SetDefaultPaymentMethodResponse>(`/billing/payment-methods/${paymentMethodId}/default`, {
+        method: 'PUT'
+      });
+
+      return response.paymentMethod;
+        }
+  };
+
+  /**
+   * Inventory methods
+   */
+  inventory = {
+            /**
+     * Create inventory
+     * Create a new inventory bucket for tracking capacity
+     * @operationId createInventory
+     */
+        create: async (request: { sourceType: 'event_occurrence_area' | 'product'; eventId?: string; eventOccurrenceId?: string; eventLayoutAreaId?: string; productId?: string; totalCapacity: number; isAllocated?: boolean; metadata?: Record<string, any>; accountId: string }) => {
+      const response = await this.request<CreateInventoryResponse>(`/inventory`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.inventory;
+        },
+
+            /**
+     * List inventory
+     * List all inventory buckets for the organisation with optional filtering
+     * @operationId listInventory
+     */
+        list: async (options?: { sourceType?: 'event_occurrence_area' | 'product'; eventOccurrenceId?: string; eventId?: string; productId?: string; isAllocated?: 'true' | 'false' }) => {
+      const params = new URLSearchParams();
+      if (options?.sourceType !== undefined) params.append('sourceType', String(options.sourceType));
+      if (options?.eventOccurrenceId !== undefined) params.append('eventOccurrenceId', String(options.eventOccurrenceId));
+      if (options?.eventId !== undefined) params.append('eventId', String(options.eventId));
+      if (options?.productId !== undefined) params.append('productId', String(options.productId));
+      if (options?.isAllocated !== undefined) params.append('isAllocated', String(options.isAllocated));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/inventory?${queryString}` : `/inventory`;
+
+      const response = await this.request<ListInventoryResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response.inventory;
+        },
+
+            /**
+     * Get inventory
+     * Get a specific inventory bucket by ID
+     * @operationId getInventory
+     */
+        get: async (id: string, options?: { accountId: string }) => {
+      const params = new URLSearchParams();
+      if (options?.accountId !== undefined) params.append('accountId', String(options.accountId));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/inventory/${id}?${queryString}` : `/inventory/${id}`;
+
+      const response = await this.request<GetInventoryResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response.inventory;
+        },
+
+            /**
+     * Delete inventory
+     * Delete an inventory bucket (only if no confirmed reservations)
+     * @operationId deleteInventory
+     */
+        delete: async (id: string, options?: { accountId: string }) => {
+      const params = new URLSearchParams();
+      if (options?.accountId !== undefined) params.append('accountId', String(options.accountId));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/inventory/${id}?${queryString}` : `/inventory/${id}`;
+
+      const response = await this.request<DeleteInventoryResponse>(requestPath, {
+        method: 'DELETE'
+      });
+
+      return response.message;
+        },
+
+            /**
+     * Update inventory capacity
+     * Update the total capacity of an inventory bucket
+     * @operationId updateInventoryCapacity
+     */
+        updateCapacity: async (id: string, request: { totalCapacity: number; accountId: string }) => {
+      const response = await this.request<UpdateInventoryResponse>(`/inventory/${id}/capacity`, {
+        method: 'PATCH',
+        body: JSON.stringify(request)
+      });
+
+      return response.inventory;
+        },
+
+            /**
+     * Get inventory audit log
+     * Get the audit log for an inventory bucket
+     * @operationId getInventoryAuditLog
+     */
+        getAuditLog: async (id: string, options?: { accountId: string }) => {
+      const params = new URLSearchParams();
+      if (options?.accountId !== undefined) params.append('accountId', String(options.accountId));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/inventory/${id}/audit-log?${queryString}` : `/inventory/${id}/audit-log`;
+
+      const response = await this.request<GetAuditLogResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response.auditLog;
+        }
+  };
+
+  /**
+   * Inventory Seats methods
+   */
+  inventorySeats = {
+            /**
+     * Bulk import seats
+     * Import seats into an allocated inventory bucket
+     * @operationId bulkImportSeats
+     */
+        importSeats: async (id: string, request: { seats: { eventLayoutSeatId?: string; rowName: string; seatNumber: string; priceCategory?: string; isAccessible?: boolean; isCompanion?: boolean; attributes?: Record<string, any> }[] }) => {
+      const response = await this.request<BulkImportSeatsResponse>(`/inventory/${id}/seats`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * List inventory seats
+     * List all seats for an allocated inventory bucket
+     * @operationId listInventorySeats
+     */
+        listSeats: async (id: string, options?: { status?: 'available' | 'reserved' | 'confirmed' | 'held' | 'maintenance'; priceCategory?: string; isAccessible?: 'true' | 'false'; rowName?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.status !== undefined) params.append('status', String(options.status));
+      if (options?.priceCategory !== undefined) params.append('priceCategory', String(options.priceCategory));
+      if (options?.isAccessible !== undefined) params.append('isAccessible', String(options.isAccessible));
+      if (options?.rowName !== undefined) params.append('rowName', String(options.rowName));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/inventory/${id}/seats?${queryString}` : `/inventory/${id}/seats`;
+
+      const response = await this.request<ListSeatsResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response.seats;
+        }
+  };
+
+  /**
+   * Inventory Reservations methods
+   */
+  inventoryReservations = {
+            /**
+     * Reserve inventory
+     * Create a temporary reservation for GA or allocated seats
+     * @operationId reserveInventory
+     */
+        reserve: async (request: { inventoryId: string; accountId: string; referenceType: 'order' | 'hold' | 'subscription'; referenceId: string; quantity?: number; seatIds?: string[]; ttlSeconds?: number }) => {
+      const response = await this.request<ReserveInventoryResponse>(`/inventory/reserve`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.reservation;
+        },
+
+            /**
+     * Check availability
+     * Check if requested quantity is available in inventory
+     * @operationId checkAvailability
+     */
+        checkAvailability: async (request: { requests: { inventoryId: string; quantity?: number; seatIds?: string[] }[] }) => {
+      const response = await this.request<CheckAvailabilityResponse>(`/inventory/check-availability`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * List reservations
+     * List all reservations with optional filtering
+     * @operationId listReservations
+     */
+        listReservations: async (options?: { inventoryId?: string; accountId?: string; type?: 'temporary' | 'confirmed' | 'hold' | 'maintenance'; referenceType?: 'order' | 'hold' | 'subscription'; referenceId?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.inventoryId !== undefined) params.append('inventoryId', String(options.inventoryId));
+      if (options?.accountId !== undefined) params.append('accountId', String(options.accountId));
+      if (options?.type !== undefined) params.append('type', String(options.type));
+      if (options?.referenceType !== undefined) params.append('referenceType', String(options.referenceType));
+      if (options?.referenceId !== undefined) params.append('referenceId', String(options.referenceId));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/inventory/reservations?${queryString}` : `/inventory/reservations`;
+
+      const response = await this.request<ListReservationsResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response.reservations;
+        },
+
+            /**
+     * Get reservation
+     * Get a specific reservation by ID
+     * @operationId getReservation
+     */
+        getReservation: async (id: string, options?: { accountId: string }) => {
+      const params = new URLSearchParams();
+      if (options?.accountId !== undefined) params.append('accountId', String(options.accountId));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/inventory/reservations/${id}?${queryString}` : `/inventory/reservations/${id}`;
+
+      const response = await this.request<GetReservationResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response.reservation;
+        },
+
+            /**
+     * Confirm reservation
+     * Confirm a temporary reservation (converts reserved to confirmed)
+     * @operationId confirmReservation
+     */
+        confirmReservation: async (id: string, request: { accountId: string; referenceType?: 'order' | 'hold' | 'subscription'; referenceId?: string }) => {
+      const response = await this.request<ConfirmReservationResponse>(`/inventory/reservations/${id}/confirm`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.reservation;
+        },
+
+            /**
+     * Release reservation
+     * Release a reservation and return inventory to available
+     * @operationId releaseReservation
+     */
+        releaseReservation: async (id: string, request: { accountId: string }) => {
+      const response = await this.request<ReleaseReservationResponse>(`/inventory/reservations/${id}/release`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.message;
+        },
+
+            /**
+     * Extend reservation
+     * Extend the expiry time of a temporary reservation
+     * @operationId extendReservation
+     */
+        extendReservation: async (id: string, request: { expiresAt: string }) => {
+      const response = await this.request<ExtendReservationResponse>(`/inventory/reservations/${id}/extend`, {
+        method: 'PATCH',
+        body: JSON.stringify(request)
+      });
+
+      return response.reservation;
+        }
+  };
+
+  /**
+   * Inventory Holds methods
+   */
+  inventoryHolds = {
+            /**
+     * Create hold
+     * Create a hold on inventory (for VIPs, promoters, etc.)
+     * @operationId createHold
+     */
+        createHold: async (request: { inventoryId: string; accountId: string; quantity?: number; seatIds?: string[]; reason: string; heldBy: string; expiresAt?: string }) => {
+      const response = await this.request<CreateHoldResponse>(`/inventory/holds`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.reservation;
+        },
+
+            /**
+     * Release hold
+     * Release a hold and return inventory to available
+     * @operationId releaseHold
+     */
+        releaseHold: async (id: string, request: { accountId: string }) => {
+      const response = await this.request<ReleaseHoldResponse>(`/inventory/holds/${id}/release`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.message;
+        }
+  };
+
+  /**
+   * Customers methods
+   */
+  customers = {
+            /**
+     * Create customer
+     * Create a new customer in the organisation
+     * @operationId createCustomer
+     */
+        create: async (request: { accountId?: string; email: string; firstName?: string; lastName?: string; phone?: string; externalId?: string; metadata?: Record<string, any> }) => {
+      const response = await this.request<CreateCustomerResponse>(`/customers`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.customer;
+        },
+
+            /**
+     * List customers
+     * List all customers with optional filtering and pagination
+     * @operationId listCustomers
+     */
+        list: async (options?: { search?: string; email?: string; accountId?: string; isBlocked?: string; page?: string; limit?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.search !== undefined) params.append('search', String(options.search));
+      if (options?.email !== undefined) params.append('email', String(options.email));
+      if (options?.accountId !== undefined) params.append('accountId', String(options.accountId));
+      if (options?.isBlocked !== undefined) params.append('isBlocked', String(options.isBlocked));
+      if (options?.page !== undefined) params.append('page', String(options.page));
+      if (options?.limit !== undefined) params.append('limit', String(options.limit));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/customers?${queryString}` : `/customers`;
+
+      const response = await this.request<ListCustomersResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Get customer
+     * Get a specific customer by ID
+     * @operationId getCustomer
+     */
+        get: async (customerId: string) => {
+      const response = await this.request<GetCustomerResponse>(`/customers/${customerId}`, {
+        method: 'GET'
+      });
+
+      return response.customer;
+        },
+
+            /**
+     * Update customer
+     * Update an existing customer
+     * @operationId updateCustomer
+     */
+        update: async (customerId: string, request: { email?: string; firstName?: any; lastName?: any; phone?: any; externalId?: any; metadata?: any }) => {
+      const response = await this.request<UpdateCustomerResponse>(`/customers/${customerId}`, {
+        method: 'PATCH',
+        body: JSON.stringify(request)
+      });
+
+      return response.customer;
+        },
+
+            /**
+     * Block customer
+     * Block a customer from making purchases
+     * @operationId blockCustomer
+     */
+        block: async (customerId: string, request: { reason?: string }) => {
+      const response = await this.request<BlockCustomerResponse>(`/customers/${customerId}/block`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.customer;
+        },
+
+            /**
+     * Unblock customer
+     * Unblock a previously blocked customer
+     * @operationId unblockCustomer
+     */
+        unblock: async (customerId: string) => {
+      const response = await this.request<UnblockCustomerResponse>(`/customers/${customerId}/unblock`, {
+        method: 'POST'
+      });
+
+      return response.customer;
+        }
+  };
+
+  /**
+   * Orders methods
+   */
+  orders = {
+            /**
+     * Create order
+     * Create a new order with optional line items
+     * @operationId createOrder
+     */
+        create: async (request: { accountId: string; customerId?: string; currency?: string; channel?: string; isGuestCheckout?: boolean; customerNotes?: string; internalNotes?: string; metadata?: Record<string, any>; expiresInMinutes?: number; items?: { type: 'ticket' | 'product' | 'addon' | 'fee' | 'tax' | 'discount'; name: string; description?: string; unitPrice: string; quantity?: number; ticketDetails?: Record<string, any>; productDetails?: Record<string, any>; feeDetails?: Record<string, any>; metadata?: Record<string, any> }[] }) => {
+      const response = await this.request<CreateOrderResponse>(`/orders`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.order;
+        },
+
+            /**
+     * List orders
+     * List all orders with optional filtering and pagination
+     * @operationId listOrders
+     */
+        list: async (options?: { status?: 'pending' | 'confirmed' | 'processing' | 'completed' | 'cancelled' | 'refunded' | 'expired' | 'failed'; customerId?: string; channel?: string; fromDate?: string; toDate?: string; search?: string; page?: string; limit?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.status !== undefined) params.append('status', String(options.status));
+      if (options?.customerId !== undefined) params.append('customerId', String(options.customerId));
+      if (options?.channel !== undefined) params.append('channel', String(options.channel));
+      if (options?.fromDate !== undefined) params.append('fromDate', String(options.fromDate));
+      if (options?.toDate !== undefined) params.append('toDate', String(options.toDate));
+      if (options?.search !== undefined) params.append('search', String(options.search));
+      if (options?.page !== undefined) params.append('page', String(options.page));
+      if (options?.limit !== undefined) params.append('limit', String(options.limit));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/orders?${queryString}` : `/orders`;
+
+      const response = await this.request<ListOrdersResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Get order
+     * Get a specific order by ID
+     * @operationId getOrder
+     */
+        get: async (orderId: string) => {
+      const response = await this.request<GetOrderResponse>(`/orders/${orderId}`, {
+        method: 'GET'
+      });
+
+      return response.order;
+        },
+
+            /**
+     * Update order
+     * Update an existing order
+     * @operationId updateOrder
+     */
+        update: async (orderId: string, request: { customerId?: string; customerNotes?: string; internalNotes?: string; metadata?: Record<string, any>; extendExpiry?: boolean; addItems?: { type: 'ticket' | 'product' | 'addon' | 'fee' | 'tax' | 'discount'; name: string; description?: string; unitPrice: string; quantity?: number; ticketDetails?: Record<string, any>; productDetails?: Record<string, any>; feeDetails?: Record<string, any>; metadata?: Record<string, any> }[]; updateItems?: { itemId: string; updates: { quantity?: number; unitPrice?: string; metadata?: Record<string, any> } }[]; removeItems?: string[] }) => {
+      const response = await this.request<UpdateOrderResponse>(`/orders/${orderId}`, {
+        method: 'PATCH',
+        body: JSON.stringify(request)
+      });
+
+      return response.order;
+        },
+
+            /**
+     * Get order by number
+     * Get a specific order by order number
+     * @operationId getOrderByNumber
+     */
+        getByNumber: async (orderNumber: string) => {
+      const response = await this.request<GetOrderResponse>(`/orders/number/${orderNumber}`, {
+        method: 'GET'
+      });
+
+      return response.order;
+        },
+
+            /**
+     * Cancel order
+     * Cancel an order with a reason
+     * @operationId cancelOrder
+     */
+        cancel: async (orderId: string, request: { reason: string }) => {
+      const response = await this.request<CancelOrderResponse>(`/orders/${orderId}/cancel`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.order;
+        },
+
+            /**
+     * Transition order status
+     * Transition an order to a new status
+     * @operationId transitionOrderStatus
+     */
+        transitionStatus: async (orderId: string, request: { status: 'confirmed' | 'processing' | 'completed' | 'cancelled' | 'refunded' | 'expired' | 'failed' }) => {
+      const response = await this.request<TransitionOrderStatusResponse>(`/orders/${orderId}/status`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.order;
+        },
+
+            /**
+     * Validate order
+     * Validate an order before payment (check inventory, pricing, etc.)
+     * @operationId validateOrder
+     */
+        validate: async (orderId: string, request: {  }) => {
+      const response = await this.request<ValidateOrderResponse>(`/orders/${orderId}/validate`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Add line item
+     * Add a line item to an order
+     * @operationId addOrderLineItem
+     */
+        addItem: async (orderId: string, request: { type: 'ticket' | 'product' | 'addon' | 'fee' | 'tax' | 'discount'; name: string; description?: string; unitPrice: string; quantity?: number; ticketDetails?: Record<string, any>; productDetails?: Record<string, any>; feeDetails?: Record<string, any>; metadata?: Record<string, any> }) => {
+      const response = await this.request<AddLineItemResponse>(`/orders/${orderId}/items`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Update line item
+     * Update a line item in an order
+     * @operationId updateOrderLineItem
+     */
+        updateItem: async (orderId: string, itemId: string, request: { quantity?: number; unitPrice?: string; metadata?: Record<string, any> }) => {
+      const response = await this.request<UpdateLineItemResponse>(`/orders/${orderId}/items/${itemId}`, {
+        method: 'PATCH',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Remove line item
+     * Remove a line item from an order
+     * @operationId removeOrderLineItem
+     */
+        removeItem: async (orderId: string, itemId: string) => {
+      const response = await this.request<RemoveLineItemResponse>(`/orders/${orderId}/items/${itemId}`, {
+        method: 'DELETE'
+      });
+
+      return response.order;
+        },
+
+            /**
+     * Initiate payment
+     * Initiate payment for an order
+     * @operationId initiateOrderPayment
+     */
+        initiatePayment: async (orderId: string, request: { paymentMethod: 'online_card' | 'online_bank_transfer' | 'online_wallet' | 'in_person_card' | 'in_person_cash' | 'bank_transfer' | 'cheque'; returnUrl?: string; metadata?: Record<string, any> }) => {
+      const response = await this.request<InitiatePaymentResponse>(`/orders/${orderId}/payment`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Get payment status
+     * Get the current payment status for an order
+     * @operationId getOrderPaymentStatus
+     */
+        getPaymentStatus: async (orderId: string) => {
+      const response = await this.request<GetPaymentStatusResponse>(`/orders/${orderId}/payment/status`, {
+        method: 'GET'
+      });
+
+      return response;
+        }
+  };
+
+  /**
+   * Payments methods
+   */
+  payments = {
+            /**
+     * Create payment
+     * Create a new payment for an order
+     * @operationId createPayment
+     */
+        create: async (request: { accountId: string; orderId: string; orderNumber: string; amount: number; currency: string; paymentType: 'online_card' | 'online_bank_transfer' | 'online_wallet' | 'in_person_card' | 'in_person_cash' | 'bank_transfer' | 'cheque'; paymentProviderId?: string; returnUrl?: string; isPartialPayment?: boolean; remainingBalance?: number; metadata?: Record<string, any> }) => {
+      const response = await this.request<CreatePaymentResponse>(`/payments`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.payment;
+        },
+
+            /**
+     * List payments
+     * List all payments with optional filtering and pagination
+     * @operationId listPayments
+     */
+        list: async (options?: { orderId?: string; status?: 'created' | 'pending' | 'requires_action' | 'processing' | 'succeeded' | 'failed' | 'cancelled' | 'expired'; paymentType?: 'online_card' | 'online_bank_transfer' | 'online_wallet' | 'in_person_card' | 'in_person_cash' | 'bank_transfer' | 'cheque'; paymentProviderId?: string; fromDate?: string; toDate?: string; page?: string; limit?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.orderId !== undefined) params.append('orderId', String(options.orderId));
+      if (options?.status !== undefined) params.append('status', String(options.status));
+      if (options?.paymentType !== undefined) params.append('paymentType', String(options.paymentType));
+      if (options?.paymentProviderId !== undefined) params.append('paymentProviderId', String(options.paymentProviderId));
+      if (options?.fromDate !== undefined) params.append('fromDate', String(options.fromDate));
+      if (options?.toDate !== undefined) params.append('toDate', String(options.toDate));
+      if (options?.page !== undefined) params.append('page', String(options.page));
+      if (options?.limit !== undefined) params.append('limit', String(options.limit));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/payments?${queryString}` : `/payments`;
+
+      const response = await this.request<any>(requestPath, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Get payment
+     * Get a specific payment by ID
+     * @operationId getPayment
+     */
+        get: async (paymentId: string) => {
+      const response = await this.request<GetPaymentResponse>(`/payments/${paymentId}`, {
+        method: 'GET'
+      });
+
+      return response.payment;
+        },
+
+            /**
+     * Cancel payment
+     * Cancel a pending payment
+     * @operationId cancelPayment
+     */
+        cancel: async (paymentId: string, request: { reason?: string }) => {
+      const response = await this.request<CancelPaymentResponse>(`/payments/${paymentId}/cancel`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.payment;
+        },
+
+            /**
+     * Create refund
+     * Create a refund for a payment
+     * @operationId createPaymentRefund
+     */
+        createRefund: async (paymentId: string, request: { amount: number; reason: string; notes?: string; metadata?: Record<string, any> }) => {
+      const response = await this.request<CreateRefundResponse>(`/payments/${paymentId}/refunds`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.refund;
+        },
+
+            /**
+     * List refunds
+     * List all refunds for a specific payment
+     * @operationId listPaymentRefunds
+     */
+        listRefunds: async (paymentId: string) => {
+      const response = await this.request<ListRefundsResponse>(`/payments/${paymentId}/refunds`, {
+        method: 'GET'
+      });
+
+      return response.refunds;
+        }
+  };
+
+  /**
+   * Payment Providers methods
+   */
+  paymentProviders = {
+            /**
+     * Create payment provider
+     * Create a new payment provider configuration
+     * @operationId createPaymentProvider
+     */
+        create: async (request: { accountId?: string; type: 'stripe_connect' | 'stripe_direct' | 'adyen' | 'square' | 'paypal' | 'cash' | 'bank_transfer'; name: string; description?: string; integrationType?: 'ticketlayer_pay' | 'self_service'; integrationServiceUrl?: string; integrationServiceVersion?: string; configuration: Record<string, any>; supportedPaymentTypes: 'online_card' | 'online_bank_transfer' | 'online_wallet' | 'in_person_card' | 'in_person_cash' | 'bank_transfer' | 'cheque'[]; capabilities?: { supportsInstantCapture?: boolean; supportsDelayedCapture?: boolean; supportsRefunds?: boolean; supportsPartialRefunds?: boolean; requiresCustomerAction?: boolean; supportedCurrencies?: string[]; maxAmount?: number; minAmount?: number }; isDefault?: boolean; priority?: number; feeStructure?: { type: 'percentage' | 'fixed' | 'percentage_plus_fixed'; percentage?: number; fixed?: number; currency?: string }; applicationFee?: { type: 'percentage' | 'fixed'; value: number }; metadata?: Record<string, any> }) => {
+      const response = await this.request<CreatePaymentProviderResponse>(`/payment-providers`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.provider;
+        },
+
+            /**
+     * List payment providers
+     * List all payment providers with optional filtering and pagination
+     * @operationId listPaymentProviders
+     */
+        list: async (options?: { accountId?: string; type?: 'stripe_connect' | 'stripe_direct' | 'adyen' | 'square' | 'paypal' | 'cash' | 'bank_transfer'; status?: 'active' | 'inactive' | 'pending_setup'; paymentType?: 'online_card' | 'online_bank_transfer' | 'online_wallet' | 'in_person_card' | 'in_person_cash' | 'bank_transfer' | 'cheque'; isDefault?: string; integrationType?: 'ticketlayer_pay' | 'self_service'; page?: string; limit?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.accountId !== undefined) params.append('accountId', String(options.accountId));
+      if (options?.type !== undefined) params.append('type', String(options.type));
+      if (options?.status !== undefined) params.append('status', String(options.status));
+      if (options?.paymentType !== undefined) params.append('paymentType', String(options.paymentType));
+      if (options?.isDefault !== undefined) params.append('isDefault', String(options.isDefault));
+      if (options?.integrationType !== undefined) params.append('integrationType', String(options.integrationType));
+      if (options?.page !== undefined) params.append('page', String(options.page));
+      if (options?.limit !== undefined) params.append('limit', String(options.limit));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/payment-providers?${queryString}` : `/payment-providers`;
+
+      const response = await this.request<ListPaymentProvidersResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Get default payment provider
+     * Get the default payment provider for the account/organisation
+     * @operationId getDefaultPaymentProvider
+     */
+        getDefault: async () => {
+      const response = await this.request<GetPaymentProviderResponse>(`/payment-providers/default`, {
+        method: 'GET'
+      });
+
+      return response.provider;
+        },
+
+            /**
+     * Get payment provider
+     * Get a specific payment provider by ID
+     * @operationId getPaymentProvider
+     */
+        get: async (providerId: string) => {
+      const response = await this.request<GetPaymentProviderResponse>(`/payment-providers/${providerId}`, {
+        method: 'GET'
+      });
+
+      return response.provider;
+        },
+
+            /**
+     * Update payment provider
+     * Update an existing payment provider configuration
+     * @operationId updatePaymentProvider
+     */
+        update: async (providerId: string, request: { name?: string; description?: string; status?: 'active' | 'inactive' | 'pending_setup'; integrationServiceUrl?: string; integrationServiceVersion?: string; configuration?: Record<string, any>; supportedPaymentTypes?: 'online_card' | 'online_bank_transfer' | 'online_wallet' | 'in_person_card' | 'in_person_cash' | 'bank_transfer' | 'cheque'[]; capabilities?: { supportsInstantCapture?: boolean; supportsDelayedCapture?: boolean; supportsRefunds?: boolean; supportsPartialRefunds?: boolean; requiresCustomerAction?: boolean; supportedCurrencies?: string[]; maxAmount?: number; minAmount?: number }; isDefault?: boolean; priority?: number; feeStructure?: { type: 'percentage' | 'fixed' | 'percentage_plus_fixed'; percentage?: number; fixed?: number; currency?: string }; applicationFee?: { type: 'percentage' | 'fixed'; value: number }; metadata?: Record<string, any> }) => {
+      const response = await this.request<UpdatePaymentProviderResponse>(`/payment-providers/${providerId}`, {
+        method: 'PATCH',
+        body: JSON.stringify(request)
+      });
+
+      return response.provider;
+        },
+
+            /**
+     * Delete payment provider
+     * Delete a payment provider (soft delete)
+     * @operationId deletePaymentProvider
+     */
+        delete: async (providerId: string) => {
+      const response = await this.request<DeletePaymentProviderResponse>(`/payment-providers/${providerId}`, {
+        method: 'DELETE'
+      });
+
+      return response;
+        }
+  };
 }
