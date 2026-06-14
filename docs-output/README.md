@@ -1,11 +1,12 @@
-**@ticketlayer/backstage-sdk**
+**@ticketlayer/backstage**
 
 ***
 
-# @ticketlayer/backstage-sdk
+# @ticketlayer/backstage
 
 ## Classes
 
+- [BackstageAPIError](classes/BackstageAPIError.md)
 - [BackstageClient](classes/BackstageClient.md)
 
 ## Interfaces
@@ -19,3 +20,7 @@
 
 - [$defs](type-aliases/$defs.md)
 - [webhooks](type-aliases/webhooks.md)
+
+## Variables
+
+- [API\_DATED\_VERSION](variables/API_DATED_VERSION.md)

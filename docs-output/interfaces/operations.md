@@ -1,12 +1,12 @@
-[**@ticketlayer/backstage-sdk**](../README.md)
+[**@ticketlayer/backstage**](../README.md)
 
 ***
 
-[@ticketlayer/backstage-sdk](../README.md) / operations
+[@ticketlayer/backstage](../README.md) / operations
 
 # Interface: operations
 
-Defined in: generated/types.ts:4301
+Defined in: generated/types.ts:5969
 
 ## Properties
 
@@ -100,7 +100,7 @@ addAreaToVenueLayout: {
 };
 ```
 
-Defined in: generated/types.ts:9286
+Defined in: generated/types.ts:11099
 
 #### parameters
 
@@ -957,7 +957,7 @@ addCategoryToVenueLayout: {
 };
 ```
 
-Defined in: generated/types.ts:9599
+Defined in: generated/types.ts:11412
 
 #### parameters
 
@@ -1675,7 +1675,7 @@ addOrderLineItem: {
 };
 ```
 
-Defined in: generated/types.ts:13898
+Defined in: generated/types.ts:15996
 
 #### parameters
 
@@ -3267,6 +3267,650 @@ headers: {
 
 ***
 
+### addSalesCartItem
+
+```ts
+addSalesCartItem: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        cartId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           categoryId: string;
+           eventLayoutAreaId?: string;
+           eventLayoutSeatIds?: string[];
+           eventOccurrenceId: string;
+           quantity?: number;
+           ticketTypeId: string;
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              cart: {
+                 currency: string | null;
+                 expiresAt: string;
+                 id: string;
+                 items: {
+                    categoryName: string;
+                    currency: string;
+                    eventName: string;
+                    eventOccurrenceId: string;
+                    id: string;
+                    quantity: number;
+                    subtotal: number;
+                    ticketTypeName: string;
+                    unitPrice: number;
+                 }[];
+                 itemsSubtotal: number;
+                 orderId: string | null;
+                 status: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:19415
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     cartId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  cartId: string;
+};
+```
+
+##### parameters.path.cartId
+
+```ts
+cartId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        categoryId: string;
+        eventLayoutAreaId?: string;
+        eventLayoutSeatIds?: string[];
+        eventOccurrenceId: string;
+        quantity?: number;
+        ticketTypeId: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     categoryId: string;
+     eventLayoutAreaId?: string;
+     eventLayoutSeatIds?: string[];
+     eventOccurrenceId: string;
+     quantity?: number;
+     ticketTypeId: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  categoryId: string;
+  eventLayoutAreaId?: string;
+  eventLayoutSeatIds?: string[];
+  eventOccurrenceId: string;
+  quantity?: number;
+  ticketTypeId: string;
+};
+```
+
+##### requestBody.content.application/json.categoryId
+
+```ts
+categoryId: string;
+```
+
+##### requestBody.content.application/json.eventLayoutAreaId?
+
+```ts
+optional eventLayoutAreaId: string;
+```
+
+##### requestBody.content.application/json.eventLayoutSeatIds?
+
+```ts
+optional eventLayoutSeatIds: string[];
+```
+
+##### requestBody.content.application/json.eventOccurrenceId
+
+```ts
+eventOccurrenceId: string;
+```
+
+##### requestBody.content.application/json.quantity?
+
+```ts
+optional quantity: number;
+```
+
+##### requestBody.content.application/json.ticketTypeId
+
+```ts
+ticketTypeId: string;
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           cart: {
+              currency: string | null;
+              expiresAt: string;
+              id: string;
+              items: {
+                 categoryName: string;
+                 currency: string;
+                 eventName: string;
+                 eventOccurrenceId: string;
+                 id: string;
+                 quantity: number;
+                 subtotal: number;
+                 ticketTypeName: string;
+                 unitPrice: number;
+              }[];
+              itemsSubtotal: number;
+              orderId: string | null;
+              status: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        cart: {
+           currency: string | null;
+           expiresAt: string;
+           id: string;
+           items: {
+              categoryName: string;
+              currency: string;
+              eventName: string;
+              eventOccurrenceId: string;
+              id: string;
+              quantity: number;
+              subtotal: number;
+              ticketTypeName: string;
+              unitPrice: number;
+           }[];
+           itemsSubtotal: number;
+           orderId: string | null;
+           status: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Item added successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     cart: {
+        currency: string | null;
+        expiresAt: string;
+        id: string;
+        items: {
+           categoryName: string;
+           currency: string;
+           eventName: string;
+           eventOccurrenceId: string;
+           id: string;
+           quantity: number;
+           subtotal: number;
+           ticketTypeName: string;
+           unitPrice: number;
+        }[];
+        itemsSubtotal: number;
+        orderId: string | null;
+        status: string;
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  cart: {
+     currency: string | null;
+     expiresAt: string;
+     id: string;
+     items: {
+        categoryName: string;
+        currency: string;
+        eventName: string;
+        eventOccurrenceId: string;
+        id: string;
+        quantity: number;
+        subtotal: number;
+        ticketTypeName: string;
+        unitPrice: number;
+     }[];
+     itemsSubtotal: number;
+     orderId: string | null;
+     status: string;
+  };
+};
+```
+
+##### responses.201.content.application/json.cart
+
+```ts
+cart: {
+  currency: string | null;
+  expiresAt: string;
+  id: string;
+  items: {
+     categoryName: string;
+     currency: string;
+     eventName: string;
+     eventOccurrenceId: string;
+     id: string;
+     quantity: number;
+     subtotal: number;
+     ticketTypeName: string;
+     unitPrice: number;
+  }[];
+  itemsSubtotal: number;
+  orderId: string | null;
+  status: string;
+};
+```
+
+##### responses.201.content.application/json.cart.currency
+
+```ts
+currency: string | null;
+```
+
+##### responses.201.content.application/json.cart.expiresAt
+
+```ts
+expiresAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### responses.201.content.application/json.cart.id
+
+```ts
+id: string;
+```
+
+##### responses.201.content.application/json.cart.items
+
+```ts
+items: {
+  categoryName: string;
+  currency: string;
+  eventName: string;
+  eventOccurrenceId: string;
+  id: string;
+  quantity: number;
+  subtotal: number;
+  ticketTypeName: string;
+  unitPrice: number;
+}[];
+```
+
+##### responses.201.content.application/json.cart.itemsSubtotal
+
+```ts
+itemsSubtotal: number;
+```
+
+##### responses.201.content.application/json.cart.orderId
+
+```ts
+orderId: string | null;
+```
+
+##### responses.201.content.application/json.cart.status
+
+```ts
+status: string;
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### addSeatToArea
 
 ```ts
@@ -3286,6 +3930,7 @@ addSeatToArea: {
         application/json: {
            attributes?: (
               | "accessible"
+              | "center"
               | "aisle_left"
               | "aisle_right"
               | "wheelchair_space"
@@ -3298,8 +3943,7 @@ addSeatToArea: {
               | "extra_legroom"
               | "premium_comfort"
               | "front_row"
-              | "back_row"
-             | "center")[];
+             | "back_row")[];
            categoryId?: string;
            companionSeats?: string[];
            companionTo?: string;
@@ -3384,7 +4028,7 @@ addSeatToArea: {
 };
 ```
 
-Defined in: generated/types.ts:9833
+Defined in: generated/types.ts:11646
 
 #### parameters
 
@@ -3467,6 +4111,7 @@ optional requestBody: {
      application/json: {
         attributes?: (
            | "accessible"
+           | "center"
            | "aisle_left"
            | "aisle_right"
            | "wheelchair_space"
@@ -3479,8 +4124,7 @@ optional requestBody: {
            | "extra_legroom"
            | "premium_comfort"
            | "front_row"
-           | "back_row"
-          | "center")[];
+          | "back_row")[];
         categoryId?: string;
         companionSeats?: string[];
         companionTo?: string;
@@ -3509,6 +4153,7 @@ content: {
   application/json: {
      attributes?: (
         | "accessible"
+        | "center"
         | "aisle_left"
         | "aisle_right"
         | "wheelchair_space"
@@ -3521,8 +4166,7 @@ content: {
         | "extra_legroom"
         | "premium_comfort"
         | "front_row"
-        | "back_row"
-       | "center")[];
+       | "back_row")[];
      categoryId?: string;
      companionSeats?: string[];
      companionTo?: string;
@@ -3549,6 +4193,7 @@ content: {
 application/json: {
   attributes?: (
      | "accessible"
+     | "center"
      | "aisle_left"
      | "aisle_right"
      | "wheelchair_space"
@@ -3561,8 +4206,7 @@ application/json: {
      | "extra_legroom"
      | "premium_comfort"
      | "front_row"
-     | "back_row"
-    | "center")[];
+    | "back_row")[];
   categoryId?: string;
   companionSeats?: string[];
   companionTo?: string;
@@ -3587,6 +4231,7 @@ application/json: {
 ```ts
 optional attributes: (
   | "accessible"
+  | "center"
   | "aisle_left"
   | "aisle_right"
   | "wheelchair_space"
@@ -3599,8 +4244,7 @@ optional attributes: (
   | "extra_legroom"
   | "premium_comfort"
   | "front_row"
-  | "back_row"
-  | "center")[];
+  | "back_row")[];
 ```
 
 ###### Description
@@ -4389,6 +5033,883 @@ headers: {
 
 ***
 
+### addStaffCartItem
+
+```ts
+addStaffCartItem: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        cartId: string;
+        channelId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           categoryId: string;
+           eventLayoutAreaId?: string;
+           eventLayoutSeatIds?: string[];
+           eventOccurrenceId: string;
+           quantity?: number;
+           ticketTypeId: string;
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              cart: {
+                 accountId: string;
+                 channelId: string;
+                 createdAt: string;
+                 currency: string | null;
+                 customerId: string | null;
+                 expiresAt: string;
+                 id: string;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 orderId: string | null;
+                 organisationId: string;
+                 status: "active" | "expired" | "checked_out" | "abandoned";
+                 updatedAt: string;
+              };
+              items: {
+                 cartId: string;
+                 categoryId: string;
+                 createdAt: string;
+                 eventLayoutAreaId: string | null;
+                 eventLayoutSeatId: string | null;
+                 eventOccurrenceId: string;
+                 id: string;
+                 notes: string | null;
+                 organisationId: string;
+                 priceSnapshot: {
+                    categoryName: string;
+                    currency: string;
+                    eventId: string;
+                    eventName: string;
+                    priceSchemeId: string;
+                    ticketTypeName: string;
+                    unitPrice: number;
+                 };
+                 quantity: number;
+                 reservationId: string;
+                 ticketTypeId: string;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:18418
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     cartId: string;
+     channelId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  cartId: string;
+  channelId: string;
+};
+```
+
+##### parameters.path.cartId
+
+```ts
+cartId: string;
+```
+
+##### parameters.path.channelId
+
+```ts
+channelId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        categoryId: string;
+        eventLayoutAreaId?: string;
+        eventLayoutSeatIds?: string[];
+        eventOccurrenceId: string;
+        quantity?: number;
+        ticketTypeId: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     categoryId: string;
+     eventLayoutAreaId?: string;
+     eventLayoutSeatIds?: string[];
+     eventOccurrenceId: string;
+     quantity?: number;
+     ticketTypeId: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  categoryId: string;
+  eventLayoutAreaId?: string;
+  eventLayoutSeatIds?: string[];
+  eventOccurrenceId: string;
+  quantity?: number;
+  ticketTypeId: string;
+};
+```
+
+##### requestBody.content.application/json.categoryId
+
+```ts
+categoryId: string;
+```
+
+##### requestBody.content.application/json.eventLayoutAreaId?
+
+```ts
+optional eventLayoutAreaId: string;
+```
+
+##### requestBody.content.application/json.eventLayoutSeatIds?
+
+```ts
+optional eventLayoutSeatIds: string[];
+```
+
+##### requestBody.content.application/json.eventOccurrenceId
+
+```ts
+eventOccurrenceId: string;
+```
+
+##### requestBody.content.application/json.quantity?
+
+```ts
+optional quantity: number;
+```
+
+##### requestBody.content.application/json.ticketTypeId
+
+```ts
+ticketTypeId: string;
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           cart: {
+              accountId: string;
+              channelId: string;
+              createdAt: string;
+              currency: string | null;
+              customerId: string | null;
+              expiresAt: string;
+              id: string;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              orderId: string | null;
+              organisationId: string;
+              status: "active" | "expired" | "checked_out" | "abandoned";
+              updatedAt: string;
+           };
+           items: {
+              cartId: string;
+              categoryId: string;
+              createdAt: string;
+              eventLayoutAreaId: string | null;
+              eventLayoutSeatId: string | null;
+              eventOccurrenceId: string;
+              id: string;
+              notes: string | null;
+              organisationId: string;
+              priceSnapshot: {
+                 categoryName: string;
+                 currency: string;
+                 eventId: string;
+                 eventName: string;
+                 priceSchemeId: string;
+                 ticketTypeName: string;
+                 unitPrice: number;
+              };
+              quantity: number;
+              reservationId: string;
+              ticketTypeId: string;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        cart: {
+           accountId: string;
+           channelId: string;
+           createdAt: string;
+           currency: string | null;
+           customerId: string | null;
+           expiresAt: string;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           orderId: string | null;
+           organisationId: string;
+           status: "active" | "expired" | "checked_out" | "abandoned";
+           updatedAt: string;
+        };
+        items: {
+           cartId: string;
+           categoryId: string;
+           createdAt: string;
+           eventLayoutAreaId: string | null;
+           eventLayoutSeatId: string | null;
+           eventOccurrenceId: string;
+           id: string;
+           notes: string | null;
+           organisationId: string;
+           priceSnapshot: {
+              categoryName: string;
+              currency: string;
+              eventId: string;
+              eventName: string;
+              priceSchemeId: string;
+              ticketTypeName: string;
+              unitPrice: number;
+           };
+           quantity: number;
+           reservationId: string;
+           ticketTypeId: string;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Item added successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     cart: {
+        accountId: string;
+        channelId: string;
+        createdAt: string;
+        currency: string | null;
+        customerId: string | null;
+        expiresAt: string;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderId: string | null;
+        organisationId: string;
+        status: "active" | "expired" | "checked_out" | "abandoned";
+        updatedAt: string;
+     };
+     items: {
+        cartId: string;
+        categoryId: string;
+        createdAt: string;
+        eventLayoutAreaId: string | null;
+        eventLayoutSeatId: string | null;
+        eventOccurrenceId: string;
+        id: string;
+        notes: string | null;
+        organisationId: string;
+        priceSnapshot: {
+           categoryName: string;
+           currency: string;
+           eventId: string;
+           eventName: string;
+           priceSchemeId: string;
+           ticketTypeName: string;
+           unitPrice: number;
+        };
+        quantity: number;
+        reservationId: string;
+        ticketTypeId: string;
+     }[];
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  cart: {
+     accountId: string;
+     channelId: string;
+     createdAt: string;
+     currency: string | null;
+     customerId: string | null;
+     expiresAt: string;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderId: string | null;
+     organisationId: string;
+     status: "active" | "expired" | "checked_out" | "abandoned";
+     updatedAt: string;
+  };
+  items: {
+     cartId: string;
+     categoryId: string;
+     createdAt: string;
+     eventLayoutAreaId: string | null;
+     eventLayoutSeatId: string | null;
+     eventOccurrenceId: string;
+     id: string;
+     notes: string | null;
+     organisationId: string;
+     priceSnapshot: {
+        categoryName: string;
+        currency: string;
+        eventId: string;
+        eventName: string;
+        priceSchemeId: string;
+        ticketTypeName: string;
+        unitPrice: number;
+     };
+     quantity: number;
+     reservationId: string;
+     ticketTypeId: string;
+  }[];
+};
+```
+
+##### responses.201.content.application/json.cart
+
+```ts
+cart: {
+  accountId: string;
+  channelId: string;
+  createdAt: string;
+  currency: string | null;
+  customerId: string | null;
+  expiresAt: string;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderId: string | null;
+  organisationId: string;
+  status: "active" | "expired" | "checked_out" | "abandoned";
+  updatedAt: string;
+};
+```
+
+##### responses.201.content.application/json.cart.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### responses.201.content.application/json.cart.channelId
+
+```ts
+channelId: string;
+```
+
+###### Example
+
+```ts
+sch_abc123
+```
+
+##### responses.201.content.application/json.cart.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.cart.currency
+
+```ts
+currency: string | null;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### responses.201.content.application/json.cart.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### responses.201.content.application/json.cart.expiresAt
+
+```ts
+expiresAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### responses.201.content.application/json.cart.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+crt_abc123
+```
+
+##### responses.201.content.application/json.cart.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "source": "boxoffice"
+             *     }
+```
+
+##### responses.201.content.application/json.cart.orderId
+
+```ts
+orderId: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.cart.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.201.content.application/json.cart.status
+
+```ts
+status: "active" | "expired" | "checked_out" | "abandoned";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### responses.201.content.application/json.cart.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.items
+
+```ts
+items: {
+  cartId: string;
+  categoryId: string;
+  createdAt: string;
+  eventLayoutAreaId: string | null;
+  eventLayoutSeatId: string | null;
+  eventOccurrenceId: string;
+  id: string;
+  notes: string | null;
+  organisationId: string;
+  priceSnapshot: {
+     categoryName: string;
+     currency: string;
+     eventId: string;
+     eventName: string;
+     priceSchemeId: string;
+     ticketTypeName: string;
+     unitPrice: number;
+  };
+  quantity: number;
+  reservationId: string;
+  ticketTypeId: string;
+}[];
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### assignRole
 
 ```ts
@@ -4475,7 +5996,7 @@ assignRole: {
 };
 ```
 
-Defined in: generated/types.ts:6074
+Defined in: generated/types.ts:7797
 
 #### parameters
 
@@ -5237,7 +6758,7 @@ blockCustomer: {
 };
 ```
 
-Defined in: generated/types.ts:13009
+Defined in: generated/types.ts:15107
 
 #### parameters
 
@@ -5899,6 +7420,7 @@ bulkAddSeatsToArea: {
            seats: {
               attributes?: (
                  | "accessible"
+                 | "center"
                  | "aisle_left"
                  | "aisle_right"
                  | "wheelchair_space"
@@ -5911,8 +7433,7 @@ bulkAddSeatsToArea: {
                  | "extra_legroom"
                  | "premium_comfort"
                  | "front_row"
-                 | "back_row"
-                | "center")[];
+                | "back_row")[];
               categoryId?: string;
               companionSeats?: string[];
               companionTo?: string;
@@ -5979,7 +7500,7 @@ bulkAddSeatsToArea: {
 };
 ```
 
-Defined in: generated/types.ts:9984
+Defined in: generated/types.ts:11797
 
 #### parameters
 
@@ -6063,6 +7584,7 @@ optional requestBody: {
         seats: {
            attributes?: (
               | "accessible"
+              | "center"
               | "aisle_left"
               | "aisle_right"
               | "wheelchair_space"
@@ -6075,8 +7597,7 @@ optional requestBody: {
               | "extra_legroom"
               | "premium_comfort"
               | "front_row"
-              | "back_row"
-             | "center")[];
+             | "back_row")[];
            categoryId?: string;
            companionSeats?: string[];
            companionTo?: string;
@@ -6107,6 +7628,7 @@ content: {
      seats: {
         attributes?: (
            | "accessible"
+           | "center"
            | "aisle_left"
            | "aisle_right"
            | "wheelchair_space"
@@ -6119,8 +7641,7 @@ content: {
            | "extra_legroom"
            | "premium_comfort"
            | "front_row"
-           | "back_row"
-          | "center")[];
+          | "back_row")[];
         categoryId?: string;
         companionSeats?: string[];
         companionTo?: string;
@@ -6149,6 +7670,7 @@ application/json: {
   seats: {
      attributes?: (
         | "accessible"
+        | "center"
         | "aisle_left"
         | "aisle_right"
         | "wheelchair_space"
@@ -6161,8 +7683,7 @@ application/json: {
         | "extra_legroom"
         | "premium_comfort"
         | "front_row"
-        | "back_row"
-       | "center")[];
+       | "back_row")[];
      categoryId?: string;
      companionSeats?: string[];
      companionTo?: string;
@@ -6189,6 +7710,7 @@ application/json: {
 seats: {
   attributes?: (
      | "accessible"
+     | "center"
      | "aisle_left"
      | "aisle_right"
      | "wheelchair_space"
@@ -6201,8 +7723,7 @@ seats: {
      | "extra_legroom"
      | "premium_comfort"
      | "front_row"
-     | "back_row"
-    | "center")[];
+    | "back_row")[];
   categoryId?: string;
   companionSeats?: string[];
   companionTo?: string;
@@ -6618,7 +8139,7 @@ bulkImportSeats: {
 };
 ```
 
-Defined in: generated/types.ts:11894
+Defined in: generated/types.ts:13992
 
 #### parameters
 
@@ -7273,7 +8794,7 @@ cancelOrder: {
 };
 ```
 
-Defined in: generated/types.ts:13699
+Defined in: generated/types.ts:15797
 
 #### parameters
 
@@ -8343,58 +9864,6 @@ cancelPayment: {
                  paidAt: string | null;
                  status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
                  updatedAt: string;
-               } & {
-                 accountId: string;
-                 amount: number;
-                 applicationFee: number | null;
-                 cancelledAt: string | null;
-                 capturedAt: string | null;
-                 clientSecret: string | null;
-                 createdAt: string;
-                 currency: string;
-                 expiresAt: string | null;
-                 externalPaymentId: string | null;
-                 failedAt: string | null;
-                 failureCode: string | null;
-                 failureMessage: string | null;
-                 id: string;
-                 isPartialPayment: boolean;
-                 metadata:   | {
-                  [key: string]: unknown;
-                  }
-                    | null;
-                 netAmount: number | null;
-                 orderId: string;
-                 orderNumber: string;
-                 organisationId: string;
-                 paymentMethod:   | {
-                    brand: string | null;
-                    expiryMonth: number | null;
-                    expiryYear: number | null;
-                    last4: string | null;
-                    type: "card" | "bank_transfer" | "cash" | "wallet";
-                  }
-                    | null;
-                 paymentProviderId: string;
-                 paymentType:   | "bank_transfer"
-                    | "online_card"
-                    | "online_bank_transfer"
-                    | "online_wallet"
-                    | "in_person_card"
-                    | "in_person_cash"
-                    | "cheque";
-                 processingFee: number | null;
-                 redirectUrl: string | null;
-                 remainingBalance: number | null;
-                 status:   | "cancelled"
-                    | "pending"
-                    | "succeeded"
-                    | "failed"
-                    | "processing"
-                    | "expired"
-                    | "requires_action"
-                    | "created";
-                 updatedAt: string;
               };
            };
         };
@@ -8436,7 +9905,7 @@ cancelPayment: {
 };
 ```
 
-Defined in: generated/types.ts:14645
+Defined in: generated/types.ts:16663
 
 #### parameters
 
@@ -8554,58 +10023,6 @@ responses: {
               paidAt: string | null;
               status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
               updatedAt: string;
-            } & {
-              accountId: string;
-              amount: number;
-              applicationFee: number | null;
-              cancelledAt: string | null;
-              capturedAt: string | null;
-              clientSecret: string | null;
-              createdAt: string;
-              currency: string;
-              expiresAt: string | null;
-              externalPaymentId: string | null;
-              failedAt: string | null;
-              failureCode: string | null;
-              failureMessage: string | null;
-              id: string;
-              isPartialPayment: boolean;
-              metadata:   | {
-               [key: string]: unknown;
-               }
-                 | null;
-              netAmount: number | null;
-              orderId: string;
-              orderNumber: string;
-              organisationId: string;
-              paymentMethod:   | {
-                 brand: string | null;
-                 expiryMonth: number | null;
-                 expiryYear: number | null;
-                 last4: string | null;
-                 type: "card" | "bank_transfer" | "cash" | "wallet";
-               }
-                 | null;
-              paymentProviderId: string;
-              paymentType:   | "bank_transfer"
-                 | "online_card"
-                 | "online_bank_transfer"
-                 | "online_wallet"
-                 | "in_person_card"
-                 | "in_person_cash"
-                 | "cheque";
-              processingFee: number | null;
-              redirectUrl: string | null;
-              remainingBalance: number | null;
-              status:   | "cancelled"
-                 | "pending"
-                 | "succeeded"
-                 | "failed"
-                 | "processing"
-                 | "expired"
-                 | "requires_action"
-                 | "created";
-              updatedAt: string;
            };
         };
      };
@@ -8666,58 +10083,6 @@ responses: {
            paidAt: string | null;
            status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
            updatedAt: string;
-         } & {
-           accountId: string;
-           amount: number;
-           applicationFee: number | null;
-           cancelledAt: string | null;
-           capturedAt: string | null;
-           clientSecret: string | null;
-           createdAt: string;
-           currency: string;
-           expiresAt: string | null;
-           externalPaymentId: string | null;
-           failedAt: string | null;
-           failureCode: string | null;
-           failureMessage: string | null;
-           id: string;
-           isPartialPayment: boolean;
-           metadata:   | {
-            [key: string]: unknown;
-            }
-              | null;
-           netAmount: number | null;
-           orderId: string;
-           orderNumber: string;
-           organisationId: string;
-           paymentMethod:   | {
-              brand: string | null;
-              expiryMonth: number | null;
-              expiryYear: number | null;
-              last4: string | null;
-              type: "card" | "bank_transfer" | "cash" | "wallet";
-            }
-              | null;
-           paymentProviderId: string;
-           paymentType:   | "bank_transfer"
-              | "online_card"
-              | "online_bank_transfer"
-              | "online_wallet"
-              | "in_person_card"
-              | "in_person_cash"
-              | "cheque";
-           processingFee: number | null;
-           redirectUrl: string | null;
-           remainingBalance: number | null;
-           status:   | "cancelled"
-              | "pending"
-              | "succeeded"
-              | "failed"
-              | "processing"
-              | "expired"
-              | "requires_action"
-              | "created";
-           updatedAt: string;
         };
      };
   };
@@ -8750,58 +10115,6 @@ content: {
         paidAt: string | null;
         status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
         updatedAt: string;
-      } & {
-        accountId: string;
-        amount: number;
-        applicationFee: number | null;
-        cancelledAt: string | null;
-        capturedAt: string | null;
-        clientSecret: string | null;
-        createdAt: string;
-        currency: string;
-        expiresAt: string | null;
-        externalPaymentId: string | null;
-        failedAt: string | null;
-        failureCode: string | null;
-        failureMessage: string | null;
-        id: string;
-        isPartialPayment: boolean;
-        metadata:   | {
-         [key: string]: unknown;
-         }
-           | null;
-        netAmount: number | null;
-        orderId: string;
-        orderNumber: string;
-        organisationId: string;
-        paymentMethod:   | {
-           brand: string | null;
-           expiryMonth: number | null;
-           expiryYear: number | null;
-           last4: string | null;
-           type: "card" | "bank_transfer" | "cash" | "wallet";
-         }
-           | null;
-        paymentProviderId: string;
-        paymentType:   | "bank_transfer"
-           | "online_card"
-           | "online_bank_transfer"
-           | "online_wallet"
-           | "in_person_card"
-           | "in_person_cash"
-           | "cheque";
-        processingFee: number | null;
-        redirectUrl: string | null;
-        remainingBalance: number | null;
-        status:   | "cancelled"
-           | "pending"
-           | "succeeded"
-           | "failed"
-           | "processing"
-           | "expired"
-           | "requires_action"
-           | "created";
-        updatedAt: string;
      };
   };
 };
@@ -8825,58 +10138,6 @@ application/json: {
      paidAt: string | null;
      status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
      updatedAt: string;
-   } & {
-     accountId: string;
-     amount: number;
-     applicationFee: number | null;
-     cancelledAt: string | null;
-     capturedAt: string | null;
-     clientSecret: string | null;
-     createdAt: string;
-     currency: string;
-     expiresAt: string | null;
-     externalPaymentId: string | null;
-     failedAt: string | null;
-     failureCode: string | null;
-     failureMessage: string | null;
-     id: string;
-     isPartialPayment: boolean;
-     metadata:   | {
-      [key: string]: unknown;
-      }
-        | null;
-     netAmount: number | null;
-     orderId: string;
-     orderNumber: string;
-     organisationId: string;
-     paymentMethod:   | {
-        brand: string | null;
-        expiryMonth: number | null;
-        expiryYear: number | null;
-        last4: string | null;
-        type: "card" | "bank_transfer" | "cash" | "wallet";
-      }
-        | null;
-     paymentProviderId: string;
-     paymentType:   | "bank_transfer"
-        | "online_card"
-        | "online_bank_transfer"
-        | "online_wallet"
-        | "in_person_card"
-        | "in_person_cash"
-        | "cheque";
-     processingFee: number | null;
-     redirectUrl: string | null;
-     remainingBalance: number | null;
-     status:   | "cancelled"
-        | "pending"
-        | "succeeded"
-        | "failed"
-        | "processing"
-        | "expired"
-        | "requires_action"
-        | "created";
-     updatedAt: string;
   };
 };
 ```
@@ -8898,64 +10159,10 @@ payment: {
   paidAt: string | null;
   status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
   updatedAt: string;
-} & {
-  accountId: string;
-  amount: number;
-  applicationFee: number | null;
-  cancelledAt: string | null;
-  capturedAt: string | null;
-  clientSecret: string | null;
-  createdAt: string;
-  currency: string;
-  expiresAt: string | null;
-  externalPaymentId: string | null;
-  failedAt: string | null;
-  failureCode: string | null;
-  failureMessage: string | null;
-  id: string;
-  isPartialPayment: boolean;
-  metadata:   | {
-   [key: string]: unknown;
-   }
-     | null;
-  netAmount: number | null;
-  orderId: string;
-  orderNumber: string;
-  organisationId: string;
-  paymentMethod:   | {
-     brand: string | null;
-     expiryMonth: number | null;
-     expiryYear: number | null;
-     last4: string | null;
-     type: "card" | "bank_transfer" | "cash" | "wallet";
-   }
-     | null;
-  paymentProviderId: string;
-  paymentType:   | "bank_transfer"
-     | "online_card"
-     | "online_bank_transfer"
-     | "online_wallet"
-     | "in_person_card"
-     | "in_person_cash"
-     | "cheque";
-  processingFee: number | null;
-  redirectUrl: string | null;
-  remainingBalance: number | null;
-  status:   | "cancelled"
-     | "pending"
-     | "succeeded"
-     | "failed"
-     | "processing"
-     | "expired"
-     | "requires_action"
-     | "created";
-  updatedAt: string;
 };
 ```
 
-###### Type Declaration
-
-###### amount
+##### responses.200.content.application/json.payment.amount
 
 ```ts
 amount: string;
@@ -8967,7 +10174,7 @@ amount: string;
 25.00
 ```
 
-###### createdAt
+##### responses.200.content.application/json.payment.createdAt
 
 ```ts
 createdAt: string;
@@ -8979,7 +10186,7 @@ createdAt: string;
 2024-01-15T10:30:00Z
 ```
 
-###### currency
+##### responses.200.content.application/json.payment.currency
 
 ```ts
 currency: string;
@@ -8991,7 +10198,7 @@ currency: string;
 USD
 ```
 
-###### failedAt
+##### responses.200.content.application/json.payment.failedAt
 
 ```ts
 failedAt: string | null;
@@ -9003,7 +10210,7 @@ failedAt: string | null;
 null
 ```
 
-###### failureCode
+##### responses.200.content.application/json.payment.failureCode
 
 ```ts
 failureCode: string | null;
@@ -9015,7 +10222,7 @@ failureCode: string | null;
 null
 ```
 
-###### failureMessage
+##### responses.200.content.application/json.payment.failureMessage
 
 ```ts
 failureMessage: string | null;
@@ -9027,7 +10234,7 @@ failureMessage: string | null;
 null
 ```
 
-###### id
+##### responses.200.content.application/json.payment.id
 
 ```ts
 id: string;
@@ -9039,7 +10246,7 @@ id: string;
 pay_abc123
 ```
 
-###### invoiceId
+##### responses.200.content.application/json.payment.invoiceId
 
 ```ts
 invoiceId: string | null;
@@ -9051,7 +10258,7 @@ invoiceId: string | null;
 inv_abc123
 ```
 
-###### method
+##### responses.200.content.application/json.payment.method
 
 ```ts
 method: string | null;
@@ -9063,7 +10270,7 @@ method: string | null;
 card
 ```
 
-###### organisationId
+##### responses.200.content.application/json.payment.organisationId
 
 ```ts
 organisationId: string;
@@ -9075,7 +10282,7 @@ organisationId: string;
 org_abc123
 ```
 
-###### paidAt
+##### responses.200.content.application/json.payment.paidAt
 
 ```ts
 paidAt: string | null;
@@ -9087,7 +10294,7 @@ paidAt: string | null;
 2024-01-15T10:35:00Z
 ```
 
-###### status
+##### responses.200.content.application/json.payment.status
 
 ```ts
 status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
@@ -9100,7 +10307,7 @@ succeeded
 @enum {string}
 ```
 
-###### updatedAt
+##### responses.200.content.application/json.payment.updatedAt
 
 ```ts
 updatedAt: string;
@@ -9110,383 +10317,6 @@ updatedAt: string;
 
 ```ts
 2024-01-15T10:35:00Z
-```
-
-###### Type Declaration
-
-###### accountId
-
-```ts
-accountId: string;
-```
-
-###### Example
-
-```ts
-acc_xyz789
-```
-
-###### amount
-
-```ts
-amount: number;
-```
-
-###### Example
-
-```ts
-97
-```
-
-###### applicationFee
-
-```ts
-applicationFee: number | null;
-```
-
-###### Example
-
-```ts
-2
-```
-
-###### cancelledAt
-
-```ts
-cancelledAt: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### capturedAt
-
-```ts
-capturedAt: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### clientSecret
-
-```ts
-clientSecret: string | null;
-```
-
-###### Example
-
-```ts
-pi_xxx_secret_yyy
-```
-
-###### createdAt
-
-```ts
-createdAt: string;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:30:00Z
-```
-
-###### currency
-
-```ts
-currency: string;
-```
-
-###### Example
-
-```ts
-GBP
-```
-
-###### expiresAt
-
-```ts
-expiresAt: string | null;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:45:00Z
-```
-
-###### externalPaymentId
-
-```ts
-externalPaymentId: string | null;
-```
-
-###### Example
-
-```ts
-pi_1234567890abcdef
-```
-
-###### failedAt
-
-```ts
-failedAt: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### failureCode
-
-```ts
-failureCode: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### failureMessage
-
-```ts
-failureMessage: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### id
-
-```ts
-id: string;
-```
-
-###### Example
-
-```ts
-pay_abc123xyz789
-```
-
-###### isPartialPayment
-
-```ts
-isPartialPayment: boolean;
-```
-
-###### Example
-
-```ts
-false
-```
-
-###### metadata
-
-```ts
-metadata: 
-  | {
-[key: string]: unknown;
-}
-  | null;
-```
-
-###### Example
-
-```ts
-{
-                 *       "customerEmail": "customer@example.com"
-                 *     }
-```
-
-###### netAmount
-
-```ts
-netAmount: number | null;
-```
-
-###### Example
-
-```ts
-92.09
-```
-
-###### orderId
-
-```ts
-orderId: string;
-```
-
-###### Example
-
-```ts
-ord_abc123
-```
-
-###### orderNumber
-
-```ts
-orderNumber: string;
-```
-
-###### Example
-
-```ts
-ORD-ABC123
-```
-
-###### organisationId
-
-```ts
-organisationId: string;
-```
-
-###### Example
-
-```ts
-org_xyz789
-```
-
-###### paymentMethod
-
-```ts
-paymentMethod: 
-  | {
-  brand: string | null;
-  expiryMonth: number | null;
-  expiryYear: number | null;
-  last4: string | null;
-  type: "card" | "bank_transfer" | "cash" | "wallet";
-}
-  | null;
-```
-
-###### Type Declaration
-
-```ts
-{
-  brand: string | null;
-  expiryMonth: number | null;
-  expiryYear: number | null;
-  last4: string | null;
-  type: "card" | "bank_transfer" | "cash" | "wallet";
-}
-```
-
-`null`
-
-###### paymentProviderId
-
-```ts
-paymentProviderId: string;
-```
-
-###### Example
-
-```ts
-pp_stripeXxx123
-```
-
-###### paymentType
-
-```ts
-paymentType: 
-  | "bank_transfer"
-  | "online_card"
-  | "online_bank_transfer"
-  | "online_wallet"
-  | "in_person_card"
-  | "in_person_cash"
-  | "cheque";
-```
-
-###### Example
-
-```ts
-online_card
-@enum {string}
-```
-
-###### processingFee
-
-```ts
-processingFee: number | null;
-```
-
-###### Example
-
-```ts
-2.91
-```
-
-###### redirectUrl
-
-```ts
-redirectUrl: string | null;
-```
-
-###### Example
-
-```ts
-https://checkout.stripe.com/pay/xxx
-```
-
-###### remainingBalance
-
-```ts
-remainingBalance: number | null;
-```
-
-###### Example
-
-```ts
-0
-```
-
-###### status
-
-```ts
-status: 
-  | "cancelled"
-  | "pending"
-  | "succeeded"
-  | "failed"
-  | "processing"
-  | "expired"
-  | "requires_action"
-  | "created";
-```
-
-###### Example
-
-```ts
-pending
-@enum {string}
-```
-
-###### updatedAt
-
-```ts
-updatedAt: string;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:30:00Z
 ```
 
 ##### responses.200.headers
@@ -9754,7 +10584,7 @@ cancelSubscription: {
 };
 ```
 
-Defined in: generated/types.ts:11226
+Defined in: generated/types.ts:13039
 
 #### parameters
 
@@ -10408,7 +11238,7 @@ cancelUserInvitation: {
 };
 ```
 
-Defined in: generated/types.ts:5554
+Defined in: generated/types.ts:7277
 
 #### parameters
 
@@ -10832,7 +11662,7 @@ checkAvailability: {
 };
 ```
 
-Defined in: generated/types.ts:12096
+Defined in: generated/types.ts:14194
 
 #### parameters
 
@@ -11304,7 +12134,7 @@ checkCanSell: {
 };
 ```
 
-Defined in: generated/types.ts:10673
+Defined in: generated/types.ts:12486
 
 #### parameters
 
@@ -11680,6 +12510,2100 @@ headers: {
 
 ***
 
+### checkoutSalesCart
+
+```ts
+checkoutSalesCart: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        cartId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           customer?: {
+              email: string;
+              firstName?: string;
+              lastName?: string;
+              marketingConsent?: boolean;
+              phone?: string;
+           };
+           customerNotes?: string;
+           metadata?: {
+            [key: string]: unknown;
+           };
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              cart: {
+                 currency: string | null;
+                 expiresAt: string;
+                 id: string;
+                 items: {
+                    categoryName: string;
+                    currency: string;
+                    eventName: string;
+                    eventOccurrenceId: string;
+                    id: string;
+                    quantity: number;
+                    subtotal: number;
+                    ticketTypeName: string;
+                    unitPrice: number;
+                 }[];
+                 itemsSubtotal: number;
+                 orderId: string | null;
+                 status: string;
+              };
+              order: {
+                 createdAt: string;
+                 currency: string;
+                 expiresAt: string | null;
+                 id: string;
+                 items: {
+                    description: string | null;
+                    name: string;
+                    quantity: number;
+                    subtotal: string;
+                    type: string;
+                    unitPrice: string;
+                 }[];
+                 orderNumber: string;
+                 paymentStatus: string;
+                 status: string;
+                 subtotal: string;
+                 total: string;
+                 totalFees: string;
+                 totalTax: string;
+              };
+              orderAccessToken: string;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:19541
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     cartId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  cartId: string;
+};
+```
+
+##### parameters.path.cartId
+
+```ts
+cartId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        customer?: {
+           email: string;
+           firstName?: string;
+           lastName?: string;
+           marketingConsent?: boolean;
+           phone?: string;
+        };
+        customerNotes?: string;
+        metadata?: {
+         [key: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     customer?: {
+        email: string;
+        firstName?: string;
+        lastName?: string;
+        marketingConsent?: boolean;
+        phone?: string;
+     };
+     customerNotes?: string;
+     metadata?: {
+      [key: string]: unknown;
+     };
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  customer?: {
+     email: string;
+     firstName?: string;
+     lastName?: string;
+     marketingConsent?: boolean;
+     phone?: string;
+  };
+  customerNotes?: string;
+  metadata?: {
+   [key: string]: unknown;
+  };
+};
+```
+
+##### requestBody.content.application/json.customer?
+
+```ts
+optional customer: {
+  email: string;
+  firstName?: string;
+  lastName?: string;
+  marketingConsent?: boolean;
+  phone?: string;
+};
+```
+
+##### requestBody.content.application/json.customer.email
+
+```ts
+email: string;
+```
+
+Format: email
+
+##### requestBody.content.application/json.customer.firstName?
+
+```ts
+optional firstName: string;
+```
+
+##### requestBody.content.application/json.customer.lastName?
+
+```ts
+optional lastName: string;
+```
+
+##### requestBody.content.application/json.customer.marketingConsent?
+
+```ts
+optional marketingConsent: boolean;
+```
+
+##### requestBody.content.application/json.customer.phone?
+
+```ts
+optional phone: string;
+```
+
+##### requestBody.content.application/json.customerNotes?
+
+```ts
+optional customerNotes: string;
+```
+
+##### requestBody.content.application/json.metadata?
+
+```ts
+optional metadata: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           cart: {
+              currency: string | null;
+              expiresAt: string;
+              id: string;
+              items: {
+                 categoryName: string;
+                 currency: string;
+                 eventName: string;
+                 eventOccurrenceId: string;
+                 id: string;
+                 quantity: number;
+                 subtotal: number;
+                 ticketTypeName: string;
+                 unitPrice: number;
+              }[];
+              itemsSubtotal: number;
+              orderId: string | null;
+              status: string;
+           };
+           order: {
+              createdAt: string;
+              currency: string;
+              expiresAt: string | null;
+              id: string;
+              items: {
+                 description: string | null;
+                 name: string;
+                 quantity: number;
+                 subtotal: string;
+                 type: string;
+                 unitPrice: string;
+              }[];
+              orderNumber: string;
+              paymentStatus: string;
+              status: string;
+              subtotal: string;
+              total: string;
+              totalFees: string;
+              totalTax: string;
+           };
+           orderAccessToken: string;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        cart: {
+           currency: string | null;
+           expiresAt: string;
+           id: string;
+           items: {
+              categoryName: string;
+              currency: string;
+              eventName: string;
+              eventOccurrenceId: string;
+              id: string;
+              quantity: number;
+              subtotal: number;
+              ticketTypeName: string;
+              unitPrice: number;
+           }[];
+           itemsSubtotal: number;
+           orderId: string | null;
+           status: string;
+        };
+        order: {
+           createdAt: string;
+           currency: string;
+           expiresAt: string | null;
+           id: string;
+           items: {
+              description: string | null;
+              name: string;
+              quantity: number;
+              subtotal: string;
+              type: string;
+              unitPrice: string;
+           }[];
+           orderNumber: string;
+           paymentStatus: string;
+           status: string;
+           subtotal: string;
+           total: string;
+           totalFees: string;
+           totalTax: string;
+        };
+        orderAccessToken: string;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Cart checked out successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     cart: {
+        currency: string | null;
+        expiresAt: string;
+        id: string;
+        items: {
+           categoryName: string;
+           currency: string;
+           eventName: string;
+           eventOccurrenceId: string;
+           id: string;
+           quantity: number;
+           subtotal: number;
+           ticketTypeName: string;
+           unitPrice: number;
+        }[];
+        itemsSubtotal: number;
+        orderId: string | null;
+        status: string;
+     };
+     order: {
+        createdAt: string;
+        currency: string;
+        expiresAt: string | null;
+        id: string;
+        items: {
+           description: string | null;
+           name: string;
+           quantity: number;
+           subtotal: string;
+           type: string;
+           unitPrice: string;
+        }[];
+        orderNumber: string;
+        paymentStatus: string;
+        status: string;
+        subtotal: string;
+        total: string;
+        totalFees: string;
+        totalTax: string;
+     };
+     orderAccessToken: string;
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  cart: {
+     currency: string | null;
+     expiresAt: string;
+     id: string;
+     items: {
+        categoryName: string;
+        currency: string;
+        eventName: string;
+        eventOccurrenceId: string;
+        id: string;
+        quantity: number;
+        subtotal: number;
+        ticketTypeName: string;
+        unitPrice: number;
+     }[];
+     itemsSubtotal: number;
+     orderId: string | null;
+     status: string;
+  };
+  order: {
+     createdAt: string;
+     currency: string;
+     expiresAt: string | null;
+     id: string;
+     items: {
+        description: string | null;
+        name: string;
+        quantity: number;
+        subtotal: string;
+        type: string;
+        unitPrice: string;
+     }[];
+     orderNumber: string;
+     paymentStatus: string;
+     status: string;
+     subtotal: string;
+     total: string;
+     totalFees: string;
+     totalTax: string;
+  };
+  orderAccessToken: string;
+};
+```
+
+##### responses.200.content.application/json.cart
+
+```ts
+cart: {
+  currency: string | null;
+  expiresAt: string;
+  id: string;
+  items: {
+     categoryName: string;
+     currency: string;
+     eventName: string;
+     eventOccurrenceId: string;
+     id: string;
+     quantity: number;
+     subtotal: number;
+     ticketTypeName: string;
+     unitPrice: number;
+  }[];
+  itemsSubtotal: number;
+  orderId: string | null;
+  status: string;
+};
+```
+
+##### responses.200.content.application/json.cart.currency
+
+```ts
+currency: string | null;
+```
+
+##### responses.200.content.application/json.cart.expiresAt
+
+```ts
+expiresAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### responses.200.content.application/json.cart.id
+
+```ts
+id: string;
+```
+
+##### responses.200.content.application/json.cart.items
+
+```ts
+items: {
+  categoryName: string;
+  currency: string;
+  eventName: string;
+  eventOccurrenceId: string;
+  id: string;
+  quantity: number;
+  subtotal: number;
+  ticketTypeName: string;
+  unitPrice: number;
+}[];
+```
+
+##### responses.200.content.application/json.cart.itemsSubtotal
+
+```ts
+itemsSubtotal: number;
+```
+
+##### responses.200.content.application/json.cart.orderId
+
+```ts
+orderId: string | null;
+```
+
+##### responses.200.content.application/json.cart.status
+
+```ts
+status: string;
+```
+
+##### responses.200.content.application/json.order
+
+```ts
+order: {
+  createdAt: string;
+  currency: string;
+  expiresAt: string | null;
+  id: string;
+  items: {
+     description: string | null;
+     name: string;
+     quantity: number;
+     subtotal: string;
+     type: string;
+     unitPrice: string;
+  }[];
+  orderNumber: string;
+  paymentStatus: string;
+  status: string;
+  subtotal: string;
+  total: string;
+  totalFees: string;
+  totalTax: string;
+};
+```
+
+##### responses.200.content.application/json.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.order.currency
+
+```ts
+currency: string;
+```
+
+##### responses.200.content.application/json.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### responses.200.content.application/json.order.id
+
+```ts
+id: string;
+```
+
+##### responses.200.content.application/json.order.items
+
+```ts
+items: {
+  description: string | null;
+  name: string;
+  quantity: number;
+  subtotal: string;
+  type: string;
+  unitPrice: string;
+}[];
+```
+
+##### responses.200.content.application/json.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+##### responses.200.content.application/json.order.paymentStatus
+
+```ts
+paymentStatus: string;
+```
+
+##### responses.200.content.application/json.order.status
+
+```ts
+status: string;
+```
+
+##### responses.200.content.application/json.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+##### responses.200.content.application/json.order.total
+
+```ts
+total: string;
+```
+
+##### responses.200.content.application/json.order.totalFees
+
+```ts
+totalFees: string;
+```
+
+##### responses.200.content.application/json.order.totalTax
+
+```ts
+totalTax: string;
+```
+
+##### responses.200.content.application/json.orderAccessToken
+
+```ts
+orderAccessToken: string;
+```
+
+###### Description
+
+Possession-based guest access token for reading/paying this order without a customer login
+
+###### Example
+
+```ts
+eyJhbGciOiJIUzI1NiIs...
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### checkoutStaffCart
+
+```ts
+checkoutStaffCart: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        cartId: string;
+        channelId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           customerId?: string;
+           customerNotes?: string;
+           discount?: {
+              amount?: number;
+              label?: string;
+              percent?: number;
+              reason: string;
+           };
+           metadata?: {
+            [key: string]: unknown;
+           };
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              cart: {
+                 accountId: string;
+                 channelId: string;
+                 createdAt: string;
+                 currency: string | null;
+                 customerId: string | null;
+                 expiresAt: string;
+                 id: string;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 orderId: string | null;
+                 organisationId: string;
+                 status: "active" | "expired" | "checked_out" | "abandoned";
+                 updatedAt: string;
+              };
+              order: {
+                 accountId: string;
+                 createdAt: string;
+                 currency: string;
+                 customerId: string | null;
+                 expiresAt: string | null;
+                 id: string;
+                 items: {
+                    description: string | null;
+                    id: string;
+                    name: string;
+                    orderId: string;
+                    quantity: number;
+                    subtotal: string;
+                    type: string;
+                    unitPrice: string;
+                 }[];
+                 orderNumber: string;
+                 organisationId: string;
+                 paymentStatus: string;
+                 status: string;
+                 subtotal: string;
+                 total: string;
+                 totalFees: string;
+                 totalPaid: string;
+                 totalTax: string;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:18546
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     cartId: string;
+     channelId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  cartId: string;
+  channelId: string;
+};
+```
+
+##### parameters.path.cartId
+
+```ts
+cartId: string;
+```
+
+##### parameters.path.channelId
+
+```ts
+channelId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        customerId?: string;
+        customerNotes?: string;
+        discount?: {
+           amount?: number;
+           label?: string;
+           percent?: number;
+           reason: string;
+        };
+        metadata?: {
+         [key: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     customerId?: string;
+     customerNotes?: string;
+     discount?: {
+        amount?: number;
+        label?: string;
+        percent?: number;
+        reason: string;
+     };
+     metadata?: {
+      [key: string]: unknown;
+     };
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  customerId?: string;
+  customerNotes?: string;
+  discount?: {
+     amount?: number;
+     label?: string;
+     percent?: number;
+     reason: string;
+  };
+  metadata?: {
+   [key: string]: unknown;
+  };
+};
+```
+
+##### requestBody.content.application/json.customerId?
+
+```ts
+optional customerId: string;
+```
+
+##### requestBody.content.application/json.customerNotes?
+
+```ts
+optional customerNotes: string;
+```
+
+##### requestBody.content.application/json.discount?
+
+```ts
+optional discount: {
+  amount?: number;
+  label?: string;
+  percent?: number;
+  reason: string;
+};
+```
+
+##### requestBody.content.application/json.discount.amount?
+
+```ts
+optional amount: number;
+```
+
+##### requestBody.content.application/json.discount.label?
+
+```ts
+optional label: string;
+```
+
+##### requestBody.content.application/json.discount.percent?
+
+```ts
+optional percent: number;
+```
+
+##### requestBody.content.application/json.discount.reason
+
+```ts
+reason: string;
+```
+
+##### requestBody.content.application/json.metadata?
+
+```ts
+optional metadata: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           cart: {
+              accountId: string;
+              channelId: string;
+              createdAt: string;
+              currency: string | null;
+              customerId: string | null;
+              expiresAt: string;
+              id: string;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              orderId: string | null;
+              organisationId: string;
+              status: "active" | "expired" | "checked_out" | "abandoned";
+              updatedAt: string;
+           };
+           order: {
+              accountId: string;
+              createdAt: string;
+              currency: string;
+              customerId: string | null;
+              expiresAt: string | null;
+              id: string;
+              items: {
+                 description: string | null;
+                 id: string;
+                 name: string;
+                 orderId: string;
+                 quantity: number;
+                 subtotal: string;
+                 type: string;
+                 unitPrice: string;
+              }[];
+              orderNumber: string;
+              organisationId: string;
+              paymentStatus: string;
+              status: string;
+              subtotal: string;
+              total: string;
+              totalFees: string;
+              totalPaid: string;
+              totalTax: string;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        cart: {
+           accountId: string;
+           channelId: string;
+           createdAt: string;
+           currency: string | null;
+           customerId: string | null;
+           expiresAt: string;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           orderId: string | null;
+           organisationId: string;
+           status: "active" | "expired" | "checked_out" | "abandoned";
+           updatedAt: string;
+        };
+        order: {
+           accountId: string;
+           createdAt: string;
+           currency: string;
+           customerId: string | null;
+           expiresAt: string | null;
+           id: string;
+           items: {
+              description: string | null;
+              id: string;
+              name: string;
+              orderId: string;
+              quantity: number;
+              subtotal: string;
+              type: string;
+              unitPrice: string;
+           }[];
+           orderNumber: string;
+           organisationId: string;
+           paymentStatus: string;
+           status: string;
+           subtotal: string;
+           total: string;
+           totalFees: string;
+           totalPaid: string;
+           totalTax: string;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Cart checked out successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     cart: {
+        accountId: string;
+        channelId: string;
+        createdAt: string;
+        currency: string | null;
+        customerId: string | null;
+        expiresAt: string;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderId: string | null;
+        organisationId: string;
+        status: "active" | "expired" | "checked_out" | "abandoned";
+        updatedAt: string;
+     };
+     order: {
+        accountId: string;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        expiresAt: string | null;
+        id: string;
+        items: {
+           description: string | null;
+           id: string;
+           name: string;
+           orderId: string;
+           quantity: number;
+           subtotal: string;
+           type: string;
+           unitPrice: string;
+        }[];
+        orderNumber: string;
+        organisationId: string;
+        paymentStatus: string;
+        status: string;
+        subtotal: string;
+        total: string;
+        totalFees: string;
+        totalPaid: string;
+        totalTax: string;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  cart: {
+     accountId: string;
+     channelId: string;
+     createdAt: string;
+     currency: string | null;
+     customerId: string | null;
+     expiresAt: string;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderId: string | null;
+     organisationId: string;
+     status: "active" | "expired" | "checked_out" | "abandoned";
+     updatedAt: string;
+  };
+  order: {
+     accountId: string;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     expiresAt: string | null;
+     id: string;
+     items: {
+        description: string | null;
+        id: string;
+        name: string;
+        orderId: string;
+        quantity: number;
+        subtotal: string;
+        type: string;
+        unitPrice: string;
+     }[];
+     orderNumber: string;
+     organisationId: string;
+     paymentStatus: string;
+     status: string;
+     subtotal: string;
+     total: string;
+     totalFees: string;
+     totalPaid: string;
+     totalTax: string;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.cart
+
+```ts
+cart: {
+  accountId: string;
+  channelId: string;
+  createdAt: string;
+  currency: string | null;
+  customerId: string | null;
+  expiresAt: string;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderId: string | null;
+  organisationId: string;
+  status: "active" | "expired" | "checked_out" | "abandoned";
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.cart.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### responses.200.content.application/json.cart.channelId
+
+```ts
+channelId: string;
+```
+
+###### Example
+
+```ts
+sch_abc123
+```
+
+##### responses.200.content.application/json.cart.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.cart.currency
+
+```ts
+currency: string | null;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### responses.200.content.application/json.cart.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### responses.200.content.application/json.cart.expiresAt
+
+```ts
+expiresAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### responses.200.content.application/json.cart.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+crt_abc123
+```
+
+##### responses.200.content.application/json.cart.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "source": "boxoffice"
+             *     }
+```
+
+##### responses.200.content.application/json.cart.orderId
+
+```ts
+orderId: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.cart.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.cart.status
+
+```ts
+status: "active" | "expired" | "checked_out" | "abandoned";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### responses.200.content.application/json.cart.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.order
+
+```ts
+order: {
+  accountId: string;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  expiresAt: string | null;
+  id: string;
+  items: {
+     description: string | null;
+     id: string;
+     name: string;
+     orderId: string;
+     quantity: number;
+     subtotal: string;
+     type: string;
+     unitPrice: string;
+  }[];
+  orderNumber: string;
+  organisationId: string;
+  paymentStatus: string;
+  status: string;
+  subtotal: string;
+  total: string;
+  totalFees: string;
+  totalPaid: string;
+  totalTax: string;
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.order.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### responses.200.content.application/json.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.order.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### responses.200.content.application/json.order.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### responses.200.content.application/json.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### responses.200.content.application/json.order.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123
+```
+
+##### responses.200.content.application/json.order.items
+
+```ts
+items: {
+  description: string | null;
+  id: string;
+  name: string;
+  orderId: string;
+  quantity: number;
+  subtotal: string;
+  type: string;
+  unitPrice: string;
+}[];
+```
+
+##### responses.200.content.application/json.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### responses.200.content.application/json.order.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.order.paymentStatus
+
+```ts
+paymentStatus: string;
+```
+
+###### Example
+
+```ts
+unpaid
+```
+
+##### responses.200.content.application/json.order.status
+
+```ts
+status: string;
+```
+
+###### Example
+
+```ts
+pending
+```
+
+##### responses.200.content.application/json.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### responses.200.content.application/json.order.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+52.50
+```
+
+##### responses.200.content.application/json.order.totalFees
+
+```ts
+totalFees: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### responses.200.content.application/json.order.totalPaid
+
+```ts
+totalPaid: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### responses.200.content.application/json.order.totalTax
+
+```ts
+totalTax: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### responses.200.content.application/json.order.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### confirmReservation
 
 ```ts
@@ -11765,7 +14689,7 @@ confirmReservation: {
 };
 ```
 
-Defined in: generated/types.ts:12301
+Defined in: generated/types.ts:14399
 
 #### parameters
 
@@ -12545,7 +15469,7 @@ createAccount: {
 };
 ```
 
-Defined in: generated/types.ts:4943
+Defined in: generated/types.ts:6666
 
 #### parameters
 
@@ -13075,6 +15999,15 @@ createCreditPurchase: {
   requestBody?: {
      content: {
         application/json: {
+           billingAddress?: {
+              city: string;
+              country: string;
+              line1: string;
+              line2?: string;
+              name?: string;
+              postal_code: string;
+              state?: string;
+           };
            currency?: string;
            email?: string;
            packageId: string;
@@ -13180,7 +16113,7 @@ createCreditPurchase: {
 };
 ```
 
-Defined in: generated/types.ts:10854
+Defined in: generated/types.ts:12667
 
 #### parameters
 
@@ -13237,6 +16170,15 @@ optional query: undefined;
 optional requestBody: {
   content: {
      application/json: {
+        billingAddress?: {
+           city: string;
+           country: string;
+           line1: string;
+           line2?: string;
+           name?: string;
+           postal_code: string;
+           state?: string;
+        };
         currency?: string;
         email?: string;
         packageId: string;
@@ -13251,6 +16193,15 @@ optional requestBody: {
 ```ts
 content: {
   application/json: {
+     billingAddress?: {
+        city: string;
+        country: string;
+        line1: string;
+        line2?: string;
+        name?: string;
+        postal_code: string;
+        state?: string;
+     };
      currency?: string;
      email?: string;
      packageId: string;
@@ -13263,11 +16214,76 @@ content: {
 
 ```ts
 application/json: {
+  billingAddress?: {
+     city: string;
+     country: string;
+     line1: string;
+     line2?: string;
+     name?: string;
+     postal_code: string;
+     state?: string;
+  };
   currency?: string;
   email?: string;
   packageId: string;
   paymentMethodId: string;
 };
+```
+
+##### requestBody.content.application/json.billingAddress?
+
+```ts
+optional billingAddress: {
+  city: string;
+  country: string;
+  line1: string;
+  line2?: string;
+  name?: string;
+  postal_code: string;
+  state?: string;
+};
+```
+
+##### requestBody.content.application/json.billingAddress.city
+
+```ts
+city: string;
+```
+
+##### requestBody.content.application/json.billingAddress.country
+
+```ts
+country: string;
+```
+
+##### requestBody.content.application/json.billingAddress.line1
+
+```ts
+line1: string;
+```
+
+##### requestBody.content.application/json.billingAddress.line2?
+
+```ts
+optional line2: string;
+```
+
+##### requestBody.content.application/json.billingAddress.name?
+
+```ts
+optional name: string;
+```
+
+##### requestBody.content.application/json.billingAddress.postal\_code
+
+```ts
+postal_code: string;
+```
+
+##### requestBody.content.application/json.billingAddress.state?
+
+```ts
+optional state: string;
 ```
 
 ##### requestBody.content.application/json.currency?
@@ -14464,7 +17480,7 @@ createCustomer: {
 };
 ```
 
-Defined in: generated/types.ts:12752
+Defined in: generated/types.ts:14850
 
 #### parameters
 
@@ -15240,6 +18256,8 @@ createEvent: {
         application/json: {
            accountId: string;
            description?: string;
+           heroImageUrl?: string | null;
+           imageUrl?: string | null;
            layout?: {
               areas?: {
                  capacity: number;
@@ -15262,12 +18280,30 @@ createEvent: {
            name: string;
            offSaleDate?: string;
            onSaleDate?: string;
+           presentation?:   | {
+              buttonSize?: "small" | "medium" | "large";
+              cinemaGradient?: {
+                 position: "bottom" | "center";
+                 strength: 20 | 50 | 70;
+              };
+              heroLayout?: {
+                 size: "small" | "medium" | "large";
+                 type: "hero" | "cinema";
+              };
+              navbar?: {
+                 transparent?: boolean;
+              };
+              twoColumnSplit?: [number, number];
+            }
+              | null;
+           shortDescription?: string | null;
            status?:   | "draft"
               | "published"
               | "on_sale"
               | "sold_out"
               | "completed"
               | "cancelled";
+           subtitle?: string | null;
            tags?: string[];
            ticketTypes?: {
               description?: string;
@@ -15350,7 +18386,7 @@ createEvent: {
 };
 ```
 
-Defined in: generated/types.ts:6377
+Defined in: generated/types.ts:8100
 
 #### parameters
 
@@ -15395,6 +18431,8 @@ optional requestBody: {
      application/json: {
         accountId: string;
         description?: string;
+        heroImageUrl?: string | null;
+        imageUrl?: string | null;
         layout?: {
            areas?: {
               capacity: number;
@@ -15417,12 +18455,30 @@ optional requestBody: {
         name: string;
         offSaleDate?: string;
         onSaleDate?: string;
+        presentation?:   | {
+           buttonSize?: "small" | "medium" | "large";
+           cinemaGradient?: {
+              position: "bottom" | "center";
+              strength: 20 | 50 | 70;
+           };
+           heroLayout?: {
+              size: "small" | "medium" | "large";
+              type: "hero" | "cinema";
+           };
+           navbar?: {
+              transparent?: boolean;
+           };
+           twoColumnSplit?: [number, number];
+         }
+           | null;
+        shortDescription?: string | null;
         status?:   | "draft"
            | "published"
            | "on_sale"
            | "sold_out"
            | "completed"
            | "cancelled";
+        subtitle?: string | null;
         tags?: string[];
         ticketTypes?: {
            description?: string;
@@ -15445,6 +18501,8 @@ content: {
   application/json: {
      accountId: string;
      description?: string;
+     heroImageUrl?: string | null;
+     imageUrl?: string | null;
      layout?: {
         areas?: {
            capacity: number;
@@ -15467,12 +18525,30 @@ content: {
      name: string;
      offSaleDate?: string;
      onSaleDate?: string;
+     presentation?:   | {
+        buttonSize?: "small" | "medium" | "large";
+        cinemaGradient?: {
+           position: "bottom" | "center";
+           strength: 20 | 50 | 70;
+        };
+        heroLayout?: {
+           size: "small" | "medium" | "large";
+           type: "hero" | "cinema";
+        };
+        navbar?: {
+           transparent?: boolean;
+        };
+        twoColumnSplit?: [number, number];
+      }
+        | null;
+     shortDescription?: string | null;
      status?:   | "draft"
         | "published"
         | "on_sale"
         | "sold_out"
         | "completed"
         | "cancelled";
+     subtitle?: string | null;
      tags?: string[];
      ticketTypes?: {
         description?: string;
@@ -15493,6 +18569,8 @@ content: {
 application/json: {
   accountId: string;
   description?: string;
+  heroImageUrl?: string | null;
+  imageUrl?: string | null;
   layout?: {
      areas?: {
         capacity: number;
@@ -15515,12 +18593,30 @@ application/json: {
   name: string;
   offSaleDate?: string;
   onSaleDate?: string;
+  presentation?:   | {
+     buttonSize?: "small" | "medium" | "large";
+     cinemaGradient?: {
+        position: "bottom" | "center";
+        strength: 20 | 50 | 70;
+     };
+     heroLayout?: {
+        size: "small" | "medium" | "large";
+        type: "hero" | "cinema";
+     };
+     navbar?: {
+        transparent?: boolean;
+     };
+     twoColumnSplit?: [number, number];
+   }
+     | null;
+  shortDescription?: string | null;
   status?:   | "draft"
      | "published"
      | "on_sale"
      | "sold_out"
      | "completed"
      | "cancelled";
+  subtitle?: string | null;
   tags?: string[];
   ticketTypes?: {
      description?: string;
@@ -15565,6 +18661,30 @@ Event description
 ```ts
 A three-day music festival featuring top artists
 ```
+
+##### requestBody.content.application/json.heroImageUrl?
+
+```ts
+optional heroImageUrl: string | null;
+```
+
+Format: uri
+
+###### Description
+
+Event-page hero image URL
+
+##### requestBody.content.application/json.imageUrl?
+
+```ts
+optional imageUrl: string | null;
+```
+
+Format: uri
+
+###### Description
+
+Listing / card image URL
 
 ##### requestBody.content.application/json.layout?
 
@@ -15708,6 +18828,48 @@ When tickets go on sale
 2025-06-01T09:00:00Z
 ```
 
+##### requestBody.content.application/json.presentation?
+
+```ts
+optional presentation: 
+  | {
+  buttonSize?: "small" | "medium" | "large";
+  cinemaGradient?: {
+     position: "bottom" | "center";
+     strength: 20 | 50 | 70;
+  };
+  heroLayout?: {
+     size: "small" | "medium" | "large";
+     type: "hero" | "cinema";
+  };
+  navbar?: {
+     transparent?: boolean;
+  };
+  twoColumnSplit?: [number, number];
+}
+  | null;
+```
+
+###### Description
+
+Event-level storefront design override
+
+##### requestBody.content.application/json.shortDescription?
+
+```ts
+optional shortDescription: string | null;
+```
+
+###### Description
+
+Card / listing summary
+
+###### Example
+
+```ts
+Top artists across three days.
+```
+
 ##### requestBody.content.application/json.status?
 
 ```ts
@@ -15735,6 +18897,22 @@ draft
 ```ts
 draft
 @enum {string}
+```
+
+##### requestBody.content.application/json.subtitle?
+
+```ts
+optional subtitle: string | null;
+```
+
+###### Description
+
+Short event subtitle / tagline
+
+###### Example
+
+```ts
+Three days. Fifty artists. One field.
 ```
 
 ##### requestBody.content.application/json.tags?
@@ -16558,7 +19736,7 @@ createEventOccurrence: {
 };
 ```
 
-Defined in: generated/types.ts:7016
+Defined in: generated/types.ts:8819
 
 #### parameters
 
@@ -17482,7 +20660,7 @@ createEventPriceScheme: {
 };
 ```
 
-Defined in: generated/types.ts:7467
+Defined in: generated/types.ts:9270
 
 #### parameters
 
@@ -18195,6 +21373,666 @@ headers: {
 
 ***
 
+### createFeeProfile
+
+```ts
+createFeeProfile: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           name: string;
+           serviceFeeEnabled?: boolean;
+           serviceFeeFixed?: number;
+           serviceFeeLabel?: string;
+           serviceFeePercent?: number;
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              feeProfile: {
+                 createdAt: string;
+                 deletedAt: string | null;
+                 id: string;
+                 isDeleted: boolean;
+                 name: string;
+                 organisationId: string;
+                 serviceFeeEnabled: boolean;
+                 serviceFeeFixed: string | null;
+                 serviceFeeLabel: string | null;
+                 serviceFeePercent: string | null;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:18862
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        name: string;
+        serviceFeeEnabled?: boolean;
+        serviceFeeFixed?: number;
+        serviceFeeLabel?: string;
+        serviceFeePercent?: number;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     name: string;
+     serviceFeeEnabled?: boolean;
+     serviceFeeFixed?: number;
+     serviceFeeLabel?: string;
+     serviceFeePercent?: number;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  name: string;
+  serviceFeeEnabled?: boolean;
+  serviceFeeFixed?: number;
+  serviceFeeLabel?: string;
+  serviceFeePercent?: number;
+};
+```
+
+##### requestBody.content.application/json.name
+
+```ts
+name: string;
+```
+
+##### requestBody.content.application/json.serviceFeeEnabled?
+
+```ts
+optional serviceFeeEnabled: boolean;
+```
+
+##### requestBody.content.application/json.serviceFeeFixed?
+
+```ts
+optional serviceFeeFixed: number;
+```
+
+##### requestBody.content.application/json.serviceFeeLabel?
+
+```ts
+optional serviceFeeLabel: string;
+```
+
+##### requestBody.content.application/json.serviceFeePercent?
+
+```ts
+optional serviceFeePercent: number;
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           feeProfile: {
+              createdAt: string;
+              deletedAt: string | null;
+              id: string;
+              isDeleted: boolean;
+              name: string;
+              organisationId: string;
+              serviceFeeEnabled: boolean;
+              serviceFeeFixed: string | null;
+              serviceFeeLabel: string | null;
+              serviceFeePercent: string | null;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        feeProfile: {
+           createdAt: string;
+           deletedAt: string | null;
+           id: string;
+           isDeleted: boolean;
+           name: string;
+           organisationId: string;
+           serviceFeeEnabled: boolean;
+           serviceFeeFixed: string | null;
+           serviceFeeLabel: string | null;
+           serviceFeePercent: string | null;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Fee profile created successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     feeProfile: {
+        createdAt: string;
+        deletedAt: string | null;
+        id: string;
+        isDeleted: boolean;
+        name: string;
+        organisationId: string;
+        serviceFeeEnabled: boolean;
+        serviceFeeFixed: string | null;
+        serviceFeeLabel: string | null;
+        serviceFeePercent: string | null;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  feeProfile: {
+     createdAt: string;
+     deletedAt: string | null;
+     id: string;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     serviceFeeEnabled: boolean;
+     serviceFeeFixed: string | null;
+     serviceFeeLabel: string | null;
+     serviceFeePercent: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.201.content.application/json.feeProfile
+
+```ts
+feeProfile: {
+  createdAt: string;
+  deletedAt: string | null;
+  id: string;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  serviceFeeEnabled: boolean;
+  serviceFeeFixed: string | null;
+  serviceFeeLabel: string | null;
+  serviceFeePercent: string | null;
+  updatedAt: string;
+};
+```
+
+##### responses.201.content.application/json.feeProfile.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.feeProfile.deletedAt
+
+```ts
+deletedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.feeProfile.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sfp_abc123
+```
+
+##### responses.201.content.application/json.feeProfile.isDeleted
+
+```ts
+isDeleted: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.201.content.application/json.feeProfile.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Standard web fees
+```
+
+##### responses.201.content.application/json.feeProfile.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.201.content.application/json.feeProfile.serviceFeeEnabled
+
+```ts
+serviceFeeEnabled: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.201.content.application/json.feeProfile.serviceFeeFixed
+
+```ts
+serviceFeeFixed: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.feeProfile.serviceFeeLabel
+
+```ts
+serviceFeeLabel: string | null;
+```
+
+###### Example
+
+```ts
+Service fee
+```
+
+##### responses.201.content.application/json.feeProfile.serviceFeePercent
+
+```ts
+serviceFeePercent: string | null;
+```
+
+###### Example
+
+```ts
+0.0500
+```
+
+##### responses.201.content.application/json.feeProfile.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### createHold
 
 ```ts
@@ -18282,7 +22120,7 @@ createHold: {
 };
 ```
 
-Defined in: generated/types.ts:12517
+Defined in: generated/types.ts:14615
 
 #### parameters
 
@@ -19151,7 +22989,7 @@ createInventory: {
 };
 ```
 
-Defined in: generated/types.ts:11468
+Defined in: generated/types.ts:13566
 
 #### parameters
 
@@ -20171,7 +24009,7 @@ createOrder: {
 };
 ```
 
-Defined in: generated/types.ts:13207
+Defined in: generated/types.ts:15305
 
 #### parameters
 
@@ -21508,58 +25346,6 @@ createPayment: {
                  paidAt: string | null;
                  status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
                  updatedAt: string;
-               } & {
-                 accountId: string;
-                 amount: number;
-                 applicationFee: number | null;
-                 cancelledAt: string | null;
-                 capturedAt: string | null;
-                 clientSecret: string | null;
-                 createdAt: string;
-                 currency: string;
-                 expiresAt: string | null;
-                 externalPaymentId: string | null;
-                 failedAt: string | null;
-                 failureCode: string | null;
-                 failureMessage: string | null;
-                 id: string;
-                 isPartialPayment: boolean;
-                 metadata:   | {
-                  [key: string]: unknown;
-                  }
-                    | null;
-                 netAmount: number | null;
-                 orderId: string;
-                 orderNumber: string;
-                 organisationId: string;
-                 paymentMethod:   | {
-                    brand: string | null;
-                    expiryMonth: number | null;
-                    expiryYear: number | null;
-                    last4: string | null;
-                    type: "card" | "bank_transfer" | "cash" | "wallet";
-                  }
-                    | null;
-                 paymentProviderId: string;
-                 paymentType:   | "bank_transfer"
-                    | "online_card"
-                    | "online_bank_transfer"
-                    | "online_wallet"
-                    | "in_person_card"
-                    | "in_person_cash"
-                    | "cheque";
-                 processingFee: number | null;
-                 redirectUrl: string | null;
-                 remainingBalance: number | null;
-                 status:   | "cancelled"
-                    | "pending"
-                    | "succeeded"
-                    | "failed"
-                    | "processing"
-                    | "expired"
-                    | "requires_action"
-                    | "created";
-                 updatedAt: string;
               };
            };
         };
@@ -21601,7 +25387,7 @@ createPayment: {
 };
 ```
 
-Defined in: generated/types.ts:14465
+Defined in: generated/types.ts:16483
 
 #### parameters
 
@@ -21863,7 +25649,7 @@ Payment provider ID (optional - will find by type if not provided)
 ###### Example
 
 ```ts
-pp_stripeXxx123
+ppr_stripeXxx123
 ```
 
 ##### requestBody.content.application/json.paymentType
@@ -21945,58 +25731,6 @@ responses: {
               paidAt: string | null;
               status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
               updatedAt: string;
-            } & {
-              accountId: string;
-              amount: number;
-              applicationFee: number | null;
-              cancelledAt: string | null;
-              capturedAt: string | null;
-              clientSecret: string | null;
-              createdAt: string;
-              currency: string;
-              expiresAt: string | null;
-              externalPaymentId: string | null;
-              failedAt: string | null;
-              failureCode: string | null;
-              failureMessage: string | null;
-              id: string;
-              isPartialPayment: boolean;
-              metadata:   | {
-               [key: string]: unknown;
-               }
-                 | null;
-              netAmount: number | null;
-              orderId: string;
-              orderNumber: string;
-              organisationId: string;
-              paymentMethod:   | {
-                 brand: string | null;
-                 expiryMonth: number | null;
-                 expiryYear: number | null;
-                 last4: string | null;
-                 type: "card" | "bank_transfer" | "cash" | "wallet";
-               }
-                 | null;
-              paymentProviderId: string;
-              paymentType:   | "bank_transfer"
-                 | "online_card"
-                 | "online_bank_transfer"
-                 | "online_wallet"
-                 | "in_person_card"
-                 | "in_person_cash"
-                 | "cheque";
-              processingFee: number | null;
-              redirectUrl: string | null;
-              remainingBalance: number | null;
-              status:   | "cancelled"
-                 | "pending"
-                 | "succeeded"
-                 | "failed"
-                 | "processing"
-                 | "expired"
-                 | "requires_action"
-                 | "created";
-              updatedAt: string;
            };
         };
      };
@@ -22057,58 +25791,6 @@ responses: {
            paidAt: string | null;
            status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
            updatedAt: string;
-         } & {
-           accountId: string;
-           amount: number;
-           applicationFee: number | null;
-           cancelledAt: string | null;
-           capturedAt: string | null;
-           clientSecret: string | null;
-           createdAt: string;
-           currency: string;
-           expiresAt: string | null;
-           externalPaymentId: string | null;
-           failedAt: string | null;
-           failureCode: string | null;
-           failureMessage: string | null;
-           id: string;
-           isPartialPayment: boolean;
-           metadata:   | {
-            [key: string]: unknown;
-            }
-              | null;
-           netAmount: number | null;
-           orderId: string;
-           orderNumber: string;
-           organisationId: string;
-           paymentMethod:   | {
-              brand: string | null;
-              expiryMonth: number | null;
-              expiryYear: number | null;
-              last4: string | null;
-              type: "card" | "bank_transfer" | "cash" | "wallet";
-            }
-              | null;
-           paymentProviderId: string;
-           paymentType:   | "bank_transfer"
-              | "online_card"
-              | "online_bank_transfer"
-              | "online_wallet"
-              | "in_person_card"
-              | "in_person_cash"
-              | "cheque";
-           processingFee: number | null;
-           redirectUrl: string | null;
-           remainingBalance: number | null;
-           status:   | "cancelled"
-              | "pending"
-              | "succeeded"
-              | "failed"
-              | "processing"
-              | "expired"
-              | "requires_action"
-              | "created";
-           updatedAt: string;
         };
      };
   };
@@ -22141,58 +25823,6 @@ content: {
         paidAt: string | null;
         status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
         updatedAt: string;
-      } & {
-        accountId: string;
-        amount: number;
-        applicationFee: number | null;
-        cancelledAt: string | null;
-        capturedAt: string | null;
-        clientSecret: string | null;
-        createdAt: string;
-        currency: string;
-        expiresAt: string | null;
-        externalPaymentId: string | null;
-        failedAt: string | null;
-        failureCode: string | null;
-        failureMessage: string | null;
-        id: string;
-        isPartialPayment: boolean;
-        metadata:   | {
-         [key: string]: unknown;
-         }
-           | null;
-        netAmount: number | null;
-        orderId: string;
-        orderNumber: string;
-        organisationId: string;
-        paymentMethod:   | {
-           brand: string | null;
-           expiryMonth: number | null;
-           expiryYear: number | null;
-           last4: string | null;
-           type: "card" | "bank_transfer" | "cash" | "wallet";
-         }
-           | null;
-        paymentProviderId: string;
-        paymentType:   | "bank_transfer"
-           | "online_card"
-           | "online_bank_transfer"
-           | "online_wallet"
-           | "in_person_card"
-           | "in_person_cash"
-           | "cheque";
-        processingFee: number | null;
-        redirectUrl: string | null;
-        remainingBalance: number | null;
-        status:   | "cancelled"
-           | "pending"
-           | "succeeded"
-           | "failed"
-           | "processing"
-           | "expired"
-           | "requires_action"
-           | "created";
-        updatedAt: string;
      };
   };
 };
@@ -22216,58 +25846,6 @@ application/json: {
      paidAt: string | null;
      status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
      updatedAt: string;
-   } & {
-     accountId: string;
-     amount: number;
-     applicationFee: number | null;
-     cancelledAt: string | null;
-     capturedAt: string | null;
-     clientSecret: string | null;
-     createdAt: string;
-     currency: string;
-     expiresAt: string | null;
-     externalPaymentId: string | null;
-     failedAt: string | null;
-     failureCode: string | null;
-     failureMessage: string | null;
-     id: string;
-     isPartialPayment: boolean;
-     metadata:   | {
-      [key: string]: unknown;
-      }
-        | null;
-     netAmount: number | null;
-     orderId: string;
-     orderNumber: string;
-     organisationId: string;
-     paymentMethod:   | {
-        brand: string | null;
-        expiryMonth: number | null;
-        expiryYear: number | null;
-        last4: string | null;
-        type: "card" | "bank_transfer" | "cash" | "wallet";
-      }
-        | null;
-     paymentProviderId: string;
-     paymentType:   | "bank_transfer"
-        | "online_card"
-        | "online_bank_transfer"
-        | "online_wallet"
-        | "in_person_card"
-        | "in_person_cash"
-        | "cheque";
-     processingFee: number | null;
-     redirectUrl: string | null;
-     remainingBalance: number | null;
-     status:   | "cancelled"
-        | "pending"
-        | "succeeded"
-        | "failed"
-        | "processing"
-        | "expired"
-        | "requires_action"
-        | "created";
-     updatedAt: string;
   };
 };
 ```
@@ -22289,64 +25867,10 @@ payment: {
   paidAt: string | null;
   status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
   updatedAt: string;
-} & {
-  accountId: string;
-  amount: number;
-  applicationFee: number | null;
-  cancelledAt: string | null;
-  capturedAt: string | null;
-  clientSecret: string | null;
-  createdAt: string;
-  currency: string;
-  expiresAt: string | null;
-  externalPaymentId: string | null;
-  failedAt: string | null;
-  failureCode: string | null;
-  failureMessage: string | null;
-  id: string;
-  isPartialPayment: boolean;
-  metadata:   | {
-   [key: string]: unknown;
-   }
-     | null;
-  netAmount: number | null;
-  orderId: string;
-  orderNumber: string;
-  organisationId: string;
-  paymentMethod:   | {
-     brand: string | null;
-     expiryMonth: number | null;
-     expiryYear: number | null;
-     last4: string | null;
-     type: "card" | "bank_transfer" | "cash" | "wallet";
-   }
-     | null;
-  paymentProviderId: string;
-  paymentType:   | "bank_transfer"
-     | "online_card"
-     | "online_bank_transfer"
-     | "online_wallet"
-     | "in_person_card"
-     | "in_person_cash"
-     | "cheque";
-  processingFee: number | null;
-  redirectUrl: string | null;
-  remainingBalance: number | null;
-  status:   | "cancelled"
-     | "pending"
-     | "succeeded"
-     | "failed"
-     | "processing"
-     | "expired"
-     | "requires_action"
-     | "created";
-  updatedAt: string;
 };
 ```
 
-###### Type Declaration
-
-###### amount
+##### responses.201.content.application/json.payment.amount
 
 ```ts
 amount: string;
@@ -22358,7 +25882,7 @@ amount: string;
 25.00
 ```
 
-###### createdAt
+##### responses.201.content.application/json.payment.createdAt
 
 ```ts
 createdAt: string;
@@ -22370,7 +25894,7 @@ createdAt: string;
 2024-01-15T10:30:00Z
 ```
 
-###### currency
+##### responses.201.content.application/json.payment.currency
 
 ```ts
 currency: string;
@@ -22382,7 +25906,7 @@ currency: string;
 USD
 ```
 
-###### failedAt
+##### responses.201.content.application/json.payment.failedAt
 
 ```ts
 failedAt: string | null;
@@ -22394,7 +25918,7 @@ failedAt: string | null;
 null
 ```
 
-###### failureCode
+##### responses.201.content.application/json.payment.failureCode
 
 ```ts
 failureCode: string | null;
@@ -22406,7 +25930,7 @@ failureCode: string | null;
 null
 ```
 
-###### failureMessage
+##### responses.201.content.application/json.payment.failureMessage
 
 ```ts
 failureMessage: string | null;
@@ -22418,7 +25942,7 @@ failureMessage: string | null;
 null
 ```
 
-###### id
+##### responses.201.content.application/json.payment.id
 
 ```ts
 id: string;
@@ -22430,7 +25954,7 @@ id: string;
 pay_abc123
 ```
 
-###### invoiceId
+##### responses.201.content.application/json.payment.invoiceId
 
 ```ts
 invoiceId: string | null;
@@ -22442,7 +25966,7 @@ invoiceId: string | null;
 inv_abc123
 ```
 
-###### method
+##### responses.201.content.application/json.payment.method
 
 ```ts
 method: string | null;
@@ -22454,7 +25978,7 @@ method: string | null;
 card
 ```
 
-###### organisationId
+##### responses.201.content.application/json.payment.organisationId
 
 ```ts
 organisationId: string;
@@ -22466,7 +25990,7 @@ organisationId: string;
 org_abc123
 ```
 
-###### paidAt
+##### responses.201.content.application/json.payment.paidAt
 
 ```ts
 paidAt: string | null;
@@ -22478,7 +26002,7 @@ paidAt: string | null;
 2024-01-15T10:35:00Z
 ```
 
-###### status
+##### responses.201.content.application/json.payment.status
 
 ```ts
 status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
@@ -22491,7 +26015,7 @@ succeeded
 @enum {string}
 ```
 
-###### updatedAt
+##### responses.201.content.application/json.payment.updatedAt
 
 ```ts
 updatedAt: string;
@@ -22501,383 +26025,6 @@ updatedAt: string;
 
 ```ts
 2024-01-15T10:35:00Z
-```
-
-###### Type Declaration
-
-###### accountId
-
-```ts
-accountId: string;
-```
-
-###### Example
-
-```ts
-acc_xyz789
-```
-
-###### amount
-
-```ts
-amount: number;
-```
-
-###### Example
-
-```ts
-97
-```
-
-###### applicationFee
-
-```ts
-applicationFee: number | null;
-```
-
-###### Example
-
-```ts
-2
-```
-
-###### cancelledAt
-
-```ts
-cancelledAt: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### capturedAt
-
-```ts
-capturedAt: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### clientSecret
-
-```ts
-clientSecret: string | null;
-```
-
-###### Example
-
-```ts
-pi_xxx_secret_yyy
-```
-
-###### createdAt
-
-```ts
-createdAt: string;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:30:00Z
-```
-
-###### currency
-
-```ts
-currency: string;
-```
-
-###### Example
-
-```ts
-GBP
-```
-
-###### expiresAt
-
-```ts
-expiresAt: string | null;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:45:00Z
-```
-
-###### externalPaymentId
-
-```ts
-externalPaymentId: string | null;
-```
-
-###### Example
-
-```ts
-pi_1234567890abcdef
-```
-
-###### failedAt
-
-```ts
-failedAt: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### failureCode
-
-```ts
-failureCode: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### failureMessage
-
-```ts
-failureMessage: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### id
-
-```ts
-id: string;
-```
-
-###### Example
-
-```ts
-pay_abc123xyz789
-```
-
-###### isPartialPayment
-
-```ts
-isPartialPayment: boolean;
-```
-
-###### Example
-
-```ts
-false
-```
-
-###### metadata
-
-```ts
-metadata: 
-  | {
-[key: string]: unknown;
-}
-  | null;
-```
-
-###### Example
-
-```ts
-{
-                 *       "customerEmail": "customer@example.com"
-                 *     }
-```
-
-###### netAmount
-
-```ts
-netAmount: number | null;
-```
-
-###### Example
-
-```ts
-92.09
-```
-
-###### orderId
-
-```ts
-orderId: string;
-```
-
-###### Example
-
-```ts
-ord_abc123
-```
-
-###### orderNumber
-
-```ts
-orderNumber: string;
-```
-
-###### Example
-
-```ts
-ORD-ABC123
-```
-
-###### organisationId
-
-```ts
-organisationId: string;
-```
-
-###### Example
-
-```ts
-org_xyz789
-```
-
-###### paymentMethod
-
-```ts
-paymentMethod: 
-  | {
-  brand: string | null;
-  expiryMonth: number | null;
-  expiryYear: number | null;
-  last4: string | null;
-  type: "card" | "bank_transfer" | "cash" | "wallet";
-}
-  | null;
-```
-
-###### Type Declaration
-
-```ts
-{
-  brand: string | null;
-  expiryMonth: number | null;
-  expiryYear: number | null;
-  last4: string | null;
-  type: "card" | "bank_transfer" | "cash" | "wallet";
-}
-```
-
-`null`
-
-###### paymentProviderId
-
-```ts
-paymentProviderId: string;
-```
-
-###### Example
-
-```ts
-pp_stripeXxx123
-```
-
-###### paymentType
-
-```ts
-paymentType: 
-  | "bank_transfer"
-  | "online_card"
-  | "online_bank_transfer"
-  | "online_wallet"
-  | "in_person_card"
-  | "in_person_cash"
-  | "cheque";
-```
-
-###### Example
-
-```ts
-online_card
-@enum {string}
-```
-
-###### processingFee
-
-```ts
-processingFee: number | null;
-```
-
-###### Example
-
-```ts
-2.91
-```
-
-###### redirectUrl
-
-```ts
-redirectUrl: string | null;
-```
-
-###### Example
-
-```ts
-https://checkout.stripe.com/pay/xxx
-```
-
-###### remainingBalance
-
-```ts
-remainingBalance: number | null;
-```
-
-###### Example
-
-```ts
-0
-```
-
-###### status
-
-```ts
-status: 
-  | "cancelled"
-  | "pending"
-  | "succeeded"
-  | "failed"
-  | "processing"
-  | "expired"
-  | "requires_action"
-  | "created";
-```
-
-###### Example
-
-```ts
-pending
-@enum {string}
-```
-
-###### updatedAt
-
-```ts
-updatedAt: string;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:30:00Z
 ```
 
 ##### responses.201.headers
@@ -23126,13 +26273,13 @@ createPaymentProvider: {
               | "in_person_card"
               | "in_person_cash"
              | "cheque")[];
-           type:   | "bank_transfer"
-              | "cash"
-              | "stripe_connect"
+           type:   | "stripe_connect"
               | "stripe_direct"
               | "adyen"
               | "square"
-              | "paypal";
+              | "paypal"
+              | "cash"
+              | "bank_transfer";
         };
      };
   };
@@ -23190,13 +26337,13 @@ createPaymentProvider: {
                     | "in_person_card"
                     | "in_person_cash"
                    | "cheque")[];
-                 type:   | "bank_transfer"
-                    | "cash"
-                    | "stripe_connect"
+                 type:   | "stripe_connect"
                     | "stripe_direct"
                     | "adyen"
                     | "square"
-                    | "paypal";
+                    | "paypal"
+                    | "cash"
+                    | "bank_transfer";
                  updatedAt: string;
               };
            };
@@ -23239,7 +26386,7 @@ createPaymentProvider: {
 };
 ```
 
-Defined in: generated/types.ts:14930
+Defined in: generated/types.ts:16948
 
 #### parameters
 
@@ -23324,13 +26471,13 @@ optional requestBody: {
            | "in_person_card"
            | "in_person_cash"
           | "cheque")[];
-        type:   | "bank_transfer"
-           | "cash"
-           | "stripe_connect"
+        type:   | "stripe_connect"
            | "stripe_direct"
            | "adyen"
            | "square"
-           | "paypal";
+           | "paypal"
+           | "cash"
+           | "bank_transfer";
      };
   };
 };
@@ -23383,13 +26530,13 @@ content: {
         | "in_person_card"
         | "in_person_cash"
        | "cheque")[];
-     type:   | "bank_transfer"
-        | "cash"
-        | "stripe_connect"
+     type:   | "stripe_connect"
         | "stripe_direct"
         | "adyen"
         | "square"
-        | "paypal";
+        | "paypal"
+        | "cash"
+        | "bank_transfer";
   };
 };
 ```
@@ -23440,13 +26587,13 @@ application/json: {
      | "in_person_card"
      | "in_person_cash"
     | "cheque")[];
-  type:   | "bank_transfer"
-     | "cash"
-     | "stripe_connect"
+  type:   | "stripe_connect"
      | "stripe_direct"
      | "adyen"
      | "square"
-     | "paypal";
+     | "paypal"
+     | "cash"
+     | "bank_transfer";
 };
 ```
 
@@ -23964,13 +27111,13 @@ Supported payment types
 
 ```ts
 type: 
-  | "bank_transfer"
-  | "cash"
   | "stripe_connect"
   | "stripe_direct"
   | "adyen"
   | "square"
-  | "paypal";
+  | "paypal"
+  | "cash"
+  | "bank_transfer";
 ```
 
 ###### Description
@@ -24041,13 +27188,13 @@ responses: {
                  | "in_person_card"
                  | "in_person_cash"
                 | "cheque")[];
-              type:   | "bank_transfer"
-                 | "cash"
-                 | "stripe_connect"
+              type:   | "stripe_connect"
                  | "stripe_direct"
                  | "adyen"
                  | "square"
-                 | "paypal";
+                 | "paypal"
+                 | "cash"
+                 | "bank_transfer";
               updatedAt: string;
            };
         };
@@ -24145,13 +27292,13 @@ responses: {
               | "in_person_card"
               | "in_person_cash"
              | "cheque")[];
-           type:   | "bank_transfer"
-              | "cash"
-              | "stripe_connect"
+           type:   | "stripe_connect"
               | "stripe_direct"
               | "adyen"
               | "square"
-              | "paypal";
+              | "paypal"
+              | "cash"
+              | "bank_transfer";
            updatedAt: string;
         };
      };
@@ -24221,13 +27368,13 @@ content: {
            | "in_person_card"
            | "in_person_cash"
           | "cheque")[];
-        type:   | "bank_transfer"
-           | "cash"
-           | "stripe_connect"
+        type:   | "stripe_connect"
            | "stripe_direct"
            | "adyen"
            | "square"
-           | "paypal";
+           | "paypal"
+           | "cash"
+           | "bank_transfer";
         updatedAt: string;
      };
   };
@@ -24288,13 +27435,13 @@ application/json: {
         | "in_person_card"
         | "in_person_cash"
        | "cheque")[];
-     type:   | "bank_transfer"
-        | "cash"
-        | "stripe_connect"
+     type:   | "stripe_connect"
         | "stripe_direct"
         | "adyen"
         | "square"
-        | "paypal";
+        | "paypal"
+        | "cash"
+        | "bank_transfer";
      updatedAt: string;
   };
 };
@@ -24353,13 +27500,13 @@ provider: {
      | "in_person_card"
      | "in_person_cash"
     | "cheque")[];
-  type:   | "bank_transfer"
-     | "cash"
-     | "stripe_connect"
+  type:   | "stripe_connect"
      | "stripe_direct"
      | "adyen"
      | "square"
-     | "paypal";
+     | "paypal"
+     | "cash"
+     | "bank_transfer";
   updatedAt: string;
 };
 ```
@@ -24649,13 +27796,13 @@ supportedPaymentTypes: (
 
 ```ts
 type: 
-  | "bank_transfer"
-  | "cash"
   | "stripe_connect"
   | "stripe_direct"
   | "adyen"
   | "square"
-  | "paypal";
+  | "paypal"
+  | "cash"
+  | "bank_transfer";
 ```
 
 ###### Example
@@ -24955,7 +28102,7 @@ createPaymentRefund: {
 };
 ```
 
-Defined in: generated/types.ts:14771
+Defined in: generated/types.ts:16789
 
 #### parameters
 
@@ -25671,6 +28818,760 @@ headers: {
 
 ***
 
+### createPresaleCode
+
+```ts
+createPresaleCode: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           accountId: string;
+           benefit: string;
+           benefitExpiresAt?: string;
+           channelId?: string;
+           code: string;
+           expiresAt?: string;
+           maxRedemptions?: number;
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              presaleCode: {
+                 accountId: string;
+                 benefit: string;
+                 benefitExpiresAt: string | null;
+                 channelId: string | null;
+                 code: string;
+                 createdAt: string;
+                 createdBy: string | null;
+                 expiresAt: string | null;
+                 id: string;
+                 isActive: boolean;
+                 maxRedemptions: number | null;
+                 organisationId: string;
+                 redemptionCount: number;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:18675
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        accountId: string;
+        benefit: string;
+        benefitExpiresAt?: string;
+        channelId?: string;
+        code: string;
+        expiresAt?: string;
+        maxRedemptions?: number;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     accountId: string;
+     benefit: string;
+     benefitExpiresAt?: string;
+     channelId?: string;
+     code: string;
+     expiresAt?: string;
+     maxRedemptions?: number;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  accountId: string;
+  benefit: string;
+  benefitExpiresAt?: string;
+  channelId?: string;
+  code: string;
+  expiresAt?: string;
+  maxRedemptions?: number;
+};
+```
+
+##### requestBody.content.application/json.accountId
+
+```ts
+accountId: string;
+```
+
+##### requestBody.content.application/json.benefit
+
+```ts
+benefit: string;
+```
+
+##### requestBody.content.application/json.benefitExpiresAt?
+
+```ts
+optional benefitExpiresAt: string;
+```
+
+###### Description
+
+When the granted benefit lapses (ISO 8601); omit for no expiry
+
+###### Example
+
+```ts
+2026-06-01T00:00:00Z
+```
+
+##### requestBody.content.application/json.channelId?
+
+```ts
+optional channelId: string;
+```
+
+##### requestBody.content.application/json.code
+
+```ts
+code: string;
+```
+
+##### requestBody.content.application/json.expiresAt?
+
+```ts
+optional expiresAt: string;
+```
+
+###### Description
+
+Code validity end (ISO 8601); omit for no expiry
+
+###### Example
+
+```ts
+2026-03-01T00:00:00Z
+```
+
+##### requestBody.content.application/json.maxRedemptions?
+
+```ts
+optional maxRedemptions: number;
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           presaleCode: {
+              accountId: string;
+              benefit: string;
+              benefitExpiresAt: string | null;
+              channelId: string | null;
+              code: string;
+              createdAt: string;
+              createdBy: string | null;
+              expiresAt: string | null;
+              id: string;
+              isActive: boolean;
+              maxRedemptions: number | null;
+              organisationId: string;
+              redemptionCount: number;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        presaleCode: {
+           accountId: string;
+           benefit: string;
+           benefitExpiresAt: string | null;
+           channelId: string | null;
+           code: string;
+           createdAt: string;
+           createdBy: string | null;
+           expiresAt: string | null;
+           id: string;
+           isActive: boolean;
+           maxRedemptions: number | null;
+           organisationId: string;
+           redemptionCount: number;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Presale code created successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     presaleCode: {
+        accountId: string;
+        benefit: string;
+        benefitExpiresAt: string | null;
+        channelId: string | null;
+        code: string;
+        createdAt: string;
+        createdBy: string | null;
+        expiresAt: string | null;
+        id: string;
+        isActive: boolean;
+        maxRedemptions: number | null;
+        organisationId: string;
+        redemptionCount: number;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  presaleCode: {
+     accountId: string;
+     benefit: string;
+     benefitExpiresAt: string | null;
+     channelId: string | null;
+     code: string;
+     createdAt: string;
+     createdBy: string | null;
+     expiresAt: string | null;
+     id: string;
+     isActive: boolean;
+     maxRedemptions: number | null;
+     organisationId: string;
+     redemptionCount: number;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.201.content.application/json.presaleCode
+
+```ts
+presaleCode: {
+  accountId: string;
+  benefit: string;
+  benefitExpiresAt: string | null;
+  channelId: string | null;
+  code: string;
+  createdAt: string;
+  createdBy: string | null;
+  expiresAt: string | null;
+  id: string;
+  isActive: boolean;
+  maxRedemptions: number | null;
+  organisationId: string;
+  redemptionCount: number;
+  updatedAt: string;
+};
+```
+
+##### responses.201.content.application/json.presaleCode.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### responses.201.content.application/json.presaleCode.benefit
+
+```ts
+benefit: string;
+```
+
+###### Example
+
+```ts
+presale.summer-gala
+```
+
+##### responses.201.content.application/json.presaleCode.benefitExpiresAt
+
+```ts
+benefitExpiresAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.presaleCode.channelId
+
+```ts
+channelId: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.presaleCode.code
+
+```ts
+code: string;
+```
+
+###### Example
+
+```ts
+EARLYBIRD-2026
+```
+
+##### responses.201.content.application/json.presaleCode.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.presaleCode.createdBy
+
+```ts
+createdBy: string | null;
+```
+
+###### Example
+
+```ts
+usr_abc123
+```
+
+##### responses.201.content.application/json.presaleCode.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2026-03-01T00:00:00Z
+```
+
+##### responses.201.content.application/json.presaleCode.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+psc_abc123
+```
+
+##### responses.201.content.application/json.presaleCode.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.201.content.application/json.presaleCode.maxRedemptions
+
+```ts
+maxRedemptions: number | null;
+```
+
+###### Example
+
+```ts
+500
+```
+
+##### responses.201.content.application/json.presaleCode.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.201.content.application/json.presaleCode.redemptionCount
+
+```ts
+redemptionCount: number;
+```
+
+###### Example
+
+```ts
+42
+```
+
+##### responses.201.content.application/json.presaleCode.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### createRole
 
 ```ts
@@ -25743,7 +29644,7 @@ createRole: {
 };
 ```
 
-Defined in: generated/types.ts:5723
+Defined in: generated/types.ts:7446
 
 #### parameters
 
@@ -26295,6 +30196,6242 @@ headers: {
 
 ***
 
+### createSalesCart
+
+```ts
+createSalesCart: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           metadata?: {
+            [key: string]: unknown;
+           };
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              cart: {
+                 currency: string | null;
+                 expiresAt: string;
+                 id: string;
+                 items: {
+                    categoryName: string;
+                    currency: string;
+                    eventName: string;
+                    eventOccurrenceId: string;
+                    id: string;
+                    quantity: number;
+                    subtotal: number;
+                    ticketTypeName: string;
+                    unitPrice: number;
+                 }[];
+                 itemsSubtotal: number;
+                 orderId: string | null;
+                 status: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:19295
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        metadata?: {
+         [key: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     metadata?: {
+      [key: string]: unknown;
+     };
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  metadata?: {
+   [key: string]: unknown;
+  };
+};
+```
+
+##### requestBody.content.application/json.metadata?
+
+```ts
+optional metadata: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           cart: {
+              currency: string | null;
+              expiresAt: string;
+              id: string;
+              items: {
+                 categoryName: string;
+                 currency: string;
+                 eventName: string;
+                 eventOccurrenceId: string;
+                 id: string;
+                 quantity: number;
+                 subtotal: number;
+                 ticketTypeName: string;
+                 unitPrice: number;
+              }[];
+              itemsSubtotal: number;
+              orderId: string | null;
+              status: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        cart: {
+           currency: string | null;
+           expiresAt: string;
+           id: string;
+           items: {
+              categoryName: string;
+              currency: string;
+              eventName: string;
+              eventOccurrenceId: string;
+              id: string;
+              quantity: number;
+              subtotal: number;
+              ticketTypeName: string;
+              unitPrice: number;
+           }[];
+           itemsSubtotal: number;
+           orderId: string | null;
+           status: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Cart created successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     cart: {
+        currency: string | null;
+        expiresAt: string;
+        id: string;
+        items: {
+           categoryName: string;
+           currency: string;
+           eventName: string;
+           eventOccurrenceId: string;
+           id: string;
+           quantity: number;
+           subtotal: number;
+           ticketTypeName: string;
+           unitPrice: number;
+        }[];
+        itemsSubtotal: number;
+        orderId: string | null;
+        status: string;
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  cart: {
+     currency: string | null;
+     expiresAt: string;
+     id: string;
+     items: {
+        categoryName: string;
+        currency: string;
+        eventName: string;
+        eventOccurrenceId: string;
+        id: string;
+        quantity: number;
+        subtotal: number;
+        ticketTypeName: string;
+        unitPrice: number;
+     }[];
+     itemsSubtotal: number;
+     orderId: string | null;
+     status: string;
+  };
+};
+```
+
+##### responses.201.content.application/json.cart
+
+```ts
+cart: {
+  currency: string | null;
+  expiresAt: string;
+  id: string;
+  items: {
+     categoryName: string;
+     currency: string;
+     eventName: string;
+     eventOccurrenceId: string;
+     id: string;
+     quantity: number;
+     subtotal: number;
+     ticketTypeName: string;
+     unitPrice: number;
+  }[];
+  itemsSubtotal: number;
+  orderId: string | null;
+  status: string;
+};
+```
+
+##### responses.201.content.application/json.cart.currency
+
+```ts
+currency: string | null;
+```
+
+##### responses.201.content.application/json.cart.expiresAt
+
+```ts
+expiresAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### responses.201.content.application/json.cart.id
+
+```ts
+id: string;
+```
+
+##### responses.201.content.application/json.cart.items
+
+```ts
+items: {
+  categoryName: string;
+  currency: string;
+  eventName: string;
+  eventOccurrenceId: string;
+  id: string;
+  quantity: number;
+  subtotal: number;
+  ticketTypeName: string;
+  unitPrice: number;
+}[];
+```
+
+##### responses.201.content.application/json.cart.itemsSubtotal
+
+```ts
+itemsSubtotal: number;
+```
+
+##### responses.201.content.application/json.cart.orderId
+
+```ts
+orderId: string | null;
+```
+
+##### responses.201.content.application/json.cart.status
+
+```ts
+status: string;
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### createSalesChannel
+
+```ts
+createSalesChannel: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           accountId: string;
+           channelTags?: string[];
+           channelType:   | "website"
+              | "embed"
+              | "box_office"
+              | "kiosk"
+              | "reseller_api"
+              | "internal";
+           checkoutTtlSeconds?: number;
+           customerConfig?: {
+              allowGuestCheckout?: boolean;
+              collectAddress?: boolean;
+              collectPhone?: boolean;
+              requireLogin?: boolean;
+           };
+           customerFacing?: {
+              allowedOrigins?: string[];
+              customDomain?: string;
+              enabled?: boolean;
+              magicLinkBaseUrl?: string;
+              partnerIdentity?: {
+                 algorithm: "RS256" | "RS384" | "RS512" | "ES256" | "ES384" | "ES512";
+                 issuer: string;
+                 publicKeyPem: string;
+              };
+              subdomain?: string;
+           };
+           description?: string;
+           eventFilter?: {
+              channelTags?: string[];
+              mode: "all" | "tagged";
+           };
+           feeProfileId?: string;
+           name: string;
+           pricingConfig?: {
+              includeFeesInPrice?: boolean;
+              showMemberPricing?: boolean;
+              showOriginalPrice?: boolean;
+           };
+           receivingAccountId?: string;
+           reservationTtlSeconds?: number;
+           slug: string;
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              channel: {
+                 accountId: string;
+                 channelTags: string[];
+                 channelType:   | "website"
+                    | "embed"
+                    | "box_office"
+                    | "kiosk"
+                    | "reseller_api"
+                    | "internal";
+                 checkoutTtlSeconds: number;
+                 createdAt: string;
+                 customerConfig: {
+                    allowGuestCheckout: boolean;
+                    collectAddress: boolean;
+                    collectPhone: boolean;
+                    requireLogin: boolean;
+                 };
+                 customerFacing: {
+                    allowedOrigins: string[];
+                    customDomain?: string;
+                    enabled: boolean;
+                    magicLinkBaseUrl?: string;
+                    partnerIdentity?: {
+                       algorithm: string;
+                       issuer: string;
+                       publicKeyPem: string;
+                    };
+                    subdomain?: string;
+                 };
+                 deletedAt: string | null;
+                 description: string | null;
+                 eventFilter: {
+                    channelTags?: string[];
+                    mode: "all" | "tagged";
+                 };
+                 feeProfileId: string | null;
+                 id: string;
+                 isActive: boolean;
+                 isDeleted: boolean;
+                 name: string;
+                 organisationId: string;
+                 pricingConfig: {
+                    includeFeesInPrice: boolean;
+                    showMemberPricing: boolean;
+                    showOriginalPrice: boolean;
+                 };
+                 receivingAccountId: string;
+                 reservationTtlSeconds: number;
+                 slug: string;
+                 themeId: string | null;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:17604
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        accountId: string;
+        channelTags?: string[];
+        channelType:   | "website"
+           | "embed"
+           | "box_office"
+           | "kiosk"
+           | "reseller_api"
+           | "internal";
+        checkoutTtlSeconds?: number;
+        customerConfig?: {
+           allowGuestCheckout?: boolean;
+           collectAddress?: boolean;
+           collectPhone?: boolean;
+           requireLogin?: boolean;
+        };
+        customerFacing?: {
+           allowedOrigins?: string[];
+           customDomain?: string;
+           enabled?: boolean;
+           magicLinkBaseUrl?: string;
+           partnerIdentity?: {
+              algorithm: "RS256" | "RS384" | "RS512" | "ES256" | "ES384" | "ES512";
+              issuer: string;
+              publicKeyPem: string;
+           };
+           subdomain?: string;
+        };
+        description?: string;
+        eventFilter?: {
+           channelTags?: string[];
+           mode: "all" | "tagged";
+        };
+        feeProfileId?: string;
+        name: string;
+        pricingConfig?: {
+           includeFeesInPrice?: boolean;
+           showMemberPricing?: boolean;
+           showOriginalPrice?: boolean;
+        };
+        receivingAccountId?: string;
+        reservationTtlSeconds?: number;
+        slug: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     accountId: string;
+     channelTags?: string[];
+     channelType:   | "website"
+        | "embed"
+        | "box_office"
+        | "kiosk"
+        | "reseller_api"
+        | "internal";
+     checkoutTtlSeconds?: number;
+     customerConfig?: {
+        allowGuestCheckout?: boolean;
+        collectAddress?: boolean;
+        collectPhone?: boolean;
+        requireLogin?: boolean;
+     };
+     customerFacing?: {
+        allowedOrigins?: string[];
+        customDomain?: string;
+        enabled?: boolean;
+        magicLinkBaseUrl?: string;
+        partnerIdentity?: {
+           algorithm: "RS256" | "RS384" | "RS512" | "ES256" | "ES384" | "ES512";
+           issuer: string;
+           publicKeyPem: string;
+        };
+        subdomain?: string;
+     };
+     description?: string;
+     eventFilter?: {
+        channelTags?: string[];
+        mode: "all" | "tagged";
+     };
+     feeProfileId?: string;
+     name: string;
+     pricingConfig?: {
+        includeFeesInPrice?: boolean;
+        showMemberPricing?: boolean;
+        showOriginalPrice?: boolean;
+     };
+     receivingAccountId?: string;
+     reservationTtlSeconds?: number;
+     slug: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  accountId: string;
+  channelTags?: string[];
+  channelType:   | "website"
+     | "embed"
+     | "box_office"
+     | "kiosk"
+     | "reseller_api"
+     | "internal";
+  checkoutTtlSeconds?: number;
+  customerConfig?: {
+     allowGuestCheckout?: boolean;
+     collectAddress?: boolean;
+     collectPhone?: boolean;
+     requireLogin?: boolean;
+  };
+  customerFacing?: {
+     allowedOrigins?: string[];
+     customDomain?: string;
+     enabled?: boolean;
+     magicLinkBaseUrl?: string;
+     partnerIdentity?: {
+        algorithm: "RS256" | "RS384" | "RS512" | "ES256" | "ES384" | "ES512";
+        issuer: string;
+        publicKeyPem: string;
+     };
+     subdomain?: string;
+  };
+  description?: string;
+  eventFilter?: {
+     channelTags?: string[];
+     mode: "all" | "tagged";
+  };
+  feeProfileId?: string;
+  name: string;
+  pricingConfig?: {
+     includeFeesInPrice?: boolean;
+     showMemberPricing?: boolean;
+     showOriginalPrice?: boolean;
+  };
+  receivingAccountId?: string;
+  reservationTtlSeconds?: number;
+  slug: string;
+};
+```
+
+##### requestBody.content.application/json.accountId
+
+```ts
+accountId: string;
+```
+
+##### requestBody.content.application/json.channelTags?
+
+```ts
+optional channelTags: string[];
+```
+
+##### requestBody.content.application/json.channelType
+
+```ts
+channelType: 
+  | "website"
+  | "embed"
+  | "box_office"
+  | "kiosk"
+  | "reseller_api"
+  | "internal";
+```
+
+##### requestBody.content.application/json.checkoutTtlSeconds?
+
+```ts
+optional checkoutTtlSeconds: number;
+```
+
+##### requestBody.content.application/json.customerConfig?
+
+```ts
+optional customerConfig: {
+  allowGuestCheckout?: boolean;
+  collectAddress?: boolean;
+  collectPhone?: boolean;
+  requireLogin?: boolean;
+};
+```
+
+##### requestBody.content.application/json.customerConfig.allowGuestCheckout?
+
+```ts
+optional allowGuestCheckout: boolean;
+```
+
+##### requestBody.content.application/json.customerConfig.collectAddress?
+
+```ts
+optional collectAddress: boolean;
+```
+
+##### requestBody.content.application/json.customerConfig.collectPhone?
+
+```ts
+optional collectPhone: boolean;
+```
+
+##### requestBody.content.application/json.customerConfig.requireLogin?
+
+```ts
+optional requireLogin: boolean;
+```
+
+##### requestBody.content.application/json.customerFacing?
+
+```ts
+optional customerFacing: {
+  allowedOrigins?: string[];
+  customDomain?: string;
+  enabled?: boolean;
+  magicLinkBaseUrl?: string;
+  partnerIdentity?: {
+     algorithm: "RS256" | "RS384" | "RS512" | "ES256" | "ES384" | "ES512";
+     issuer: string;
+     publicKeyPem: string;
+  };
+  subdomain?: string;
+};
+```
+
+##### requestBody.content.application/json.customerFacing.allowedOrigins?
+
+```ts
+optional allowedOrigins: string[];
+```
+
+##### requestBody.content.application/json.customerFacing.customDomain?
+
+```ts
+optional customDomain: string;
+```
+
+##### requestBody.content.application/json.customerFacing.enabled?
+
+```ts
+optional enabled: boolean;
+```
+
+##### requestBody.content.application/json.customerFacing.magicLinkBaseUrl?
+
+```ts
+optional magicLinkBaseUrl: string;
+```
+
+Format: uri
+
+##### requestBody.content.application/json.customerFacing.partnerIdentity?
+
+```ts
+optional partnerIdentity: {
+  algorithm: "RS256" | "RS384" | "RS512" | "ES256" | "ES384" | "ES512";
+  issuer: string;
+  publicKeyPem: string;
+};
+```
+
+##### requestBody.content.application/json.customerFacing.partnerIdentity.algorithm
+
+```ts
+algorithm: "RS256" | "RS384" | "RS512" | "ES256" | "ES384" | "ES512";
+```
+
+##### requestBody.content.application/json.customerFacing.partnerIdentity.issuer
+
+```ts
+issuer: string;
+```
+
+##### requestBody.content.application/json.customerFacing.partnerIdentity.publicKeyPem
+
+```ts
+publicKeyPem: string;
+```
+
+##### requestBody.content.application/json.customerFacing.subdomain?
+
+```ts
+optional subdomain: string;
+```
+
+##### requestBody.content.application/json.description?
+
+```ts
+optional description: string;
+```
+
+##### requestBody.content.application/json.eventFilter?
+
+```ts
+optional eventFilter: {
+  channelTags?: string[];
+  mode: "all" | "tagged";
+};
+```
+
+##### requestBody.content.application/json.eventFilter.channelTags?
+
+```ts
+optional channelTags: string[];
+```
+
+##### requestBody.content.application/json.eventFilter.mode
+
+```ts
+mode: "all" | "tagged";
+```
+
+##### requestBody.content.application/json.feeProfileId?
+
+```ts
+optional feeProfileId: string;
+```
+
+##### requestBody.content.application/json.name
+
+```ts
+name: string;
+```
+
+##### requestBody.content.application/json.pricingConfig?
+
+```ts
+optional pricingConfig: {
+  includeFeesInPrice?: boolean;
+  showMemberPricing?: boolean;
+  showOriginalPrice?: boolean;
+};
+```
+
+##### requestBody.content.application/json.pricingConfig.includeFeesInPrice?
+
+```ts
+optional includeFeesInPrice: boolean;
+```
+
+##### requestBody.content.application/json.pricingConfig.showMemberPricing?
+
+```ts
+optional showMemberPricing: boolean;
+```
+
+##### requestBody.content.application/json.pricingConfig.showOriginalPrice?
+
+```ts
+optional showOriginalPrice: boolean;
+```
+
+##### requestBody.content.application/json.receivingAccountId?
+
+```ts
+optional receivingAccountId: string;
+```
+
+##### requestBody.content.application/json.reservationTtlSeconds?
+
+```ts
+optional reservationTtlSeconds: number;
+```
+
+##### requestBody.content.application/json.slug
+
+```ts
+slug: string;
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           channel: {
+              accountId: string;
+              channelTags: string[];
+              channelType:   | "website"
+                 | "embed"
+                 | "box_office"
+                 | "kiosk"
+                 | "reseller_api"
+                 | "internal";
+              checkoutTtlSeconds: number;
+              createdAt: string;
+              customerConfig: {
+                 allowGuestCheckout: boolean;
+                 collectAddress: boolean;
+                 collectPhone: boolean;
+                 requireLogin: boolean;
+              };
+              customerFacing: {
+                 allowedOrigins: string[];
+                 customDomain?: string;
+                 enabled: boolean;
+                 magicLinkBaseUrl?: string;
+                 partnerIdentity?: {
+                    algorithm: string;
+                    issuer: string;
+                    publicKeyPem: string;
+                 };
+                 subdomain?: string;
+              };
+              deletedAt: string | null;
+              description: string | null;
+              eventFilter: {
+                 channelTags?: string[];
+                 mode: "all" | "tagged";
+              };
+              feeProfileId: string | null;
+              id: string;
+              isActive: boolean;
+              isDeleted: boolean;
+              name: string;
+              organisationId: string;
+              pricingConfig: {
+                 includeFeesInPrice: boolean;
+                 showMemberPricing: boolean;
+                 showOriginalPrice: boolean;
+              };
+              receivingAccountId: string;
+              reservationTtlSeconds: number;
+              slug: string;
+              themeId: string | null;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        channel: {
+           accountId: string;
+           channelTags: string[];
+           channelType:   | "website"
+              | "embed"
+              | "box_office"
+              | "kiosk"
+              | "reseller_api"
+              | "internal";
+           checkoutTtlSeconds: number;
+           createdAt: string;
+           customerConfig: {
+              allowGuestCheckout: boolean;
+              collectAddress: boolean;
+              collectPhone: boolean;
+              requireLogin: boolean;
+           };
+           customerFacing: {
+              allowedOrigins: string[];
+              customDomain?: string;
+              enabled: boolean;
+              magicLinkBaseUrl?: string;
+              partnerIdentity?: {
+                 algorithm: string;
+                 issuer: string;
+                 publicKeyPem: string;
+              };
+              subdomain?: string;
+           };
+           deletedAt: string | null;
+           description: string | null;
+           eventFilter: {
+              channelTags?: string[];
+              mode: "all" | "tagged";
+           };
+           feeProfileId: string | null;
+           id: string;
+           isActive: boolean;
+           isDeleted: boolean;
+           name: string;
+           organisationId: string;
+           pricingConfig: {
+              includeFeesInPrice: boolean;
+              showMemberPricing: boolean;
+              showOriginalPrice: boolean;
+           };
+           receivingAccountId: string;
+           reservationTtlSeconds: number;
+           slug: string;
+           themeId: string | null;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Sales channel created successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     channel: {
+        accountId: string;
+        channelTags: string[];
+        channelType:   | "website"
+           | "embed"
+           | "box_office"
+           | "kiosk"
+           | "reseller_api"
+           | "internal";
+        checkoutTtlSeconds: number;
+        createdAt: string;
+        customerConfig: {
+           allowGuestCheckout: boolean;
+           collectAddress: boolean;
+           collectPhone: boolean;
+           requireLogin: boolean;
+        };
+        customerFacing: {
+           allowedOrigins: string[];
+           customDomain?: string;
+           enabled: boolean;
+           magicLinkBaseUrl?: string;
+           partnerIdentity?: {
+              algorithm: string;
+              issuer: string;
+              publicKeyPem: string;
+           };
+           subdomain?: string;
+        };
+        deletedAt: string | null;
+        description: string | null;
+        eventFilter: {
+           channelTags?: string[];
+           mode: "all" | "tagged";
+        };
+        feeProfileId: string | null;
+        id: string;
+        isActive: boolean;
+        isDeleted: boolean;
+        name: string;
+        organisationId: string;
+        pricingConfig: {
+           includeFeesInPrice: boolean;
+           showMemberPricing: boolean;
+           showOriginalPrice: boolean;
+        };
+        receivingAccountId: string;
+        reservationTtlSeconds: number;
+        slug: string;
+        themeId: string | null;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  channel: {
+     accountId: string;
+     channelTags: string[];
+     channelType:   | "website"
+        | "embed"
+        | "box_office"
+        | "kiosk"
+        | "reseller_api"
+        | "internal";
+     checkoutTtlSeconds: number;
+     createdAt: string;
+     customerConfig: {
+        allowGuestCheckout: boolean;
+        collectAddress: boolean;
+        collectPhone: boolean;
+        requireLogin: boolean;
+     };
+     customerFacing: {
+        allowedOrigins: string[];
+        customDomain?: string;
+        enabled: boolean;
+        magicLinkBaseUrl?: string;
+        partnerIdentity?: {
+           algorithm: string;
+           issuer: string;
+           publicKeyPem: string;
+        };
+        subdomain?: string;
+     };
+     deletedAt: string | null;
+     description: string | null;
+     eventFilter: {
+        channelTags?: string[];
+        mode: "all" | "tagged";
+     };
+     feeProfileId: string | null;
+     id: string;
+     isActive: boolean;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     pricingConfig: {
+        includeFeesInPrice: boolean;
+        showMemberPricing: boolean;
+        showOriginalPrice: boolean;
+     };
+     receivingAccountId: string;
+     reservationTtlSeconds: number;
+     slug: string;
+     themeId: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.201.content.application/json.channel
+
+```ts
+channel: {
+  accountId: string;
+  channelTags: string[];
+  channelType:   | "website"
+     | "embed"
+     | "box_office"
+     | "kiosk"
+     | "reseller_api"
+     | "internal";
+  checkoutTtlSeconds: number;
+  createdAt: string;
+  customerConfig: {
+     allowGuestCheckout: boolean;
+     collectAddress: boolean;
+     collectPhone: boolean;
+     requireLogin: boolean;
+  };
+  customerFacing: {
+     allowedOrigins: string[];
+     customDomain?: string;
+     enabled: boolean;
+     magicLinkBaseUrl?: string;
+     partnerIdentity?: {
+        algorithm: string;
+        issuer: string;
+        publicKeyPem: string;
+     };
+     subdomain?: string;
+  };
+  deletedAt: string | null;
+  description: string | null;
+  eventFilter: {
+     channelTags?: string[];
+     mode: "all" | "tagged";
+  };
+  feeProfileId: string | null;
+  id: string;
+  isActive: boolean;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  pricingConfig: {
+     includeFeesInPrice: boolean;
+     showMemberPricing: boolean;
+     showOriginalPrice: boolean;
+  };
+  receivingAccountId: string;
+  reservationTtlSeconds: number;
+  slug: string;
+  themeId: string | null;
+  updatedAt: string;
+};
+```
+
+##### responses.201.content.application/json.channel.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### responses.201.content.application/json.channel.channelTags
+
+```ts
+channelTags: string[];
+```
+
+###### Example
+
+```ts
+[
+      "public"
+    ]
+```
+
+##### responses.201.content.application/json.channel.channelType
+
+```ts
+channelType: 
+  | "website"
+  | "embed"
+  | "box_office"
+  | "kiosk"
+  | "reseller_api"
+  | "internal";
+```
+
+###### Example
+
+```ts
+website
+@enum {string}
+```
+
+##### responses.201.content.application/json.channel.checkoutTtlSeconds
+
+```ts
+checkoutTtlSeconds: number;
+```
+
+###### Example
+
+```ts
+300
+```
+
+##### responses.201.content.application/json.channel.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.channel.customerConfig
+
+```ts
+customerConfig: {
+  allowGuestCheckout: boolean;
+  collectAddress: boolean;
+  collectPhone: boolean;
+  requireLogin: boolean;
+};
+```
+
+##### responses.201.content.application/json.channel.customerConfig.allowGuestCheckout
+
+```ts
+allowGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.201.content.application/json.channel.customerConfig.collectAddress
+
+```ts
+collectAddress: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.201.content.application/json.channel.customerConfig.collectPhone
+
+```ts
+collectPhone: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.201.content.application/json.channel.customerConfig.requireLogin
+
+```ts
+requireLogin: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.201.content.application/json.channel.customerFacing
+
+```ts
+customerFacing: {
+  allowedOrigins: string[];
+  customDomain?: string;
+  enabled: boolean;
+  magicLinkBaseUrl?: string;
+  partnerIdentity?: {
+     algorithm: string;
+     issuer: string;
+     publicKeyPem: string;
+  };
+  subdomain?: string;
+};
+```
+
+##### responses.201.content.application/json.channel.customerFacing.allowedOrigins
+
+```ts
+allowedOrigins: string[];
+```
+
+###### Example
+
+```ts
+[
+      "https://example.com"
+    ]
+```
+
+##### responses.201.content.application/json.channel.customerFacing.customDomain?
+
+```ts
+optional customDomain: string;
+```
+
+###### Example
+
+```ts
+tickets.example.com
+```
+
+##### responses.201.content.application/json.channel.customerFacing.enabled
+
+```ts
+enabled: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.201.content.application/json.channel.customerFacing.magicLinkBaseUrl?
+
+```ts
+optional magicLinkBaseUrl: string;
+```
+
+###### Example
+
+```ts
+https://tickets.example.com
+```
+
+##### responses.201.content.application/json.channel.customerFacing.partnerIdentity?
+
+```ts
+optional partnerIdentity: {
+  algorithm: string;
+  issuer: string;
+  publicKeyPem: string;
+};
+```
+
+##### responses.201.content.application/json.channel.customerFacing.partnerIdentity.algorithm
+
+```ts
+algorithm: string;
+```
+
+###### Example
+
+```ts
+RS256
+```
+
+##### responses.201.content.application/json.channel.customerFacing.partnerIdentity.issuer
+
+```ts
+issuer: string;
+```
+
+###### Example
+
+```ts
+https://partner.example.com
+```
+
+##### responses.201.content.application/json.channel.customerFacing.partnerIdentity.publicKeyPem
+
+```ts
+publicKeyPem: string;
+```
+
+###### Example
+
+```ts
+-----BEGIN PUBLIC KEY-----...
+```
+
+##### responses.201.content.application/json.channel.customerFacing.subdomain?
+
+```ts
+optional subdomain: string;
+```
+
+###### Example
+
+```ts
+tickets
+```
+
+##### responses.201.content.application/json.channel.deletedAt
+
+```ts
+deletedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.channel.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Public web sales
+```
+
+##### responses.201.content.application/json.channel.eventFilter
+
+```ts
+eventFilter: {
+  channelTags?: string[];
+  mode: "all" | "tagged";
+};
+```
+
+##### responses.201.content.application/json.channel.eventFilter.channelTags?
+
+```ts
+optional channelTags: string[];
+```
+
+###### Example
+
+```ts
+[
+      "summer-festival"
+    ]
+```
+
+##### responses.201.content.application/json.channel.eventFilter.mode
+
+```ts
+mode: "all" | "tagged";
+```
+
+###### Example
+
+```ts
+all
+@enum {string}
+```
+
+##### responses.201.content.application/json.channel.feeProfileId
+
+```ts
+feeProfileId: string | null;
+```
+
+###### Example
+
+```ts
+sfp_abc123
+```
+
+##### responses.201.content.application/json.channel.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sch_abc123
+```
+
+##### responses.201.content.application/json.channel.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.201.content.application/json.channel.isDeleted
+
+```ts
+isDeleted: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.201.content.application/json.channel.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Main Website
+```
+
+##### responses.201.content.application/json.channel.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.201.content.application/json.channel.pricingConfig
+
+```ts
+pricingConfig: {
+  includeFeesInPrice: boolean;
+  showMemberPricing: boolean;
+  showOriginalPrice: boolean;
+};
+```
+
+##### responses.201.content.application/json.channel.pricingConfig.includeFeesInPrice
+
+```ts
+includeFeesInPrice: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.201.content.application/json.channel.pricingConfig.showMemberPricing
+
+```ts
+showMemberPricing: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.201.content.application/json.channel.pricingConfig.showOriginalPrice
+
+```ts
+showOriginalPrice: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.201.content.application/json.channel.receivingAccountId
+
+```ts
+receivingAccountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### responses.201.content.application/json.channel.reservationTtlSeconds
+
+```ts
+reservationTtlSeconds: number;
+```
+
+###### Example
+
+```ts
+900
+```
+
+##### responses.201.content.application/json.channel.slug
+
+```ts
+slug: string;
+```
+
+###### Example
+
+```ts
+main-website
+```
+
+##### responses.201.content.application/json.channel.themeId
+
+```ts
+themeId: string | null;
+```
+
+###### Example
+
+```ts
+sct_abc123
+```
+
+##### responses.201.content.application/json.channel.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### createSalesChannelListing
+
+```ts
+createSalesChannelListing: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        channelId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           eventId: string;
+           saleEndsAt?: string;
+           saleStartsAt?: string;
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              listing: {
+                 channelId: string;
+                 createdAt: string;
+                 createdBy: string | null;
+                 eventId: string;
+                 id: string;
+                 isActive: boolean;
+                 organisationId: string;
+                 saleEndsAt: string | null;
+                 saleStartsAt: string | null;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:18163
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     channelId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  channelId: string;
+};
+```
+
+##### parameters.path.channelId
+
+```ts
+channelId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        eventId: string;
+        saleEndsAt?: string;
+        saleStartsAt?: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     eventId: string;
+     saleEndsAt?: string;
+     saleStartsAt?: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  eventId: string;
+  saleEndsAt?: string;
+  saleStartsAt?: string;
+};
+```
+
+##### requestBody.content.application/json.eventId
+
+```ts
+eventId: string;
+```
+
+##### requestBody.content.application/json.saleEndsAt?
+
+```ts
+optional saleEndsAt: string;
+```
+
+###### Description
+
+Sale window end (ISO 8601); omit for open-ended
+
+###### Example
+
+```ts
+2026-06-01T00:00:00Z
+```
+
+##### requestBody.content.application/json.saleStartsAt?
+
+```ts
+optional saleStartsAt: string;
+```
+
+###### Description
+
+Sale window start (ISO 8601); omit for open-ended
+
+###### Example
+
+```ts
+2026-02-01T09:00:00Z
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           listing: {
+              channelId: string;
+              createdAt: string;
+              createdBy: string | null;
+              eventId: string;
+              id: string;
+              isActive: boolean;
+              organisationId: string;
+              saleEndsAt: string | null;
+              saleStartsAt: string | null;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        listing: {
+           channelId: string;
+           createdAt: string;
+           createdBy: string | null;
+           eventId: string;
+           id: string;
+           isActive: boolean;
+           organisationId: string;
+           saleEndsAt: string | null;
+           saleStartsAt: string | null;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Listing created successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     listing: {
+        channelId: string;
+        createdAt: string;
+        createdBy: string | null;
+        eventId: string;
+        id: string;
+        isActive: boolean;
+        organisationId: string;
+        saleEndsAt: string | null;
+        saleStartsAt: string | null;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  listing: {
+     channelId: string;
+     createdAt: string;
+     createdBy: string | null;
+     eventId: string;
+     id: string;
+     isActive: boolean;
+     organisationId: string;
+     saleEndsAt: string | null;
+     saleStartsAt: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.201.content.application/json.listing
+
+```ts
+listing: {
+  channelId: string;
+  createdAt: string;
+  createdBy: string | null;
+  eventId: string;
+  id: string;
+  isActive: boolean;
+  organisationId: string;
+  saleEndsAt: string | null;
+  saleStartsAt: string | null;
+  updatedAt: string;
+};
+```
+
+##### responses.201.content.application/json.listing.channelId
+
+```ts
+channelId: string;
+```
+
+###### Example
+
+```ts
+sch_abc123
+```
+
+##### responses.201.content.application/json.listing.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.listing.createdBy
+
+```ts
+createdBy: string | null;
+```
+
+###### Example
+
+```ts
+usr_abc123
+```
+
+##### responses.201.content.application/json.listing.eventId
+
+```ts
+eventId: string;
+```
+
+###### Example
+
+```ts
+evt_abc123
+```
+
+##### responses.201.content.application/json.listing.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+schl_abc123
+```
+
+##### responses.201.content.application/json.listing.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.201.content.application/json.listing.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.201.content.application/json.listing.saleEndsAt
+
+```ts
+saleEndsAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.listing.saleStartsAt
+
+```ts
+saleStartsAt: string | null;
+```
+
+###### Example
+
+```ts
+2026-02-01T09:00:00Z
+```
+
+##### responses.201.content.application/json.listing.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### createSalesCustomer
+
+```ts
+createSalesCustomer: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           email: string;
+           firstName?: string;
+           lastName?: string;
+           marketingConsent?: boolean;
+           phone?: string;
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              customer: {
+                 email: string;
+                 firstName: string | null;
+                 id: string;
+                 lastName: string | null;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:19858
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        email: string;
+        firstName?: string;
+        lastName?: string;
+        marketingConsent?: boolean;
+        phone?: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     email: string;
+     firstName?: string;
+     lastName?: string;
+     marketingConsent?: boolean;
+     phone?: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  email: string;
+  firstName?: string;
+  lastName?: string;
+  marketingConsent?: boolean;
+  phone?: string;
+};
+```
+
+##### requestBody.content.application/json.email
+
+```ts
+email: string;
+```
+
+Format: email
+
+##### requestBody.content.application/json.firstName?
+
+```ts
+optional firstName: string;
+```
+
+##### requestBody.content.application/json.lastName?
+
+```ts
+optional lastName: string;
+```
+
+##### requestBody.content.application/json.marketingConsent?
+
+```ts
+optional marketingConsent: boolean;
+```
+
+##### requestBody.content.application/json.phone?
+
+```ts
+optional phone: string;
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           customer: {
+              email: string;
+              firstName: string | null;
+              id: string;
+              lastName: string | null;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        customer: {
+           email: string;
+           firstName: string | null;
+           id: string;
+           lastName: string | null;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Customer created successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     customer: {
+        email: string;
+        firstName: string | null;
+        id: string;
+        lastName: string | null;
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  customer: {
+     email: string;
+     firstName: string | null;
+     id: string;
+     lastName: string | null;
+  };
+};
+```
+
+##### responses.201.content.application/json.customer
+
+```ts
+customer: {
+  email: string;
+  firstName: string | null;
+  id: string;
+  lastName: string | null;
+};
+```
+
+##### responses.201.content.application/json.customer.email
+
+```ts
+email: string;
+```
+
+##### responses.201.content.application/json.customer.firstName
+
+```ts
+firstName: string | null;
+```
+
+##### responses.201.content.application/json.customer.id
+
+```ts
+id: string;
+```
+
+##### responses.201.content.application/json.customer.lastName
+
+```ts
+lastName: string | null;
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### createSalesCustomerToken
+
+```ts
+createSalesCustomerToken: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           proof:   | {
+              code: string;
+              type: "magic_link";
+            }
+              | {
+              assertion: string;
+              type: "partner_assertion";
+            };
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              customer: {
+                 email: string;
+                 firstName: string | null;
+                 id: string;
+                 lastName: string | null;
+              };
+              customerToken: string;
+              expiresIn: number;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:19226
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        proof:   | {
+           code: string;
+           type: "magic_link";
+         }
+           | {
+           assertion: string;
+           type: "partner_assertion";
+         };
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     proof:   | {
+        code: string;
+        type: "magic_link";
+      }
+        | {
+        assertion: string;
+        type: "partner_assertion";
+      };
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  proof:   | {
+     code: string;
+     type: "magic_link";
+   }
+     | {
+     assertion: string;
+     type: "partner_assertion";
+   };
+};
+```
+
+##### requestBody.content.application/json.proof
+
+```ts
+proof: 
+  | {
+  code: string;
+  type: "magic_link";
+}
+  | {
+  assertion: string;
+  type: "partner_assertion";
+};
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           customer: {
+              email: string;
+              firstName: string | null;
+              id: string;
+              lastName: string | null;
+           };
+           customerToken: string;
+           expiresIn: number;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        customer: {
+           email: string;
+           firstName: string | null;
+           id: string;
+           lastName: string | null;
+        };
+        customerToken: string;
+        expiresIn: number;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Customer token issued successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     customer: {
+        email: string;
+        firstName: string | null;
+        id: string;
+        lastName: string | null;
+     };
+     customerToken: string;
+     expiresIn: number;
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  customer: {
+     email: string;
+     firstName: string | null;
+     id: string;
+     lastName: string | null;
+  };
+  customerToken: string;
+  expiresIn: number;
+};
+```
+
+##### responses.200.content.application/json.customer
+
+```ts
+customer: {
+  email: string;
+  firstName: string | null;
+  id: string;
+  lastName: string | null;
+};
+```
+
+##### responses.200.content.application/json.customer.email
+
+```ts
+email: string;
+```
+
+##### responses.200.content.application/json.customer.firstName
+
+```ts
+firstName: string | null;
+```
+
+##### responses.200.content.application/json.customer.id
+
+```ts
+id: string;
+```
+
+##### responses.200.content.application/json.customer.lastName
+
+```ts
+lastName: string | null;
+```
+
+##### responses.200.content.application/json.customerToken
+
+```ts
+customerToken: string;
+```
+
+###### Example
+
+```ts
+eyJhbGciOiJIUzI1NiIs...
+```
+
+##### responses.200.content.application/json.expiresIn
+
+```ts
+expiresIn: number;
+```
+
+###### Description
+
+Token lifetime in seconds
+
+###### Example
+
+```ts
+1800
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### createSalesOrderPayment
+
+```ts
+createSalesOrderPayment: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        orderId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           paymentType?: "online_card" | "online_bank_transfer" | "online_wallet";
+           returnUrl?: string;
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              payment: {
+                 amount: string;
+                 connectedAccountId: string | null;
+                 currency: string;
+                 externalPaymentUrl: string | null;
+                 id: string;
+                 orderId: string;
+                 paymentType: string;
+                 providerClientSecret: string | null;
+                 providerType: string | null;
+                 publishableKey: string | null;
+                 status: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:19727
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     orderId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  orderId: string;
+};
+```
+
+##### parameters.path.orderId
+
+```ts
+orderId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        paymentType?: "online_card" | "online_bank_transfer" | "online_wallet";
+        returnUrl?: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     paymentType?: "online_card" | "online_bank_transfer" | "online_wallet";
+     returnUrl?: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  paymentType?: "online_card" | "online_bank_transfer" | "online_wallet";
+  returnUrl?: string;
+};
+```
+
+##### requestBody.content.application/json.paymentType?
+
+```ts
+optional paymentType: "online_card" | "online_bank_transfer" | "online_wallet";
+```
+
+##### requestBody.content.application/json.returnUrl?
+
+```ts
+optional returnUrl: string;
+```
+
+Format: uri
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           payment: {
+              amount: string;
+              connectedAccountId: string | null;
+              currency: string;
+              externalPaymentUrl: string | null;
+              id: string;
+              orderId: string;
+              paymentType: string;
+              providerClientSecret: string | null;
+              providerType: string | null;
+              publishableKey: string | null;
+              status: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        payment: {
+           amount: string;
+           connectedAccountId: string | null;
+           currency: string;
+           externalPaymentUrl: string | null;
+           id: string;
+           orderId: string;
+           paymentType: string;
+           providerClientSecret: string | null;
+           providerType: string | null;
+           publishableKey: string | null;
+           status: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Payment initiated successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     payment: {
+        amount: string;
+        connectedAccountId: string | null;
+        currency: string;
+        externalPaymentUrl: string | null;
+        id: string;
+        orderId: string;
+        paymentType: string;
+        providerClientSecret: string | null;
+        providerType: string | null;
+        publishableKey: string | null;
+        status: string;
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  payment: {
+     amount: string;
+     connectedAccountId: string | null;
+     currency: string;
+     externalPaymentUrl: string | null;
+     id: string;
+     orderId: string;
+     paymentType: string;
+     providerClientSecret: string | null;
+     providerType: string | null;
+     publishableKey: string | null;
+     status: string;
+  };
+};
+```
+
+##### responses.201.content.application/json.payment
+
+```ts
+payment: {
+  amount: string;
+  connectedAccountId: string | null;
+  currency: string;
+  externalPaymentUrl: string | null;
+  id: string;
+  orderId: string;
+  paymentType: string;
+  providerClientSecret: string | null;
+  providerType: string | null;
+  publishableKey: string | null;
+  status: string;
+};
+```
+
+##### responses.201.content.application/json.payment.amount
+
+```ts
+amount: string;
+```
+
+##### responses.201.content.application/json.payment.connectedAccountId
+
+```ts
+connectedAccountId: string | null;
+```
+
+##### responses.201.content.application/json.payment.currency
+
+```ts
+currency: string;
+```
+
+##### responses.201.content.application/json.payment.externalPaymentUrl
+
+```ts
+externalPaymentUrl: string | null;
+```
+
+##### responses.201.content.application/json.payment.id
+
+```ts
+id: string;
+```
+
+##### responses.201.content.application/json.payment.orderId
+
+```ts
+orderId: string;
+```
+
+##### responses.201.content.application/json.payment.paymentType
+
+```ts
+paymentType: string;
+```
+
+##### responses.201.content.application/json.payment.providerClientSecret
+
+```ts
+providerClientSecret: string | null;
+```
+
+##### responses.201.content.application/json.payment.providerType
+
+```ts
+providerType: string | null;
+```
+
+##### responses.201.content.application/json.payment.publishableKey
+
+```ts
+publishableKey: string | null;
+```
+
+##### responses.201.content.application/json.payment.status
+
+```ts
+status: string;
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### createSalesOrderRefundRequest
+
+```ts
+createSalesOrderRefundRequest: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        orderId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           reason?: string;
+           type: "refund" | "exchange";
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              request: {
+                 createdAt: string;
+                 id: string;
+                 orderId: string;
+                 reason: string | null;
+                 status: string;
+                 type: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:19793
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     orderId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  orderId: string;
+};
+```
+
+##### parameters.path.orderId
+
+```ts
+orderId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        reason?: string;
+        type: "refund" | "exchange";
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     reason?: string;
+     type: "refund" | "exchange";
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  reason?: string;
+  type: "refund" | "exchange";
+};
+```
+
+##### requestBody.content.application/json.reason?
+
+```ts
+optional reason: string;
+```
+
+##### requestBody.content.application/json.type
+
+```ts
+type: "refund" | "exchange";
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           request: {
+              createdAt: string;
+              id: string;
+              orderId: string;
+              reason: string | null;
+              status: string;
+              type: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        request: {
+           createdAt: string;
+           id: string;
+           orderId: string;
+           reason: string | null;
+           status: string;
+           type: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Refund request created successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     request: {
+        createdAt: string;
+        id: string;
+        orderId: string;
+        reason: string | null;
+        status: string;
+        type: string;
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  request: {
+     createdAt: string;
+     id: string;
+     orderId: string;
+     reason: string | null;
+     status: string;
+     type: string;
+  };
+};
+```
+
+##### responses.201.content.application/json.request
+
+```ts
+request: {
+  createdAt: string;
+  id: string;
+  orderId: string;
+  reason: string | null;
+  status: string;
+  type: string;
+};
+```
+
+##### responses.201.content.application/json.request.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.request.id
+
+```ts
+id: string;
+```
+
+##### responses.201.content.application/json.request.orderId
+
+```ts
+orderId: string;
+```
+
+##### responses.201.content.application/json.request.reason
+
+```ts
+reason: string | null;
+```
+
+##### responses.201.content.application/json.request.status
+
+```ts
+status: string;
+```
+
+##### responses.201.content.application/json.request.type
+
+```ts
+type: string;
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### createSetupIntent
+
+```ts
+createSetupIntent: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              clientSecret: string;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:13333
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           clientSecret: string;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        clientSecret: string;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Setup intent created successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     clientSecret: string;
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  clientSecret: string;
+};
+```
+
+##### responses.201.content.application/json.clientSecret
+
+```ts
+clientSecret: string;
+```
+
+###### Example
+
+```ts
+seti_1234567890_secret_abcdefghij
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### createStaffCart
+
+```ts
+createStaffCart: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        channelId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           customerId?: string;
+           metadata?: {
+            [key: string]: unknown;
+           };
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              cart: {
+                 accountId: string;
+                 channelId: string;
+                 createdAt: string;
+                 currency: string | null;
+                 customerId: string | null;
+                 expiresAt: string;
+                 id: string;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 orderId: string | null;
+                 organisationId: string;
+                 status: "active" | "expired" | "checked_out" | "abandoned";
+                 updatedAt: string;
+              };
+              items: {
+                 cartId: string;
+                 categoryId: string;
+                 createdAt: string;
+                 eventLayoutAreaId: string | null;
+                 eventLayoutSeatId: string | null;
+                 eventOccurrenceId: string;
+                 id: string;
+                 notes: string | null;
+                 organisationId: string;
+                 priceSnapshot: {
+                    categoryName: string;
+                    currency: string;
+                    eventId: string;
+                    eventName: string;
+                    priceSchemeId: string;
+                    ticketTypeName: string;
+                    unitPrice: number;
+                 };
+                 quantity: number;
+                 reservationId: string;
+                 ticketTypeId: string;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:18294
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     channelId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  channelId: string;
+};
+```
+
+##### parameters.path.channelId
+
+```ts
+channelId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        customerId?: string;
+        metadata?: {
+         [key: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     customerId?: string;
+     metadata?: {
+      [key: string]: unknown;
+     };
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  customerId?: string;
+  metadata?: {
+   [key: string]: unknown;
+  };
+};
+```
+
+##### requestBody.content.application/json.customerId?
+
+```ts
+optional customerId: string;
+```
+
+##### requestBody.content.application/json.metadata?
+
+```ts
+optional metadata: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           cart: {
+              accountId: string;
+              channelId: string;
+              createdAt: string;
+              currency: string | null;
+              customerId: string | null;
+              expiresAt: string;
+              id: string;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              orderId: string | null;
+              organisationId: string;
+              status: "active" | "expired" | "checked_out" | "abandoned";
+              updatedAt: string;
+           };
+           items: {
+              cartId: string;
+              categoryId: string;
+              createdAt: string;
+              eventLayoutAreaId: string | null;
+              eventLayoutSeatId: string | null;
+              eventOccurrenceId: string;
+              id: string;
+              notes: string | null;
+              organisationId: string;
+              priceSnapshot: {
+                 categoryName: string;
+                 currency: string;
+                 eventId: string;
+                 eventName: string;
+                 priceSchemeId: string;
+                 ticketTypeName: string;
+                 unitPrice: number;
+              };
+              quantity: number;
+              reservationId: string;
+              ticketTypeId: string;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        cart: {
+           accountId: string;
+           channelId: string;
+           createdAt: string;
+           currency: string | null;
+           customerId: string | null;
+           expiresAt: string;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           orderId: string | null;
+           organisationId: string;
+           status: "active" | "expired" | "checked_out" | "abandoned";
+           updatedAt: string;
+        };
+        items: {
+           cartId: string;
+           categoryId: string;
+           createdAt: string;
+           eventLayoutAreaId: string | null;
+           eventLayoutSeatId: string | null;
+           eventOccurrenceId: string;
+           id: string;
+           notes: string | null;
+           organisationId: string;
+           priceSnapshot: {
+              categoryName: string;
+              currency: string;
+              eventId: string;
+              eventName: string;
+              priceSchemeId: string;
+              ticketTypeName: string;
+              unitPrice: number;
+           };
+           quantity: number;
+           reservationId: string;
+           ticketTypeId: string;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Cart created successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     cart: {
+        accountId: string;
+        channelId: string;
+        createdAt: string;
+        currency: string | null;
+        customerId: string | null;
+        expiresAt: string;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderId: string | null;
+        organisationId: string;
+        status: "active" | "expired" | "checked_out" | "abandoned";
+        updatedAt: string;
+     };
+     items: {
+        cartId: string;
+        categoryId: string;
+        createdAt: string;
+        eventLayoutAreaId: string | null;
+        eventLayoutSeatId: string | null;
+        eventOccurrenceId: string;
+        id: string;
+        notes: string | null;
+        organisationId: string;
+        priceSnapshot: {
+           categoryName: string;
+           currency: string;
+           eventId: string;
+           eventName: string;
+           priceSchemeId: string;
+           ticketTypeName: string;
+           unitPrice: number;
+        };
+        quantity: number;
+        reservationId: string;
+        ticketTypeId: string;
+     }[];
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  cart: {
+     accountId: string;
+     channelId: string;
+     createdAt: string;
+     currency: string | null;
+     customerId: string | null;
+     expiresAt: string;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderId: string | null;
+     organisationId: string;
+     status: "active" | "expired" | "checked_out" | "abandoned";
+     updatedAt: string;
+  };
+  items: {
+     cartId: string;
+     categoryId: string;
+     createdAt: string;
+     eventLayoutAreaId: string | null;
+     eventLayoutSeatId: string | null;
+     eventOccurrenceId: string;
+     id: string;
+     notes: string | null;
+     organisationId: string;
+     priceSnapshot: {
+        categoryName: string;
+        currency: string;
+        eventId: string;
+        eventName: string;
+        priceSchemeId: string;
+        ticketTypeName: string;
+        unitPrice: number;
+     };
+     quantity: number;
+     reservationId: string;
+     ticketTypeId: string;
+  }[];
+};
+```
+
+##### responses.201.content.application/json.cart
+
+```ts
+cart: {
+  accountId: string;
+  channelId: string;
+  createdAt: string;
+  currency: string | null;
+  customerId: string | null;
+  expiresAt: string;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderId: string | null;
+  organisationId: string;
+  status: "active" | "expired" | "checked_out" | "abandoned";
+  updatedAt: string;
+};
+```
+
+##### responses.201.content.application/json.cart.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### responses.201.content.application/json.cart.channelId
+
+```ts
+channelId: string;
+```
+
+###### Example
+
+```ts
+sch_abc123
+```
+
+##### responses.201.content.application/json.cart.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.cart.currency
+
+```ts
+currency: string | null;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### responses.201.content.application/json.cart.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### responses.201.content.application/json.cart.expiresAt
+
+```ts
+expiresAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### responses.201.content.application/json.cart.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+crt_abc123
+```
+
+##### responses.201.content.application/json.cart.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "source": "boxoffice"
+             *     }
+```
+
+##### responses.201.content.application/json.cart.orderId
+
+```ts
+orderId: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.201.content.application/json.cart.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.201.content.application/json.cart.status
+
+```ts
+status: "active" | "expired" | "checked_out" | "abandoned";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### responses.201.content.application/json.cart.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.items
+
+```ts
+items: {
+  cartId: string;
+  categoryId: string;
+  createdAt: string;
+  eventLayoutAreaId: string | null;
+  eventLayoutSeatId: string | null;
+  eventOccurrenceId: string;
+  id: string;
+  notes: string | null;
+  organisationId: string;
+  priceSnapshot: {
+     categoryName: string;
+     currency: string;
+     eventId: string;
+     eventName: string;
+     priceSchemeId: string;
+     ticketTypeName: string;
+     unitPrice: number;
+  };
+  quantity: number;
+  reservationId: string;
+  ticketTypeId: string;
+}[];
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### createSubscription
 
 ```ts
@@ -26378,7 +36515,7 @@ createSubscription: {
 };
 ```
 
-Defined in: generated/types.ts:11164
+Defined in: generated/types.ts:12977
 
 #### parameters
 
@@ -27029,6 +37166,1826 @@ headers: {
 
 ***
 
+### createTheme
+
+```ts
+createTheme: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           brand?: {
+              displayName?: string;
+              faviconUrl?: string;
+              logoDarkUrl?: string;
+              logoUrl?: string;
+           };
+           colors?: {
+              accent?: string;
+              accentForeground?: string;
+              background?: string;
+              border?: string;
+              destructive?: string;
+              destructiveForeground?: string;
+              foreground?: string;
+              input?: string;
+              muted?: string;
+              mutedForeground?: string;
+              primary?: string;
+              primaryForeground?: string;
+              ring?: string;
+              secondary?: string;
+              secondaryForeground?: string;
+              success?: string;
+              successForeground?: string;
+              warning?: string;
+              warningForeground?: string;
+           };
+           description?: string;
+           design?: {
+              cinemaGradient?: {
+                 position: ... | ...;
+                 strength: ... | ... | ...;
+              };
+              heroLayout?: {
+                 size: ... | ... | ...;
+                 type: ... | ...;
+              };
+            } & {
+            [key: string]: unknown;
+           };
+           extendsThemeId?: string;
+           isActive?: boolean;
+           isBaseTheme?: boolean;
+           name: string;
+           shape?: {
+              radiusFull?: string;
+              radiusLg?: string;
+              radiusMd?: string;
+              radiusNone?: string;
+              radiusSm?: string;
+           };
+           typography?: {
+              baseSize?: string;
+              fontFamily?: string;
+              fontFamilyMono?: string;
+              scaleRatio?: number;
+           };
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              theme: {
+                 brand: {
+                    displayName?: string;
+                    faviconUrl?: string;
+                    logoDarkUrl?: string;
+                    logoUrl?: string;
+                 };
+                 colors: {
+                    accent?: string;
+                    accentForeground?: string;
+                    background?: string;
+                    border?: string;
+                    destructive?: string;
+                    destructiveForeground?: string;
+                    foreground?: string;
+                    input?: string;
+                    muted?: string;
+                    mutedForeground?: string;
+                    primary?: string;
+                    primaryForeground?: string;
+                    ring?: string;
+                    secondary?: string;
+                    secondaryForeground?: string;
+                    success?: string;
+                    successForeground?: string;
+                    warning?: string;
+                    warningForeground?: string;
+                 };
+                 createdAt: string;
+                 description: string | null;
+                 design:   | {
+                    cinemaGradient?: {
+                       position: ... | ...;
+                       strength: ... | ... | ...;
+                    };
+                    heroLayout?: {
+                       size: ... | ... | ...;
+                       type: ... | ...;
+                    };
+                  }
+                    | null;
+                 extendsThemeId: string | null;
+                 id: string;
+                 isActive: boolean;
+                 isBaseTheme: boolean;
+                 name: string;
+                 organisationId: string;
+                 shape: {
+                    radiusFull?: string;
+                    radiusLg?: string;
+                    radiusMd?: string;
+                    radiusNone?: string;
+                    radiusSm?: string;
+                 };
+                 typography: {
+                    baseSize?: string;
+                    fontFamily?: string;
+                    fontFamilyMono?: string;
+                    scaleRatio?: number;
+                 };
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:20388
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        brand?: {
+           displayName?: string;
+           faviconUrl?: string;
+           logoDarkUrl?: string;
+           logoUrl?: string;
+        };
+        colors?: {
+           accent?: string;
+           accentForeground?: string;
+           background?: string;
+           border?: string;
+           destructive?: string;
+           destructiveForeground?: string;
+           foreground?: string;
+           input?: string;
+           muted?: string;
+           mutedForeground?: string;
+           primary?: string;
+           primaryForeground?: string;
+           ring?: string;
+           secondary?: string;
+           secondaryForeground?: string;
+           success?: string;
+           successForeground?: string;
+           warning?: string;
+           warningForeground?: string;
+        };
+        description?: string;
+        design?: {
+           cinemaGradient?: {
+              position: ... | ...;
+              strength: ... | ... | ...;
+           };
+           heroLayout?: {
+              size: ... | ... | ...;
+              type: ... | ...;
+           };
+         } & {
+         [key: string]: unknown;
+        };
+        extendsThemeId?: string;
+        isActive?: boolean;
+        isBaseTheme?: boolean;
+        name: string;
+        shape?: {
+           radiusFull?: string;
+           radiusLg?: string;
+           radiusMd?: string;
+           radiusNone?: string;
+           radiusSm?: string;
+        };
+        typography?: {
+           baseSize?: string;
+           fontFamily?: string;
+           fontFamilyMono?: string;
+           scaleRatio?: number;
+        };
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     brand?: {
+        displayName?: string;
+        faviconUrl?: string;
+        logoDarkUrl?: string;
+        logoUrl?: string;
+     };
+     colors?: {
+        accent?: string;
+        accentForeground?: string;
+        background?: string;
+        border?: string;
+        destructive?: string;
+        destructiveForeground?: string;
+        foreground?: string;
+        input?: string;
+        muted?: string;
+        mutedForeground?: string;
+        primary?: string;
+        primaryForeground?: string;
+        ring?: string;
+        secondary?: string;
+        secondaryForeground?: string;
+        success?: string;
+        successForeground?: string;
+        warning?: string;
+        warningForeground?: string;
+     };
+     description?: string;
+     design?: {
+        cinemaGradient?: {
+           position: ... | ...;
+           strength: ... | ... | ...;
+        };
+        heroLayout?: {
+           size: ... | ... | ...;
+           type: ... | ...;
+        };
+      } & {
+      [key: string]: unknown;
+     };
+     extendsThemeId?: string;
+     isActive?: boolean;
+     isBaseTheme?: boolean;
+     name: string;
+     shape?: {
+        radiusFull?: string;
+        radiusLg?: string;
+        radiusMd?: string;
+        radiusNone?: string;
+        radiusSm?: string;
+     };
+     typography?: {
+        baseSize?: string;
+        fontFamily?: string;
+        fontFamilyMono?: string;
+        scaleRatio?: number;
+     };
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  brand?: {
+     displayName?: string;
+     faviconUrl?: string;
+     logoDarkUrl?: string;
+     logoUrl?: string;
+  };
+  colors?: {
+     accent?: string;
+     accentForeground?: string;
+     background?: string;
+     border?: string;
+     destructive?: string;
+     destructiveForeground?: string;
+     foreground?: string;
+     input?: string;
+     muted?: string;
+     mutedForeground?: string;
+     primary?: string;
+     primaryForeground?: string;
+     ring?: string;
+     secondary?: string;
+     secondaryForeground?: string;
+     success?: string;
+     successForeground?: string;
+     warning?: string;
+     warningForeground?: string;
+  };
+  description?: string;
+  design?: {
+     cinemaGradient?: {
+        position: ... | ...;
+        strength: ... | ... | ...;
+     };
+     heroLayout?: {
+        size: ... | ... | ...;
+        type: ... | ...;
+     };
+   } & {
+   [key: string]: unknown;
+  };
+  extendsThemeId?: string;
+  isActive?: boolean;
+  isBaseTheme?: boolean;
+  name: string;
+  shape?: {
+     radiusFull?: string;
+     radiusLg?: string;
+     radiusMd?: string;
+     radiusNone?: string;
+     radiusSm?: string;
+  };
+  typography?: {
+     baseSize?: string;
+     fontFamily?: string;
+     fontFamilyMono?: string;
+     scaleRatio?: number;
+  };
+};
+```
+
+##### requestBody.content.application/json.brand?
+
+```ts
+optional brand: {
+  displayName?: string;
+  faviconUrl?: string;
+  logoDarkUrl?: string;
+  logoUrl?: string;
+};
+```
+
+##### requestBody.content.application/json.brand.displayName?
+
+```ts
+optional displayName: string;
+```
+
+##### requestBody.content.application/json.brand.faviconUrl?
+
+```ts
+optional faviconUrl: string;
+```
+
+##### requestBody.content.application/json.brand.logoDarkUrl?
+
+```ts
+optional logoDarkUrl: string;
+```
+
+##### requestBody.content.application/json.brand.logoUrl?
+
+```ts
+optional logoUrl: string;
+```
+
+##### requestBody.content.application/json.colors?
+
+```ts
+optional colors: {
+  accent?: string;
+  accentForeground?: string;
+  background?: string;
+  border?: string;
+  destructive?: string;
+  destructiveForeground?: string;
+  foreground?: string;
+  input?: string;
+  muted?: string;
+  mutedForeground?: string;
+  primary?: string;
+  primaryForeground?: string;
+  ring?: string;
+  secondary?: string;
+  secondaryForeground?: string;
+  success?: string;
+  successForeground?: string;
+  warning?: string;
+  warningForeground?: string;
+};
+```
+
+##### requestBody.content.application/json.colors.accent?
+
+```ts
+optional accent: string;
+```
+
+##### requestBody.content.application/json.colors.accentForeground?
+
+```ts
+optional accentForeground: string;
+```
+
+##### requestBody.content.application/json.colors.background?
+
+```ts
+optional background: string;
+```
+
+##### requestBody.content.application/json.colors.border?
+
+```ts
+optional border: string;
+```
+
+##### requestBody.content.application/json.colors.destructive?
+
+```ts
+optional destructive: string;
+```
+
+##### requestBody.content.application/json.colors.destructiveForeground?
+
+```ts
+optional destructiveForeground: string;
+```
+
+##### requestBody.content.application/json.colors.foreground?
+
+```ts
+optional foreground: string;
+```
+
+##### requestBody.content.application/json.colors.input?
+
+```ts
+optional input: string;
+```
+
+##### requestBody.content.application/json.colors.muted?
+
+```ts
+optional muted: string;
+```
+
+##### requestBody.content.application/json.colors.mutedForeground?
+
+```ts
+optional mutedForeground: string;
+```
+
+##### requestBody.content.application/json.colors.primary?
+
+```ts
+optional primary: string;
+```
+
+##### requestBody.content.application/json.colors.primaryForeground?
+
+```ts
+optional primaryForeground: string;
+```
+
+##### requestBody.content.application/json.colors.ring?
+
+```ts
+optional ring: string;
+```
+
+##### requestBody.content.application/json.colors.secondary?
+
+```ts
+optional secondary: string;
+```
+
+##### requestBody.content.application/json.colors.secondaryForeground?
+
+```ts
+optional secondaryForeground: string;
+```
+
+##### requestBody.content.application/json.colors.success?
+
+```ts
+optional success: string;
+```
+
+##### requestBody.content.application/json.colors.successForeground?
+
+```ts
+optional successForeground: string;
+```
+
+##### requestBody.content.application/json.colors.warning?
+
+```ts
+optional warning: string;
+```
+
+##### requestBody.content.application/json.colors.warningForeground?
+
+```ts
+optional warningForeground: string;
+```
+
+##### requestBody.content.application/json.description?
+
+```ts
+optional description: string;
+```
+
+###### Description
+
+Theme description
+
+###### Example
+
+```ts
+Dark theme for evening events
+```
+
+##### requestBody.content.application/json.design?
+
+```ts
+optional design: {
+  cinemaGradient?: {
+     position: ... | ...;
+     strength: ... | ... | ...;
+  };
+  heroLayout?: {
+     size: ... | ... | ...;
+     type: ... | ...;
+  };
+} & {
+[key: string]: unknown;
+};
+```
+
+###### Type Declaration
+
+###### cinemaGradient?
+
+```ts
+optional cinemaGradient: {
+  position: ... | ...;
+  strength: ... | ... | ...;
+};
+```
+
+###### cinemaGradient.position
+
+```ts
+position: ... | ...;
+```
+
+###### cinemaGradient.strength
+
+```ts
+strength: ... | ... | ...;
+```
+
+###### heroLayout?
+
+```ts
+optional heroLayout: {
+  size: ... | ... | ...;
+  type: ... | ...;
+};
+```
+
+###### heroLayout.size
+
+```ts
+size: ... | ... | ...;
+```
+
+###### heroLayout.type
+
+```ts
+type: ... | ...;
+```
+
+##### requestBody.content.application/json.extendsThemeId?
+
+```ts
+optional extendsThemeId: string;
+```
+
+###### Description
+
+Parent theme this theme inherits from
+
+###### Example
+
+```ts
+sct_base123
+```
+
+##### requestBody.content.application/json.isActive?
+
+```ts
+optional isActive: boolean;
+```
+
+###### Default
+
+```ts
+true
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### requestBody.content.application/json.isBaseTheme?
+
+```ts
+optional isBaseTheme: boolean;
+```
+
+###### Description
+
+Whether this is the organisation's fallback base theme
+
+###### Default
+
+```ts
+false
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### requestBody.content.application/json.name
+
+```ts
+name: string;
+```
+
+###### Description
+
+Theme name
+
+###### Example
+
+```ts
+Midnight
+```
+
+##### requestBody.content.application/json.shape?
+
+```ts
+optional shape: {
+  radiusFull?: string;
+  radiusLg?: string;
+  radiusMd?: string;
+  radiusNone?: string;
+  radiusSm?: string;
+};
+```
+
+##### requestBody.content.application/json.shape.radiusFull?
+
+```ts
+optional radiusFull: string;
+```
+
+##### requestBody.content.application/json.shape.radiusLg?
+
+```ts
+optional radiusLg: string;
+```
+
+##### requestBody.content.application/json.shape.radiusMd?
+
+```ts
+optional radiusMd: string;
+```
+
+##### requestBody.content.application/json.shape.radiusNone?
+
+```ts
+optional radiusNone: string;
+```
+
+##### requestBody.content.application/json.shape.radiusSm?
+
+```ts
+optional radiusSm: string;
+```
+
+##### requestBody.content.application/json.typography?
+
+```ts
+optional typography: {
+  baseSize?: string;
+  fontFamily?: string;
+  fontFamilyMono?: string;
+  scaleRatio?: number;
+};
+```
+
+##### requestBody.content.application/json.typography.baseSize?
+
+```ts
+optional baseSize: string;
+```
+
+##### requestBody.content.application/json.typography.fontFamily?
+
+```ts
+optional fontFamily: string;
+```
+
+##### requestBody.content.application/json.typography.fontFamilyMono?
+
+```ts
+optional fontFamilyMono: string;
+```
+
+##### requestBody.content.application/json.typography.scaleRatio?
+
+```ts
+optional scaleRatio: number;
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           theme: {
+              brand: {
+                 displayName?: string;
+                 faviconUrl?: string;
+                 logoDarkUrl?: string;
+                 logoUrl?: string;
+              };
+              colors: {
+                 accent?: string;
+                 accentForeground?: string;
+                 background?: string;
+                 border?: string;
+                 destructive?: string;
+                 destructiveForeground?: string;
+                 foreground?: string;
+                 input?: string;
+                 muted?: string;
+                 mutedForeground?: string;
+                 primary?: string;
+                 primaryForeground?: string;
+                 ring?: string;
+                 secondary?: string;
+                 secondaryForeground?: string;
+                 success?: string;
+                 successForeground?: string;
+                 warning?: string;
+                 warningForeground?: string;
+              };
+              createdAt: string;
+              description: string | null;
+              design:   | {
+                 cinemaGradient?: {
+                    position: ... | ...;
+                    strength: ... | ... | ...;
+                 };
+                 heroLayout?: {
+                    size: ... | ... | ...;
+                    type: ... | ...;
+                 };
+               }
+                 | null;
+              extendsThemeId: string | null;
+              id: string;
+              isActive: boolean;
+              isBaseTheme: boolean;
+              name: string;
+              organisationId: string;
+              shape: {
+                 radiusFull?: string;
+                 radiusLg?: string;
+                 radiusMd?: string;
+                 radiusNone?: string;
+                 radiusSm?: string;
+              };
+              typography: {
+                 baseSize?: string;
+                 fontFamily?: string;
+                 fontFamilyMono?: string;
+                 scaleRatio?: number;
+              };
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        theme: {
+           brand: {
+              displayName?: string;
+              faviconUrl?: string;
+              logoDarkUrl?: string;
+              logoUrl?: string;
+           };
+           colors: {
+              accent?: string;
+              accentForeground?: string;
+              background?: string;
+              border?: string;
+              destructive?: string;
+              destructiveForeground?: string;
+              foreground?: string;
+              input?: string;
+              muted?: string;
+              mutedForeground?: string;
+              primary?: string;
+              primaryForeground?: string;
+              ring?: string;
+              secondary?: string;
+              secondaryForeground?: string;
+              success?: string;
+              successForeground?: string;
+              warning?: string;
+              warningForeground?: string;
+           };
+           createdAt: string;
+           description: string | null;
+           design:   | {
+              cinemaGradient?: {
+                 position: ... | ...;
+                 strength: ... | ... | ...;
+              };
+              heroLayout?: {
+                 size: ... | ... | ...;
+                 type: ... | ...;
+              };
+            }
+              | null;
+           extendsThemeId: string | null;
+           id: string;
+           isActive: boolean;
+           isBaseTheme: boolean;
+           name: string;
+           organisationId: string;
+           shape: {
+              radiusFull?: string;
+              radiusLg?: string;
+              radiusMd?: string;
+              radiusNone?: string;
+              radiusSm?: string;
+           };
+           typography: {
+              baseSize?: string;
+              fontFamily?: string;
+              fontFamilyMono?: string;
+              scaleRatio?: number;
+           };
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Theme created successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     theme: {
+        brand: {
+           displayName?: string;
+           faviconUrl?: string;
+           logoDarkUrl?: string;
+           logoUrl?: string;
+        };
+        colors: {
+           accent?: string;
+           accentForeground?: string;
+           background?: string;
+           border?: string;
+           destructive?: string;
+           destructiveForeground?: string;
+           foreground?: string;
+           input?: string;
+           muted?: string;
+           mutedForeground?: string;
+           primary?: string;
+           primaryForeground?: string;
+           ring?: string;
+           secondary?: string;
+           secondaryForeground?: string;
+           success?: string;
+           successForeground?: string;
+           warning?: string;
+           warningForeground?: string;
+        };
+        createdAt: string;
+        description: string | null;
+        design:   | {
+           cinemaGradient?: {
+              position: ... | ...;
+              strength: ... | ... | ...;
+           };
+           heroLayout?: {
+              size: ... | ... | ...;
+              type: ... | ...;
+           };
+         }
+           | null;
+        extendsThemeId: string | null;
+        id: string;
+        isActive: boolean;
+        isBaseTheme: boolean;
+        name: string;
+        organisationId: string;
+        shape: {
+           radiusFull?: string;
+           radiusLg?: string;
+           radiusMd?: string;
+           radiusNone?: string;
+           radiusSm?: string;
+        };
+        typography: {
+           baseSize?: string;
+           fontFamily?: string;
+           fontFamilyMono?: string;
+           scaleRatio?: number;
+        };
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  theme: {
+     brand: {
+        displayName?: string;
+        faviconUrl?: string;
+        logoDarkUrl?: string;
+        logoUrl?: string;
+     };
+     colors: {
+        accent?: string;
+        accentForeground?: string;
+        background?: string;
+        border?: string;
+        destructive?: string;
+        destructiveForeground?: string;
+        foreground?: string;
+        input?: string;
+        muted?: string;
+        mutedForeground?: string;
+        primary?: string;
+        primaryForeground?: string;
+        ring?: string;
+        secondary?: string;
+        secondaryForeground?: string;
+        success?: string;
+        successForeground?: string;
+        warning?: string;
+        warningForeground?: string;
+     };
+     createdAt: string;
+     description: string | null;
+     design:   | {
+        cinemaGradient?: {
+           position: ... | ...;
+           strength: ... | ... | ...;
+        };
+        heroLayout?: {
+           size: ... | ... | ...;
+           type: ... | ...;
+        };
+      }
+        | null;
+     extendsThemeId: string | null;
+     id: string;
+     isActive: boolean;
+     isBaseTheme: boolean;
+     name: string;
+     organisationId: string;
+     shape: {
+        radiusFull?: string;
+        radiusLg?: string;
+        radiusMd?: string;
+        radiusNone?: string;
+        radiusSm?: string;
+     };
+     typography: {
+        baseSize?: string;
+        fontFamily?: string;
+        fontFamilyMono?: string;
+        scaleRatio?: number;
+     };
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.201.content.application/json.theme
+
+```ts
+theme: {
+  brand: {
+     displayName?: string;
+     faviconUrl?: string;
+     logoDarkUrl?: string;
+     logoUrl?: string;
+  };
+  colors: {
+     accent?: string;
+     accentForeground?: string;
+     background?: string;
+     border?: string;
+     destructive?: string;
+     destructiveForeground?: string;
+     foreground?: string;
+     input?: string;
+     muted?: string;
+     mutedForeground?: string;
+     primary?: string;
+     primaryForeground?: string;
+     ring?: string;
+     secondary?: string;
+     secondaryForeground?: string;
+     success?: string;
+     successForeground?: string;
+     warning?: string;
+     warningForeground?: string;
+  };
+  createdAt: string;
+  description: string | null;
+  design:   | {
+     cinemaGradient?: {
+        position: ... | ...;
+        strength: ... | ... | ...;
+     };
+     heroLayout?: {
+        size: ... | ... | ...;
+        type: ... | ...;
+     };
+   }
+     | null;
+  extendsThemeId: string | null;
+  id: string;
+  isActive: boolean;
+  isBaseTheme: boolean;
+  name: string;
+  organisationId: string;
+  shape: {
+     radiusFull?: string;
+     radiusLg?: string;
+     radiusMd?: string;
+     radiusNone?: string;
+     radiusSm?: string;
+  };
+  typography: {
+     baseSize?: string;
+     fontFamily?: string;
+     fontFamilyMono?: string;
+     scaleRatio?: number;
+  };
+  updatedAt: string;
+};
+```
+
+##### responses.201.content.application/json.theme.brand
+
+```ts
+brand: {
+  displayName?: string;
+  faviconUrl?: string;
+  logoDarkUrl?: string;
+  logoUrl?: string;
+};
+```
+
+##### responses.201.content.application/json.theme.brand.displayName?
+
+```ts
+optional displayName: string;
+```
+
+###### Example
+
+```ts
+Acme Tickets
+```
+
+##### responses.201.content.application/json.theme.brand.faviconUrl?
+
+```ts
+optional faviconUrl: string;
+```
+
+##### responses.201.content.application/json.theme.brand.logoDarkUrl?
+
+```ts
+optional logoDarkUrl: string;
+```
+
+##### responses.201.content.application/json.theme.brand.logoUrl?
+
+```ts
+optional logoUrl: string;
+```
+
+###### Example
+
+```ts
+https://cdn.example.com/logo.svg
+```
+
+##### responses.201.content.application/json.theme.colors
+
+```ts
+colors: {
+  accent?: string;
+  accentForeground?: string;
+  background?: string;
+  border?: string;
+  destructive?: string;
+  destructiveForeground?: string;
+  foreground?: string;
+  input?: string;
+  muted?: string;
+  mutedForeground?: string;
+  primary?: string;
+  primaryForeground?: string;
+  ring?: string;
+  secondary?: string;
+  secondaryForeground?: string;
+  success?: string;
+  successForeground?: string;
+  warning?: string;
+  warningForeground?: string;
+};
+```
+
+##### responses.201.content.application/json.theme.colors.accent?
+
+```ts
+optional accent: string;
+```
+
+##### responses.201.content.application/json.theme.colors.accentForeground?
+
+```ts
+optional accentForeground: string;
+```
+
+##### responses.201.content.application/json.theme.colors.background?
+
+```ts
+optional background: string;
+```
+
+##### responses.201.content.application/json.theme.colors.border?
+
+```ts
+optional border: string;
+```
+
+##### responses.201.content.application/json.theme.colors.destructive?
+
+```ts
+optional destructive: string;
+```
+
+##### responses.201.content.application/json.theme.colors.destructiveForeground?
+
+```ts
+optional destructiveForeground: string;
+```
+
+##### responses.201.content.application/json.theme.colors.foreground?
+
+```ts
+optional foreground: string;
+```
+
+##### responses.201.content.application/json.theme.colors.input?
+
+```ts
+optional input: string;
+```
+
+##### responses.201.content.application/json.theme.colors.muted?
+
+```ts
+optional muted: string;
+```
+
+##### responses.201.content.application/json.theme.colors.mutedForeground?
+
+```ts
+optional mutedForeground: string;
+```
+
+##### responses.201.content.application/json.theme.colors.primary?
+
+```ts
+optional primary: string;
+```
+
+###### Example
+
+```ts
+#7C3AED
+```
+
+##### responses.201.content.application/json.theme.colors.primaryForeground?
+
+```ts
+optional primaryForeground: string;
+```
+
+##### responses.201.content.application/json.theme.colors.ring?
+
+```ts
+optional ring: string;
+```
+
+##### responses.201.content.application/json.theme.colors.secondary?
+
+```ts
+optional secondary: string;
+```
+
+##### responses.201.content.application/json.theme.colors.secondaryForeground?
+
+```ts
+optional secondaryForeground: string;
+```
+
+##### responses.201.content.application/json.theme.colors.success?
+
+```ts
+optional success: string;
+```
+
+##### responses.201.content.application/json.theme.colors.successForeground?
+
+```ts
+optional successForeground: string;
+```
+
+##### responses.201.content.application/json.theme.colors.warning?
+
+```ts
+optional warning: string;
+```
+
+##### responses.201.content.application/json.theme.colors.warningForeground?
+
+```ts
+optional warningForeground: string;
+```
+
+##### responses.201.content.application/json.theme.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-01T00:00:00.000Z
+```
+
+##### responses.201.content.application/json.theme.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Dark theme for evening events
+```
+
+##### responses.201.content.application/json.theme.design
+
+```ts
+design: 
+  | {
+  cinemaGradient?: {
+     position: ... | ...;
+     strength: ... | ... | ...;
+  };
+  heroLayout?: {
+     size: ... | ... | ...;
+     type: ... | ...;
+  };
+}
+  | null;
+```
+
+##### responses.201.content.application/json.theme.extendsThemeId
+
+```ts
+extendsThemeId: string | null;
+```
+
+###### Example
+
+```ts
+sct_base123
+```
+
+##### responses.201.content.application/json.theme.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sct_abc123
+```
+
+##### responses.201.content.application/json.theme.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.201.content.application/json.theme.isBaseTheme
+
+```ts
+isBaseTheme: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.201.content.application/json.theme.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Midnight
+```
+
+##### responses.201.content.application/json.theme.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.201.content.application/json.theme.shape
+
+```ts
+shape: {
+  radiusFull?: string;
+  radiusLg?: string;
+  radiusMd?: string;
+  radiusNone?: string;
+  radiusSm?: string;
+};
+```
+
+##### responses.201.content.application/json.theme.shape.radiusFull?
+
+```ts
+optional radiusFull: string;
+```
+
+##### responses.201.content.application/json.theme.shape.radiusLg?
+
+```ts
+optional radiusLg: string;
+```
+
+##### responses.201.content.application/json.theme.shape.radiusMd?
+
+```ts
+optional radiusMd: string;
+```
+
+###### Example
+
+```ts
+0.5rem
+```
+
+##### responses.201.content.application/json.theme.shape.radiusNone?
+
+```ts
+optional radiusNone: string;
+```
+
+##### responses.201.content.application/json.theme.shape.radiusSm?
+
+```ts
+optional radiusSm: string;
+```
+
+##### responses.201.content.application/json.theme.typography
+
+```ts
+typography: {
+  baseSize?: string;
+  fontFamily?: string;
+  fontFamilyMono?: string;
+  scaleRatio?: number;
+};
+```
+
+##### responses.201.content.application/json.theme.typography.baseSize?
+
+```ts
+optional baseSize: string;
+```
+
+###### Example
+
+```ts
+16px
+```
+
+##### responses.201.content.application/json.theme.typography.fontFamily?
+
+```ts
+optional fontFamily: string;
+```
+
+###### Example
+
+```ts
+Inter, sans-serif
+```
+
+##### responses.201.content.application/json.theme.typography.fontFamilyMono?
+
+```ts
+optional fontFamilyMono: string;
+```
+
+##### responses.201.content.application/json.theme.typography.scaleRatio?
+
+```ts
+optional scaleRatio: number;
+```
+
+###### Example
+
+```ts
+1.25
+```
+
+##### responses.201.content.application/json.theme.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-01T00:00:00.000Z
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### createUserInvitation
 
 ```ts
@@ -27104,7 +39061,7 @@ createUserInvitation: {
 };
 ```
 
-Defined in: generated/types.ts:5438
+Defined in: generated/types.ts:7161
 
 #### parameters
 
@@ -27685,6 +39642,7 @@ createVenue: {
      content: {
         application/json: {
            accountId: string;
+           city?: string;
            coordinates?: {
               latitude: number;
               longitude: number;
@@ -27771,7 +39729,7 @@ createVenue: {
 };
 ```
 
-Defined in: generated/types.ts:7850
+Defined in: generated/types.ts:9653
 
 #### parameters
 
@@ -27815,6 +39773,7 @@ optional requestBody: {
   content: {
      application/json: {
         accountId: string;
+        city?: string;
         coordinates?: {
            latitude: number;
            longitude: number;
@@ -27841,6 +39800,7 @@ optional requestBody: {
 content: {
   application/json: {
      accountId: string;
+     city?: string;
      coordinates?: {
         latitude: number;
         longitude: number;
@@ -27865,6 +39825,7 @@ content: {
 ```ts
 application/json: {
   accountId: string;
+  city?: string;
   coordinates?: {
      latitude: number;
      longitude: number;
@@ -27897,6 +39858,22 @@ Account ID that owns this venue
 
 ```ts
 acc_xyz789
+```
+
+##### requestBody.content.application/json.city?
+
+```ts
+optional city: string;
+```
+
+###### Description
+
+City
+
+###### Example
+
+```ts
+London
 ```
 
 ##### requestBody.content.application/json.coordinates?
@@ -29010,7 +40987,7 @@ createVenueLayout: {
 };
 ```
 
-Defined in: generated/types.ts:8324
+Defined in: generated/types.ts:10137
 
 #### parameters
 
@@ -30323,6 +42300,656 @@ headers: {
 
 ***
 
+### deactivatePresaleCode
+
+```ts
+deactivatePresaleCode: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        codeId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              presaleCode: {
+                 accountId: string;
+                 benefit: string;
+                 benefitExpiresAt: string | null;
+                 channelId: string | null;
+                 code: string;
+                 createdAt: string;
+                 createdBy: string | null;
+                 expiresAt: string | null;
+                 id: string;
+                 isActive: boolean;
+                 maxRedemptions: number | null;
+                 organisationId: string;
+                 redemptionCount: number;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:18750
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     codeId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  codeId: string;
+};
+```
+
+##### parameters.path.codeId
+
+```ts
+codeId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           presaleCode: {
+              accountId: string;
+              benefit: string;
+              benefitExpiresAt: string | null;
+              channelId: string | null;
+              code: string;
+              createdAt: string;
+              createdBy: string | null;
+              expiresAt: string | null;
+              id: string;
+              isActive: boolean;
+              maxRedemptions: number | null;
+              organisationId: string;
+              redemptionCount: number;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        presaleCode: {
+           accountId: string;
+           benefit: string;
+           benefitExpiresAt: string | null;
+           channelId: string | null;
+           code: string;
+           createdAt: string;
+           createdBy: string | null;
+           expiresAt: string | null;
+           id: string;
+           isActive: boolean;
+           maxRedemptions: number | null;
+           organisationId: string;
+           redemptionCount: number;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Presale code deactivated successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     presaleCode: {
+        accountId: string;
+        benefit: string;
+        benefitExpiresAt: string | null;
+        channelId: string | null;
+        code: string;
+        createdAt: string;
+        createdBy: string | null;
+        expiresAt: string | null;
+        id: string;
+        isActive: boolean;
+        maxRedemptions: number | null;
+        organisationId: string;
+        redemptionCount: number;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  presaleCode: {
+     accountId: string;
+     benefit: string;
+     benefitExpiresAt: string | null;
+     channelId: string | null;
+     code: string;
+     createdAt: string;
+     createdBy: string | null;
+     expiresAt: string | null;
+     id: string;
+     isActive: boolean;
+     maxRedemptions: number | null;
+     organisationId: string;
+     redemptionCount: number;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.presaleCode
+
+```ts
+presaleCode: {
+  accountId: string;
+  benefit: string;
+  benefitExpiresAt: string | null;
+  channelId: string | null;
+  code: string;
+  createdAt: string;
+  createdBy: string | null;
+  expiresAt: string | null;
+  id: string;
+  isActive: boolean;
+  maxRedemptions: number | null;
+  organisationId: string;
+  redemptionCount: number;
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.presaleCode.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### responses.200.content.application/json.presaleCode.benefit
+
+```ts
+benefit: string;
+```
+
+###### Example
+
+```ts
+presale.summer-gala
+```
+
+##### responses.200.content.application/json.presaleCode.benefitExpiresAt
+
+```ts
+benefitExpiresAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.presaleCode.channelId
+
+```ts
+channelId: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.presaleCode.code
+
+```ts
+code: string;
+```
+
+###### Example
+
+```ts
+EARLYBIRD-2026
+```
+
+##### responses.200.content.application/json.presaleCode.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.presaleCode.createdBy
+
+```ts
+createdBy: string | null;
+```
+
+###### Example
+
+```ts
+usr_abc123
+```
+
+##### responses.200.content.application/json.presaleCode.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2026-03-01T00:00:00Z
+```
+
+##### responses.200.content.application/json.presaleCode.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+psc_abc123
+```
+
+##### responses.200.content.application/json.presaleCode.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.content.application/json.presaleCode.maxRedemptions
+
+```ts
+maxRedemptions: number | null;
+```
+
+###### Example
+
+```ts
+500
+```
+
+##### responses.200.content.application/json.presaleCode.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.presaleCode.redemptionCount
+
+```ts
+redemptionCount: number;
+```
+
+###### Example
+
+```ts
+42
+```
+
+##### responses.200.content.application/json.presaleCode.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### deleteAccount
 
 ```ts
@@ -30382,7 +43009,7 @@ deleteAccount: {
 };
 ```
 
-Defined in: generated/types.ts:5073
+Defined in: generated/types.ts:6796
 
 #### parameters
 
@@ -30801,7 +43428,7 @@ deleteEvent: {
 };
 ```
 
-Defined in: generated/types.ts:6667
+Defined in: generated/types.ts:8433
 
 #### parameters
 
@@ -31221,7 +43848,7 @@ deleteEventOccurrence: {
 };
 ```
 
-Defined in: generated/types.ts:7212
+Defined in: generated/types.ts:9015
 
 #### parameters
 
@@ -31653,7 +44280,7 @@ deleteEventPriceScheme: {
 };
 ```
 
-Defined in: generated/types.ts:7629
+Defined in: generated/types.ts:9432
 
 #### parameters
 
@@ -32025,6 +44652,404 @@ headers: {
 
 ***
 
+### deleteFeeProfile
+
+```ts
+deleteFeeProfile: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        profileId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              deleted: boolean;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:18984
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     profileId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  profileId: string;
+};
+```
+
+##### parameters.path.profileId
+
+```ts
+profileId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           deleted: boolean;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        deleted: boolean;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Fee profile deleted successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     deleted: boolean;
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  deleted: boolean;
+};
+```
+
+##### responses.200.content.application/json.deleted
+
+```ts
+deleted: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### deleteInventory
 
 ```ts
@@ -32085,7 +45110,7 @@ deleteInventory: {
 };
 ```
 
-Defined in: generated/types.ts:11635
+Defined in: generated/types.ts:13733
 
 #### parameters
 
@@ -32443,6 +45468,408 @@ headers: {
 
 ***
 
+### deletePaymentMethod
+
+```ts
+deletePaymentMethod: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        paymentMethodId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              success: boolean;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:13388
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     paymentMethodId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  paymentMethodId: string;
+};
+```
+
+##### parameters.path.paymentMethodId
+
+```ts
+paymentMethodId: string;
+```
+
+###### Description
+
+Payment method ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           success: boolean;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        success: boolean;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Payment method deleted successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     success: boolean;
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  success: boolean;
+};
+```
+
+##### responses.200.content.application/json.success
+
+```ts
+success: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### deletePaymentProvider
 
 ```ts
@@ -32502,7 +45929,7 @@ deletePaymentProvider: {
 };
 ```
 
-Defined in: generated/types.ts:15266
+Defined in: generated/types.ts:17284
 
 #### parameters
 
@@ -32921,7 +46348,7 @@ deleteRole: {
 };
 ```
 
-Defined in: generated/types.ts:5840
+Defined in: generated/types.ts:7563
 
 #### parameters
 
@@ -33281,6 +46708,811 @@ headers: {
 
 ***
 
+### deleteSalesChannel
+
+```ts
+deleteSalesChannel: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        channelId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              deleted: boolean;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:17762
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     channelId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  channelId: string;
+};
+```
+
+##### parameters.path.channelId
+
+```ts
+channelId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           deleted: boolean;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        deleted: boolean;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Sales channel deleted successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     deleted: boolean;
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  deleted: boolean;
+};
+```
+
+##### responses.200.content.application/json.deleted
+
+```ts
+deleted: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### deleteSalesChannelListing
+
+```ts
+deleteSalesChannelListing: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        channelId: string;
+        listingId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              deleted: boolean;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:18236
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     channelId: string;
+     listingId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  channelId: string;
+  listingId: string;
+};
+```
+
+##### parameters.path.channelId
+
+```ts
+channelId: string;
+```
+
+##### parameters.path.listingId
+
+```ts
+listingId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           deleted: boolean;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        deleted: boolean;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Listing removed successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     deleted: boolean;
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  deleted: boolean;
+};
+```
+
+##### responses.200.content.application/json.deleted
+
+```ts
+deleted: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### deleteSeatFromArea
 
 ```ts
@@ -33343,7 +47575,7 @@ deleteSeatFromArea: {
 };
 ```
 
-Defined in: generated/types.ts:10401
+Defined in: generated/types.ts:12214
 
 #### parameters
 
@@ -33733,6 +47965,408 @@ headers: {
 
 ***
 
+### deleteTheme
+
+```ts
+deleteTheme: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        id: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              deleted: boolean;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:20537
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     id: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  id: string;
+};
+```
+
+##### parameters.path.id
+
+```ts
+id: string;
+```
+
+###### Description
+
+Theme ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           deleted: boolean;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        deleted: boolean;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Theme deleted successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     deleted: boolean;
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  deleted: boolean;
+};
+```
+
+##### responses.200.content.application/json.deleted
+
+```ts
+deleted: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### deleteVenue
 
 ```ts
@@ -33792,7 +48426,7 @@ deleteVenue: {
 };
 ```
 
-Defined in: generated/types.ts:8057
+Defined in: generated/types.ts:9865
 
 #### parameters
 
@@ -34212,7 +48846,7 @@ deleteVenueLayout: {
 };
 ```
 
-Defined in: generated/types.ts:8811
+Defined in: generated/types.ts:10624
 
 #### parameters
 
@@ -34645,7 +49279,7 @@ deleteVenueLayoutArea: {
 };
 ```
 
-Defined in: generated/types.ts:9411
+Defined in: generated/types.ts:11224
 
 #### parameters
 
@@ -35084,7 +49718,7 @@ deleteVenueLayoutCategory: {
 };
 ```
 
-Defined in: generated/types.ts:9684
+Defined in: generated/types.ts:11497
 
 #### parameters
 
@@ -35545,7 +50179,7 @@ extendReservation: {
 };
 ```
 
-Defined in: generated/types.ts:12448
+Defined in: generated/types.ts:14546
 
 #### parameters
 
@@ -36286,7 +50920,7 @@ federate: {
 };
 ```
 
-Defined in: generated/types.ts:4479
+Defined in: generated/types.ts:6202
 
 #### parameters
 
@@ -36834,7 +51468,7 @@ generateSeatsForArea: {
 };
 ```
 
-Defined in: generated/types.ts:10138
+Defined in: generated/types.ts:11951
 
 #### parameters
 
@@ -37581,7 +52215,7 @@ getAccount: {
 };
 ```
 
-Defined in: generated/types.ts:5015
+Defined in: generated/types.ts:6738
 
 #### parameters
 
@@ -38114,7 +52748,7 @@ getAutoTopup: {
 };
 ```
 
-Defined in: generated/types.ts:11286
+Defined in: generated/types.ts:13099
 
 #### parameters
 
@@ -38602,7 +53236,7 @@ getCreditBalance: {
 };
 ```
 
-Defined in: generated/types.ts:10731
+Defined in: generated/types.ts:12544
 
 #### parameters
 
@@ -39196,7 +53830,7 @@ getCurrentUser: {
 };
 ```
 
-Defined in: generated/types.ts:4538
+Defined in: generated/types.ts:6261
 
 #### parameters
 
@@ -39705,7 +54339,7 @@ getCustomer: {
 };
 ```
 
-Defined in: generated/types.ts:12853
+Defined in: generated/types.ts:14951
 
 #### parameters
 
@@ -40372,13 +55006,13 @@ getDefaultPaymentProvider: {
                     | "in_person_card"
                     | "in_person_cash"
                    | "cheque")[];
-                 type:   | "bank_transfer"
-                    | "cash"
-                    | "stripe_connect"
+                 type:   | "stripe_connect"
                     | "stripe_direct"
                     | "adyen"
                     | "square"
-                    | "paypal";
+                    | "paypal"
+                    | "cash"
+                    | "bank_transfer";
                  updatedAt: string;
               };
            };
@@ -40421,7 +55055,7 @@ getDefaultPaymentProvider: {
 };
 ```
 
-Defined in: generated/types.ts:15153
+Defined in: generated/types.ts:17171
 
 #### parameters
 
@@ -40521,13 +55155,13 @@ responses: {
                  | "in_person_card"
                  | "in_person_cash"
                 | "cheque")[];
-              type:   | "bank_transfer"
-                 | "cash"
-                 | "stripe_connect"
+              type:   | "stripe_connect"
                  | "stripe_direct"
                  | "adyen"
                  | "square"
-                 | "paypal";
+                 | "paypal"
+                 | "cash"
+                 | "bank_transfer";
               updatedAt: string;
            };
         };
@@ -40625,13 +55259,13 @@ responses: {
               | "in_person_card"
               | "in_person_cash"
              | "cheque")[];
-           type:   | "bank_transfer"
-              | "cash"
-              | "stripe_connect"
+           type:   | "stripe_connect"
               | "stripe_direct"
               | "adyen"
               | "square"
-              | "paypal";
+              | "paypal"
+              | "cash"
+              | "bank_transfer";
            updatedAt: string;
         };
      };
@@ -40701,13 +55335,13 @@ content: {
            | "in_person_card"
            | "in_person_cash"
           | "cheque")[];
-        type:   | "bank_transfer"
-           | "cash"
-           | "stripe_connect"
+        type:   | "stripe_connect"
            | "stripe_direct"
            | "adyen"
            | "square"
-           | "paypal";
+           | "paypal"
+           | "cash"
+           | "bank_transfer";
         updatedAt: string;
      };
   };
@@ -40768,13 +55402,13 @@ application/json: {
         | "in_person_card"
         | "in_person_cash"
        | "cheque")[];
-     type:   | "bank_transfer"
-        | "cash"
-        | "stripe_connect"
+     type:   | "stripe_connect"
         | "stripe_direct"
         | "adyen"
         | "square"
-        | "paypal";
+        | "paypal"
+        | "cash"
+        | "bank_transfer";
      updatedAt: string;
   };
 };
@@ -40833,13 +55467,13 @@ provider: {
      | "in_person_card"
      | "in_person_cash"
     | "cheque")[];
-  type:   | "bank_transfer"
-     | "cash"
-     | "stripe_connect"
+  type:   | "stripe_connect"
      | "stripe_direct"
      | "adyen"
      | "square"
-     | "paypal";
+     | "paypal"
+     | "cash"
+     | "bank_transfer";
   updatedAt: string;
 };
 ```
@@ -41129,13 +55763,13 @@ supportedPaymentTypes: (
 
 ```ts
 type: 
-  | "bank_transfer"
-  | "cash"
   | "stripe_connect"
   | "stripe_direct"
   | "adyen"
   | "square"
-  | "paypal";
+  | "paypal"
+  | "cash"
+  | "bank_transfer";
 ```
 
 ###### Example
@@ -41432,7 +56066,7 @@ getEvent: {
 };
 ```
 
-Defined in: generated/types.ts:6606
+Defined in: generated/types.ts:8372
 
 #### parameters
 
@@ -42204,7 +56838,7 @@ getEventOccurrence: {
 };
 ```
 
-Defined in: generated/types.ts:7152
+Defined in: generated/types.ts:8955
 
 #### parameters
 
@@ -42875,7 +57509,7 @@ getEventPriceScheme: {
 };
 ```
 
-Defined in: generated/types.ts:7569
+Defined in: generated/types.ts:9372
 
 #### parameters
 
@@ -43463,6 +58097,602 @@ headers: {
 
 ***
 
+### getFeeProfile
+
+```ts
+getFeeProfile: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        profileId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              feeProfile: {
+                 createdAt: string;
+                 deletedAt: string | null;
+                 id: string;
+                 isDeleted: boolean;
+                 name: string;
+                 organisationId: string;
+                 serviceFeeEnabled: boolean;
+                 serviceFeeFixed: string | null;
+                 serviceFeeLabel: string | null;
+                 serviceFeePercent: string | null;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:18927
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     profileId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  profileId: string;
+};
+```
+
+##### parameters.path.profileId
+
+```ts
+profileId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           feeProfile: {
+              createdAt: string;
+              deletedAt: string | null;
+              id: string;
+              isDeleted: boolean;
+              name: string;
+              organisationId: string;
+              serviceFeeEnabled: boolean;
+              serviceFeeFixed: string | null;
+              serviceFeeLabel: string | null;
+              serviceFeePercent: string | null;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        feeProfile: {
+           createdAt: string;
+           deletedAt: string | null;
+           id: string;
+           isDeleted: boolean;
+           name: string;
+           organisationId: string;
+           serviceFeeEnabled: boolean;
+           serviceFeeFixed: string | null;
+           serviceFeeLabel: string | null;
+           serviceFeePercent: string | null;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Fee profile retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     feeProfile: {
+        createdAt: string;
+        deletedAt: string | null;
+        id: string;
+        isDeleted: boolean;
+        name: string;
+        organisationId: string;
+        serviceFeeEnabled: boolean;
+        serviceFeeFixed: string | null;
+        serviceFeeLabel: string | null;
+        serviceFeePercent: string | null;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  feeProfile: {
+     createdAt: string;
+     deletedAt: string | null;
+     id: string;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     serviceFeeEnabled: boolean;
+     serviceFeeFixed: string | null;
+     serviceFeeLabel: string | null;
+     serviceFeePercent: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.feeProfile
+
+```ts
+feeProfile: {
+  createdAt: string;
+  deletedAt: string | null;
+  id: string;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  serviceFeeEnabled: boolean;
+  serviceFeeFixed: string | null;
+  serviceFeeLabel: string | null;
+  serviceFeePercent: string | null;
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.feeProfile.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.feeProfile.deletedAt
+
+```ts
+deletedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.feeProfile.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sfp_abc123
+```
+
+##### responses.200.content.application/json.feeProfile.isDeleted
+
+```ts
+isDeleted: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.feeProfile.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Standard web fees
+```
+
+##### responses.200.content.application/json.feeProfile.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.feeProfile.serviceFeeEnabled
+
+```ts
+serviceFeeEnabled: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.content.application/json.feeProfile.serviceFeeFixed
+
+```ts
+serviceFeeFixed: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.feeProfile.serviceFeeLabel
+
+```ts
+serviceFeeLabel: string | null;
+```
+
+###### Example
+
+```ts
+Service fee
+```
+
+##### responses.200.content.application/json.feeProfile.serviceFeePercent
+
+```ts
+serviceFeePercent: string | null;
+```
+
+###### Example
+
+```ts
+0.0500
+```
+
+##### responses.200.content.application/json.feeProfile.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### getIdentityProvider
 
 ```ts
@@ -43547,7 +58777,7 @@ getIdentityProvider: {
 };
 ```
 
-Defined in: generated/types.ts:5262
+Defined in: generated/types.ts:6985
 
 #### parameters
 
@@ -44368,7 +59598,7 @@ getInventory: {
 };
 ```
 
-Defined in: generated/types.ts:11574
+Defined in: generated/types.ts:13672
 
 #### parameters
 
@@ -45127,7 +60357,7 @@ getInventoryAuditLog: {
 };
 ```
 
-Defined in: generated/types.ts:11769
+Defined in: generated/types.ts:13867
 
 #### parameters
 
@@ -45616,7 +60846,7 @@ getInvoice: {
 };
 ```
 
-Defined in: generated/types.ts:10981
+Defined in: generated/types.ts:12794
 
 #### parameters
 
@@ -46325,7 +61555,7 @@ getMyOrganisations: {
 };
 ```
 
-Defined in: generated/types.ts:4593
+Defined in: generated/types.ts:6316
 
 #### parameters
 
@@ -46752,7 +61982,7 @@ getMyPermissions: {
 };
 ```
 
-Defined in: generated/types.ts:4703
+Defined in: generated/types.ts:6426
 
 #### parameters
 
@@ -47250,7 +62480,7 @@ getMyRoles: {
 };
 ```
 
-Defined in: generated/types.ts:4648
+Defined in: generated/types.ts:6371
 
 #### parameters
 
@@ -47745,7 +62975,7 @@ getOrder: {
 };
 ```
 
-Defined in: generated/types.ts:13386
+Defined in: generated/types.ts:15484
 
 #### parameters
 
@@ -48859,7 +64089,7 @@ getOrderByNumber: {
 };
 ```
 
-Defined in: generated/types.ts:13641
+Defined in: generated/types.ts:15739
 
 #### parameters
 
@@ -49922,7 +65152,7 @@ getOrderPaymentStatus: {
 };
 ```
 
-Defined in: generated/types.ts:14255
+Defined in: generated/types.ts:16353
 
 #### parameters
 
@@ -50412,6 +65642,7 @@ getOrganisation: {
         content: {
            application/json: {
               organisation: {
+                 apiVersion: string;
                  createdAt: string;
                  id: string;
                  logoUrl?: string;
@@ -50463,7 +65694,7 @@ getOrganisation: {
 };
 ```
 
-Defined in: generated/types.ts:4763
+Defined in: generated/types.ts:6486
 
 #### parameters
 
@@ -50528,6 +65759,7 @@ responses: {
      content: {
         application/json: {
            organisation: {
+              apiVersion: string;
               createdAt: string;
               id: string;
               logoUrl?: string;
@@ -50585,6 +65817,7 @@ responses: {
   content: {
      application/json: {
         organisation: {
+           apiVersion: string;
            createdAt: string;
            id: string;
            logoUrl?: string;
@@ -50614,6 +65847,7 @@ Organisation retrieved successfully
 content: {
   application/json: {
      organisation: {
+        apiVersion: string;
         createdAt: string;
         id: string;
         logoUrl?: string;
@@ -50634,6 +65868,7 @@ content: {
 ```ts
 application/json: {
   organisation: {
+     apiVersion: string;
      createdAt: string;
      id: string;
      logoUrl?: string;
@@ -50652,6 +65887,7 @@ application/json: {
 
 ```ts
 organisation: {
+  apiVersion: string;
   createdAt: string;
   id: string;
   logoUrl?: string;
@@ -50663,6 +65899,22 @@ organisation: {
   secondaryColor?: string;
   updatedAt: string;
 };
+```
+
+##### responses.200.content.application/json.organisation.apiVersion
+
+```ts
+apiVersion: string;
+```
+
+###### Description
+
+The dated API version this organisation is pinned to (see GET /meta/versions)
+
+###### Example
+
+```ts
+2026-06-13
 ```
 
 ##### responses.200.content.application/json.organisation.createdAt
@@ -50994,58 +66246,6 @@ getPayment: {
                  paidAt: string | null;
                  status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
                  updatedAt: string;
-               } & {
-                 accountId: string;
-                 amount: number;
-                 applicationFee: number | null;
-                 cancelledAt: string | null;
-                 capturedAt: string | null;
-                 clientSecret: string | null;
-                 createdAt: string;
-                 currency: string;
-                 expiresAt: string | null;
-                 externalPaymentId: string | null;
-                 failedAt: string | null;
-                 failureCode: string | null;
-                 failureMessage: string | null;
-                 id: string;
-                 isPartialPayment: boolean;
-                 metadata:   | {
-                  [key: string]: unknown;
-                  }
-                    | null;
-                 netAmount: number | null;
-                 orderId: string;
-                 orderNumber: string;
-                 organisationId: string;
-                 paymentMethod:   | {
-                    brand: string | null;
-                    expiryMonth: number | null;
-                    expiryYear: number | null;
-                    last4: string | null;
-                    type: "card" | "bank_transfer" | "cash" | "wallet";
-                  }
-                    | null;
-                 paymentProviderId: string;
-                 paymentType:   | "bank_transfer"
-                    | "online_card"
-                    | "online_bank_transfer"
-                    | "online_wallet"
-                    | "in_person_card"
-                    | "in_person_cash"
-                    | "cheque";
-                 processingFee: number | null;
-                 redirectUrl: string | null;
-                 remainingBalance: number | null;
-                 status:   | "cancelled"
-                    | "pending"
-                    | "succeeded"
-                    | "failed"
-                    | "processing"
-                    | "expired"
-                    | "requires_action"
-                    | "created";
-                 updatedAt: string;
               };
            };
         };
@@ -51087,7 +66287,7 @@ getPayment: {
 };
 ```
 
-Defined in: generated/types.ts:14587
+Defined in: generated/types.ts:16605
 
 #### parameters
 
@@ -51165,58 +66365,6 @@ responses: {
               paidAt: string | null;
               status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
               updatedAt: string;
-            } & {
-              accountId: string;
-              amount: number;
-              applicationFee: number | null;
-              cancelledAt: string | null;
-              capturedAt: string | null;
-              clientSecret: string | null;
-              createdAt: string;
-              currency: string;
-              expiresAt: string | null;
-              externalPaymentId: string | null;
-              failedAt: string | null;
-              failureCode: string | null;
-              failureMessage: string | null;
-              id: string;
-              isPartialPayment: boolean;
-              metadata:   | {
-               [key: string]: unknown;
-               }
-                 | null;
-              netAmount: number | null;
-              orderId: string;
-              orderNumber: string;
-              organisationId: string;
-              paymentMethod:   | {
-                 brand: string | null;
-                 expiryMonth: number | null;
-                 expiryYear: number | null;
-                 last4: string | null;
-                 type: "card" | "bank_transfer" | "cash" | "wallet";
-               }
-                 | null;
-              paymentProviderId: string;
-              paymentType:   | "bank_transfer"
-                 | "online_card"
-                 | "online_bank_transfer"
-                 | "online_wallet"
-                 | "in_person_card"
-                 | "in_person_cash"
-                 | "cheque";
-              processingFee: number | null;
-              redirectUrl: string | null;
-              remainingBalance: number | null;
-              status:   | "cancelled"
-                 | "pending"
-                 | "succeeded"
-                 | "failed"
-                 | "processing"
-                 | "expired"
-                 | "requires_action"
-                 | "created";
-              updatedAt: string;
            };
         };
      };
@@ -51277,58 +66425,6 @@ responses: {
            paidAt: string | null;
            status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
            updatedAt: string;
-         } & {
-           accountId: string;
-           amount: number;
-           applicationFee: number | null;
-           cancelledAt: string | null;
-           capturedAt: string | null;
-           clientSecret: string | null;
-           createdAt: string;
-           currency: string;
-           expiresAt: string | null;
-           externalPaymentId: string | null;
-           failedAt: string | null;
-           failureCode: string | null;
-           failureMessage: string | null;
-           id: string;
-           isPartialPayment: boolean;
-           metadata:   | {
-            [key: string]: unknown;
-            }
-              | null;
-           netAmount: number | null;
-           orderId: string;
-           orderNumber: string;
-           organisationId: string;
-           paymentMethod:   | {
-              brand: string | null;
-              expiryMonth: number | null;
-              expiryYear: number | null;
-              last4: string | null;
-              type: "card" | "bank_transfer" | "cash" | "wallet";
-            }
-              | null;
-           paymentProviderId: string;
-           paymentType:   | "bank_transfer"
-              | "online_card"
-              | "online_bank_transfer"
-              | "online_wallet"
-              | "in_person_card"
-              | "in_person_cash"
-              | "cheque";
-           processingFee: number | null;
-           redirectUrl: string | null;
-           remainingBalance: number | null;
-           status:   | "cancelled"
-              | "pending"
-              | "succeeded"
-              | "failed"
-              | "processing"
-              | "expired"
-              | "requires_action"
-              | "created";
-           updatedAt: string;
         };
      };
   };
@@ -51361,58 +66457,6 @@ content: {
         paidAt: string | null;
         status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
         updatedAt: string;
-      } & {
-        accountId: string;
-        amount: number;
-        applicationFee: number | null;
-        cancelledAt: string | null;
-        capturedAt: string | null;
-        clientSecret: string | null;
-        createdAt: string;
-        currency: string;
-        expiresAt: string | null;
-        externalPaymentId: string | null;
-        failedAt: string | null;
-        failureCode: string | null;
-        failureMessage: string | null;
-        id: string;
-        isPartialPayment: boolean;
-        metadata:   | {
-         [key: string]: unknown;
-         }
-           | null;
-        netAmount: number | null;
-        orderId: string;
-        orderNumber: string;
-        organisationId: string;
-        paymentMethod:   | {
-           brand: string | null;
-           expiryMonth: number | null;
-           expiryYear: number | null;
-           last4: string | null;
-           type: "card" | "bank_transfer" | "cash" | "wallet";
-         }
-           | null;
-        paymentProviderId: string;
-        paymentType:   | "bank_transfer"
-           | "online_card"
-           | "online_bank_transfer"
-           | "online_wallet"
-           | "in_person_card"
-           | "in_person_cash"
-           | "cheque";
-        processingFee: number | null;
-        redirectUrl: string | null;
-        remainingBalance: number | null;
-        status:   | "cancelled"
-           | "pending"
-           | "succeeded"
-           | "failed"
-           | "processing"
-           | "expired"
-           | "requires_action"
-           | "created";
-        updatedAt: string;
      };
   };
 };
@@ -51436,58 +66480,6 @@ application/json: {
      paidAt: string | null;
      status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
      updatedAt: string;
-   } & {
-     accountId: string;
-     amount: number;
-     applicationFee: number | null;
-     cancelledAt: string | null;
-     capturedAt: string | null;
-     clientSecret: string | null;
-     createdAt: string;
-     currency: string;
-     expiresAt: string | null;
-     externalPaymentId: string | null;
-     failedAt: string | null;
-     failureCode: string | null;
-     failureMessage: string | null;
-     id: string;
-     isPartialPayment: boolean;
-     metadata:   | {
-      [key: string]: unknown;
-      }
-        | null;
-     netAmount: number | null;
-     orderId: string;
-     orderNumber: string;
-     organisationId: string;
-     paymentMethod:   | {
-        brand: string | null;
-        expiryMonth: number | null;
-        expiryYear: number | null;
-        last4: string | null;
-        type: "card" | "bank_transfer" | "cash" | "wallet";
-      }
-        | null;
-     paymentProviderId: string;
-     paymentType:   | "bank_transfer"
-        | "online_card"
-        | "online_bank_transfer"
-        | "online_wallet"
-        | "in_person_card"
-        | "in_person_cash"
-        | "cheque";
-     processingFee: number | null;
-     redirectUrl: string | null;
-     remainingBalance: number | null;
-     status:   | "cancelled"
-        | "pending"
-        | "succeeded"
-        | "failed"
-        | "processing"
-        | "expired"
-        | "requires_action"
-        | "created";
-     updatedAt: string;
   };
 };
 ```
@@ -51509,64 +66501,10 @@ payment: {
   paidAt: string | null;
   status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
   updatedAt: string;
-} & {
-  accountId: string;
-  amount: number;
-  applicationFee: number | null;
-  cancelledAt: string | null;
-  capturedAt: string | null;
-  clientSecret: string | null;
-  createdAt: string;
-  currency: string;
-  expiresAt: string | null;
-  externalPaymentId: string | null;
-  failedAt: string | null;
-  failureCode: string | null;
-  failureMessage: string | null;
-  id: string;
-  isPartialPayment: boolean;
-  metadata:   | {
-   [key: string]: unknown;
-   }
-     | null;
-  netAmount: number | null;
-  orderId: string;
-  orderNumber: string;
-  organisationId: string;
-  paymentMethod:   | {
-     brand: string | null;
-     expiryMonth: number | null;
-     expiryYear: number | null;
-     last4: string | null;
-     type: "card" | "bank_transfer" | "cash" | "wallet";
-   }
-     | null;
-  paymentProviderId: string;
-  paymentType:   | "bank_transfer"
-     | "online_card"
-     | "online_bank_transfer"
-     | "online_wallet"
-     | "in_person_card"
-     | "in_person_cash"
-     | "cheque";
-  processingFee: number | null;
-  redirectUrl: string | null;
-  remainingBalance: number | null;
-  status:   | "cancelled"
-     | "pending"
-     | "succeeded"
-     | "failed"
-     | "processing"
-     | "expired"
-     | "requires_action"
-     | "created";
-  updatedAt: string;
 };
 ```
 
-###### Type Declaration
-
-###### amount
+##### responses.200.content.application/json.payment.amount
 
 ```ts
 amount: string;
@@ -51578,7 +66516,7 @@ amount: string;
 25.00
 ```
 
-###### createdAt
+##### responses.200.content.application/json.payment.createdAt
 
 ```ts
 createdAt: string;
@@ -51590,7 +66528,7 @@ createdAt: string;
 2024-01-15T10:30:00Z
 ```
 
-###### currency
+##### responses.200.content.application/json.payment.currency
 
 ```ts
 currency: string;
@@ -51602,7 +66540,7 @@ currency: string;
 USD
 ```
 
-###### failedAt
+##### responses.200.content.application/json.payment.failedAt
 
 ```ts
 failedAt: string | null;
@@ -51614,7 +66552,7 @@ failedAt: string | null;
 null
 ```
 
-###### failureCode
+##### responses.200.content.application/json.payment.failureCode
 
 ```ts
 failureCode: string | null;
@@ -51626,7 +66564,7 @@ failureCode: string | null;
 null
 ```
 
-###### failureMessage
+##### responses.200.content.application/json.payment.failureMessage
 
 ```ts
 failureMessage: string | null;
@@ -51638,7 +66576,7 @@ failureMessage: string | null;
 null
 ```
 
-###### id
+##### responses.200.content.application/json.payment.id
 
 ```ts
 id: string;
@@ -51650,7 +66588,7 @@ id: string;
 pay_abc123
 ```
 
-###### invoiceId
+##### responses.200.content.application/json.payment.invoiceId
 
 ```ts
 invoiceId: string | null;
@@ -51662,7 +66600,7 @@ invoiceId: string | null;
 inv_abc123
 ```
 
-###### method
+##### responses.200.content.application/json.payment.method
 
 ```ts
 method: string | null;
@@ -51674,7 +66612,7 @@ method: string | null;
 card
 ```
 
-###### organisationId
+##### responses.200.content.application/json.payment.organisationId
 
 ```ts
 organisationId: string;
@@ -51686,7 +66624,7 @@ organisationId: string;
 org_abc123
 ```
 
-###### paidAt
+##### responses.200.content.application/json.payment.paidAt
 
 ```ts
 paidAt: string | null;
@@ -51698,7 +66636,7 @@ paidAt: string | null;
 2024-01-15T10:35:00Z
 ```
 
-###### status
+##### responses.200.content.application/json.payment.status
 
 ```ts
 status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
@@ -51711,7 +66649,7 @@ succeeded
 @enum {string}
 ```
 
-###### updatedAt
+##### responses.200.content.application/json.payment.updatedAt
 
 ```ts
 updatedAt: string;
@@ -51721,383 +66659,6 @@ updatedAt: string;
 
 ```ts
 2024-01-15T10:35:00Z
-```
-
-###### Type Declaration
-
-###### accountId
-
-```ts
-accountId: string;
-```
-
-###### Example
-
-```ts
-acc_xyz789
-```
-
-###### amount
-
-```ts
-amount: number;
-```
-
-###### Example
-
-```ts
-97
-```
-
-###### applicationFee
-
-```ts
-applicationFee: number | null;
-```
-
-###### Example
-
-```ts
-2
-```
-
-###### cancelledAt
-
-```ts
-cancelledAt: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### capturedAt
-
-```ts
-capturedAt: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### clientSecret
-
-```ts
-clientSecret: string | null;
-```
-
-###### Example
-
-```ts
-pi_xxx_secret_yyy
-```
-
-###### createdAt
-
-```ts
-createdAt: string;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:30:00Z
-```
-
-###### currency
-
-```ts
-currency: string;
-```
-
-###### Example
-
-```ts
-GBP
-```
-
-###### expiresAt
-
-```ts
-expiresAt: string | null;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:45:00Z
-```
-
-###### externalPaymentId
-
-```ts
-externalPaymentId: string | null;
-```
-
-###### Example
-
-```ts
-pi_1234567890abcdef
-```
-
-###### failedAt
-
-```ts
-failedAt: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### failureCode
-
-```ts
-failureCode: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### failureMessage
-
-```ts
-failureMessage: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### id
-
-```ts
-id: string;
-```
-
-###### Example
-
-```ts
-pay_abc123xyz789
-```
-
-###### isPartialPayment
-
-```ts
-isPartialPayment: boolean;
-```
-
-###### Example
-
-```ts
-false
-```
-
-###### metadata
-
-```ts
-metadata: 
-  | {
-[key: string]: unknown;
-}
-  | null;
-```
-
-###### Example
-
-```ts
-{
-                 *       "customerEmail": "customer@example.com"
-                 *     }
-```
-
-###### netAmount
-
-```ts
-netAmount: number | null;
-```
-
-###### Example
-
-```ts
-92.09
-```
-
-###### orderId
-
-```ts
-orderId: string;
-```
-
-###### Example
-
-```ts
-ord_abc123
-```
-
-###### orderNumber
-
-```ts
-orderNumber: string;
-```
-
-###### Example
-
-```ts
-ORD-ABC123
-```
-
-###### organisationId
-
-```ts
-organisationId: string;
-```
-
-###### Example
-
-```ts
-org_xyz789
-```
-
-###### paymentMethod
-
-```ts
-paymentMethod: 
-  | {
-  brand: string | null;
-  expiryMonth: number | null;
-  expiryYear: number | null;
-  last4: string | null;
-  type: "card" | "bank_transfer" | "cash" | "wallet";
-}
-  | null;
-```
-
-###### Type Declaration
-
-```ts
-{
-  brand: string | null;
-  expiryMonth: number | null;
-  expiryYear: number | null;
-  last4: string | null;
-  type: "card" | "bank_transfer" | "cash" | "wallet";
-}
-```
-
-`null`
-
-###### paymentProviderId
-
-```ts
-paymentProviderId: string;
-```
-
-###### Example
-
-```ts
-pp_stripeXxx123
-```
-
-###### paymentType
-
-```ts
-paymentType: 
-  | "bank_transfer"
-  | "online_card"
-  | "online_bank_transfer"
-  | "online_wallet"
-  | "in_person_card"
-  | "in_person_cash"
-  | "cheque";
-```
-
-###### Example
-
-```ts
-online_card
-@enum {string}
-```
-
-###### processingFee
-
-```ts
-processingFee: number | null;
-```
-
-###### Example
-
-```ts
-2.91
-```
-
-###### redirectUrl
-
-```ts
-redirectUrl: string | null;
-```
-
-###### Example
-
-```ts
-https://checkout.stripe.com/pay/xxx
-```
-
-###### remainingBalance
-
-```ts
-remainingBalance: number | null;
-```
-
-###### Example
-
-```ts
-0
-```
-
-###### status
-
-```ts
-status: 
-  | "cancelled"
-  | "pending"
-  | "succeeded"
-  | "failed"
-  | "processing"
-  | "expired"
-  | "requires_action"
-  | "created";
-```
-
-###### Example
-
-```ts
-pending
-@enum {string}
-```
-
-###### updatedAt
-
-```ts
-updatedAt: string;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:30:00Z
 ```
 
 ##### responses.200.headers
@@ -52358,13 +66919,13 @@ getPaymentProvider: {
                     | "in_person_card"
                     | "in_person_cash"
                    | "cheque")[];
-                 type:   | "bank_transfer"
-                    | "cash"
-                    | "stripe_connect"
+                 type:   | "stripe_connect"
                     | "stripe_direct"
                     | "adyen"
                     | "square"
-                    | "paypal";
+                    | "paypal"
+                    | "cash"
+                    | "bank_transfer";
                  updatedAt: string;
               };
            };
@@ -52407,7 +66968,7 @@ getPaymentProvider: {
 };
 ```
 
-Defined in: generated/types.ts:15208
+Defined in: generated/types.ts:17226
 
 #### parameters
 
@@ -52521,13 +67082,13 @@ responses: {
                  | "in_person_card"
                  | "in_person_cash"
                 | "cheque")[];
-              type:   | "bank_transfer"
-                 | "cash"
-                 | "stripe_connect"
+              type:   | "stripe_connect"
                  | "stripe_direct"
                  | "adyen"
                  | "square"
-                 | "paypal";
+                 | "paypal"
+                 | "cash"
+                 | "bank_transfer";
               updatedAt: string;
            };
         };
@@ -52625,13 +67186,13 @@ responses: {
               | "in_person_card"
               | "in_person_cash"
              | "cheque")[];
-           type:   | "bank_transfer"
-              | "cash"
-              | "stripe_connect"
+           type:   | "stripe_connect"
               | "stripe_direct"
               | "adyen"
               | "square"
-              | "paypal";
+              | "paypal"
+              | "cash"
+              | "bank_transfer";
            updatedAt: string;
         };
      };
@@ -52701,13 +67262,13 @@ content: {
            | "in_person_card"
            | "in_person_cash"
           | "cheque")[];
-        type:   | "bank_transfer"
-           | "cash"
-           | "stripe_connect"
+        type:   | "stripe_connect"
            | "stripe_direct"
            | "adyen"
            | "square"
-           | "paypal";
+           | "paypal"
+           | "cash"
+           | "bank_transfer";
         updatedAt: string;
      };
   };
@@ -52768,13 +67329,13 @@ application/json: {
         | "in_person_card"
         | "in_person_cash"
        | "cheque")[];
-     type:   | "bank_transfer"
-        | "cash"
-        | "stripe_connect"
+     type:   | "stripe_connect"
         | "stripe_direct"
         | "adyen"
         | "square"
-        | "paypal";
+        | "paypal"
+        | "cash"
+        | "bank_transfer";
      updatedAt: string;
   };
 };
@@ -52833,13 +67394,13 @@ provider: {
      | "in_person_card"
      | "in_person_cash"
     | "cheque")[];
-  type:   | "bank_transfer"
-     | "cash"
-     | "stripe_connect"
+  type:   | "stripe_connect"
      | "stripe_direct"
      | "adyen"
      | "square"
-     | "paypal";
+     | "paypal"
+     | "cash"
+     | "bank_transfer";
   updatedAt: string;
 };
 ```
@@ -53129,13 +67690,13 @@ supportedPaymentTypes: (
 
 ```ts
 type: 
-  | "bank_transfer"
-  | "cash"
   | "stripe_connect"
   | "stripe_direct"
   | "adyen"
   | "square"
-  | "paypal";
+  | "paypal"
+  | "cash"
+  | "bank_transfer";
 ```
 
 ###### Example
@@ -53427,7 +67988,7 @@ getReservation: {
 };
 ```
 
-Defined in: generated/types.ts:12240
+Defined in: generated/types.ts:14338
 
 #### parameters
 
@@ -54071,6 +68632,1145 @@ headers: {
 
 ***
 
+### getResolvedTheme
+
+```ts
+getResolvedTheme: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        id: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              theme: {
+                 brand: {
+                    displayName?: string;
+                    faviconUrl?: string;
+                    logoDarkUrl?: string;
+                    logoUrl?: string;
+                 };
+                 colors: {
+                    accent?: string;
+                    accentForeground?: string;
+                    background?: string;
+                    border?: string;
+                    destructive?: string;
+                    destructiveForeground?: string;
+                    foreground?: string;
+                    input?: string;
+                    muted?: string;
+                    mutedForeground?: string;
+                    primary?: string;
+                    primaryForeground?: string;
+                    ring?: string;
+                    secondary?: string;
+                    secondaryForeground?: string;
+                    success?: string;
+                    successForeground?: string;
+                    warning?: string;
+                    warningForeground?: string;
+                 };
+                 description: string | null;
+                 design:   | {
+                    cinemaGradient?: {
+                       position: ... | ...;
+                       strength: ... | ... | ...;
+                    };
+                    heroLayout?: {
+                       size: ... | ... | ...;
+                       type: ... | ...;
+                    };
+                  }
+                    | null;
+                 extendsThemeId: string | null;
+                 id: string;
+                 isActive: boolean;
+                 isBaseTheme: boolean;
+                 name: string;
+                 organisationId: string;
+                 shape: {
+                    radiusFull?: string;
+                    radiusLg?: string;
+                    radiusMd?: string;
+                    radiusNone?: string;
+                    radiusSm?: string;
+                 };
+                 typography: {
+                    baseSize?: string;
+                    fontFamily?: string;
+                    fontFamilyMono?: string;
+                    scaleRatio?: number;
+                 };
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:20668
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     id: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  id: string;
+};
+```
+
+##### parameters.path.id
+
+```ts
+id: string;
+```
+
+###### Description
+
+Theme ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           theme: {
+              brand: {
+                 displayName?: string;
+                 faviconUrl?: string;
+                 logoDarkUrl?: string;
+                 logoUrl?: string;
+              };
+              colors: {
+                 accent?: string;
+                 accentForeground?: string;
+                 background?: string;
+                 border?: string;
+                 destructive?: string;
+                 destructiveForeground?: string;
+                 foreground?: string;
+                 input?: string;
+                 muted?: string;
+                 mutedForeground?: string;
+                 primary?: string;
+                 primaryForeground?: string;
+                 ring?: string;
+                 secondary?: string;
+                 secondaryForeground?: string;
+                 success?: string;
+                 successForeground?: string;
+                 warning?: string;
+                 warningForeground?: string;
+              };
+              description: string | null;
+              design:   | {
+                 cinemaGradient?: {
+                    position: ... | ...;
+                    strength: ... | ... | ...;
+                 };
+                 heroLayout?: {
+                    size: ... | ... | ...;
+                    type: ... | ...;
+                 };
+               }
+                 | null;
+              extendsThemeId: string | null;
+              id: string;
+              isActive: boolean;
+              isBaseTheme: boolean;
+              name: string;
+              organisationId: string;
+              shape: {
+                 radiusFull?: string;
+                 radiusLg?: string;
+                 radiusMd?: string;
+                 radiusNone?: string;
+                 radiusSm?: string;
+              };
+              typography: {
+                 baseSize?: string;
+                 fontFamily?: string;
+                 fontFamilyMono?: string;
+                 scaleRatio?: number;
+              };
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        theme: {
+           brand: {
+              displayName?: string;
+              faviconUrl?: string;
+              logoDarkUrl?: string;
+              logoUrl?: string;
+           };
+           colors: {
+              accent?: string;
+              accentForeground?: string;
+              background?: string;
+              border?: string;
+              destructive?: string;
+              destructiveForeground?: string;
+              foreground?: string;
+              input?: string;
+              muted?: string;
+              mutedForeground?: string;
+              primary?: string;
+              primaryForeground?: string;
+              ring?: string;
+              secondary?: string;
+              secondaryForeground?: string;
+              success?: string;
+              successForeground?: string;
+              warning?: string;
+              warningForeground?: string;
+           };
+           description: string | null;
+           design:   | {
+              cinemaGradient?: {
+                 position: ... | ...;
+                 strength: ... | ... | ...;
+              };
+              heroLayout?: {
+                 size: ... | ... | ...;
+                 type: ... | ...;
+              };
+            }
+              | null;
+           extendsThemeId: string | null;
+           id: string;
+           isActive: boolean;
+           isBaseTheme: boolean;
+           name: string;
+           organisationId: string;
+           shape: {
+              radiusFull?: string;
+              radiusLg?: string;
+              radiusMd?: string;
+              radiusNone?: string;
+              radiusSm?: string;
+           };
+           typography: {
+              baseSize?: string;
+              fontFamily?: string;
+              fontFamilyMono?: string;
+              scaleRatio?: number;
+           };
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Resolved theme retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     theme: {
+        brand: {
+           displayName?: string;
+           faviconUrl?: string;
+           logoDarkUrl?: string;
+           logoUrl?: string;
+        };
+        colors: {
+           accent?: string;
+           accentForeground?: string;
+           background?: string;
+           border?: string;
+           destructive?: string;
+           destructiveForeground?: string;
+           foreground?: string;
+           input?: string;
+           muted?: string;
+           mutedForeground?: string;
+           primary?: string;
+           primaryForeground?: string;
+           ring?: string;
+           secondary?: string;
+           secondaryForeground?: string;
+           success?: string;
+           successForeground?: string;
+           warning?: string;
+           warningForeground?: string;
+        };
+        description: string | null;
+        design:   | {
+           cinemaGradient?: {
+              position: ... | ...;
+              strength: ... | ... | ...;
+           };
+           heroLayout?: {
+              size: ... | ... | ...;
+              type: ... | ...;
+           };
+         }
+           | null;
+        extendsThemeId: string | null;
+        id: string;
+        isActive: boolean;
+        isBaseTheme: boolean;
+        name: string;
+        organisationId: string;
+        shape: {
+           radiusFull?: string;
+           radiusLg?: string;
+           radiusMd?: string;
+           radiusNone?: string;
+           radiusSm?: string;
+        };
+        typography: {
+           baseSize?: string;
+           fontFamily?: string;
+           fontFamilyMono?: string;
+           scaleRatio?: number;
+        };
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  theme: {
+     brand: {
+        displayName?: string;
+        faviconUrl?: string;
+        logoDarkUrl?: string;
+        logoUrl?: string;
+     };
+     colors: {
+        accent?: string;
+        accentForeground?: string;
+        background?: string;
+        border?: string;
+        destructive?: string;
+        destructiveForeground?: string;
+        foreground?: string;
+        input?: string;
+        muted?: string;
+        mutedForeground?: string;
+        primary?: string;
+        primaryForeground?: string;
+        ring?: string;
+        secondary?: string;
+        secondaryForeground?: string;
+        success?: string;
+        successForeground?: string;
+        warning?: string;
+        warningForeground?: string;
+     };
+     description: string | null;
+     design:   | {
+        cinemaGradient?: {
+           position: ... | ...;
+           strength: ... | ... | ...;
+        };
+        heroLayout?: {
+           size: ... | ... | ...;
+           type: ... | ...;
+        };
+      }
+        | null;
+     extendsThemeId: string | null;
+     id: string;
+     isActive: boolean;
+     isBaseTheme: boolean;
+     name: string;
+     organisationId: string;
+     shape: {
+        radiusFull?: string;
+        radiusLg?: string;
+        radiusMd?: string;
+        radiusNone?: string;
+        radiusSm?: string;
+     };
+     typography: {
+        baseSize?: string;
+        fontFamily?: string;
+        fontFamilyMono?: string;
+        scaleRatio?: number;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json.theme
+
+```ts
+theme: {
+  brand: {
+     displayName?: string;
+     faviconUrl?: string;
+     logoDarkUrl?: string;
+     logoUrl?: string;
+  };
+  colors: {
+     accent?: string;
+     accentForeground?: string;
+     background?: string;
+     border?: string;
+     destructive?: string;
+     destructiveForeground?: string;
+     foreground?: string;
+     input?: string;
+     muted?: string;
+     mutedForeground?: string;
+     primary?: string;
+     primaryForeground?: string;
+     ring?: string;
+     secondary?: string;
+     secondaryForeground?: string;
+     success?: string;
+     successForeground?: string;
+     warning?: string;
+     warningForeground?: string;
+  };
+  description: string | null;
+  design:   | {
+     cinemaGradient?: {
+        position: ... | ...;
+        strength: ... | ... | ...;
+     };
+     heroLayout?: {
+        size: ... | ... | ...;
+        type: ... | ...;
+     };
+   }
+     | null;
+  extendsThemeId: string | null;
+  id: string;
+  isActive: boolean;
+  isBaseTheme: boolean;
+  name: string;
+  organisationId: string;
+  shape: {
+     radiusFull?: string;
+     radiusLg?: string;
+     radiusMd?: string;
+     radiusNone?: string;
+     radiusSm?: string;
+  };
+  typography: {
+     baseSize?: string;
+     fontFamily?: string;
+     fontFamilyMono?: string;
+     scaleRatio?: number;
+  };
+};
+```
+
+##### responses.200.content.application/json.theme.brand
+
+```ts
+brand: {
+  displayName?: string;
+  faviconUrl?: string;
+  logoDarkUrl?: string;
+  logoUrl?: string;
+};
+```
+
+##### responses.200.content.application/json.theme.brand.displayName?
+
+```ts
+optional displayName: string;
+```
+
+###### Example
+
+```ts
+Acme Tickets
+```
+
+##### responses.200.content.application/json.theme.brand.faviconUrl?
+
+```ts
+optional faviconUrl: string;
+```
+
+##### responses.200.content.application/json.theme.brand.logoDarkUrl?
+
+```ts
+optional logoDarkUrl: string;
+```
+
+##### responses.200.content.application/json.theme.brand.logoUrl?
+
+```ts
+optional logoUrl: string;
+```
+
+###### Example
+
+```ts
+https://cdn.example.com/logo.svg
+```
+
+##### responses.200.content.application/json.theme.colors
+
+```ts
+colors: {
+  accent?: string;
+  accentForeground?: string;
+  background?: string;
+  border?: string;
+  destructive?: string;
+  destructiveForeground?: string;
+  foreground?: string;
+  input?: string;
+  muted?: string;
+  mutedForeground?: string;
+  primary?: string;
+  primaryForeground?: string;
+  ring?: string;
+  secondary?: string;
+  secondaryForeground?: string;
+  success?: string;
+  successForeground?: string;
+  warning?: string;
+  warningForeground?: string;
+};
+```
+
+##### responses.200.content.application/json.theme.colors.accent?
+
+```ts
+optional accent: string;
+```
+
+##### responses.200.content.application/json.theme.colors.accentForeground?
+
+```ts
+optional accentForeground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.background?
+
+```ts
+optional background: string;
+```
+
+##### responses.200.content.application/json.theme.colors.border?
+
+```ts
+optional border: string;
+```
+
+##### responses.200.content.application/json.theme.colors.destructive?
+
+```ts
+optional destructive: string;
+```
+
+##### responses.200.content.application/json.theme.colors.destructiveForeground?
+
+```ts
+optional destructiveForeground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.foreground?
+
+```ts
+optional foreground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.input?
+
+```ts
+optional input: string;
+```
+
+##### responses.200.content.application/json.theme.colors.muted?
+
+```ts
+optional muted: string;
+```
+
+##### responses.200.content.application/json.theme.colors.mutedForeground?
+
+```ts
+optional mutedForeground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.primary?
+
+```ts
+optional primary: string;
+```
+
+###### Example
+
+```ts
+#7C3AED
+```
+
+##### responses.200.content.application/json.theme.colors.primaryForeground?
+
+```ts
+optional primaryForeground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.ring?
+
+```ts
+optional ring: string;
+```
+
+##### responses.200.content.application/json.theme.colors.secondary?
+
+```ts
+optional secondary: string;
+```
+
+##### responses.200.content.application/json.theme.colors.secondaryForeground?
+
+```ts
+optional secondaryForeground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.success?
+
+```ts
+optional success: string;
+```
+
+##### responses.200.content.application/json.theme.colors.successForeground?
+
+```ts
+optional successForeground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.warning?
+
+```ts
+optional warning: string;
+```
+
+##### responses.200.content.application/json.theme.colors.warningForeground?
+
+```ts
+optional warningForeground: string;
+```
+
+##### responses.200.content.application/json.theme.description
+
+```ts
+description: string | null;
+```
+
+##### responses.200.content.application/json.theme.design
+
+```ts
+design: 
+  | {
+  cinemaGradient?: {
+     position: ... | ...;
+     strength: ... | ... | ...;
+  };
+  heroLayout?: {
+     size: ... | ... | ...;
+     type: ... | ...;
+  };
+}
+  | null;
+```
+
+##### responses.200.content.application/json.theme.extendsThemeId
+
+```ts
+extendsThemeId: string | null;
+```
+
+###### Example
+
+```ts
+sct_base123
+```
+
+##### responses.200.content.application/json.theme.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sct_abc123
+```
+
+##### responses.200.content.application/json.theme.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.content.application/json.theme.isBaseTheme
+
+```ts
+isBaseTheme: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.theme.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Midnight
+```
+
+##### responses.200.content.application/json.theme.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.theme.shape
+
+```ts
+shape: {
+  radiusFull?: string;
+  radiusLg?: string;
+  radiusMd?: string;
+  radiusNone?: string;
+  radiusSm?: string;
+};
+```
+
+##### responses.200.content.application/json.theme.shape.radiusFull?
+
+```ts
+optional radiusFull: string;
+```
+
+##### responses.200.content.application/json.theme.shape.radiusLg?
+
+```ts
+optional radiusLg: string;
+```
+
+##### responses.200.content.application/json.theme.shape.radiusMd?
+
+```ts
+optional radiusMd: string;
+```
+
+###### Example
+
+```ts
+0.5rem
+```
+
+##### responses.200.content.application/json.theme.shape.radiusNone?
+
+```ts
+optional radiusNone: string;
+```
+
+##### responses.200.content.application/json.theme.shape.radiusSm?
+
+```ts
+optional radiusSm: string;
+```
+
+##### responses.200.content.application/json.theme.typography
+
+```ts
+typography: {
+  baseSize?: string;
+  fontFamily?: string;
+  fontFamilyMono?: string;
+  scaleRatio?: number;
+};
+```
+
+##### responses.200.content.application/json.theme.typography.baseSize?
+
+```ts
+optional baseSize: string;
+```
+
+###### Example
+
+```ts
+16px
+```
+
+##### responses.200.content.application/json.theme.typography.fontFamily?
+
+```ts
+optional fontFamily: string;
+```
+
+###### Example
+
+```ts
+Inter, sans-serif
+```
+
+##### responses.200.content.application/json.theme.typography.fontFamilyMono?
+
+```ts
+optional fontFamilyMono: string;
+```
+
+##### responses.200.content.application/json.theme.typography.scaleRatio?
+
+```ts
+optional scaleRatio: number;
+```
+
+###### Example
+
+```ts
+1.25
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### getRole
 
 ```ts
@@ -54137,7 +69837,7 @@ getRole: {
 };
 ```
 
-Defined in: generated/types.ts:5782
+Defined in: generated/types.ts:7505
 
 #### parameters
 
@@ -54621,6 +70321,6179 @@ headers: {
 
 ***
 
+### getSalesCart
+
+```ts
+getSalesCart: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        cartId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              cart: {
+                 currency: string | null;
+                 expiresAt: string;
+                 id: string;
+                 items: {
+                    categoryName: string;
+                    currency: string;
+                    eventName: string;
+                    eventOccurrenceId: string;
+                    id: string;
+                    quantity: number;
+                    subtotal: number;
+                    ticketTypeName: string;
+                    unitPrice: number;
+                 }[];
+                 itemsSubtotal: number;
+                 orderId: string | null;
+                 status: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:19358
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     cartId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  cartId: string;
+};
+```
+
+##### parameters.path.cartId
+
+```ts
+cartId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           cart: {
+              currency: string | null;
+              expiresAt: string;
+              id: string;
+              items: {
+                 categoryName: string;
+                 currency: string;
+                 eventName: string;
+                 eventOccurrenceId: string;
+                 id: string;
+                 quantity: number;
+                 subtotal: number;
+                 ticketTypeName: string;
+                 unitPrice: number;
+              }[];
+              itemsSubtotal: number;
+              orderId: string | null;
+              status: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        cart: {
+           currency: string | null;
+           expiresAt: string;
+           id: string;
+           items: {
+              categoryName: string;
+              currency: string;
+              eventName: string;
+              eventOccurrenceId: string;
+              id: string;
+              quantity: number;
+              subtotal: number;
+              ticketTypeName: string;
+              unitPrice: number;
+           }[];
+           itemsSubtotal: number;
+           orderId: string | null;
+           status: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Cart retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     cart: {
+        currency: string | null;
+        expiresAt: string;
+        id: string;
+        items: {
+           categoryName: string;
+           currency: string;
+           eventName: string;
+           eventOccurrenceId: string;
+           id: string;
+           quantity: number;
+           subtotal: number;
+           ticketTypeName: string;
+           unitPrice: number;
+        }[];
+        itemsSubtotal: number;
+        orderId: string | null;
+        status: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  cart: {
+     currency: string | null;
+     expiresAt: string;
+     id: string;
+     items: {
+        categoryName: string;
+        currency: string;
+        eventName: string;
+        eventOccurrenceId: string;
+        id: string;
+        quantity: number;
+        subtotal: number;
+        ticketTypeName: string;
+        unitPrice: number;
+     }[];
+     itemsSubtotal: number;
+     orderId: string | null;
+     status: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.cart
+
+```ts
+cart: {
+  currency: string | null;
+  expiresAt: string;
+  id: string;
+  items: {
+     categoryName: string;
+     currency: string;
+     eventName: string;
+     eventOccurrenceId: string;
+     id: string;
+     quantity: number;
+     subtotal: number;
+     ticketTypeName: string;
+     unitPrice: number;
+  }[];
+  itemsSubtotal: number;
+  orderId: string | null;
+  status: string;
+};
+```
+
+##### responses.200.content.application/json.cart.currency
+
+```ts
+currency: string | null;
+```
+
+##### responses.200.content.application/json.cart.expiresAt
+
+```ts
+expiresAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### responses.200.content.application/json.cart.id
+
+```ts
+id: string;
+```
+
+##### responses.200.content.application/json.cart.items
+
+```ts
+items: {
+  categoryName: string;
+  currency: string;
+  eventName: string;
+  eventOccurrenceId: string;
+  id: string;
+  quantity: number;
+  subtotal: number;
+  ticketTypeName: string;
+  unitPrice: number;
+}[];
+```
+
+##### responses.200.content.application/json.cart.itemsSubtotal
+
+```ts
+itemsSubtotal: number;
+```
+
+##### responses.200.content.application/json.cart.orderId
+
+```ts
+orderId: string | null;
+```
+
+##### responses.200.content.application/json.cart.status
+
+```ts
+status: string;
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### getSalesChannel
+
+```ts
+getSalesChannel: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        channelId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              channel: {
+                 accountId: string;
+                 channelTags: string[];
+                 channelType:   | "website"
+                    | "embed"
+                    | "box_office"
+                    | "kiosk"
+                    | "reseller_api"
+                    | "internal";
+                 checkoutTtlSeconds: number;
+                 createdAt: string;
+                 customerConfig: {
+                    allowGuestCheckout: boolean;
+                    collectAddress: boolean;
+                    collectPhone: boolean;
+                    requireLogin: boolean;
+                 };
+                 customerFacing: {
+                    allowedOrigins: string[];
+                    customDomain?: string;
+                    enabled: boolean;
+                    magicLinkBaseUrl?: string;
+                    partnerIdentity?: {
+                       algorithm: string;
+                       issuer: string;
+                       publicKeyPem: string;
+                    };
+                    subdomain?: string;
+                 };
+                 deletedAt: string | null;
+                 description: string | null;
+                 eventFilter: {
+                    channelTags?: string[];
+                    mode: "all" | "tagged";
+                 };
+                 feeProfileId: string | null;
+                 id: string;
+                 isActive: boolean;
+                 isDeleted: boolean;
+                 name: string;
+                 organisationId: string;
+                 pricingConfig: {
+                    includeFeesInPrice: boolean;
+                    showMemberPricing: boolean;
+                    showOriginalPrice: boolean;
+                 };
+                 receivingAccountId: string;
+                 reservationTtlSeconds: number;
+                 slug: string;
+                 themeId: string | null;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:17705
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     channelId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  channelId: string;
+};
+```
+
+##### parameters.path.channelId
+
+```ts
+channelId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           channel: {
+              accountId: string;
+              channelTags: string[];
+              channelType:   | "website"
+                 | "embed"
+                 | "box_office"
+                 | "kiosk"
+                 | "reseller_api"
+                 | "internal";
+              checkoutTtlSeconds: number;
+              createdAt: string;
+              customerConfig: {
+                 allowGuestCheckout: boolean;
+                 collectAddress: boolean;
+                 collectPhone: boolean;
+                 requireLogin: boolean;
+              };
+              customerFacing: {
+                 allowedOrigins: string[];
+                 customDomain?: string;
+                 enabled: boolean;
+                 magicLinkBaseUrl?: string;
+                 partnerIdentity?: {
+                    algorithm: string;
+                    issuer: string;
+                    publicKeyPem: string;
+                 };
+                 subdomain?: string;
+              };
+              deletedAt: string | null;
+              description: string | null;
+              eventFilter: {
+                 channelTags?: string[];
+                 mode: "all" | "tagged";
+              };
+              feeProfileId: string | null;
+              id: string;
+              isActive: boolean;
+              isDeleted: boolean;
+              name: string;
+              organisationId: string;
+              pricingConfig: {
+                 includeFeesInPrice: boolean;
+                 showMemberPricing: boolean;
+                 showOriginalPrice: boolean;
+              };
+              receivingAccountId: string;
+              reservationTtlSeconds: number;
+              slug: string;
+              themeId: string | null;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        channel: {
+           accountId: string;
+           channelTags: string[];
+           channelType:   | "website"
+              | "embed"
+              | "box_office"
+              | "kiosk"
+              | "reseller_api"
+              | "internal";
+           checkoutTtlSeconds: number;
+           createdAt: string;
+           customerConfig: {
+              allowGuestCheckout: boolean;
+              collectAddress: boolean;
+              collectPhone: boolean;
+              requireLogin: boolean;
+           };
+           customerFacing: {
+              allowedOrigins: string[];
+              customDomain?: string;
+              enabled: boolean;
+              magicLinkBaseUrl?: string;
+              partnerIdentity?: {
+                 algorithm: string;
+                 issuer: string;
+                 publicKeyPem: string;
+              };
+              subdomain?: string;
+           };
+           deletedAt: string | null;
+           description: string | null;
+           eventFilter: {
+              channelTags?: string[];
+              mode: "all" | "tagged";
+           };
+           feeProfileId: string | null;
+           id: string;
+           isActive: boolean;
+           isDeleted: boolean;
+           name: string;
+           organisationId: string;
+           pricingConfig: {
+              includeFeesInPrice: boolean;
+              showMemberPricing: boolean;
+              showOriginalPrice: boolean;
+           };
+           receivingAccountId: string;
+           reservationTtlSeconds: number;
+           slug: string;
+           themeId: string | null;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Sales channel retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     channel: {
+        accountId: string;
+        channelTags: string[];
+        channelType:   | "website"
+           | "embed"
+           | "box_office"
+           | "kiosk"
+           | "reseller_api"
+           | "internal";
+        checkoutTtlSeconds: number;
+        createdAt: string;
+        customerConfig: {
+           allowGuestCheckout: boolean;
+           collectAddress: boolean;
+           collectPhone: boolean;
+           requireLogin: boolean;
+        };
+        customerFacing: {
+           allowedOrigins: string[];
+           customDomain?: string;
+           enabled: boolean;
+           magicLinkBaseUrl?: string;
+           partnerIdentity?: {
+              algorithm: string;
+              issuer: string;
+              publicKeyPem: string;
+           };
+           subdomain?: string;
+        };
+        deletedAt: string | null;
+        description: string | null;
+        eventFilter: {
+           channelTags?: string[];
+           mode: "all" | "tagged";
+        };
+        feeProfileId: string | null;
+        id: string;
+        isActive: boolean;
+        isDeleted: boolean;
+        name: string;
+        organisationId: string;
+        pricingConfig: {
+           includeFeesInPrice: boolean;
+           showMemberPricing: boolean;
+           showOriginalPrice: boolean;
+        };
+        receivingAccountId: string;
+        reservationTtlSeconds: number;
+        slug: string;
+        themeId: string | null;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  channel: {
+     accountId: string;
+     channelTags: string[];
+     channelType:   | "website"
+        | "embed"
+        | "box_office"
+        | "kiosk"
+        | "reseller_api"
+        | "internal";
+     checkoutTtlSeconds: number;
+     createdAt: string;
+     customerConfig: {
+        allowGuestCheckout: boolean;
+        collectAddress: boolean;
+        collectPhone: boolean;
+        requireLogin: boolean;
+     };
+     customerFacing: {
+        allowedOrigins: string[];
+        customDomain?: string;
+        enabled: boolean;
+        magicLinkBaseUrl?: string;
+        partnerIdentity?: {
+           algorithm: string;
+           issuer: string;
+           publicKeyPem: string;
+        };
+        subdomain?: string;
+     };
+     deletedAt: string | null;
+     description: string | null;
+     eventFilter: {
+        channelTags?: string[];
+        mode: "all" | "tagged";
+     };
+     feeProfileId: string | null;
+     id: string;
+     isActive: boolean;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     pricingConfig: {
+        includeFeesInPrice: boolean;
+        showMemberPricing: boolean;
+        showOriginalPrice: boolean;
+     };
+     receivingAccountId: string;
+     reservationTtlSeconds: number;
+     slug: string;
+     themeId: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.channel
+
+```ts
+channel: {
+  accountId: string;
+  channelTags: string[];
+  channelType:   | "website"
+     | "embed"
+     | "box_office"
+     | "kiosk"
+     | "reseller_api"
+     | "internal";
+  checkoutTtlSeconds: number;
+  createdAt: string;
+  customerConfig: {
+     allowGuestCheckout: boolean;
+     collectAddress: boolean;
+     collectPhone: boolean;
+     requireLogin: boolean;
+  };
+  customerFacing: {
+     allowedOrigins: string[];
+     customDomain?: string;
+     enabled: boolean;
+     magicLinkBaseUrl?: string;
+     partnerIdentity?: {
+        algorithm: string;
+        issuer: string;
+        publicKeyPem: string;
+     };
+     subdomain?: string;
+  };
+  deletedAt: string | null;
+  description: string | null;
+  eventFilter: {
+     channelTags?: string[];
+     mode: "all" | "tagged";
+  };
+  feeProfileId: string | null;
+  id: string;
+  isActive: boolean;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  pricingConfig: {
+     includeFeesInPrice: boolean;
+     showMemberPricing: boolean;
+     showOriginalPrice: boolean;
+  };
+  receivingAccountId: string;
+  reservationTtlSeconds: number;
+  slug: string;
+  themeId: string | null;
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.channel.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### responses.200.content.application/json.channel.channelTags
+
+```ts
+channelTags: string[];
+```
+
+###### Example
+
+```ts
+[
+      "public"
+    ]
+```
+
+##### responses.200.content.application/json.channel.channelType
+
+```ts
+channelType: 
+  | "website"
+  | "embed"
+  | "box_office"
+  | "kiosk"
+  | "reseller_api"
+  | "internal";
+```
+
+###### Example
+
+```ts
+website
+@enum {string}
+```
+
+##### responses.200.content.application/json.channel.checkoutTtlSeconds
+
+```ts
+checkoutTtlSeconds: number;
+```
+
+###### Example
+
+```ts
+300
+```
+
+##### responses.200.content.application/json.channel.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.channel.customerConfig
+
+```ts
+customerConfig: {
+  allowGuestCheckout: boolean;
+  collectAddress: boolean;
+  collectPhone: boolean;
+  requireLogin: boolean;
+};
+```
+
+##### responses.200.content.application/json.channel.customerConfig.allowGuestCheckout
+
+```ts
+allowGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.content.application/json.channel.customerConfig.collectAddress
+
+```ts
+collectAddress: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.channel.customerConfig.collectPhone
+
+```ts
+collectPhone: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.channel.customerConfig.requireLogin
+
+```ts
+requireLogin: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.channel.customerFacing
+
+```ts
+customerFacing: {
+  allowedOrigins: string[];
+  customDomain?: string;
+  enabled: boolean;
+  magicLinkBaseUrl?: string;
+  partnerIdentity?: {
+     algorithm: string;
+     issuer: string;
+     publicKeyPem: string;
+  };
+  subdomain?: string;
+};
+```
+
+##### responses.200.content.application/json.channel.customerFacing.allowedOrigins
+
+```ts
+allowedOrigins: string[];
+```
+
+###### Example
+
+```ts
+[
+      "https://example.com"
+    ]
+```
+
+##### responses.200.content.application/json.channel.customerFacing.customDomain?
+
+```ts
+optional customDomain: string;
+```
+
+###### Example
+
+```ts
+tickets.example.com
+```
+
+##### responses.200.content.application/json.channel.customerFacing.enabled
+
+```ts
+enabled: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.content.application/json.channel.customerFacing.magicLinkBaseUrl?
+
+```ts
+optional magicLinkBaseUrl: string;
+```
+
+###### Example
+
+```ts
+https://tickets.example.com
+```
+
+##### responses.200.content.application/json.channel.customerFacing.partnerIdentity?
+
+```ts
+optional partnerIdentity: {
+  algorithm: string;
+  issuer: string;
+  publicKeyPem: string;
+};
+```
+
+##### responses.200.content.application/json.channel.customerFacing.partnerIdentity.algorithm
+
+```ts
+algorithm: string;
+```
+
+###### Example
+
+```ts
+RS256
+```
+
+##### responses.200.content.application/json.channel.customerFacing.partnerIdentity.issuer
+
+```ts
+issuer: string;
+```
+
+###### Example
+
+```ts
+https://partner.example.com
+```
+
+##### responses.200.content.application/json.channel.customerFacing.partnerIdentity.publicKeyPem
+
+```ts
+publicKeyPem: string;
+```
+
+###### Example
+
+```ts
+-----BEGIN PUBLIC KEY-----...
+```
+
+##### responses.200.content.application/json.channel.customerFacing.subdomain?
+
+```ts
+optional subdomain: string;
+```
+
+###### Example
+
+```ts
+tickets
+```
+
+##### responses.200.content.application/json.channel.deletedAt
+
+```ts
+deletedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.channel.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Public web sales
+```
+
+##### responses.200.content.application/json.channel.eventFilter
+
+```ts
+eventFilter: {
+  channelTags?: string[];
+  mode: "all" | "tagged";
+};
+```
+
+##### responses.200.content.application/json.channel.eventFilter.channelTags?
+
+```ts
+optional channelTags: string[];
+```
+
+###### Example
+
+```ts
+[
+      "summer-festival"
+    ]
+```
+
+##### responses.200.content.application/json.channel.eventFilter.mode
+
+```ts
+mode: "all" | "tagged";
+```
+
+###### Example
+
+```ts
+all
+@enum {string}
+```
+
+##### responses.200.content.application/json.channel.feeProfileId
+
+```ts
+feeProfileId: string | null;
+```
+
+###### Example
+
+```ts
+sfp_abc123
+```
+
+##### responses.200.content.application/json.channel.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sch_abc123
+```
+
+##### responses.200.content.application/json.channel.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.content.application/json.channel.isDeleted
+
+```ts
+isDeleted: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.channel.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Main Website
+```
+
+##### responses.200.content.application/json.channel.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.channel.pricingConfig
+
+```ts
+pricingConfig: {
+  includeFeesInPrice: boolean;
+  showMemberPricing: boolean;
+  showOriginalPrice: boolean;
+};
+```
+
+##### responses.200.content.application/json.channel.pricingConfig.includeFeesInPrice
+
+```ts
+includeFeesInPrice: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.channel.pricingConfig.showMemberPricing
+
+```ts
+showMemberPricing: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.channel.pricingConfig.showOriginalPrice
+
+```ts
+showOriginalPrice: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.content.application/json.channel.receivingAccountId
+
+```ts
+receivingAccountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### responses.200.content.application/json.channel.reservationTtlSeconds
+
+```ts
+reservationTtlSeconds: number;
+```
+
+###### Example
+
+```ts
+900
+```
+
+##### responses.200.content.application/json.channel.slug
+
+```ts
+slug: string;
+```
+
+###### Example
+
+```ts
+main-website
+```
+
+##### responses.200.content.application/json.channel.themeId
+
+```ts
+themeId: string | null;
+```
+
+###### Example
+
+```ts
+sct_abc123
+```
+
+##### responses.200.content.application/json.channel.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### getSalesCustomer
+
+```ts
+getSalesCustomer: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        customerId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              customer: {
+                 email: string;
+                 firstName: string | null;
+                 id: string;
+                 lastName: string | null;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:19924
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     customerId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  customerId: string;
+};
+```
+
+##### parameters.path.customerId
+
+```ts
+customerId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           customer: {
+              email: string;
+              firstName: string | null;
+              id: string;
+              lastName: string | null;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        customer: {
+           email: string;
+           firstName: string | null;
+           id: string;
+           lastName: string | null;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Customer retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     customer: {
+        email: string;
+        firstName: string | null;
+        id: string;
+        lastName: string | null;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  customer: {
+     email: string;
+     firstName: string | null;
+     id: string;
+     lastName: string | null;
+  };
+};
+```
+
+##### responses.200.content.application/json.customer
+
+```ts
+customer: {
+  email: string;
+  firstName: string | null;
+  id: string;
+  lastName: string | null;
+};
+```
+
+##### responses.200.content.application/json.customer.email
+
+```ts
+email: string;
+```
+
+##### responses.200.content.application/json.customer.firstName
+
+```ts
+firstName: string | null;
+```
+
+##### responses.200.content.application/json.customer.id
+
+```ts
+id: string;
+```
+
+##### responses.200.content.application/json.customer.lastName
+
+```ts
+lastName: string | null;
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### getSalesEvent
+
+```ts
+getSalesEvent: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        eventId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              event: {
+                 currency: string | null;
+                 description: string | null;
+                 heroImageUrl: string | null;
+                 id: string;
+                 imageUrl: string | null;
+                 name: string;
+                 occurrences: {
+                    endDate: string;
+                    endsAt: string | null;
+                    endTime: string;
+                    id: string;
+                    startDate: string;
+                    startsAt: string | null;
+                    startTime: string;
+                    status: string;
+                    ticketTypes: {
+                       categoryId: string;
+                       categoryName: string;
+                       currency: string;
+                       description: ... | ...;
+                       ticketTypeId: string;
+                       ticketTypeName: string;
+                       unitPrice: number;
+                    }[];
+                    timezone: string;
+                 }[];
+                 presentation:   | {
+                    buttonSize?: "small" | "medium" | "large";
+                    cinemaGradient?: {
+                       position: ... | ...;
+                       strength: ... | ... | ...;
+                    };
+                    heroLayout?: {
+                       size: ... | ... | ...;
+                       type: ... | ...;
+                    };
+                    navbar?: {
+                       transparent?: ... | ... | ...;
+                    };
+                    twoColumnSplit?: [number, number];
+                  }
+                    | null;
+                 priceFrom: number | null;
+                 shortDescription: string | null;
+                 status: string;
+                 subtitle: string | null;
+                 timezone: string;
+                 venueCity: string | null;
+                 venueId: string | null;
+                 venueName: string | null;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:20220
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     eventId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  eventId: string;
+};
+```
+
+##### parameters.path.eventId
+
+```ts
+eventId: string;
+```
+
+###### Description
+
+The event ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           event: {
+              currency: string | null;
+              description: string | null;
+              heroImageUrl: string | null;
+              id: string;
+              imageUrl: string | null;
+              name: string;
+              occurrences: {
+                 endDate: string;
+                 endsAt: string | null;
+                 endTime: string;
+                 id: string;
+                 startDate: string;
+                 startsAt: string | null;
+                 startTime: string;
+                 status: string;
+                 ticketTypes: {
+                    categoryId: string;
+                    categoryName: string;
+                    currency: string;
+                    description: ... | ...;
+                    ticketTypeId: string;
+                    ticketTypeName: string;
+                    unitPrice: number;
+                 }[];
+                 timezone: string;
+              }[];
+              presentation:   | {
+                 buttonSize?: "small" | "medium" | "large";
+                 cinemaGradient?: {
+                    position: ... | ...;
+                    strength: ... | ... | ...;
+                 };
+                 heroLayout?: {
+                    size: ... | ... | ...;
+                    type: ... | ...;
+                 };
+                 navbar?: {
+                    transparent?: ... | ... | ...;
+                 };
+                 twoColumnSplit?: [number, number];
+               }
+                 | null;
+              priceFrom: number | null;
+              shortDescription: string | null;
+              status: string;
+              subtitle: string | null;
+              timezone: string;
+              venueCity: string | null;
+              venueId: string | null;
+              venueName: string | null;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        event: {
+           currency: string | null;
+           description: string | null;
+           heroImageUrl: string | null;
+           id: string;
+           imageUrl: string | null;
+           name: string;
+           occurrences: {
+              endDate: string;
+              endsAt: string | null;
+              endTime: string;
+              id: string;
+              startDate: string;
+              startsAt: string | null;
+              startTime: string;
+              status: string;
+              ticketTypes: {
+                 categoryId: string;
+                 categoryName: string;
+                 currency: string;
+                 description: ... | ...;
+                 ticketTypeId: string;
+                 ticketTypeName: string;
+                 unitPrice: number;
+              }[];
+              timezone: string;
+           }[];
+           presentation:   | {
+              buttonSize?: "small" | "medium" | "large";
+              cinemaGradient?: {
+                 position: ... | ...;
+                 strength: ... | ... | ...;
+              };
+              heroLayout?: {
+                 size: ... | ... | ...;
+                 type: ... | ...;
+              };
+              navbar?: {
+                 transparent?: ... | ... | ...;
+              };
+              twoColumnSplit?: [number, number];
+            }
+              | null;
+           priceFrom: number | null;
+           shortDescription: string | null;
+           status: string;
+           subtitle: string | null;
+           timezone: string;
+           venueCity: string | null;
+           venueId: string | null;
+           venueName: string | null;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Event detail retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     event: {
+        currency: string | null;
+        description: string | null;
+        heroImageUrl: string | null;
+        id: string;
+        imageUrl: string | null;
+        name: string;
+        occurrences: {
+           endDate: string;
+           endsAt: string | null;
+           endTime: string;
+           id: string;
+           startDate: string;
+           startsAt: string | null;
+           startTime: string;
+           status: string;
+           ticketTypes: {
+              categoryId: string;
+              categoryName: string;
+              currency: string;
+              description: ... | ...;
+              ticketTypeId: string;
+              ticketTypeName: string;
+              unitPrice: number;
+           }[];
+           timezone: string;
+        }[];
+        presentation:   | {
+           buttonSize?: "small" | "medium" | "large";
+           cinemaGradient?: {
+              position: ... | ...;
+              strength: ... | ... | ...;
+           };
+           heroLayout?: {
+              size: ... | ... | ...;
+              type: ... | ...;
+           };
+           navbar?: {
+              transparent?: ... | ... | ...;
+           };
+           twoColumnSplit?: [number, number];
+         }
+           | null;
+        priceFrom: number | null;
+        shortDescription: string | null;
+        status: string;
+        subtitle: string | null;
+        timezone: string;
+        venueCity: string | null;
+        venueId: string | null;
+        venueName: string | null;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  event: {
+     currency: string | null;
+     description: string | null;
+     heroImageUrl: string | null;
+     id: string;
+     imageUrl: string | null;
+     name: string;
+     occurrences: {
+        endDate: string;
+        endsAt: string | null;
+        endTime: string;
+        id: string;
+        startDate: string;
+        startsAt: string | null;
+        startTime: string;
+        status: string;
+        ticketTypes: {
+           categoryId: string;
+           categoryName: string;
+           currency: string;
+           description: ... | ...;
+           ticketTypeId: string;
+           ticketTypeName: string;
+           unitPrice: number;
+        }[];
+        timezone: string;
+     }[];
+     presentation:   | {
+        buttonSize?: "small" | "medium" | "large";
+        cinemaGradient?: {
+           position: ... | ...;
+           strength: ... | ... | ...;
+        };
+        heroLayout?: {
+           size: ... | ... | ...;
+           type: ... | ...;
+        };
+        navbar?: {
+           transparent?: ... | ... | ...;
+        };
+        twoColumnSplit?: [number, number];
+      }
+        | null;
+     priceFrom: number | null;
+     shortDescription: string | null;
+     status: string;
+     subtitle: string | null;
+     timezone: string;
+     venueCity: string | null;
+     venueId: string | null;
+     venueName: string | null;
+  };
+};
+```
+
+##### responses.200.content.application/json.event
+
+```ts
+event: {
+  currency: string | null;
+  description: string | null;
+  heroImageUrl: string | null;
+  id: string;
+  imageUrl: string | null;
+  name: string;
+  occurrences: {
+     endDate: string;
+     endsAt: string | null;
+     endTime: string;
+     id: string;
+     startDate: string;
+     startsAt: string | null;
+     startTime: string;
+     status: string;
+     ticketTypes: {
+        categoryId: string;
+        categoryName: string;
+        currency: string;
+        description: ... | ...;
+        ticketTypeId: string;
+        ticketTypeName: string;
+        unitPrice: number;
+     }[];
+     timezone: string;
+  }[];
+  presentation:   | {
+     buttonSize?: "small" | "medium" | "large";
+     cinemaGradient?: {
+        position: ... | ...;
+        strength: ... | ... | ...;
+     };
+     heroLayout?: {
+        size: ... | ... | ...;
+        type: ... | ...;
+     };
+     navbar?: {
+        transparent?: ... | ... | ...;
+     };
+     twoColumnSplit?: [number, number];
+   }
+     | null;
+  priceFrom: number | null;
+  shortDescription: string | null;
+  status: string;
+  subtitle: string | null;
+  timezone: string;
+  venueCity: string | null;
+  venueId: string | null;
+  venueName: string | null;
+};
+```
+
+##### responses.200.content.application/json.event.currency
+
+```ts
+currency: string | null;
+```
+
+##### responses.200.content.application/json.event.description
+
+```ts
+description: string | null;
+```
+
+##### responses.200.content.application/json.event.heroImageUrl
+
+```ts
+heroImageUrl: string | null;
+```
+
+##### responses.200.content.application/json.event.id
+
+```ts
+id: string;
+```
+
+##### responses.200.content.application/json.event.imageUrl
+
+```ts
+imageUrl: string | null;
+```
+
+##### responses.200.content.application/json.event.name
+
+```ts
+name: string;
+```
+
+##### responses.200.content.application/json.event.occurrences
+
+```ts
+occurrences: {
+  endDate: string;
+  endsAt: string | null;
+  endTime: string;
+  id: string;
+  startDate: string;
+  startsAt: string | null;
+  startTime: string;
+  status: string;
+  ticketTypes: {
+     categoryId: string;
+     categoryName: string;
+     currency: string;
+     description: ... | ...;
+     ticketTypeId: string;
+     ticketTypeName: string;
+     unitPrice: number;
+  }[];
+  timezone: string;
+}[];
+```
+
+##### responses.200.content.application/json.event.presentation
+
+```ts
+presentation: 
+  | {
+  buttonSize?: "small" | "medium" | "large";
+  cinemaGradient?: {
+     position: ... | ...;
+     strength: ... | ... | ...;
+  };
+  heroLayout?: {
+     size: ... | ... | ...;
+     type: ... | ...;
+  };
+  navbar?: {
+     transparent?: ... | ... | ...;
+  };
+  twoColumnSplit?: [number, number];
+}
+  | null;
+```
+
+##### responses.200.content.application/json.event.priceFrom
+
+```ts
+priceFrom: number | null;
+```
+
+##### responses.200.content.application/json.event.shortDescription
+
+```ts
+shortDescription: string | null;
+```
+
+##### responses.200.content.application/json.event.status
+
+```ts
+status: string;
+```
+
+##### responses.200.content.application/json.event.subtitle
+
+```ts
+subtitle: string | null;
+```
+
+##### responses.200.content.application/json.event.timezone
+
+```ts
+timezone: string;
+```
+
+##### responses.200.content.application/json.event.venueCity
+
+```ts
+venueCity: string | null;
+```
+
+##### responses.200.content.application/json.event.venueId
+
+```ts
+venueId: string | null;
+```
+
+##### responses.200.content.application/json.event.venueName
+
+```ts
+venueName: string | null;
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### getSalesOrder
+
+```ts
+getSalesOrder: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        orderId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              order: {
+                 createdAt: string;
+                 currency: string;
+                 expiresAt: string | null;
+                 id: string;
+                 items: {
+                    description: string | null;
+                    name: string;
+                    quantity: number;
+                    subtotal: string;
+                    type: string;
+                    unitPrice: string;
+                 }[];
+                 orderNumber: string;
+                 paymentStatus: string;
+                 status: string;
+                 subtotal: string;
+                 total: string;
+                 totalFees: string;
+                 totalTax: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:19670
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     orderId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  orderId: string;
+};
+```
+
+##### parameters.path.orderId
+
+```ts
+orderId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           order: {
+              createdAt: string;
+              currency: string;
+              expiresAt: string | null;
+              id: string;
+              items: {
+                 description: string | null;
+                 name: string;
+                 quantity: number;
+                 subtotal: string;
+                 type: string;
+                 unitPrice: string;
+              }[];
+              orderNumber: string;
+              paymentStatus: string;
+              status: string;
+              subtotal: string;
+              total: string;
+              totalFees: string;
+              totalTax: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        order: {
+           createdAt: string;
+           currency: string;
+           expiresAt: string | null;
+           id: string;
+           items: {
+              description: string | null;
+              name: string;
+              quantity: number;
+              subtotal: string;
+              type: string;
+              unitPrice: string;
+           }[];
+           orderNumber: string;
+           paymentStatus: string;
+           status: string;
+           subtotal: string;
+           total: string;
+           totalFees: string;
+           totalTax: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Order retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     order: {
+        createdAt: string;
+        currency: string;
+        expiresAt: string | null;
+        id: string;
+        items: {
+           description: string | null;
+           name: string;
+           quantity: number;
+           subtotal: string;
+           type: string;
+           unitPrice: string;
+        }[];
+        orderNumber: string;
+        paymentStatus: string;
+        status: string;
+        subtotal: string;
+        total: string;
+        totalFees: string;
+        totalTax: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  order: {
+     createdAt: string;
+     currency: string;
+     expiresAt: string | null;
+     id: string;
+     items: {
+        description: string | null;
+        name: string;
+        quantity: number;
+        subtotal: string;
+        type: string;
+        unitPrice: string;
+     }[];
+     orderNumber: string;
+     paymentStatus: string;
+     status: string;
+     subtotal: string;
+     total: string;
+     totalFees: string;
+     totalTax: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.order
+
+```ts
+order: {
+  createdAt: string;
+  currency: string;
+  expiresAt: string | null;
+  id: string;
+  items: {
+     description: string | null;
+     name: string;
+     quantity: number;
+     subtotal: string;
+     type: string;
+     unitPrice: string;
+  }[];
+  orderNumber: string;
+  paymentStatus: string;
+  status: string;
+  subtotal: string;
+  total: string;
+  totalFees: string;
+  totalTax: string;
+};
+```
+
+##### responses.200.content.application/json.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.order.currency
+
+```ts
+currency: string;
+```
+
+##### responses.200.content.application/json.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### responses.200.content.application/json.order.id
+
+```ts
+id: string;
+```
+
+##### responses.200.content.application/json.order.items
+
+```ts
+items: {
+  description: string | null;
+  name: string;
+  quantity: number;
+  subtotal: string;
+  type: string;
+  unitPrice: string;
+}[];
+```
+
+##### responses.200.content.application/json.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+##### responses.200.content.application/json.order.paymentStatus
+
+```ts
+paymentStatus: string;
+```
+
+##### responses.200.content.application/json.order.status
+
+```ts
+status: string;
+```
+
+##### responses.200.content.application/json.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+##### responses.200.content.application/json.order.total
+
+```ts
+total: string;
+```
+
+##### responses.200.content.application/json.order.totalFees
+
+```ts
+totalFees: string;
+```
+
+##### responses.200.content.application/json.order.totalTax
+
+```ts
+totalTax: string;
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### getSalesTheme
+
+```ts
+getSalesTheme: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              theme: {
+                 brand: {
+                  [key: string]: unknown;
+                 };
+                 colors: {
+                  [key: string]: unknown;
+                 };
+                 design?:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 id: string;
+                 name: string;
+                 shape: {
+                  [key: string]: unknown;
+                 };
+                 typography: {
+                  [key: string]: unknown;
+                 };
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:20278
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           theme: {
+              brand: {
+               [key: string]: unknown;
+              };
+              colors: {
+               [key: string]: unknown;
+              };
+              design?:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              id: string;
+              name: string;
+              shape: {
+               [key: string]: unknown;
+              };
+              typography: {
+               [key: string]: unknown;
+              };
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        theme: {
+           brand: {
+            [key: string]: unknown;
+           };
+           colors: {
+            [key: string]: unknown;
+           };
+           design?:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           id: string;
+           name: string;
+           shape: {
+            [key: string]: unknown;
+           };
+           typography: {
+            [key: string]: unknown;
+           };
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Theme retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     theme: {
+        brand: {
+         [key: string]: unknown;
+        };
+        colors: {
+         [key: string]: unknown;
+        };
+        design?:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        id: string;
+        name: string;
+        shape: {
+         [key: string]: unknown;
+        };
+        typography: {
+         [key: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  theme: {
+     brand: {
+      [key: string]: unknown;
+     };
+     colors: {
+      [key: string]: unknown;
+     };
+     design?:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     id: string;
+     name: string;
+     shape: {
+      [key: string]: unknown;
+     };
+     typography: {
+      [key: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json.theme
+
+```ts
+theme: {
+  brand: {
+   [key: string]: unknown;
+  };
+  colors: {
+   [key: string]: unknown;
+  };
+  design?:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  id: string;
+  name: string;
+  shape: {
+   [key: string]: unknown;
+  };
+  typography: {
+   [key: string]: unknown;
+  };
+};
+```
+
+##### responses.200.content.application/json.theme.brand
+
+```ts
+brand: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+##### responses.200.content.application/json.theme.colors
+
+```ts
+colors: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+##### responses.200.content.application/json.theme.design?
+
+```ts
+optional design: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+##### responses.200.content.application/json.theme.id
+
+```ts
+id: string;
+```
+
+##### responses.200.content.application/json.theme.name
+
+```ts
+name: string;
+```
+
+##### responses.200.content.application/json.theme.shape
+
+```ts
+shape: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+##### responses.200.content.application/json.theme.typography
+
+```ts
+typography: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### getStaffCart
+
+```ts
+getStaffCart: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        cartId: string;
+        channelId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              cart: {
+                 accountId: string;
+                 channelId: string;
+                 createdAt: string;
+                 currency: string | null;
+                 customerId: string | null;
+                 expiresAt: string;
+                 id: string;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 orderId: string | null;
+                 organisationId: string;
+                 status: "active" | "expired" | "checked_out" | "abandoned";
+                 updatedAt: string;
+              };
+              items: {
+                 cartId: string;
+                 categoryId: string;
+                 createdAt: string;
+                 eventLayoutAreaId: string | null;
+                 eventLayoutSeatId: string | null;
+                 eventOccurrenceId: string;
+                 id: string;
+                 notes: string | null;
+                 organisationId: string;
+                 priceSnapshot: {
+                    categoryName: string;
+                    currency: string;
+                    eventId: string;
+                    eventName: string;
+                    priceSchemeId: string;
+                    ticketTypeName: string;
+                    unitPrice: number;
+                 };
+                 quantity: number;
+                 reservationId: string;
+                 ticketTypeId: string;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:18360
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     cartId: string;
+     channelId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  cartId: string;
+  channelId: string;
+};
+```
+
+##### parameters.path.cartId
+
+```ts
+cartId: string;
+```
+
+##### parameters.path.channelId
+
+```ts
+channelId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           cart: {
+              accountId: string;
+              channelId: string;
+              createdAt: string;
+              currency: string | null;
+              customerId: string | null;
+              expiresAt: string;
+              id: string;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              orderId: string | null;
+              organisationId: string;
+              status: "active" | "expired" | "checked_out" | "abandoned";
+              updatedAt: string;
+           };
+           items: {
+              cartId: string;
+              categoryId: string;
+              createdAt: string;
+              eventLayoutAreaId: string | null;
+              eventLayoutSeatId: string | null;
+              eventOccurrenceId: string;
+              id: string;
+              notes: string | null;
+              organisationId: string;
+              priceSnapshot: {
+                 categoryName: string;
+                 currency: string;
+                 eventId: string;
+                 eventName: string;
+                 priceSchemeId: string;
+                 ticketTypeName: string;
+                 unitPrice: number;
+              };
+              quantity: number;
+              reservationId: string;
+              ticketTypeId: string;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        cart: {
+           accountId: string;
+           channelId: string;
+           createdAt: string;
+           currency: string | null;
+           customerId: string | null;
+           expiresAt: string;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           orderId: string | null;
+           organisationId: string;
+           status: "active" | "expired" | "checked_out" | "abandoned";
+           updatedAt: string;
+        };
+        items: {
+           cartId: string;
+           categoryId: string;
+           createdAt: string;
+           eventLayoutAreaId: string | null;
+           eventLayoutSeatId: string | null;
+           eventOccurrenceId: string;
+           id: string;
+           notes: string | null;
+           organisationId: string;
+           priceSnapshot: {
+              categoryName: string;
+              currency: string;
+              eventId: string;
+              eventName: string;
+              priceSchemeId: string;
+              ticketTypeName: string;
+              unitPrice: number;
+           };
+           quantity: number;
+           reservationId: string;
+           ticketTypeId: string;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Cart retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     cart: {
+        accountId: string;
+        channelId: string;
+        createdAt: string;
+        currency: string | null;
+        customerId: string | null;
+        expiresAt: string;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderId: string | null;
+        organisationId: string;
+        status: "active" | "expired" | "checked_out" | "abandoned";
+        updatedAt: string;
+     };
+     items: {
+        cartId: string;
+        categoryId: string;
+        createdAt: string;
+        eventLayoutAreaId: string | null;
+        eventLayoutSeatId: string | null;
+        eventOccurrenceId: string;
+        id: string;
+        notes: string | null;
+        organisationId: string;
+        priceSnapshot: {
+           categoryName: string;
+           currency: string;
+           eventId: string;
+           eventName: string;
+           priceSchemeId: string;
+           ticketTypeName: string;
+           unitPrice: number;
+        };
+        quantity: number;
+        reservationId: string;
+        ticketTypeId: string;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  cart: {
+     accountId: string;
+     channelId: string;
+     createdAt: string;
+     currency: string | null;
+     customerId: string | null;
+     expiresAt: string;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderId: string | null;
+     organisationId: string;
+     status: "active" | "expired" | "checked_out" | "abandoned";
+     updatedAt: string;
+  };
+  items: {
+     cartId: string;
+     categoryId: string;
+     createdAt: string;
+     eventLayoutAreaId: string | null;
+     eventLayoutSeatId: string | null;
+     eventOccurrenceId: string;
+     id: string;
+     notes: string | null;
+     organisationId: string;
+     priceSnapshot: {
+        categoryName: string;
+        currency: string;
+        eventId: string;
+        eventName: string;
+        priceSchemeId: string;
+        ticketTypeName: string;
+        unitPrice: number;
+     };
+     quantity: number;
+     reservationId: string;
+     ticketTypeId: string;
+  }[];
+};
+```
+
+##### responses.200.content.application/json.cart
+
+```ts
+cart: {
+  accountId: string;
+  channelId: string;
+  createdAt: string;
+  currency: string | null;
+  customerId: string | null;
+  expiresAt: string;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderId: string | null;
+  organisationId: string;
+  status: "active" | "expired" | "checked_out" | "abandoned";
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.cart.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### responses.200.content.application/json.cart.channelId
+
+```ts
+channelId: string;
+```
+
+###### Example
+
+```ts
+sch_abc123
+```
+
+##### responses.200.content.application/json.cart.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.cart.currency
+
+```ts
+currency: string | null;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### responses.200.content.application/json.cart.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### responses.200.content.application/json.cart.expiresAt
+
+```ts
+expiresAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### responses.200.content.application/json.cart.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+crt_abc123
+```
+
+##### responses.200.content.application/json.cart.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "source": "boxoffice"
+             *     }
+```
+
+##### responses.200.content.application/json.cart.orderId
+
+```ts
+orderId: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.cart.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.cart.status
+
+```ts
+status: "active" | "expired" | "checked_out" | "abandoned";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### responses.200.content.application/json.cart.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.items
+
+```ts
+items: {
+  cartId: string;
+  categoryId: string;
+  createdAt: string;
+  eventLayoutAreaId: string | null;
+  eventLayoutSeatId: string | null;
+  eventOccurrenceId: string;
+  id: string;
+  notes: string | null;
+  organisationId: string;
+  priceSnapshot: {
+     categoryName: string;
+     currency: string;
+     eventId: string;
+     eventName: string;
+     priceSchemeId: string;
+     ticketTypeName: string;
+     unitPrice: number;
+  };
+  quantity: number;
+  reservationId: string;
+  ticketTypeId: string;
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### getTheme
+
+```ts
+getTheme: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        id: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              theme: {
+                 brand: {
+                    displayName?: string;
+                    faviconUrl?: string;
+                    logoDarkUrl?: string;
+                    logoUrl?: string;
+                 };
+                 colors: {
+                    accent?: string;
+                    accentForeground?: string;
+                    background?: string;
+                    border?: string;
+                    destructive?: string;
+                    destructiveForeground?: string;
+                    foreground?: string;
+                    input?: string;
+                    muted?: string;
+                    mutedForeground?: string;
+                    primary?: string;
+                    primaryForeground?: string;
+                    ring?: string;
+                    secondary?: string;
+                    secondaryForeground?: string;
+                    success?: string;
+                    successForeground?: string;
+                    warning?: string;
+                    warningForeground?: string;
+                 };
+                 createdAt: string;
+                 description: string | null;
+                 design:   | {
+                    cinemaGradient?: {
+                       position: ... | ...;
+                       strength: ... | ... | ...;
+                    };
+                    heroLayout?: {
+                       size: ... | ... | ...;
+                       type: ... | ...;
+                    };
+                  }
+                    | null;
+                 extendsThemeId: string | null;
+                 id: string;
+                 isActive: boolean;
+                 isBaseTheme: boolean;
+                 name: string;
+                 organisationId: string;
+                 shape: {
+                    radiusFull?: string;
+                    radiusLg?: string;
+                    radiusMd?: string;
+                    radiusNone?: string;
+                    radiusSm?: string;
+                 };
+                 typography: {
+                    baseSize?: string;
+                    fontFamily?: string;
+                    fontFamilyMono?: string;
+                    scaleRatio?: number;
+                 };
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:20479
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     id: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  id: string;
+};
+```
+
+##### parameters.path.id
+
+```ts
+id: string;
+```
+
+###### Description
+
+Theme ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           theme: {
+              brand: {
+                 displayName?: string;
+                 faviconUrl?: string;
+                 logoDarkUrl?: string;
+                 logoUrl?: string;
+              };
+              colors: {
+                 accent?: string;
+                 accentForeground?: string;
+                 background?: string;
+                 border?: string;
+                 destructive?: string;
+                 destructiveForeground?: string;
+                 foreground?: string;
+                 input?: string;
+                 muted?: string;
+                 mutedForeground?: string;
+                 primary?: string;
+                 primaryForeground?: string;
+                 ring?: string;
+                 secondary?: string;
+                 secondaryForeground?: string;
+                 success?: string;
+                 successForeground?: string;
+                 warning?: string;
+                 warningForeground?: string;
+              };
+              createdAt: string;
+              description: string | null;
+              design:   | {
+                 cinemaGradient?: {
+                    position: ... | ...;
+                    strength: ... | ... | ...;
+                 };
+                 heroLayout?: {
+                    size: ... | ... | ...;
+                    type: ... | ...;
+                 };
+               }
+                 | null;
+              extendsThemeId: string | null;
+              id: string;
+              isActive: boolean;
+              isBaseTheme: boolean;
+              name: string;
+              organisationId: string;
+              shape: {
+                 radiusFull?: string;
+                 radiusLg?: string;
+                 radiusMd?: string;
+                 radiusNone?: string;
+                 radiusSm?: string;
+              };
+              typography: {
+                 baseSize?: string;
+                 fontFamily?: string;
+                 fontFamilyMono?: string;
+                 scaleRatio?: number;
+              };
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        theme: {
+           brand: {
+              displayName?: string;
+              faviconUrl?: string;
+              logoDarkUrl?: string;
+              logoUrl?: string;
+           };
+           colors: {
+              accent?: string;
+              accentForeground?: string;
+              background?: string;
+              border?: string;
+              destructive?: string;
+              destructiveForeground?: string;
+              foreground?: string;
+              input?: string;
+              muted?: string;
+              mutedForeground?: string;
+              primary?: string;
+              primaryForeground?: string;
+              ring?: string;
+              secondary?: string;
+              secondaryForeground?: string;
+              success?: string;
+              successForeground?: string;
+              warning?: string;
+              warningForeground?: string;
+           };
+           createdAt: string;
+           description: string | null;
+           design:   | {
+              cinemaGradient?: {
+                 position: ... | ...;
+                 strength: ... | ... | ...;
+              };
+              heroLayout?: {
+                 size: ... | ... | ...;
+                 type: ... | ...;
+              };
+            }
+              | null;
+           extendsThemeId: string | null;
+           id: string;
+           isActive: boolean;
+           isBaseTheme: boolean;
+           name: string;
+           organisationId: string;
+           shape: {
+              radiusFull?: string;
+              radiusLg?: string;
+              radiusMd?: string;
+              radiusNone?: string;
+              radiusSm?: string;
+           };
+           typography: {
+              baseSize?: string;
+              fontFamily?: string;
+              fontFamilyMono?: string;
+              scaleRatio?: number;
+           };
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Theme retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     theme: {
+        brand: {
+           displayName?: string;
+           faviconUrl?: string;
+           logoDarkUrl?: string;
+           logoUrl?: string;
+        };
+        colors: {
+           accent?: string;
+           accentForeground?: string;
+           background?: string;
+           border?: string;
+           destructive?: string;
+           destructiveForeground?: string;
+           foreground?: string;
+           input?: string;
+           muted?: string;
+           mutedForeground?: string;
+           primary?: string;
+           primaryForeground?: string;
+           ring?: string;
+           secondary?: string;
+           secondaryForeground?: string;
+           success?: string;
+           successForeground?: string;
+           warning?: string;
+           warningForeground?: string;
+        };
+        createdAt: string;
+        description: string | null;
+        design:   | {
+           cinemaGradient?: {
+              position: ... | ...;
+              strength: ... | ... | ...;
+           };
+           heroLayout?: {
+              size: ... | ... | ...;
+              type: ... | ...;
+           };
+         }
+           | null;
+        extendsThemeId: string | null;
+        id: string;
+        isActive: boolean;
+        isBaseTheme: boolean;
+        name: string;
+        organisationId: string;
+        shape: {
+           radiusFull?: string;
+           radiusLg?: string;
+           radiusMd?: string;
+           radiusNone?: string;
+           radiusSm?: string;
+        };
+        typography: {
+           baseSize?: string;
+           fontFamily?: string;
+           fontFamilyMono?: string;
+           scaleRatio?: number;
+        };
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  theme: {
+     brand: {
+        displayName?: string;
+        faviconUrl?: string;
+        logoDarkUrl?: string;
+        logoUrl?: string;
+     };
+     colors: {
+        accent?: string;
+        accentForeground?: string;
+        background?: string;
+        border?: string;
+        destructive?: string;
+        destructiveForeground?: string;
+        foreground?: string;
+        input?: string;
+        muted?: string;
+        mutedForeground?: string;
+        primary?: string;
+        primaryForeground?: string;
+        ring?: string;
+        secondary?: string;
+        secondaryForeground?: string;
+        success?: string;
+        successForeground?: string;
+        warning?: string;
+        warningForeground?: string;
+     };
+     createdAt: string;
+     description: string | null;
+     design:   | {
+        cinemaGradient?: {
+           position: ... | ...;
+           strength: ... | ... | ...;
+        };
+        heroLayout?: {
+           size: ... | ... | ...;
+           type: ... | ...;
+        };
+      }
+        | null;
+     extendsThemeId: string | null;
+     id: string;
+     isActive: boolean;
+     isBaseTheme: boolean;
+     name: string;
+     organisationId: string;
+     shape: {
+        radiusFull?: string;
+        radiusLg?: string;
+        radiusMd?: string;
+        radiusNone?: string;
+        radiusSm?: string;
+     };
+     typography: {
+        baseSize?: string;
+        fontFamily?: string;
+        fontFamilyMono?: string;
+        scaleRatio?: number;
+     };
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.theme
+
+```ts
+theme: {
+  brand: {
+     displayName?: string;
+     faviconUrl?: string;
+     logoDarkUrl?: string;
+     logoUrl?: string;
+  };
+  colors: {
+     accent?: string;
+     accentForeground?: string;
+     background?: string;
+     border?: string;
+     destructive?: string;
+     destructiveForeground?: string;
+     foreground?: string;
+     input?: string;
+     muted?: string;
+     mutedForeground?: string;
+     primary?: string;
+     primaryForeground?: string;
+     ring?: string;
+     secondary?: string;
+     secondaryForeground?: string;
+     success?: string;
+     successForeground?: string;
+     warning?: string;
+     warningForeground?: string;
+  };
+  createdAt: string;
+  description: string | null;
+  design:   | {
+     cinemaGradient?: {
+        position: ... | ...;
+        strength: ... | ... | ...;
+     };
+     heroLayout?: {
+        size: ... | ... | ...;
+        type: ... | ...;
+     };
+   }
+     | null;
+  extendsThemeId: string | null;
+  id: string;
+  isActive: boolean;
+  isBaseTheme: boolean;
+  name: string;
+  organisationId: string;
+  shape: {
+     radiusFull?: string;
+     radiusLg?: string;
+     radiusMd?: string;
+     radiusNone?: string;
+     radiusSm?: string;
+  };
+  typography: {
+     baseSize?: string;
+     fontFamily?: string;
+     fontFamilyMono?: string;
+     scaleRatio?: number;
+  };
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.theme.brand
+
+```ts
+brand: {
+  displayName?: string;
+  faviconUrl?: string;
+  logoDarkUrl?: string;
+  logoUrl?: string;
+};
+```
+
+##### responses.200.content.application/json.theme.brand.displayName?
+
+```ts
+optional displayName: string;
+```
+
+###### Example
+
+```ts
+Acme Tickets
+```
+
+##### responses.200.content.application/json.theme.brand.faviconUrl?
+
+```ts
+optional faviconUrl: string;
+```
+
+##### responses.200.content.application/json.theme.brand.logoDarkUrl?
+
+```ts
+optional logoDarkUrl: string;
+```
+
+##### responses.200.content.application/json.theme.brand.logoUrl?
+
+```ts
+optional logoUrl: string;
+```
+
+###### Example
+
+```ts
+https://cdn.example.com/logo.svg
+```
+
+##### responses.200.content.application/json.theme.colors
+
+```ts
+colors: {
+  accent?: string;
+  accentForeground?: string;
+  background?: string;
+  border?: string;
+  destructive?: string;
+  destructiveForeground?: string;
+  foreground?: string;
+  input?: string;
+  muted?: string;
+  mutedForeground?: string;
+  primary?: string;
+  primaryForeground?: string;
+  ring?: string;
+  secondary?: string;
+  secondaryForeground?: string;
+  success?: string;
+  successForeground?: string;
+  warning?: string;
+  warningForeground?: string;
+};
+```
+
+##### responses.200.content.application/json.theme.colors.accent?
+
+```ts
+optional accent: string;
+```
+
+##### responses.200.content.application/json.theme.colors.accentForeground?
+
+```ts
+optional accentForeground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.background?
+
+```ts
+optional background: string;
+```
+
+##### responses.200.content.application/json.theme.colors.border?
+
+```ts
+optional border: string;
+```
+
+##### responses.200.content.application/json.theme.colors.destructive?
+
+```ts
+optional destructive: string;
+```
+
+##### responses.200.content.application/json.theme.colors.destructiveForeground?
+
+```ts
+optional destructiveForeground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.foreground?
+
+```ts
+optional foreground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.input?
+
+```ts
+optional input: string;
+```
+
+##### responses.200.content.application/json.theme.colors.muted?
+
+```ts
+optional muted: string;
+```
+
+##### responses.200.content.application/json.theme.colors.mutedForeground?
+
+```ts
+optional mutedForeground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.primary?
+
+```ts
+optional primary: string;
+```
+
+###### Example
+
+```ts
+#7C3AED
+```
+
+##### responses.200.content.application/json.theme.colors.primaryForeground?
+
+```ts
+optional primaryForeground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.ring?
+
+```ts
+optional ring: string;
+```
+
+##### responses.200.content.application/json.theme.colors.secondary?
+
+```ts
+optional secondary: string;
+```
+
+##### responses.200.content.application/json.theme.colors.secondaryForeground?
+
+```ts
+optional secondaryForeground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.success?
+
+```ts
+optional success: string;
+```
+
+##### responses.200.content.application/json.theme.colors.successForeground?
+
+```ts
+optional successForeground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.warning?
+
+```ts
+optional warning: string;
+```
+
+##### responses.200.content.application/json.theme.colors.warningForeground?
+
+```ts
+optional warningForeground: string;
+```
+
+##### responses.200.content.application/json.theme.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-01T00:00:00.000Z
+```
+
+##### responses.200.content.application/json.theme.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Dark theme for evening events
+```
+
+##### responses.200.content.application/json.theme.design
+
+```ts
+design: 
+  | {
+  cinemaGradient?: {
+     position: ... | ...;
+     strength: ... | ... | ...;
+  };
+  heroLayout?: {
+     size: ... | ... | ...;
+     type: ... | ...;
+  };
+}
+  | null;
+```
+
+##### responses.200.content.application/json.theme.extendsThemeId
+
+```ts
+extendsThemeId: string | null;
+```
+
+###### Example
+
+```ts
+sct_base123
+```
+
+##### responses.200.content.application/json.theme.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sct_abc123
+```
+
+##### responses.200.content.application/json.theme.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.content.application/json.theme.isBaseTheme
+
+```ts
+isBaseTheme: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.theme.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Midnight
+```
+
+##### responses.200.content.application/json.theme.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.theme.shape
+
+```ts
+shape: {
+  radiusFull?: string;
+  radiusLg?: string;
+  radiusMd?: string;
+  radiusNone?: string;
+  radiusSm?: string;
+};
+```
+
+##### responses.200.content.application/json.theme.shape.radiusFull?
+
+```ts
+optional radiusFull: string;
+```
+
+##### responses.200.content.application/json.theme.shape.radiusLg?
+
+```ts
+optional radiusLg: string;
+```
+
+##### responses.200.content.application/json.theme.shape.radiusMd?
+
+```ts
+optional radiusMd: string;
+```
+
+###### Example
+
+```ts
+0.5rem
+```
+
+##### responses.200.content.application/json.theme.shape.radiusNone?
+
+```ts
+optional radiusNone: string;
+```
+
+##### responses.200.content.application/json.theme.shape.radiusSm?
+
+```ts
+optional radiusSm: string;
+```
+
+##### responses.200.content.application/json.theme.typography
+
+```ts
+typography: {
+  baseSize?: string;
+  fontFamily?: string;
+  fontFamilyMono?: string;
+  scaleRatio?: number;
+};
+```
+
+##### responses.200.content.application/json.theme.typography.baseSize?
+
+```ts
+optional baseSize: string;
+```
+
+###### Example
+
+```ts
+16px
+```
+
+##### responses.200.content.application/json.theme.typography.fontFamily?
+
+```ts
+optional fontFamily: string;
+```
+
+###### Example
+
+```ts
+Inter, sans-serif
+```
+
+##### responses.200.content.application/json.theme.typography.fontFamilyMono?
+
+```ts
+optional fontFamilyMono: string;
+```
+
+##### responses.200.content.application/json.theme.typography.scaleRatio?
+
+```ts
+optional scaleRatio: number;
+```
+
+###### Example
+
+```ts
+1.25
+```
+
+##### responses.200.content.application/json.theme.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-01T00:00:00.000Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### getUserInvitation
 
 ```ts
@@ -54688,7 +76561,7 @@ getUserInvitation: {
 };
 ```
 
-Defined in: generated/types.ts:5497
+Defined in: generated/types.ts:7220
 
 #### parameters
 
@@ -55246,7 +77119,7 @@ getVenue: {
 };
 ```
 
-Defined in: generated/types.ts:7999
+Defined in: generated/types.ts:9807
 
 #### parameters
 
@@ -56064,7 +77937,7 @@ getVenueLayout: {
 };
 ```
 
-Defined in: generated/types.ts:8751
+Defined in: generated/types.ts:10564
 
 #### parameters
 
@@ -56941,7 +78814,7 @@ initiateOrderPayment: {
 };
 ```
 
-Defined in: generated/types.ts:14170
+Defined in: generated/types.ts:16268
 
 #### parameters
 
@@ -57473,6 +79346,616 @@ headers: {
 
 ***
 
+### issueSalesChannelKey
+
+```ts
+issueSalesChannelKey: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        channelId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           keyType: "publishable" | "secret";
+           name: string;
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              key: {
+                 channelId: string;
+                 createdAt: string;
+                 id: string;
+                 keyType: "publishable" | "secret";
+                 last4: string;
+                 name: string;
+                 status: "active" | "revoked" | "compromised";
+              };
+              keyMaterial: string;
+              warning?: string;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:17977
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     channelId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  channelId: string;
+};
+```
+
+##### parameters.path.channelId
+
+```ts
+channelId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        keyType: "publishable" | "secret";
+        name: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     keyType: "publishable" | "secret";
+     name: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  keyType: "publishable" | "secret";
+  name: string;
+};
+```
+
+##### requestBody.content.application/json.keyType
+
+```ts
+keyType: "publishable" | "secret";
+```
+
+##### requestBody.content.application/json.name
+
+```ts
+name: string;
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           key: {
+              channelId: string;
+              createdAt: string;
+              id: string;
+              keyType: "publishable" | "secret";
+              last4: string;
+              name: string;
+              status: "active" | "revoked" | "compromised";
+           };
+           keyMaterial: string;
+           warning?: string;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        key: {
+           channelId: string;
+           createdAt: string;
+           id: string;
+           keyType: "publishable" | "secret";
+           last4: string;
+           name: string;
+           status: "active" | "revoked" | "compromised";
+        };
+        keyMaterial: string;
+        warning?: string;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Channel key issued successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     key: {
+        channelId: string;
+        createdAt: string;
+        id: string;
+        keyType: "publishable" | "secret";
+        last4: string;
+        name: string;
+        status: "active" | "revoked" | "compromised";
+     };
+     keyMaterial: string;
+     warning?: string;
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  key: {
+     channelId: string;
+     createdAt: string;
+     id: string;
+     keyType: "publishable" | "secret";
+     last4: string;
+     name: string;
+     status: "active" | "revoked" | "compromised";
+  };
+  keyMaterial: string;
+  warning?: string;
+};
+```
+
+##### responses.201.content.application/json.key
+
+```ts
+key: {
+  channelId: string;
+  createdAt: string;
+  id: string;
+  keyType: "publishable" | "secret";
+  last4: string;
+  name: string;
+  status: "active" | "revoked" | "compromised";
+};
+```
+
+##### responses.201.content.application/json.key.channelId
+
+```ts
+channelId: string;
+```
+
+###### Example
+
+```ts
+sch_abc123
+```
+
+##### responses.201.content.application/json.key.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.key.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+schk_abc123
+```
+
+##### responses.201.content.application/json.key.keyType
+
+```ts
+keyType: "publishable" | "secret";
+```
+
+###### Example
+
+```ts
+secret
+@enum {string}
+```
+
+##### responses.201.content.application/json.key.last4
+
+```ts
+last4: string;
+```
+
+###### Example
+
+```ts
+a1b2
+```
+
+##### responses.201.content.application/json.key.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Production key
+```
+
+##### responses.201.content.application/json.key.status
+
+```ts
+status: "active" | "revoked" | "compromised";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### responses.201.content.application/json.keyMaterial
+
+```ts
+keyMaterial: string;
+```
+
+###### Description
+
+The key itself. For secret keys this is shown exactly once.
+
+###### Example
+
+```ts
+tlsk_abc123...
+```
+
+##### responses.201.content.application/json.warning?
+
+```ts
+optional warning: string;
+```
+
+###### Example
+
+```ts
+Store this key securely. It will not be shown again and must never be used in a browser.
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### listAccounts
 
 ```ts
@@ -57540,7 +80023,7 @@ listAccounts: {
 };
 ```
 
-Defined in: generated/types.ts:4883
+Defined in: generated/types.ts:6606
 
 #### parameters
 
@@ -57930,6 +80413,470 @@ headers: {
 
 ***
 
+### listApiVersions
+
+```ts
+listApiVersions: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              current: string;
+              resolved: string;
+              versions: {
+                 breakingChanges: string[];
+                 date: string;
+                 deprecatedAt: string | null;
+                 status: "current" | "supported" | "deprecated" | "sunset";
+                 summary: string;
+                 sunsetAt: string | null;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:5970
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           current: string;
+           resolved: string;
+           versions: {
+              breakingChanges: string[];
+              date: string;
+              deprecatedAt: string | null;
+              status: "current" | "supported" | "deprecated" | "sunset";
+              summary: string;
+              sunsetAt: string | null;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        current: string;
+        resolved: string;
+        versions: {
+           breakingChanges: string[];
+           date: string;
+           deprecatedAt: string | null;
+           status: "current" | "supported" | "deprecated" | "sunset";
+           summary: string;
+           sunsetAt: string | null;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+API versions retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     current: string;
+     resolved: string;
+     versions: {
+        breakingChanges: string[];
+        date: string;
+        deprecatedAt: string | null;
+        status: "current" | "supported" | "deprecated" | "sunset";
+        summary: string;
+        sunsetAt: string | null;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  current: string;
+  resolved: string;
+  versions: {
+     breakingChanges: string[];
+     date: string;
+     deprecatedAt: string | null;
+     status: "current" | "supported" | "deprecated" | "sunset";
+     summary: string;
+     sunsetAt: string | null;
+  }[];
+};
+```
+
+##### responses.200.content.application/json.current
+
+```ts
+current: string;
+```
+
+###### Description
+
+The current dated API version
+
+###### Example
+
+```ts
+2026-06-13
+```
+
+##### responses.200.content.application/json.resolved
+
+```ts
+resolved: string;
+```
+
+###### Description
+
+The version this request resolved to (TL-Version header > organisation default > current)
+
+###### Example
+
+```ts
+2026-06-13
+```
+
+##### responses.200.content.application/json.versions
+
+```ts
+versions: {
+  breakingChanges: string[];
+  date: string;
+  deprecatedAt: string | null;
+  status: "current" | "supported" | "deprecated" | "sunset";
+  summary: string;
+  sunsetAt: string | null;
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### listBillingPayments
 
 ```ts
@@ -58006,7 +80953,7 @@ listBillingPayments: {
 };
 ```
 
-Defined in: generated/types.ts:11041
+Defined in: generated/types.ts:12854
 
 #### parameters
 
@@ -58518,7 +81465,7 @@ listCreditPackages: {
 };
 ```
 
-Defined in: generated/types.ts:10618
+Defined in: generated/types.ts:12431
 
 #### parameters
 
@@ -58971,7 +81918,7 @@ listCreditTransactions: {
 };
 ```
 
-Defined in: generated/types.ts:10789
+Defined in: generated/types.ts:12602
 
 #### parameters
 
@@ -59519,7 +82466,7 @@ listCustomers: {
 };
 ```
 
-Defined in: generated/types.ts:12684
+Defined in: generated/types.ts:14782
 
 #### parameters
 
@@ -60178,7 +83125,7 @@ listEventOccurrences: {
 };
 ```
 
-Defined in: generated/types.ts:6945
+Defined in: generated/types.ts:8748
 
 #### parameters
 
@@ -60858,7 +83805,7 @@ listEventPriceSchemes: {
 };
 ```
 
-Defined in: generated/types.ts:7409
+Defined in: generated/types.ts:9212
 
 #### parameters
 
@@ -61387,7 +84334,7 @@ listEvents: {
 };
 ```
 
-Defined in: generated/types.ts:6307
+Defined in: generated/types.ts:8030
 
 #### parameters
 
@@ -62050,6 +84997,458 @@ headers: {
 
 ***
 
+### listFeeProfiles
+
+```ts
+listFeeProfiles: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              feeProfiles: {
+                 createdAt: string;
+                 deletedAt: string | null;
+                 id: string;
+                 isDeleted: boolean;
+                 name: string;
+                 organisationId: string;
+                 serviceFeeEnabled: boolean;
+                 serviceFeeFixed: string | null;
+                 serviceFeeLabel: string | null;
+                 serviceFeePercent: string | null;
+                 updatedAt: string;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:18807
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           feeProfiles: {
+              createdAt: string;
+              deletedAt: string | null;
+              id: string;
+              isDeleted: boolean;
+              name: string;
+              organisationId: string;
+              serviceFeeEnabled: boolean;
+              serviceFeeFixed: string | null;
+              serviceFeeLabel: string | null;
+              serviceFeePercent: string | null;
+              updatedAt: string;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        feeProfiles: {
+           createdAt: string;
+           deletedAt: string | null;
+           id: string;
+           isDeleted: boolean;
+           name: string;
+           organisationId: string;
+           serviceFeeEnabled: boolean;
+           serviceFeeFixed: string | null;
+           serviceFeeLabel: string | null;
+           serviceFeePercent: string | null;
+           updatedAt: string;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Fee profiles retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     feeProfiles: {
+        createdAt: string;
+        deletedAt: string | null;
+        id: string;
+        isDeleted: boolean;
+        name: string;
+        organisationId: string;
+        serviceFeeEnabled: boolean;
+        serviceFeeFixed: string | null;
+        serviceFeeLabel: string | null;
+        serviceFeePercent: string | null;
+        updatedAt: string;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  feeProfiles: {
+     createdAt: string;
+     deletedAt: string | null;
+     id: string;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     serviceFeeEnabled: boolean;
+     serviceFeeFixed: string | null;
+     serviceFeeLabel: string | null;
+     serviceFeePercent: string | null;
+     updatedAt: string;
+  }[];
+};
+```
+
+##### responses.200.content.application/json.feeProfiles
+
+```ts
+feeProfiles: {
+  createdAt: string;
+  deletedAt: string | null;
+  id: string;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  serviceFeeEnabled: boolean;
+  serviceFeeFixed: string | null;
+  serviceFeeLabel: string | null;
+  serviceFeePercent: string | null;
+  updatedAt: string;
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### listIdentityProviders
 
 ```ts
@@ -62134,7 +85533,7 @@ listIdentityProviders: {
 };
 ```
 
-Defined in: generated/types.ts:5205
+Defined in: generated/types.ts:6928
 
 #### parameters
 
@@ -62682,7 +86081,7 @@ listInventory: {
 };
 ```
 
-Defined in: generated/types.ts:11406
+Defined in: generated/types.ts:13504
 
 #### parameters
 
@@ -63245,7 +86644,7 @@ listInventorySeats: {
 };
 ```
 
-Defined in: generated/types.ts:11830
+Defined in: generated/types.ts:13928
 
 #### parameters
 
@@ -63801,7 +87200,7 @@ listInvoices: {
 };
 ```
 
-Defined in: generated/types.ts:10916
+Defined in: generated/types.ts:12729
 
 #### parameters
 
@@ -64267,6 +87666,506 @@ headers: {
 
 ***
 
+### listMySalesOrders
+
+```ts
+listMySalesOrders: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              orders: {
+                 createdAt: string;
+                 currency: string;
+                 expiresAt: string | null;
+                 id: string;
+                 items: {
+                    description: string | null;
+                    name: string;
+                    quantity: number;
+                    subtotal: string;
+                    type: string;
+                    unitPrice: string;
+                 }[];
+                 orderNumber: string;
+                 paymentStatus: string;
+                 status: string;
+                 subtotal: string;
+                 total: string;
+                 totalFees: string;
+                 totalTax: string;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:19615
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           orders: {
+              createdAt: string;
+              currency: string;
+              expiresAt: string | null;
+              id: string;
+              items: {
+                 description: string | null;
+                 name: string;
+                 quantity: number;
+                 subtotal: string;
+                 type: string;
+                 unitPrice: string;
+              }[];
+              orderNumber: string;
+              paymentStatus: string;
+              status: string;
+              subtotal: string;
+              total: string;
+              totalFees: string;
+              totalTax: string;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        orders: {
+           createdAt: string;
+           currency: string;
+           expiresAt: string | null;
+           id: string;
+           items: {
+              description: string | null;
+              name: string;
+              quantity: number;
+              subtotal: string;
+              type: string;
+              unitPrice: string;
+           }[];
+           orderNumber: string;
+           paymentStatus: string;
+           status: string;
+           subtotal: string;
+           total: string;
+           totalFees: string;
+           totalTax: string;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Orders retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     orders: {
+        createdAt: string;
+        currency: string;
+        expiresAt: string | null;
+        id: string;
+        items: {
+           description: string | null;
+           name: string;
+           quantity: number;
+           subtotal: string;
+           type: string;
+           unitPrice: string;
+        }[];
+        orderNumber: string;
+        paymentStatus: string;
+        status: string;
+        subtotal: string;
+        total: string;
+        totalFees: string;
+        totalTax: string;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  orders: {
+     createdAt: string;
+     currency: string;
+     expiresAt: string | null;
+     id: string;
+     items: {
+        description: string | null;
+        name: string;
+        quantity: number;
+        subtotal: string;
+        type: string;
+        unitPrice: string;
+     }[];
+     orderNumber: string;
+     paymentStatus: string;
+     status: string;
+     subtotal: string;
+     total: string;
+     totalFees: string;
+     totalTax: string;
+  }[];
+};
+```
+
+##### responses.200.content.application/json.orders
+
+```ts
+orders: {
+  createdAt: string;
+  currency: string;
+  expiresAt: string | null;
+  id: string;
+  items: {
+     description: string | null;
+     name: string;
+     quantity: number;
+     subtotal: string;
+     type: string;
+     unitPrice: string;
+  }[];
+  orderNumber: string;
+  paymentStatus: string;
+  status: string;
+  subtotal: string;
+  total: string;
+  totalFees: string;
+  totalTax: string;
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### listOrders
 
 ```ts
@@ -64396,7 +88295,7 @@ listOrders: {
 };
 ```
 
-Defined in: generated/types.ts:13135
+Defined in: generated/types.ts:15233
 
 #### parameters
 
@@ -65178,6 +89077,452 @@ headers: {
 
 ***
 
+### listPaymentMethods
+
+```ts
+listPaymentMethods: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              paymentMethods: {
+                 card: {
+                    brand: string;
+                    expMonth: number;
+                    expYear: number;
+                    last4: string;
+                 };
+                 createdAt: string;
+                 id: string;
+                 isDefault: boolean;
+                 type: "card";
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:13219
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           paymentMethods: {
+              card: {
+                 brand: string;
+                 expMonth: number;
+                 expYear: number;
+                 last4: string;
+              };
+              createdAt: string;
+              id: string;
+              isDefault: boolean;
+              type: "card";
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        paymentMethods: {
+           card: {
+              brand: string;
+              expMonth: number;
+              expYear: number;
+              last4: string;
+           };
+           createdAt: string;
+           id: string;
+           isDefault: boolean;
+           type: "card";
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Payment methods retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     paymentMethods: {
+        card: {
+           brand: string;
+           expMonth: number;
+           expYear: number;
+           last4: string;
+        };
+        createdAt: string;
+        id: string;
+        isDefault: boolean;
+        type: "card";
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  paymentMethods: {
+     card: {
+        brand: string;
+        expMonth: number;
+        expYear: number;
+        last4: string;
+     };
+     createdAt: string;
+     id: string;
+     isDefault: boolean;
+     type: "card";
+  }[];
+};
+```
+
+##### responses.200.content.application/json.paymentMethods
+
+```ts
+paymentMethods: {
+  card: {
+     brand: string;
+     expMonth: number;
+     expYear: number;
+     last4: string;
+  };
+  createdAt: string;
+  id: string;
+  isDefault: boolean;
+  type: "card";
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### listPaymentProviders
 
 ```ts
@@ -65200,13 +89545,13 @@ listPaymentProviders: {
            | "in_person_cash"
            | "cheque";
         status?: "active" | "inactive" | "pending_setup";
-        type?:   | "bank_transfer"
-           | "cash"
-           | "stripe_connect"
+        type?:   | "stripe_connect"
            | "stripe_direct"
            | "adyen"
            | "square"
-           | "paypal";
+           | "paypal"
+           | "cash"
+           | "bank_transfer";
      };
   };
   requestBody?: undefined;
@@ -65270,13 +89615,13 @@ listPaymentProviders: {
                     | "in_person_card"
                     | "in_person_cash"
                    | "cheque")[];
-                 type:   | "bank_transfer"
-                    | "cash"
-                    | "stripe_connect"
+                 type:   | "stripe_connect"
                     | "stripe_direct"
                     | "adyen"
                     | "square"
-                    | "paypal";
+                    | "paypal"
+                    | "cash"
+                    | "bank_transfer";
                  updatedAt: string;
               }[];
            };
@@ -65319,7 +89664,7 @@ listPaymentProviders: {
 };
 ```
 
-Defined in: generated/types.ts:14858
+Defined in: generated/types.ts:16876
 
 #### parameters
 
@@ -65342,13 +89687,13 @@ parameters: {
         | "in_person_cash"
         | "cheque";
      status?: "active" | "inactive" | "pending_setup";
-     type?:   | "bank_transfer"
-        | "cash"
-        | "stripe_connect"
+     type?:   | "stripe_connect"
         | "stripe_direct"
         | "adyen"
         | "square"
-        | "paypal";
+        | "paypal"
+        | "cash"
+        | "bank_transfer";
   };
 };
 ```
@@ -65388,13 +89733,13 @@ optional query: {
      | "in_person_cash"
      | "cheque";
   status?: "active" | "inactive" | "pending_setup";
-  type?:   | "bank_transfer"
-     | "cash"
-     | "stripe_connect"
+  type?:   | "stripe_connect"
      | "stripe_direct"
      | "adyen"
      | "square"
-     | "paypal";
+     | "paypal"
+     | "cash"
+     | "bank_transfer";
 };
 ```
 
@@ -65479,13 +89824,13 @@ Filter by status
 
 ```ts
 optional type: 
-  | "bank_transfer"
-  | "cash"
   | "stripe_connect"
   | "stripe_direct"
   | "adyen"
   | "square"
-  | "paypal";
+  | "paypal"
+  | "cash"
+  | "bank_transfer";
 ```
 
 ###### Description
@@ -65561,13 +89906,13 @@ responses: {
                  | "in_person_card"
                  | "in_person_cash"
                 | "cheque")[];
-              type:   | "bank_transfer"
-                 | "cash"
-                 | "stripe_connect"
+              type:   | "stripe_connect"
                  | "stripe_direct"
                  | "adyen"
                  | "square"
-                 | "paypal";
+                 | "paypal"
+                 | "cash"
+                 | "bank_transfer";
               updatedAt: string;
            }[];
         };
@@ -65671,13 +90016,13 @@ responses: {
               | "in_person_card"
               | "in_person_cash"
              | "cheque")[];
-           type:   | "bank_transfer"
-              | "cash"
-              | "stripe_connect"
+           type:   | "stripe_connect"
               | "stripe_direct"
               | "adyen"
               | "square"
-              | "paypal";
+              | "paypal"
+              | "cash"
+              | "bank_transfer";
            updatedAt: string;
         }[];
      };
@@ -65753,13 +90098,13 @@ content: {
            | "in_person_card"
            | "in_person_cash"
           | "cheque")[];
-        type:   | "bank_transfer"
-           | "cash"
-           | "stripe_connect"
+        type:   | "stripe_connect"
            | "stripe_direct"
            | "adyen"
            | "square"
-           | "paypal";
+           | "paypal"
+           | "cash"
+           | "bank_transfer";
         updatedAt: string;
      }[];
   };
@@ -65826,13 +90171,13 @@ application/json: {
         | "in_person_card"
         | "in_person_cash"
        | "cheque")[];
-     type:   | "bank_transfer"
-        | "cash"
-        | "stripe_connect"
+     type:   | "stripe_connect"
         | "stripe_direct"
         | "adyen"
         | "square"
-        | "paypal";
+        | "paypal"
+        | "cash"
+        | "bank_transfer";
      updatedAt: string;
   }[];
 };
@@ -65950,13 +90295,13 @@ providers: {
      | "in_person_card"
      | "in_person_cash"
     | "cheque")[];
-  type:   | "bank_transfer"
-     | "cash"
-     | "stripe_connect"
+  type:   | "stripe_connect"
      | "stripe_direct"
      | "adyen"
      | "square"
-     | "paypal";
+     | "paypal"
+     | "cash"
+     | "bank_transfer";
   updatedAt: string;
 }[];
 ```
@@ -66228,7 +90573,7 @@ listPaymentRefunds: {
 };
 ```
 
-Defined in: generated/types.ts:14713
+Defined in: generated/types.ts:16731
 
 #### parameters
 
@@ -66708,80 +91053,6 @@ listPayments: {
                  status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
                  updatedAt: string;
               }[];
-            } & {
-              pagination: {
-                 limit: number;
-                 page: number;
-                 total: number;
-                 totalPages: number;
-              };
-              payments: {
-                 amount: string;
-                 createdAt: string;
-                 currency: string;
-                 failedAt: string | null;
-                 failureCode: string | null;
-                 failureMessage: string | null;
-                 id: string;
-                 invoiceId: string | null;
-                 method: string | null;
-                 organisationId: string;
-                 paidAt: string | null;
-                 status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
-                 updatedAt: string;
-               } & {
-                 accountId: string;
-                 amount: number;
-                 applicationFee: number | null;
-                 cancelledAt: string | null;
-                 capturedAt: string | null;
-                 clientSecret: string | null;
-                 createdAt: string;
-                 currency: string;
-                 expiresAt: string | null;
-                 externalPaymentId: string | null;
-                 failedAt: string | null;
-                 failureCode: string | null;
-                 failureMessage: string | null;
-                 id: string;
-                 isPartialPayment: boolean;
-                 metadata:   | {
-                  [key: ...]: ...;
-                  }
-                    | null;
-                 netAmount: number | null;
-                 orderId: string;
-                 orderNumber: string;
-                 organisationId: string;
-                 paymentMethod:   | {
-                    brand: ...;
-                    expiryMonth: ...;
-                    expiryYear: ...;
-                    last4: ...;
-                    type: ...;
-                  }
-                    | null;
-                 paymentProviderId: string;
-                 paymentType:   | "bank_transfer"
-                    | "online_card"
-                    | "online_bank_transfer"
-                    | "online_wallet"
-                    | "in_person_card"
-                    | "in_person_cash"
-                    | "cheque";
-                 processingFee: number | null;
-                 redirectUrl: string | null;
-                 remainingBalance: number | null;
-                 status:   | "cancelled"
-                    | "pending"
-                    | "succeeded"
-                    | "failed"
-                    | "processing"
-                    | "expired"
-                    | "requires_action"
-                    | "created";
-                 updatedAt: string;
-              }[];
            };
         };
         headers: {
@@ -66822,7 +91093,7 @@ listPayments: {
 };
 ```
 
-Defined in: generated/types.ts:14313
+Defined in: generated/types.ts:16411
 
 #### parameters
 
@@ -67026,80 +91297,6 @@ responses: {
               status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
               updatedAt: string;
            }[];
-         } & {
-           pagination: {
-              limit: number;
-              page: number;
-              total: number;
-              totalPages: number;
-           };
-           payments: {
-              amount: string;
-              createdAt: string;
-              currency: string;
-              failedAt: string | null;
-              failureCode: string | null;
-              failureMessage: string | null;
-              id: string;
-              invoiceId: string | null;
-              method: string | null;
-              organisationId: string;
-              paidAt: string | null;
-              status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
-              updatedAt: string;
-            } & {
-              accountId: string;
-              amount: number;
-              applicationFee: number | null;
-              cancelledAt: string | null;
-              capturedAt: string | null;
-              clientSecret: string | null;
-              createdAt: string;
-              currency: string;
-              expiresAt: string | null;
-              externalPaymentId: string | null;
-              failedAt: string | null;
-              failureCode: string | null;
-              failureMessage: string | null;
-              id: string;
-              isPartialPayment: boolean;
-              metadata:   | {
-               [key: ...]: ...;
-               }
-                 | null;
-              netAmount: number | null;
-              orderId: string;
-              orderNumber: string;
-              organisationId: string;
-              paymentMethod:   | {
-                 brand: ...;
-                 expiryMonth: ...;
-                 expiryYear: ...;
-                 last4: ...;
-                 type: ...;
-               }
-                 | null;
-              paymentProviderId: string;
-              paymentType:   | "bank_transfer"
-                 | "online_card"
-                 | "online_bank_transfer"
-                 | "online_wallet"
-                 | "in_person_card"
-                 | "in_person_cash"
-                 | "cheque";
-              processingFee: number | null;
-              redirectUrl: string | null;
-              remainingBalance: number | null;
-              status:   | "cancelled"
-                 | "pending"
-                 | "succeeded"
-                 | "failed"
-                 | "processing"
-                 | "expired"
-                 | "requires_action"
-                 | "created";
-              updatedAt: string;
-           }[];
         };
      };
      headers: {
@@ -67160,80 +91357,6 @@ responses: {
            status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
            updatedAt: string;
         }[];
-      } & {
-        pagination: {
-           limit: number;
-           page: number;
-           total: number;
-           totalPages: number;
-        };
-        payments: {
-           amount: string;
-           createdAt: string;
-           currency: string;
-           failedAt: string | null;
-           failureCode: string | null;
-           failureMessage: string | null;
-           id: string;
-           invoiceId: string | null;
-           method: string | null;
-           organisationId: string;
-           paidAt: string | null;
-           status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
-           updatedAt: string;
-         } & {
-           accountId: string;
-           amount: number;
-           applicationFee: number | null;
-           cancelledAt: string | null;
-           capturedAt: string | null;
-           clientSecret: string | null;
-           createdAt: string;
-           currency: string;
-           expiresAt: string | null;
-           externalPaymentId: string | null;
-           failedAt: string | null;
-           failureCode: string | null;
-           failureMessage: string | null;
-           id: string;
-           isPartialPayment: boolean;
-           metadata:   | {
-            [key: ...]: ...;
-            }
-              | null;
-           netAmount: number | null;
-           orderId: string;
-           orderNumber: string;
-           organisationId: string;
-           paymentMethod:   | {
-              brand: ...;
-              expiryMonth: ...;
-              expiryYear: ...;
-              last4: ...;
-              type: ...;
-            }
-              | null;
-           paymentProviderId: string;
-           paymentType:   | "bank_transfer"
-              | "online_card"
-              | "online_bank_transfer"
-              | "online_wallet"
-              | "in_person_card"
-              | "in_person_cash"
-              | "cheque";
-           processingFee: number | null;
-           redirectUrl: string | null;
-           remainingBalance: number | null;
-           status:   | "cancelled"
-              | "pending"
-              | "succeeded"
-              | "failed"
-              | "processing"
-              | "expired"
-              | "requires_action"
-              | "created";
-           updatedAt: string;
-        }[];
      };
   };
   headers: {
@@ -67266,80 +91389,6 @@ content: {
         status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
         updatedAt: string;
      }[];
-   } & {
-     pagination: {
-        limit: number;
-        page: number;
-        total: number;
-        totalPages: number;
-     };
-     payments: {
-        amount: string;
-        createdAt: string;
-        currency: string;
-        failedAt: string | null;
-        failureCode: string | null;
-        failureMessage: string | null;
-        id: string;
-        invoiceId: string | null;
-        method: string | null;
-        organisationId: string;
-        paidAt: string | null;
-        status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
-        updatedAt: string;
-      } & {
-        accountId: string;
-        amount: number;
-        applicationFee: number | null;
-        cancelledAt: string | null;
-        capturedAt: string | null;
-        clientSecret: string | null;
-        createdAt: string;
-        currency: string;
-        expiresAt: string | null;
-        externalPaymentId: string | null;
-        failedAt: string | null;
-        failureCode: string | null;
-        failureMessage: string | null;
-        id: string;
-        isPartialPayment: boolean;
-        metadata:   | {
-         [key: ...]: ...;
-         }
-           | null;
-        netAmount: number | null;
-        orderId: string;
-        orderNumber: string;
-        organisationId: string;
-        paymentMethod:   | {
-           brand: ...;
-           expiryMonth: ...;
-           expiryYear: ...;
-           last4: ...;
-           type: ...;
-         }
-           | null;
-        paymentProviderId: string;
-        paymentType:   | "bank_transfer"
-           | "online_card"
-           | "online_bank_transfer"
-           | "online_wallet"
-           | "in_person_card"
-           | "in_person_cash"
-           | "cheque";
-        processingFee: number | null;
-        redirectUrl: string | null;
-        remainingBalance: number | null;
-        status:   | "cancelled"
-           | "pending"
-           | "succeeded"
-           | "failed"
-           | "processing"
-           | "expired"
-           | "requires_action"
-           | "created";
-        updatedAt: string;
-     }[];
   };
 };
 ```
@@ -67363,86 +91412,10 @@ application/json: {
      status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
      updatedAt: string;
   }[];
-} & {
-  pagination: {
-     limit: number;
-     page: number;
-     total: number;
-     totalPages: number;
-  };
-  payments: {
-     amount: string;
-     createdAt: string;
-     currency: string;
-     failedAt: string | null;
-     failureCode: string | null;
-     failureMessage: string | null;
-     id: string;
-     invoiceId: string | null;
-     method: string | null;
-     organisationId: string;
-     paidAt: string | null;
-     status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
-     updatedAt: string;
-   } & {
-     accountId: string;
-     amount: number;
-     applicationFee: number | null;
-     cancelledAt: string | null;
-     capturedAt: string | null;
-     clientSecret: string | null;
-     createdAt: string;
-     currency: string;
-     expiresAt: string | null;
-     externalPaymentId: string | null;
-     failedAt: string | null;
-     failureCode: string | null;
-     failureMessage: string | null;
-     id: string;
-     isPartialPayment: boolean;
-     metadata:   | {
-      [key: ...]: ...;
-      }
-        | null;
-     netAmount: number | null;
-     orderId: string;
-     orderNumber: string;
-     organisationId: string;
-     paymentMethod:   | {
-        brand: ...;
-        expiryMonth: ...;
-        expiryYear: ...;
-        last4: ...;
-        type: ...;
-      }
-        | null;
-     paymentProviderId: string;
-     paymentType:   | "bank_transfer"
-        | "online_card"
-        | "online_bank_transfer"
-        | "online_wallet"
-        | "in_person_card"
-        | "in_person_cash"
-        | "cheque";
-     processingFee: number | null;
-     redirectUrl: string | null;
-     remainingBalance: number | null;
-     status:   | "cancelled"
-        | "pending"
-        | "succeeded"
-        | "failed"
-        | "processing"
-        | "expired"
-        | "requires_action"
-        | "created";
-     updatedAt: string;
-  }[];
 };
 ```
 
-###### Type Declaration
-
-###### payments
+##### responses.200.content.application/json.payments
 
 ```ts
 payments: {
@@ -67462,135 +91435,472 @@ payments: {
 }[];
 ```
 
-###### Type Declaration
-
-###### pagination
+##### responses.200.headers
 
 ```ts
-pagination: {
-  limit: number;
-  page: number;
-  total: number;
-  totalPages: number;
+headers: {
+[name: string]: unknown;
 };
 ```
 
-###### pagination.limit
+###### Index Signature
 
 ```ts
-limit: number;
+[name: string]: unknown
 ```
 
-###### Example
+##### responses.400
 
 ```ts
-20
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
 ```
 
-###### pagination.page
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
 
 ```ts
-page: number;
+optional content: undefined;
 ```
 
-###### Example
+##### responses.400.headers
 
 ```ts
-1
+headers: {
+[name: string]: unknown;
+};
 ```
 
-###### pagination.total
+###### Index Signature
 
 ```ts
-total: number;
+[name: string]: unknown
 ```
 
-###### Example
+##### responses.401
 
 ```ts
-150
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
 ```
 
-###### pagination.totalPages
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
 
 ```ts
-totalPages: number;
+optional content: undefined;
 ```
 
-###### Example
+##### responses.401.headers
 
 ```ts
-8
+headers: {
+[name: string]: unknown;
+};
 ```
 
-###### payments
+###### Index Signature
 
 ```ts
-payments: {
-  amount: string;
-  createdAt: string;
-  currency: string;
-  failedAt: string | null;
-  failureCode: string | null;
-  failureMessage: string | null;
-  id: string;
-  invoiceId: string | null;
-  method: string | null;
-  organisationId: string;
-  paidAt: string | null;
-  status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
-  updatedAt: string;
-} & {
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### listPresaleCodes
+
+```ts
+listPresaleCodes: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              presaleCodes: {
+                 accountId: string;
+                 benefit: string;
+                 benefitExpiresAt: string | null;
+                 channelId: string | null;
+                 code: string;
+                 createdAt: string;
+                 createdBy: string | null;
+                 expiresAt: string | null;
+                 id: string;
+                 isActive: boolean;
+                 maxRedemptions: number | null;
+                 organisationId: string;
+                 redemptionCount: number;
+                 updatedAt: string;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:18620
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           presaleCodes: {
+              accountId: string;
+              benefit: string;
+              benefitExpiresAt: string | null;
+              channelId: string | null;
+              code: string;
+              createdAt: string;
+              createdBy: string | null;
+              expiresAt: string | null;
+              id: string;
+              isActive: boolean;
+              maxRedemptions: number | null;
+              organisationId: string;
+              redemptionCount: number;
+              updatedAt: string;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        presaleCodes: {
+           accountId: string;
+           benefit: string;
+           benefitExpiresAt: string | null;
+           channelId: string | null;
+           code: string;
+           createdAt: string;
+           createdBy: string | null;
+           expiresAt: string | null;
+           id: string;
+           isActive: boolean;
+           maxRedemptions: number | null;
+           organisationId: string;
+           redemptionCount: number;
+           updatedAt: string;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Presale codes retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     presaleCodes: {
+        accountId: string;
+        benefit: string;
+        benefitExpiresAt: string | null;
+        channelId: string | null;
+        code: string;
+        createdAt: string;
+        createdBy: string | null;
+        expiresAt: string | null;
+        id: string;
+        isActive: boolean;
+        maxRedemptions: number | null;
+        organisationId: string;
+        redemptionCount: number;
+        updatedAt: string;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  presaleCodes: {
+     accountId: string;
+     benefit: string;
+     benefitExpiresAt: string | null;
+     channelId: string | null;
+     code: string;
+     createdAt: string;
+     createdBy: string | null;
+     expiresAt: string | null;
+     id: string;
+     isActive: boolean;
+     maxRedemptions: number | null;
+     organisationId: string;
+     redemptionCount: number;
+     updatedAt: string;
+  }[];
+};
+```
+
+##### responses.200.content.application/json.presaleCodes
+
+```ts
+presaleCodes: {
   accountId: string;
-  amount: number;
-  applicationFee: number | null;
-  cancelledAt: string | null;
-  capturedAt: string | null;
-  clientSecret: string | null;
+  benefit: string;
+  benefitExpiresAt: string | null;
+  channelId: string | null;
+  code: string;
   createdAt: string;
-  currency: string;
+  createdBy: string | null;
   expiresAt: string | null;
-  externalPaymentId: string | null;
-  failedAt: string | null;
-  failureCode: string | null;
-  failureMessage: string | null;
   id: string;
-  isPartialPayment: boolean;
-  metadata:   | {
-   [key: ...]: ...;
-   }
-     | null;
-  netAmount: number | null;
-  orderId: string;
-  orderNumber: string;
+  isActive: boolean;
+  maxRedemptions: number | null;
   organisationId: string;
-  paymentMethod:   | {
-     brand: ...;
-     expiryMonth: ...;
-     expiryYear: ...;
-     last4: ...;
-     type: ...;
-   }
-     | null;
-  paymentProviderId: string;
-  paymentType:   | "bank_transfer"
-     | "online_card"
-     | "online_bank_transfer"
-     | "online_wallet"
-     | "in_person_card"
-     | "in_person_cash"
-     | "cheque";
-  processingFee: number | null;
-  redirectUrl: string | null;
-  remainingBalance: number | null;
-  status:   | "cancelled"
-     | "pending"
-     | "succeeded"
-     | "failed"
-     | "processing"
-     | "expired"
-     | "requires_action"
-     | "created";
+  redemptionCount: number;
   updatedAt: string;
 }[];
 ```
@@ -67867,7 +92177,7 @@ listReservations: {
 };
 ```
 
-Defined in: generated/types.ts:12177
+Defined in: generated/types.ts:14275
 
 #### parameters
 
@@ -68402,7 +92712,7 @@ listRoles: {
 };
 ```
 
-Defined in: generated/types.ts:5668
+Defined in: generated/types.ts:7391
 
 #### parameters
 
@@ -68776,6 +93086,2125 @@ headers: {
 
 ***
 
+### listSalesChannelKeys
+
+```ts
+listSalesChannelKeys: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        channelId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              keys: {
+                 channelId: string;
+                 createdAt: string;
+                 id: string;
+                 keyType: "publishable" | "secret";
+                 last4: string;
+                 lastUsedAt: string | null;
+                 name: string;
+                 publishableKey: string | null;
+                 revokedAt: string | null;
+                 status: "active" | "revoked" | "compromised";
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:17920
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     channelId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  channelId: string;
+};
+```
+
+##### parameters.path.channelId
+
+```ts
+channelId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           keys: {
+              channelId: string;
+              createdAt: string;
+              id: string;
+              keyType: "publishable" | "secret";
+              last4: string;
+              lastUsedAt: string | null;
+              name: string;
+              publishableKey: string | null;
+              revokedAt: string | null;
+              status: "active" | "revoked" | "compromised";
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        keys: {
+           channelId: string;
+           createdAt: string;
+           id: string;
+           keyType: "publishable" | "secret";
+           last4: string;
+           lastUsedAt: string | null;
+           name: string;
+           publishableKey: string | null;
+           revokedAt: string | null;
+           status: "active" | "revoked" | "compromised";
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Channel keys retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     keys: {
+        channelId: string;
+        createdAt: string;
+        id: string;
+        keyType: "publishable" | "secret";
+        last4: string;
+        lastUsedAt: string | null;
+        name: string;
+        publishableKey: string | null;
+        revokedAt: string | null;
+        status: "active" | "revoked" | "compromised";
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  keys: {
+     channelId: string;
+     createdAt: string;
+     id: string;
+     keyType: "publishable" | "secret";
+     last4: string;
+     lastUsedAt: string | null;
+     name: string;
+     publishableKey: string | null;
+     revokedAt: string | null;
+     status: "active" | "revoked" | "compromised";
+  }[];
+};
+```
+
+##### responses.200.content.application/json.keys
+
+```ts
+keys: {
+  channelId: string;
+  createdAt: string;
+  id: string;
+  keyType: "publishable" | "secret";
+  last4: string;
+  lastUsedAt: string | null;
+  name: string;
+  publishableKey: string | null;
+  revokedAt: string | null;
+  status: "active" | "revoked" | "compromised";
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### listSalesChannelListings
+
+```ts
+listSalesChannelListings: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        channelId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              listings: {
+                 channelId: string;
+                 createdAt: string;
+                 createdBy: string | null;
+                 eventId: string;
+                 id: string;
+                 isActive: boolean;
+                 organisationId: string;
+                 saleEndsAt: string | null;
+                 saleStartsAt: string | null;
+                 updatedAt: string;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:18106
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     channelId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  channelId: string;
+};
+```
+
+##### parameters.path.channelId
+
+```ts
+channelId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           listings: {
+              channelId: string;
+              createdAt: string;
+              createdBy: string | null;
+              eventId: string;
+              id: string;
+              isActive: boolean;
+              organisationId: string;
+              saleEndsAt: string | null;
+              saleStartsAt: string | null;
+              updatedAt: string;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        listings: {
+           channelId: string;
+           createdAt: string;
+           createdBy: string | null;
+           eventId: string;
+           id: string;
+           isActive: boolean;
+           organisationId: string;
+           saleEndsAt: string | null;
+           saleStartsAt: string | null;
+           updatedAt: string;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Listings retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     listings: {
+        channelId: string;
+        createdAt: string;
+        createdBy: string | null;
+        eventId: string;
+        id: string;
+        isActive: boolean;
+        organisationId: string;
+        saleEndsAt: string | null;
+        saleStartsAt: string | null;
+        updatedAt: string;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  listings: {
+     channelId: string;
+     createdAt: string;
+     createdBy: string | null;
+     eventId: string;
+     id: string;
+     isActive: boolean;
+     organisationId: string;
+     saleEndsAt: string | null;
+     saleStartsAt: string | null;
+     updatedAt: string;
+  }[];
+};
+```
+
+##### responses.200.content.application/json.listings
+
+```ts
+listings: {
+  channelId: string;
+  createdAt: string;
+  createdBy: string | null;
+  eventId: string;
+  id: string;
+  isActive: boolean;
+  organisationId: string;
+  saleEndsAt: string | null;
+  saleStartsAt: string | null;
+  updatedAt: string;
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### listSalesChannels
+
+```ts
+listSalesChannels: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              channels: {
+                 accountId: string;
+                 channelTags: string[];
+                 channelType:   | "website"
+                    | "embed"
+                    | "box_office"
+                    | "kiosk"
+                    | "reseller_api"
+                    | "internal";
+                 checkoutTtlSeconds: number;
+                 createdAt: string;
+                 customerConfig: {
+                    allowGuestCheckout: boolean;
+                    collectAddress: boolean;
+                    collectPhone: boolean;
+                    requireLogin: boolean;
+                 };
+                 customerFacing: {
+                    allowedOrigins: string[];
+                    customDomain?: string;
+                    enabled: boolean;
+                    magicLinkBaseUrl?: string;
+                    partnerIdentity?: {
+                       algorithm: string;
+                       issuer: string;
+                       publicKeyPem: string;
+                    };
+                    subdomain?: string;
+                 };
+                 deletedAt: string | null;
+                 description: string | null;
+                 eventFilter: {
+                    channelTags?: string[];
+                    mode: "all" | "tagged";
+                 };
+                 feeProfileId: string | null;
+                 id: string;
+                 isActive: boolean;
+                 isDeleted: boolean;
+                 name: string;
+                 organisationId: string;
+                 pricingConfig: {
+                    includeFeesInPrice: boolean;
+                    showMemberPricing: boolean;
+                    showOriginalPrice: boolean;
+                 };
+                 receivingAccountId: string;
+                 reservationTtlSeconds: number;
+                 slug: string;
+                 themeId: string | null;
+                 updatedAt: string;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:17549
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           channels: {
+              accountId: string;
+              channelTags: string[];
+              channelType:   | "website"
+                 | "embed"
+                 | "box_office"
+                 | "kiosk"
+                 | "reseller_api"
+                 | "internal";
+              checkoutTtlSeconds: number;
+              createdAt: string;
+              customerConfig: {
+                 allowGuestCheckout: boolean;
+                 collectAddress: boolean;
+                 collectPhone: boolean;
+                 requireLogin: boolean;
+              };
+              customerFacing: {
+                 allowedOrigins: string[];
+                 customDomain?: string;
+                 enabled: boolean;
+                 magicLinkBaseUrl?: string;
+                 partnerIdentity?: {
+                    algorithm: string;
+                    issuer: string;
+                    publicKeyPem: string;
+                 };
+                 subdomain?: string;
+              };
+              deletedAt: string | null;
+              description: string | null;
+              eventFilter: {
+                 channelTags?: string[];
+                 mode: "all" | "tagged";
+              };
+              feeProfileId: string | null;
+              id: string;
+              isActive: boolean;
+              isDeleted: boolean;
+              name: string;
+              organisationId: string;
+              pricingConfig: {
+                 includeFeesInPrice: boolean;
+                 showMemberPricing: boolean;
+                 showOriginalPrice: boolean;
+              };
+              receivingAccountId: string;
+              reservationTtlSeconds: number;
+              slug: string;
+              themeId: string | null;
+              updatedAt: string;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        channels: {
+           accountId: string;
+           channelTags: string[];
+           channelType:   | "website"
+              | "embed"
+              | "box_office"
+              | "kiosk"
+              | "reseller_api"
+              | "internal";
+           checkoutTtlSeconds: number;
+           createdAt: string;
+           customerConfig: {
+              allowGuestCheckout: boolean;
+              collectAddress: boolean;
+              collectPhone: boolean;
+              requireLogin: boolean;
+           };
+           customerFacing: {
+              allowedOrigins: string[];
+              customDomain?: string;
+              enabled: boolean;
+              magicLinkBaseUrl?: string;
+              partnerIdentity?: {
+                 algorithm: string;
+                 issuer: string;
+                 publicKeyPem: string;
+              };
+              subdomain?: string;
+           };
+           deletedAt: string | null;
+           description: string | null;
+           eventFilter: {
+              channelTags?: string[];
+              mode: "all" | "tagged";
+           };
+           feeProfileId: string | null;
+           id: string;
+           isActive: boolean;
+           isDeleted: boolean;
+           name: string;
+           organisationId: string;
+           pricingConfig: {
+              includeFeesInPrice: boolean;
+              showMemberPricing: boolean;
+              showOriginalPrice: boolean;
+           };
+           receivingAccountId: string;
+           reservationTtlSeconds: number;
+           slug: string;
+           themeId: string | null;
+           updatedAt: string;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Sales channels retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     channels: {
+        accountId: string;
+        channelTags: string[];
+        channelType:   | "website"
+           | "embed"
+           | "box_office"
+           | "kiosk"
+           | "reseller_api"
+           | "internal";
+        checkoutTtlSeconds: number;
+        createdAt: string;
+        customerConfig: {
+           allowGuestCheckout: boolean;
+           collectAddress: boolean;
+           collectPhone: boolean;
+           requireLogin: boolean;
+        };
+        customerFacing: {
+           allowedOrigins: string[];
+           customDomain?: string;
+           enabled: boolean;
+           magicLinkBaseUrl?: string;
+           partnerIdentity?: {
+              algorithm: string;
+              issuer: string;
+              publicKeyPem: string;
+           };
+           subdomain?: string;
+        };
+        deletedAt: string | null;
+        description: string | null;
+        eventFilter: {
+           channelTags?: string[];
+           mode: "all" | "tagged";
+        };
+        feeProfileId: string | null;
+        id: string;
+        isActive: boolean;
+        isDeleted: boolean;
+        name: string;
+        organisationId: string;
+        pricingConfig: {
+           includeFeesInPrice: boolean;
+           showMemberPricing: boolean;
+           showOriginalPrice: boolean;
+        };
+        receivingAccountId: string;
+        reservationTtlSeconds: number;
+        slug: string;
+        themeId: string | null;
+        updatedAt: string;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  channels: {
+     accountId: string;
+     channelTags: string[];
+     channelType:   | "website"
+        | "embed"
+        | "box_office"
+        | "kiosk"
+        | "reseller_api"
+        | "internal";
+     checkoutTtlSeconds: number;
+     createdAt: string;
+     customerConfig: {
+        allowGuestCheckout: boolean;
+        collectAddress: boolean;
+        collectPhone: boolean;
+        requireLogin: boolean;
+     };
+     customerFacing: {
+        allowedOrigins: string[];
+        customDomain?: string;
+        enabled: boolean;
+        magicLinkBaseUrl?: string;
+        partnerIdentity?: {
+           algorithm: string;
+           issuer: string;
+           publicKeyPem: string;
+        };
+        subdomain?: string;
+     };
+     deletedAt: string | null;
+     description: string | null;
+     eventFilter: {
+        channelTags?: string[];
+        mode: "all" | "tagged";
+     };
+     feeProfileId: string | null;
+     id: string;
+     isActive: boolean;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     pricingConfig: {
+        includeFeesInPrice: boolean;
+        showMemberPricing: boolean;
+        showOriginalPrice: boolean;
+     };
+     receivingAccountId: string;
+     reservationTtlSeconds: number;
+     slug: string;
+     themeId: string | null;
+     updatedAt: string;
+  }[];
+};
+```
+
+##### responses.200.content.application/json.channels
+
+```ts
+channels: {
+  accountId: string;
+  channelTags: string[];
+  channelType:   | "website"
+     | "embed"
+     | "box_office"
+     | "kiosk"
+     | "reseller_api"
+     | "internal";
+  checkoutTtlSeconds: number;
+  createdAt: string;
+  customerConfig: {
+     allowGuestCheckout: boolean;
+     collectAddress: boolean;
+     collectPhone: boolean;
+     requireLogin: boolean;
+  };
+  customerFacing: {
+     allowedOrigins: string[];
+     customDomain?: string;
+     enabled: boolean;
+     magicLinkBaseUrl?: string;
+     partnerIdentity?: {
+        algorithm: string;
+        issuer: string;
+        publicKeyPem: string;
+     };
+     subdomain?: string;
+  };
+  deletedAt: string | null;
+  description: string | null;
+  eventFilter: {
+     channelTags?: string[];
+     mode: "all" | "tagged";
+  };
+  feeProfileId: string | null;
+  id: string;
+  isActive: boolean;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  pricingConfig: {
+     includeFeesInPrice: boolean;
+     showMemberPricing: boolean;
+     showOriginalPrice: boolean;
+  };
+  receivingAccountId: string;
+  reservationTtlSeconds: number;
+  slug: string;
+  themeId: string | null;
+  updatedAt: string;
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### listSalesListings
+
+```ts
+listSalesListings: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              channel: {
+                 id: string;
+                 name: string;
+                 slug: string;
+              };
+              listings: {
+                 currency: string | null;
+                 eventId: string;
+                 id: string;
+                 imageUrl: string | null;
+                 name: string | null;
+                 nextOccurrenceAt: string | null;
+                 priceFrom: number | null;
+                 saleEndsAt: string | null;
+                 saleStartsAt: string | null;
+                 shortDescription: string | null;
+                 subtitle: string | null;
+                 venueCity: string | null;
+                 venueName: string | null;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:19108
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           channel: {
+              id: string;
+              name: string;
+              slug: string;
+           };
+           listings: {
+              currency: string | null;
+              eventId: string;
+              id: string;
+              imageUrl: string | null;
+              name: string | null;
+              nextOccurrenceAt: string | null;
+              priceFrom: number | null;
+              saleEndsAt: string | null;
+              saleStartsAt: string | null;
+              shortDescription: string | null;
+              subtitle: string | null;
+              venueCity: string | null;
+              venueName: string | null;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        channel: {
+           id: string;
+           name: string;
+           slug: string;
+        };
+        listings: {
+           currency: string | null;
+           eventId: string;
+           id: string;
+           imageUrl: string | null;
+           name: string | null;
+           nextOccurrenceAt: string | null;
+           priceFrom: number | null;
+           saleEndsAt: string | null;
+           saleStartsAt: string | null;
+           shortDescription: string | null;
+           subtitle: string | null;
+           venueCity: string | null;
+           venueName: string | null;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Listings retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     channel: {
+        id: string;
+        name: string;
+        slug: string;
+     };
+     listings: {
+        currency: string | null;
+        eventId: string;
+        id: string;
+        imageUrl: string | null;
+        name: string | null;
+        nextOccurrenceAt: string | null;
+        priceFrom: number | null;
+        saleEndsAt: string | null;
+        saleStartsAt: string | null;
+        shortDescription: string | null;
+        subtitle: string | null;
+        venueCity: string | null;
+        venueName: string | null;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  channel: {
+     id: string;
+     name: string;
+     slug: string;
+  };
+  listings: {
+     currency: string | null;
+     eventId: string;
+     id: string;
+     imageUrl: string | null;
+     name: string | null;
+     nextOccurrenceAt: string | null;
+     priceFrom: number | null;
+     saleEndsAt: string | null;
+     saleStartsAt: string | null;
+     shortDescription: string | null;
+     subtitle: string | null;
+     venueCity: string | null;
+     venueName: string | null;
+  }[];
+};
+```
+
+##### responses.200.content.application/json.channel
+
+```ts
+channel: {
+  id: string;
+  name: string;
+  slug: string;
+};
+```
+
+##### responses.200.content.application/json.channel.id
+
+```ts
+id: string;
+```
+
+##### responses.200.content.application/json.channel.name
+
+```ts
+name: string;
+```
+
+##### responses.200.content.application/json.channel.slug
+
+```ts
+slug: string;
+```
+
+##### responses.200.content.application/json.listings
+
+```ts
+listings: {
+  currency: string | null;
+  eventId: string;
+  id: string;
+  imageUrl: string | null;
+  name: string | null;
+  nextOccurrenceAt: string | null;
+  priceFrom: number | null;
+  saleEndsAt: string | null;
+  saleStartsAt: string | null;
+  shortDescription: string | null;
+  subtitle: string | null;
+  venueCity: string | null;
+  venueName: string | null;
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### listSubscriptions
 
 ```ts
@@ -68849,7 +95278,7 @@ listSubscriptions: {
 };
 ```
 
-Defined in: generated/types.ts:11106
+Defined in: generated/types.ts:12919
 
 #### parameters
 
@@ -69262,6 +95691,752 @@ headers: {
 
 ***
 
+### listThemes
+
+```ts
+listThemes: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              themes: {
+                 brand: {
+                    displayName?: string;
+                    faviconUrl?: string;
+                    logoDarkUrl?: string;
+                    logoUrl?: string;
+                 };
+                 colors: {
+                    accent?: string;
+                    accentForeground?: string;
+                    background?: string;
+                    border?: string;
+                    destructive?: string;
+                    destructiveForeground?: string;
+                    foreground?: string;
+                    input?: string;
+                    muted?: string;
+                    mutedForeground?: string;
+                    primary?: string;
+                    primaryForeground?: string;
+                    ring?: string;
+                    secondary?: string;
+                    secondaryForeground?: string;
+                    success?: string;
+                    successForeground?: string;
+                    warning?: string;
+                    warningForeground?: string;
+                 };
+                 createdAt: string;
+                 description: string | null;
+                 design:   | {
+                    cinemaGradient?: {
+                       position: ...;
+                       strength: ...;
+                    };
+                    heroLayout?: {
+                       size: ...;
+                       type: ...;
+                    };
+                  }
+                    | null;
+                 extendsThemeId: string | null;
+                 id: string;
+                 isActive: boolean;
+                 isBaseTheme: boolean;
+                 name: string;
+                 organisationId: string;
+                 shape: {
+                    radiusFull?: string;
+                    radiusLg?: string;
+                    radiusMd?: string;
+                    radiusNone?: string;
+                    radiusSm?: string;
+                 };
+                 typography: {
+                    baseSize?: string;
+                    fontFamily?: string;
+                    fontFamilyMono?: string;
+                    scaleRatio?: number;
+                 };
+                 updatedAt: string;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:20333
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           themes: {
+              brand: {
+                 displayName?: string;
+                 faviconUrl?: string;
+                 logoDarkUrl?: string;
+                 logoUrl?: string;
+              };
+              colors: {
+                 accent?: string;
+                 accentForeground?: string;
+                 background?: string;
+                 border?: string;
+                 destructive?: string;
+                 destructiveForeground?: string;
+                 foreground?: string;
+                 input?: string;
+                 muted?: string;
+                 mutedForeground?: string;
+                 primary?: string;
+                 primaryForeground?: string;
+                 ring?: string;
+                 secondary?: string;
+                 secondaryForeground?: string;
+                 success?: string;
+                 successForeground?: string;
+                 warning?: string;
+                 warningForeground?: string;
+              };
+              createdAt: string;
+              description: string | null;
+              design:   | {
+                 cinemaGradient?: {
+                    position: ...;
+                    strength: ...;
+                 };
+                 heroLayout?: {
+                    size: ...;
+                    type: ...;
+                 };
+               }
+                 | null;
+              extendsThemeId: string | null;
+              id: string;
+              isActive: boolean;
+              isBaseTheme: boolean;
+              name: string;
+              organisationId: string;
+              shape: {
+                 radiusFull?: string;
+                 radiusLg?: string;
+                 radiusMd?: string;
+                 radiusNone?: string;
+                 radiusSm?: string;
+              };
+              typography: {
+                 baseSize?: string;
+                 fontFamily?: string;
+                 fontFamilyMono?: string;
+                 scaleRatio?: number;
+              };
+              updatedAt: string;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        themes: {
+           brand: {
+              displayName?: string;
+              faviconUrl?: string;
+              logoDarkUrl?: string;
+              logoUrl?: string;
+           };
+           colors: {
+              accent?: string;
+              accentForeground?: string;
+              background?: string;
+              border?: string;
+              destructive?: string;
+              destructiveForeground?: string;
+              foreground?: string;
+              input?: string;
+              muted?: string;
+              mutedForeground?: string;
+              primary?: string;
+              primaryForeground?: string;
+              ring?: string;
+              secondary?: string;
+              secondaryForeground?: string;
+              success?: string;
+              successForeground?: string;
+              warning?: string;
+              warningForeground?: string;
+           };
+           createdAt: string;
+           description: string | null;
+           design:   | {
+              cinemaGradient?: {
+                 position: ...;
+                 strength: ...;
+              };
+              heroLayout?: {
+                 size: ...;
+                 type: ...;
+              };
+            }
+              | null;
+           extendsThemeId: string | null;
+           id: string;
+           isActive: boolean;
+           isBaseTheme: boolean;
+           name: string;
+           organisationId: string;
+           shape: {
+              radiusFull?: string;
+              radiusLg?: string;
+              radiusMd?: string;
+              radiusNone?: string;
+              radiusSm?: string;
+           };
+           typography: {
+              baseSize?: string;
+              fontFamily?: string;
+              fontFamilyMono?: string;
+              scaleRatio?: number;
+           };
+           updatedAt: string;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Themes retrieved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     themes: {
+        brand: {
+           displayName?: string;
+           faviconUrl?: string;
+           logoDarkUrl?: string;
+           logoUrl?: string;
+        };
+        colors: {
+           accent?: string;
+           accentForeground?: string;
+           background?: string;
+           border?: string;
+           destructive?: string;
+           destructiveForeground?: string;
+           foreground?: string;
+           input?: string;
+           muted?: string;
+           mutedForeground?: string;
+           primary?: string;
+           primaryForeground?: string;
+           ring?: string;
+           secondary?: string;
+           secondaryForeground?: string;
+           success?: string;
+           successForeground?: string;
+           warning?: string;
+           warningForeground?: string;
+        };
+        createdAt: string;
+        description: string | null;
+        design:   | {
+           cinemaGradient?: {
+              position: ...;
+              strength: ...;
+           };
+           heroLayout?: {
+              size: ...;
+              type: ...;
+           };
+         }
+           | null;
+        extendsThemeId: string | null;
+        id: string;
+        isActive: boolean;
+        isBaseTheme: boolean;
+        name: string;
+        organisationId: string;
+        shape: {
+           radiusFull?: string;
+           radiusLg?: string;
+           radiusMd?: string;
+           radiusNone?: string;
+           radiusSm?: string;
+        };
+        typography: {
+           baseSize?: string;
+           fontFamily?: string;
+           fontFamilyMono?: string;
+           scaleRatio?: number;
+        };
+        updatedAt: string;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  themes: {
+     brand: {
+        displayName?: string;
+        faviconUrl?: string;
+        logoDarkUrl?: string;
+        logoUrl?: string;
+     };
+     colors: {
+        accent?: string;
+        accentForeground?: string;
+        background?: string;
+        border?: string;
+        destructive?: string;
+        destructiveForeground?: string;
+        foreground?: string;
+        input?: string;
+        muted?: string;
+        mutedForeground?: string;
+        primary?: string;
+        primaryForeground?: string;
+        ring?: string;
+        secondary?: string;
+        secondaryForeground?: string;
+        success?: string;
+        successForeground?: string;
+        warning?: string;
+        warningForeground?: string;
+     };
+     createdAt: string;
+     description: string | null;
+     design:   | {
+        cinemaGradient?: {
+           position: ...;
+           strength: ...;
+        };
+        heroLayout?: {
+           size: ...;
+           type: ...;
+        };
+      }
+        | null;
+     extendsThemeId: string | null;
+     id: string;
+     isActive: boolean;
+     isBaseTheme: boolean;
+     name: string;
+     organisationId: string;
+     shape: {
+        radiusFull?: string;
+        radiusLg?: string;
+        radiusMd?: string;
+        radiusNone?: string;
+        radiusSm?: string;
+     };
+     typography: {
+        baseSize?: string;
+        fontFamily?: string;
+        fontFamilyMono?: string;
+        scaleRatio?: number;
+     };
+     updatedAt: string;
+  }[];
+};
+```
+
+##### responses.200.content.application/json.themes
+
+```ts
+themes: {
+  brand: {
+     displayName?: string;
+     faviconUrl?: string;
+     logoDarkUrl?: string;
+     logoUrl?: string;
+  };
+  colors: {
+     accent?: string;
+     accentForeground?: string;
+     background?: string;
+     border?: string;
+     destructive?: string;
+     destructiveForeground?: string;
+     foreground?: string;
+     input?: string;
+     muted?: string;
+     mutedForeground?: string;
+     primary?: string;
+     primaryForeground?: string;
+     ring?: string;
+     secondary?: string;
+     secondaryForeground?: string;
+     success?: string;
+     successForeground?: string;
+     warning?: string;
+     warningForeground?: string;
+  };
+  createdAt: string;
+  description: string | null;
+  design:   | {
+     cinemaGradient?: {
+        position: ...;
+        strength: ...;
+     };
+     heroLayout?: {
+        size: ...;
+        type: ...;
+     };
+   }
+     | null;
+  extendsThemeId: string | null;
+  id: string;
+  isActive: boolean;
+  isBaseTheme: boolean;
+  name: string;
+  organisationId: string;
+  shape: {
+     radiusFull?: string;
+     radiusLg?: string;
+     radiusMd?: string;
+     radiusNone?: string;
+     radiusSm?: string;
+  };
+  typography: {
+     baseSize?: string;
+     fontFamily?: string;
+     fontFamilyMono?: string;
+     scaleRatio?: number;
+  };
+  updatedAt: string;
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### listUserAccountRoles
 
 ```ts
@@ -69340,7 +96515,7 @@ listUserAccountRoles: {
 };
 ```
 
-Defined in: generated/types.ts:5960
+Defined in: generated/types.ts:7683
 
 #### parameters
 
@@ -69854,7 +97029,7 @@ listUserAccountRolesByAccount: {
 };
 ```
 
-Defined in: generated/types.ts:6249
+Defined in: generated/types.ts:7972
 
 #### parameters
 
@@ -70382,7 +97557,7 @@ listUserAccountRolesByUser: {
 };
 ```
 
-Defined in: generated/types.ts:6191
+Defined in: generated/types.ts:7914
 
 #### parameters
 
@@ -70840,7 +98015,7 @@ listUserInvitations: {
      path?: undefined;
      query?: {
         organisationId?: string;
-        status?: "pending" | "expired" | "redeemed" | "all";
+        status?: "pending" | "expired" | "all" | "redeemed";
      };
   };
   requestBody?: undefined;
@@ -70898,7 +98073,7 @@ listUserInvitations: {
 };
 ```
 
-Defined in: generated/types.ts:5380
+Defined in: generated/types.ts:7103
 
 #### parameters
 
@@ -70909,7 +98084,7 @@ parameters: {
   path?: undefined;
   query?: {
      organisationId?: string;
-     status?: "pending" | "expired" | "redeemed" | "all";
+     status?: "pending" | "expired" | "all" | "redeemed";
   };
 };
 ```
@@ -70937,7 +98112,7 @@ optional path: undefined;
 ```ts
 optional query: {
   organisationId?: string;
-  status?: "pending" | "expired" | "redeemed" | "all";
+  status?: "pending" | "expired" | "all" | "redeemed";
 };
 ```
 
@@ -70950,7 +98125,7 @@ optional organisationId: string;
 ##### parameters.query.status?
 
 ```ts
-optional status: "pending" | "expired" | "redeemed" | "all";
+optional status: "pending" | "expired" | "all" | "redeemed";
 ```
 
 #### requestBody?
@@ -71387,7 +98562,7 @@ listVenueLayouts: {
 };
 ```
 
-Defined in: generated/types.ts:8255
+Defined in: generated/types.ts:10068
 
 #### parameters
 
@@ -72147,7 +99322,7 @@ listVenues: {
 };
 ```
 
-Defined in: generated/types.ts:7784
+Defined in: generated/types.ts:9587
 
 #### parameters
 
@@ -72835,7 +100010,7 @@ login: {
 };
 ```
 
-Defined in: generated/types.ts:4302
+Defined in: generated/types.ts:6025
 
 #### parameters
 
@@ -73379,7 +100554,7 @@ redeem: {
 };
 ```
 
-Defined in: generated/types.ts:4420
+Defined in: generated/types.ts:6143
 
 #### parameters
 
@@ -73851,6 +101026,449 @@ headers: {
 
 ***
 
+### redeemSalesPresaleCode
+
+```ts
+redeemSalesPresaleCode: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           code: string;
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              alreadyHeld: boolean;
+              benefit: string;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:20046
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        code: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     code: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  code: string;
+};
+```
+
+##### requestBody.content.application/json.code
+
+```ts
+code: string;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           alreadyHeld: boolean;
+           benefit: string;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        alreadyHeld: boolean;
+        benefit: string;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Presale code redeemed successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     alreadyHeld: boolean;
+     benefit: string;
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  alreadyHeld: boolean;
+  benefit: string;
+};
+```
+
+##### responses.200.content.application/json.alreadyHeld
+
+```ts
+alreadyHeld: boolean;
+```
+
+###### Description
+
+True if the customer already held this benefit
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.benefit
+
+```ts
+benefit: string;
+```
+
+###### Example
+
+```ts
+presale.summer-gala
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### refresh
 
 ```ts
@@ -73914,7 +101532,7 @@ refresh: {
 };
 ```
 
-Defined in: generated/types.ts:4361
+Defined in: generated/types.ts:6084
 
 #### parameters
 
@@ -74308,6 +101926,478 @@ headers: {
 
 ***
 
+### refreshSalesCustomerToken
+
+```ts
+refreshSalesCustomerToken: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              customer: {
+                 email: string;
+                 firstName: string | null;
+                 id: string;
+                 lastName: string | null;
+              };
+              customerToken: string;
+              expiresIn: number;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:20107
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           customer: {
+              email: string;
+              firstName: string | null;
+              id: string;
+              lastName: string | null;
+           };
+           customerToken: string;
+           expiresIn: number;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        customer: {
+           email: string;
+           firstName: string | null;
+           id: string;
+           lastName: string | null;
+        };
+        customerToken: string;
+        expiresIn: number;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Customer token refreshed successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     customer: {
+        email: string;
+        firstName: string | null;
+        id: string;
+        lastName: string | null;
+     };
+     customerToken: string;
+     expiresIn: number;
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  customer: {
+     email: string;
+     firstName: string | null;
+     id: string;
+     lastName: string | null;
+  };
+  customerToken: string;
+  expiresIn: number;
+};
+```
+
+##### responses.200.content.application/json.customer
+
+```ts
+customer: {
+  email: string;
+  firstName: string | null;
+  id: string;
+  lastName: string | null;
+};
+```
+
+##### responses.200.content.application/json.customer.email
+
+```ts
+email: string;
+```
+
+##### responses.200.content.application/json.customer.firstName
+
+```ts
+firstName: string | null;
+```
+
+##### responses.200.content.application/json.customer.id
+
+```ts
+id: string;
+```
+
+##### responses.200.content.application/json.customer.lastName
+
+```ts
+lastName: string | null;
+```
+
+##### responses.200.content.application/json.customerToken
+
+```ts
+customerToken: string;
+```
+
+###### Example
+
+```ts
+eyJhbGciOiJIUzI1NiIs...
+```
+
+##### responses.200.content.application/json.expiresIn
+
+```ts
+expiresIn: number;
+```
+
+###### Description
+
+Token lifetime in seconds
+
+###### Example
+
+```ts
+1800
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### releaseHold
 
 ```ts
@@ -74372,7 +102462,7 @@ releaseHold: {
 };
 ```
 
-Defined in: generated/types.ts:12616
+Defined in: generated/types.ts:14714
 
 #### parameters
 
@@ -74820,7 +102910,7 @@ releaseReservation: {
 };
 ```
 
-Defined in: generated/types.ts:12380
+Defined in: generated/types.ts:14478
 
 #### parameters
 
@@ -75326,7 +103416,7 @@ removeOrderLineItem: {
 };
 ```
 
-Defined in: generated/types.ts:14026
+Defined in: generated/types.ts:16124
 
 #### parameters
 
@@ -76389,7 +104479,7 @@ removeRoleAssignment: {
 };
 ```
 
-Defined in: generated/types.ts:6133
+Defined in: generated/types.ts:7856
 
 #### parameters
 
@@ -76733,6 +104823,1811 @@ headers: {
 
 ***
 
+### removeSalesCartItem
+
+```ts
+removeSalesCartItem: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        cartId: string;
+        itemId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              cart: {
+                 currency: string | null;
+                 expiresAt: string;
+                 id: string;
+                 items: {
+                    categoryName: string;
+                    currency: string;
+                    eventName: string;
+                    eventOccurrenceId: string;
+                    id: string;
+                    quantity: number;
+                    subtotal: number;
+                    ticketTypeName: string;
+                    unitPrice: number;
+                 }[];
+                 itemsSubtotal: number;
+                 orderId: string | null;
+                 status: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:19483
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     cartId: string;
+     itemId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  cartId: string;
+  itemId: string;
+};
+```
+
+##### parameters.path.cartId
+
+```ts
+cartId: string;
+```
+
+##### parameters.path.itemId
+
+```ts
+itemId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           cart: {
+              currency: string | null;
+              expiresAt: string;
+              id: string;
+              items: {
+                 categoryName: string;
+                 currency: string;
+                 eventName: string;
+                 eventOccurrenceId: string;
+                 id: string;
+                 quantity: number;
+                 subtotal: number;
+                 ticketTypeName: string;
+                 unitPrice: number;
+              }[];
+              itemsSubtotal: number;
+              orderId: string | null;
+              status: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        cart: {
+           currency: string | null;
+           expiresAt: string;
+           id: string;
+           items: {
+              categoryName: string;
+              currency: string;
+              eventName: string;
+              eventOccurrenceId: string;
+              id: string;
+              quantity: number;
+              subtotal: number;
+              ticketTypeName: string;
+              unitPrice: number;
+           }[];
+           itemsSubtotal: number;
+           orderId: string | null;
+           status: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Item removed successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     cart: {
+        currency: string | null;
+        expiresAt: string;
+        id: string;
+        items: {
+           categoryName: string;
+           currency: string;
+           eventName: string;
+           eventOccurrenceId: string;
+           id: string;
+           quantity: number;
+           subtotal: number;
+           ticketTypeName: string;
+           unitPrice: number;
+        }[];
+        itemsSubtotal: number;
+        orderId: string | null;
+        status: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  cart: {
+     currency: string | null;
+     expiresAt: string;
+     id: string;
+     items: {
+        categoryName: string;
+        currency: string;
+        eventName: string;
+        eventOccurrenceId: string;
+        id: string;
+        quantity: number;
+        subtotal: number;
+        ticketTypeName: string;
+        unitPrice: number;
+     }[];
+     itemsSubtotal: number;
+     orderId: string | null;
+     status: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.cart
+
+```ts
+cart: {
+  currency: string | null;
+  expiresAt: string;
+  id: string;
+  items: {
+     categoryName: string;
+     currency: string;
+     eventName: string;
+     eventOccurrenceId: string;
+     id: string;
+     quantity: number;
+     subtotal: number;
+     ticketTypeName: string;
+     unitPrice: number;
+  }[];
+  itemsSubtotal: number;
+  orderId: string | null;
+  status: string;
+};
+```
+
+##### responses.200.content.application/json.cart.currency
+
+```ts
+currency: string | null;
+```
+
+##### responses.200.content.application/json.cart.expiresAt
+
+```ts
+expiresAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### responses.200.content.application/json.cart.id
+
+```ts
+id: string;
+```
+
+##### responses.200.content.application/json.cart.items
+
+```ts
+items: {
+  categoryName: string;
+  currency: string;
+  eventName: string;
+  eventOccurrenceId: string;
+  id: string;
+  quantity: number;
+  subtotal: number;
+  ticketTypeName: string;
+  unitPrice: number;
+}[];
+```
+
+##### responses.200.content.application/json.cart.itemsSubtotal
+
+```ts
+itemsSubtotal: number;
+```
+
+##### responses.200.content.application/json.cart.orderId
+
+```ts
+orderId: string | null;
+```
+
+##### responses.200.content.application/json.cart.status
+
+```ts
+status: string;
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### removeStaffCartItem
+
+```ts
+removeStaffCartItem: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        cartId: string;
+        channelId: string;
+        itemId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              cart: {
+                 accountId: string;
+                 channelId: string;
+                 createdAt: string;
+                 currency: string | null;
+                 customerId: string | null;
+                 expiresAt: string;
+                 id: string;
+                 metadata:   | {
+                  [key: string]: unknown;
+                  }
+                    | null;
+                 orderId: string | null;
+                 organisationId: string;
+                 status: "active" | "expired" | "checked_out" | "abandoned";
+                 updatedAt: string;
+              };
+              items: {
+                 cartId: string;
+                 categoryId: string;
+                 createdAt: string;
+                 eventLayoutAreaId: string | null;
+                 eventLayoutSeatId: string | null;
+                 eventOccurrenceId: string;
+                 id: string;
+                 notes: string | null;
+                 organisationId: string;
+                 priceSnapshot: {
+                    categoryName: string;
+                    currency: string;
+                    eventId: string;
+                    eventName: string;
+                    priceSchemeId: string;
+                    ticketTypeName: string;
+                    unitPrice: number;
+                 };
+                 quantity: number;
+                 reservationId: string;
+                 ticketTypeId: string;
+              }[];
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:18487
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     cartId: string;
+     channelId: string;
+     itemId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  cartId: string;
+  channelId: string;
+  itemId: string;
+};
+```
+
+##### parameters.path.cartId
+
+```ts
+cartId: string;
+```
+
+##### parameters.path.channelId
+
+```ts
+channelId: string;
+```
+
+##### parameters.path.itemId
+
+```ts
+itemId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           cart: {
+              accountId: string;
+              channelId: string;
+              createdAt: string;
+              currency: string | null;
+              customerId: string | null;
+              expiresAt: string;
+              id: string;
+              metadata:   | {
+               [key: string]: unknown;
+               }
+                 | null;
+              orderId: string | null;
+              organisationId: string;
+              status: "active" | "expired" | "checked_out" | "abandoned";
+              updatedAt: string;
+           };
+           items: {
+              cartId: string;
+              categoryId: string;
+              createdAt: string;
+              eventLayoutAreaId: string | null;
+              eventLayoutSeatId: string | null;
+              eventOccurrenceId: string;
+              id: string;
+              notes: string | null;
+              organisationId: string;
+              priceSnapshot: {
+                 categoryName: string;
+                 currency: string;
+                 eventId: string;
+                 eventName: string;
+                 priceSchemeId: string;
+                 ticketTypeName: string;
+                 unitPrice: number;
+              };
+              quantity: number;
+              reservationId: string;
+              ticketTypeId: string;
+           }[];
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        cart: {
+           accountId: string;
+           channelId: string;
+           createdAt: string;
+           currency: string | null;
+           customerId: string | null;
+           expiresAt: string;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           orderId: string | null;
+           organisationId: string;
+           status: "active" | "expired" | "checked_out" | "abandoned";
+           updatedAt: string;
+        };
+        items: {
+           cartId: string;
+           categoryId: string;
+           createdAt: string;
+           eventLayoutAreaId: string | null;
+           eventLayoutSeatId: string | null;
+           eventOccurrenceId: string;
+           id: string;
+           notes: string | null;
+           organisationId: string;
+           priceSnapshot: {
+              categoryName: string;
+              currency: string;
+              eventId: string;
+              eventName: string;
+              priceSchemeId: string;
+              ticketTypeName: string;
+              unitPrice: number;
+           };
+           quantity: number;
+           reservationId: string;
+           ticketTypeId: string;
+        }[];
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Item removed successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     cart: {
+        accountId: string;
+        channelId: string;
+        createdAt: string;
+        currency: string | null;
+        customerId: string | null;
+        expiresAt: string;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderId: string | null;
+        organisationId: string;
+        status: "active" | "expired" | "checked_out" | "abandoned";
+        updatedAt: string;
+     };
+     items: {
+        cartId: string;
+        categoryId: string;
+        createdAt: string;
+        eventLayoutAreaId: string | null;
+        eventLayoutSeatId: string | null;
+        eventOccurrenceId: string;
+        id: string;
+        notes: string | null;
+        organisationId: string;
+        priceSnapshot: {
+           categoryName: string;
+           currency: string;
+           eventId: string;
+           eventName: string;
+           priceSchemeId: string;
+           ticketTypeName: string;
+           unitPrice: number;
+        };
+        quantity: number;
+        reservationId: string;
+        ticketTypeId: string;
+     }[];
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  cart: {
+     accountId: string;
+     channelId: string;
+     createdAt: string;
+     currency: string | null;
+     customerId: string | null;
+     expiresAt: string;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderId: string | null;
+     organisationId: string;
+     status: "active" | "expired" | "checked_out" | "abandoned";
+     updatedAt: string;
+  };
+  items: {
+     cartId: string;
+     categoryId: string;
+     createdAt: string;
+     eventLayoutAreaId: string | null;
+     eventLayoutSeatId: string | null;
+     eventOccurrenceId: string;
+     id: string;
+     notes: string | null;
+     organisationId: string;
+     priceSnapshot: {
+        categoryName: string;
+        currency: string;
+        eventId: string;
+        eventName: string;
+        priceSchemeId: string;
+        ticketTypeName: string;
+        unitPrice: number;
+     };
+     quantity: number;
+     reservationId: string;
+     ticketTypeId: string;
+  }[];
+};
+```
+
+##### responses.200.content.application/json.cart
+
+```ts
+cart: {
+  accountId: string;
+  channelId: string;
+  createdAt: string;
+  currency: string | null;
+  customerId: string | null;
+  expiresAt: string;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderId: string | null;
+  organisationId: string;
+  status: "active" | "expired" | "checked_out" | "abandoned";
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.cart.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### responses.200.content.application/json.cart.channelId
+
+```ts
+channelId: string;
+```
+
+###### Example
+
+```ts
+sch_abc123
+```
+
+##### responses.200.content.application/json.cart.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.cart.currency
+
+```ts
+currency: string | null;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### responses.200.content.application/json.cart.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### responses.200.content.application/json.cart.expiresAt
+
+```ts
+expiresAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### responses.200.content.application/json.cart.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+crt_abc123
+```
+
+##### responses.200.content.application/json.cart.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "source": "boxoffice"
+             *     }
+```
+
+##### responses.200.content.application/json.cart.orderId
+
+```ts
+orderId: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.cart.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.cart.status
+
+```ts
+status: "active" | "expired" | "checked_out" | "abandoned";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### responses.200.content.application/json.cart.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.items
+
+```ts
+items: {
+  cartId: string;
+  categoryId: string;
+  createdAt: string;
+  eventLayoutAreaId: string | null;
+  eventLayoutSeatId: string | null;
+  eventOccurrenceId: string;
+  id: string;
+  notes: string | null;
+  organisationId: string;
+  priceSnapshot: {
+     categoryName: string;
+     currency: string;
+     eventId: string;
+     eventName: string;
+     priceSchemeId: string;
+     ticketTypeName: string;
+     unitPrice: number;
+  };
+  quantity: number;
+  reservationId: string;
+  ticketTypeId: string;
+}[];
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### requestSalesMagicLink
+
+```ts
+requestSalesMagicLink: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           email?: string;
+           phone?: string;
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              sent: boolean;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:19163
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        email?: string;
+        phone?: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     email?: string;
+     phone?: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  email?: string;
+  phone?: string;
+};
+```
+
+##### requestBody.content.application/json.email?
+
+```ts
+optional email: string;
+```
+
+Format: email
+
+##### requestBody.content.application/json.phone?
+
+```ts
+optional phone: string;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           sent: boolean;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        sent: boolean;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Magic link request accepted
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     sent: boolean;
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  sent: boolean;
+};
+```
+
+##### responses.200.content.application/json.sent
+
+```ts
+sent: boolean;
+```
+
+###### Description
+
+Always true — success is reported regardless of whether the contact exists (no account enumeration)
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### resendUserInvitation
 
 ```ts
@@ -76800,7 +106695,7 @@ resendUserInvitation: {
 };
 ```
 
-Defined in: generated/types.ts:5611
+Defined in: generated/types.ts:7334
 
 #### parameters
 
@@ -77364,7 +107259,7 @@ reserveInventory: {
 };
 ```
 
-Defined in: generated/types.ts:11996
+Defined in: generated/types.ts:14094
 
 #### parameters
 
@@ -78144,6 +108039,2145 @@ headers: {
 
 ***
 
+### resolveSalesChannel
+
+```ts
+resolveSalesChannel: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query: {
+        domain: string;
+     };
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              channel: {
+                 id: string;
+                 name: string;
+                 slug: string;
+              };
+              publishableKey: string | null;
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:20162
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query: {
+     domain: string;
+  };
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query
+
+```ts
+query: {
+  domain: string;
+};
+```
+
+##### parameters.query.domain
+
+```ts
+domain: string;
+```
+
+###### Description
+
+The hostname to resolve
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           channel: {
+              id: string;
+              name: string;
+              slug: string;
+           };
+           publishableKey: string | null;
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        channel: {
+           id: string;
+           name: string;
+           slug: string;
+        };
+        publishableKey: string | null;
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Channel resolved successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     channel: {
+        id: string;
+        name: string;
+        slug: string;
+     };
+     publishableKey: string | null;
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  channel: {
+     id: string;
+     name: string;
+     slug: string;
+  };
+  publishableKey: string | null;
+};
+```
+
+##### responses.200.content.application/json.channel
+
+```ts
+channel: {
+  id: string;
+  name: string;
+  slug: string;
+};
+```
+
+##### responses.200.content.application/json.channel.id
+
+```ts
+id: string;
+```
+
+##### responses.200.content.application/json.channel.name
+
+```ts
+name: string;
+```
+
+##### responses.200.content.application/json.channel.slug
+
+```ts
+slug: string;
+```
+
+##### responses.200.content.application/json.publishableKey
+
+```ts
+publishableKey: string | null;
+```
+
+###### Description
+
+The channel's active publishable key (public by design), or null if none is issued
+
+###### Example
+
+```ts
+tlpk_abc123
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### revokeSalesChannelKey
+
+```ts
+revokeSalesChannelKey: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        channelId: string;
+        keyId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           reason?: string;
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              key: {
+                 id: string;
+                 revokedAt: string | null;
+                 status: "active" | "revoked" | "compromised";
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:18042
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     channelId: string;
+     keyId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  channelId: string;
+  keyId: string;
+};
+```
+
+##### parameters.path.channelId
+
+```ts
+channelId: string;
+```
+
+##### parameters.path.keyId
+
+```ts
+keyId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        reason?: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     reason?: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  reason?: string;
+};
+```
+
+##### requestBody.content.application/json.reason?
+
+```ts
+optional reason: string;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           key: {
+              id: string;
+              revokedAt: string | null;
+              status: "active" | "revoked" | "compromised";
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        key: {
+           id: string;
+           revokedAt: string | null;
+           status: "active" | "revoked" | "compromised";
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Channel key revoked successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     key: {
+        id: string;
+        revokedAt: string | null;
+        status: "active" | "revoked" | "compromised";
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  key: {
+     id: string;
+     revokedAt: string | null;
+     status: "active" | "revoked" | "compromised";
+  };
+};
+```
+
+##### responses.200.content.application/json.key
+
+```ts
+key: {
+  id: string;
+  revokedAt: string | null;
+  status: "active" | "revoked" | "compromised";
+};
+```
+
+##### responses.200.content.application/json.key.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+schk_abc123
+```
+
+##### responses.200.content.application/json.key.revokedAt
+
+```ts
+revokedAt: string | null;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.key.status
+
+```ts
+status: "active" | "revoked" | "compromised";
+```
+
+###### Example
+
+```ts
+revoked
+@enum {string}
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### savePaymentMethod
+
+```ts
+savePaymentMethod: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path?: undefined;
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           paymentMethodId: string;
+           setAsDefault?: boolean;
+        };
+     };
+  };
+  responses: {
+     201: {
+        content: {
+           application/json: {
+              paymentMethod: {
+                 card: {
+                    brand: string;
+                    expMonth: number;
+                    expYear: number;
+                    last4: string;
+                 };
+                 createdAt: string;
+                 id: string;
+                 isDefault: boolean;
+                 type: "card";
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:13274
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path?: undefined;
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path?
+
+```ts
+optional path: undefined;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        paymentMethodId: string;
+        setAsDefault?: boolean;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     paymentMethodId: string;
+     setAsDefault?: boolean;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  paymentMethodId: string;
+  setAsDefault?: boolean;
+};
+```
+
+##### requestBody.content.application/json.paymentMethodId
+
+```ts
+paymentMethodId: string;
+```
+
+###### Example
+
+```ts
+pm_1234567890
+```
+
+##### requestBody.content.application/json.setAsDefault?
+
+```ts
+optional setAsDefault: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+#### responses
+
+```ts
+responses: {
+  201: {
+     content: {
+        application/json: {
+           paymentMethod: {
+              card: {
+                 brand: string;
+                 expMonth: number;
+                 expYear: number;
+                 last4: string;
+              };
+              createdAt: string;
+              id: string;
+              isDefault: boolean;
+              type: "card";
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.201
+
+```ts
+201: {
+  content: {
+     application/json: {
+        paymentMethod: {
+           card: {
+              brand: string;
+              expMonth: number;
+              expYear: number;
+              last4: string;
+           };
+           createdAt: string;
+           id: string;
+           isDefault: boolean;
+           type: "card";
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Payment method saved successfully
+
+##### responses.201.content
+
+```ts
+content: {
+  application/json: {
+     paymentMethod: {
+        card: {
+           brand: string;
+           expMonth: number;
+           expYear: number;
+           last4: string;
+        };
+        createdAt: string;
+        id: string;
+        isDefault: boolean;
+        type: "card";
+     };
+  };
+};
+```
+
+##### responses.201.content.application/json
+
+```ts
+application/json: {
+  paymentMethod: {
+     card: {
+        brand: string;
+        expMonth: number;
+        expYear: number;
+        last4: string;
+     };
+     createdAt: string;
+     id: string;
+     isDefault: boolean;
+     type: "card";
+  };
+};
+```
+
+##### responses.201.content.application/json.paymentMethod
+
+```ts
+paymentMethod: {
+  card: {
+     brand: string;
+     expMonth: number;
+     expYear: number;
+     last4: string;
+  };
+  createdAt: string;
+  id: string;
+  isDefault: boolean;
+  type: "card";
+};
+```
+
+##### responses.201.content.application/json.paymentMethod.card
+
+```ts
+card: {
+  brand: string;
+  expMonth: number;
+  expYear: number;
+  last4: string;
+};
+```
+
+##### responses.201.content.application/json.paymentMethod.card.brand
+
+```ts
+brand: string;
+```
+
+###### Example
+
+```ts
+visa
+```
+
+##### responses.201.content.application/json.paymentMethod.card.expMonth
+
+```ts
+expMonth: number;
+```
+
+###### Example
+
+```ts
+12
+```
+
+##### responses.201.content.application/json.paymentMethod.card.expYear
+
+```ts
+expYear: number;
+```
+
+###### Example
+
+```ts
+2027
+```
+
+##### responses.201.content.application/json.paymentMethod.card.last4
+
+```ts
+last4: string;
+```
+
+###### Example
+
+```ts
+4242
+```
+
+##### responses.201.content.application/json.paymentMethod.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.201.content.application/json.paymentMethod.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pm_1234567890
+```
+
+##### responses.201.content.application/json.paymentMethod.isDefault
+
+```ts
+isDefault: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.201.content.application/json.paymentMethod.type
+
+```ts
+type: "card";
+```
+
+###### Example
+
+```ts
+card
+@enum {string}
+```
+
+##### responses.201.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### setDefaultPaymentMethod
+
+```ts
+setDefaultPaymentMethod: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        paymentMethodId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: undefined;
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              paymentMethod: {
+                 card: {
+                    brand: string;
+                    expMonth: number;
+                    expYear: number;
+                    last4: string;
+                 };
+                 createdAt: string;
+                 id: string;
+                 isDefault: boolean;
+                 type: "card";
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:13446
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     paymentMethodId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  paymentMethodId: string;
+};
+```
+
+##### parameters.path.paymentMethodId
+
+```ts
+paymentMethodId: string;
+```
+
+###### Description
+
+Payment method ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: undefined;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           paymentMethod: {
+              card: {
+                 brand: string;
+                 expMonth: number;
+                 expYear: number;
+                 last4: string;
+              };
+              createdAt: string;
+              id: string;
+              isDefault: boolean;
+              type: "card";
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        paymentMethod: {
+           card: {
+              brand: string;
+              expMonth: number;
+              expYear: number;
+              last4: string;
+           };
+           createdAt: string;
+           id: string;
+           isDefault: boolean;
+           type: "card";
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Default payment method set successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     paymentMethod: {
+        card: {
+           brand: string;
+           expMonth: number;
+           expYear: number;
+           last4: string;
+        };
+        createdAt: string;
+        id: string;
+        isDefault: boolean;
+        type: "card";
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  paymentMethod: {
+     card: {
+        brand: string;
+        expMonth: number;
+        expYear: number;
+        last4: string;
+     };
+     createdAt: string;
+     id: string;
+     isDefault: boolean;
+     type: "card";
+  };
+};
+```
+
+##### responses.200.content.application/json.paymentMethod
+
+```ts
+paymentMethod: {
+  card: {
+     brand: string;
+     expMonth: number;
+     expYear: number;
+     last4: string;
+  };
+  createdAt: string;
+  id: string;
+  isDefault: boolean;
+  type: "card";
+};
+```
+
+##### responses.200.content.application/json.paymentMethod.card
+
+```ts
+card: {
+  brand: string;
+  expMonth: number;
+  expYear: number;
+  last4: string;
+};
+```
+
+##### responses.200.content.application/json.paymentMethod.card.brand
+
+```ts
+brand: string;
+```
+
+###### Example
+
+```ts
+visa
+```
+
+##### responses.200.content.application/json.paymentMethod.card.expMonth
+
+```ts
+expMonth: number;
+```
+
+###### Example
+
+```ts
+12
+```
+
+##### responses.200.content.application/json.paymentMethod.card.expYear
+
+```ts
+expYear: number;
+```
+
+###### Example
+
+```ts
+2027
+```
+
+##### responses.200.content.application/json.paymentMethod.card.last4
+
+```ts
+last4: string;
+```
+
+###### Example
+
+```ts
+4242
+```
+
+##### responses.200.content.application/json.paymentMethod.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.paymentMethod.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pm_1234567890
+```
+
+##### responses.200.content.application/json.paymentMethod.isDefault
+
+```ts
+isDefault: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.content.application/json.paymentMethod.type
+
+```ts
+type: "card";
+```
+
+###### Example
+
+```ts
+card
+@enum {string}
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### syncSeatsInArea
 
 ```ts
@@ -78165,6 +110199,7 @@ syncSeatsInArea: {
            seats: {
               attributes?: (
                  | "accessible"
+                 | "center"
                  | "aisle_left"
                  | "aisle_right"
                  | "wheelchair_space"
@@ -78177,8 +110212,7 @@ syncSeatsInArea: {
                  | "extra_legroom"
                  | "premium_comfort"
                  | "front_row"
-                 | "back_row"
-                | "center")[];
+                | "back_row")[];
               categoryId?: string;
               companionSeats?: string[];
               companionTo?: string;
@@ -78266,7 +110300,7 @@ syncSeatsInArea: {
 };
 ```
 
-Defined in: generated/types.ts:10256
+Defined in: generated/types.ts:12069
 
 #### parameters
 
@@ -78351,6 +110385,7 @@ optional requestBody: {
         seats: {
            attributes?: (
               | "accessible"
+              | "center"
               | "aisle_left"
               | "aisle_right"
               | "wheelchair_space"
@@ -78363,8 +110398,7 @@ optional requestBody: {
               | "extra_legroom"
               | "premium_comfort"
               | "front_row"
-              | "back_row"
-             | "center")[];
+             | "back_row")[];
            categoryId?: string;
            companionSeats?: string[];
            companionTo?: string;
@@ -78397,6 +110431,7 @@ content: {
      seats: {
         attributes?: (
            | "accessible"
+           | "center"
            | "aisle_left"
            | "aisle_right"
            | "wheelchair_space"
@@ -78409,8 +110444,7 @@ content: {
            | "extra_legroom"
            | "premium_comfort"
            | "front_row"
-           | "back_row"
-          | "center")[];
+          | "back_row")[];
         categoryId?: string;
         companionSeats?: string[];
         companionTo?: string;
@@ -78441,6 +110475,7 @@ application/json: {
   seats: {
      attributes?: (
         | "accessible"
+        | "center"
         | "aisle_left"
         | "aisle_right"
         | "wheelchair_space"
@@ -78453,8 +110488,7 @@ application/json: {
         | "extra_legroom"
         | "premium_comfort"
         | "front_row"
-        | "back_row"
-       | "center")[];
+       | "back_row")[];
      categoryId?: string;
      companionSeats?: string[];
      companionTo?: string;
@@ -78504,6 +110538,7 @@ true
 seats: {
   attributes?: (
      | "accessible"
+     | "center"
      | "aisle_left"
      | "aisle_right"
      | "wheelchair_space"
@@ -78516,8 +110551,7 @@ seats: {
      | "extra_legroom"
      | "premium_comfort"
      | "front_row"
-     | "back_row"
-    | "center")[];
+    | "back_row")[];
   categoryId?: string;
   companionSeats?: string[];
   companionTo?: string;
@@ -79077,7 +111111,7 @@ transitionOrderStatus: {
 };
 ```
 
-Defined in: generated/types.ts:13767
+Defined in: generated/types.ts:15865
 
 #### parameters
 
@@ -80212,7 +112246,7 @@ unblockCustomer: {
 };
 ```
 
-Defined in: generated/types.ts:13077
+Defined in: generated/types.ts:15175
 
 #### parameters
 
@@ -80887,7 +112921,7 @@ updateAccount: {
 };
 ```
 
-Defined in: generated/types.ts:5131
+Defined in: generated/types.ts:6854
 
 #### parameters
 
@@ -81435,7 +113469,7 @@ updateAutoTopup: {
      200: {
         content: {
            application/json: {
-              autoTopup: {
+              autoTopup:   | {
                  attemptsToday: number;
                  createdAt: string;
                  enabled: boolean;
@@ -81446,7 +113480,8 @@ updateAutoTopup: {
                  thresholdCredits: number;
                  topupPackageId: string;
                  updatedAt: string;
-              } & Record<string, never>;
+               }
+                 | null;
            };
         };
         headers: {
@@ -81487,7 +113522,7 @@ updateAutoTopup: {
 };
 ```
 
-Defined in: generated/types.ts:11344
+Defined in: generated/types.ts:13157
 
 #### parameters
 
@@ -81599,7 +113634,7 @@ responses: {
   200: {
      content: {
         application/json: {
-           autoTopup: {
+           autoTopup:   | {
               attemptsToday: number;
               createdAt: string;
               enabled: boolean;
@@ -81610,7 +113645,8 @@ responses: {
               thresholdCredits: number;
               topupPackageId: string;
               updatedAt: string;
-           } & Record<string, never>;
+            }
+              | null;
         };
      };
      headers: {
@@ -81656,7 +113692,7 @@ responses: {
 200: {
   content: {
      application/json: {
-        autoTopup: {
+        autoTopup:   | {
            attemptsToday: number;
            createdAt: string;
            enabled: boolean;
@@ -81667,7 +113703,8 @@ responses: {
            thresholdCredits: number;
            topupPackageId: string;
            updatedAt: string;
-        } & Record<string, never>;
+         }
+           | null;
      };
   };
   headers: {
@@ -81685,7 +113722,7 @@ Auto top-up configuration updated successfully
 ```ts
 content: {
   application/json: {
-     autoTopup: {
+     autoTopup:   | {
         attemptsToday: number;
         createdAt: string;
         enabled: boolean;
@@ -81696,7 +113733,8 @@ content: {
         thresholdCredits: number;
         topupPackageId: string;
         updatedAt: string;
-     } & Record<string, never>;
+      }
+        | null;
   };
 };
 ```
@@ -81705,7 +113743,7 @@ content: {
 
 ```ts
 application/json: {
-  autoTopup: {
+  autoTopup:   | {
      attemptsToday: number;
      createdAt: string;
      enabled: boolean;
@@ -81716,14 +113754,16 @@ application/json: {
      thresholdCredits: number;
      topupPackageId: string;
      updatedAt: string;
-  } & Record<string, never>;
+   }
+     | null;
 };
 ```
 
 ##### responses.200.content.application/json.autoTopup
 
 ```ts
-autoTopup: {
+autoTopup: 
+  | {
   attemptsToday: number;
   createdAt: string;
   enabled: boolean;
@@ -81734,130 +113774,28 @@ autoTopup: {
   thresholdCredits: number;
   topupPackageId: string;
   updatedAt: string;
-} & Record<string, never>;
+}
+  | null;
 ```
 
 ###### Type Declaration
 
-###### attemptsToday
-
 ```ts
-attemptsToday: number;
+{
+  attemptsToday: number;
+  createdAt: string;
+  enabled: boolean;
+  id: string;
+  lastAttemptAt: string | null;
+  maxAttemptsPerDay: number;
+  organisationId: string;
+  thresholdCredits: number;
+  topupPackageId: string;
+  updatedAt: string;
+}
 ```
 
-###### Example
-
-```ts
-0
-```
-
-###### createdAt
-
-```ts
-createdAt: string;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:30:00Z
-```
-
-###### enabled
-
-```ts
-enabled: boolean;
-```
-
-###### Example
-
-```ts
-true
-```
-
-###### id
-
-```ts
-id: string;
-```
-
-###### Example
-
-```ts
-atu_abc123
-```
-
-###### lastAttemptAt
-
-```ts
-lastAttemptAt: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### maxAttemptsPerDay
-
-```ts
-maxAttemptsPerDay: number;
-```
-
-###### Example
-
-```ts
-3
-```
-
-###### organisationId
-
-```ts
-organisationId: string;
-```
-
-###### Example
-
-```ts
-org_abc123
-```
-
-###### thresholdCredits
-
-```ts
-thresholdCredits: number;
-```
-
-###### Example
-
-```ts
-50
-```
-
-###### topupPackageId
-
-```ts
-topupPackageId: string;
-```
-
-###### Example
-
-```ts
-pkg_100
-```
-
-###### updatedAt
-
-```ts
-updatedAt: string;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:30:00Z
-```
+`null`
 
 ##### responses.200.headers
 
@@ -82140,7 +114078,7 @@ updateCustomer: {
 };
 ```
 
-Defined in: generated/types.ts:12911
+Defined in: generated/types.ts:15009
 
 #### parameters
 
@@ -82910,6 +114848,8 @@ updateEvent: {
      content: {
         application/json: {
            description?: string | null;
+           heroImageUrl?: string | null;
+           imageUrl?: string | null;
            layout?: {
               areas?: {
                  capacity: number;
@@ -82932,12 +114872,30 @@ updateEvent: {
            name?: string;
            offSaleDate?: string | null;
            onSaleDate?: string | null;
+           presentation?:   | {
+              buttonSize?: "small" | "medium" | "large";
+              cinemaGradient?: {
+                 position: "bottom" | "center";
+                 strength: 20 | 50 | 70;
+              };
+              heroLayout?: {
+                 size: "small" | "medium" | "large";
+                 type: "hero" | "cinema";
+              };
+              navbar?: {
+                 transparent?: boolean;
+              };
+              twoColumnSplit?: [number, number];
+            }
+              | null;
+           shortDescription?: string | null;
            status?:   | "draft"
               | "published"
               | "on_sale"
               | "sold_out"
               | "completed"
               | "cancelled";
+           subtitle?: string | null;
            tags?: string[];
            ticketTypes?: {
               description?: string;
@@ -83020,7 +114978,7 @@ updateEvent: {
 };
 ```
 
-Defined in: generated/types.ts:6725
+Defined in: generated/types.ts:8491
 
 #### parameters
 
@@ -83078,6 +115036,8 @@ optional requestBody: {
   content: {
      application/json: {
         description?: string | null;
+        heroImageUrl?: string | null;
+        imageUrl?: string | null;
         layout?: {
            areas?: {
               capacity: number;
@@ -83100,12 +115060,30 @@ optional requestBody: {
         name?: string;
         offSaleDate?: string | null;
         onSaleDate?: string | null;
+        presentation?:   | {
+           buttonSize?: "small" | "medium" | "large";
+           cinemaGradient?: {
+              position: "bottom" | "center";
+              strength: 20 | 50 | 70;
+           };
+           heroLayout?: {
+              size: "small" | "medium" | "large";
+              type: "hero" | "cinema";
+           };
+           navbar?: {
+              transparent?: boolean;
+           };
+           twoColumnSplit?: [number, number];
+         }
+           | null;
+        shortDescription?: string | null;
         status?:   | "draft"
            | "published"
            | "on_sale"
            | "sold_out"
            | "completed"
            | "cancelled";
+        subtitle?: string | null;
         tags?: string[];
         ticketTypes?: {
            description?: string;
@@ -83127,6 +115105,8 @@ optional requestBody: {
 content: {
   application/json: {
      description?: string | null;
+     heroImageUrl?: string | null;
+     imageUrl?: string | null;
      layout?: {
         areas?: {
            capacity: number;
@@ -83149,12 +115129,30 @@ content: {
      name?: string;
      offSaleDate?: string | null;
      onSaleDate?: string | null;
+     presentation?:   | {
+        buttonSize?: "small" | "medium" | "large";
+        cinemaGradient?: {
+           position: "bottom" | "center";
+           strength: 20 | 50 | 70;
+        };
+        heroLayout?: {
+           size: "small" | "medium" | "large";
+           type: "hero" | "cinema";
+        };
+        navbar?: {
+           transparent?: boolean;
+        };
+        twoColumnSplit?: [number, number];
+      }
+        | null;
+     shortDescription?: string | null;
      status?:   | "draft"
         | "published"
         | "on_sale"
         | "sold_out"
         | "completed"
         | "cancelled";
+     subtitle?: string | null;
      tags?: string[];
      ticketTypes?: {
         description?: string;
@@ -83174,6 +115172,8 @@ content: {
 ```ts
 application/json: {
   description?: string | null;
+  heroImageUrl?: string | null;
+  imageUrl?: string | null;
   layout?: {
      areas?: {
         capacity: number;
@@ -83196,12 +115196,30 @@ application/json: {
   name?: string;
   offSaleDate?: string | null;
   onSaleDate?: string | null;
+  presentation?:   | {
+     buttonSize?: "small" | "medium" | "large";
+     cinemaGradient?: {
+        position: "bottom" | "center";
+        strength: 20 | 50 | 70;
+     };
+     heroLayout?: {
+        size: "small" | "medium" | "large";
+        type: "hero" | "cinema";
+     };
+     navbar?: {
+        transparent?: boolean;
+     };
+     twoColumnSplit?: [number, number];
+   }
+     | null;
+  shortDescription?: string | null;
   status?:   | "draft"
      | "published"
      | "on_sale"
      | "sold_out"
      | "completed"
      | "cancelled";
+  subtitle?: string | null;
   tags?: string[];
   ticketTypes?: {
      description?: string;
@@ -83230,6 +115248,30 @@ Event description
 ```ts
 Updated description
 ```
+
+##### requestBody.content.application/json.heroImageUrl?
+
+```ts
+optional heroImageUrl: string | null;
+```
+
+Format: uri
+
+###### Description
+
+Event-page hero image URL
+
+##### requestBody.content.application/json.imageUrl?
+
+```ts
+optional imageUrl: string | null;
+```
+
+Format: uri
+
+###### Description
+
+Listing / card image URL
 
 ##### requestBody.content.application/json.layout?
 
@@ -83373,6 +115415,42 @@ When tickets go on sale
 2025-06-01T09:00:00Z
 ```
 
+##### requestBody.content.application/json.presentation?
+
+```ts
+optional presentation: 
+  | {
+  buttonSize?: "small" | "medium" | "large";
+  cinemaGradient?: {
+     position: "bottom" | "center";
+     strength: 20 | 50 | 70;
+  };
+  heroLayout?: {
+     size: "small" | "medium" | "large";
+     type: "hero" | "cinema";
+  };
+  navbar?: {
+     transparent?: boolean;
+  };
+  twoColumnSplit?: [number, number];
+}
+  | null;
+```
+
+###### Description
+
+Event-level storefront design override
+
+##### requestBody.content.application/json.shortDescription?
+
+```ts
+optional shortDescription: string | null;
+```
+
+###### Description
+
+Card / listing summary
+
 ##### requestBody.content.application/json.status?
 
 ```ts
@@ -83395,6 +115473,16 @@ Event status
 published
 @enum {string}
 ```
+
+##### requestBody.content.application/json.subtitle?
+
+```ts
+optional subtitle: string | null;
+```
+
+###### Description
+
+Short event subtitle / tagline
 
 ##### requestBody.content.application/json.tags?
 
@@ -84200,7 +116288,7 @@ updateEventOccurrence: {
 };
 ```
 
-Defined in: generated/types.ts:7272
+Defined in: generated/types.ts:9075
 
 #### parameters
 
@@ -85135,7 +117223,7 @@ updateEventPriceScheme: {
 };
 ```
 
-Defined in: generated/types.ts:7689
+Defined in: generated/types.ts:9492
 
 #### parameters
 
@@ -85835,6 +117923,678 @@ headers: {
 
 ***
 
+### updateFeeProfile
+
+```ts
+updateFeeProfile: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        profileId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           name?: string;
+           serviceFeeEnabled?: boolean;
+           serviceFeeFixed?: number;
+           serviceFeeLabel?: string;
+           serviceFeePercent?: number;
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              feeProfile: {
+                 createdAt: string;
+                 deletedAt: string | null;
+                 id: string;
+                 isDeleted: boolean;
+                 name: string;
+                 organisationId: string;
+                 serviceFeeEnabled: boolean;
+                 serviceFeeFixed: string | null;
+                 serviceFeeLabel: string | null;
+                 serviceFeePercent: string | null;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:19041
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     profileId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  profileId: string;
+};
+```
+
+##### parameters.path.profileId
+
+```ts
+profileId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        name?: string;
+        serviceFeeEnabled?: boolean;
+        serviceFeeFixed?: number;
+        serviceFeeLabel?: string;
+        serviceFeePercent?: number;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     name?: string;
+     serviceFeeEnabled?: boolean;
+     serviceFeeFixed?: number;
+     serviceFeeLabel?: string;
+     serviceFeePercent?: number;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  name?: string;
+  serviceFeeEnabled?: boolean;
+  serviceFeeFixed?: number;
+  serviceFeeLabel?: string;
+  serviceFeePercent?: number;
+};
+```
+
+##### requestBody.content.application/json.name?
+
+```ts
+optional name: string;
+```
+
+##### requestBody.content.application/json.serviceFeeEnabled?
+
+```ts
+optional serviceFeeEnabled: boolean;
+```
+
+##### requestBody.content.application/json.serviceFeeFixed?
+
+```ts
+optional serviceFeeFixed: number;
+```
+
+##### requestBody.content.application/json.serviceFeeLabel?
+
+```ts
+optional serviceFeeLabel: string;
+```
+
+##### requestBody.content.application/json.serviceFeePercent?
+
+```ts
+optional serviceFeePercent: number;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           feeProfile: {
+              createdAt: string;
+              deletedAt: string | null;
+              id: string;
+              isDeleted: boolean;
+              name: string;
+              organisationId: string;
+              serviceFeeEnabled: boolean;
+              serviceFeeFixed: string | null;
+              serviceFeeLabel: string | null;
+              serviceFeePercent: string | null;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        feeProfile: {
+           createdAt: string;
+           deletedAt: string | null;
+           id: string;
+           isDeleted: boolean;
+           name: string;
+           organisationId: string;
+           serviceFeeEnabled: boolean;
+           serviceFeeFixed: string | null;
+           serviceFeeLabel: string | null;
+           serviceFeePercent: string | null;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Fee profile updated successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     feeProfile: {
+        createdAt: string;
+        deletedAt: string | null;
+        id: string;
+        isDeleted: boolean;
+        name: string;
+        organisationId: string;
+        serviceFeeEnabled: boolean;
+        serviceFeeFixed: string | null;
+        serviceFeeLabel: string | null;
+        serviceFeePercent: string | null;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  feeProfile: {
+     createdAt: string;
+     deletedAt: string | null;
+     id: string;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     serviceFeeEnabled: boolean;
+     serviceFeeFixed: string | null;
+     serviceFeeLabel: string | null;
+     serviceFeePercent: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.feeProfile
+
+```ts
+feeProfile: {
+  createdAt: string;
+  deletedAt: string | null;
+  id: string;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  serviceFeeEnabled: boolean;
+  serviceFeeFixed: string | null;
+  serviceFeeLabel: string | null;
+  serviceFeePercent: string | null;
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.feeProfile.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.feeProfile.deletedAt
+
+```ts
+deletedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.feeProfile.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sfp_abc123
+```
+
+##### responses.200.content.application/json.feeProfile.isDeleted
+
+```ts
+isDeleted: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.feeProfile.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Standard web fees
+```
+
+##### responses.200.content.application/json.feeProfile.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.feeProfile.serviceFeeEnabled
+
+```ts
+serviceFeeEnabled: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.content.application/json.feeProfile.serviceFeeFixed
+
+```ts
+serviceFeeFixed: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.feeProfile.serviceFeeLabel
+
+```ts
+serviceFeeLabel: string | null;
+```
+
+###### Example
+
+```ts
+Service fee
+```
+
+##### responses.200.content.application/json.feeProfile.serviceFeePercent
+
+```ts
+serviceFeePercent: string | null;
+```
+
+###### Example
+
+```ts
+0.0500
+```
+
+##### responses.200.content.application/json.feeProfile.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### updateIdentityProvider
 
 ```ts
@@ -85933,7 +118693,7 @@ updateIdentityProvider: {
 };
 ```
 
-Defined in: generated/types.ts:5319
+Defined in: generated/types.ts:7042
 
 #### parameters
 
@@ -86905,7 +119665,7 @@ updateInventoryCapacity: {
 };
 ```
 
-Defined in: generated/types.ts:11696
+Defined in: generated/types.ts:13794
 
 #### parameters
 
@@ -87800,7 +120560,7 @@ updateOrder: {
 };
 ```
 
-Defined in: generated/types.ts:13444
+Defined in: generated/types.ts:15542
 
 #### parameters
 
@@ -89241,7 +122001,7 @@ updateOrderLineItem: {
 };
 ```
 
-Defined in: generated/types.ts:14086
+Defined in: generated/types.ts:16184
 
 #### parameters
 
@@ -90689,6 +123449,7 @@ updateOrganisation: {
   requestBody?: {
      content: {
         application/json: {
+           apiVersion?: string;
            logoUrl?: string;
            metadata?: {
             [key: string]: unknown;
@@ -90704,6 +123465,7 @@ updateOrganisation: {
         content: {
            application/json: {
               organisation: {
+                 apiVersion: string;
                  createdAt: string;
                  id: string;
                  logoUrl?: string;
@@ -90755,7 +123517,7 @@ updateOrganisation: {
 };
 ```
 
-Defined in: generated/types.ts:4821
+Defined in: generated/types.ts:6544
 
 #### parameters
 
@@ -90812,6 +123574,7 @@ optional query: undefined;
 optional requestBody: {
   content: {
      application/json: {
+        apiVersion?: string;
         logoUrl?: string;
         metadata?: {
          [key: string]: unknown;
@@ -90829,6 +123592,7 @@ optional requestBody: {
 ```ts
 content: {
   application/json: {
+     apiVersion?: string;
      logoUrl?: string;
      metadata?: {
       [key: string]: unknown;
@@ -90844,6 +123608,7 @@ content: {
 
 ```ts
 application/json: {
+  apiVersion?: string;
   logoUrl?: string;
   metadata?: {
    [key: string]: unknown;
@@ -90852,6 +123617,22 @@ application/json: {
   primaryColor?: string;
   secondaryColor?: string;
 };
+```
+
+##### requestBody.content.application/json.apiVersion?
+
+```ts
+optional apiVersion: string;
+```
+
+###### Description
+
+Pin the organisation to a dated API version. Must be a known, non-sunset version (see GET /meta/versions).
+
+###### Example
+
+```ts
+2026-06-13
 ```
 
 ##### requestBody.content.application/json.logoUrl?
@@ -90955,6 +123736,7 @@ responses: {
      content: {
         application/json: {
            organisation: {
+              apiVersion: string;
               createdAt: string;
               id: string;
               logoUrl?: string;
@@ -91012,6 +123794,7 @@ responses: {
   content: {
      application/json: {
         organisation: {
+           apiVersion: string;
            createdAt: string;
            id: string;
            logoUrl?: string;
@@ -91041,6 +123824,7 @@ Organisation updated successfully
 content: {
   application/json: {
      organisation: {
+        apiVersion: string;
         createdAt: string;
         id: string;
         logoUrl?: string;
@@ -91061,6 +123845,7 @@ content: {
 ```ts
 application/json: {
   organisation: {
+     apiVersion: string;
      createdAt: string;
      id: string;
      logoUrl?: string;
@@ -91079,6 +123864,7 @@ application/json: {
 
 ```ts
 organisation: {
+  apiVersion: string;
   createdAt: string;
   id: string;
   logoUrl?: string;
@@ -91090,6 +123876,22 @@ organisation: {
   secondaryColor?: string;
   updatedAt: string;
 };
+```
+
+##### responses.200.content.application/json.organisation.apiVersion
+
+```ts
+apiVersion: string;
+```
+
+###### Description
+
+The dated API version this organisation is pinned to (see GET /meta/versions)
+
+###### Example
+
+```ts
+2026-06-13
 ```
 
 ##### responses.200.content.application/json.organisation.createdAt
@@ -91503,13 +124305,13 @@ updatePaymentProvider: {
                     | "in_person_card"
                     | "in_person_cash"
                    | "cheque")[];
-                 type:   | "bank_transfer"
-                    | "cash"
-                    | "stripe_connect"
+                 type:   | "stripe_connect"
                     | "stripe_direct"
                     | "adyen"
                     | "square"
-                    | "paypal";
+                    | "paypal"
+                    | "cash"
+                    | "bank_transfer";
                  updatedAt: string;
               };
            };
@@ -91552,7 +124354,7 @@ updatePaymentProvider: {
 };
 ```
 
-Defined in: generated/types.ts:15324
+Defined in: generated/types.ts:17342
 
 #### parameters
 
@@ -92273,13 +125075,13 @@ responses: {
                  | "in_person_card"
                  | "in_person_cash"
                 | "cheque")[];
-              type:   | "bank_transfer"
-                 | "cash"
-                 | "stripe_connect"
+              type:   | "stripe_connect"
                  | "stripe_direct"
                  | "adyen"
                  | "square"
-                 | "paypal";
+                 | "paypal"
+                 | "cash"
+                 | "bank_transfer";
               updatedAt: string;
            };
         };
@@ -92377,13 +125179,13 @@ responses: {
               | "in_person_card"
               | "in_person_cash"
              | "cheque")[];
-           type:   | "bank_transfer"
-              | "cash"
-              | "stripe_connect"
+           type:   | "stripe_connect"
               | "stripe_direct"
               | "adyen"
               | "square"
-              | "paypal";
+              | "paypal"
+              | "cash"
+              | "bank_transfer";
            updatedAt: string;
         };
      };
@@ -92453,13 +125255,13 @@ content: {
            | "in_person_card"
            | "in_person_cash"
           | "cheque")[];
-        type:   | "bank_transfer"
-           | "cash"
-           | "stripe_connect"
+        type:   | "stripe_connect"
            | "stripe_direct"
            | "adyen"
            | "square"
-           | "paypal";
+           | "paypal"
+           | "cash"
+           | "bank_transfer";
         updatedAt: string;
      };
   };
@@ -92520,13 +125322,13 @@ application/json: {
         | "in_person_card"
         | "in_person_cash"
        | "cheque")[];
-     type:   | "bank_transfer"
-        | "cash"
-        | "stripe_connect"
+     type:   | "stripe_connect"
         | "stripe_direct"
         | "adyen"
         | "square"
-        | "paypal";
+        | "paypal"
+        | "cash"
+        | "bank_transfer";
      updatedAt: string;
   };
 };
@@ -92585,13 +125387,13 @@ provider: {
      | "in_person_card"
      | "in_person_cash"
     | "cheque")[];
-  type:   | "bank_transfer"
-     | "cash"
-     | "stripe_connect"
+  type:   | "stripe_connect"
      | "stripe_direct"
      | "adyen"
      | "square"
-     | "paypal";
+     | "paypal"
+     | "cash"
+     | "bank_transfer";
   updatedAt: string;
 };
 ```
@@ -92881,13 +125683,13 @@ supportedPaymentTypes: (
 
 ```ts
 type: 
-  | "bank_transfer"
-  | "cash"
   | "stripe_connect"
   | "stripe_direct"
   | "adyen"
   | "square"
-  | "paypal";
+  | "paypal"
+  | "cash"
+  | "bank_transfer";
 ```
 
 ###### Example
@@ -93174,7 +125976,7 @@ updateRole: {
 };
 ```
 
-Defined in: generated/types.ts:5898
+Defined in: generated/types.ts:7621
 
 #### parameters
 
@@ -93740,6 +126542,2082 @@ headers: {
 
 ***
 
+### updateSalesChannel
+
+```ts
+updateSalesChannel: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        channelId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           channelTags?: string[];
+           checkoutTtlSeconds?: number;
+           customerConfig?: {
+              allowGuestCheckout?: boolean;
+              collectAddress?: boolean;
+              collectPhone?: boolean;
+              requireLogin?: boolean;
+           };
+           customerFacing?: {
+              allowedOrigins?: string[];
+              customDomain?: string;
+              enabled?: boolean;
+              magicLinkBaseUrl?: string;
+              partnerIdentity?: {
+                 algorithm: "RS256" | "RS384" | "RS512" | "ES256" | "ES384" | "ES512";
+                 issuer: string;
+                 publicKeyPem: string;
+              };
+              subdomain?: string;
+           };
+           description?: string;
+           eventFilter?: {
+              channelTags?: string[];
+              mode: "all" | "tagged";
+           };
+           feeProfileId?: string | null;
+           isActive?: boolean;
+           name?: string;
+           paymentProviderId?: string | null;
+           pricingConfig?: {
+              includeFeesInPrice?: boolean;
+              showMemberPricing?: boolean;
+              showOriginalPrice?: boolean;
+           };
+           receivingAccountId?: string;
+           reservationTtlSeconds?: number;
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              channel: {
+                 accountId: string;
+                 channelTags: string[];
+                 channelType:   | "website"
+                    | "embed"
+                    | "box_office"
+                    | "kiosk"
+                    | "reseller_api"
+                    | "internal";
+                 checkoutTtlSeconds: number;
+                 createdAt: string;
+                 customerConfig: {
+                    allowGuestCheckout: boolean;
+                    collectAddress: boolean;
+                    collectPhone: boolean;
+                    requireLogin: boolean;
+                 };
+                 customerFacing: {
+                    allowedOrigins: string[];
+                    customDomain?: string;
+                    enabled: boolean;
+                    magicLinkBaseUrl?: string;
+                    partnerIdentity?: {
+                       algorithm: string;
+                       issuer: string;
+                       publicKeyPem: string;
+                    };
+                    subdomain?: string;
+                 };
+                 deletedAt: string | null;
+                 description: string | null;
+                 eventFilter: {
+                    channelTags?: string[];
+                    mode: "all" | "tagged";
+                 };
+                 feeProfileId: string | null;
+                 id: string;
+                 isActive: boolean;
+                 isDeleted: boolean;
+                 name: string;
+                 organisationId: string;
+                 pricingConfig: {
+                    includeFeesInPrice: boolean;
+                    showMemberPricing: boolean;
+                    showOriginalPrice: boolean;
+                 };
+                 receivingAccountId: string;
+                 reservationTtlSeconds: number;
+                 slug: string;
+                 themeId: string | null;
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:17819
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     channelId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  channelId: string;
+};
+```
+
+##### parameters.path.channelId
+
+```ts
+channelId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        channelTags?: string[];
+        checkoutTtlSeconds?: number;
+        customerConfig?: {
+           allowGuestCheckout?: boolean;
+           collectAddress?: boolean;
+           collectPhone?: boolean;
+           requireLogin?: boolean;
+        };
+        customerFacing?: {
+           allowedOrigins?: string[];
+           customDomain?: string;
+           enabled?: boolean;
+           magicLinkBaseUrl?: string;
+           partnerIdentity?: {
+              algorithm: "RS256" | "RS384" | "RS512" | "ES256" | "ES384" | "ES512";
+              issuer: string;
+              publicKeyPem: string;
+           };
+           subdomain?: string;
+        };
+        description?: string;
+        eventFilter?: {
+           channelTags?: string[];
+           mode: "all" | "tagged";
+        };
+        feeProfileId?: string | null;
+        isActive?: boolean;
+        name?: string;
+        paymentProviderId?: string | null;
+        pricingConfig?: {
+           includeFeesInPrice?: boolean;
+           showMemberPricing?: boolean;
+           showOriginalPrice?: boolean;
+        };
+        receivingAccountId?: string;
+        reservationTtlSeconds?: number;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     channelTags?: string[];
+     checkoutTtlSeconds?: number;
+     customerConfig?: {
+        allowGuestCheckout?: boolean;
+        collectAddress?: boolean;
+        collectPhone?: boolean;
+        requireLogin?: boolean;
+     };
+     customerFacing?: {
+        allowedOrigins?: string[];
+        customDomain?: string;
+        enabled?: boolean;
+        magicLinkBaseUrl?: string;
+        partnerIdentity?: {
+           algorithm: "RS256" | "RS384" | "RS512" | "ES256" | "ES384" | "ES512";
+           issuer: string;
+           publicKeyPem: string;
+        };
+        subdomain?: string;
+     };
+     description?: string;
+     eventFilter?: {
+        channelTags?: string[];
+        mode: "all" | "tagged";
+     };
+     feeProfileId?: string | null;
+     isActive?: boolean;
+     name?: string;
+     paymentProviderId?: string | null;
+     pricingConfig?: {
+        includeFeesInPrice?: boolean;
+        showMemberPricing?: boolean;
+        showOriginalPrice?: boolean;
+     };
+     receivingAccountId?: string;
+     reservationTtlSeconds?: number;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  channelTags?: string[];
+  checkoutTtlSeconds?: number;
+  customerConfig?: {
+     allowGuestCheckout?: boolean;
+     collectAddress?: boolean;
+     collectPhone?: boolean;
+     requireLogin?: boolean;
+  };
+  customerFacing?: {
+     allowedOrigins?: string[];
+     customDomain?: string;
+     enabled?: boolean;
+     magicLinkBaseUrl?: string;
+     partnerIdentity?: {
+        algorithm: "RS256" | "RS384" | "RS512" | "ES256" | "ES384" | "ES512";
+        issuer: string;
+        publicKeyPem: string;
+     };
+     subdomain?: string;
+  };
+  description?: string;
+  eventFilter?: {
+     channelTags?: string[];
+     mode: "all" | "tagged";
+  };
+  feeProfileId?: string | null;
+  isActive?: boolean;
+  name?: string;
+  paymentProviderId?: string | null;
+  pricingConfig?: {
+     includeFeesInPrice?: boolean;
+     showMemberPricing?: boolean;
+     showOriginalPrice?: boolean;
+  };
+  receivingAccountId?: string;
+  reservationTtlSeconds?: number;
+};
+```
+
+##### requestBody.content.application/json.channelTags?
+
+```ts
+optional channelTags: string[];
+```
+
+##### requestBody.content.application/json.checkoutTtlSeconds?
+
+```ts
+optional checkoutTtlSeconds: number;
+```
+
+##### requestBody.content.application/json.customerConfig?
+
+```ts
+optional customerConfig: {
+  allowGuestCheckout?: boolean;
+  collectAddress?: boolean;
+  collectPhone?: boolean;
+  requireLogin?: boolean;
+};
+```
+
+##### requestBody.content.application/json.customerConfig.allowGuestCheckout?
+
+```ts
+optional allowGuestCheckout: boolean;
+```
+
+##### requestBody.content.application/json.customerConfig.collectAddress?
+
+```ts
+optional collectAddress: boolean;
+```
+
+##### requestBody.content.application/json.customerConfig.collectPhone?
+
+```ts
+optional collectPhone: boolean;
+```
+
+##### requestBody.content.application/json.customerConfig.requireLogin?
+
+```ts
+optional requireLogin: boolean;
+```
+
+##### requestBody.content.application/json.customerFacing?
+
+```ts
+optional customerFacing: {
+  allowedOrigins?: string[];
+  customDomain?: string;
+  enabled?: boolean;
+  magicLinkBaseUrl?: string;
+  partnerIdentity?: {
+     algorithm: "RS256" | "RS384" | "RS512" | "ES256" | "ES384" | "ES512";
+     issuer: string;
+     publicKeyPem: string;
+  };
+  subdomain?: string;
+};
+```
+
+##### requestBody.content.application/json.customerFacing.allowedOrigins?
+
+```ts
+optional allowedOrigins: string[];
+```
+
+##### requestBody.content.application/json.customerFacing.customDomain?
+
+```ts
+optional customDomain: string;
+```
+
+##### requestBody.content.application/json.customerFacing.enabled?
+
+```ts
+optional enabled: boolean;
+```
+
+##### requestBody.content.application/json.customerFacing.magicLinkBaseUrl?
+
+```ts
+optional magicLinkBaseUrl: string;
+```
+
+Format: uri
+
+##### requestBody.content.application/json.customerFacing.partnerIdentity?
+
+```ts
+optional partnerIdentity: {
+  algorithm: "RS256" | "RS384" | "RS512" | "ES256" | "ES384" | "ES512";
+  issuer: string;
+  publicKeyPem: string;
+};
+```
+
+##### requestBody.content.application/json.customerFacing.partnerIdentity.algorithm
+
+```ts
+algorithm: "RS256" | "RS384" | "RS512" | "ES256" | "ES384" | "ES512";
+```
+
+##### requestBody.content.application/json.customerFacing.partnerIdentity.issuer
+
+```ts
+issuer: string;
+```
+
+##### requestBody.content.application/json.customerFacing.partnerIdentity.publicKeyPem
+
+```ts
+publicKeyPem: string;
+```
+
+##### requestBody.content.application/json.customerFacing.subdomain?
+
+```ts
+optional subdomain: string;
+```
+
+##### requestBody.content.application/json.description?
+
+```ts
+optional description: string;
+```
+
+##### requestBody.content.application/json.eventFilter?
+
+```ts
+optional eventFilter: {
+  channelTags?: string[];
+  mode: "all" | "tagged";
+};
+```
+
+##### requestBody.content.application/json.eventFilter.channelTags?
+
+```ts
+optional channelTags: string[];
+```
+
+##### requestBody.content.application/json.eventFilter.mode
+
+```ts
+mode: "all" | "tagged";
+```
+
+##### requestBody.content.application/json.feeProfileId?
+
+```ts
+optional feeProfileId: string | null;
+```
+
+##### requestBody.content.application/json.isActive?
+
+```ts
+optional isActive: boolean;
+```
+
+##### requestBody.content.application/json.name?
+
+```ts
+optional name: string;
+```
+
+##### requestBody.content.application/json.paymentProviderId?
+
+```ts
+optional paymentProviderId: string | null;
+```
+
+##### requestBody.content.application/json.pricingConfig?
+
+```ts
+optional pricingConfig: {
+  includeFeesInPrice?: boolean;
+  showMemberPricing?: boolean;
+  showOriginalPrice?: boolean;
+};
+```
+
+##### requestBody.content.application/json.pricingConfig.includeFeesInPrice?
+
+```ts
+optional includeFeesInPrice: boolean;
+```
+
+##### requestBody.content.application/json.pricingConfig.showMemberPricing?
+
+```ts
+optional showMemberPricing: boolean;
+```
+
+##### requestBody.content.application/json.pricingConfig.showOriginalPrice?
+
+```ts
+optional showOriginalPrice: boolean;
+```
+
+##### requestBody.content.application/json.receivingAccountId?
+
+```ts
+optional receivingAccountId: string;
+```
+
+##### requestBody.content.application/json.reservationTtlSeconds?
+
+```ts
+optional reservationTtlSeconds: number;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           channel: {
+              accountId: string;
+              channelTags: string[];
+              channelType:   | "website"
+                 | "embed"
+                 | "box_office"
+                 | "kiosk"
+                 | "reseller_api"
+                 | "internal";
+              checkoutTtlSeconds: number;
+              createdAt: string;
+              customerConfig: {
+                 allowGuestCheckout: boolean;
+                 collectAddress: boolean;
+                 collectPhone: boolean;
+                 requireLogin: boolean;
+              };
+              customerFacing: {
+                 allowedOrigins: string[];
+                 customDomain?: string;
+                 enabled: boolean;
+                 magicLinkBaseUrl?: string;
+                 partnerIdentity?: {
+                    algorithm: string;
+                    issuer: string;
+                    publicKeyPem: string;
+                 };
+                 subdomain?: string;
+              };
+              deletedAt: string | null;
+              description: string | null;
+              eventFilter: {
+                 channelTags?: string[];
+                 mode: "all" | "tagged";
+              };
+              feeProfileId: string | null;
+              id: string;
+              isActive: boolean;
+              isDeleted: boolean;
+              name: string;
+              organisationId: string;
+              pricingConfig: {
+                 includeFeesInPrice: boolean;
+                 showMemberPricing: boolean;
+                 showOriginalPrice: boolean;
+              };
+              receivingAccountId: string;
+              reservationTtlSeconds: number;
+              slug: string;
+              themeId: string | null;
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        channel: {
+           accountId: string;
+           channelTags: string[];
+           channelType:   | "website"
+              | "embed"
+              | "box_office"
+              | "kiosk"
+              | "reseller_api"
+              | "internal";
+           checkoutTtlSeconds: number;
+           createdAt: string;
+           customerConfig: {
+              allowGuestCheckout: boolean;
+              collectAddress: boolean;
+              collectPhone: boolean;
+              requireLogin: boolean;
+           };
+           customerFacing: {
+              allowedOrigins: string[];
+              customDomain?: string;
+              enabled: boolean;
+              magicLinkBaseUrl?: string;
+              partnerIdentity?: {
+                 algorithm: string;
+                 issuer: string;
+                 publicKeyPem: string;
+              };
+              subdomain?: string;
+           };
+           deletedAt: string | null;
+           description: string | null;
+           eventFilter: {
+              channelTags?: string[];
+              mode: "all" | "tagged";
+           };
+           feeProfileId: string | null;
+           id: string;
+           isActive: boolean;
+           isDeleted: boolean;
+           name: string;
+           organisationId: string;
+           pricingConfig: {
+              includeFeesInPrice: boolean;
+              showMemberPricing: boolean;
+              showOriginalPrice: boolean;
+           };
+           receivingAccountId: string;
+           reservationTtlSeconds: number;
+           slug: string;
+           themeId: string | null;
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Sales channel updated successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     channel: {
+        accountId: string;
+        channelTags: string[];
+        channelType:   | "website"
+           | "embed"
+           | "box_office"
+           | "kiosk"
+           | "reseller_api"
+           | "internal";
+        checkoutTtlSeconds: number;
+        createdAt: string;
+        customerConfig: {
+           allowGuestCheckout: boolean;
+           collectAddress: boolean;
+           collectPhone: boolean;
+           requireLogin: boolean;
+        };
+        customerFacing: {
+           allowedOrigins: string[];
+           customDomain?: string;
+           enabled: boolean;
+           magicLinkBaseUrl?: string;
+           partnerIdentity?: {
+              algorithm: string;
+              issuer: string;
+              publicKeyPem: string;
+           };
+           subdomain?: string;
+        };
+        deletedAt: string | null;
+        description: string | null;
+        eventFilter: {
+           channelTags?: string[];
+           mode: "all" | "tagged";
+        };
+        feeProfileId: string | null;
+        id: string;
+        isActive: boolean;
+        isDeleted: boolean;
+        name: string;
+        organisationId: string;
+        pricingConfig: {
+           includeFeesInPrice: boolean;
+           showMemberPricing: boolean;
+           showOriginalPrice: boolean;
+        };
+        receivingAccountId: string;
+        reservationTtlSeconds: number;
+        slug: string;
+        themeId: string | null;
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  channel: {
+     accountId: string;
+     channelTags: string[];
+     channelType:   | "website"
+        | "embed"
+        | "box_office"
+        | "kiosk"
+        | "reseller_api"
+        | "internal";
+     checkoutTtlSeconds: number;
+     createdAt: string;
+     customerConfig: {
+        allowGuestCheckout: boolean;
+        collectAddress: boolean;
+        collectPhone: boolean;
+        requireLogin: boolean;
+     };
+     customerFacing: {
+        allowedOrigins: string[];
+        customDomain?: string;
+        enabled: boolean;
+        magicLinkBaseUrl?: string;
+        partnerIdentity?: {
+           algorithm: string;
+           issuer: string;
+           publicKeyPem: string;
+        };
+        subdomain?: string;
+     };
+     deletedAt: string | null;
+     description: string | null;
+     eventFilter: {
+        channelTags?: string[];
+        mode: "all" | "tagged";
+     };
+     feeProfileId: string | null;
+     id: string;
+     isActive: boolean;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     pricingConfig: {
+        includeFeesInPrice: boolean;
+        showMemberPricing: boolean;
+        showOriginalPrice: boolean;
+     };
+     receivingAccountId: string;
+     reservationTtlSeconds: number;
+     slug: string;
+     themeId: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.channel
+
+```ts
+channel: {
+  accountId: string;
+  channelTags: string[];
+  channelType:   | "website"
+     | "embed"
+     | "box_office"
+     | "kiosk"
+     | "reseller_api"
+     | "internal";
+  checkoutTtlSeconds: number;
+  createdAt: string;
+  customerConfig: {
+     allowGuestCheckout: boolean;
+     collectAddress: boolean;
+     collectPhone: boolean;
+     requireLogin: boolean;
+  };
+  customerFacing: {
+     allowedOrigins: string[];
+     customDomain?: string;
+     enabled: boolean;
+     magicLinkBaseUrl?: string;
+     partnerIdentity?: {
+        algorithm: string;
+        issuer: string;
+        publicKeyPem: string;
+     };
+     subdomain?: string;
+  };
+  deletedAt: string | null;
+  description: string | null;
+  eventFilter: {
+     channelTags?: string[];
+     mode: "all" | "tagged";
+  };
+  feeProfileId: string | null;
+  id: string;
+  isActive: boolean;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  pricingConfig: {
+     includeFeesInPrice: boolean;
+     showMemberPricing: boolean;
+     showOriginalPrice: boolean;
+  };
+  receivingAccountId: string;
+  reservationTtlSeconds: number;
+  slug: string;
+  themeId: string | null;
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.channel.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### responses.200.content.application/json.channel.channelTags
+
+```ts
+channelTags: string[];
+```
+
+###### Example
+
+```ts
+[
+      "public"
+    ]
+```
+
+##### responses.200.content.application/json.channel.channelType
+
+```ts
+channelType: 
+  | "website"
+  | "embed"
+  | "box_office"
+  | "kiosk"
+  | "reseller_api"
+  | "internal";
+```
+
+###### Example
+
+```ts
+website
+@enum {string}
+```
+
+##### responses.200.content.application/json.channel.checkoutTtlSeconds
+
+```ts
+checkoutTtlSeconds: number;
+```
+
+###### Example
+
+```ts
+300
+```
+
+##### responses.200.content.application/json.channel.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.content.application/json.channel.customerConfig
+
+```ts
+customerConfig: {
+  allowGuestCheckout: boolean;
+  collectAddress: boolean;
+  collectPhone: boolean;
+  requireLogin: boolean;
+};
+```
+
+##### responses.200.content.application/json.channel.customerConfig.allowGuestCheckout
+
+```ts
+allowGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.content.application/json.channel.customerConfig.collectAddress
+
+```ts
+collectAddress: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.channel.customerConfig.collectPhone
+
+```ts
+collectPhone: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.channel.customerConfig.requireLogin
+
+```ts
+requireLogin: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.channel.customerFacing
+
+```ts
+customerFacing: {
+  allowedOrigins: string[];
+  customDomain?: string;
+  enabled: boolean;
+  magicLinkBaseUrl?: string;
+  partnerIdentity?: {
+     algorithm: string;
+     issuer: string;
+     publicKeyPem: string;
+  };
+  subdomain?: string;
+};
+```
+
+##### responses.200.content.application/json.channel.customerFacing.allowedOrigins
+
+```ts
+allowedOrigins: string[];
+```
+
+###### Example
+
+```ts
+[
+      "https://example.com"
+    ]
+```
+
+##### responses.200.content.application/json.channel.customerFacing.customDomain?
+
+```ts
+optional customDomain: string;
+```
+
+###### Example
+
+```ts
+tickets.example.com
+```
+
+##### responses.200.content.application/json.channel.customerFacing.enabled
+
+```ts
+enabled: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.content.application/json.channel.customerFacing.magicLinkBaseUrl?
+
+```ts
+optional magicLinkBaseUrl: string;
+```
+
+###### Example
+
+```ts
+https://tickets.example.com
+```
+
+##### responses.200.content.application/json.channel.customerFacing.partnerIdentity?
+
+```ts
+optional partnerIdentity: {
+  algorithm: string;
+  issuer: string;
+  publicKeyPem: string;
+};
+```
+
+##### responses.200.content.application/json.channel.customerFacing.partnerIdentity.algorithm
+
+```ts
+algorithm: string;
+```
+
+###### Example
+
+```ts
+RS256
+```
+
+##### responses.200.content.application/json.channel.customerFacing.partnerIdentity.issuer
+
+```ts
+issuer: string;
+```
+
+###### Example
+
+```ts
+https://partner.example.com
+```
+
+##### responses.200.content.application/json.channel.customerFacing.partnerIdentity.publicKeyPem
+
+```ts
+publicKeyPem: string;
+```
+
+###### Example
+
+```ts
+-----BEGIN PUBLIC KEY-----...
+```
+
+##### responses.200.content.application/json.channel.customerFacing.subdomain?
+
+```ts
+optional subdomain: string;
+```
+
+###### Example
+
+```ts
+tickets
+```
+
+##### responses.200.content.application/json.channel.deletedAt
+
+```ts
+deletedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### responses.200.content.application/json.channel.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Public web sales
+```
+
+##### responses.200.content.application/json.channel.eventFilter
+
+```ts
+eventFilter: {
+  channelTags?: string[];
+  mode: "all" | "tagged";
+};
+```
+
+##### responses.200.content.application/json.channel.eventFilter.channelTags?
+
+```ts
+optional channelTags: string[];
+```
+
+###### Example
+
+```ts
+[
+      "summer-festival"
+    ]
+```
+
+##### responses.200.content.application/json.channel.eventFilter.mode
+
+```ts
+mode: "all" | "tagged";
+```
+
+###### Example
+
+```ts
+all
+@enum {string}
+```
+
+##### responses.200.content.application/json.channel.feeProfileId
+
+```ts
+feeProfileId: string | null;
+```
+
+###### Example
+
+```ts
+sfp_abc123
+```
+
+##### responses.200.content.application/json.channel.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sch_abc123
+```
+
+##### responses.200.content.application/json.channel.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.content.application/json.channel.isDeleted
+
+```ts
+isDeleted: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.channel.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Main Website
+```
+
+##### responses.200.content.application/json.channel.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.channel.pricingConfig
+
+```ts
+pricingConfig: {
+  includeFeesInPrice: boolean;
+  showMemberPricing: boolean;
+  showOriginalPrice: boolean;
+};
+```
+
+##### responses.200.content.application/json.channel.pricingConfig.includeFeesInPrice
+
+```ts
+includeFeesInPrice: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.channel.pricingConfig.showMemberPricing
+
+```ts
+showMemberPricing: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.channel.pricingConfig.showOriginalPrice
+
+```ts
+showOriginalPrice: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.content.application/json.channel.receivingAccountId
+
+```ts
+receivingAccountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### responses.200.content.application/json.channel.reservationTtlSeconds
+
+```ts
+reservationTtlSeconds: number;
+```
+
+###### Example
+
+```ts
+900
+```
+
+##### responses.200.content.application/json.channel.slug
+
+```ts
+slug: string;
+```
+
+###### Example
+
+```ts
+main-website
+```
+
+##### responses.200.content.application/json.channel.themeId
+
+```ts
+themeId: string | null;
+```
+
+###### Example
+
+```ts
+sct_abc123
+```
+
+##### responses.200.content.application/json.channel.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
+### updateSalesCustomer
+
+```ts
+updateSalesCustomer: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        customerId: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           firstName?: string;
+           lastName?: string;
+           phone?: string;
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              customer: {
+                 email: string;
+                 firstName: string | null;
+                 id: string;
+                 lastName: string | null;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:19981
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     customerId: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  customerId: string;
+};
+```
+
+##### parameters.path.customerId
+
+```ts
+customerId: string;
+```
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        firstName?: string;
+        lastName?: string;
+        phone?: string;
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     firstName?: string;
+     lastName?: string;
+     phone?: string;
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  firstName?: string;
+  lastName?: string;
+  phone?: string;
+};
+```
+
+##### requestBody.content.application/json.firstName?
+
+```ts
+optional firstName: string;
+```
+
+##### requestBody.content.application/json.lastName?
+
+```ts
+optional lastName: string;
+```
+
+##### requestBody.content.application/json.phone?
+
+```ts
+optional phone: string;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           customer: {
+              email: string;
+              firstName: string | null;
+              id: string;
+              lastName: string | null;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        customer: {
+           email: string;
+           firstName: string | null;
+           id: string;
+           lastName: string | null;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Customer updated successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     customer: {
+        email: string;
+        firstName: string | null;
+        id: string;
+        lastName: string | null;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  customer: {
+     email: string;
+     firstName: string | null;
+     id: string;
+     lastName: string | null;
+  };
+};
+```
+
+##### responses.200.content.application/json.customer
+
+```ts
+customer: {
+  email: string;
+  firstName: string | null;
+  id: string;
+  lastName: string | null;
+};
+```
+
+##### responses.200.content.application/json.customer.email
+
+```ts
+email: string;
+```
+
+##### responses.200.content.application/json.customer.firstName
+
+```ts
+firstName: string | null;
+```
+
+##### responses.200.content.application/json.customer.id
+
+```ts
+id: string;
+```
+
+##### responses.200.content.application/json.customer.lastName
+
+```ts
+lastName: string | null;
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### updateSeatInArea
 
 ```ts
@@ -93760,6 +128638,7 @@ updateSeatInArea: {
         application/json: {
            attributes?: (
               | "accessible"
+              | "center"
               | "aisle_left"
               | "aisle_right"
               | "wheelchair_space"
@@ -93772,8 +128651,7 @@ updateSeatInArea: {
               | "extra_legroom"
               | "premium_comfort"
               | "front_row"
-              | "back_row"
-             | "center")[];
+             | "back_row")[];
            categoryId?: string;
            companionSeats?: string[];
            companionTo?: string;
@@ -93858,7 +128736,7 @@ updateSeatInArea: {
 };
 ```
 
-Defined in: generated/types.ts:10465
+Defined in: generated/types.ts:12278
 
 #### parameters
 
@@ -93953,6 +128831,7 @@ optional requestBody: {
      application/json: {
         attributes?: (
            | "accessible"
+           | "center"
            | "aisle_left"
            | "aisle_right"
            | "wheelchair_space"
@@ -93965,8 +128844,7 @@ optional requestBody: {
            | "extra_legroom"
            | "premium_comfort"
            | "front_row"
-           | "back_row"
-          | "center")[];
+          | "back_row")[];
         categoryId?: string;
         companionSeats?: string[];
         companionTo?: string;
@@ -93995,6 +128873,7 @@ content: {
   application/json: {
      attributes?: (
         | "accessible"
+        | "center"
         | "aisle_left"
         | "aisle_right"
         | "wheelchair_space"
@@ -94007,8 +128886,7 @@ content: {
         | "extra_legroom"
         | "premium_comfort"
         | "front_row"
-        | "back_row"
-       | "center")[];
+       | "back_row")[];
      categoryId?: string;
      companionSeats?: string[];
      companionTo?: string;
@@ -94035,6 +128913,7 @@ content: {
 application/json: {
   attributes?: (
      | "accessible"
+     | "center"
      | "aisle_left"
      | "aisle_right"
      | "wheelchair_space"
@@ -94047,8 +128926,7 @@ application/json: {
      | "extra_legroom"
      | "premium_comfort"
      | "front_row"
-     | "back_row"
-    | "center")[];
+    | "back_row")[];
   categoryId?: string;
   companionSeats?: string[];
   companionTo?: string;
@@ -94073,6 +128951,7 @@ application/json: {
 ```ts
 optional attributes: (
   | "accessible"
+  | "center"
   | "aisle_left"
   | "aisle_right"
   | "wheelchair_space"
@@ -94085,8 +128964,7 @@ optional attributes: (
   | "extra_legroom"
   | "premium_comfort"
   | "front_row"
-  | "back_row"
-  | "center")[];
+  | "back_row")[];
 ```
 
 ###### Description
@@ -94875,6 +129753,1784 @@ headers: {
 
 ***
 
+### updateTheme
+
+```ts
+updateTheme: {
+  parameters: {
+     cookie?: undefined;
+     header?: undefined;
+     path: {
+        id: string;
+     };
+     query?: undefined;
+  };
+  requestBody?: {
+     content: {
+        application/json: {
+           brand?: {
+              displayName?: string;
+              faviconUrl?: string;
+              logoDarkUrl?: string;
+              logoUrl?: string;
+           };
+           colors?: {
+              accent?: string;
+              accentForeground?: string;
+              background?: string;
+              border?: string;
+              destructive?: string;
+              destructiveForeground?: string;
+              foreground?: string;
+              input?: string;
+              muted?: string;
+              mutedForeground?: string;
+              primary?: string;
+              primaryForeground?: string;
+              ring?: string;
+              secondary?: string;
+              secondaryForeground?: string;
+              success?: string;
+              successForeground?: string;
+              warning?: string;
+              warningForeground?: string;
+           };
+           description?: string | null;
+           design?: {
+              cinemaGradient?: {
+                 position: ... | ...;
+                 strength: ... | ... | ...;
+              };
+              heroLayout?: {
+                 size: ... | ... | ...;
+                 type: ... | ...;
+              };
+            } & {
+            [key: string]: unknown;
+           } & Record<string, never>;
+           extendsThemeId?: string | null;
+           isActive?: boolean;
+           isBaseTheme?: boolean;
+           name?: string;
+           shape?: {
+              radiusFull?: string;
+              radiusLg?: string;
+              radiusMd?: string;
+              radiusNone?: string;
+              radiusSm?: string;
+           };
+           typography?: {
+              baseSize?: string;
+              fontFamily?: string;
+              fontFamilyMono?: string;
+              scaleRatio?: number;
+           };
+        };
+     };
+  };
+  responses: {
+     200: {
+        content: {
+           application/json: {
+              theme: {
+                 brand: {
+                    displayName?: string;
+                    faviconUrl?: string;
+                    logoDarkUrl?: string;
+                    logoUrl?: string;
+                 };
+                 colors: {
+                    accent?: string;
+                    accentForeground?: string;
+                    background?: string;
+                    border?: string;
+                    destructive?: string;
+                    destructiveForeground?: string;
+                    foreground?: string;
+                    input?: string;
+                    muted?: string;
+                    mutedForeground?: string;
+                    primary?: string;
+                    primaryForeground?: string;
+                    ring?: string;
+                    secondary?: string;
+                    secondaryForeground?: string;
+                    success?: string;
+                    successForeground?: string;
+                    warning?: string;
+                    warningForeground?: string;
+                 };
+                 createdAt: string;
+                 description: string | null;
+                 design:   | {
+                    cinemaGradient?: {
+                       position: ... | ...;
+                       strength: ... | ... | ...;
+                    };
+                    heroLayout?: {
+                       size: ... | ... | ...;
+                       type: ... | ...;
+                    };
+                  }
+                    | null;
+                 extendsThemeId: string | null;
+                 id: string;
+                 isActive: boolean;
+                 isBaseTheme: boolean;
+                 name: string;
+                 organisationId: string;
+                 shape: {
+                    radiusFull?: string;
+                    radiusLg?: string;
+                    radiusMd?: string;
+                    radiusNone?: string;
+                    radiusSm?: string;
+                 };
+                 typography: {
+                    baseSize?: string;
+                    fontFamily?: string;
+                    fontFamilyMono?: string;
+                    scaleRatio?: number;
+                 };
+                 updatedAt: string;
+              };
+           };
+        };
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     400: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     401: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     403: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     404: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+     500: {
+        content?: undefined;
+        headers: {
+         [name: string]: unknown;
+        };
+     };
+  };
+};
+```
+
+Defined in: generated/types.ts:20595
+
+#### parameters
+
+```ts
+parameters: {
+  cookie?: undefined;
+  header?: undefined;
+  path: {
+     id: string;
+  };
+  query?: undefined;
+};
+```
+
+##### parameters.cookie?
+
+```ts
+optional cookie: undefined;
+```
+
+##### parameters.header?
+
+```ts
+optional header: undefined;
+```
+
+##### parameters.path
+
+```ts
+path: {
+  id: string;
+};
+```
+
+##### parameters.path.id
+
+```ts
+id: string;
+```
+
+###### Description
+
+Theme ID
+
+##### parameters.query?
+
+```ts
+optional query: undefined;
+```
+
+#### requestBody?
+
+```ts
+optional requestBody: {
+  content: {
+     application/json: {
+        brand?: {
+           displayName?: string;
+           faviconUrl?: string;
+           logoDarkUrl?: string;
+           logoUrl?: string;
+        };
+        colors?: {
+           accent?: string;
+           accentForeground?: string;
+           background?: string;
+           border?: string;
+           destructive?: string;
+           destructiveForeground?: string;
+           foreground?: string;
+           input?: string;
+           muted?: string;
+           mutedForeground?: string;
+           primary?: string;
+           primaryForeground?: string;
+           ring?: string;
+           secondary?: string;
+           secondaryForeground?: string;
+           success?: string;
+           successForeground?: string;
+           warning?: string;
+           warningForeground?: string;
+        };
+        description?: string | null;
+        design?: {
+           cinemaGradient?: {
+              position: ... | ...;
+              strength: ... | ... | ...;
+           };
+           heroLayout?: {
+              size: ... | ... | ...;
+              type: ... | ...;
+           };
+         } & {
+         [key: string]: unknown;
+        } & Record<string, never>;
+        extendsThemeId?: string | null;
+        isActive?: boolean;
+        isBaseTheme?: boolean;
+        name?: string;
+        shape?: {
+           radiusFull?: string;
+           radiusLg?: string;
+           radiusMd?: string;
+           radiusNone?: string;
+           radiusSm?: string;
+        };
+        typography?: {
+           baseSize?: string;
+           fontFamily?: string;
+           fontFamilyMono?: string;
+           scaleRatio?: number;
+        };
+     };
+  };
+};
+```
+
+##### requestBody.content
+
+```ts
+content: {
+  application/json: {
+     brand?: {
+        displayName?: string;
+        faviconUrl?: string;
+        logoDarkUrl?: string;
+        logoUrl?: string;
+     };
+     colors?: {
+        accent?: string;
+        accentForeground?: string;
+        background?: string;
+        border?: string;
+        destructive?: string;
+        destructiveForeground?: string;
+        foreground?: string;
+        input?: string;
+        muted?: string;
+        mutedForeground?: string;
+        primary?: string;
+        primaryForeground?: string;
+        ring?: string;
+        secondary?: string;
+        secondaryForeground?: string;
+        success?: string;
+        successForeground?: string;
+        warning?: string;
+        warningForeground?: string;
+     };
+     description?: string | null;
+     design?: {
+        cinemaGradient?: {
+           position: ... | ...;
+           strength: ... | ... | ...;
+        };
+        heroLayout?: {
+           size: ... | ... | ...;
+           type: ... | ...;
+        };
+      } & {
+      [key: string]: unknown;
+     } & Record<string, never>;
+     extendsThemeId?: string | null;
+     isActive?: boolean;
+     isBaseTheme?: boolean;
+     name?: string;
+     shape?: {
+        radiusFull?: string;
+        radiusLg?: string;
+        radiusMd?: string;
+        radiusNone?: string;
+        radiusSm?: string;
+     };
+     typography?: {
+        baseSize?: string;
+        fontFamily?: string;
+        fontFamilyMono?: string;
+        scaleRatio?: number;
+     };
+  };
+};
+```
+
+##### requestBody.content.application/json
+
+```ts
+application/json: {
+  brand?: {
+     displayName?: string;
+     faviconUrl?: string;
+     logoDarkUrl?: string;
+     logoUrl?: string;
+  };
+  colors?: {
+     accent?: string;
+     accentForeground?: string;
+     background?: string;
+     border?: string;
+     destructive?: string;
+     destructiveForeground?: string;
+     foreground?: string;
+     input?: string;
+     muted?: string;
+     mutedForeground?: string;
+     primary?: string;
+     primaryForeground?: string;
+     ring?: string;
+     secondary?: string;
+     secondaryForeground?: string;
+     success?: string;
+     successForeground?: string;
+     warning?: string;
+     warningForeground?: string;
+  };
+  description?: string | null;
+  design?: {
+     cinemaGradient?: {
+        position: ... | ...;
+        strength: ... | ... | ...;
+     };
+     heroLayout?: {
+        size: ... | ... | ...;
+        type: ... | ...;
+     };
+   } & {
+   [key: string]: unknown;
+  } & Record<string, never>;
+  extendsThemeId?: string | null;
+  isActive?: boolean;
+  isBaseTheme?: boolean;
+  name?: string;
+  shape?: {
+     radiusFull?: string;
+     radiusLg?: string;
+     radiusMd?: string;
+     radiusNone?: string;
+     radiusSm?: string;
+  };
+  typography?: {
+     baseSize?: string;
+     fontFamily?: string;
+     fontFamilyMono?: string;
+     scaleRatio?: number;
+  };
+};
+```
+
+##### requestBody.content.application/json.brand?
+
+```ts
+optional brand: {
+  displayName?: string;
+  faviconUrl?: string;
+  logoDarkUrl?: string;
+  logoUrl?: string;
+};
+```
+
+##### requestBody.content.application/json.brand.displayName?
+
+```ts
+optional displayName: string;
+```
+
+##### requestBody.content.application/json.brand.faviconUrl?
+
+```ts
+optional faviconUrl: string;
+```
+
+##### requestBody.content.application/json.brand.logoDarkUrl?
+
+```ts
+optional logoDarkUrl: string;
+```
+
+##### requestBody.content.application/json.brand.logoUrl?
+
+```ts
+optional logoUrl: string;
+```
+
+##### requestBody.content.application/json.colors?
+
+```ts
+optional colors: {
+  accent?: string;
+  accentForeground?: string;
+  background?: string;
+  border?: string;
+  destructive?: string;
+  destructiveForeground?: string;
+  foreground?: string;
+  input?: string;
+  muted?: string;
+  mutedForeground?: string;
+  primary?: string;
+  primaryForeground?: string;
+  ring?: string;
+  secondary?: string;
+  secondaryForeground?: string;
+  success?: string;
+  successForeground?: string;
+  warning?: string;
+  warningForeground?: string;
+};
+```
+
+##### requestBody.content.application/json.colors.accent?
+
+```ts
+optional accent: string;
+```
+
+##### requestBody.content.application/json.colors.accentForeground?
+
+```ts
+optional accentForeground: string;
+```
+
+##### requestBody.content.application/json.colors.background?
+
+```ts
+optional background: string;
+```
+
+##### requestBody.content.application/json.colors.border?
+
+```ts
+optional border: string;
+```
+
+##### requestBody.content.application/json.colors.destructive?
+
+```ts
+optional destructive: string;
+```
+
+##### requestBody.content.application/json.colors.destructiveForeground?
+
+```ts
+optional destructiveForeground: string;
+```
+
+##### requestBody.content.application/json.colors.foreground?
+
+```ts
+optional foreground: string;
+```
+
+##### requestBody.content.application/json.colors.input?
+
+```ts
+optional input: string;
+```
+
+##### requestBody.content.application/json.colors.muted?
+
+```ts
+optional muted: string;
+```
+
+##### requestBody.content.application/json.colors.mutedForeground?
+
+```ts
+optional mutedForeground: string;
+```
+
+##### requestBody.content.application/json.colors.primary?
+
+```ts
+optional primary: string;
+```
+
+##### requestBody.content.application/json.colors.primaryForeground?
+
+```ts
+optional primaryForeground: string;
+```
+
+##### requestBody.content.application/json.colors.ring?
+
+```ts
+optional ring: string;
+```
+
+##### requestBody.content.application/json.colors.secondary?
+
+```ts
+optional secondary: string;
+```
+
+##### requestBody.content.application/json.colors.secondaryForeground?
+
+```ts
+optional secondaryForeground: string;
+```
+
+##### requestBody.content.application/json.colors.success?
+
+```ts
+optional success: string;
+```
+
+##### requestBody.content.application/json.colors.successForeground?
+
+```ts
+optional successForeground: string;
+```
+
+##### requestBody.content.application/json.colors.warning?
+
+```ts
+optional warning: string;
+```
+
+##### requestBody.content.application/json.colors.warningForeground?
+
+```ts
+optional warningForeground: string;
+```
+
+##### requestBody.content.application/json.description?
+
+```ts
+optional description: string | null;
+```
+
+##### requestBody.content.application/json.design?
+
+```ts
+optional design: {
+  cinemaGradient?: {
+     position: ... | ...;
+     strength: ... | ... | ...;
+  };
+  heroLayout?: {
+     size: ... | ... | ...;
+     type: ... | ...;
+  };
+} & {
+[key: string]: unknown;
+} & Record<string, never>;
+```
+
+###### Type Declaration
+
+###### cinemaGradient?
+
+```ts
+optional cinemaGradient: {
+  position: ... | ...;
+  strength: ... | ... | ...;
+};
+```
+
+###### cinemaGradient.position
+
+```ts
+position: ... | ...;
+```
+
+###### cinemaGradient.strength
+
+```ts
+strength: ... | ... | ...;
+```
+
+###### heroLayout?
+
+```ts
+optional heroLayout: {
+  size: ... | ... | ...;
+  type: ... | ...;
+};
+```
+
+###### heroLayout.size
+
+```ts
+size: ... | ... | ...;
+```
+
+###### heroLayout.type
+
+```ts
+type: ... | ...;
+```
+
+##### requestBody.content.application/json.extendsThemeId?
+
+```ts
+optional extendsThemeId: string | null;
+```
+
+##### requestBody.content.application/json.isActive?
+
+```ts
+optional isActive: boolean;
+```
+
+##### requestBody.content.application/json.isBaseTheme?
+
+```ts
+optional isBaseTheme: boolean;
+```
+
+##### requestBody.content.application/json.name?
+
+```ts
+optional name: string;
+```
+
+##### requestBody.content.application/json.shape?
+
+```ts
+optional shape: {
+  radiusFull?: string;
+  radiusLg?: string;
+  radiusMd?: string;
+  radiusNone?: string;
+  radiusSm?: string;
+};
+```
+
+##### requestBody.content.application/json.shape.radiusFull?
+
+```ts
+optional radiusFull: string;
+```
+
+##### requestBody.content.application/json.shape.radiusLg?
+
+```ts
+optional radiusLg: string;
+```
+
+##### requestBody.content.application/json.shape.radiusMd?
+
+```ts
+optional radiusMd: string;
+```
+
+##### requestBody.content.application/json.shape.radiusNone?
+
+```ts
+optional radiusNone: string;
+```
+
+##### requestBody.content.application/json.shape.radiusSm?
+
+```ts
+optional radiusSm: string;
+```
+
+##### requestBody.content.application/json.typography?
+
+```ts
+optional typography: {
+  baseSize?: string;
+  fontFamily?: string;
+  fontFamilyMono?: string;
+  scaleRatio?: number;
+};
+```
+
+##### requestBody.content.application/json.typography.baseSize?
+
+```ts
+optional baseSize: string;
+```
+
+##### requestBody.content.application/json.typography.fontFamily?
+
+```ts
+optional fontFamily: string;
+```
+
+##### requestBody.content.application/json.typography.fontFamilyMono?
+
+```ts
+optional fontFamilyMono: string;
+```
+
+##### requestBody.content.application/json.typography.scaleRatio?
+
+```ts
+optional scaleRatio: number;
+```
+
+#### responses
+
+```ts
+responses: {
+  200: {
+     content: {
+        application/json: {
+           theme: {
+              brand: {
+                 displayName?: string;
+                 faviconUrl?: string;
+                 logoDarkUrl?: string;
+                 logoUrl?: string;
+              };
+              colors: {
+                 accent?: string;
+                 accentForeground?: string;
+                 background?: string;
+                 border?: string;
+                 destructive?: string;
+                 destructiveForeground?: string;
+                 foreground?: string;
+                 input?: string;
+                 muted?: string;
+                 mutedForeground?: string;
+                 primary?: string;
+                 primaryForeground?: string;
+                 ring?: string;
+                 secondary?: string;
+                 secondaryForeground?: string;
+                 success?: string;
+                 successForeground?: string;
+                 warning?: string;
+                 warningForeground?: string;
+              };
+              createdAt: string;
+              description: string | null;
+              design:   | {
+                 cinemaGradient?: {
+                    position: ... | ...;
+                    strength: ... | ... | ...;
+                 };
+                 heroLayout?: {
+                    size: ... | ... | ...;
+                    type: ... | ...;
+                 };
+               }
+                 | null;
+              extendsThemeId: string | null;
+              id: string;
+              isActive: boolean;
+              isBaseTheme: boolean;
+              name: string;
+              organisationId: string;
+              shape: {
+                 radiusFull?: string;
+                 radiusLg?: string;
+                 radiusMd?: string;
+                 radiusNone?: string;
+                 radiusSm?: string;
+              };
+              typography: {
+                 baseSize?: string;
+                 fontFamily?: string;
+                 fontFamilyMono?: string;
+                 scaleRatio?: number;
+              };
+              updatedAt: string;
+           };
+        };
+     };
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  400: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  401: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  403: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  404: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+  500: {
+     content?: undefined;
+     headers: {
+      [name: string]: unknown;
+     };
+  };
+};
+```
+
+##### responses.200
+
+```ts
+200: {
+  content: {
+     application/json: {
+        theme: {
+           brand: {
+              displayName?: string;
+              faviconUrl?: string;
+              logoDarkUrl?: string;
+              logoUrl?: string;
+           };
+           colors: {
+              accent?: string;
+              accentForeground?: string;
+              background?: string;
+              border?: string;
+              destructive?: string;
+              destructiveForeground?: string;
+              foreground?: string;
+              input?: string;
+              muted?: string;
+              mutedForeground?: string;
+              primary?: string;
+              primaryForeground?: string;
+              ring?: string;
+              secondary?: string;
+              secondaryForeground?: string;
+              success?: string;
+              successForeground?: string;
+              warning?: string;
+              warningForeground?: string;
+           };
+           createdAt: string;
+           description: string | null;
+           design:   | {
+              cinemaGradient?: {
+                 position: ... | ...;
+                 strength: ... | ... | ...;
+              };
+              heroLayout?: {
+                 size: ... | ... | ...;
+                 type: ... | ...;
+              };
+            }
+              | null;
+           extendsThemeId: string | null;
+           id: string;
+           isActive: boolean;
+           isBaseTheme: boolean;
+           name: string;
+           organisationId: string;
+           shape: {
+              radiusFull?: string;
+              radiusLg?: string;
+              radiusMd?: string;
+              radiusNone?: string;
+              radiusSm?: string;
+           };
+           typography: {
+              baseSize?: string;
+              fontFamily?: string;
+              fontFamilyMono?: string;
+              scaleRatio?: number;
+           };
+           updatedAt: string;
+        };
+     };
+  };
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Theme updated successfully
+
+##### responses.200.content
+
+```ts
+content: {
+  application/json: {
+     theme: {
+        brand: {
+           displayName?: string;
+           faviconUrl?: string;
+           logoDarkUrl?: string;
+           logoUrl?: string;
+        };
+        colors: {
+           accent?: string;
+           accentForeground?: string;
+           background?: string;
+           border?: string;
+           destructive?: string;
+           destructiveForeground?: string;
+           foreground?: string;
+           input?: string;
+           muted?: string;
+           mutedForeground?: string;
+           primary?: string;
+           primaryForeground?: string;
+           ring?: string;
+           secondary?: string;
+           secondaryForeground?: string;
+           success?: string;
+           successForeground?: string;
+           warning?: string;
+           warningForeground?: string;
+        };
+        createdAt: string;
+        description: string | null;
+        design:   | {
+           cinemaGradient?: {
+              position: ... | ...;
+              strength: ... | ... | ...;
+           };
+           heroLayout?: {
+              size: ... | ... | ...;
+              type: ... | ...;
+           };
+         }
+           | null;
+        extendsThemeId: string | null;
+        id: string;
+        isActive: boolean;
+        isBaseTheme: boolean;
+        name: string;
+        organisationId: string;
+        shape: {
+           radiusFull?: string;
+           radiusLg?: string;
+           radiusMd?: string;
+           radiusNone?: string;
+           radiusSm?: string;
+        };
+        typography: {
+           baseSize?: string;
+           fontFamily?: string;
+           fontFamilyMono?: string;
+           scaleRatio?: number;
+        };
+        updatedAt: string;
+     };
+  };
+};
+```
+
+##### responses.200.content.application/json
+
+```ts
+application/json: {
+  theme: {
+     brand: {
+        displayName?: string;
+        faviconUrl?: string;
+        logoDarkUrl?: string;
+        logoUrl?: string;
+     };
+     colors: {
+        accent?: string;
+        accentForeground?: string;
+        background?: string;
+        border?: string;
+        destructive?: string;
+        destructiveForeground?: string;
+        foreground?: string;
+        input?: string;
+        muted?: string;
+        mutedForeground?: string;
+        primary?: string;
+        primaryForeground?: string;
+        ring?: string;
+        secondary?: string;
+        secondaryForeground?: string;
+        success?: string;
+        successForeground?: string;
+        warning?: string;
+        warningForeground?: string;
+     };
+     createdAt: string;
+     description: string | null;
+     design:   | {
+        cinemaGradient?: {
+           position: ... | ...;
+           strength: ... | ... | ...;
+        };
+        heroLayout?: {
+           size: ... | ... | ...;
+           type: ... | ...;
+        };
+      }
+        | null;
+     extendsThemeId: string | null;
+     id: string;
+     isActive: boolean;
+     isBaseTheme: boolean;
+     name: string;
+     organisationId: string;
+     shape: {
+        radiusFull?: string;
+        radiusLg?: string;
+        radiusMd?: string;
+        radiusNone?: string;
+        radiusSm?: string;
+     };
+     typography: {
+        baseSize?: string;
+        fontFamily?: string;
+        fontFamilyMono?: string;
+        scaleRatio?: number;
+     };
+     updatedAt: string;
+  };
+};
+```
+
+##### responses.200.content.application/json.theme
+
+```ts
+theme: {
+  brand: {
+     displayName?: string;
+     faviconUrl?: string;
+     logoDarkUrl?: string;
+     logoUrl?: string;
+  };
+  colors: {
+     accent?: string;
+     accentForeground?: string;
+     background?: string;
+     border?: string;
+     destructive?: string;
+     destructiveForeground?: string;
+     foreground?: string;
+     input?: string;
+     muted?: string;
+     mutedForeground?: string;
+     primary?: string;
+     primaryForeground?: string;
+     ring?: string;
+     secondary?: string;
+     secondaryForeground?: string;
+     success?: string;
+     successForeground?: string;
+     warning?: string;
+     warningForeground?: string;
+  };
+  createdAt: string;
+  description: string | null;
+  design:   | {
+     cinemaGradient?: {
+        position: ... | ...;
+        strength: ... | ... | ...;
+     };
+     heroLayout?: {
+        size: ... | ... | ...;
+        type: ... | ...;
+     };
+   }
+     | null;
+  extendsThemeId: string | null;
+  id: string;
+  isActive: boolean;
+  isBaseTheme: boolean;
+  name: string;
+  organisationId: string;
+  shape: {
+     radiusFull?: string;
+     radiusLg?: string;
+     radiusMd?: string;
+     radiusNone?: string;
+     radiusSm?: string;
+  };
+  typography: {
+     baseSize?: string;
+     fontFamily?: string;
+     fontFamilyMono?: string;
+     scaleRatio?: number;
+  };
+  updatedAt: string;
+};
+```
+
+##### responses.200.content.application/json.theme.brand
+
+```ts
+brand: {
+  displayName?: string;
+  faviconUrl?: string;
+  logoDarkUrl?: string;
+  logoUrl?: string;
+};
+```
+
+##### responses.200.content.application/json.theme.brand.displayName?
+
+```ts
+optional displayName: string;
+```
+
+###### Example
+
+```ts
+Acme Tickets
+```
+
+##### responses.200.content.application/json.theme.brand.faviconUrl?
+
+```ts
+optional faviconUrl: string;
+```
+
+##### responses.200.content.application/json.theme.brand.logoDarkUrl?
+
+```ts
+optional logoDarkUrl: string;
+```
+
+##### responses.200.content.application/json.theme.brand.logoUrl?
+
+```ts
+optional logoUrl: string;
+```
+
+###### Example
+
+```ts
+https://cdn.example.com/logo.svg
+```
+
+##### responses.200.content.application/json.theme.colors
+
+```ts
+colors: {
+  accent?: string;
+  accentForeground?: string;
+  background?: string;
+  border?: string;
+  destructive?: string;
+  destructiveForeground?: string;
+  foreground?: string;
+  input?: string;
+  muted?: string;
+  mutedForeground?: string;
+  primary?: string;
+  primaryForeground?: string;
+  ring?: string;
+  secondary?: string;
+  secondaryForeground?: string;
+  success?: string;
+  successForeground?: string;
+  warning?: string;
+  warningForeground?: string;
+};
+```
+
+##### responses.200.content.application/json.theme.colors.accent?
+
+```ts
+optional accent: string;
+```
+
+##### responses.200.content.application/json.theme.colors.accentForeground?
+
+```ts
+optional accentForeground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.background?
+
+```ts
+optional background: string;
+```
+
+##### responses.200.content.application/json.theme.colors.border?
+
+```ts
+optional border: string;
+```
+
+##### responses.200.content.application/json.theme.colors.destructive?
+
+```ts
+optional destructive: string;
+```
+
+##### responses.200.content.application/json.theme.colors.destructiveForeground?
+
+```ts
+optional destructiveForeground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.foreground?
+
+```ts
+optional foreground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.input?
+
+```ts
+optional input: string;
+```
+
+##### responses.200.content.application/json.theme.colors.muted?
+
+```ts
+optional muted: string;
+```
+
+##### responses.200.content.application/json.theme.colors.mutedForeground?
+
+```ts
+optional mutedForeground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.primary?
+
+```ts
+optional primary: string;
+```
+
+###### Example
+
+```ts
+#7C3AED
+```
+
+##### responses.200.content.application/json.theme.colors.primaryForeground?
+
+```ts
+optional primaryForeground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.ring?
+
+```ts
+optional ring: string;
+```
+
+##### responses.200.content.application/json.theme.colors.secondary?
+
+```ts
+optional secondary: string;
+```
+
+##### responses.200.content.application/json.theme.colors.secondaryForeground?
+
+```ts
+optional secondaryForeground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.success?
+
+```ts
+optional success: string;
+```
+
+##### responses.200.content.application/json.theme.colors.successForeground?
+
+```ts
+optional successForeground: string;
+```
+
+##### responses.200.content.application/json.theme.colors.warning?
+
+```ts
+optional warning: string;
+```
+
+##### responses.200.content.application/json.theme.colors.warningForeground?
+
+```ts
+optional warningForeground: string;
+```
+
+##### responses.200.content.application/json.theme.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-01T00:00:00.000Z
+```
+
+##### responses.200.content.application/json.theme.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Dark theme for evening events
+```
+
+##### responses.200.content.application/json.theme.design
+
+```ts
+design: 
+  | {
+  cinemaGradient?: {
+     position: ... | ...;
+     strength: ... | ... | ...;
+  };
+  heroLayout?: {
+     size: ... | ... | ...;
+     type: ... | ...;
+  };
+}
+  | null;
+```
+
+##### responses.200.content.application/json.theme.extendsThemeId
+
+```ts
+extendsThemeId: string | null;
+```
+
+###### Example
+
+```ts
+sct_base123
+```
+
+##### responses.200.content.application/json.theme.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sct_abc123
+```
+
+##### responses.200.content.application/json.theme.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### responses.200.content.application/json.theme.isBaseTheme
+
+```ts
+isBaseTheme: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### responses.200.content.application/json.theme.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Midnight
+```
+
+##### responses.200.content.application/json.theme.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### responses.200.content.application/json.theme.shape
+
+```ts
+shape: {
+  radiusFull?: string;
+  radiusLg?: string;
+  radiusMd?: string;
+  radiusNone?: string;
+  radiusSm?: string;
+};
+```
+
+##### responses.200.content.application/json.theme.shape.radiusFull?
+
+```ts
+optional radiusFull: string;
+```
+
+##### responses.200.content.application/json.theme.shape.radiusLg?
+
+```ts
+optional radiusLg: string;
+```
+
+##### responses.200.content.application/json.theme.shape.radiusMd?
+
+```ts
+optional radiusMd: string;
+```
+
+###### Example
+
+```ts
+0.5rem
+```
+
+##### responses.200.content.application/json.theme.shape.radiusNone?
+
+```ts
+optional radiusNone: string;
+```
+
+##### responses.200.content.application/json.theme.shape.radiusSm?
+
+```ts
+optional radiusSm: string;
+```
+
+##### responses.200.content.application/json.theme.typography
+
+```ts
+typography: {
+  baseSize?: string;
+  fontFamily?: string;
+  fontFamilyMono?: string;
+  scaleRatio?: number;
+};
+```
+
+##### responses.200.content.application/json.theme.typography.baseSize?
+
+```ts
+optional baseSize: string;
+```
+
+###### Example
+
+```ts
+16px
+```
+
+##### responses.200.content.application/json.theme.typography.fontFamily?
+
+```ts
+optional fontFamily: string;
+```
+
+###### Example
+
+```ts
+Inter, sans-serif
+```
+
+##### responses.200.content.application/json.theme.typography.fontFamilyMono?
+
+```ts
+optional fontFamilyMono: string;
+```
+
+##### responses.200.content.application/json.theme.typography.scaleRatio?
+
+```ts
+optional scaleRatio: number;
+```
+
+###### Example
+
+```ts
+1.25
+```
+
+##### responses.200.content.application/json.theme.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-01T00:00:00.000Z
+```
+
+##### responses.200.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.400
+
+```ts
+400: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Bad Request - Invalid input
+
+##### responses.400.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.400.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.401
+
+```ts
+401: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Unauthorized - Authentication required
+
+##### responses.401.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.401.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.403
+
+```ts
+403: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Forbidden - Insufficient permissions
+
+##### responses.403.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.403.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.404
+
+```ts
+404: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Not Found - Resource not found
+
+##### responses.404.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.404.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+##### responses.500
+
+```ts
+500: {
+  content?: undefined;
+  headers: {
+   [name: string]: unknown;
+  };
+};
+```
+
+###### Description
+
+Internal Server Error
+
+##### responses.500.content?
+
+```ts
+optional content: undefined;
+```
+
+##### responses.500.headers
+
+```ts
+headers: {
+[name: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[name: string]: unknown
+```
+
+***
+
 ### updateUserAccountRoles
 
 ```ts
@@ -94961,7 +131617,7 @@ updateUserAccountRoles: {
 };
 ```
 
-Defined in: generated/types.ts:6015
+Defined in: generated/types.ts:7738
 
 #### parameters
 
@@ -95491,6 +132147,7 @@ updateVenue: {
   requestBody?: {
      content: {
         application/json: {
+           city?: string;
            coordinates?:   | {
               latitude: number;
               longitude: number;
@@ -95578,7 +132235,7 @@ updateVenue: {
 };
 ```
 
-Defined in: generated/types.ts:8115
+Defined in: generated/types.ts:9923
 
 #### parameters
 
@@ -95635,6 +132292,7 @@ optional query: undefined;
 optional requestBody: {
   content: {
      application/json: {
+        city?: string;
         coordinates?:   | {
            latitude: number;
            longitude: number;
@@ -95661,6 +132319,7 @@ optional requestBody: {
 ```ts
 content: {
   application/json: {
+     city?: string;
      coordinates?:   | {
         latitude: number;
         longitude: number;
@@ -95685,6 +132344,7 @@ content: {
 
 ```ts
 application/json: {
+  city?: string;
   coordinates?:   | {
      latitude: number;
      longitude: number;
@@ -95702,6 +132362,22 @@ application/json: {
   timezone?: string;
   website?: string | null;
 };
+```
+
+##### requestBody.content.application/json.city?
+
+```ts
+optional city: string;
+```
+
+###### Description
+
+City
+
+###### Example
+
+```ts
+London
 ```
 
 ##### requestBody.content.application/json.coordinates?
@@ -96770,7 +133446,7 @@ updateVenueLayout: {
 };
 ```
 
-Defined in: generated/types.ts:8871
+Defined in: generated/types.ts:10684
 
 #### parameters
 
@@ -98145,7 +134821,7 @@ updateVenueLayoutArea: {
 };
 ```
 
-Defined in: generated/types.ts:9473
+Defined in: generated/types.ts:11286
 
 #### parameters
 
@@ -99009,7 +135685,7 @@ updateVenueLayoutCategory: {
 };
 ```
 
-Defined in: generated/types.ts:9746
+Defined in: generated/types.ts:11559
 
 #### parameters
 
@@ -99635,7 +136311,7 @@ validateOrder: {
 };
 ```
 
-Defined in: generated/types.ts:13836
+Defined in: generated/types.ts:15934
 
 #### parameters
 

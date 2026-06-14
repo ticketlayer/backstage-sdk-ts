@@ -1,8 +1,8 @@
-[**@ticketlayer/backstage-sdk**](../README.md)
+[**@ticketlayer/backstage**](../README.md)
 
 ***
 
-[@ticketlayer/backstage-sdk](../README.md) / $defs
+[@ticketlayer/backstage](../README.md) / $defs
 
 # Type Alias: $defs
 
@@ -10,4 +10,4 @@
 type $defs = Record<string, never>;
 ```
 
-Defined in: generated/types.ts:4300
+Defined in: generated/types.ts:5968

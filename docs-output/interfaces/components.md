@@ -1,12 +1,12 @@
-[**@ticketlayer/backstage-sdk**](../README.md)
+[**@ticketlayer/backstage**](../README.md)
 
 ***
 
-[@ticketlayer/backstage-sdk](../README.md) / components
+[@ticketlayer/backstage](../README.md) / components
 
 # Interface: components
 
-Defined in: generated/types.ts:1929
+Defined in: generated/types.ts:2825
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: generated/types.ts:1929
 headers: never;
 ```
 
-Defined in: generated/types.ts:4297
+Defined in: generated/types.ts:5965
 
 ***
 
@@ -28,7 +28,7 @@ parameters: {
 };
 ```
 
-Defined in: generated/types.ts:4292
+Defined in: generated/types.ts:5960
 
 #### orgHeader
 
@@ -48,7 +48,7 @@ Organisation slug to scope the request
 pathItems: never;
 ```
 
-Defined in: generated/types.ts:4298
+Defined in: generated/types.ts:5966
 
 ***
 
@@ -58,7 +58,7 @@ Defined in: generated/types.ts:4298
 requestBodies: never;
 ```
 
-Defined in: generated/types.ts:4296
+Defined in: generated/types.ts:5964
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: generated/types.ts:4296
 responses: never;
 ```
 
-Defined in: generated/types.ts:4291
+Defined in: generated/types.ts:5959
 
 ***
 
@@ -226,6 +226,14 @@ schemas: {
      };
      venueLayout?: unknown;
   };
+  ApiVersion: {
+     breakingChanges: string[];
+     date: string;
+     deprecatedAt: string | null;
+     status: "current" | "supported" | "deprecated" | "sunset";
+     summary: string;
+     sunsetAt: string | null;
+  };
   ApplicationFee:   | {
      type: "percentage" | "fixed";
      value: number;
@@ -287,6 +295,15 @@ schemas: {
      updatedAt: string;
    }
      | null;
+  BillingAddress: {
+     city: string;
+     country: string;
+     line1: string;
+     line2?: string;
+     name?: string;
+     postal_code: string;
+     state?: string;
+  };
   BlockCustomerResponse: {
      customer: {
         accountId: string | null;
@@ -416,58 +433,6 @@ schemas: {
         organisationId: string;
         paidAt: string | null;
         status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
-        updatedAt: string;
-      } & {
-        accountId: string;
-        amount: number;
-        applicationFee: number | null;
-        cancelledAt: string | null;
-        capturedAt: string | null;
-        clientSecret: string | null;
-        createdAt: string;
-        currency: string;
-        expiresAt: string | null;
-        externalPaymentId: string | null;
-        failedAt: string | null;
-        failureCode: string | null;
-        failureMessage: string | null;
-        id: string;
-        isPartialPayment: boolean;
-        metadata:   | {
-         [key: string]: unknown;
-         }
-           | null;
-        netAmount: number | null;
-        orderId: string;
-        orderNumber: string;
-        organisationId: string;
-        paymentMethod:   | {
-           brand: string | null;
-           expiryMonth: number | null;
-           expiryYear: number | null;
-           last4: string | null;
-           type: "card" | "bank_transfer" | "cash" | "wallet";
-         }
-           | null;
-        paymentProviderId: string;
-        paymentType:   | "bank_transfer"
-           | "online_card"
-           | "online_bank_transfer"
-           | "online_wallet"
-           | "in_person_card"
-           | "in_person_cash"
-           | "cheque";
-        processingFee: number | null;
-        redirectUrl: string | null;
-        remainingBalance: number | null;
-        status:   | "cancelled"
-           | "pending"
-           | "succeeded"
-           | "failed"
-           | "processing"
-           | "expired"
-           | "requires_action"
-           | "created";
         updatedAt: string;
      };
   };
@@ -762,13 +727,13 @@ schemas: {
            | "in_person_card"
            | "in_person_cash"
           | "cheque")[];
-        type:   | "bank_transfer"
-           | "cash"
-           | "stripe_connect"
+        type:   | "stripe_connect"
            | "stripe_direct"
            | "adyen"
            | "square"
-           | "paypal";
+           | "paypal"
+           | "cash"
+           | "bank_transfer";
         updatedAt: string;
      };
   };
@@ -786,58 +751,6 @@ schemas: {
         organisationId: string;
         paidAt: string | null;
         status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
-        updatedAt: string;
-      } & {
-        accountId: string;
-        amount: number;
-        applicationFee: number | null;
-        cancelledAt: string | null;
-        capturedAt: string | null;
-        clientSecret: string | null;
-        createdAt: string;
-        currency: string;
-        expiresAt: string | null;
-        externalPaymentId: string | null;
-        failedAt: string | null;
-        failureCode: string | null;
-        failureMessage: string | null;
-        id: string;
-        isPartialPayment: boolean;
-        metadata:   | {
-         [key: string]: unknown;
-         }
-           | null;
-        netAmount: number | null;
-        orderId: string;
-        orderNumber: string;
-        organisationId: string;
-        paymentMethod:   | {
-           brand: string | null;
-           expiryMonth: number | null;
-           expiryYear: number | null;
-           last4: string | null;
-           type: "card" | "bank_transfer" | "cash" | "wallet";
-         }
-           | null;
-        paymentProviderId: string;
-        paymentType:   | "bank_transfer"
-           | "online_card"
-           | "online_bank_transfer"
-           | "online_wallet"
-           | "in_person_card"
-           | "in_person_cash"
-           | "cheque";
-        processingFee: number | null;
-        redirectUrl: string | null;
-        remainingBalance: number | null;
-        status:   | "cancelled"
-           | "pending"
-           | "succeeded"
-           | "failed"
-           | "processing"
-           | "expired"
-           | "requires_action"
-           | "created";
         updatedAt: string;
      };
   };
@@ -863,6 +776,15 @@ schemas: {
      };
   };
   CreatePurchaseRequest: {
+     billingAddress?: {
+        city: string;
+        country: string;
+        line1: string;
+        line2?: string;
+        name?: string;
+        postal_code: string;
+        state?: string;
+     };
      currency?: string;
      email?: string;
      packageId: string;
@@ -904,6 +826,34 @@ schemas: {
      organisationId: string;
      permissions: string[];
      updatedAt: string;
+  };
+  CreateSalesOrderPaymentResponse: {
+     payment: {
+        amount: string;
+        connectedAccountId: string | null;
+        currency: string;
+        externalPaymentUrl: string | null;
+        id: string;
+        orderId: string;
+        paymentType: string;
+        providerClientSecret: string | null;
+        providerType: string | null;
+        publishableKey: string | null;
+        status: string;
+     };
+  };
+  CreateSalesRefundRequestResponse: {
+     request: {
+        createdAt: string;
+        id: string;
+        orderId: string;
+        reason: string | null;
+        status: string;
+        type: string;
+     };
+  };
+  CreateSetupIntentResponse: {
+     clientSecret: string;
   };
   CreateSubscriptionRequest: {
      currency?: string;
@@ -1133,8 +1083,14 @@ schemas: {
      id: string;
      success: boolean;
   };
+  DeleteFeeProfileResponse: {
+     deleted: boolean;
+  };
   DeleteInventoryResponse: {
      message: string;
+  };
+  DeletePaymentMethodResponse: {
+     success: boolean;
   };
   DeletePaymentProviderResponse: {
      id: string;
@@ -1148,9 +1104,18 @@ schemas: {
      id: string;
      success: boolean;
   };
+  DeleteSalesChannelListingResponse: {
+     deleted: boolean;
+  };
+  DeleteSalesChannelResponse: {
+     deleted: boolean;
+  };
   DeleteSeatResponse: {
      success: boolean;
      venueLayout?: unknown;
+  };
+  DeleteThemeResponse: {
+     deleted: boolean;
   };
   DeleteUserInvitationResponse: {
      id: string;
@@ -1236,6 +1201,34 @@ schemas: {
   FederateRequest: {
      token: string;
   };
+  FeeProfile: {
+     createdAt: string;
+     deletedAt: string | null;
+     id: string;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     serviceFeeEnabled: boolean;
+     serviceFeeFixed: string | null;
+     serviceFeeLabel: string | null;
+     serviceFeePercent: string | null;
+     updatedAt: string;
+  };
+  FeeProfileResponse: {
+     feeProfile: {
+        createdAt: string;
+        deletedAt: string | null;
+        id: string;
+        isDeleted: boolean;
+        name: string;
+        organisationId: string;
+        serviceFeeEnabled: boolean;
+        serviceFeeFixed: string | null;
+        serviceFeeLabel: string | null;
+        serviceFeePercent: string | null;
+        updatedAt: string;
+     };
+  };
   FeeStructure:   | {
      currency?: string;
      fixed?: number;
@@ -1281,6 +1274,18 @@ schemas: {
         status: "active" | "inactive";
         updatedAt: string;
      };
+  };
+  GetApiVersionsResponse: {
+     current: string;
+     resolved: string;
+     versions: {
+        breakingChanges: string[];
+        date: string;
+        deprecatedAt: string | null;
+        status: "current" | "supported" | "deprecated" | "sunset";
+        summary: string;
+        sunsetAt: string | null;
+     }[];
   };
   GetAuditLogResponse: {
      auditLog: {
@@ -1578,6 +1583,7 @@ schemas: {
   };
   GetOrganisationResponse: {
      organisation: {
+        apiVersion: string;
         createdAt: string;
         id: string;
         logoUrl?: string;
@@ -1641,13 +1647,13 @@ schemas: {
            | "in_person_card"
            | "in_person_cash"
           | "cheque")[];
-        type:   | "bank_transfer"
-           | "cash"
-           | "stripe_connect"
+        type:   | "stripe_connect"
            | "stripe_direct"
            | "adyen"
            | "square"
-           | "paypal";
+           | "paypal"
+           | "cash"
+           | "bank_transfer";
         updatedAt: string;
      };
   };
@@ -1665,58 +1671,6 @@ schemas: {
         organisationId: string;
         paidAt: string | null;
         status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
-        updatedAt: string;
-      } & {
-        accountId: string;
-        amount: number;
-        applicationFee: number | null;
-        cancelledAt: string | null;
-        capturedAt: string | null;
-        clientSecret: string | null;
-        createdAt: string;
-        currency: string;
-        expiresAt: string | null;
-        externalPaymentId: string | null;
-        failedAt: string | null;
-        failureCode: string | null;
-        failureMessage: string | null;
-        id: string;
-        isPartialPayment: boolean;
-        metadata:   | {
-         [key: string]: unknown;
-         }
-           | null;
-        netAmount: number | null;
-        orderId: string;
-        orderNumber: string;
-        organisationId: string;
-        paymentMethod:   | {
-           brand: string | null;
-           expiryMonth: number | null;
-           expiryYear: number | null;
-           last4: string | null;
-           type: "card" | "bank_transfer" | "cash" | "wallet";
-         }
-           | null;
-        paymentProviderId: string;
-        paymentType:   | "bank_transfer"
-           | "online_card"
-           | "online_bank_transfer"
-           | "online_wallet"
-           | "in_person_card"
-           | "in_person_cash"
-           | "cheque";
-        processingFee: number | null;
-        redirectUrl: string | null;
-        remainingBalance: number | null;
-        status:   | "cancelled"
-           | "pending"
-           | "succeeded"
-           | "failed"
-           | "processing"
-           | "expired"
-           | "requires_action"
-           | "created";
         updatedAt: string;
      };
   };
@@ -1788,6 +1742,51 @@ schemas: {
      organisationId: string;
      permissions: string[];
      updatedAt: string;
+  };
+  GetSalesListingsResponse: {
+     channel: {
+        id: string;
+        name: string;
+        slug: string;
+     };
+     listings: {
+        currency: string | null;
+        eventId: string;
+        id: string;
+        imageUrl: string | null;
+        name: string | null;
+        nextOccurrenceAt: string | null;
+        priceFrom: number | null;
+        saleEndsAt: string | null;
+        saleStartsAt: string | null;
+        shortDescription: string | null;
+        subtitle: string | null;
+        venueCity: string | null;
+        venueName: string | null;
+     }[];
+  };
+  GetSalesOrderResponse: {
+     order: {
+        createdAt: string;
+        currency: string;
+        expiresAt: string | null;
+        id: string;
+        items: {
+           description: string | null;
+           name: string;
+           quantity: number;
+           subtotal: string;
+           type: string;
+           unitPrice: string;
+        }[];
+        orderNumber: string;
+        paymentStatus: string;
+        status: string;
+        subtotal: string;
+        total: string;
+        totalFees: string;
+        totalTax: string;
+     };
   };
   GetUserInvitationResponse: {
      invitation: {
@@ -1992,6 +1991,28 @@ schemas: {
      type: "purchase" | "subscription" | "payg";
      updatedAt: string;
   };
+  IssuedSalesChannelKey: {
+     channelId: string;
+     createdAt: string;
+     id: string;
+     keyType: "publishable" | "secret";
+     last4: string;
+     name: string;
+     status: "active" | "revoked" | "compromised";
+  };
+  IssueSalesChannelKeyResponse: {
+     key: {
+        channelId: string;
+        createdAt: string;
+        id: string;
+        keyType: "publishable" | "secret";
+        last4: string;
+        name: string;
+        status: "active" | "revoked" | "compromised";
+     };
+     keyMaterial: string;
+     warning?: string;
+  };
   ListAccountsResponse: {
      accounts: {
         createdAt: string;
@@ -2091,6 +2112,21 @@ schemas: {
         totalPages: number;
      };
   };
+  ListFeeProfilesResponse: {
+     feeProfiles: {
+        createdAt: string;
+        deletedAt: string | null;
+        id: string;
+        isDeleted: boolean;
+        name: string;
+        organisationId: string;
+        serviceFeeEnabled: boolean;
+        serviceFeeFixed: string | null;
+        serviceFeeLabel: string | null;
+        serviceFeePercent: string | null;
+        updatedAt: string;
+     }[];
+  };
   ListIdentityProvidersResponse: {
      providers: {
         allowedClientIds: string[];
@@ -2164,6 +2200,29 @@ schemas: {
         total: string;
         type: "purchase" | "subscription" | "payg";
         updatedAt: string;
+     }[];
+  };
+  ListMySalesOrdersResponse: {
+     orders: {
+        createdAt: string;
+        currency: string;
+        expiresAt: string | null;
+        id: string;
+        items: {
+           description: string | null;
+           name: string;
+           quantity: number;
+           subtotal: string;
+           type: string;
+           unitPrice: string;
+        }[];
+        orderNumber: string;
+        paymentStatus: string;
+        status: string;
+        subtotal: string;
+        total: string;
+        totalFees: string;
+        totalTax: string;
      }[];
   };
   ListOrdersResponse: {
@@ -2251,6 +2310,20 @@ schemas: {
         name: string;
      }[];
   };
+  ListPaymentMethodsResponse: {
+     paymentMethods: {
+        card: {
+           brand: string;
+           expMonth: number;
+           expYear: number;
+           last4: string;
+        };
+        createdAt: string;
+        id: string;
+        isDefault: boolean;
+        type: "card";
+     }[];
+  };
   ListPaymentProvidersResponse: {
      pagination: {
         limit: number;
@@ -2308,13 +2381,13 @@ schemas: {
            | "in_person_card"
            | "in_person_cash"
           | "cheque")[];
-        type:   | "bank_transfer"
-           | "cash"
-           | "stripe_connect"
+        type:   | "stripe_connect"
            | "stripe_direct"
            | "adyen"
            | "square"
-           | "paypal";
+           | "paypal"
+           | "cash"
+           | "bank_transfer";
         updatedAt: string;
      }[];
   };
@@ -2332,6 +2405,24 @@ schemas: {
         organisationId: string;
         paidAt: string | null;
         status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+        updatedAt: string;
+     }[];
+  };
+  ListPresaleCodesResponse: {
+     presaleCodes: {
+        accountId: string;
+        benefit: string;
+        benefitExpiresAt: string | null;
+        channelId: string | null;
+        code: string;
+        createdAt: string;
+        createdBy: string | null;
+        expiresAt: string | null;
+        id: string;
+        isActive: boolean;
+        maxRedemptions: number | null;
+        organisationId: string;
+        redemptionCount: number;
         updatedAt: string;
      }[];
   };
@@ -2409,6 +2500,88 @@ schemas: {
         name: string;
         organisationId: string;
         permissions: string[];
+        updatedAt: string;
+     }[];
+  };
+  ListSalesChannelKeysResponse: {
+     keys: {
+        channelId: string;
+        createdAt: string;
+        id: string;
+        keyType: "publishable" | "secret";
+        last4: string;
+        lastUsedAt: string | null;
+        name: string;
+        publishableKey: string | null;
+        revokedAt: string | null;
+        status: "active" | "revoked" | "compromised";
+     }[];
+  };
+  ListSalesChannelListingsResponse: {
+     listings: {
+        channelId: string;
+        createdAt: string;
+        createdBy: string | null;
+        eventId: string;
+        id: string;
+        isActive: boolean;
+        organisationId: string;
+        saleEndsAt: string | null;
+        saleStartsAt: string | null;
+        updatedAt: string;
+     }[];
+  };
+  ListSalesChannelsResponse: {
+     channels: {
+        accountId: string;
+        channelTags: string[];
+        channelType:   | "website"
+           | "embed"
+           | "box_office"
+           | "kiosk"
+           | "reseller_api"
+           | "internal";
+        checkoutTtlSeconds: number;
+        createdAt: string;
+        customerConfig: {
+           allowGuestCheckout: boolean;
+           collectAddress: boolean;
+           collectPhone: boolean;
+           requireLogin: boolean;
+        };
+        customerFacing: {
+           allowedOrigins: string[];
+           customDomain?: string;
+           enabled: boolean;
+           magicLinkBaseUrl?: string;
+           partnerIdentity?: {
+              algorithm: string;
+              issuer: string;
+              publicKeyPem: string;
+           };
+           subdomain?: string;
+        };
+        deletedAt: string | null;
+        description: string | null;
+        eventFilter: {
+           channelTags?: string[];
+           mode: "all" | "tagged";
+        };
+        feeProfileId: string | null;
+        id: string;
+        isActive: boolean;
+        isDeleted: boolean;
+        name: string;
+        organisationId: string;
+        pricingConfig: {
+           includeFeesInPrice: boolean;
+           showMemberPricing: boolean;
+           showOriginalPrice: boolean;
+        };
+        receivingAccountId: string;
+        reservationTtlSeconds: number;
+        slug: string;
+        themeId: string | null;
         updatedAt: string;
      }[];
   };
@@ -2735,6 +2908,7 @@ schemas: {
      updatedAt: string;
   };
   Organisation: {
+     apiVersion: string;
      createdAt: string;
      id: string;
      logoUrl?: string;
@@ -2769,14 +2943,24 @@ schemas: {
      status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
      updatedAt: string;
   };
-  PaymentMethodDetails:   | {
-     brand: string | null;
-     expiryMonth: number | null;
-     expiryYear: number | null;
-     last4: string | null;
-     type: "card" | "bank_transfer" | "cash" | "wallet";
-   }
-     | null;
+  PaymentMethod: {
+     card: {
+        brand: string;
+        expMonth: number;
+        expYear: number;
+        last4: string;
+     };
+     createdAt: string;
+     id: string;
+     isDefault: boolean;
+     type: "card";
+  };
+  PaymentMethodCard: {
+     brand: string;
+     expMonth: number;
+     expYear: number;
+     last4: string;
+  };
   PaymentProvider: {
      accountId: string | null;
      applicationFee:   | {
@@ -2827,13 +3011,13 @@ schemas: {
         | "in_person_card"
         | "in_person_cash"
        | "cheque")[];
-     type:   | "bank_transfer"
-        | "cash"
-        | "stripe_connect"
+     type:   | "stripe_connect"
         | "stripe_direct"
         | "adyen"
         | "square"
-        | "paypal";
+        | "paypal"
+        | "cash"
+        | "bank_transfer";
      updatedAt: string;
   };
   PaymentProviderCapabilities:   | {
@@ -2847,6 +3031,40 @@ schemas: {
      supportsRefunds?: boolean;
    }
      | null;
+  PresaleCode: {
+     accountId: string;
+     benefit: string;
+     benefitExpiresAt: string | null;
+     channelId: string | null;
+     code: string;
+     createdAt: string;
+     createdBy: string | null;
+     expiresAt: string | null;
+     id: string;
+     isActive: boolean;
+     maxRedemptions: number | null;
+     organisationId: string;
+     redemptionCount: number;
+     updatedAt: string;
+  };
+  PresaleCodeResponse: {
+     presaleCode: {
+        accountId: string;
+        benefit: string;
+        benefitExpiresAt: string | null;
+        channelId: string | null;
+        code: string;
+        createdAt: string;
+        createdBy: string | null;
+        expiresAt: string | null;
+        id: string;
+        isActive: boolean;
+        maxRedemptions: number | null;
+        organisationId: string;
+        redemptionCount: number;
+        updatedAt: string;
+     };
+  };
   PriceScheme: {
      accountId: string;
      createdAt: string;
@@ -2935,6 +3153,10 @@ schemas: {
         id: string;
         lastName?: string;
      };
+  };
+  RedeemSalesPresaleCodeResponse: {
+     alreadyHeld: boolean;
+     benefit: string;
   };
   RefreshTokenRequest: {
      refreshToken: string;
@@ -3071,6 +3293,135 @@ schemas: {
         updatedAt: string;
      };
   };
+  ResolvedTheme: {
+     brand: {
+        displayName?: string;
+        faviconUrl?: string;
+        logoDarkUrl?: string;
+        logoUrl?: string;
+     };
+     colors: {
+        accent?: string;
+        accentForeground?: string;
+        background?: string;
+        border?: string;
+        destructive?: string;
+        destructiveForeground?: string;
+        foreground?: string;
+        input?: string;
+        muted?: string;
+        mutedForeground?: string;
+        primary?: string;
+        primaryForeground?: string;
+        ring?: string;
+        secondary?: string;
+        secondaryForeground?: string;
+        success?: string;
+        successForeground?: string;
+        warning?: string;
+        warningForeground?: string;
+     };
+     description: string | null;
+     design:   | {
+        cinemaGradient?: {
+           position: "bottom" | "center";
+           strength: 20 | 50 | 70;
+        };
+        heroLayout?: {
+           size: "small" | "medium" | "large";
+           type: "hero" | "cinema";
+        };
+      }
+        | null;
+     extendsThemeId: string | null;
+     id: string;
+     isActive: boolean;
+     isBaseTheme: boolean;
+     name: string;
+     organisationId: string;
+     shape: {
+        radiusFull?: string;
+        radiusLg?: string;
+        radiusMd?: string;
+        radiusNone?: string;
+        radiusSm?: string;
+     };
+     typography: {
+        baseSize?: string;
+        fontFamily?: string;
+        fontFamilyMono?: string;
+        scaleRatio?: number;
+     };
+  };
+  ResolvedThemeResponse: {
+     theme: {
+        brand: {
+           displayName?: string;
+           faviconUrl?: string;
+           logoDarkUrl?: string;
+           logoUrl?: string;
+        };
+        colors: {
+           accent?: string;
+           accentForeground?: string;
+           background?: string;
+           border?: string;
+           destructive?: string;
+           destructiveForeground?: string;
+           foreground?: string;
+           input?: string;
+           muted?: string;
+           mutedForeground?: string;
+           primary?: string;
+           primaryForeground?: string;
+           ring?: string;
+           secondary?: string;
+           secondaryForeground?: string;
+           success?: string;
+           successForeground?: string;
+           warning?: string;
+           warningForeground?: string;
+        };
+        description: string | null;
+        design:   | {
+           cinemaGradient?: {
+              position: "bottom" | "center";
+              strength: 20 | 50 | 70;
+           };
+           heroLayout?: {
+              size: "small" | "medium" | "large";
+              type: "hero" | "cinema";
+           };
+         }
+           | null;
+        extendsThemeId: string | null;
+        id: string;
+        isActive: boolean;
+        isBaseTheme: boolean;
+        name: string;
+        organisationId: string;
+        shape: {
+           radiusFull?: string;
+           radiusLg?: string;
+           radiusMd?: string;
+           radiusNone?: string;
+           radiusSm?: string;
+        };
+        typography: {
+           baseSize?: string;
+           fontFamily?: string;
+           fontFamilyMono?: string;
+           scaleRatio?: number;
+        };
+     };
+  };
+  RevokeSalesChannelKeyResponse: {
+     key: {
+        id: string;
+        revokedAt: string | null;
+        status: "active" | "revoked" | "compromised";
+     };
+  };
   Role: {
      createdAt: string;
      description: string | null;
@@ -3081,6 +3432,624 @@ schemas: {
      organisationId: string;
      permissions: string[];
      updatedAt: string;
+  };
+  SalesCart: {
+     currency: string | null;
+     expiresAt: string;
+     id: string;
+     items: {
+        categoryName: string;
+        currency: string;
+        eventName: string;
+        eventOccurrenceId: string;
+        id: string;
+        quantity: number;
+        subtotal: number;
+        ticketTypeName: string;
+        unitPrice: number;
+     }[];
+     itemsSubtotal: number;
+     orderId: string | null;
+     status: string;
+  };
+  SalesCartItem: {
+     categoryName: string;
+     currency: string;
+     eventName: string;
+     eventOccurrenceId: string;
+     id: string;
+     quantity: number;
+     subtotal: number;
+     ticketTypeName: string;
+     unitPrice: number;
+  };
+  SalesCartResponse: {
+     cart: {
+        currency: string | null;
+        expiresAt: string;
+        id: string;
+        items: {
+           categoryName: string;
+           currency: string;
+           eventName: string;
+           eventOccurrenceId: string;
+           id: string;
+           quantity: number;
+           subtotal: number;
+           ticketTypeName: string;
+           unitPrice: number;
+        }[];
+        itemsSubtotal: number;
+        orderId: string | null;
+        status: string;
+     };
+  };
+  SalesChannel: {
+     accountId: string;
+     channelTags: string[];
+     channelType:   | "website"
+        | "embed"
+        | "box_office"
+        | "kiosk"
+        | "reseller_api"
+        | "internal";
+     checkoutTtlSeconds: number;
+     createdAt: string;
+     customerConfig: {
+        allowGuestCheckout: boolean;
+        collectAddress: boolean;
+        collectPhone: boolean;
+        requireLogin: boolean;
+     };
+     customerFacing: {
+        allowedOrigins: string[];
+        customDomain?: string;
+        enabled: boolean;
+        magicLinkBaseUrl?: string;
+        partnerIdentity?: {
+           algorithm: string;
+           issuer: string;
+           publicKeyPem: string;
+        };
+        subdomain?: string;
+     };
+     deletedAt: string | null;
+     description: string | null;
+     eventFilter: {
+        channelTags?: string[];
+        mode: "all" | "tagged";
+     };
+     feeProfileId: string | null;
+     id: string;
+     isActive: boolean;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     pricingConfig: {
+        includeFeesInPrice: boolean;
+        showMemberPricing: boolean;
+        showOriginalPrice: boolean;
+     };
+     receivingAccountId: string;
+     reservationTtlSeconds: number;
+     slug: string;
+     themeId: string | null;
+     updatedAt: string;
+  };
+  SalesChannelKey: {
+     channelId: string;
+     createdAt: string;
+     id: string;
+     keyType: "publishable" | "secret";
+     last4: string;
+     lastUsedAt: string | null;
+     name: string;
+     publishableKey: string | null;
+     revokedAt: string | null;
+     status: "active" | "revoked" | "compromised";
+  };
+  SalesChannelListing: {
+     channelId: string;
+     createdAt: string;
+     createdBy: string | null;
+     eventId: string;
+     id: string;
+     isActive: boolean;
+     organisationId: string;
+     saleEndsAt: string | null;
+     saleStartsAt: string | null;
+     updatedAt: string;
+  };
+  SalesChannelListingResponse: {
+     listing: {
+        channelId: string;
+        createdAt: string;
+        createdBy: string | null;
+        eventId: string;
+        id: string;
+        isActive: boolean;
+        organisationId: string;
+        saleEndsAt: string | null;
+        saleStartsAt: string | null;
+        updatedAt: string;
+     };
+  };
+  SalesChannelResponse: {
+     channel: {
+        accountId: string;
+        channelTags: string[];
+        channelType:   | "website"
+           | "embed"
+           | "box_office"
+           | "kiosk"
+           | "reseller_api"
+           | "internal";
+        checkoutTtlSeconds: number;
+        createdAt: string;
+        customerConfig: {
+           allowGuestCheckout: boolean;
+           collectAddress: boolean;
+           collectPhone: boolean;
+           requireLogin: boolean;
+        };
+        customerFacing: {
+           allowedOrigins: string[];
+           customDomain?: string;
+           enabled: boolean;
+           magicLinkBaseUrl?: string;
+           partnerIdentity?: {
+              algorithm: string;
+              issuer: string;
+              publicKeyPem: string;
+           };
+           subdomain?: string;
+        };
+        deletedAt: string | null;
+        description: string | null;
+        eventFilter: {
+           channelTags?: string[];
+           mode: "all" | "tagged";
+        };
+        feeProfileId: string | null;
+        id: string;
+        isActive: boolean;
+        isDeleted: boolean;
+        name: string;
+        organisationId: string;
+        pricingConfig: {
+           includeFeesInPrice: boolean;
+           showMemberPricing: boolean;
+           showOriginalPrice: boolean;
+        };
+        receivingAccountId: string;
+        reservationTtlSeconds: number;
+        slug: string;
+        themeId: string | null;
+        updatedAt: string;
+     };
+  };
+  SalesChannelSummary: {
+     id: string;
+     name: string;
+     slug: string;
+  };
+  SalesCheckoutResponse: {
+     cart: {
+        currency: string | null;
+        expiresAt: string;
+        id: string;
+        items: {
+           categoryName: string;
+           currency: string;
+           eventName: string;
+           eventOccurrenceId: string;
+           id: string;
+           quantity: number;
+           subtotal: number;
+           ticketTypeName: string;
+           unitPrice: number;
+        }[];
+        itemsSubtotal: number;
+        orderId: string | null;
+        status: string;
+     };
+     order: {
+        createdAt: string;
+        currency: string;
+        expiresAt: string | null;
+        id: string;
+        items: {
+           description: string | null;
+           name: string;
+           quantity: number;
+           subtotal: string;
+           type: string;
+           unitPrice: string;
+        }[];
+        orderNumber: string;
+        paymentStatus: string;
+        status: string;
+        subtotal: string;
+        total: string;
+        totalFees: string;
+        totalTax: string;
+     };
+     orderAccessToken: string;
+  };
+  SalesCustomer: {
+     email: string;
+     firstName: string | null;
+     id: string;
+     lastName: string | null;
+  };
+  SalesCustomerResponse: {
+     customer: {
+        email: string;
+        firstName: string | null;
+        id: string;
+        lastName: string | null;
+     };
+  };
+  SalesCustomerTokenResponse: {
+     customer: {
+        email: string;
+        firstName: string | null;
+        id: string;
+        lastName: string | null;
+     };
+     customerToken: string;
+     expiresIn: number;
+  };
+  SalesEventDetailResponse: {
+     event: {
+        currency: string | null;
+        description: string | null;
+        heroImageUrl: string | null;
+        id: string;
+        imageUrl: string | null;
+        name: string;
+        occurrences: {
+           endDate: string;
+           endsAt: string | null;
+           endTime: string;
+           id: string;
+           startDate: string;
+           startsAt: string | null;
+           startTime: string;
+           status: string;
+           ticketTypes: {
+              categoryId: string;
+              categoryName: string;
+              currency: string;
+              description: string | null;
+              ticketTypeId: string;
+              ticketTypeName: string;
+              unitPrice: number;
+           }[];
+           timezone: string;
+        }[];
+        presentation:   | {
+           buttonSize?: "small" | "medium" | "large";
+           cinemaGradient?: {
+              position: "bottom" | "center";
+              strength: 20 | 50 | 70;
+           };
+           heroLayout?: {
+              size: "small" | "medium" | "large";
+              type: "hero" | "cinema";
+           };
+           navbar?: {
+              transparent?: boolean;
+           };
+           twoColumnSplit?: [number, number];
+         }
+           | null;
+        priceFrom: number | null;
+        shortDescription: string | null;
+        status: string;
+        subtitle: string | null;
+        timezone: string;
+        venueCity: string | null;
+        venueId: string | null;
+        venueName: string | null;
+     };
+  };
+  SalesListing: {
+     currency: string | null;
+     eventId: string;
+     id: string;
+     imageUrl: string | null;
+     name: string | null;
+     nextOccurrenceAt: string | null;
+     priceFrom: number | null;
+     saleEndsAt: string | null;
+     saleStartsAt: string | null;
+     shortDescription: string | null;
+     subtitle: string | null;
+     venueCity: string | null;
+     venueName: string | null;
+  };
+  SalesMagicLinkResponse: {
+     sent: boolean;
+  };
+  SalesOrder: {
+     createdAt: string;
+     currency: string;
+     expiresAt: string | null;
+     id: string;
+     items: {
+        description: string | null;
+        name: string;
+        quantity: number;
+        subtotal: string;
+        type: string;
+        unitPrice: string;
+     }[];
+     orderNumber: string;
+     paymentStatus: string;
+     status: string;
+     subtotal: string;
+     total: string;
+     totalFees: string;
+     totalTax: string;
+  };
+  SalesOrderItem: {
+     description: string | null;
+     name: string;
+     quantity: number;
+     subtotal: string;
+     type: string;
+     unitPrice: string;
+  };
+  SalesPayment: {
+     amount: string;
+     connectedAccountId: string | null;
+     currency: string;
+     externalPaymentUrl: string | null;
+     id: string;
+     orderId: string;
+     paymentType: string;
+     providerClientSecret: string | null;
+     providerType: string | null;
+     publishableKey: string | null;
+     status: string;
+  };
+  SalesRefundRequest: {
+     createdAt: string;
+     id: string;
+     orderId: string;
+     reason: string | null;
+     status: string;
+     type: string;
+  };
+  SalesResolveChannelResponse: {
+     channel: {
+        id: string;
+        name: string;
+        slug: string;
+     };
+     publishableKey: string | null;
+  };
+  SalesThemeResponse: {
+     theme: {
+        brand: {
+         [key: string]: unknown;
+        };
+        colors: {
+         [key: string]: unknown;
+        };
+        design?:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        id: string;
+        name: string;
+        shape: {
+         [key: string]: unknown;
+        };
+        typography: {
+         [key: string]: unknown;
+        };
+     };
+  };
+  SavePaymentMethodRequest: {
+     paymentMethodId: string;
+     setAsDefault?: boolean;
+  };
+  SavePaymentMethodResponse: {
+     paymentMethod: {
+        card: {
+           brand: string;
+           expMonth: number;
+           expYear: number;
+           last4: string;
+        };
+        createdAt: string;
+        id: string;
+        isDefault: boolean;
+        type: "card";
+     };
+  };
+  SetDefaultPaymentMethodResponse: {
+     paymentMethod: {
+        card: {
+           brand: string;
+           expMonth: number;
+           expYear: number;
+           last4: string;
+        };
+        createdAt: string;
+        id: string;
+        isDefault: boolean;
+        type: "card";
+     };
+  };
+  StaffCart: {
+     accountId: string;
+     channelId: string;
+     createdAt: string;
+     currency: string | null;
+     customerId: string | null;
+     expiresAt: string;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderId: string | null;
+     organisationId: string;
+     status: "active" | "expired" | "checked_out" | "abandoned";
+     updatedAt: string;
+  };
+  StaffCartItem: {
+     cartId: string;
+     categoryId: string;
+     createdAt: string;
+     eventLayoutAreaId: string | null;
+     eventLayoutSeatId: string | null;
+     eventOccurrenceId: string;
+     id: string;
+     notes: string | null;
+     organisationId: string;
+     priceSnapshot: {
+        categoryName: string;
+        currency: string;
+        eventId: string;
+        eventName: string;
+        priceSchemeId: string;
+        ticketTypeName: string;
+        unitPrice: number;
+     };
+     quantity: number;
+     reservationId: string;
+     ticketTypeId: string;
+  };
+  StaffCartResponse: {
+     cart: {
+        accountId: string;
+        channelId: string;
+        createdAt: string;
+        currency: string | null;
+        customerId: string | null;
+        expiresAt: string;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderId: string | null;
+        organisationId: string;
+        status: "active" | "expired" | "checked_out" | "abandoned";
+        updatedAt: string;
+     };
+     items: {
+        cartId: string;
+        categoryId: string;
+        createdAt: string;
+        eventLayoutAreaId: string | null;
+        eventLayoutSeatId: string | null;
+        eventOccurrenceId: string;
+        id: string;
+        notes: string | null;
+        organisationId: string;
+        priceSnapshot: {
+           categoryName: string;
+           currency: string;
+           eventId: string;
+           eventName: string;
+           priceSchemeId: string;
+           ticketTypeName: string;
+           unitPrice: number;
+        };
+        quantity: number;
+        reservationId: string;
+        ticketTypeId: string;
+     }[];
+  };
+  StaffCheckoutResponse: {
+     cart: {
+        accountId: string;
+        channelId: string;
+        createdAt: string;
+        currency: string | null;
+        customerId: string | null;
+        expiresAt: string;
+        id: string;
+        metadata:   | {
+         [key: string]: unknown;
+         }
+           | null;
+        orderId: string | null;
+        organisationId: string;
+        status: "active" | "expired" | "checked_out" | "abandoned";
+        updatedAt: string;
+     };
+     order: {
+        accountId: string;
+        createdAt: string;
+        currency: string;
+        customerId: string | null;
+        expiresAt: string | null;
+        id: string;
+        items: {
+           description: string | null;
+           id: string;
+           name: string;
+           orderId: string;
+           quantity: number;
+           subtotal: string;
+           type: string;
+           unitPrice: string;
+        }[];
+        orderNumber: string;
+        organisationId: string;
+        paymentStatus: string;
+        status: string;
+        subtotal: string;
+        total: string;
+        totalFees: string;
+        totalPaid: string;
+        totalTax: string;
+        updatedAt: string;
+     };
+  };
+  StaffSalesOrder: {
+     accountId: string;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     expiresAt: string | null;
+     id: string;
+     items: {
+        description: string | null;
+        id: string;
+        name: string;
+        orderId: string;
+        quantity: number;
+        subtotal: string;
+        type: string;
+        unitPrice: string;
+     }[];
+     orderNumber: string;
+     organisationId: string;
+     paymentStatus: string;
+     status: string;
+     subtotal: string;
+     total: string;
+     totalFees: string;
+     totalPaid: string;
+     totalTax: string;
+     updatedAt: string;
+  };
+  StaffSalesOrderLineItem: {
+     description: string | null;
+     id: string;
+     name: string;
+     orderId: string;
+     quantity: number;
+     subtotal: string;
+     type: string;
+     unitPrice: string;
   };
   Subscription: {
      cancelledAt: string | null;
@@ -3125,6 +4094,259 @@ schemas: {
      }[];
      seatsSynced: number;
      venueLayout?: unknown;
+  };
+  Theme: {
+     brand: {
+        displayName?: string;
+        faviconUrl?: string;
+        logoDarkUrl?: string;
+        logoUrl?: string;
+     };
+     colors: {
+        accent?: string;
+        accentForeground?: string;
+        background?: string;
+        border?: string;
+        destructive?: string;
+        destructiveForeground?: string;
+        foreground?: string;
+        input?: string;
+        muted?: string;
+        mutedForeground?: string;
+        primary?: string;
+        primaryForeground?: string;
+        ring?: string;
+        secondary?: string;
+        secondaryForeground?: string;
+        success?: string;
+        successForeground?: string;
+        warning?: string;
+        warningForeground?: string;
+     };
+     createdAt: string;
+     description: string | null;
+     design:   | {
+        cinemaGradient?: {
+           position: "bottom" | "center";
+           strength: 20 | 50 | 70;
+        };
+        heroLayout?: {
+           size: "small" | "medium" | "large";
+           type: "hero" | "cinema";
+        };
+      }
+        | null;
+     extendsThemeId: string | null;
+     id: string;
+     isActive: boolean;
+     isBaseTheme: boolean;
+     name: string;
+     organisationId: string;
+     shape: {
+        radiusFull?: string;
+        radiusLg?: string;
+        radiusMd?: string;
+        radiusNone?: string;
+        radiusSm?: string;
+     };
+     typography: {
+        baseSize?: string;
+        fontFamily?: string;
+        fontFamilyMono?: string;
+        scaleRatio?: number;
+     };
+     updatedAt: string;
+  };
+  ThemeBrandInput: {
+     displayName?: string;
+     faviconUrl?: string;
+     logoDarkUrl?: string;
+     logoUrl?: string;
+  };
+  ThemeColorsInput: {
+     accent?: string;
+     accentForeground?: string;
+     background?: string;
+     border?: string;
+     destructive?: string;
+     destructiveForeground?: string;
+     foreground?: string;
+     input?: string;
+     muted?: string;
+     mutedForeground?: string;
+     primary?: string;
+     primaryForeground?: string;
+     ring?: string;
+     secondary?: string;
+     secondaryForeground?: string;
+     success?: string;
+     successForeground?: string;
+     warning?: string;
+     warningForeground?: string;
+  };
+  ThemeDesign:   | {
+     cinemaGradient?: {
+        position: "bottom" | "center";
+        strength: 20 | 50 | 70;
+     };
+     heroLayout?: {
+        size: "small" | "medium" | "large";
+        type: "hero" | "cinema";
+     };
+   }
+     | null;
+  ThemeDesignInput: {
+     cinemaGradient?: {
+        position: "bottom" | "center";
+        strength: 20 | 50 | 70;
+     };
+     heroLayout?: {
+        size: "small" | "medium" | "large";
+        type: "hero" | "cinema";
+     };
+   } & {
+   [key: string]: unknown;
+  };
+  ThemeListResponse: {
+     themes: {
+        brand: {
+           displayName?: string;
+           faviconUrl?: string;
+           logoDarkUrl?: string;
+           logoUrl?: string;
+        };
+        colors: {
+           accent?: string;
+           accentForeground?: string;
+           background?: string;
+           border?: string;
+           destructive?: string;
+           destructiveForeground?: string;
+           foreground?: string;
+           input?: string;
+           muted?: string;
+           mutedForeground?: string;
+           primary?: string;
+           primaryForeground?: string;
+           ring?: string;
+           secondary?: string;
+           secondaryForeground?: string;
+           success?: string;
+           successForeground?: string;
+           warning?: string;
+           warningForeground?: string;
+        };
+        createdAt: string;
+        description: string | null;
+        design:   | {
+           cinemaGradient?: {
+              position: "bottom" | "center";
+              strength: 20 | 50 | 70;
+           };
+           heroLayout?: {
+              size: "small" | "medium" | "large";
+              type: "hero" | "cinema";
+           };
+         }
+           | null;
+        extendsThemeId: string | null;
+        id: string;
+        isActive: boolean;
+        isBaseTheme: boolean;
+        name: string;
+        organisationId: string;
+        shape: {
+           radiusFull?: string;
+           radiusLg?: string;
+           radiusMd?: string;
+           radiusNone?: string;
+           radiusSm?: string;
+        };
+        typography: {
+           baseSize?: string;
+           fontFamily?: string;
+           fontFamilyMono?: string;
+           scaleRatio?: number;
+        };
+        updatedAt: string;
+     }[];
+  };
+  ThemeResponse: {
+     theme: {
+        brand: {
+           displayName?: string;
+           faviconUrl?: string;
+           logoDarkUrl?: string;
+           logoUrl?: string;
+        };
+        colors: {
+           accent?: string;
+           accentForeground?: string;
+           background?: string;
+           border?: string;
+           destructive?: string;
+           destructiveForeground?: string;
+           foreground?: string;
+           input?: string;
+           muted?: string;
+           mutedForeground?: string;
+           primary?: string;
+           primaryForeground?: string;
+           ring?: string;
+           secondary?: string;
+           secondaryForeground?: string;
+           success?: string;
+           successForeground?: string;
+           warning?: string;
+           warningForeground?: string;
+        };
+        createdAt: string;
+        description: string | null;
+        design:   | {
+           cinemaGradient?: {
+              position: "bottom" | "center";
+              strength: 20 | 50 | 70;
+           };
+           heroLayout?: {
+              size: "small" | "medium" | "large";
+              type: "hero" | "cinema";
+           };
+         }
+           | null;
+        extendsThemeId: string | null;
+        id: string;
+        isActive: boolean;
+        isBaseTheme: boolean;
+        name: string;
+        organisationId: string;
+        shape: {
+           radiusFull?: string;
+           radiusLg?: string;
+           radiusMd?: string;
+           radiusNone?: string;
+           radiusSm?: string;
+        };
+        typography: {
+           baseSize?: string;
+           fontFamily?: string;
+           fontFamilyMono?: string;
+           scaleRatio?: number;
+        };
+        updatedAt: string;
+     };
+  };
+  ThemeShapeInput: {
+     radiusFull?: string;
+     radiusLg?: string;
+     radiusMd?: string;
+     radiusNone?: string;
+     radiusSm?: string;
+  };
+  ThemeTypographyInput: {
+     baseSize?: string;
+     fontFamily?: string;
+     fontFamilyMono?: string;
+     scaleRatio?: number;
   };
   TicketPrice: {
      categoryId: string;
@@ -3250,7 +4472,7 @@ schemas: {
      topupPackageId: string;
   };
   UpdateAutoTopupResponse: {
-     autoTopup: {
+     autoTopup:   | {
         attemptsToday: number;
         createdAt: string;
         enabled: boolean;
@@ -3261,7 +4483,8 @@ schemas: {
         thresholdCredits: number;
         topupPackageId: string;
         updatedAt: string;
-     } & Record<string, never>;
+      }
+        | null;
   };
   UpdateCategoryResponse: {
      category: {
@@ -3565,6 +4788,7 @@ schemas: {
      };
   };
   UpdateOrganisationRequest: {
+     apiVersion?: string;
      logoUrl?: string;
      metadata?: {
       [key: string]: unknown;
@@ -3575,6 +4799,7 @@ schemas: {
   };
   UpdateOrganisationResponse: {
      organisation: {
+        apiVersion: string;
         createdAt: string;
         id: string;
         logoUrl?: string;
@@ -3638,13 +4863,13 @@ schemas: {
            | "in_person_card"
            | "in_person_cash"
           | "cheque")[];
-        type:   | "bank_transfer"
-           | "cash"
-           | "stripe_connect"
+        type:   | "stripe_connect"
            | "stripe_direct"
            | "adyen"
            | "square"
-           | "paypal";
+           | "paypal"
+           | "cash"
+           | "bank_transfer";
         updatedAt: string;
      };
   };
@@ -3964,7 +5189,7 @@ schemas: {
 };
 ```
 
-Defined in: generated/types.ts:1930
+Defined in: generated/types.ts:2826
 
 #### Account
 
@@ -5247,6 +6472,94 @@ available
 optional venueLayout: unknown;
 ```
 
+#### ApiVersion
+
+```ts
+ApiVersion: {
+  breakingChanges: string[];
+  date: string;
+  deprecatedAt: string | null;
+  status: "current" | "supported" | "deprecated" | "sunset";
+  summary: string;
+  sunsetAt: string | null;
+};
+```
+
+##### ApiVersion.breakingChanges
+
+```ts
+breakingChanges: string[];
+```
+
+###### Description
+
+Breaking changes this version introduced vs the previous version
+
+##### ApiVersion.date
+
+```ts
+date: string;
+```
+
+###### Description
+
+Dated version identifier (YYYY-MM-DD)
+
+###### Example
+
+```ts
+2026-06-13
+```
+
+##### ApiVersion.deprecatedAt
+
+```ts
+deprecatedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### ApiVersion.status
+
+```ts
+status: "current" | "supported" | "deprecated" | "sunset";
+```
+
+###### Example
+
+```ts
+current
+@enum {string}
+```
+
+##### ApiVersion.summary
+
+```ts
+summary: string;
+```
+
+###### Example
+
+```ts
+Baseline dated version.
+```
+
+##### ApiVersion.sunsetAt
+
+```ts
+sunsetAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
 #### ApplicationFee
 
 ```ts
@@ -5731,6 +7044,62 @@ AutoTopupConfig:
 ```
 
 `null`
+
+#### BillingAddress
+
+```ts
+BillingAddress: {
+  city: string;
+  country: string;
+  line1: string;
+  line2?: string;
+  name?: string;
+  postal_code: string;
+  state?: string;
+};
+```
+
+##### BillingAddress.city
+
+```ts
+city: string;
+```
+
+##### BillingAddress.country
+
+```ts
+country: string;
+```
+
+##### BillingAddress.line1
+
+```ts
+line1: string;
+```
+
+##### BillingAddress.line2?
+
+```ts
+optional line2: string;
+```
+
+##### BillingAddress.name?
+
+```ts
+optional name: string;
+```
+
+##### BillingAddress.postal\_code
+
+```ts
+postal_code: string;
+```
+
+##### BillingAddress.state?
+
+```ts
+optional state: string;
+```
 
 #### BlockCustomerResponse
 
@@ -6548,58 +7917,6 @@ CancelPaymentResponse: {
      paidAt: string | null;
      status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
      updatedAt: string;
-   } & {
-     accountId: string;
-     amount: number;
-     applicationFee: number | null;
-     cancelledAt: string | null;
-     capturedAt: string | null;
-     clientSecret: string | null;
-     createdAt: string;
-     currency: string;
-     expiresAt: string | null;
-     externalPaymentId: string | null;
-     failedAt: string | null;
-     failureCode: string | null;
-     failureMessage: string | null;
-     id: string;
-     isPartialPayment: boolean;
-     metadata:   | {
-      [key: string]: unknown;
-      }
-        | null;
-     netAmount: number | null;
-     orderId: string;
-     orderNumber: string;
-     organisationId: string;
-     paymentMethod:   | {
-        brand: string | null;
-        expiryMonth: number | null;
-        expiryYear: number | null;
-        last4: string | null;
-        type: "card" | "bank_transfer" | "cash" | "wallet";
-      }
-        | null;
-     paymentProviderId: string;
-     paymentType:   | "bank_transfer"
-        | "online_card"
-        | "online_bank_transfer"
-        | "online_wallet"
-        | "in_person_card"
-        | "in_person_cash"
-        | "cheque";
-     processingFee: number | null;
-     redirectUrl: string | null;
-     remainingBalance: number | null;
-     status:   | "cancelled"
-        | "pending"
-        | "succeeded"
-        | "failed"
-        | "processing"
-        | "expired"
-        | "requires_action"
-        | "created";
-     updatedAt: string;
   };
 };
 ```
@@ -6621,64 +7938,10 @@ payment: {
   paidAt: string | null;
   status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
   updatedAt: string;
-} & {
-  accountId: string;
-  amount: number;
-  applicationFee: number | null;
-  cancelledAt: string | null;
-  capturedAt: string | null;
-  clientSecret: string | null;
-  createdAt: string;
-  currency: string;
-  expiresAt: string | null;
-  externalPaymentId: string | null;
-  failedAt: string | null;
-  failureCode: string | null;
-  failureMessage: string | null;
-  id: string;
-  isPartialPayment: boolean;
-  metadata:   | {
-   [key: string]: unknown;
-   }
-     | null;
-  netAmount: number | null;
-  orderId: string;
-  orderNumber: string;
-  organisationId: string;
-  paymentMethod:   | {
-     brand: string | null;
-     expiryMonth: number | null;
-     expiryYear: number | null;
-     last4: string | null;
-     type: "card" | "bank_transfer" | "cash" | "wallet";
-   }
-     | null;
-  paymentProviderId: string;
-  paymentType:   | "bank_transfer"
-     | "online_card"
-     | "online_bank_transfer"
-     | "online_wallet"
-     | "in_person_card"
-     | "in_person_cash"
-     | "cheque";
-  processingFee: number | null;
-  redirectUrl: string | null;
-  remainingBalance: number | null;
-  status:   | "cancelled"
-     | "pending"
-     | "succeeded"
-     | "failed"
-     | "processing"
-     | "expired"
-     | "requires_action"
-     | "created";
-  updatedAt: string;
 };
 ```
 
-###### Type Declaration
-
-###### amount
+##### CancelPaymentResponse.payment.amount
 
 ```ts
 amount: string;
@@ -6690,7 +7953,7 @@ amount: string;
 25.00
 ```
 
-###### createdAt
+##### CancelPaymentResponse.payment.createdAt
 
 ```ts
 createdAt: string;
@@ -6702,7 +7965,7 @@ createdAt: string;
 2024-01-15T10:30:00Z
 ```
 
-###### currency
+##### CancelPaymentResponse.payment.currency
 
 ```ts
 currency: string;
@@ -6714,7 +7977,7 @@ currency: string;
 USD
 ```
 
-###### failedAt
+##### CancelPaymentResponse.payment.failedAt
 
 ```ts
 failedAt: string | null;
@@ -6726,7 +7989,7 @@ failedAt: string | null;
 null
 ```
 
-###### failureCode
+##### CancelPaymentResponse.payment.failureCode
 
 ```ts
 failureCode: string | null;
@@ -6738,7 +8001,7 @@ failureCode: string | null;
 null
 ```
 
-###### failureMessage
+##### CancelPaymentResponse.payment.failureMessage
 
 ```ts
 failureMessage: string | null;
@@ -6750,7 +8013,7 @@ failureMessage: string | null;
 null
 ```
 
-###### id
+##### CancelPaymentResponse.payment.id
 
 ```ts
 id: string;
@@ -6762,7 +8025,7 @@ id: string;
 pay_abc123
 ```
 
-###### invoiceId
+##### CancelPaymentResponse.payment.invoiceId
 
 ```ts
 invoiceId: string | null;
@@ -6774,7 +8037,7 @@ invoiceId: string | null;
 inv_abc123
 ```
 
-###### method
+##### CancelPaymentResponse.payment.method
 
 ```ts
 method: string | null;
@@ -6786,7 +8049,7 @@ method: string | null;
 card
 ```
 
-###### organisationId
+##### CancelPaymentResponse.payment.organisationId
 
 ```ts
 organisationId: string;
@@ -6798,7 +8061,7 @@ organisationId: string;
 org_abc123
 ```
 
-###### paidAt
+##### CancelPaymentResponse.payment.paidAt
 
 ```ts
 paidAt: string | null;
@@ -6810,7 +8073,7 @@ paidAt: string | null;
 2024-01-15T10:35:00Z
 ```
 
-###### status
+##### CancelPaymentResponse.payment.status
 
 ```ts
 status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
@@ -6823,7 +8086,7 @@ succeeded
 @enum {string}
 ```
 
-###### updatedAt
+##### CancelPaymentResponse.payment.updatedAt
 
 ```ts
 updatedAt: string;
@@ -6833,383 +8096,6 @@ updatedAt: string;
 
 ```ts
 2024-01-15T10:35:00Z
-```
-
-###### Type Declaration
-
-###### accountId
-
-```ts
-accountId: string;
-```
-
-###### Example
-
-```ts
-acc_xyz789
-```
-
-###### amount
-
-```ts
-amount: number;
-```
-
-###### Example
-
-```ts
-97
-```
-
-###### applicationFee
-
-```ts
-applicationFee: number | null;
-```
-
-###### Example
-
-```ts
-2
-```
-
-###### cancelledAt
-
-```ts
-cancelledAt: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### capturedAt
-
-```ts
-capturedAt: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### clientSecret
-
-```ts
-clientSecret: string | null;
-```
-
-###### Example
-
-```ts
-pi_xxx_secret_yyy
-```
-
-###### createdAt
-
-```ts
-createdAt: string;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:30:00Z
-```
-
-###### currency
-
-```ts
-currency: string;
-```
-
-###### Example
-
-```ts
-GBP
-```
-
-###### expiresAt
-
-```ts
-expiresAt: string | null;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:45:00Z
-```
-
-###### externalPaymentId
-
-```ts
-externalPaymentId: string | null;
-```
-
-###### Example
-
-```ts
-pi_1234567890abcdef
-```
-
-###### failedAt
-
-```ts
-failedAt: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### failureCode
-
-```ts
-failureCode: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### failureMessage
-
-```ts
-failureMessage: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### id
-
-```ts
-id: string;
-```
-
-###### Example
-
-```ts
-pay_abc123xyz789
-```
-
-###### isPartialPayment
-
-```ts
-isPartialPayment: boolean;
-```
-
-###### Example
-
-```ts
-false
-```
-
-###### metadata
-
-```ts
-metadata: 
-  | {
-[key: string]: unknown;
-}
-  | null;
-```
-
-###### Example
-
-```ts
-{
-                 *       "customerEmail": "customer@example.com"
-                 *     }
-```
-
-###### netAmount
-
-```ts
-netAmount: number | null;
-```
-
-###### Example
-
-```ts
-92.09
-```
-
-###### orderId
-
-```ts
-orderId: string;
-```
-
-###### Example
-
-```ts
-ord_abc123
-```
-
-###### orderNumber
-
-```ts
-orderNumber: string;
-```
-
-###### Example
-
-```ts
-ORD-ABC123
-```
-
-###### organisationId
-
-```ts
-organisationId: string;
-```
-
-###### Example
-
-```ts
-org_xyz789
-```
-
-###### paymentMethod
-
-```ts
-paymentMethod: 
-  | {
-  brand: string | null;
-  expiryMonth: number | null;
-  expiryYear: number | null;
-  last4: string | null;
-  type: "card" | "bank_transfer" | "cash" | "wallet";
-}
-  | null;
-```
-
-###### Type Declaration
-
-```ts
-{
-  brand: string | null;
-  expiryMonth: number | null;
-  expiryYear: number | null;
-  last4: string | null;
-  type: "card" | "bank_transfer" | "cash" | "wallet";
-}
-```
-
-`null`
-
-###### paymentProviderId
-
-```ts
-paymentProviderId: string;
-```
-
-###### Example
-
-```ts
-pp_stripeXxx123
-```
-
-###### paymentType
-
-```ts
-paymentType: 
-  | "bank_transfer"
-  | "online_card"
-  | "online_bank_transfer"
-  | "online_wallet"
-  | "in_person_card"
-  | "in_person_cash"
-  | "cheque";
-```
-
-###### Example
-
-```ts
-online_card
-@enum {string}
-```
-
-###### processingFee
-
-```ts
-processingFee: number | null;
-```
-
-###### Example
-
-```ts
-2.91
-```
-
-###### redirectUrl
-
-```ts
-redirectUrl: string | null;
-```
-
-###### Example
-
-```ts
-https://checkout.stripe.com/pay/xxx
-```
-
-###### remainingBalance
-
-```ts
-remainingBalance: number | null;
-```
-
-###### Example
-
-```ts
-0
-```
-
-###### status
-
-```ts
-status: 
-  | "cancelled"
-  | "pending"
-  | "succeeded"
-  | "failed"
-  | "processing"
-  | "expired"
-  | "requires_action"
-  | "created";
-```
-
-###### Example
-
-```ts
-pending
-@enum {string}
-```
-
-###### updatedAt
-
-```ts
-updatedAt: string;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:30:00Z
 ```
 
 #### CancelSubscriptionResponse
@@ -9673,13 +10559,13 @@ CreatePaymentProviderResponse: {
         | "in_person_card"
         | "in_person_cash"
        | "cheque")[];
-     type:   | "bank_transfer"
-        | "cash"
-        | "stripe_connect"
+     type:   | "stripe_connect"
         | "stripe_direct"
         | "adyen"
         | "square"
-        | "paypal";
+        | "paypal"
+        | "cash"
+        | "bank_transfer";
      updatedAt: string;
   };
 };
@@ -9738,13 +10624,13 @@ provider: {
      | "in_person_card"
      | "in_person_cash"
     | "cheque")[];
-  type:   | "bank_transfer"
-     | "cash"
-     | "stripe_connect"
+  type:   | "stripe_connect"
      | "stripe_direct"
      | "adyen"
      | "square"
-     | "paypal";
+     | "paypal"
+     | "cash"
+     | "bank_transfer";
   updatedAt: string;
 };
 ```
@@ -10034,13 +10920,13 @@ supportedPaymentTypes: (
 
 ```ts
 type: 
-  | "bank_transfer"
-  | "cash"
   | "stripe_connect"
   | "stripe_direct"
   | "adyen"
   | "square"
-  | "paypal";
+  | "paypal"
+  | "cash"
+  | "bank_transfer";
 ```
 
 ###### Example
@@ -10080,58 +10966,6 @@ CreatePaymentResponse: {
      paidAt: string | null;
      status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
      updatedAt: string;
-   } & {
-     accountId: string;
-     amount: number;
-     applicationFee: number | null;
-     cancelledAt: string | null;
-     capturedAt: string | null;
-     clientSecret: string | null;
-     createdAt: string;
-     currency: string;
-     expiresAt: string | null;
-     externalPaymentId: string | null;
-     failedAt: string | null;
-     failureCode: string | null;
-     failureMessage: string | null;
-     id: string;
-     isPartialPayment: boolean;
-     metadata:   | {
-      [key: string]: unknown;
-      }
-        | null;
-     netAmount: number | null;
-     orderId: string;
-     orderNumber: string;
-     organisationId: string;
-     paymentMethod:   | {
-        brand: string | null;
-        expiryMonth: number | null;
-        expiryYear: number | null;
-        last4: string | null;
-        type: "card" | "bank_transfer" | "cash" | "wallet";
-      }
-        | null;
-     paymentProviderId: string;
-     paymentType:   | "bank_transfer"
-        | "online_card"
-        | "online_bank_transfer"
-        | "online_wallet"
-        | "in_person_card"
-        | "in_person_cash"
-        | "cheque";
-     processingFee: number | null;
-     redirectUrl: string | null;
-     remainingBalance: number | null;
-     status:   | "cancelled"
-        | "pending"
-        | "succeeded"
-        | "failed"
-        | "processing"
-        | "expired"
-        | "requires_action"
-        | "created";
-     updatedAt: string;
   };
 };
 ```
@@ -10153,64 +10987,10 @@ payment: {
   paidAt: string | null;
   status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
   updatedAt: string;
-} & {
-  accountId: string;
-  amount: number;
-  applicationFee: number | null;
-  cancelledAt: string | null;
-  capturedAt: string | null;
-  clientSecret: string | null;
-  createdAt: string;
-  currency: string;
-  expiresAt: string | null;
-  externalPaymentId: string | null;
-  failedAt: string | null;
-  failureCode: string | null;
-  failureMessage: string | null;
-  id: string;
-  isPartialPayment: boolean;
-  metadata:   | {
-   [key: string]: unknown;
-   }
-     | null;
-  netAmount: number | null;
-  orderId: string;
-  orderNumber: string;
-  organisationId: string;
-  paymentMethod:   | {
-     brand: string | null;
-     expiryMonth: number | null;
-     expiryYear: number | null;
-     last4: string | null;
-     type: "card" | "bank_transfer" | "cash" | "wallet";
-   }
-     | null;
-  paymentProviderId: string;
-  paymentType:   | "bank_transfer"
-     | "online_card"
-     | "online_bank_transfer"
-     | "online_wallet"
-     | "in_person_card"
-     | "in_person_cash"
-     | "cheque";
-  processingFee: number | null;
-  redirectUrl: string | null;
-  remainingBalance: number | null;
-  status:   | "cancelled"
-     | "pending"
-     | "succeeded"
-     | "failed"
-     | "processing"
-     | "expired"
-     | "requires_action"
-     | "created";
-  updatedAt: string;
 };
 ```
 
-###### Type Declaration
-
-###### amount
+##### CreatePaymentResponse.payment.amount
 
 ```ts
 amount: string;
@@ -10222,7 +11002,7 @@ amount: string;
 25.00
 ```
 
-###### createdAt
+##### CreatePaymentResponse.payment.createdAt
 
 ```ts
 createdAt: string;
@@ -10234,7 +11014,7 @@ createdAt: string;
 2024-01-15T10:30:00Z
 ```
 
-###### currency
+##### CreatePaymentResponse.payment.currency
 
 ```ts
 currency: string;
@@ -10246,7 +11026,7 @@ currency: string;
 USD
 ```
 
-###### failedAt
+##### CreatePaymentResponse.payment.failedAt
 
 ```ts
 failedAt: string | null;
@@ -10258,7 +11038,7 @@ failedAt: string | null;
 null
 ```
 
-###### failureCode
+##### CreatePaymentResponse.payment.failureCode
 
 ```ts
 failureCode: string | null;
@@ -10270,7 +11050,7 @@ failureCode: string | null;
 null
 ```
 
-###### failureMessage
+##### CreatePaymentResponse.payment.failureMessage
 
 ```ts
 failureMessage: string | null;
@@ -10282,7 +11062,7 @@ failureMessage: string | null;
 null
 ```
 
-###### id
+##### CreatePaymentResponse.payment.id
 
 ```ts
 id: string;
@@ -10294,7 +11074,7 @@ id: string;
 pay_abc123
 ```
 
-###### invoiceId
+##### CreatePaymentResponse.payment.invoiceId
 
 ```ts
 invoiceId: string | null;
@@ -10306,7 +11086,7 @@ invoiceId: string | null;
 inv_abc123
 ```
 
-###### method
+##### CreatePaymentResponse.payment.method
 
 ```ts
 method: string | null;
@@ -10318,7 +11098,7 @@ method: string | null;
 card
 ```
 
-###### organisationId
+##### CreatePaymentResponse.payment.organisationId
 
 ```ts
 organisationId: string;
@@ -10330,7 +11110,7 @@ organisationId: string;
 org_abc123
 ```
 
-###### paidAt
+##### CreatePaymentResponse.payment.paidAt
 
 ```ts
 paidAt: string | null;
@@ -10342,7 +11122,7 @@ paidAt: string | null;
 2024-01-15T10:35:00Z
 ```
 
-###### status
+##### CreatePaymentResponse.payment.status
 
 ```ts
 status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
@@ -10355,7 +11135,7 @@ succeeded
 @enum {string}
 ```
 
-###### updatedAt
+##### CreatePaymentResponse.payment.updatedAt
 
 ```ts
 updatedAt: string;
@@ -10365,383 +11145,6 @@ updatedAt: string;
 
 ```ts
 2024-01-15T10:35:00Z
-```
-
-###### Type Declaration
-
-###### accountId
-
-```ts
-accountId: string;
-```
-
-###### Example
-
-```ts
-acc_xyz789
-```
-
-###### amount
-
-```ts
-amount: number;
-```
-
-###### Example
-
-```ts
-97
-```
-
-###### applicationFee
-
-```ts
-applicationFee: number | null;
-```
-
-###### Example
-
-```ts
-2
-```
-
-###### cancelledAt
-
-```ts
-cancelledAt: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### capturedAt
-
-```ts
-capturedAt: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### clientSecret
-
-```ts
-clientSecret: string | null;
-```
-
-###### Example
-
-```ts
-pi_xxx_secret_yyy
-```
-
-###### createdAt
-
-```ts
-createdAt: string;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:30:00Z
-```
-
-###### currency
-
-```ts
-currency: string;
-```
-
-###### Example
-
-```ts
-GBP
-```
-
-###### expiresAt
-
-```ts
-expiresAt: string | null;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:45:00Z
-```
-
-###### externalPaymentId
-
-```ts
-externalPaymentId: string | null;
-```
-
-###### Example
-
-```ts
-pi_1234567890abcdef
-```
-
-###### failedAt
-
-```ts
-failedAt: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### failureCode
-
-```ts
-failureCode: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### failureMessage
-
-```ts
-failureMessage: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### id
-
-```ts
-id: string;
-```
-
-###### Example
-
-```ts
-pay_abc123xyz789
-```
-
-###### isPartialPayment
-
-```ts
-isPartialPayment: boolean;
-```
-
-###### Example
-
-```ts
-false
-```
-
-###### metadata
-
-```ts
-metadata: 
-  | {
-[key: string]: unknown;
-}
-  | null;
-```
-
-###### Example
-
-```ts
-{
-                 *       "customerEmail": "customer@example.com"
-                 *     }
-```
-
-###### netAmount
-
-```ts
-netAmount: number | null;
-```
-
-###### Example
-
-```ts
-92.09
-```
-
-###### orderId
-
-```ts
-orderId: string;
-```
-
-###### Example
-
-```ts
-ord_abc123
-```
-
-###### orderNumber
-
-```ts
-orderNumber: string;
-```
-
-###### Example
-
-```ts
-ORD-ABC123
-```
-
-###### organisationId
-
-```ts
-organisationId: string;
-```
-
-###### Example
-
-```ts
-org_xyz789
-```
-
-###### paymentMethod
-
-```ts
-paymentMethod: 
-  | {
-  brand: string | null;
-  expiryMonth: number | null;
-  expiryYear: number | null;
-  last4: string | null;
-  type: "card" | "bank_transfer" | "cash" | "wallet";
-}
-  | null;
-```
-
-###### Type Declaration
-
-```ts
-{
-  brand: string | null;
-  expiryMonth: number | null;
-  expiryYear: number | null;
-  last4: string | null;
-  type: "card" | "bank_transfer" | "cash" | "wallet";
-}
-```
-
-`null`
-
-###### paymentProviderId
-
-```ts
-paymentProviderId: string;
-```
-
-###### Example
-
-```ts
-pp_stripeXxx123
-```
-
-###### paymentType
-
-```ts
-paymentType: 
-  | "bank_transfer"
-  | "online_card"
-  | "online_bank_transfer"
-  | "online_wallet"
-  | "in_person_card"
-  | "in_person_cash"
-  | "cheque";
-```
-
-###### Example
-
-```ts
-online_card
-@enum {string}
-```
-
-###### processingFee
-
-```ts
-processingFee: number | null;
-```
-
-###### Example
-
-```ts
-2.91
-```
-
-###### redirectUrl
-
-```ts
-redirectUrl: string | null;
-```
-
-###### Example
-
-```ts
-https://checkout.stripe.com/pay/xxx
-```
-
-###### remainingBalance
-
-```ts
-remainingBalance: number | null;
-```
-
-###### Example
-
-```ts
-0
-```
-
-###### status
-
-```ts
-status: 
-  | "cancelled"
-  | "pending"
-  | "succeeded"
-  | "failed"
-  | "processing"
-  | "expired"
-  | "requires_action"
-  | "created";
-```
-
-###### Example
-
-```ts
-pending
-@enum {string}
-```
-
-###### updatedAt
-
-```ts
-updatedAt: string;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:30:00Z
 ```
 
 #### CreatePriceSchemeResponse
@@ -10946,11 +11349,76 @@ updatedAt: string;
 
 ```ts
 CreatePurchaseRequest: {
+  billingAddress?: {
+     city: string;
+     country: string;
+     line1: string;
+     line2?: string;
+     name?: string;
+     postal_code: string;
+     state?: string;
+  };
   currency?: string;
   email?: string;
   packageId: string;
   paymentMethodId: string;
 };
+```
+
+##### CreatePurchaseRequest.billingAddress?
+
+```ts
+optional billingAddress: {
+  city: string;
+  country: string;
+  line1: string;
+  line2?: string;
+  name?: string;
+  postal_code: string;
+  state?: string;
+};
+```
+
+##### CreatePurchaseRequest.billingAddress.city
+
+```ts
+city: string;
+```
+
+##### CreatePurchaseRequest.billingAddress.country
+
+```ts
+country: string;
+```
+
+##### CreatePurchaseRequest.billingAddress.line1
+
+```ts
+line1: string;
+```
+
+##### CreatePurchaseRequest.billingAddress.line2?
+
+```ts
+optional line2: string;
+```
+
+##### CreatePurchaseRequest.billingAddress.name?
+
+```ts
+optional name: string;
+```
+
+##### CreatePurchaseRequest.billingAddress.postal\_code
+
+```ts
+postal_code: string;
+```
+
+##### CreatePurchaseRequest.billingAddress.state?
+
+```ts
+optional state: string;
 ```
 
 ##### CreatePurchaseRequest.currency?
@@ -11400,6 +11868,200 @@ updatedAt: string;
 
 ```ts
 2024-01-20T14:45:00Z
+```
+
+#### CreateSalesOrderPaymentResponse
+
+```ts
+CreateSalesOrderPaymentResponse: {
+  payment: {
+     amount: string;
+     connectedAccountId: string | null;
+     currency: string;
+     externalPaymentUrl: string | null;
+     id: string;
+     orderId: string;
+     paymentType: string;
+     providerClientSecret: string | null;
+     providerType: string | null;
+     publishableKey: string | null;
+     status: string;
+  };
+};
+```
+
+##### CreateSalesOrderPaymentResponse.payment
+
+```ts
+payment: {
+  amount: string;
+  connectedAccountId: string | null;
+  currency: string;
+  externalPaymentUrl: string | null;
+  id: string;
+  orderId: string;
+  paymentType: string;
+  providerClientSecret: string | null;
+  providerType: string | null;
+  publishableKey: string | null;
+  status: string;
+};
+```
+
+##### CreateSalesOrderPaymentResponse.payment.amount
+
+```ts
+amount: string;
+```
+
+##### CreateSalesOrderPaymentResponse.payment.connectedAccountId
+
+```ts
+connectedAccountId: string | null;
+```
+
+##### CreateSalesOrderPaymentResponse.payment.currency
+
+```ts
+currency: string;
+```
+
+##### CreateSalesOrderPaymentResponse.payment.externalPaymentUrl
+
+```ts
+externalPaymentUrl: string | null;
+```
+
+##### CreateSalesOrderPaymentResponse.payment.id
+
+```ts
+id: string;
+```
+
+##### CreateSalesOrderPaymentResponse.payment.orderId
+
+```ts
+orderId: string;
+```
+
+##### CreateSalesOrderPaymentResponse.payment.paymentType
+
+```ts
+paymentType: string;
+```
+
+##### CreateSalesOrderPaymentResponse.payment.providerClientSecret
+
+```ts
+providerClientSecret: string | null;
+```
+
+##### CreateSalesOrderPaymentResponse.payment.providerType
+
+```ts
+providerType: string | null;
+```
+
+##### CreateSalesOrderPaymentResponse.payment.publishableKey
+
+```ts
+publishableKey: string | null;
+```
+
+##### CreateSalesOrderPaymentResponse.payment.status
+
+```ts
+status: string;
+```
+
+#### CreateSalesRefundRequestResponse
+
+```ts
+CreateSalesRefundRequestResponse: {
+  request: {
+     createdAt: string;
+     id: string;
+     orderId: string;
+     reason: string | null;
+     status: string;
+     type: string;
+  };
+};
+```
+
+##### CreateSalesRefundRequestResponse.request
+
+```ts
+request: {
+  createdAt: string;
+  id: string;
+  orderId: string;
+  reason: string | null;
+  status: string;
+  type: string;
+};
+```
+
+##### CreateSalesRefundRequestResponse.request.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### CreateSalesRefundRequestResponse.request.id
+
+```ts
+id: string;
+```
+
+##### CreateSalesRefundRequestResponse.request.orderId
+
+```ts
+orderId: string;
+```
+
+##### CreateSalesRefundRequestResponse.request.reason
+
+```ts
+reason: string | null;
+```
+
+##### CreateSalesRefundRequestResponse.request.status
+
+```ts
+status: string;
+```
+
+##### CreateSalesRefundRequestResponse.request.type
+
+```ts
+type: string;
+```
+
+#### CreateSetupIntentResponse
+
+```ts
+CreateSetupIntentResponse: {
+  clientSecret: string;
+};
+```
+
+##### CreateSetupIntentResponse.clientSecret
+
+```ts
+clientSecret: string;
+```
+
+###### Example
+
+```ts
+seti_1234567890_secret_abcdefghij
 ```
 
 #### CreateSubscriptionRequest
@@ -13528,6 +14190,26 @@ success: boolean;
 true
 ```
 
+#### DeleteFeeProfileResponse
+
+```ts
+DeleteFeeProfileResponse: {
+  deleted: boolean;
+};
+```
+
+##### DeleteFeeProfileResponse.deleted
+
+```ts
+deleted: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
 #### DeleteInventoryResponse
 
 ```ts
@@ -13546,6 +14228,26 @@ message: string;
 
 ```ts
 Inventory deleted successfully
+```
+
+#### DeletePaymentMethodResponse
+
+```ts
+DeletePaymentMethodResponse: {
+  success: boolean;
+};
+```
+
+##### DeletePaymentMethodResponse.success
+
+```ts
+success: boolean;
+```
+
+###### Example
+
+```ts
+true
 ```
 
 #### DeletePaymentProviderResponse
@@ -13647,6 +14349,46 @@ success: boolean;
 true
 ```
 
+#### DeleteSalesChannelListingResponse
+
+```ts
+DeleteSalesChannelListingResponse: {
+  deleted: boolean;
+};
+```
+
+##### DeleteSalesChannelListingResponse.deleted
+
+```ts
+deleted: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+#### DeleteSalesChannelResponse
+
+```ts
+DeleteSalesChannelResponse: {
+  deleted: boolean;
+};
+```
+
+##### DeleteSalesChannelResponse.deleted
+
+```ts
+deleted: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
 #### DeleteSeatResponse
 
 ```ts
@@ -13672,6 +14414,26 @@ true
 
 ```ts
 optional venueLayout: unknown;
+```
+
+#### DeleteThemeResponse
+
+```ts
+DeleteThemeResponse: {
+  deleted: boolean;
+};
+```
+
+##### DeleteThemeResponse.deleted
+
+```ts
+deleted: boolean;
+```
+
+###### Example
+
+```ts
+true
 ```
 
 #### DeleteUserInvitationResponse
@@ -14527,6 +15289,326 @@ Stagedoor JWT token to federate
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 
+#### FeeProfile
+
+```ts
+FeeProfile: {
+  createdAt: string;
+  deletedAt: string | null;
+  id: string;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  serviceFeeEnabled: boolean;
+  serviceFeeFixed: string | null;
+  serviceFeeLabel: string | null;
+  serviceFeePercent: string | null;
+  updatedAt: string;
+};
+```
+
+##### FeeProfile.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### FeeProfile.deletedAt
+
+```ts
+deletedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### FeeProfile.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sfp_abc123
+```
+
+##### FeeProfile.isDeleted
+
+```ts
+isDeleted: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### FeeProfile.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Standard web fees
+```
+
+##### FeeProfile.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### FeeProfile.serviceFeeEnabled
+
+```ts
+serviceFeeEnabled: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### FeeProfile.serviceFeeFixed
+
+```ts
+serviceFeeFixed: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### FeeProfile.serviceFeeLabel
+
+```ts
+serviceFeeLabel: string | null;
+```
+
+###### Example
+
+```ts
+Service fee
+```
+
+##### FeeProfile.serviceFeePercent
+
+```ts
+serviceFeePercent: string | null;
+```
+
+###### Example
+
+```ts
+0.0500
+```
+
+##### FeeProfile.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+#### FeeProfileResponse
+
+```ts
+FeeProfileResponse: {
+  feeProfile: {
+     createdAt: string;
+     deletedAt: string | null;
+     id: string;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     serviceFeeEnabled: boolean;
+     serviceFeeFixed: string | null;
+     serviceFeeLabel: string | null;
+     serviceFeePercent: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### FeeProfileResponse.feeProfile
+
+```ts
+feeProfile: {
+  createdAt: string;
+  deletedAt: string | null;
+  id: string;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  serviceFeeEnabled: boolean;
+  serviceFeeFixed: string | null;
+  serviceFeeLabel: string | null;
+  serviceFeePercent: string | null;
+  updatedAt: string;
+};
+```
+
+##### FeeProfileResponse.feeProfile.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### FeeProfileResponse.feeProfile.deletedAt
+
+```ts
+deletedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### FeeProfileResponse.feeProfile.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sfp_abc123
+```
+
+##### FeeProfileResponse.feeProfile.isDeleted
+
+```ts
+isDeleted: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### FeeProfileResponse.feeProfile.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Standard web fees
+```
+
+##### FeeProfileResponse.feeProfile.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### FeeProfileResponse.feeProfile.serviceFeeEnabled
+
+```ts
+serviceFeeEnabled: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### FeeProfileResponse.feeProfile.serviceFeeFixed
+
+```ts
+serviceFeeFixed: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### FeeProfileResponse.feeProfile.serviceFeeLabel
+
+```ts
+serviceFeeLabel: string | null;
+```
+
+###### Example
+
+```ts
+Service fee
+```
+
+##### FeeProfileResponse.feeProfile.serviceFeePercent
+
+```ts
+serviceFeePercent: string | null;
+```
+
+###### Example
+
+```ts
+0.0500
+```
+
+##### FeeProfileResponse.feeProfile.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
 #### FeeStructure
 
 ```ts
@@ -14779,6 +15861,68 @@ updatedAt: string;
 
 ```ts
 2024-01-20T14:45:00Z
+```
+
+#### GetApiVersionsResponse
+
+```ts
+GetApiVersionsResponse: {
+  current: string;
+  resolved: string;
+  versions: {
+     breakingChanges: string[];
+     date: string;
+     deprecatedAt: string | null;
+     status: "current" | "supported" | "deprecated" | "sunset";
+     summary: string;
+     sunsetAt: string | null;
+  }[];
+};
+```
+
+##### GetApiVersionsResponse.current
+
+```ts
+current: string;
+```
+
+###### Description
+
+The current dated API version
+
+###### Example
+
+```ts
+2026-06-13
+```
+
+##### GetApiVersionsResponse.resolved
+
+```ts
+resolved: string;
+```
+
+###### Description
+
+The version this request resolved to (TL-Version header > organisation default > current)
+
+###### Example
+
+```ts
+2026-06-13
+```
+
+##### GetApiVersionsResponse.versions
+
+```ts
+versions: {
+  breakingChanges: string[];
+  date: string;
+  deprecatedAt: string | null;
+  status: "current" | "supported" | "deprecated" | "sunset";
+  summary: string;
+  sunsetAt: string | null;
+}[];
 ```
 
 #### GetAuditLogResponse
@@ -17383,6 +18527,7 @@ updatedAt: string;
 ```ts
 GetOrganisationResponse: {
   organisation: {
+     apiVersion: string;
      createdAt: string;
      id: string;
      logoUrl?: string;
@@ -17401,6 +18546,7 @@ GetOrganisationResponse: {
 
 ```ts
 organisation: {
+  apiVersion: string;
   createdAt: string;
   id: string;
   logoUrl?: string;
@@ -17412,6 +18558,22 @@ organisation: {
   secondaryColor?: string;
   updatedAt: string;
 };
+```
+
+##### GetOrganisationResponse.organisation.apiVersion
+
+```ts
+apiVersion: string;
+```
+
+###### Description
+
+The dated API version this organisation is pinned to (see GET /meta/versions)
+
+###### Example
+
+```ts
+2026-06-13
 ```
 
 ##### GetOrganisationResponse.organisation.createdAt
@@ -17575,13 +18737,13 @@ GetPaymentProviderResponse: {
         | "in_person_card"
         | "in_person_cash"
        | "cheque")[];
-     type:   | "bank_transfer"
-        | "cash"
-        | "stripe_connect"
+     type:   | "stripe_connect"
         | "stripe_direct"
         | "adyen"
         | "square"
-        | "paypal";
+        | "paypal"
+        | "cash"
+        | "bank_transfer";
      updatedAt: string;
   };
 };
@@ -17640,13 +18802,13 @@ provider: {
      | "in_person_card"
      | "in_person_cash"
     | "cheque")[];
-  type:   | "bank_transfer"
-     | "cash"
-     | "stripe_connect"
+  type:   | "stripe_connect"
      | "stripe_direct"
      | "adyen"
      | "square"
-     | "paypal";
+     | "paypal"
+     | "cash"
+     | "bank_transfer";
   updatedAt: string;
 };
 ```
@@ -17936,13 +19098,13 @@ supportedPaymentTypes: (
 
 ```ts
 type: 
-  | "bank_transfer"
-  | "cash"
   | "stripe_connect"
   | "stripe_direct"
   | "adyen"
   | "square"
-  | "paypal";
+  | "paypal"
+  | "cash"
+  | "bank_transfer";
 ```
 
 ###### Example
@@ -17982,58 +19144,6 @@ GetPaymentResponse: {
      paidAt: string | null;
      status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
      updatedAt: string;
-   } & {
-     accountId: string;
-     amount: number;
-     applicationFee: number | null;
-     cancelledAt: string | null;
-     capturedAt: string | null;
-     clientSecret: string | null;
-     createdAt: string;
-     currency: string;
-     expiresAt: string | null;
-     externalPaymentId: string | null;
-     failedAt: string | null;
-     failureCode: string | null;
-     failureMessage: string | null;
-     id: string;
-     isPartialPayment: boolean;
-     metadata:   | {
-      [key: string]: unknown;
-      }
-        | null;
-     netAmount: number | null;
-     orderId: string;
-     orderNumber: string;
-     organisationId: string;
-     paymentMethod:   | {
-        brand: string | null;
-        expiryMonth: number | null;
-        expiryYear: number | null;
-        last4: string | null;
-        type: "card" | "bank_transfer" | "cash" | "wallet";
-      }
-        | null;
-     paymentProviderId: string;
-     paymentType:   | "bank_transfer"
-        | "online_card"
-        | "online_bank_transfer"
-        | "online_wallet"
-        | "in_person_card"
-        | "in_person_cash"
-        | "cheque";
-     processingFee: number | null;
-     redirectUrl: string | null;
-     remainingBalance: number | null;
-     status:   | "cancelled"
-        | "pending"
-        | "succeeded"
-        | "failed"
-        | "processing"
-        | "expired"
-        | "requires_action"
-        | "created";
-     updatedAt: string;
   };
 };
 ```
@@ -18055,64 +19165,10 @@ payment: {
   paidAt: string | null;
   status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
   updatedAt: string;
-} & {
-  accountId: string;
-  amount: number;
-  applicationFee: number | null;
-  cancelledAt: string | null;
-  capturedAt: string | null;
-  clientSecret: string | null;
-  createdAt: string;
-  currency: string;
-  expiresAt: string | null;
-  externalPaymentId: string | null;
-  failedAt: string | null;
-  failureCode: string | null;
-  failureMessage: string | null;
-  id: string;
-  isPartialPayment: boolean;
-  metadata:   | {
-   [key: string]: unknown;
-   }
-     | null;
-  netAmount: number | null;
-  orderId: string;
-  orderNumber: string;
-  organisationId: string;
-  paymentMethod:   | {
-     brand: string | null;
-     expiryMonth: number | null;
-     expiryYear: number | null;
-     last4: string | null;
-     type: "card" | "bank_transfer" | "cash" | "wallet";
-   }
-     | null;
-  paymentProviderId: string;
-  paymentType:   | "bank_transfer"
-     | "online_card"
-     | "online_bank_transfer"
-     | "online_wallet"
-     | "in_person_card"
-     | "in_person_cash"
-     | "cheque";
-  processingFee: number | null;
-  redirectUrl: string | null;
-  remainingBalance: number | null;
-  status:   | "cancelled"
-     | "pending"
-     | "succeeded"
-     | "failed"
-     | "processing"
-     | "expired"
-     | "requires_action"
-     | "created";
-  updatedAt: string;
 };
 ```
 
-###### Type Declaration
-
-###### amount
+##### GetPaymentResponse.payment.amount
 
 ```ts
 amount: string;
@@ -18124,7 +19180,7 @@ amount: string;
 25.00
 ```
 
-###### createdAt
+##### GetPaymentResponse.payment.createdAt
 
 ```ts
 createdAt: string;
@@ -18136,7 +19192,7 @@ createdAt: string;
 2024-01-15T10:30:00Z
 ```
 
-###### currency
+##### GetPaymentResponse.payment.currency
 
 ```ts
 currency: string;
@@ -18148,7 +19204,7 @@ currency: string;
 USD
 ```
 
-###### failedAt
+##### GetPaymentResponse.payment.failedAt
 
 ```ts
 failedAt: string | null;
@@ -18160,7 +19216,7 @@ failedAt: string | null;
 null
 ```
 
-###### failureCode
+##### GetPaymentResponse.payment.failureCode
 
 ```ts
 failureCode: string | null;
@@ -18172,7 +19228,7 @@ failureCode: string | null;
 null
 ```
 
-###### failureMessage
+##### GetPaymentResponse.payment.failureMessage
 
 ```ts
 failureMessage: string | null;
@@ -18184,7 +19240,7 @@ failureMessage: string | null;
 null
 ```
 
-###### id
+##### GetPaymentResponse.payment.id
 
 ```ts
 id: string;
@@ -18196,7 +19252,7 @@ id: string;
 pay_abc123
 ```
 
-###### invoiceId
+##### GetPaymentResponse.payment.invoiceId
 
 ```ts
 invoiceId: string | null;
@@ -18208,7 +19264,7 @@ invoiceId: string | null;
 inv_abc123
 ```
 
-###### method
+##### GetPaymentResponse.payment.method
 
 ```ts
 method: string | null;
@@ -18220,7 +19276,7 @@ method: string | null;
 card
 ```
 
-###### organisationId
+##### GetPaymentResponse.payment.organisationId
 
 ```ts
 organisationId: string;
@@ -18232,7 +19288,7 @@ organisationId: string;
 org_abc123
 ```
 
-###### paidAt
+##### GetPaymentResponse.payment.paidAt
 
 ```ts
 paidAt: string | null;
@@ -18244,7 +19300,7 @@ paidAt: string | null;
 2024-01-15T10:35:00Z
 ```
 
-###### status
+##### GetPaymentResponse.payment.status
 
 ```ts
 status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
@@ -18257,7 +19313,7 @@ succeeded
 @enum {string}
 ```
 
-###### updatedAt
+##### GetPaymentResponse.payment.updatedAt
 
 ```ts
 updatedAt: string;
@@ -18267,383 +19323,6 @@ updatedAt: string;
 
 ```ts
 2024-01-15T10:35:00Z
-```
-
-###### Type Declaration
-
-###### accountId
-
-```ts
-accountId: string;
-```
-
-###### Example
-
-```ts
-acc_xyz789
-```
-
-###### amount
-
-```ts
-amount: number;
-```
-
-###### Example
-
-```ts
-97
-```
-
-###### applicationFee
-
-```ts
-applicationFee: number | null;
-```
-
-###### Example
-
-```ts
-2
-```
-
-###### cancelledAt
-
-```ts
-cancelledAt: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### capturedAt
-
-```ts
-capturedAt: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### clientSecret
-
-```ts
-clientSecret: string | null;
-```
-
-###### Example
-
-```ts
-pi_xxx_secret_yyy
-```
-
-###### createdAt
-
-```ts
-createdAt: string;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:30:00Z
-```
-
-###### currency
-
-```ts
-currency: string;
-```
-
-###### Example
-
-```ts
-GBP
-```
-
-###### expiresAt
-
-```ts
-expiresAt: string | null;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:45:00Z
-```
-
-###### externalPaymentId
-
-```ts
-externalPaymentId: string | null;
-```
-
-###### Example
-
-```ts
-pi_1234567890abcdef
-```
-
-###### failedAt
-
-```ts
-failedAt: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### failureCode
-
-```ts
-failureCode: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### failureMessage
-
-```ts
-failureMessage: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### id
-
-```ts
-id: string;
-```
-
-###### Example
-
-```ts
-pay_abc123xyz789
-```
-
-###### isPartialPayment
-
-```ts
-isPartialPayment: boolean;
-```
-
-###### Example
-
-```ts
-false
-```
-
-###### metadata
-
-```ts
-metadata: 
-  | {
-[key: string]: unknown;
-}
-  | null;
-```
-
-###### Example
-
-```ts
-{
-                 *       "customerEmail": "customer@example.com"
-                 *     }
-```
-
-###### netAmount
-
-```ts
-netAmount: number | null;
-```
-
-###### Example
-
-```ts
-92.09
-```
-
-###### orderId
-
-```ts
-orderId: string;
-```
-
-###### Example
-
-```ts
-ord_abc123
-```
-
-###### orderNumber
-
-```ts
-orderNumber: string;
-```
-
-###### Example
-
-```ts
-ORD-ABC123
-```
-
-###### organisationId
-
-```ts
-organisationId: string;
-```
-
-###### Example
-
-```ts
-org_xyz789
-```
-
-###### paymentMethod
-
-```ts
-paymentMethod: 
-  | {
-  brand: string | null;
-  expiryMonth: number | null;
-  expiryYear: number | null;
-  last4: string | null;
-  type: "card" | "bank_transfer" | "cash" | "wallet";
-}
-  | null;
-```
-
-###### Type Declaration
-
-```ts
-{
-  brand: string | null;
-  expiryMonth: number | null;
-  expiryYear: number | null;
-  last4: string | null;
-  type: "card" | "bank_transfer" | "cash" | "wallet";
-}
-```
-
-`null`
-
-###### paymentProviderId
-
-```ts
-paymentProviderId: string;
-```
-
-###### Example
-
-```ts
-pp_stripeXxx123
-```
-
-###### paymentType
-
-```ts
-paymentType: 
-  | "bank_transfer"
-  | "online_card"
-  | "online_bank_transfer"
-  | "online_wallet"
-  | "in_person_card"
-  | "in_person_cash"
-  | "cheque";
-```
-
-###### Example
-
-```ts
-online_card
-@enum {string}
-```
-
-###### processingFee
-
-```ts
-processingFee: number | null;
-```
-
-###### Example
-
-```ts
-2.91
-```
-
-###### redirectUrl
-
-```ts
-redirectUrl: string | null;
-```
-
-###### Example
-
-```ts
-https://checkout.stripe.com/pay/xxx
-```
-
-###### remainingBalance
-
-```ts
-remainingBalance: number | null;
-```
-
-###### Example
-
-```ts
-0
-```
-
-###### status
-
-```ts
-status: 
-  | "cancelled"
-  | "pending"
-  | "succeeded"
-  | "failed"
-  | "processing"
-  | "expired"
-  | "requires_action"
-  | "created";
-```
-
-###### Example
-
-```ts
-pending
-@enum {string}
-```
-
-###### updatedAt
-
-```ts
-updatedAt: string;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:30:00Z
 ```
 
 #### GetPaymentStatusResponse
@@ -19339,6 +20018,226 @@ updatedAt: string;
 
 ```ts
 2024-01-20T14:45:00Z
+```
+
+#### GetSalesListingsResponse
+
+```ts
+GetSalesListingsResponse: {
+  channel: {
+     id: string;
+     name: string;
+     slug: string;
+  };
+  listings: {
+     currency: string | null;
+     eventId: string;
+     id: string;
+     imageUrl: string | null;
+     name: string | null;
+     nextOccurrenceAt: string | null;
+     priceFrom: number | null;
+     saleEndsAt: string | null;
+     saleStartsAt: string | null;
+     shortDescription: string | null;
+     subtitle: string | null;
+     venueCity: string | null;
+     venueName: string | null;
+  }[];
+};
+```
+
+##### GetSalesListingsResponse.channel
+
+```ts
+channel: {
+  id: string;
+  name: string;
+  slug: string;
+};
+```
+
+##### GetSalesListingsResponse.channel.id
+
+```ts
+id: string;
+```
+
+##### GetSalesListingsResponse.channel.name
+
+```ts
+name: string;
+```
+
+##### GetSalesListingsResponse.channel.slug
+
+```ts
+slug: string;
+```
+
+##### GetSalesListingsResponse.listings
+
+```ts
+listings: {
+  currency: string | null;
+  eventId: string;
+  id: string;
+  imageUrl: string | null;
+  name: string | null;
+  nextOccurrenceAt: string | null;
+  priceFrom: number | null;
+  saleEndsAt: string | null;
+  saleStartsAt: string | null;
+  shortDescription: string | null;
+  subtitle: string | null;
+  venueCity: string | null;
+  venueName: string | null;
+}[];
+```
+
+#### GetSalesOrderResponse
+
+```ts
+GetSalesOrderResponse: {
+  order: {
+     createdAt: string;
+     currency: string;
+     expiresAt: string | null;
+     id: string;
+     items: {
+        description: string | null;
+        name: string;
+        quantity: number;
+        subtotal: string;
+        type: string;
+        unitPrice: string;
+     }[];
+     orderNumber: string;
+     paymentStatus: string;
+     status: string;
+     subtotal: string;
+     total: string;
+     totalFees: string;
+     totalTax: string;
+  };
+};
+```
+
+##### GetSalesOrderResponse.order
+
+```ts
+order: {
+  createdAt: string;
+  currency: string;
+  expiresAt: string | null;
+  id: string;
+  items: {
+     description: string | null;
+     name: string;
+     quantity: number;
+     subtotal: string;
+     type: string;
+     unitPrice: string;
+  }[];
+  orderNumber: string;
+  paymentStatus: string;
+  status: string;
+  subtotal: string;
+  total: string;
+  totalFees: string;
+  totalTax: string;
+};
+```
+
+##### GetSalesOrderResponse.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### GetSalesOrderResponse.order.currency
+
+```ts
+currency: string;
+```
+
+##### GetSalesOrderResponse.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### GetSalesOrderResponse.order.id
+
+```ts
+id: string;
+```
+
+##### GetSalesOrderResponse.order.items
+
+```ts
+items: {
+  description: string | null;
+  name: string;
+  quantity: number;
+  subtotal: string;
+  type: string;
+  unitPrice: string;
+}[];
+```
+
+##### GetSalesOrderResponse.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+##### GetSalesOrderResponse.order.paymentStatus
+
+```ts
+paymentStatus: string;
+```
+
+##### GetSalesOrderResponse.order.status
+
+```ts
+status: string;
+```
+
+##### GetSalesOrderResponse.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+##### GetSalesOrderResponse.order.total
+
+```ts
+total: string;
+```
+
+##### GetSalesOrderResponse.order.totalFees
+
+```ts
+totalFees: string;
+```
+
+##### GetSalesOrderResponse.order.totalTax
+
+```ts
+totalTax: string;
 ```
 
 #### GetUserInvitationResponse
@@ -21432,6 +22331,252 @@ updatedAt: string;
 2024-01-15T10:35:00Z
 ```
 
+#### IssuedSalesChannelKey
+
+```ts
+IssuedSalesChannelKey: {
+  channelId: string;
+  createdAt: string;
+  id: string;
+  keyType: "publishable" | "secret";
+  last4: string;
+  name: string;
+  status: "active" | "revoked" | "compromised";
+};
+```
+
+##### IssuedSalesChannelKey.channelId
+
+```ts
+channelId: string;
+```
+
+###### Example
+
+```ts
+sch_abc123
+```
+
+##### IssuedSalesChannelKey.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### IssuedSalesChannelKey.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+schk_abc123
+```
+
+##### IssuedSalesChannelKey.keyType
+
+```ts
+keyType: "publishable" | "secret";
+```
+
+###### Example
+
+```ts
+secret
+@enum {string}
+```
+
+##### IssuedSalesChannelKey.last4
+
+```ts
+last4: string;
+```
+
+###### Example
+
+```ts
+a1b2
+```
+
+##### IssuedSalesChannelKey.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Production key
+```
+
+##### IssuedSalesChannelKey.status
+
+```ts
+status: "active" | "revoked" | "compromised";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+#### IssueSalesChannelKeyResponse
+
+```ts
+IssueSalesChannelKeyResponse: {
+  key: {
+     channelId: string;
+     createdAt: string;
+     id: string;
+     keyType: "publishable" | "secret";
+     last4: string;
+     name: string;
+     status: "active" | "revoked" | "compromised";
+  };
+  keyMaterial: string;
+  warning?: string;
+};
+```
+
+##### IssueSalesChannelKeyResponse.key
+
+```ts
+key: {
+  channelId: string;
+  createdAt: string;
+  id: string;
+  keyType: "publishable" | "secret";
+  last4: string;
+  name: string;
+  status: "active" | "revoked" | "compromised";
+};
+```
+
+##### IssueSalesChannelKeyResponse.key.channelId
+
+```ts
+channelId: string;
+```
+
+###### Example
+
+```ts
+sch_abc123
+```
+
+##### IssueSalesChannelKeyResponse.key.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### IssueSalesChannelKeyResponse.key.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+schk_abc123
+```
+
+##### IssueSalesChannelKeyResponse.key.keyType
+
+```ts
+keyType: "publishable" | "secret";
+```
+
+###### Example
+
+```ts
+secret
+@enum {string}
+```
+
+##### IssueSalesChannelKeyResponse.key.last4
+
+```ts
+last4: string;
+```
+
+###### Example
+
+```ts
+a1b2
+```
+
+##### IssueSalesChannelKeyResponse.key.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Production key
+```
+
+##### IssueSalesChannelKeyResponse.key.status
+
+```ts
+status: "active" | "revoked" | "compromised";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### IssueSalesChannelKeyResponse.keyMaterial
+
+```ts
+keyMaterial: string;
+```
+
+###### Description
+
+The key itself. For secret keys this is shown exactly once.
+
+###### Example
+
+```ts
+tlsk_abc123...
+```
+
+##### IssueSalesChannelKeyResponse.warning?
+
+```ts
+optional warning: string;
+```
+
+###### Example
+
+```ts
+Store this key securely. It will not be shown again and must never be used in a browser.
+```
+
 #### ListAccountsResponse
 
 ```ts
@@ -21869,6 +23014,44 @@ totalPages: number;
 3
 ```
 
+#### ListFeeProfilesResponse
+
+```ts
+ListFeeProfilesResponse: {
+  feeProfiles: {
+     createdAt: string;
+     deletedAt: string | null;
+     id: string;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     serviceFeeEnabled: boolean;
+     serviceFeeFixed: string | null;
+     serviceFeeLabel: string | null;
+     serviceFeePercent: string | null;
+     updatedAt: string;
+  }[];
+};
+```
+
+##### ListFeeProfilesResponse.feeProfiles
+
+```ts
+feeProfiles: {
+  createdAt: string;
+  deletedAt: string | null;
+  id: string;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  serviceFeeEnabled: boolean;
+  serviceFeeFixed: string | null;
+  serviceFeeLabel: string | null;
+  serviceFeePercent: string | null;
+  updatedAt: string;
+}[];
+```
+
 #### ListIdentityProvidersResponse
 
 ```ts
@@ -22040,6 +23223,60 @@ invoices: {
   total: string;
   type: "purchase" | "subscription" | "payg";
   updatedAt: string;
+}[];
+```
+
+#### ListMySalesOrdersResponse
+
+```ts
+ListMySalesOrdersResponse: {
+  orders: {
+     createdAt: string;
+     currency: string;
+     expiresAt: string | null;
+     id: string;
+     items: {
+        description: string | null;
+        name: string;
+        quantity: number;
+        subtotal: string;
+        type: string;
+        unitPrice: string;
+     }[];
+     orderNumber: string;
+     paymentStatus: string;
+     status: string;
+     subtotal: string;
+     total: string;
+     totalFees: string;
+     totalTax: string;
+  }[];
+};
+```
+
+##### ListMySalesOrdersResponse.orders
+
+```ts
+orders: {
+  createdAt: string;
+  currency: string;
+  expiresAt: string | null;
+  id: string;
+  items: {
+     description: string | null;
+     name: string;
+     quantity: number;
+     subtotal: string;
+     type: string;
+     unitPrice: string;
+  }[];
+  orderNumber: string;
+  paymentStatus: string;
+  status: string;
+  subtotal: string;
+  total: string;
+  totalFees: string;
+  totalTax: string;
 }[];
 ```
 
@@ -22282,6 +23519,42 @@ packages: {
 }[];
 ```
 
+#### ListPaymentMethodsResponse
+
+```ts
+ListPaymentMethodsResponse: {
+  paymentMethods: {
+     card: {
+        brand: string;
+        expMonth: number;
+        expYear: number;
+        last4: string;
+     };
+     createdAt: string;
+     id: string;
+     isDefault: boolean;
+     type: "card";
+  }[];
+};
+```
+
+##### ListPaymentMethodsResponse.paymentMethods
+
+```ts
+paymentMethods: {
+  card: {
+     brand: string;
+     expMonth: number;
+     expYear: number;
+     last4: string;
+  };
+  createdAt: string;
+  id: string;
+  isDefault: boolean;
+  type: "card";
+}[];
+```
+
 #### ListPaymentProvidersResponse
 
 ```ts
@@ -22342,13 +23615,13 @@ ListPaymentProvidersResponse: {
         | "in_person_card"
         | "in_person_cash"
        | "cheque")[];
-     type:   | "bank_transfer"
-        | "cash"
-        | "stripe_connect"
+     type:   | "stripe_connect"
         | "stripe_direct"
         | "adyen"
         | "square"
-        | "paypal";
+        | "paypal"
+        | "cash"
+        | "bank_transfer";
      updatedAt: string;
   }[];
 };
@@ -22466,13 +23739,13 @@ providers: {
      | "in_person_card"
      | "in_person_cash"
     | "cheque")[];
-  type:   | "bank_transfer"
-     | "cash"
-     | "stripe_connect"
+  type:   | "stripe_connect"
      | "stripe_direct"
      | "adyen"
      | "square"
-     | "paypal";
+     | "paypal"
+     | "cash"
+     | "bank_transfer";
   updatedAt: string;
 }[];
 ```
@@ -22515,6 +23788,50 @@ payments: {
   organisationId: string;
   paidAt: string | null;
   status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+  updatedAt: string;
+}[];
+```
+
+#### ListPresaleCodesResponse
+
+```ts
+ListPresaleCodesResponse: {
+  presaleCodes: {
+     accountId: string;
+     benefit: string;
+     benefitExpiresAt: string | null;
+     channelId: string | null;
+     code: string;
+     createdAt: string;
+     createdBy: string | null;
+     expiresAt: string | null;
+     id: string;
+     isActive: boolean;
+     maxRedemptions: number | null;
+     organisationId: string;
+     redemptionCount: number;
+     updatedAt: string;
+  }[];
+};
+```
+
+##### ListPresaleCodesResponse.presaleCodes
+
+```ts
+presaleCodes: {
+  accountId: string;
+  benefit: string;
+  benefitExpiresAt: string | null;
+  channelId: string | null;
+  code: string;
+  createdAt: string;
+  createdBy: string | null;
+  expiresAt: string | null;
+  id: string;
+  isActive: boolean;
+  maxRedemptions: number | null;
+  organisationId: string;
+  redemptionCount: number;
   updatedAt: string;
 }[];
 ```
@@ -22701,6 +24018,194 @@ roles: {
   name: string;
   organisationId: string;
   permissions: string[];
+  updatedAt: string;
+}[];
+```
+
+#### ListSalesChannelKeysResponse
+
+```ts
+ListSalesChannelKeysResponse: {
+  keys: {
+     channelId: string;
+     createdAt: string;
+     id: string;
+     keyType: "publishable" | "secret";
+     last4: string;
+     lastUsedAt: string | null;
+     name: string;
+     publishableKey: string | null;
+     revokedAt: string | null;
+     status: "active" | "revoked" | "compromised";
+  }[];
+};
+```
+
+##### ListSalesChannelKeysResponse.keys
+
+```ts
+keys: {
+  channelId: string;
+  createdAt: string;
+  id: string;
+  keyType: "publishable" | "secret";
+  last4: string;
+  lastUsedAt: string | null;
+  name: string;
+  publishableKey: string | null;
+  revokedAt: string | null;
+  status: "active" | "revoked" | "compromised";
+}[];
+```
+
+#### ListSalesChannelListingsResponse
+
+```ts
+ListSalesChannelListingsResponse: {
+  listings: {
+     channelId: string;
+     createdAt: string;
+     createdBy: string | null;
+     eventId: string;
+     id: string;
+     isActive: boolean;
+     organisationId: string;
+     saleEndsAt: string | null;
+     saleStartsAt: string | null;
+     updatedAt: string;
+  }[];
+};
+```
+
+##### ListSalesChannelListingsResponse.listings
+
+```ts
+listings: {
+  channelId: string;
+  createdAt: string;
+  createdBy: string | null;
+  eventId: string;
+  id: string;
+  isActive: boolean;
+  organisationId: string;
+  saleEndsAt: string | null;
+  saleStartsAt: string | null;
+  updatedAt: string;
+}[];
+```
+
+#### ListSalesChannelsResponse
+
+```ts
+ListSalesChannelsResponse: {
+  channels: {
+     accountId: string;
+     channelTags: string[];
+     channelType:   | "website"
+        | "embed"
+        | "box_office"
+        | "kiosk"
+        | "reseller_api"
+        | "internal";
+     checkoutTtlSeconds: number;
+     createdAt: string;
+     customerConfig: {
+        allowGuestCheckout: boolean;
+        collectAddress: boolean;
+        collectPhone: boolean;
+        requireLogin: boolean;
+     };
+     customerFacing: {
+        allowedOrigins: string[];
+        customDomain?: string;
+        enabled: boolean;
+        magicLinkBaseUrl?: string;
+        partnerIdentity?: {
+           algorithm: string;
+           issuer: string;
+           publicKeyPem: string;
+        };
+        subdomain?: string;
+     };
+     deletedAt: string | null;
+     description: string | null;
+     eventFilter: {
+        channelTags?: string[];
+        mode: "all" | "tagged";
+     };
+     feeProfileId: string | null;
+     id: string;
+     isActive: boolean;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     pricingConfig: {
+        includeFeesInPrice: boolean;
+        showMemberPricing: boolean;
+        showOriginalPrice: boolean;
+     };
+     receivingAccountId: string;
+     reservationTtlSeconds: number;
+     slug: string;
+     themeId: string | null;
+     updatedAt: string;
+  }[];
+};
+```
+
+##### ListSalesChannelsResponse.channels
+
+```ts
+channels: {
+  accountId: string;
+  channelTags: string[];
+  channelType:   | "website"
+     | "embed"
+     | "box_office"
+     | "kiosk"
+     | "reseller_api"
+     | "internal";
+  checkoutTtlSeconds: number;
+  createdAt: string;
+  customerConfig: {
+     allowGuestCheckout: boolean;
+     collectAddress: boolean;
+     collectPhone: boolean;
+     requireLogin: boolean;
+  };
+  customerFacing: {
+     allowedOrigins: string[];
+     customDomain?: string;
+     enabled: boolean;
+     magicLinkBaseUrl?: string;
+     partnerIdentity?: {
+        algorithm: string;
+        issuer: string;
+        publicKeyPem: string;
+     };
+     subdomain?: string;
+  };
+  deletedAt: string | null;
+  description: string | null;
+  eventFilter: {
+     channelTags?: string[];
+     mode: "all" | "tagged";
+  };
+  feeProfileId: string | null;
+  id: string;
+  isActive: boolean;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  pricingConfig: {
+     includeFeesInPrice: boolean;
+     showMemberPricing: boolean;
+     showOriginalPrice: boolean;
+  };
+  receivingAccountId: string;
+  reservationTtlSeconds: number;
+  slug: string;
+  themeId: string | null;
   updatedAt: string;
 }[];
 ```
@@ -24351,6 +25856,7 @@ updatedAt: string;
 
 ```ts
 Organisation: {
+  apiVersion: string;
   createdAt: string;
   id: string;
   logoUrl?: string;
@@ -24362,6 +25868,22 @@ Organisation: {
   secondaryColor?: string;
   updatedAt: string;
 };
+```
+
+##### Organisation.apiVersion
+
+```ts
+apiVersion: string;
+```
+
+###### Description
+
+The dated API version this organisation is pinned to (see GET /meta/versions)
+
+###### Example
+
+```ts
+2026-06-13
 ```
 
 ##### Organisation.createdAt
@@ -24733,37 +26255,189 @@ updatedAt: string;
 2024-01-15T10:35:00Z
 ```
 
-#### PaymentMethodDetails
+#### PaymentMethod
 
 ```ts
-PaymentMethodDetails: 
-  | {
-  brand: string | null;
-  expiryMonth: number | null;
-  expiryYear: number | null;
-  last4: string | null;
-  type: "card" | "bank_transfer" | "cash" | "wallet";
-}
-  | null;
+PaymentMethod: {
+  card: {
+     brand: string;
+     expMonth: number;
+     expYear: number;
+     last4: string;
+  };
+  createdAt: string;
+  id: string;
+  isDefault: boolean;
+  type: "card";
+};
 ```
 
-##### Type Declaration
+##### PaymentMethod.card
 
 ```ts
-{
-  brand: string | null;
-  expiryMonth: number | null;
-  expiryYear: number | null;
-  last4: string | null;
-  type: "card" | "bank_transfer" | "cash" | "wallet";
-}
+card: {
+  brand: string;
+  expMonth: number;
+  expYear: number;
+  last4: string;
+};
 ```
 
-`null`
+##### PaymentMethod.card.brand
 
-##### Description
+```ts
+brand: string;
+```
 
-Payment method details
+###### Example
+
+```ts
+visa
+```
+
+##### PaymentMethod.card.expMonth
+
+```ts
+expMonth: number;
+```
+
+###### Example
+
+```ts
+12
+```
+
+##### PaymentMethod.card.expYear
+
+```ts
+expYear: number;
+```
+
+###### Example
+
+```ts
+2027
+```
+
+##### PaymentMethod.card.last4
+
+```ts
+last4: string;
+```
+
+###### Example
+
+```ts
+4242
+```
+
+##### PaymentMethod.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### PaymentMethod.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pm_1234567890
+```
+
+##### PaymentMethod.isDefault
+
+```ts
+isDefault: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### PaymentMethod.type
+
+```ts
+type: "card";
+```
+
+###### Example
+
+```ts
+card
+@enum {string}
+```
+
+#### PaymentMethodCard
+
+```ts
+PaymentMethodCard: {
+  brand: string;
+  expMonth: number;
+  expYear: number;
+  last4: string;
+};
+```
+
+##### PaymentMethodCard.brand
+
+```ts
+brand: string;
+```
+
+###### Example
+
+```ts
+visa
+```
+
+##### PaymentMethodCard.expMonth
+
+```ts
+expMonth: number;
+```
+
+###### Example
+
+```ts
+12
+```
+
+##### PaymentMethodCard.expYear
+
+```ts
+expYear: number;
+```
+
+###### Example
+
+```ts
+2027
+```
+
+##### PaymentMethodCard.last4
+
+```ts
+last4: string;
+```
+
+###### Example
+
+```ts
+4242
+```
 
 #### PaymentProvider
 
@@ -24818,13 +26492,13 @@ PaymentProvider: {
      | "in_person_card"
      | "in_person_cash"
     | "cheque")[];
-  type:   | "bank_transfer"
-     | "cash"
-     | "stripe_connect"
+  type:   | "stripe_connect"
      | "stripe_direct"
      | "adyen"
      | "square"
-     | "paypal";
+     | "paypal"
+     | "cash"
+     | "bank_transfer";
   updatedAt: string;
 };
 ```
@@ -25114,13 +26788,13 @@ supportedPaymentTypes: (
 
 ```ts
 type: 
-  | "bank_transfer"
-  | "cash"
   | "stripe_connect"
   | "stripe_direct"
   | "adyen"
   | "square"
-  | "paypal";
+  | "paypal"
+  | "cash"
+  | "bank_transfer";
 ```
 
 ###### Example
@@ -25179,6 +26853,407 @@ PaymentProviderCapabilities:
 ##### Description
 
 Provider capabilities
+
+#### PresaleCode
+
+```ts
+PresaleCode: {
+  accountId: string;
+  benefit: string;
+  benefitExpiresAt: string | null;
+  channelId: string | null;
+  code: string;
+  createdAt: string;
+  createdBy: string | null;
+  expiresAt: string | null;
+  id: string;
+  isActive: boolean;
+  maxRedemptions: number | null;
+  organisationId: string;
+  redemptionCount: number;
+  updatedAt: string;
+};
+```
+
+##### PresaleCode.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### PresaleCode.benefit
+
+```ts
+benefit: string;
+```
+
+###### Example
+
+```ts
+presale.summer-gala
+```
+
+##### PresaleCode.benefitExpiresAt
+
+```ts
+benefitExpiresAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### PresaleCode.channelId
+
+```ts
+channelId: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### PresaleCode.code
+
+```ts
+code: string;
+```
+
+###### Example
+
+```ts
+EARLYBIRD-2026
+```
+
+##### PresaleCode.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### PresaleCode.createdBy
+
+```ts
+createdBy: string | null;
+```
+
+###### Example
+
+```ts
+usr_abc123
+```
+
+##### PresaleCode.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2026-03-01T00:00:00Z
+```
+
+##### PresaleCode.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+psc_abc123
+```
+
+##### PresaleCode.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### PresaleCode.maxRedemptions
+
+```ts
+maxRedemptions: number | null;
+```
+
+###### Example
+
+```ts
+500
+```
+
+##### PresaleCode.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### PresaleCode.redemptionCount
+
+```ts
+redemptionCount: number;
+```
+
+###### Example
+
+```ts
+42
+```
+
+##### PresaleCode.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+#### PresaleCodeResponse
+
+```ts
+PresaleCodeResponse: {
+  presaleCode: {
+     accountId: string;
+     benefit: string;
+     benefitExpiresAt: string | null;
+     channelId: string | null;
+     code: string;
+     createdAt: string;
+     createdBy: string | null;
+     expiresAt: string | null;
+     id: string;
+     isActive: boolean;
+     maxRedemptions: number | null;
+     organisationId: string;
+     redemptionCount: number;
+     updatedAt: string;
+  };
+};
+```
+
+##### PresaleCodeResponse.presaleCode
+
+```ts
+presaleCode: {
+  accountId: string;
+  benefit: string;
+  benefitExpiresAt: string | null;
+  channelId: string | null;
+  code: string;
+  createdAt: string;
+  createdBy: string | null;
+  expiresAt: string | null;
+  id: string;
+  isActive: boolean;
+  maxRedemptions: number | null;
+  organisationId: string;
+  redemptionCount: number;
+  updatedAt: string;
+};
+```
+
+##### PresaleCodeResponse.presaleCode.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### PresaleCodeResponse.presaleCode.benefit
+
+```ts
+benefit: string;
+```
+
+###### Example
+
+```ts
+presale.summer-gala
+```
+
+##### PresaleCodeResponse.presaleCode.benefitExpiresAt
+
+```ts
+benefitExpiresAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### PresaleCodeResponse.presaleCode.channelId
+
+```ts
+channelId: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### PresaleCodeResponse.presaleCode.code
+
+```ts
+code: string;
+```
+
+###### Example
+
+```ts
+EARLYBIRD-2026
+```
+
+##### PresaleCodeResponse.presaleCode.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### PresaleCodeResponse.presaleCode.createdBy
+
+```ts
+createdBy: string | null;
+```
+
+###### Example
+
+```ts
+usr_abc123
+```
+
+##### PresaleCodeResponse.presaleCode.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2026-03-01T00:00:00Z
+```
+
+##### PresaleCodeResponse.presaleCode.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+psc_abc123
+```
+
+##### PresaleCodeResponse.presaleCode.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### PresaleCodeResponse.presaleCode.maxRedemptions
+
+```ts
+maxRedemptions: number | null;
+```
+
+###### Example
+
+```ts
+500
+```
+
+##### PresaleCodeResponse.presaleCode.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### PresaleCodeResponse.presaleCode.redemptionCount
+
+```ts
+redemptionCount: number;
+```
+
+###### Example
+
+```ts
+42
+```
+
+##### PresaleCodeResponse.presaleCode.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
 
 #### PriceScheme
 
@@ -26127,6 +28202,43 @@ id: string;
 
 ```ts
 optional lastName: string;
+```
+
+#### RedeemSalesPresaleCodeResponse
+
+```ts
+RedeemSalesPresaleCodeResponse: {
+  alreadyHeld: boolean;
+  benefit: string;
+};
+```
+
+##### RedeemSalesPresaleCodeResponse.alreadyHeld
+
+```ts
+alreadyHeld: boolean;
+```
+
+###### Description
+
+True if the customer already held this benefit
+
+###### Example
+
+```ts
+false
+```
+
+##### RedeemSalesPresaleCodeResponse.benefit
+
+```ts
+benefit: string;
+```
+
+###### Example
+
+```ts
+presale.summer-gala
 ```
 
 #### RefreshTokenRequest
@@ -27312,6 +29424,1040 @@ updatedAt: string;
 2024-12-28T14:45:00Z
 ```
 
+#### ResolvedTheme
+
+```ts
+ResolvedTheme: {
+  brand: {
+     displayName?: string;
+     faviconUrl?: string;
+     logoDarkUrl?: string;
+     logoUrl?: string;
+  };
+  colors: {
+     accent?: string;
+     accentForeground?: string;
+     background?: string;
+     border?: string;
+     destructive?: string;
+     destructiveForeground?: string;
+     foreground?: string;
+     input?: string;
+     muted?: string;
+     mutedForeground?: string;
+     primary?: string;
+     primaryForeground?: string;
+     ring?: string;
+     secondary?: string;
+     secondaryForeground?: string;
+     success?: string;
+     successForeground?: string;
+     warning?: string;
+     warningForeground?: string;
+  };
+  description: string | null;
+  design:   | {
+     cinemaGradient?: {
+        position: "bottom" | "center";
+        strength: 20 | 50 | 70;
+     };
+     heroLayout?: {
+        size: "small" | "medium" | "large";
+        type: "hero" | "cinema";
+     };
+   }
+     | null;
+  extendsThemeId: string | null;
+  id: string;
+  isActive: boolean;
+  isBaseTheme: boolean;
+  name: string;
+  organisationId: string;
+  shape: {
+     radiusFull?: string;
+     radiusLg?: string;
+     radiusMd?: string;
+     radiusNone?: string;
+     radiusSm?: string;
+  };
+  typography: {
+     baseSize?: string;
+     fontFamily?: string;
+     fontFamilyMono?: string;
+     scaleRatio?: number;
+  };
+};
+```
+
+##### ResolvedTheme.brand
+
+```ts
+brand: {
+  displayName?: string;
+  faviconUrl?: string;
+  logoDarkUrl?: string;
+  logoUrl?: string;
+};
+```
+
+##### ResolvedTheme.brand.displayName?
+
+```ts
+optional displayName: string;
+```
+
+###### Example
+
+```ts
+Acme Tickets
+```
+
+##### ResolvedTheme.brand.faviconUrl?
+
+```ts
+optional faviconUrl: string;
+```
+
+##### ResolvedTheme.brand.logoDarkUrl?
+
+```ts
+optional logoDarkUrl: string;
+```
+
+##### ResolvedTheme.brand.logoUrl?
+
+```ts
+optional logoUrl: string;
+```
+
+###### Example
+
+```ts
+https://cdn.example.com/logo.svg
+```
+
+##### ResolvedTheme.colors
+
+```ts
+colors: {
+  accent?: string;
+  accentForeground?: string;
+  background?: string;
+  border?: string;
+  destructive?: string;
+  destructiveForeground?: string;
+  foreground?: string;
+  input?: string;
+  muted?: string;
+  mutedForeground?: string;
+  primary?: string;
+  primaryForeground?: string;
+  ring?: string;
+  secondary?: string;
+  secondaryForeground?: string;
+  success?: string;
+  successForeground?: string;
+  warning?: string;
+  warningForeground?: string;
+};
+```
+
+##### ResolvedTheme.colors.accent?
+
+```ts
+optional accent: string;
+```
+
+##### ResolvedTheme.colors.accentForeground?
+
+```ts
+optional accentForeground: string;
+```
+
+##### ResolvedTheme.colors.background?
+
+```ts
+optional background: string;
+```
+
+##### ResolvedTheme.colors.border?
+
+```ts
+optional border: string;
+```
+
+##### ResolvedTheme.colors.destructive?
+
+```ts
+optional destructive: string;
+```
+
+##### ResolvedTheme.colors.destructiveForeground?
+
+```ts
+optional destructiveForeground: string;
+```
+
+##### ResolvedTheme.colors.foreground?
+
+```ts
+optional foreground: string;
+```
+
+##### ResolvedTheme.colors.input?
+
+```ts
+optional input: string;
+```
+
+##### ResolvedTheme.colors.muted?
+
+```ts
+optional muted: string;
+```
+
+##### ResolvedTheme.colors.mutedForeground?
+
+```ts
+optional mutedForeground: string;
+```
+
+##### ResolvedTheme.colors.primary?
+
+```ts
+optional primary: string;
+```
+
+###### Example
+
+```ts
+#7C3AED
+```
+
+##### ResolvedTheme.colors.primaryForeground?
+
+```ts
+optional primaryForeground: string;
+```
+
+##### ResolvedTheme.colors.ring?
+
+```ts
+optional ring: string;
+```
+
+##### ResolvedTheme.colors.secondary?
+
+```ts
+optional secondary: string;
+```
+
+##### ResolvedTheme.colors.secondaryForeground?
+
+```ts
+optional secondaryForeground: string;
+```
+
+##### ResolvedTheme.colors.success?
+
+```ts
+optional success: string;
+```
+
+##### ResolvedTheme.colors.successForeground?
+
+```ts
+optional successForeground: string;
+```
+
+##### ResolvedTheme.colors.warning?
+
+```ts
+optional warning: string;
+```
+
+##### ResolvedTheme.colors.warningForeground?
+
+```ts
+optional warningForeground: string;
+```
+
+##### ResolvedTheme.description
+
+```ts
+description: string | null;
+```
+
+##### ResolvedTheme.design
+
+```ts
+design: 
+  | {
+  cinemaGradient?: {
+     position: "bottom" | "center";
+     strength: 20 | 50 | 70;
+  };
+  heroLayout?: {
+     size: "small" | "medium" | "large";
+     type: "hero" | "cinema";
+  };
+}
+  | null;
+```
+
+##### ResolvedTheme.extendsThemeId
+
+```ts
+extendsThemeId: string | null;
+```
+
+###### Example
+
+```ts
+sct_base123
+```
+
+##### ResolvedTheme.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sct_abc123
+```
+
+##### ResolvedTheme.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### ResolvedTheme.isBaseTheme
+
+```ts
+isBaseTheme: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### ResolvedTheme.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Midnight
+```
+
+##### ResolvedTheme.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### ResolvedTheme.shape
+
+```ts
+shape: {
+  radiusFull?: string;
+  radiusLg?: string;
+  radiusMd?: string;
+  radiusNone?: string;
+  radiusSm?: string;
+};
+```
+
+##### ResolvedTheme.shape.radiusFull?
+
+```ts
+optional radiusFull: string;
+```
+
+##### ResolvedTheme.shape.radiusLg?
+
+```ts
+optional radiusLg: string;
+```
+
+##### ResolvedTheme.shape.radiusMd?
+
+```ts
+optional radiusMd: string;
+```
+
+###### Example
+
+```ts
+0.5rem
+```
+
+##### ResolvedTheme.shape.radiusNone?
+
+```ts
+optional radiusNone: string;
+```
+
+##### ResolvedTheme.shape.radiusSm?
+
+```ts
+optional radiusSm: string;
+```
+
+##### ResolvedTheme.typography
+
+```ts
+typography: {
+  baseSize?: string;
+  fontFamily?: string;
+  fontFamilyMono?: string;
+  scaleRatio?: number;
+};
+```
+
+##### ResolvedTheme.typography.baseSize?
+
+```ts
+optional baseSize: string;
+```
+
+###### Example
+
+```ts
+16px
+```
+
+##### ResolvedTheme.typography.fontFamily?
+
+```ts
+optional fontFamily: string;
+```
+
+###### Example
+
+```ts
+Inter, sans-serif
+```
+
+##### ResolvedTheme.typography.fontFamilyMono?
+
+```ts
+optional fontFamilyMono: string;
+```
+
+##### ResolvedTheme.typography.scaleRatio?
+
+```ts
+optional scaleRatio: number;
+```
+
+###### Example
+
+```ts
+1.25
+```
+
+#### ResolvedThemeResponse
+
+```ts
+ResolvedThemeResponse: {
+  theme: {
+     brand: {
+        displayName?: string;
+        faviconUrl?: string;
+        logoDarkUrl?: string;
+        logoUrl?: string;
+     };
+     colors: {
+        accent?: string;
+        accentForeground?: string;
+        background?: string;
+        border?: string;
+        destructive?: string;
+        destructiveForeground?: string;
+        foreground?: string;
+        input?: string;
+        muted?: string;
+        mutedForeground?: string;
+        primary?: string;
+        primaryForeground?: string;
+        ring?: string;
+        secondary?: string;
+        secondaryForeground?: string;
+        success?: string;
+        successForeground?: string;
+        warning?: string;
+        warningForeground?: string;
+     };
+     description: string | null;
+     design:   | {
+        cinemaGradient?: {
+           position: "bottom" | "center";
+           strength: 20 | 50 | 70;
+        };
+        heroLayout?: {
+           size: "small" | "medium" | "large";
+           type: "hero" | "cinema";
+        };
+      }
+        | null;
+     extendsThemeId: string | null;
+     id: string;
+     isActive: boolean;
+     isBaseTheme: boolean;
+     name: string;
+     organisationId: string;
+     shape: {
+        radiusFull?: string;
+        radiusLg?: string;
+        radiusMd?: string;
+        radiusNone?: string;
+        radiusSm?: string;
+     };
+     typography: {
+        baseSize?: string;
+        fontFamily?: string;
+        fontFamilyMono?: string;
+        scaleRatio?: number;
+     };
+  };
+};
+```
+
+##### ResolvedThemeResponse.theme
+
+```ts
+theme: {
+  brand: {
+     displayName?: string;
+     faviconUrl?: string;
+     logoDarkUrl?: string;
+     logoUrl?: string;
+  };
+  colors: {
+     accent?: string;
+     accentForeground?: string;
+     background?: string;
+     border?: string;
+     destructive?: string;
+     destructiveForeground?: string;
+     foreground?: string;
+     input?: string;
+     muted?: string;
+     mutedForeground?: string;
+     primary?: string;
+     primaryForeground?: string;
+     ring?: string;
+     secondary?: string;
+     secondaryForeground?: string;
+     success?: string;
+     successForeground?: string;
+     warning?: string;
+     warningForeground?: string;
+  };
+  description: string | null;
+  design:   | {
+     cinemaGradient?: {
+        position: "bottom" | "center";
+        strength: 20 | 50 | 70;
+     };
+     heroLayout?: {
+        size: "small" | "medium" | "large";
+        type: "hero" | "cinema";
+     };
+   }
+     | null;
+  extendsThemeId: string | null;
+  id: string;
+  isActive: boolean;
+  isBaseTheme: boolean;
+  name: string;
+  organisationId: string;
+  shape: {
+     radiusFull?: string;
+     radiusLg?: string;
+     radiusMd?: string;
+     radiusNone?: string;
+     radiusSm?: string;
+  };
+  typography: {
+     baseSize?: string;
+     fontFamily?: string;
+     fontFamilyMono?: string;
+     scaleRatio?: number;
+  };
+};
+```
+
+##### ResolvedThemeResponse.theme.brand
+
+```ts
+brand: {
+  displayName?: string;
+  faviconUrl?: string;
+  logoDarkUrl?: string;
+  logoUrl?: string;
+};
+```
+
+##### ResolvedThemeResponse.theme.brand.displayName?
+
+```ts
+optional displayName: string;
+```
+
+###### Example
+
+```ts
+Acme Tickets
+```
+
+##### ResolvedThemeResponse.theme.brand.faviconUrl?
+
+```ts
+optional faviconUrl: string;
+```
+
+##### ResolvedThemeResponse.theme.brand.logoDarkUrl?
+
+```ts
+optional logoDarkUrl: string;
+```
+
+##### ResolvedThemeResponse.theme.brand.logoUrl?
+
+```ts
+optional logoUrl: string;
+```
+
+###### Example
+
+```ts
+https://cdn.example.com/logo.svg
+```
+
+##### ResolvedThemeResponse.theme.colors
+
+```ts
+colors: {
+  accent?: string;
+  accentForeground?: string;
+  background?: string;
+  border?: string;
+  destructive?: string;
+  destructiveForeground?: string;
+  foreground?: string;
+  input?: string;
+  muted?: string;
+  mutedForeground?: string;
+  primary?: string;
+  primaryForeground?: string;
+  ring?: string;
+  secondary?: string;
+  secondaryForeground?: string;
+  success?: string;
+  successForeground?: string;
+  warning?: string;
+  warningForeground?: string;
+};
+```
+
+##### ResolvedThemeResponse.theme.colors.accent?
+
+```ts
+optional accent: string;
+```
+
+##### ResolvedThemeResponse.theme.colors.accentForeground?
+
+```ts
+optional accentForeground: string;
+```
+
+##### ResolvedThemeResponse.theme.colors.background?
+
+```ts
+optional background: string;
+```
+
+##### ResolvedThemeResponse.theme.colors.border?
+
+```ts
+optional border: string;
+```
+
+##### ResolvedThemeResponse.theme.colors.destructive?
+
+```ts
+optional destructive: string;
+```
+
+##### ResolvedThemeResponse.theme.colors.destructiveForeground?
+
+```ts
+optional destructiveForeground: string;
+```
+
+##### ResolvedThemeResponse.theme.colors.foreground?
+
+```ts
+optional foreground: string;
+```
+
+##### ResolvedThemeResponse.theme.colors.input?
+
+```ts
+optional input: string;
+```
+
+##### ResolvedThemeResponse.theme.colors.muted?
+
+```ts
+optional muted: string;
+```
+
+##### ResolvedThemeResponse.theme.colors.mutedForeground?
+
+```ts
+optional mutedForeground: string;
+```
+
+##### ResolvedThemeResponse.theme.colors.primary?
+
+```ts
+optional primary: string;
+```
+
+###### Example
+
+```ts
+#7C3AED
+```
+
+##### ResolvedThemeResponse.theme.colors.primaryForeground?
+
+```ts
+optional primaryForeground: string;
+```
+
+##### ResolvedThemeResponse.theme.colors.ring?
+
+```ts
+optional ring: string;
+```
+
+##### ResolvedThemeResponse.theme.colors.secondary?
+
+```ts
+optional secondary: string;
+```
+
+##### ResolvedThemeResponse.theme.colors.secondaryForeground?
+
+```ts
+optional secondaryForeground: string;
+```
+
+##### ResolvedThemeResponse.theme.colors.success?
+
+```ts
+optional success: string;
+```
+
+##### ResolvedThemeResponse.theme.colors.successForeground?
+
+```ts
+optional successForeground: string;
+```
+
+##### ResolvedThemeResponse.theme.colors.warning?
+
+```ts
+optional warning: string;
+```
+
+##### ResolvedThemeResponse.theme.colors.warningForeground?
+
+```ts
+optional warningForeground: string;
+```
+
+##### ResolvedThemeResponse.theme.description
+
+```ts
+description: string | null;
+```
+
+##### ResolvedThemeResponse.theme.design
+
+```ts
+design: 
+  | {
+  cinemaGradient?: {
+     position: "bottom" | "center";
+     strength: 20 | 50 | 70;
+  };
+  heroLayout?: {
+     size: "small" | "medium" | "large";
+     type: "hero" | "cinema";
+  };
+}
+  | null;
+```
+
+##### ResolvedThemeResponse.theme.extendsThemeId
+
+```ts
+extendsThemeId: string | null;
+```
+
+###### Example
+
+```ts
+sct_base123
+```
+
+##### ResolvedThemeResponse.theme.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sct_abc123
+```
+
+##### ResolvedThemeResponse.theme.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### ResolvedThemeResponse.theme.isBaseTheme
+
+```ts
+isBaseTheme: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### ResolvedThemeResponse.theme.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Midnight
+```
+
+##### ResolvedThemeResponse.theme.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### ResolvedThemeResponse.theme.shape
+
+```ts
+shape: {
+  radiusFull?: string;
+  radiusLg?: string;
+  radiusMd?: string;
+  radiusNone?: string;
+  radiusSm?: string;
+};
+```
+
+##### ResolvedThemeResponse.theme.shape.radiusFull?
+
+```ts
+optional radiusFull: string;
+```
+
+##### ResolvedThemeResponse.theme.shape.radiusLg?
+
+```ts
+optional radiusLg: string;
+```
+
+##### ResolvedThemeResponse.theme.shape.radiusMd?
+
+```ts
+optional radiusMd: string;
+```
+
+###### Example
+
+```ts
+0.5rem
+```
+
+##### ResolvedThemeResponse.theme.shape.radiusNone?
+
+```ts
+optional radiusNone: string;
+```
+
+##### ResolvedThemeResponse.theme.shape.radiusSm?
+
+```ts
+optional radiusSm: string;
+```
+
+##### ResolvedThemeResponse.theme.typography
+
+```ts
+typography: {
+  baseSize?: string;
+  fontFamily?: string;
+  fontFamilyMono?: string;
+  scaleRatio?: number;
+};
+```
+
+##### ResolvedThemeResponse.theme.typography.baseSize?
+
+```ts
+optional baseSize: string;
+```
+
+###### Example
+
+```ts
+16px
+```
+
+##### ResolvedThemeResponse.theme.typography.fontFamily?
+
+```ts
+optional fontFamily: string;
+```
+
+###### Example
+
+```ts
+Inter, sans-serif
+```
+
+##### ResolvedThemeResponse.theme.typography.fontFamilyMono?
+
+```ts
+optional fontFamilyMono: string;
+```
+
+##### ResolvedThemeResponse.theme.typography.scaleRatio?
+
+```ts
+optional scaleRatio: number;
+```
+
+###### Example
+
+```ts
+1.25
+```
+
+#### RevokeSalesChannelKeyResponse
+
+```ts
+RevokeSalesChannelKeyResponse: {
+  key: {
+     id: string;
+     revokedAt: string | null;
+     status: "active" | "revoked" | "compromised";
+  };
+};
+```
+
+##### RevokeSalesChannelKeyResponse.key
+
+```ts
+key: {
+  id: string;
+  revokedAt: string | null;
+  status: "active" | "revoked" | "compromised";
+};
+```
+
+##### RevokeSalesChannelKeyResponse.key.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+schk_abc123
+```
+
+##### RevokeSalesChannelKeyResponse.key.revokedAt
+
+```ts
+revokedAt: string | null;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### RevokeSalesChannelKeyResponse.key.status
+
+```ts
+status: "active" | "revoked" | "compromised";
+```
+
+###### Example
+
+```ts
+revoked
+@enum {string}
+```
+
 #### Role
 
 ```ts
@@ -27446,6 +30592,5010 @@ updatedAt: string;
 
 ```ts
 2024-01-20T14:45:00Z
+```
+
+#### SalesCart
+
+```ts
+SalesCart: {
+  currency: string | null;
+  expiresAt: string;
+  id: string;
+  items: {
+     categoryName: string;
+     currency: string;
+     eventName: string;
+     eventOccurrenceId: string;
+     id: string;
+     quantity: number;
+     subtotal: number;
+     ticketTypeName: string;
+     unitPrice: number;
+  }[];
+  itemsSubtotal: number;
+  orderId: string | null;
+  status: string;
+};
+```
+
+##### SalesCart.currency
+
+```ts
+currency: string | null;
+```
+
+##### SalesCart.expiresAt
+
+```ts
+expiresAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### SalesCart.id
+
+```ts
+id: string;
+```
+
+##### SalesCart.items
+
+```ts
+items: {
+  categoryName: string;
+  currency: string;
+  eventName: string;
+  eventOccurrenceId: string;
+  id: string;
+  quantity: number;
+  subtotal: number;
+  ticketTypeName: string;
+  unitPrice: number;
+}[];
+```
+
+##### SalesCart.itemsSubtotal
+
+```ts
+itemsSubtotal: number;
+```
+
+##### SalesCart.orderId
+
+```ts
+orderId: string | null;
+```
+
+##### SalesCart.status
+
+```ts
+status: string;
+```
+
+#### SalesCartItem
+
+```ts
+SalesCartItem: {
+  categoryName: string;
+  currency: string;
+  eventName: string;
+  eventOccurrenceId: string;
+  id: string;
+  quantity: number;
+  subtotal: number;
+  ticketTypeName: string;
+  unitPrice: number;
+};
+```
+
+##### SalesCartItem.categoryName
+
+```ts
+categoryName: string;
+```
+
+##### SalesCartItem.currency
+
+```ts
+currency: string;
+```
+
+##### SalesCartItem.eventName
+
+```ts
+eventName: string;
+```
+
+##### SalesCartItem.eventOccurrenceId
+
+```ts
+eventOccurrenceId: string;
+```
+
+##### SalesCartItem.id
+
+```ts
+id: string;
+```
+
+##### SalesCartItem.quantity
+
+```ts
+quantity: number;
+```
+
+##### SalesCartItem.subtotal
+
+```ts
+subtotal: number;
+```
+
+##### SalesCartItem.ticketTypeName
+
+```ts
+ticketTypeName: string;
+```
+
+##### SalesCartItem.unitPrice
+
+```ts
+unitPrice: number;
+```
+
+#### SalesCartResponse
+
+```ts
+SalesCartResponse: {
+  cart: {
+     currency: string | null;
+     expiresAt: string;
+     id: string;
+     items: {
+        categoryName: string;
+        currency: string;
+        eventName: string;
+        eventOccurrenceId: string;
+        id: string;
+        quantity: number;
+        subtotal: number;
+        ticketTypeName: string;
+        unitPrice: number;
+     }[];
+     itemsSubtotal: number;
+     orderId: string | null;
+     status: string;
+  };
+};
+```
+
+##### SalesCartResponse.cart
+
+```ts
+cart: {
+  currency: string | null;
+  expiresAt: string;
+  id: string;
+  items: {
+     categoryName: string;
+     currency: string;
+     eventName: string;
+     eventOccurrenceId: string;
+     id: string;
+     quantity: number;
+     subtotal: number;
+     ticketTypeName: string;
+     unitPrice: number;
+  }[];
+  itemsSubtotal: number;
+  orderId: string | null;
+  status: string;
+};
+```
+
+##### SalesCartResponse.cart.currency
+
+```ts
+currency: string | null;
+```
+
+##### SalesCartResponse.cart.expiresAt
+
+```ts
+expiresAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### SalesCartResponse.cart.id
+
+```ts
+id: string;
+```
+
+##### SalesCartResponse.cart.items
+
+```ts
+items: {
+  categoryName: string;
+  currency: string;
+  eventName: string;
+  eventOccurrenceId: string;
+  id: string;
+  quantity: number;
+  subtotal: number;
+  ticketTypeName: string;
+  unitPrice: number;
+}[];
+```
+
+##### SalesCartResponse.cart.itemsSubtotal
+
+```ts
+itemsSubtotal: number;
+```
+
+##### SalesCartResponse.cart.orderId
+
+```ts
+orderId: string | null;
+```
+
+##### SalesCartResponse.cart.status
+
+```ts
+status: string;
+```
+
+#### SalesChannel
+
+```ts
+SalesChannel: {
+  accountId: string;
+  channelTags: string[];
+  channelType:   | "website"
+     | "embed"
+     | "box_office"
+     | "kiosk"
+     | "reseller_api"
+     | "internal";
+  checkoutTtlSeconds: number;
+  createdAt: string;
+  customerConfig: {
+     allowGuestCheckout: boolean;
+     collectAddress: boolean;
+     collectPhone: boolean;
+     requireLogin: boolean;
+  };
+  customerFacing: {
+     allowedOrigins: string[];
+     customDomain?: string;
+     enabled: boolean;
+     magicLinkBaseUrl?: string;
+     partnerIdentity?: {
+        algorithm: string;
+        issuer: string;
+        publicKeyPem: string;
+     };
+     subdomain?: string;
+  };
+  deletedAt: string | null;
+  description: string | null;
+  eventFilter: {
+     channelTags?: string[];
+     mode: "all" | "tagged";
+  };
+  feeProfileId: string | null;
+  id: string;
+  isActive: boolean;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  pricingConfig: {
+     includeFeesInPrice: boolean;
+     showMemberPricing: boolean;
+     showOriginalPrice: boolean;
+  };
+  receivingAccountId: string;
+  reservationTtlSeconds: number;
+  slug: string;
+  themeId: string | null;
+  updatedAt: string;
+};
+```
+
+##### SalesChannel.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### SalesChannel.channelTags
+
+```ts
+channelTags: string[];
+```
+
+###### Example
+
+```ts
+[
+      "public"
+    ]
+```
+
+##### SalesChannel.channelType
+
+```ts
+channelType: 
+  | "website"
+  | "embed"
+  | "box_office"
+  | "kiosk"
+  | "reseller_api"
+  | "internal";
+```
+
+###### Example
+
+```ts
+website
+@enum {string}
+```
+
+##### SalesChannel.checkoutTtlSeconds
+
+```ts
+checkoutTtlSeconds: number;
+```
+
+###### Example
+
+```ts
+300
+```
+
+##### SalesChannel.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### SalesChannel.customerConfig
+
+```ts
+customerConfig: {
+  allowGuestCheckout: boolean;
+  collectAddress: boolean;
+  collectPhone: boolean;
+  requireLogin: boolean;
+};
+```
+
+##### SalesChannel.customerConfig.allowGuestCheckout
+
+```ts
+allowGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### SalesChannel.customerConfig.collectAddress
+
+```ts
+collectAddress: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### SalesChannel.customerConfig.collectPhone
+
+```ts
+collectPhone: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### SalesChannel.customerConfig.requireLogin
+
+```ts
+requireLogin: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### SalesChannel.customerFacing
+
+```ts
+customerFacing: {
+  allowedOrigins: string[];
+  customDomain?: string;
+  enabled: boolean;
+  magicLinkBaseUrl?: string;
+  partnerIdentity?: {
+     algorithm: string;
+     issuer: string;
+     publicKeyPem: string;
+  };
+  subdomain?: string;
+};
+```
+
+##### SalesChannel.customerFacing.allowedOrigins
+
+```ts
+allowedOrigins: string[];
+```
+
+###### Example
+
+```ts
+[
+      "https://example.com"
+    ]
+```
+
+##### SalesChannel.customerFacing.customDomain?
+
+```ts
+optional customDomain: string;
+```
+
+###### Example
+
+```ts
+tickets.example.com
+```
+
+##### SalesChannel.customerFacing.enabled
+
+```ts
+enabled: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### SalesChannel.customerFacing.magicLinkBaseUrl?
+
+```ts
+optional magicLinkBaseUrl: string;
+```
+
+###### Example
+
+```ts
+https://tickets.example.com
+```
+
+##### SalesChannel.customerFacing.partnerIdentity?
+
+```ts
+optional partnerIdentity: {
+  algorithm: string;
+  issuer: string;
+  publicKeyPem: string;
+};
+```
+
+##### SalesChannel.customerFacing.partnerIdentity.algorithm
+
+```ts
+algorithm: string;
+```
+
+###### Example
+
+```ts
+RS256
+```
+
+##### SalesChannel.customerFacing.partnerIdentity.issuer
+
+```ts
+issuer: string;
+```
+
+###### Example
+
+```ts
+https://partner.example.com
+```
+
+##### SalesChannel.customerFacing.partnerIdentity.publicKeyPem
+
+```ts
+publicKeyPem: string;
+```
+
+###### Example
+
+```ts
+-----BEGIN PUBLIC KEY-----...
+```
+
+##### SalesChannel.customerFacing.subdomain?
+
+```ts
+optional subdomain: string;
+```
+
+###### Example
+
+```ts
+tickets
+```
+
+##### SalesChannel.deletedAt
+
+```ts
+deletedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### SalesChannel.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Public web sales
+```
+
+##### SalesChannel.eventFilter
+
+```ts
+eventFilter: {
+  channelTags?: string[];
+  mode: "all" | "tagged";
+};
+```
+
+##### SalesChannel.eventFilter.channelTags?
+
+```ts
+optional channelTags: string[];
+```
+
+###### Example
+
+```ts
+[
+      "summer-festival"
+    ]
+```
+
+##### SalesChannel.eventFilter.mode
+
+```ts
+mode: "all" | "tagged";
+```
+
+###### Example
+
+```ts
+all
+@enum {string}
+```
+
+##### SalesChannel.feeProfileId
+
+```ts
+feeProfileId: string | null;
+```
+
+###### Example
+
+```ts
+sfp_abc123
+```
+
+##### SalesChannel.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sch_abc123
+```
+
+##### SalesChannel.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### SalesChannel.isDeleted
+
+```ts
+isDeleted: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### SalesChannel.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Main Website
+```
+
+##### SalesChannel.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### SalesChannel.pricingConfig
+
+```ts
+pricingConfig: {
+  includeFeesInPrice: boolean;
+  showMemberPricing: boolean;
+  showOriginalPrice: boolean;
+};
+```
+
+##### SalesChannel.pricingConfig.includeFeesInPrice
+
+```ts
+includeFeesInPrice: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### SalesChannel.pricingConfig.showMemberPricing
+
+```ts
+showMemberPricing: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### SalesChannel.pricingConfig.showOriginalPrice
+
+```ts
+showOriginalPrice: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### SalesChannel.receivingAccountId
+
+```ts
+receivingAccountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### SalesChannel.reservationTtlSeconds
+
+```ts
+reservationTtlSeconds: number;
+```
+
+###### Example
+
+```ts
+900
+```
+
+##### SalesChannel.slug
+
+```ts
+slug: string;
+```
+
+###### Example
+
+```ts
+main-website
+```
+
+##### SalesChannel.themeId
+
+```ts
+themeId: string | null;
+```
+
+###### Example
+
+```ts
+sct_abc123
+```
+
+##### SalesChannel.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+#### SalesChannelKey
+
+```ts
+SalesChannelKey: {
+  channelId: string;
+  createdAt: string;
+  id: string;
+  keyType: "publishable" | "secret";
+  last4: string;
+  lastUsedAt: string | null;
+  name: string;
+  publishableKey: string | null;
+  revokedAt: string | null;
+  status: "active" | "revoked" | "compromised";
+};
+```
+
+##### SalesChannelKey.channelId
+
+```ts
+channelId: string;
+```
+
+###### Example
+
+```ts
+sch_abc123
+```
+
+##### SalesChannelKey.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### SalesChannelKey.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+schk_abc123
+```
+
+##### SalesChannelKey.keyType
+
+```ts
+keyType: "publishable" | "secret";
+```
+
+###### Example
+
+```ts
+publishable
+@enum {string}
+```
+
+##### SalesChannelKey.last4
+
+```ts
+last4: string;
+```
+
+###### Example
+
+```ts
+a1b2
+```
+
+##### SalesChannelKey.lastUsedAt
+
+```ts
+lastUsedAt: string | null;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### SalesChannelKey.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Website key
+```
+
+##### SalesChannelKey.publishableKey
+
+```ts
+publishableKey: string | null;
+```
+
+###### Description
+
+Full key material for publishable keys; null for secret keys
+
+###### Example
+
+```ts
+tlpk_abc123...
+```
+
+##### SalesChannelKey.revokedAt
+
+```ts
+revokedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### SalesChannelKey.status
+
+```ts
+status: "active" | "revoked" | "compromised";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+#### SalesChannelListing
+
+```ts
+SalesChannelListing: {
+  channelId: string;
+  createdAt: string;
+  createdBy: string | null;
+  eventId: string;
+  id: string;
+  isActive: boolean;
+  organisationId: string;
+  saleEndsAt: string | null;
+  saleStartsAt: string | null;
+  updatedAt: string;
+};
+```
+
+##### SalesChannelListing.channelId
+
+```ts
+channelId: string;
+```
+
+###### Example
+
+```ts
+sch_abc123
+```
+
+##### SalesChannelListing.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### SalesChannelListing.createdBy
+
+```ts
+createdBy: string | null;
+```
+
+###### Example
+
+```ts
+usr_abc123
+```
+
+##### SalesChannelListing.eventId
+
+```ts
+eventId: string;
+```
+
+###### Example
+
+```ts
+evt_abc123
+```
+
+##### SalesChannelListing.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+schl_abc123
+```
+
+##### SalesChannelListing.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### SalesChannelListing.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### SalesChannelListing.saleEndsAt
+
+```ts
+saleEndsAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### SalesChannelListing.saleStartsAt
+
+```ts
+saleStartsAt: string | null;
+```
+
+###### Example
+
+```ts
+2026-02-01T09:00:00Z
+```
+
+##### SalesChannelListing.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+#### SalesChannelListingResponse
+
+```ts
+SalesChannelListingResponse: {
+  listing: {
+     channelId: string;
+     createdAt: string;
+     createdBy: string | null;
+     eventId: string;
+     id: string;
+     isActive: boolean;
+     organisationId: string;
+     saleEndsAt: string | null;
+     saleStartsAt: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### SalesChannelListingResponse.listing
+
+```ts
+listing: {
+  channelId: string;
+  createdAt: string;
+  createdBy: string | null;
+  eventId: string;
+  id: string;
+  isActive: boolean;
+  organisationId: string;
+  saleEndsAt: string | null;
+  saleStartsAt: string | null;
+  updatedAt: string;
+};
+```
+
+##### SalesChannelListingResponse.listing.channelId
+
+```ts
+channelId: string;
+```
+
+###### Example
+
+```ts
+sch_abc123
+```
+
+##### SalesChannelListingResponse.listing.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### SalesChannelListingResponse.listing.createdBy
+
+```ts
+createdBy: string | null;
+```
+
+###### Example
+
+```ts
+usr_abc123
+```
+
+##### SalesChannelListingResponse.listing.eventId
+
+```ts
+eventId: string;
+```
+
+###### Example
+
+```ts
+evt_abc123
+```
+
+##### SalesChannelListingResponse.listing.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+schl_abc123
+```
+
+##### SalesChannelListingResponse.listing.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### SalesChannelListingResponse.listing.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### SalesChannelListingResponse.listing.saleEndsAt
+
+```ts
+saleEndsAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### SalesChannelListingResponse.listing.saleStartsAt
+
+```ts
+saleStartsAt: string | null;
+```
+
+###### Example
+
+```ts
+2026-02-01T09:00:00Z
+```
+
+##### SalesChannelListingResponse.listing.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+#### SalesChannelResponse
+
+```ts
+SalesChannelResponse: {
+  channel: {
+     accountId: string;
+     channelTags: string[];
+     channelType:   | "website"
+        | "embed"
+        | "box_office"
+        | "kiosk"
+        | "reseller_api"
+        | "internal";
+     checkoutTtlSeconds: number;
+     createdAt: string;
+     customerConfig: {
+        allowGuestCheckout: boolean;
+        collectAddress: boolean;
+        collectPhone: boolean;
+        requireLogin: boolean;
+     };
+     customerFacing: {
+        allowedOrigins: string[];
+        customDomain?: string;
+        enabled: boolean;
+        magicLinkBaseUrl?: string;
+        partnerIdentity?: {
+           algorithm: string;
+           issuer: string;
+           publicKeyPem: string;
+        };
+        subdomain?: string;
+     };
+     deletedAt: string | null;
+     description: string | null;
+     eventFilter: {
+        channelTags?: string[];
+        mode: "all" | "tagged";
+     };
+     feeProfileId: string | null;
+     id: string;
+     isActive: boolean;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     pricingConfig: {
+        includeFeesInPrice: boolean;
+        showMemberPricing: boolean;
+        showOriginalPrice: boolean;
+     };
+     receivingAccountId: string;
+     reservationTtlSeconds: number;
+     slug: string;
+     themeId: string | null;
+     updatedAt: string;
+  };
+};
+```
+
+##### SalesChannelResponse.channel
+
+```ts
+channel: {
+  accountId: string;
+  channelTags: string[];
+  channelType:   | "website"
+     | "embed"
+     | "box_office"
+     | "kiosk"
+     | "reseller_api"
+     | "internal";
+  checkoutTtlSeconds: number;
+  createdAt: string;
+  customerConfig: {
+     allowGuestCheckout: boolean;
+     collectAddress: boolean;
+     collectPhone: boolean;
+     requireLogin: boolean;
+  };
+  customerFacing: {
+     allowedOrigins: string[];
+     customDomain?: string;
+     enabled: boolean;
+     magicLinkBaseUrl?: string;
+     partnerIdentity?: {
+        algorithm: string;
+        issuer: string;
+        publicKeyPem: string;
+     };
+     subdomain?: string;
+  };
+  deletedAt: string | null;
+  description: string | null;
+  eventFilter: {
+     channelTags?: string[];
+     mode: "all" | "tagged";
+  };
+  feeProfileId: string | null;
+  id: string;
+  isActive: boolean;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  pricingConfig: {
+     includeFeesInPrice: boolean;
+     showMemberPricing: boolean;
+     showOriginalPrice: boolean;
+  };
+  receivingAccountId: string;
+  reservationTtlSeconds: number;
+  slug: string;
+  themeId: string | null;
+  updatedAt: string;
+};
+```
+
+##### SalesChannelResponse.channel.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### SalesChannelResponse.channel.channelTags
+
+```ts
+channelTags: string[];
+```
+
+###### Example
+
+```ts
+[
+      "public"
+    ]
+```
+
+##### SalesChannelResponse.channel.channelType
+
+```ts
+channelType: 
+  | "website"
+  | "embed"
+  | "box_office"
+  | "kiosk"
+  | "reseller_api"
+  | "internal";
+```
+
+###### Example
+
+```ts
+website
+@enum {string}
+```
+
+##### SalesChannelResponse.channel.checkoutTtlSeconds
+
+```ts
+checkoutTtlSeconds: number;
+```
+
+###### Example
+
+```ts
+300
+```
+
+##### SalesChannelResponse.channel.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### SalesChannelResponse.channel.customerConfig
+
+```ts
+customerConfig: {
+  allowGuestCheckout: boolean;
+  collectAddress: boolean;
+  collectPhone: boolean;
+  requireLogin: boolean;
+};
+```
+
+##### SalesChannelResponse.channel.customerConfig.allowGuestCheckout
+
+```ts
+allowGuestCheckout: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### SalesChannelResponse.channel.customerConfig.collectAddress
+
+```ts
+collectAddress: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### SalesChannelResponse.channel.customerConfig.collectPhone
+
+```ts
+collectPhone: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### SalesChannelResponse.channel.customerConfig.requireLogin
+
+```ts
+requireLogin: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### SalesChannelResponse.channel.customerFacing
+
+```ts
+customerFacing: {
+  allowedOrigins: string[];
+  customDomain?: string;
+  enabled: boolean;
+  magicLinkBaseUrl?: string;
+  partnerIdentity?: {
+     algorithm: string;
+     issuer: string;
+     publicKeyPem: string;
+  };
+  subdomain?: string;
+};
+```
+
+##### SalesChannelResponse.channel.customerFacing.allowedOrigins
+
+```ts
+allowedOrigins: string[];
+```
+
+###### Example
+
+```ts
+[
+      "https://example.com"
+    ]
+```
+
+##### SalesChannelResponse.channel.customerFacing.customDomain?
+
+```ts
+optional customDomain: string;
+```
+
+###### Example
+
+```ts
+tickets.example.com
+```
+
+##### SalesChannelResponse.channel.customerFacing.enabled
+
+```ts
+enabled: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### SalesChannelResponse.channel.customerFacing.magicLinkBaseUrl?
+
+```ts
+optional magicLinkBaseUrl: string;
+```
+
+###### Example
+
+```ts
+https://tickets.example.com
+```
+
+##### SalesChannelResponse.channel.customerFacing.partnerIdentity?
+
+```ts
+optional partnerIdentity: {
+  algorithm: string;
+  issuer: string;
+  publicKeyPem: string;
+};
+```
+
+##### SalesChannelResponse.channel.customerFacing.partnerIdentity.algorithm
+
+```ts
+algorithm: string;
+```
+
+###### Example
+
+```ts
+RS256
+```
+
+##### SalesChannelResponse.channel.customerFacing.partnerIdentity.issuer
+
+```ts
+issuer: string;
+```
+
+###### Example
+
+```ts
+https://partner.example.com
+```
+
+##### SalesChannelResponse.channel.customerFacing.partnerIdentity.publicKeyPem
+
+```ts
+publicKeyPem: string;
+```
+
+###### Example
+
+```ts
+-----BEGIN PUBLIC KEY-----...
+```
+
+##### SalesChannelResponse.channel.customerFacing.subdomain?
+
+```ts
+optional subdomain: string;
+```
+
+###### Example
+
+```ts
+tickets
+```
+
+##### SalesChannelResponse.channel.deletedAt
+
+```ts
+deletedAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### SalesChannelResponse.channel.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Public web sales
+```
+
+##### SalesChannelResponse.channel.eventFilter
+
+```ts
+eventFilter: {
+  channelTags?: string[];
+  mode: "all" | "tagged";
+};
+```
+
+##### SalesChannelResponse.channel.eventFilter.channelTags?
+
+```ts
+optional channelTags: string[];
+```
+
+###### Example
+
+```ts
+[
+      "summer-festival"
+    ]
+```
+
+##### SalesChannelResponse.channel.eventFilter.mode
+
+```ts
+mode: "all" | "tagged";
+```
+
+###### Example
+
+```ts
+all
+@enum {string}
+```
+
+##### SalesChannelResponse.channel.feeProfileId
+
+```ts
+feeProfileId: string | null;
+```
+
+###### Example
+
+```ts
+sfp_abc123
+```
+
+##### SalesChannelResponse.channel.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sch_abc123
+```
+
+##### SalesChannelResponse.channel.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### SalesChannelResponse.channel.isDeleted
+
+```ts
+isDeleted: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### SalesChannelResponse.channel.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Main Website
+```
+
+##### SalesChannelResponse.channel.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### SalesChannelResponse.channel.pricingConfig
+
+```ts
+pricingConfig: {
+  includeFeesInPrice: boolean;
+  showMemberPricing: boolean;
+  showOriginalPrice: boolean;
+};
+```
+
+##### SalesChannelResponse.channel.pricingConfig.includeFeesInPrice
+
+```ts
+includeFeesInPrice: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### SalesChannelResponse.channel.pricingConfig.showMemberPricing
+
+```ts
+showMemberPricing: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### SalesChannelResponse.channel.pricingConfig.showOriginalPrice
+
+```ts
+showOriginalPrice: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### SalesChannelResponse.channel.receivingAccountId
+
+```ts
+receivingAccountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### SalesChannelResponse.channel.reservationTtlSeconds
+
+```ts
+reservationTtlSeconds: number;
+```
+
+###### Example
+
+```ts
+900
+```
+
+##### SalesChannelResponse.channel.slug
+
+```ts
+slug: string;
+```
+
+###### Example
+
+```ts
+main-website
+```
+
+##### SalesChannelResponse.channel.themeId
+
+```ts
+themeId: string | null;
+```
+
+###### Example
+
+```ts
+sct_abc123
+```
+
+##### SalesChannelResponse.channel.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+#### SalesChannelSummary
+
+```ts
+SalesChannelSummary: {
+  id: string;
+  name: string;
+  slug: string;
+};
+```
+
+##### SalesChannelSummary.id
+
+```ts
+id: string;
+```
+
+##### SalesChannelSummary.name
+
+```ts
+name: string;
+```
+
+##### SalesChannelSummary.slug
+
+```ts
+slug: string;
+```
+
+#### SalesCheckoutResponse
+
+```ts
+SalesCheckoutResponse: {
+  cart: {
+     currency: string | null;
+     expiresAt: string;
+     id: string;
+     items: {
+        categoryName: string;
+        currency: string;
+        eventName: string;
+        eventOccurrenceId: string;
+        id: string;
+        quantity: number;
+        subtotal: number;
+        ticketTypeName: string;
+        unitPrice: number;
+     }[];
+     itemsSubtotal: number;
+     orderId: string | null;
+     status: string;
+  };
+  order: {
+     createdAt: string;
+     currency: string;
+     expiresAt: string | null;
+     id: string;
+     items: {
+        description: string | null;
+        name: string;
+        quantity: number;
+        subtotal: string;
+        type: string;
+        unitPrice: string;
+     }[];
+     orderNumber: string;
+     paymentStatus: string;
+     status: string;
+     subtotal: string;
+     total: string;
+     totalFees: string;
+     totalTax: string;
+  };
+  orderAccessToken: string;
+};
+```
+
+##### SalesCheckoutResponse.cart
+
+```ts
+cart: {
+  currency: string | null;
+  expiresAt: string;
+  id: string;
+  items: {
+     categoryName: string;
+     currency: string;
+     eventName: string;
+     eventOccurrenceId: string;
+     id: string;
+     quantity: number;
+     subtotal: number;
+     ticketTypeName: string;
+     unitPrice: number;
+  }[];
+  itemsSubtotal: number;
+  orderId: string | null;
+  status: string;
+};
+```
+
+##### SalesCheckoutResponse.cart.currency
+
+```ts
+currency: string | null;
+```
+
+##### SalesCheckoutResponse.cart.expiresAt
+
+```ts
+expiresAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### SalesCheckoutResponse.cart.id
+
+```ts
+id: string;
+```
+
+##### SalesCheckoutResponse.cart.items
+
+```ts
+items: {
+  categoryName: string;
+  currency: string;
+  eventName: string;
+  eventOccurrenceId: string;
+  id: string;
+  quantity: number;
+  subtotal: number;
+  ticketTypeName: string;
+  unitPrice: number;
+}[];
+```
+
+##### SalesCheckoutResponse.cart.itemsSubtotal
+
+```ts
+itemsSubtotal: number;
+```
+
+##### SalesCheckoutResponse.cart.orderId
+
+```ts
+orderId: string | null;
+```
+
+##### SalesCheckoutResponse.cart.status
+
+```ts
+status: string;
+```
+
+##### SalesCheckoutResponse.order
+
+```ts
+order: {
+  createdAt: string;
+  currency: string;
+  expiresAt: string | null;
+  id: string;
+  items: {
+     description: string | null;
+     name: string;
+     quantity: number;
+     subtotal: string;
+     type: string;
+     unitPrice: string;
+  }[];
+  orderNumber: string;
+  paymentStatus: string;
+  status: string;
+  subtotal: string;
+  total: string;
+  totalFees: string;
+  totalTax: string;
+};
+```
+
+##### SalesCheckoutResponse.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### SalesCheckoutResponse.order.currency
+
+```ts
+currency: string;
+```
+
+##### SalesCheckoutResponse.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### SalesCheckoutResponse.order.id
+
+```ts
+id: string;
+```
+
+##### SalesCheckoutResponse.order.items
+
+```ts
+items: {
+  description: string | null;
+  name: string;
+  quantity: number;
+  subtotal: string;
+  type: string;
+  unitPrice: string;
+}[];
+```
+
+##### SalesCheckoutResponse.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+##### SalesCheckoutResponse.order.paymentStatus
+
+```ts
+paymentStatus: string;
+```
+
+##### SalesCheckoutResponse.order.status
+
+```ts
+status: string;
+```
+
+##### SalesCheckoutResponse.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+##### SalesCheckoutResponse.order.total
+
+```ts
+total: string;
+```
+
+##### SalesCheckoutResponse.order.totalFees
+
+```ts
+totalFees: string;
+```
+
+##### SalesCheckoutResponse.order.totalTax
+
+```ts
+totalTax: string;
+```
+
+##### SalesCheckoutResponse.orderAccessToken
+
+```ts
+orderAccessToken: string;
+```
+
+###### Description
+
+Possession-based guest access token for reading/paying this order without a customer login
+
+###### Example
+
+```ts
+eyJhbGciOiJIUzI1NiIs...
+```
+
+#### SalesCustomer
+
+```ts
+SalesCustomer: {
+  email: string;
+  firstName: string | null;
+  id: string;
+  lastName: string | null;
+};
+```
+
+##### SalesCustomer.email
+
+```ts
+email: string;
+```
+
+##### SalesCustomer.firstName
+
+```ts
+firstName: string | null;
+```
+
+##### SalesCustomer.id
+
+```ts
+id: string;
+```
+
+##### SalesCustomer.lastName
+
+```ts
+lastName: string | null;
+```
+
+#### SalesCustomerResponse
+
+```ts
+SalesCustomerResponse: {
+  customer: {
+     email: string;
+     firstName: string | null;
+     id: string;
+     lastName: string | null;
+  };
+};
+```
+
+##### SalesCustomerResponse.customer
+
+```ts
+customer: {
+  email: string;
+  firstName: string | null;
+  id: string;
+  lastName: string | null;
+};
+```
+
+##### SalesCustomerResponse.customer.email
+
+```ts
+email: string;
+```
+
+##### SalesCustomerResponse.customer.firstName
+
+```ts
+firstName: string | null;
+```
+
+##### SalesCustomerResponse.customer.id
+
+```ts
+id: string;
+```
+
+##### SalesCustomerResponse.customer.lastName
+
+```ts
+lastName: string | null;
+```
+
+#### SalesCustomerTokenResponse
+
+```ts
+SalesCustomerTokenResponse: {
+  customer: {
+     email: string;
+     firstName: string | null;
+     id: string;
+     lastName: string | null;
+  };
+  customerToken: string;
+  expiresIn: number;
+};
+```
+
+##### SalesCustomerTokenResponse.customer
+
+```ts
+customer: {
+  email: string;
+  firstName: string | null;
+  id: string;
+  lastName: string | null;
+};
+```
+
+##### SalesCustomerTokenResponse.customer.email
+
+```ts
+email: string;
+```
+
+##### SalesCustomerTokenResponse.customer.firstName
+
+```ts
+firstName: string | null;
+```
+
+##### SalesCustomerTokenResponse.customer.id
+
+```ts
+id: string;
+```
+
+##### SalesCustomerTokenResponse.customer.lastName
+
+```ts
+lastName: string | null;
+```
+
+##### SalesCustomerTokenResponse.customerToken
+
+```ts
+customerToken: string;
+```
+
+###### Example
+
+```ts
+eyJhbGciOiJIUzI1NiIs...
+```
+
+##### SalesCustomerTokenResponse.expiresIn
+
+```ts
+expiresIn: number;
+```
+
+###### Description
+
+Token lifetime in seconds
+
+###### Example
+
+```ts
+1800
+```
+
+#### SalesEventDetailResponse
+
+```ts
+SalesEventDetailResponse: {
+  event: {
+     currency: string | null;
+     description: string | null;
+     heroImageUrl: string | null;
+     id: string;
+     imageUrl: string | null;
+     name: string;
+     occurrences: {
+        endDate: string;
+        endsAt: string | null;
+        endTime: string;
+        id: string;
+        startDate: string;
+        startsAt: string | null;
+        startTime: string;
+        status: string;
+        ticketTypes: {
+           categoryId: string;
+           categoryName: string;
+           currency: string;
+           description: string | null;
+           ticketTypeId: string;
+           ticketTypeName: string;
+           unitPrice: number;
+        }[];
+        timezone: string;
+     }[];
+     presentation:   | {
+        buttonSize?: "small" | "medium" | "large";
+        cinemaGradient?: {
+           position: "bottom" | "center";
+           strength: 20 | 50 | 70;
+        };
+        heroLayout?: {
+           size: "small" | "medium" | "large";
+           type: "hero" | "cinema";
+        };
+        navbar?: {
+           transparent?: boolean;
+        };
+        twoColumnSplit?: [number, number];
+      }
+        | null;
+     priceFrom: number | null;
+     shortDescription: string | null;
+     status: string;
+     subtitle: string | null;
+     timezone: string;
+     venueCity: string | null;
+     venueId: string | null;
+     venueName: string | null;
+  };
+};
+```
+
+##### SalesEventDetailResponse.event
+
+```ts
+event: {
+  currency: string | null;
+  description: string | null;
+  heroImageUrl: string | null;
+  id: string;
+  imageUrl: string | null;
+  name: string;
+  occurrences: {
+     endDate: string;
+     endsAt: string | null;
+     endTime: string;
+     id: string;
+     startDate: string;
+     startsAt: string | null;
+     startTime: string;
+     status: string;
+     ticketTypes: {
+        categoryId: string;
+        categoryName: string;
+        currency: string;
+        description: string | null;
+        ticketTypeId: string;
+        ticketTypeName: string;
+        unitPrice: number;
+     }[];
+     timezone: string;
+  }[];
+  presentation:   | {
+     buttonSize?: "small" | "medium" | "large";
+     cinemaGradient?: {
+        position: "bottom" | "center";
+        strength: 20 | 50 | 70;
+     };
+     heroLayout?: {
+        size: "small" | "medium" | "large";
+        type: "hero" | "cinema";
+     };
+     navbar?: {
+        transparent?: boolean;
+     };
+     twoColumnSplit?: [number, number];
+   }
+     | null;
+  priceFrom: number | null;
+  shortDescription: string | null;
+  status: string;
+  subtitle: string | null;
+  timezone: string;
+  venueCity: string | null;
+  venueId: string | null;
+  venueName: string | null;
+};
+```
+
+##### SalesEventDetailResponse.event.currency
+
+```ts
+currency: string | null;
+```
+
+##### SalesEventDetailResponse.event.description
+
+```ts
+description: string | null;
+```
+
+##### SalesEventDetailResponse.event.heroImageUrl
+
+```ts
+heroImageUrl: string | null;
+```
+
+##### SalesEventDetailResponse.event.id
+
+```ts
+id: string;
+```
+
+##### SalesEventDetailResponse.event.imageUrl
+
+```ts
+imageUrl: string | null;
+```
+
+##### SalesEventDetailResponse.event.name
+
+```ts
+name: string;
+```
+
+##### SalesEventDetailResponse.event.occurrences
+
+```ts
+occurrences: {
+  endDate: string;
+  endsAt: string | null;
+  endTime: string;
+  id: string;
+  startDate: string;
+  startsAt: string | null;
+  startTime: string;
+  status: string;
+  ticketTypes: {
+     categoryId: string;
+     categoryName: string;
+     currency: string;
+     description: string | null;
+     ticketTypeId: string;
+     ticketTypeName: string;
+     unitPrice: number;
+  }[];
+  timezone: string;
+}[];
+```
+
+##### SalesEventDetailResponse.event.presentation
+
+```ts
+presentation: 
+  | {
+  buttonSize?: "small" | "medium" | "large";
+  cinemaGradient?: {
+     position: "bottom" | "center";
+     strength: 20 | 50 | 70;
+  };
+  heroLayout?: {
+     size: "small" | "medium" | "large";
+     type: "hero" | "cinema";
+  };
+  navbar?: {
+     transparent?: boolean;
+  };
+  twoColumnSplit?: [number, number];
+}
+  | null;
+```
+
+##### SalesEventDetailResponse.event.priceFrom
+
+```ts
+priceFrom: number | null;
+```
+
+##### SalesEventDetailResponse.event.shortDescription
+
+```ts
+shortDescription: string | null;
+```
+
+##### SalesEventDetailResponse.event.status
+
+```ts
+status: string;
+```
+
+##### SalesEventDetailResponse.event.subtitle
+
+```ts
+subtitle: string | null;
+```
+
+##### SalesEventDetailResponse.event.timezone
+
+```ts
+timezone: string;
+```
+
+##### SalesEventDetailResponse.event.venueCity
+
+```ts
+venueCity: string | null;
+```
+
+##### SalesEventDetailResponse.event.venueId
+
+```ts
+venueId: string | null;
+```
+
+##### SalesEventDetailResponse.event.venueName
+
+```ts
+venueName: string | null;
+```
+
+#### SalesListing
+
+```ts
+SalesListing: {
+  currency: string | null;
+  eventId: string;
+  id: string;
+  imageUrl: string | null;
+  name: string | null;
+  nextOccurrenceAt: string | null;
+  priceFrom: number | null;
+  saleEndsAt: string | null;
+  saleStartsAt: string | null;
+  shortDescription: string | null;
+  subtitle: string | null;
+  venueCity: string | null;
+  venueName: string | null;
+};
+```
+
+##### SalesListing.currency
+
+```ts
+currency: string | null;
+```
+
+##### SalesListing.eventId
+
+```ts
+eventId: string;
+```
+
+##### SalesListing.id
+
+```ts
+id: string;
+```
+
+##### SalesListing.imageUrl
+
+```ts
+imageUrl: string | null;
+```
+
+##### SalesListing.name
+
+```ts
+name: string | null;
+```
+
+##### SalesListing.nextOccurrenceAt
+
+```ts
+nextOccurrenceAt: string | null;
+```
+
+##### SalesListing.priceFrom
+
+```ts
+priceFrom: number | null;
+```
+
+##### SalesListing.saleEndsAt
+
+```ts
+saleEndsAt: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### SalesListing.saleStartsAt
+
+```ts
+saleStartsAt: string | null;
+```
+
+###### Example
+
+```ts
+2026-02-01T09:00:00Z
+```
+
+##### SalesListing.shortDescription
+
+```ts
+shortDescription: string | null;
+```
+
+##### SalesListing.subtitle
+
+```ts
+subtitle: string | null;
+```
+
+##### SalesListing.venueCity
+
+```ts
+venueCity: string | null;
+```
+
+##### SalesListing.venueName
+
+```ts
+venueName: string | null;
+```
+
+#### SalesMagicLinkResponse
+
+```ts
+SalesMagicLinkResponse: {
+  sent: boolean;
+};
+```
+
+##### SalesMagicLinkResponse.sent
+
+```ts
+sent: boolean;
+```
+
+###### Description
+
+Always true — success is reported regardless of whether the contact exists (no account enumeration)
+
+###### Example
+
+```ts
+true
+```
+
+#### SalesOrder
+
+```ts
+SalesOrder: {
+  createdAt: string;
+  currency: string;
+  expiresAt: string | null;
+  id: string;
+  items: {
+     description: string | null;
+     name: string;
+     quantity: number;
+     subtotal: string;
+     type: string;
+     unitPrice: string;
+  }[];
+  orderNumber: string;
+  paymentStatus: string;
+  status: string;
+  subtotal: string;
+  total: string;
+  totalFees: string;
+  totalTax: string;
+};
+```
+
+##### SalesOrder.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### SalesOrder.currency
+
+```ts
+currency: string;
+```
+
+##### SalesOrder.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### SalesOrder.id
+
+```ts
+id: string;
+```
+
+##### SalesOrder.items
+
+```ts
+items: {
+  description: string | null;
+  name: string;
+  quantity: number;
+  subtotal: string;
+  type: string;
+  unitPrice: string;
+}[];
+```
+
+##### SalesOrder.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+##### SalesOrder.paymentStatus
+
+```ts
+paymentStatus: string;
+```
+
+##### SalesOrder.status
+
+```ts
+status: string;
+```
+
+##### SalesOrder.subtotal
+
+```ts
+subtotal: string;
+```
+
+##### SalesOrder.total
+
+```ts
+total: string;
+```
+
+##### SalesOrder.totalFees
+
+```ts
+totalFees: string;
+```
+
+##### SalesOrder.totalTax
+
+```ts
+totalTax: string;
+```
+
+#### SalesOrderItem
+
+```ts
+SalesOrderItem: {
+  description: string | null;
+  name: string;
+  quantity: number;
+  subtotal: string;
+  type: string;
+  unitPrice: string;
+};
+```
+
+##### SalesOrderItem.description
+
+```ts
+description: string | null;
+```
+
+##### SalesOrderItem.name
+
+```ts
+name: string;
+```
+
+##### SalesOrderItem.quantity
+
+```ts
+quantity: number;
+```
+
+##### SalesOrderItem.subtotal
+
+```ts
+subtotal: string;
+```
+
+##### SalesOrderItem.type
+
+```ts
+type: string;
+```
+
+##### SalesOrderItem.unitPrice
+
+```ts
+unitPrice: string;
+```
+
+#### SalesPayment
+
+```ts
+SalesPayment: {
+  amount: string;
+  connectedAccountId: string | null;
+  currency: string;
+  externalPaymentUrl: string | null;
+  id: string;
+  orderId: string;
+  paymentType: string;
+  providerClientSecret: string | null;
+  providerType: string | null;
+  publishableKey: string | null;
+  status: string;
+};
+```
+
+##### SalesPayment.amount
+
+```ts
+amount: string;
+```
+
+##### SalesPayment.connectedAccountId
+
+```ts
+connectedAccountId: string | null;
+```
+
+##### SalesPayment.currency
+
+```ts
+currency: string;
+```
+
+##### SalesPayment.externalPaymentUrl
+
+```ts
+externalPaymentUrl: string | null;
+```
+
+##### SalesPayment.id
+
+```ts
+id: string;
+```
+
+##### SalesPayment.orderId
+
+```ts
+orderId: string;
+```
+
+##### SalesPayment.paymentType
+
+```ts
+paymentType: string;
+```
+
+##### SalesPayment.providerClientSecret
+
+```ts
+providerClientSecret: string | null;
+```
+
+##### SalesPayment.providerType
+
+```ts
+providerType: string | null;
+```
+
+##### SalesPayment.publishableKey
+
+```ts
+publishableKey: string | null;
+```
+
+##### SalesPayment.status
+
+```ts
+status: string;
+```
+
+#### SalesRefundRequest
+
+```ts
+SalesRefundRequest: {
+  createdAt: string;
+  id: string;
+  orderId: string;
+  reason: string | null;
+  status: string;
+  type: string;
+};
+```
+
+##### SalesRefundRequest.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### SalesRefundRequest.id
+
+```ts
+id: string;
+```
+
+##### SalesRefundRequest.orderId
+
+```ts
+orderId: string;
+```
+
+##### SalesRefundRequest.reason
+
+```ts
+reason: string | null;
+```
+
+##### SalesRefundRequest.status
+
+```ts
+status: string;
+```
+
+##### SalesRefundRequest.type
+
+```ts
+type: string;
+```
+
+#### SalesResolveChannelResponse
+
+```ts
+SalesResolveChannelResponse: {
+  channel: {
+     id: string;
+     name: string;
+     slug: string;
+  };
+  publishableKey: string | null;
+};
+```
+
+##### SalesResolveChannelResponse.channel
+
+```ts
+channel: {
+  id: string;
+  name: string;
+  slug: string;
+};
+```
+
+##### SalesResolveChannelResponse.channel.id
+
+```ts
+id: string;
+```
+
+##### SalesResolveChannelResponse.channel.name
+
+```ts
+name: string;
+```
+
+##### SalesResolveChannelResponse.channel.slug
+
+```ts
+slug: string;
+```
+
+##### SalesResolveChannelResponse.publishableKey
+
+```ts
+publishableKey: string | null;
+```
+
+###### Description
+
+The channel's active publishable key (public by design), or null if none is issued
+
+###### Example
+
+```ts
+tlpk_abc123
+```
+
+#### SalesThemeResponse
+
+```ts
+SalesThemeResponse: {
+  theme: {
+     brand: {
+      [key: string]: unknown;
+     };
+     colors: {
+      [key: string]: unknown;
+     };
+     design?:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     id: string;
+     name: string;
+     shape: {
+      [key: string]: unknown;
+     };
+     typography: {
+      [key: string]: unknown;
+     };
+  };
+};
+```
+
+##### SalesThemeResponse.theme
+
+```ts
+theme: {
+  brand: {
+   [key: string]: unknown;
+  };
+  colors: {
+   [key: string]: unknown;
+  };
+  design?:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  id: string;
+  name: string;
+  shape: {
+   [key: string]: unknown;
+  };
+  typography: {
+   [key: string]: unknown;
+  };
+};
+```
+
+##### SalesThemeResponse.theme.brand
+
+```ts
+brand: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+##### SalesThemeResponse.theme.colors
+
+```ts
+colors: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+##### SalesThemeResponse.theme.design?
+
+```ts
+optional design: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+##### SalesThemeResponse.theme.id
+
+```ts
+id: string;
+```
+
+##### SalesThemeResponse.theme.name
+
+```ts
+name: string;
+```
+
+##### SalesThemeResponse.theme.shape
+
+```ts
+shape: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+##### SalesThemeResponse.theme.typography
+
+```ts
+typography: {
+[key: string]: unknown;
+};
+```
+
+###### Index Signature
+
+```ts
+[key: string]: unknown
+```
+
+#### SavePaymentMethodRequest
+
+```ts
+SavePaymentMethodRequest: {
+  paymentMethodId: string;
+  setAsDefault?: boolean;
+};
+```
+
+##### SavePaymentMethodRequest.paymentMethodId
+
+```ts
+paymentMethodId: string;
+```
+
+###### Example
+
+```ts
+pm_1234567890
+```
+
+##### SavePaymentMethodRequest.setAsDefault?
+
+```ts
+optional setAsDefault: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+#### SavePaymentMethodResponse
+
+```ts
+SavePaymentMethodResponse: {
+  paymentMethod: {
+     card: {
+        brand: string;
+        expMonth: number;
+        expYear: number;
+        last4: string;
+     };
+     createdAt: string;
+     id: string;
+     isDefault: boolean;
+     type: "card";
+  };
+};
+```
+
+##### SavePaymentMethodResponse.paymentMethod
+
+```ts
+paymentMethod: {
+  card: {
+     brand: string;
+     expMonth: number;
+     expYear: number;
+     last4: string;
+  };
+  createdAt: string;
+  id: string;
+  isDefault: boolean;
+  type: "card";
+};
+```
+
+##### SavePaymentMethodResponse.paymentMethod.card
+
+```ts
+card: {
+  brand: string;
+  expMonth: number;
+  expYear: number;
+  last4: string;
+};
+```
+
+##### SavePaymentMethodResponse.paymentMethod.card.brand
+
+```ts
+brand: string;
+```
+
+###### Example
+
+```ts
+visa
+```
+
+##### SavePaymentMethodResponse.paymentMethod.card.expMonth
+
+```ts
+expMonth: number;
+```
+
+###### Example
+
+```ts
+12
+```
+
+##### SavePaymentMethodResponse.paymentMethod.card.expYear
+
+```ts
+expYear: number;
+```
+
+###### Example
+
+```ts
+2027
+```
+
+##### SavePaymentMethodResponse.paymentMethod.card.last4
+
+```ts
+last4: string;
+```
+
+###### Example
+
+```ts
+4242
+```
+
+##### SavePaymentMethodResponse.paymentMethod.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### SavePaymentMethodResponse.paymentMethod.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pm_1234567890
+```
+
+##### SavePaymentMethodResponse.paymentMethod.isDefault
+
+```ts
+isDefault: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### SavePaymentMethodResponse.paymentMethod.type
+
+```ts
+type: "card";
+```
+
+###### Example
+
+```ts
+card
+@enum {string}
+```
+
+#### SetDefaultPaymentMethodResponse
+
+```ts
+SetDefaultPaymentMethodResponse: {
+  paymentMethod: {
+     card: {
+        brand: string;
+        expMonth: number;
+        expYear: number;
+        last4: string;
+     };
+     createdAt: string;
+     id: string;
+     isDefault: boolean;
+     type: "card";
+  };
+};
+```
+
+##### SetDefaultPaymentMethodResponse.paymentMethod
+
+```ts
+paymentMethod: {
+  card: {
+     brand: string;
+     expMonth: number;
+     expYear: number;
+     last4: string;
+  };
+  createdAt: string;
+  id: string;
+  isDefault: boolean;
+  type: "card";
+};
+```
+
+##### SetDefaultPaymentMethodResponse.paymentMethod.card
+
+```ts
+card: {
+  brand: string;
+  expMonth: number;
+  expYear: number;
+  last4: string;
+};
+```
+
+##### SetDefaultPaymentMethodResponse.paymentMethod.card.brand
+
+```ts
+brand: string;
+```
+
+###### Example
+
+```ts
+visa
+```
+
+##### SetDefaultPaymentMethodResponse.paymentMethod.card.expMonth
+
+```ts
+expMonth: number;
+```
+
+###### Example
+
+```ts
+12
+```
+
+##### SetDefaultPaymentMethodResponse.paymentMethod.card.expYear
+
+```ts
+expYear: number;
+```
+
+###### Example
+
+```ts
+2027
+```
+
+##### SetDefaultPaymentMethodResponse.paymentMethod.card.last4
+
+```ts
+last4: string;
+```
+
+###### Example
+
+```ts
+4242
+```
+
+##### SetDefaultPaymentMethodResponse.paymentMethod.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2024-01-15T10:30:00Z
+```
+
+##### SetDefaultPaymentMethodResponse.paymentMethod.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+pm_1234567890
+```
+
+##### SetDefaultPaymentMethodResponse.paymentMethod.isDefault
+
+```ts
+isDefault: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### SetDefaultPaymentMethodResponse.paymentMethod.type
+
+```ts
+type: "card";
+```
+
+###### Example
+
+```ts
+card
+@enum {string}
+```
+
+#### StaffCart
+
+```ts
+StaffCart: {
+  accountId: string;
+  channelId: string;
+  createdAt: string;
+  currency: string | null;
+  customerId: string | null;
+  expiresAt: string;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderId: string | null;
+  organisationId: string;
+  status: "active" | "expired" | "checked_out" | "abandoned";
+  updatedAt: string;
+};
+```
+
+##### StaffCart.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### StaffCart.channelId
+
+```ts
+channelId: string;
+```
+
+###### Example
+
+```ts
+sch_abc123
+```
+
+##### StaffCart.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### StaffCart.currency
+
+```ts
+currency: string | null;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### StaffCart.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### StaffCart.expiresAt
+
+```ts
+expiresAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### StaffCart.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+crt_abc123
+```
+
+##### StaffCart.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "source": "boxoffice"
+             *     }
+```
+
+##### StaffCart.orderId
+
+```ts
+orderId: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### StaffCart.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### StaffCart.status
+
+```ts
+status: "active" | "expired" | "checked_out" | "abandoned";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### StaffCart.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+#### StaffCartItem
+
+```ts
+StaffCartItem: {
+  cartId: string;
+  categoryId: string;
+  createdAt: string;
+  eventLayoutAreaId: string | null;
+  eventLayoutSeatId: string | null;
+  eventOccurrenceId: string;
+  id: string;
+  notes: string | null;
+  organisationId: string;
+  priceSnapshot: {
+     categoryName: string;
+     currency: string;
+     eventId: string;
+     eventName: string;
+     priceSchemeId: string;
+     ticketTypeName: string;
+     unitPrice: number;
+  };
+  quantity: number;
+  reservationId: string;
+  ticketTypeId: string;
+};
+```
+
+##### StaffCartItem.cartId
+
+```ts
+cartId: string;
+```
+
+###### Example
+
+```ts
+crt_abc123
+```
+
+##### StaffCartItem.categoryId
+
+```ts
+categoryId: string;
+```
+
+###### Example
+
+```ts
+cat_abc123
+```
+
+##### StaffCartItem.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### StaffCartItem.eventLayoutAreaId
+
+```ts
+eventLayoutAreaId: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### StaffCartItem.eventLayoutSeatId
+
+```ts
+eventLayoutSeatId: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### StaffCartItem.eventOccurrenceId
+
+```ts
+eventOccurrenceId: string;
+```
+
+###### Example
+
+```ts
+occ_abc123
+```
+
+##### StaffCartItem.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+crti_abc123
+```
+
+##### StaffCartItem.notes
+
+```ts
+notes: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### StaffCartItem.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### StaffCartItem.priceSnapshot
+
+```ts
+priceSnapshot: {
+  categoryName: string;
+  currency: string;
+  eventId: string;
+  eventName: string;
+  priceSchemeId: string;
+  ticketTypeName: string;
+  unitPrice: number;
+};
+```
+
+##### StaffCartItem.priceSnapshot.categoryName
+
+```ts
+categoryName: string;
+```
+
+###### Example
+
+```ts
+Stalls
+```
+
+##### StaffCartItem.priceSnapshot.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### StaffCartItem.priceSnapshot.eventId
+
+```ts
+eventId: string;
+```
+
+###### Example
+
+```ts
+evt_abc123
+```
+
+##### StaffCartItem.priceSnapshot.eventName
+
+```ts
+eventName: string;
+```
+
+###### Example
+
+```ts
+Summer Gala
+```
+
+##### StaffCartItem.priceSnapshot.priceSchemeId
+
+```ts
+priceSchemeId: string;
+```
+
+###### Example
+
+```ts
+prs_abc123
+```
+
+##### StaffCartItem.priceSnapshot.ticketTypeName
+
+```ts
+ticketTypeName: string;
+```
+
+###### Example
+
+```ts
+Adult
+```
+
+##### StaffCartItem.priceSnapshot.unitPrice
+
+```ts
+unitPrice: number;
+```
+
+###### Example
+
+```ts
+25
+```
+
+##### StaffCartItem.quantity
+
+```ts
+quantity: number;
+```
+
+###### Example
+
+```ts
+2
+```
+
+##### StaffCartItem.reservationId
+
+```ts
+reservationId: string;
+```
+
+###### Example
+
+```ts
+rsv_abc123
+```
+
+##### StaffCartItem.ticketTypeId
+
+```ts
+ticketTypeId: string;
+```
+
+###### Example
+
+```ts
+ttp_abc123
+```
+
+#### StaffCartResponse
+
+```ts
+StaffCartResponse: {
+  cart: {
+     accountId: string;
+     channelId: string;
+     createdAt: string;
+     currency: string | null;
+     customerId: string | null;
+     expiresAt: string;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderId: string | null;
+     organisationId: string;
+     status: "active" | "expired" | "checked_out" | "abandoned";
+     updatedAt: string;
+  };
+  items: {
+     cartId: string;
+     categoryId: string;
+     createdAt: string;
+     eventLayoutAreaId: string | null;
+     eventLayoutSeatId: string | null;
+     eventOccurrenceId: string;
+     id: string;
+     notes: string | null;
+     organisationId: string;
+     priceSnapshot: {
+        categoryName: string;
+        currency: string;
+        eventId: string;
+        eventName: string;
+        priceSchemeId: string;
+        ticketTypeName: string;
+        unitPrice: number;
+     };
+     quantity: number;
+     reservationId: string;
+     ticketTypeId: string;
+  }[];
+};
+```
+
+##### StaffCartResponse.cart
+
+```ts
+cart: {
+  accountId: string;
+  channelId: string;
+  createdAt: string;
+  currency: string | null;
+  customerId: string | null;
+  expiresAt: string;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderId: string | null;
+  organisationId: string;
+  status: "active" | "expired" | "checked_out" | "abandoned";
+  updatedAt: string;
+};
+```
+
+##### StaffCartResponse.cart.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### StaffCartResponse.cart.channelId
+
+```ts
+channelId: string;
+```
+
+###### Example
+
+```ts
+sch_abc123
+```
+
+##### StaffCartResponse.cart.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### StaffCartResponse.cart.currency
+
+```ts
+currency: string | null;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### StaffCartResponse.cart.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### StaffCartResponse.cart.expiresAt
+
+```ts
+expiresAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### StaffCartResponse.cart.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+crt_abc123
+```
+
+##### StaffCartResponse.cart.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "source": "boxoffice"
+             *     }
+```
+
+##### StaffCartResponse.cart.orderId
+
+```ts
+orderId: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### StaffCartResponse.cart.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### StaffCartResponse.cart.status
+
+```ts
+status: "active" | "expired" | "checked_out" | "abandoned";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### StaffCartResponse.cart.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### StaffCartResponse.items
+
+```ts
+items: {
+  cartId: string;
+  categoryId: string;
+  createdAt: string;
+  eventLayoutAreaId: string | null;
+  eventLayoutSeatId: string | null;
+  eventOccurrenceId: string;
+  id: string;
+  notes: string | null;
+  organisationId: string;
+  priceSnapshot: {
+     categoryName: string;
+     currency: string;
+     eventId: string;
+     eventName: string;
+     priceSchemeId: string;
+     ticketTypeName: string;
+     unitPrice: number;
+  };
+  quantity: number;
+  reservationId: string;
+  ticketTypeId: string;
+}[];
+```
+
+#### StaffCheckoutResponse
+
+```ts
+StaffCheckoutResponse: {
+  cart: {
+     accountId: string;
+     channelId: string;
+     createdAt: string;
+     currency: string | null;
+     customerId: string | null;
+     expiresAt: string;
+     id: string;
+     metadata:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     orderId: string | null;
+     organisationId: string;
+     status: "active" | "expired" | "checked_out" | "abandoned";
+     updatedAt: string;
+  };
+  order: {
+     accountId: string;
+     createdAt: string;
+     currency: string;
+     customerId: string | null;
+     expiresAt: string | null;
+     id: string;
+     items: {
+        description: string | null;
+        id: string;
+        name: string;
+        orderId: string;
+        quantity: number;
+        subtotal: string;
+        type: string;
+        unitPrice: string;
+     }[];
+     orderNumber: string;
+     organisationId: string;
+     paymentStatus: string;
+     status: string;
+     subtotal: string;
+     total: string;
+     totalFees: string;
+     totalPaid: string;
+     totalTax: string;
+     updatedAt: string;
+  };
+};
+```
+
+##### StaffCheckoutResponse.cart
+
+```ts
+cart: {
+  accountId: string;
+  channelId: string;
+  createdAt: string;
+  currency: string | null;
+  customerId: string | null;
+  expiresAt: string;
+  id: string;
+  metadata:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  orderId: string | null;
+  organisationId: string;
+  status: "active" | "expired" | "checked_out" | "abandoned";
+  updatedAt: string;
+};
+```
+
+##### StaffCheckoutResponse.cart.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### StaffCheckoutResponse.cart.channelId
+
+```ts
+channelId: string;
+```
+
+###### Example
+
+```ts
+sch_abc123
+```
+
+##### StaffCheckoutResponse.cart.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### StaffCheckoutResponse.cart.currency
+
+```ts
+currency: string | null;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### StaffCheckoutResponse.cart.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### StaffCheckoutResponse.cart.expiresAt
+
+```ts
+expiresAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### StaffCheckoutResponse.cart.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+crt_abc123
+```
+
+##### StaffCheckoutResponse.cart.metadata
+
+```ts
+metadata: 
+  | {
+[key: string]: unknown;
+}
+  | null;
+```
+
+###### Example
+
+```ts
+{
+             *       "source": "boxoffice"
+             *     }
+```
+
+##### StaffCheckoutResponse.cart.orderId
+
+```ts
+orderId: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### StaffCheckoutResponse.cart.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### StaffCheckoutResponse.cart.status
+
+```ts
+status: "active" | "expired" | "checked_out" | "abandoned";
+```
+
+###### Example
+
+```ts
+active
+@enum {string}
+```
+
+##### StaffCheckoutResponse.cart.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### StaffCheckoutResponse.order
+
+```ts
+order: {
+  accountId: string;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  expiresAt: string | null;
+  id: string;
+  items: {
+     description: string | null;
+     id: string;
+     name: string;
+     orderId: string;
+     quantity: number;
+     subtotal: string;
+     type: string;
+     unitPrice: string;
+  }[];
+  orderNumber: string;
+  organisationId: string;
+  paymentStatus: string;
+  status: string;
+  subtotal: string;
+  total: string;
+  totalFees: string;
+  totalPaid: string;
+  totalTax: string;
+  updatedAt: string;
+};
+```
+
+##### StaffCheckoutResponse.order.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### StaffCheckoutResponse.order.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### StaffCheckoutResponse.order.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### StaffCheckoutResponse.order.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### StaffCheckoutResponse.order.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### StaffCheckoutResponse.order.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123
+```
+
+##### StaffCheckoutResponse.order.items
+
+```ts
+items: {
+  description: string | null;
+  id: string;
+  name: string;
+  orderId: string;
+  quantity: number;
+  subtotal: string;
+  type: string;
+  unitPrice: string;
+}[];
+```
+
+##### StaffCheckoutResponse.order.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### StaffCheckoutResponse.order.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### StaffCheckoutResponse.order.paymentStatus
+
+```ts
+paymentStatus: string;
+```
+
+###### Example
+
+```ts
+unpaid
+```
+
+##### StaffCheckoutResponse.order.status
+
+```ts
+status: string;
+```
+
+###### Example
+
+```ts
+pending
+```
+
+##### StaffCheckoutResponse.order.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### StaffCheckoutResponse.order.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+52.50
+```
+
+##### StaffCheckoutResponse.order.totalFees
+
+```ts
+totalFees: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### StaffCheckoutResponse.order.totalPaid
+
+```ts
+totalPaid: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### StaffCheckoutResponse.order.totalTax
+
+```ts
+totalTax: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### StaffCheckoutResponse.order.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+#### StaffSalesOrder
+
+```ts
+StaffSalesOrder: {
+  accountId: string;
+  createdAt: string;
+  currency: string;
+  customerId: string | null;
+  expiresAt: string | null;
+  id: string;
+  items: {
+     description: string | null;
+     id: string;
+     name: string;
+     orderId: string;
+     quantity: number;
+     subtotal: string;
+     type: string;
+     unitPrice: string;
+  }[];
+  orderNumber: string;
+  organisationId: string;
+  paymentStatus: string;
+  status: string;
+  subtotal: string;
+  total: string;
+  totalFees: string;
+  totalPaid: string;
+  totalTax: string;
+  updatedAt: string;
+};
+```
+
+##### StaffSalesOrder.accountId
+
+```ts
+accountId: string;
+```
+
+###### Example
+
+```ts
+acc_abc123
+```
+
+##### StaffSalesOrder.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+##### StaffSalesOrder.currency
+
+```ts
+currency: string;
+```
+
+###### Example
+
+```ts
+GBP
+```
+
+##### StaffSalesOrder.customerId
+
+```ts
+customerId: string | null;
+```
+
+###### Example
+
+```ts
+cus_abc123
+```
+
+##### StaffSalesOrder.expiresAt
+
+```ts
+expiresAt: string | null;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:45:00Z
+```
+
+##### StaffSalesOrder.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+ord_abc123
+```
+
+##### StaffSalesOrder.items
+
+```ts
+items: {
+  description: string | null;
+  id: string;
+  name: string;
+  orderId: string;
+  quantity: number;
+  subtotal: string;
+  type: string;
+  unitPrice: string;
+}[];
+```
+
+##### StaffSalesOrder.orderNumber
+
+```ts
+orderNumber: string;
+```
+
+###### Example
+
+```ts
+ORD-ABC123
+```
+
+##### StaffSalesOrder.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### StaffSalesOrder.paymentStatus
+
+```ts
+paymentStatus: string;
+```
+
+###### Example
+
+```ts
+unpaid
+```
+
+##### StaffSalesOrder.status
+
+```ts
+status: string;
+```
+
+###### Example
+
+```ts
+pending
+```
+
+##### StaffSalesOrder.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### StaffSalesOrder.total
+
+```ts
+total: string;
+```
+
+###### Example
+
+```ts
+52.50
+```
+
+##### StaffSalesOrder.totalFees
+
+```ts
+totalFees: string;
+```
+
+###### Example
+
+```ts
+2.50
+```
+
+##### StaffSalesOrder.totalPaid
+
+```ts
+totalPaid: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### StaffSalesOrder.totalTax
+
+```ts
+totalTax: string;
+```
+
+###### Example
+
+```ts
+0.00
+```
+
+##### StaffSalesOrder.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-15T10:30:00Z
+```
+
+#### StaffSalesOrderLineItem
+
+```ts
+StaffSalesOrderLineItem: {
+  description: string | null;
+  id: string;
+  name: string;
+  orderId: string;
+  quantity: number;
+  subtotal: string;
+  type: string;
+  unitPrice: string;
+};
+```
+
+##### StaffSalesOrderLineItem.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+null
+```
+
+##### StaffSalesOrderLineItem.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+oli_abc123
+```
+
+##### StaffSalesOrderLineItem.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+General Admission
+```
+
+##### StaffSalesOrderLineItem.orderId
+
+```ts
+orderId: string;
+```
+
+###### Example
+
+```ts
+ord_abc123
+```
+
+##### StaffSalesOrderLineItem.quantity
+
+```ts
+quantity: number;
+```
+
+###### Example
+
+```ts
+2
+```
+
+##### StaffSalesOrderLineItem.subtotal
+
+```ts
+subtotal: string;
+```
+
+###### Example
+
+```ts
+50.00
+```
+
+##### StaffSalesOrderLineItem.type
+
+```ts
+type: string;
+```
+
+###### Example
+
+```ts
+ticket
+```
+
+##### StaffSalesOrderLineItem.unitPrice
+
+```ts
+unitPrice: string;
+```
+
+###### Example
+
+```ts
+25.00
 ```
 
 #### Subscription
@@ -27730,6 +35880,1513 @@ seatsSynced: number;
 
 ```ts
 optional venueLayout: unknown;
+```
+
+#### Theme
+
+```ts
+Theme: {
+  brand: {
+     displayName?: string;
+     faviconUrl?: string;
+     logoDarkUrl?: string;
+     logoUrl?: string;
+  };
+  colors: {
+     accent?: string;
+     accentForeground?: string;
+     background?: string;
+     border?: string;
+     destructive?: string;
+     destructiveForeground?: string;
+     foreground?: string;
+     input?: string;
+     muted?: string;
+     mutedForeground?: string;
+     primary?: string;
+     primaryForeground?: string;
+     ring?: string;
+     secondary?: string;
+     secondaryForeground?: string;
+     success?: string;
+     successForeground?: string;
+     warning?: string;
+     warningForeground?: string;
+  };
+  createdAt: string;
+  description: string | null;
+  design:   | {
+     cinemaGradient?: {
+        position: "bottom" | "center";
+        strength: 20 | 50 | 70;
+     };
+     heroLayout?: {
+        size: "small" | "medium" | "large";
+        type: "hero" | "cinema";
+     };
+   }
+     | null;
+  extendsThemeId: string | null;
+  id: string;
+  isActive: boolean;
+  isBaseTheme: boolean;
+  name: string;
+  organisationId: string;
+  shape: {
+     radiusFull?: string;
+     radiusLg?: string;
+     radiusMd?: string;
+     radiusNone?: string;
+     radiusSm?: string;
+  };
+  typography: {
+     baseSize?: string;
+     fontFamily?: string;
+     fontFamilyMono?: string;
+     scaleRatio?: number;
+  };
+  updatedAt: string;
+};
+```
+
+##### Theme.brand
+
+```ts
+brand: {
+  displayName?: string;
+  faviconUrl?: string;
+  logoDarkUrl?: string;
+  logoUrl?: string;
+};
+```
+
+##### Theme.brand.displayName?
+
+```ts
+optional displayName: string;
+```
+
+###### Example
+
+```ts
+Acme Tickets
+```
+
+##### Theme.brand.faviconUrl?
+
+```ts
+optional faviconUrl: string;
+```
+
+##### Theme.brand.logoDarkUrl?
+
+```ts
+optional logoDarkUrl: string;
+```
+
+##### Theme.brand.logoUrl?
+
+```ts
+optional logoUrl: string;
+```
+
+###### Example
+
+```ts
+https://cdn.example.com/logo.svg
+```
+
+##### Theme.colors
+
+```ts
+colors: {
+  accent?: string;
+  accentForeground?: string;
+  background?: string;
+  border?: string;
+  destructive?: string;
+  destructiveForeground?: string;
+  foreground?: string;
+  input?: string;
+  muted?: string;
+  mutedForeground?: string;
+  primary?: string;
+  primaryForeground?: string;
+  ring?: string;
+  secondary?: string;
+  secondaryForeground?: string;
+  success?: string;
+  successForeground?: string;
+  warning?: string;
+  warningForeground?: string;
+};
+```
+
+##### Theme.colors.accent?
+
+```ts
+optional accent: string;
+```
+
+##### Theme.colors.accentForeground?
+
+```ts
+optional accentForeground: string;
+```
+
+##### Theme.colors.background?
+
+```ts
+optional background: string;
+```
+
+##### Theme.colors.border?
+
+```ts
+optional border: string;
+```
+
+##### Theme.colors.destructive?
+
+```ts
+optional destructive: string;
+```
+
+##### Theme.colors.destructiveForeground?
+
+```ts
+optional destructiveForeground: string;
+```
+
+##### Theme.colors.foreground?
+
+```ts
+optional foreground: string;
+```
+
+##### Theme.colors.input?
+
+```ts
+optional input: string;
+```
+
+##### Theme.colors.muted?
+
+```ts
+optional muted: string;
+```
+
+##### Theme.colors.mutedForeground?
+
+```ts
+optional mutedForeground: string;
+```
+
+##### Theme.colors.primary?
+
+```ts
+optional primary: string;
+```
+
+###### Example
+
+```ts
+#7C3AED
+```
+
+##### Theme.colors.primaryForeground?
+
+```ts
+optional primaryForeground: string;
+```
+
+##### Theme.colors.ring?
+
+```ts
+optional ring: string;
+```
+
+##### Theme.colors.secondary?
+
+```ts
+optional secondary: string;
+```
+
+##### Theme.colors.secondaryForeground?
+
+```ts
+optional secondaryForeground: string;
+```
+
+##### Theme.colors.success?
+
+```ts
+optional success: string;
+```
+
+##### Theme.colors.successForeground?
+
+```ts
+optional successForeground: string;
+```
+
+##### Theme.colors.warning?
+
+```ts
+optional warning: string;
+```
+
+##### Theme.colors.warningForeground?
+
+```ts
+optional warningForeground: string;
+```
+
+##### Theme.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-01T00:00:00.000Z
+```
+
+##### Theme.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Dark theme for evening events
+```
+
+##### Theme.design
+
+```ts
+design: 
+  | {
+  cinemaGradient?: {
+     position: "bottom" | "center";
+     strength: 20 | 50 | 70;
+  };
+  heroLayout?: {
+     size: "small" | "medium" | "large";
+     type: "hero" | "cinema";
+  };
+}
+  | null;
+```
+
+##### Theme.extendsThemeId
+
+```ts
+extendsThemeId: string | null;
+```
+
+###### Example
+
+```ts
+sct_base123
+```
+
+##### Theme.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sct_abc123
+```
+
+##### Theme.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### Theme.isBaseTheme
+
+```ts
+isBaseTheme: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### Theme.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Midnight
+```
+
+##### Theme.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### Theme.shape
+
+```ts
+shape: {
+  radiusFull?: string;
+  radiusLg?: string;
+  radiusMd?: string;
+  radiusNone?: string;
+  radiusSm?: string;
+};
+```
+
+##### Theme.shape.radiusFull?
+
+```ts
+optional radiusFull: string;
+```
+
+##### Theme.shape.radiusLg?
+
+```ts
+optional radiusLg: string;
+```
+
+##### Theme.shape.radiusMd?
+
+```ts
+optional radiusMd: string;
+```
+
+###### Example
+
+```ts
+0.5rem
+```
+
+##### Theme.shape.radiusNone?
+
+```ts
+optional radiusNone: string;
+```
+
+##### Theme.shape.radiusSm?
+
+```ts
+optional radiusSm: string;
+```
+
+##### Theme.typography
+
+```ts
+typography: {
+  baseSize?: string;
+  fontFamily?: string;
+  fontFamilyMono?: string;
+  scaleRatio?: number;
+};
+```
+
+##### Theme.typography.baseSize?
+
+```ts
+optional baseSize: string;
+```
+
+###### Example
+
+```ts
+16px
+```
+
+##### Theme.typography.fontFamily?
+
+```ts
+optional fontFamily: string;
+```
+
+###### Example
+
+```ts
+Inter, sans-serif
+```
+
+##### Theme.typography.fontFamilyMono?
+
+```ts
+optional fontFamilyMono: string;
+```
+
+##### Theme.typography.scaleRatio?
+
+```ts
+optional scaleRatio: number;
+```
+
+###### Example
+
+```ts
+1.25
+```
+
+##### Theme.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-01T00:00:00.000Z
+```
+
+#### ThemeBrandInput
+
+```ts
+ThemeBrandInput: {
+  displayName?: string;
+  faviconUrl?: string;
+  logoDarkUrl?: string;
+  logoUrl?: string;
+};
+```
+
+##### ThemeBrandInput.displayName?
+
+```ts
+optional displayName: string;
+```
+
+##### ThemeBrandInput.faviconUrl?
+
+```ts
+optional faviconUrl: string;
+```
+
+##### ThemeBrandInput.logoDarkUrl?
+
+```ts
+optional logoDarkUrl: string;
+```
+
+##### ThemeBrandInput.logoUrl?
+
+```ts
+optional logoUrl: string;
+```
+
+#### ThemeColorsInput
+
+```ts
+ThemeColorsInput: {
+  accent?: string;
+  accentForeground?: string;
+  background?: string;
+  border?: string;
+  destructive?: string;
+  destructiveForeground?: string;
+  foreground?: string;
+  input?: string;
+  muted?: string;
+  mutedForeground?: string;
+  primary?: string;
+  primaryForeground?: string;
+  ring?: string;
+  secondary?: string;
+  secondaryForeground?: string;
+  success?: string;
+  successForeground?: string;
+  warning?: string;
+  warningForeground?: string;
+};
+```
+
+##### ThemeColorsInput.accent?
+
+```ts
+optional accent: string;
+```
+
+##### ThemeColorsInput.accentForeground?
+
+```ts
+optional accentForeground: string;
+```
+
+##### ThemeColorsInput.background?
+
+```ts
+optional background: string;
+```
+
+##### ThemeColorsInput.border?
+
+```ts
+optional border: string;
+```
+
+##### ThemeColorsInput.destructive?
+
+```ts
+optional destructive: string;
+```
+
+##### ThemeColorsInput.destructiveForeground?
+
+```ts
+optional destructiveForeground: string;
+```
+
+##### ThemeColorsInput.foreground?
+
+```ts
+optional foreground: string;
+```
+
+##### ThemeColorsInput.input?
+
+```ts
+optional input: string;
+```
+
+##### ThemeColorsInput.muted?
+
+```ts
+optional muted: string;
+```
+
+##### ThemeColorsInput.mutedForeground?
+
+```ts
+optional mutedForeground: string;
+```
+
+##### ThemeColorsInput.primary?
+
+```ts
+optional primary: string;
+```
+
+##### ThemeColorsInput.primaryForeground?
+
+```ts
+optional primaryForeground: string;
+```
+
+##### ThemeColorsInput.ring?
+
+```ts
+optional ring: string;
+```
+
+##### ThemeColorsInput.secondary?
+
+```ts
+optional secondary: string;
+```
+
+##### ThemeColorsInput.secondaryForeground?
+
+```ts
+optional secondaryForeground: string;
+```
+
+##### ThemeColorsInput.success?
+
+```ts
+optional success: string;
+```
+
+##### ThemeColorsInput.successForeground?
+
+```ts
+optional successForeground: string;
+```
+
+##### ThemeColorsInput.warning?
+
+```ts
+optional warning: string;
+```
+
+##### ThemeColorsInput.warningForeground?
+
+```ts
+optional warningForeground: string;
+```
+
+#### ThemeDesign
+
+```ts
+ThemeDesign: 
+  | {
+  cinemaGradient?: {
+     position: "bottom" | "center";
+     strength: 20 | 50 | 70;
+  };
+  heroLayout?: {
+     size: "small" | "medium" | "large";
+     type: "hero" | "cinema";
+  };
+}
+  | null;
+```
+
+#### ThemeDesignInput
+
+```ts
+ThemeDesignInput: {
+  cinemaGradient?: {
+     position: "bottom" | "center";
+     strength: 20 | 50 | 70;
+  };
+  heroLayout?: {
+     size: "small" | "medium" | "large";
+     type: "hero" | "cinema";
+  };
+} & {
+[key: string]: unknown;
+};
+```
+
+##### Type Declaration
+
+###### cinemaGradient?
+
+```ts
+optional cinemaGradient: {
+  position: "bottom" | "center";
+  strength: 20 | 50 | 70;
+};
+```
+
+###### cinemaGradient.position
+
+```ts
+position: "bottom" | "center";
+```
+
+###### cinemaGradient.strength
+
+```ts
+strength: 20 | 50 | 70;
+```
+
+###### heroLayout?
+
+```ts
+optional heroLayout: {
+  size: "small" | "medium" | "large";
+  type: "hero" | "cinema";
+};
+```
+
+###### heroLayout.size
+
+```ts
+size: "small" | "medium" | "large";
+```
+
+###### heroLayout.type
+
+```ts
+type: "hero" | "cinema";
+```
+
+#### ThemeListResponse
+
+```ts
+ThemeListResponse: {
+  themes: {
+     brand: {
+        displayName?: string;
+        faviconUrl?: string;
+        logoDarkUrl?: string;
+        logoUrl?: string;
+     };
+     colors: {
+        accent?: string;
+        accentForeground?: string;
+        background?: string;
+        border?: string;
+        destructive?: string;
+        destructiveForeground?: string;
+        foreground?: string;
+        input?: string;
+        muted?: string;
+        mutedForeground?: string;
+        primary?: string;
+        primaryForeground?: string;
+        ring?: string;
+        secondary?: string;
+        secondaryForeground?: string;
+        success?: string;
+        successForeground?: string;
+        warning?: string;
+        warningForeground?: string;
+     };
+     createdAt: string;
+     description: string | null;
+     design:   | {
+        cinemaGradient?: {
+           position: "bottom" | "center";
+           strength: 20 | 50 | 70;
+        };
+        heroLayout?: {
+           size: "small" | "medium" | "large";
+           type: "hero" | "cinema";
+        };
+      }
+        | null;
+     extendsThemeId: string | null;
+     id: string;
+     isActive: boolean;
+     isBaseTheme: boolean;
+     name: string;
+     organisationId: string;
+     shape: {
+        radiusFull?: string;
+        radiusLg?: string;
+        radiusMd?: string;
+        radiusNone?: string;
+        radiusSm?: string;
+     };
+     typography: {
+        baseSize?: string;
+        fontFamily?: string;
+        fontFamilyMono?: string;
+        scaleRatio?: number;
+     };
+     updatedAt: string;
+  }[];
+};
+```
+
+##### ThemeListResponse.themes
+
+```ts
+themes: {
+  brand: {
+     displayName?: string;
+     faviconUrl?: string;
+     logoDarkUrl?: string;
+     logoUrl?: string;
+  };
+  colors: {
+     accent?: string;
+     accentForeground?: string;
+     background?: string;
+     border?: string;
+     destructive?: string;
+     destructiveForeground?: string;
+     foreground?: string;
+     input?: string;
+     muted?: string;
+     mutedForeground?: string;
+     primary?: string;
+     primaryForeground?: string;
+     ring?: string;
+     secondary?: string;
+     secondaryForeground?: string;
+     success?: string;
+     successForeground?: string;
+     warning?: string;
+     warningForeground?: string;
+  };
+  createdAt: string;
+  description: string | null;
+  design:   | {
+     cinemaGradient?: {
+        position: "bottom" | "center";
+        strength: 20 | 50 | 70;
+     };
+     heroLayout?: {
+        size: "small" | "medium" | "large";
+        type: "hero" | "cinema";
+     };
+   }
+     | null;
+  extendsThemeId: string | null;
+  id: string;
+  isActive: boolean;
+  isBaseTheme: boolean;
+  name: string;
+  organisationId: string;
+  shape: {
+     radiusFull?: string;
+     radiusLg?: string;
+     radiusMd?: string;
+     radiusNone?: string;
+     radiusSm?: string;
+  };
+  typography: {
+     baseSize?: string;
+     fontFamily?: string;
+     fontFamilyMono?: string;
+     scaleRatio?: number;
+  };
+  updatedAt: string;
+}[];
+```
+
+#### ThemeResponse
+
+```ts
+ThemeResponse: {
+  theme: {
+     brand: {
+        displayName?: string;
+        faviconUrl?: string;
+        logoDarkUrl?: string;
+        logoUrl?: string;
+     };
+     colors: {
+        accent?: string;
+        accentForeground?: string;
+        background?: string;
+        border?: string;
+        destructive?: string;
+        destructiveForeground?: string;
+        foreground?: string;
+        input?: string;
+        muted?: string;
+        mutedForeground?: string;
+        primary?: string;
+        primaryForeground?: string;
+        ring?: string;
+        secondary?: string;
+        secondaryForeground?: string;
+        success?: string;
+        successForeground?: string;
+        warning?: string;
+        warningForeground?: string;
+     };
+     createdAt: string;
+     description: string | null;
+     design:   | {
+        cinemaGradient?: {
+           position: "bottom" | "center";
+           strength: 20 | 50 | 70;
+        };
+        heroLayout?: {
+           size: "small" | "medium" | "large";
+           type: "hero" | "cinema";
+        };
+      }
+        | null;
+     extendsThemeId: string | null;
+     id: string;
+     isActive: boolean;
+     isBaseTheme: boolean;
+     name: string;
+     organisationId: string;
+     shape: {
+        radiusFull?: string;
+        radiusLg?: string;
+        radiusMd?: string;
+        radiusNone?: string;
+        radiusSm?: string;
+     };
+     typography: {
+        baseSize?: string;
+        fontFamily?: string;
+        fontFamilyMono?: string;
+        scaleRatio?: number;
+     };
+     updatedAt: string;
+  };
+};
+```
+
+##### ThemeResponse.theme
+
+```ts
+theme: {
+  brand: {
+     displayName?: string;
+     faviconUrl?: string;
+     logoDarkUrl?: string;
+     logoUrl?: string;
+  };
+  colors: {
+     accent?: string;
+     accentForeground?: string;
+     background?: string;
+     border?: string;
+     destructive?: string;
+     destructiveForeground?: string;
+     foreground?: string;
+     input?: string;
+     muted?: string;
+     mutedForeground?: string;
+     primary?: string;
+     primaryForeground?: string;
+     ring?: string;
+     secondary?: string;
+     secondaryForeground?: string;
+     success?: string;
+     successForeground?: string;
+     warning?: string;
+     warningForeground?: string;
+  };
+  createdAt: string;
+  description: string | null;
+  design:   | {
+     cinemaGradient?: {
+        position: "bottom" | "center";
+        strength: 20 | 50 | 70;
+     };
+     heroLayout?: {
+        size: "small" | "medium" | "large";
+        type: "hero" | "cinema";
+     };
+   }
+     | null;
+  extendsThemeId: string | null;
+  id: string;
+  isActive: boolean;
+  isBaseTheme: boolean;
+  name: string;
+  organisationId: string;
+  shape: {
+     radiusFull?: string;
+     radiusLg?: string;
+     radiusMd?: string;
+     radiusNone?: string;
+     radiusSm?: string;
+  };
+  typography: {
+     baseSize?: string;
+     fontFamily?: string;
+     fontFamilyMono?: string;
+     scaleRatio?: number;
+  };
+  updatedAt: string;
+};
+```
+
+##### ThemeResponse.theme.brand
+
+```ts
+brand: {
+  displayName?: string;
+  faviconUrl?: string;
+  logoDarkUrl?: string;
+  logoUrl?: string;
+};
+```
+
+##### ThemeResponse.theme.brand.displayName?
+
+```ts
+optional displayName: string;
+```
+
+###### Example
+
+```ts
+Acme Tickets
+```
+
+##### ThemeResponse.theme.brand.faviconUrl?
+
+```ts
+optional faviconUrl: string;
+```
+
+##### ThemeResponse.theme.brand.logoDarkUrl?
+
+```ts
+optional logoDarkUrl: string;
+```
+
+##### ThemeResponse.theme.brand.logoUrl?
+
+```ts
+optional logoUrl: string;
+```
+
+###### Example
+
+```ts
+https://cdn.example.com/logo.svg
+```
+
+##### ThemeResponse.theme.colors
+
+```ts
+colors: {
+  accent?: string;
+  accentForeground?: string;
+  background?: string;
+  border?: string;
+  destructive?: string;
+  destructiveForeground?: string;
+  foreground?: string;
+  input?: string;
+  muted?: string;
+  mutedForeground?: string;
+  primary?: string;
+  primaryForeground?: string;
+  ring?: string;
+  secondary?: string;
+  secondaryForeground?: string;
+  success?: string;
+  successForeground?: string;
+  warning?: string;
+  warningForeground?: string;
+};
+```
+
+##### ThemeResponse.theme.colors.accent?
+
+```ts
+optional accent: string;
+```
+
+##### ThemeResponse.theme.colors.accentForeground?
+
+```ts
+optional accentForeground: string;
+```
+
+##### ThemeResponse.theme.colors.background?
+
+```ts
+optional background: string;
+```
+
+##### ThemeResponse.theme.colors.border?
+
+```ts
+optional border: string;
+```
+
+##### ThemeResponse.theme.colors.destructive?
+
+```ts
+optional destructive: string;
+```
+
+##### ThemeResponse.theme.colors.destructiveForeground?
+
+```ts
+optional destructiveForeground: string;
+```
+
+##### ThemeResponse.theme.colors.foreground?
+
+```ts
+optional foreground: string;
+```
+
+##### ThemeResponse.theme.colors.input?
+
+```ts
+optional input: string;
+```
+
+##### ThemeResponse.theme.colors.muted?
+
+```ts
+optional muted: string;
+```
+
+##### ThemeResponse.theme.colors.mutedForeground?
+
+```ts
+optional mutedForeground: string;
+```
+
+##### ThemeResponse.theme.colors.primary?
+
+```ts
+optional primary: string;
+```
+
+###### Example
+
+```ts
+#7C3AED
+```
+
+##### ThemeResponse.theme.colors.primaryForeground?
+
+```ts
+optional primaryForeground: string;
+```
+
+##### ThemeResponse.theme.colors.ring?
+
+```ts
+optional ring: string;
+```
+
+##### ThemeResponse.theme.colors.secondary?
+
+```ts
+optional secondary: string;
+```
+
+##### ThemeResponse.theme.colors.secondaryForeground?
+
+```ts
+optional secondaryForeground: string;
+```
+
+##### ThemeResponse.theme.colors.success?
+
+```ts
+optional success: string;
+```
+
+##### ThemeResponse.theme.colors.successForeground?
+
+```ts
+optional successForeground: string;
+```
+
+##### ThemeResponse.theme.colors.warning?
+
+```ts
+optional warning: string;
+```
+
+##### ThemeResponse.theme.colors.warningForeground?
+
+```ts
+optional warningForeground: string;
+```
+
+##### ThemeResponse.theme.createdAt
+
+```ts
+createdAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-01T00:00:00.000Z
+```
+
+##### ThemeResponse.theme.description
+
+```ts
+description: string | null;
+```
+
+###### Example
+
+```ts
+Dark theme for evening events
+```
+
+##### ThemeResponse.theme.design
+
+```ts
+design: 
+  | {
+  cinemaGradient?: {
+     position: "bottom" | "center";
+     strength: 20 | 50 | 70;
+  };
+  heroLayout?: {
+     size: "small" | "medium" | "large";
+     type: "hero" | "cinema";
+  };
+}
+  | null;
+```
+
+##### ThemeResponse.theme.extendsThemeId
+
+```ts
+extendsThemeId: string | null;
+```
+
+###### Example
+
+```ts
+sct_base123
+```
+
+##### ThemeResponse.theme.id
+
+```ts
+id: string;
+```
+
+###### Example
+
+```ts
+sct_abc123
+```
+
+##### ThemeResponse.theme.isActive
+
+```ts
+isActive: boolean;
+```
+
+###### Example
+
+```ts
+true
+```
+
+##### ThemeResponse.theme.isBaseTheme
+
+```ts
+isBaseTheme: boolean;
+```
+
+###### Example
+
+```ts
+false
+```
+
+##### ThemeResponse.theme.name
+
+```ts
+name: string;
+```
+
+###### Example
+
+```ts
+Midnight
+```
+
+##### ThemeResponse.theme.organisationId
+
+```ts
+organisationId: string;
+```
+
+###### Example
+
+```ts
+org_xyz789
+```
+
+##### ThemeResponse.theme.shape
+
+```ts
+shape: {
+  radiusFull?: string;
+  radiusLg?: string;
+  radiusMd?: string;
+  radiusNone?: string;
+  radiusSm?: string;
+};
+```
+
+##### ThemeResponse.theme.shape.radiusFull?
+
+```ts
+optional radiusFull: string;
+```
+
+##### ThemeResponse.theme.shape.radiusLg?
+
+```ts
+optional radiusLg: string;
+```
+
+##### ThemeResponse.theme.shape.radiusMd?
+
+```ts
+optional radiusMd: string;
+```
+
+###### Example
+
+```ts
+0.5rem
+```
+
+##### ThemeResponse.theme.shape.radiusNone?
+
+```ts
+optional radiusNone: string;
+```
+
+##### ThemeResponse.theme.shape.radiusSm?
+
+```ts
+optional radiusSm: string;
+```
+
+##### ThemeResponse.theme.typography
+
+```ts
+typography: {
+  baseSize?: string;
+  fontFamily?: string;
+  fontFamilyMono?: string;
+  scaleRatio?: number;
+};
+```
+
+##### ThemeResponse.theme.typography.baseSize?
+
+```ts
+optional baseSize: string;
+```
+
+###### Example
+
+```ts
+16px
+```
+
+##### ThemeResponse.theme.typography.fontFamily?
+
+```ts
+optional fontFamily: string;
+```
+
+###### Example
+
+```ts
+Inter, sans-serif
+```
+
+##### ThemeResponse.theme.typography.fontFamilyMono?
+
+```ts
+optional fontFamilyMono: string;
+```
+
+##### ThemeResponse.theme.typography.scaleRatio?
+
+```ts
+optional scaleRatio: number;
+```
+
+###### Example
+
+```ts
+1.25
+```
+
+##### ThemeResponse.theme.updatedAt
+
+```ts
+updatedAt: string;
+```
+
+###### Example
+
+```ts
+2026-01-01T00:00:00.000Z
+```
+
+#### ThemeShapeInput
+
+```ts
+ThemeShapeInput: {
+  radiusFull?: string;
+  radiusLg?: string;
+  radiusMd?: string;
+  radiusNone?: string;
+  radiusSm?: string;
+};
+```
+
+##### ThemeShapeInput.radiusFull?
+
+```ts
+optional radiusFull: string;
+```
+
+##### ThemeShapeInput.radiusLg?
+
+```ts
+optional radiusLg: string;
+```
+
+##### ThemeShapeInput.radiusMd?
+
+```ts
+optional radiusMd: string;
+```
+
+##### ThemeShapeInput.radiusNone?
+
+```ts
+optional radiusNone: string;
+```
+
+##### ThemeShapeInput.radiusSm?
+
+```ts
+optional radiusSm: string;
+```
+
+#### ThemeTypographyInput
+
+```ts
+ThemeTypographyInput: {
+  baseSize?: string;
+  fontFamily?: string;
+  fontFamilyMono?: string;
+  scaleRatio?: number;
+};
+```
+
+##### ThemeTypographyInput.baseSize?
+
+```ts
+optional baseSize: string;
+```
+
+##### ThemeTypographyInput.fontFamily?
+
+```ts
+optional fontFamily: string;
+```
+
+##### ThemeTypographyInput.fontFamilyMono?
+
+```ts
+optional fontFamilyMono: string;
+```
+
+##### ThemeTypographyInput.scaleRatio?
+
+```ts
+optional scaleRatio: number;
 ```
 
 #### TicketPrice
@@ -28798,7 +38455,7 @@ topupPackageId: string;
 
 ```ts
 UpdateAutoTopupResponse: {
-  autoTopup: {
+  autoTopup:   | {
      attemptsToday: number;
      createdAt: string;
      enabled: boolean;
@@ -28809,14 +38466,16 @@ UpdateAutoTopupResponse: {
      thresholdCredits: number;
      topupPackageId: string;
      updatedAt: string;
-  } & Record<string, never>;
+   }
+     | null;
 };
 ```
 
 ##### UpdateAutoTopupResponse.autoTopup
 
 ```ts
-autoTopup: {
+autoTopup: 
+  | {
   attemptsToday: number;
   createdAt: string;
   enabled: boolean;
@@ -28827,130 +38486,28 @@ autoTopup: {
   thresholdCredits: number;
   topupPackageId: string;
   updatedAt: string;
-} & Record<string, never>;
+}
+  | null;
 ```
 
 ###### Type Declaration
 
-###### attemptsToday
-
 ```ts
-attemptsToday: number;
+{
+  attemptsToday: number;
+  createdAt: string;
+  enabled: boolean;
+  id: string;
+  lastAttemptAt: string | null;
+  maxAttemptsPerDay: number;
+  organisationId: string;
+  thresholdCredits: number;
+  topupPackageId: string;
+  updatedAt: string;
+}
 ```
 
-###### Example
-
-```ts
-0
-```
-
-###### createdAt
-
-```ts
-createdAt: string;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:30:00Z
-```
-
-###### enabled
-
-```ts
-enabled: boolean;
-```
-
-###### Example
-
-```ts
-true
-```
-
-###### id
-
-```ts
-id: string;
-```
-
-###### Example
-
-```ts
-atu_abc123
-```
-
-###### lastAttemptAt
-
-```ts
-lastAttemptAt: string | null;
-```
-
-###### Example
-
-```ts
-null
-```
-
-###### maxAttemptsPerDay
-
-```ts
-maxAttemptsPerDay: number;
-```
-
-###### Example
-
-```ts
-3
-```
-
-###### organisationId
-
-```ts
-organisationId: string;
-```
-
-###### Example
-
-```ts
-org_abc123
-```
-
-###### thresholdCredits
-
-```ts
-thresholdCredits: number;
-```
-
-###### Example
-
-```ts
-50
-```
-
-###### topupPackageId
-
-```ts
-topupPackageId: string;
-```
-
-###### Example
-
-```ts
-pkg_100
-```
-
-###### updatedAt
-
-```ts
-updatedAt: string;
-```
-
-###### Example
-
-```ts
-2024-01-15T10:30:00Z
-```
+`null`
 
 #### UpdateCategoryResponse
 
@@ -31722,6 +41279,7 @@ updatedAt: string;
 
 ```ts
 UpdateOrganisationRequest: {
+  apiVersion?: string;
   logoUrl?: string;
   metadata?: {
    [key: string]: unknown;
@@ -31730,6 +41288,22 @@ UpdateOrganisationRequest: {
   primaryColor?: string;
   secondaryColor?: string;
 };
+```
+
+##### UpdateOrganisationRequest.apiVersion?
+
+```ts
+optional apiVersion: string;
+```
+
+###### Description
+
+Pin the organisation to a dated API version. Must be a known, non-sunset version (see GET /meta/versions).
+
+###### Example
+
+```ts
+2026-06-13
 ```
 
 ##### UpdateOrganisationRequest.logoUrl?
@@ -31830,6 +41404,7 @@ Secondary brand color (hex format)
 ```ts
 UpdateOrganisationResponse: {
   organisation: {
+     apiVersion: string;
      createdAt: string;
      id: string;
      logoUrl?: string;
@@ -31848,6 +41423,7 @@ UpdateOrganisationResponse: {
 
 ```ts
 organisation: {
+  apiVersion: string;
   createdAt: string;
   id: string;
   logoUrl?: string;
@@ -31859,6 +41435,22 @@ organisation: {
   secondaryColor?: string;
   updatedAt: string;
 };
+```
+
+##### UpdateOrganisationResponse.organisation.apiVersion
+
+```ts
+apiVersion: string;
+```
+
+###### Description
+
+The dated API version this organisation is pinned to (see GET /meta/versions)
+
+###### Example
+
+```ts
+2026-06-13
 ```
 
 ##### UpdateOrganisationResponse.organisation.createdAt
@@ -32022,13 +41614,13 @@ UpdatePaymentProviderResponse: {
         | "in_person_card"
         | "in_person_cash"
        | "cheque")[];
-     type:   | "bank_transfer"
-        | "cash"
-        | "stripe_connect"
+     type:   | "stripe_connect"
         | "stripe_direct"
         | "adyen"
         | "square"
-        | "paypal";
+        | "paypal"
+        | "cash"
+        | "bank_transfer";
      updatedAt: string;
   };
 };
@@ -32087,13 +41679,13 @@ provider: {
      | "in_person_card"
      | "in_person_cash"
     | "cheque")[];
-  type:   | "bank_transfer"
-     | "cash"
-     | "stripe_connect"
+  type:   | "stripe_connect"
      | "stripe_direct"
      | "adyen"
      | "square"
-     | "paypal";
+     | "paypal"
+     | "cash"
+     | "bank_transfer";
   updatedAt: string;
 };
 ```
@@ -32383,13 +41975,13 @@ supportedPaymentTypes: (
 
 ```ts
 type: 
-  | "bank_transfer"
-  | "cash"
   | "stripe_connect"
   | "stripe_direct"
   | "adyen"
   | "square"
-  | "paypal";
+  | "paypal"
+  | "cash"
+  | "bank_transfer";
 ```
 
 ###### Example

@@ -1,8 +1,8 @@
-[**@ticketlayer/backstage-sdk**](../README.md)
+[**@ticketlayer/backstage**](../README.md)
 
 ***
 
-[@ticketlayer/backstage-sdk](../README.md) / webhooks
+[@ticketlayer/backstage](../README.md) / webhooks
 
 # Type Alias: webhooks
 
@@ -10,4 +10,4 @@
 type webhooks = Record<string, never>;
 ```
 
-Defined in: generated/types.ts:1928
+Defined in: generated/types.ts:2824

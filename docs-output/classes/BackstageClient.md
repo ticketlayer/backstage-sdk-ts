@@ -1,12 +1,12 @@
-[**@ticketlayer/backstage-sdk**](../README.md)
+[**@ticketlayer/backstage**](../README.md)
 
 ***
 
-[@ticketlayer/backstage-sdk](../README.md) / BackstageClient
+[@ticketlayer/backstage](../README.md) / BackstageClient
 
 # Class: BackstageClient
 
-Defined in: [client.ts:264](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L264)
+Defined in: [client.ts:318](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L318)
 
 ## Constructors
 
@@ -16,7 +16,7 @@ Defined in: [client.ts:264](https://github.com/ticketlayer/backstage-sdk-ts/blob
 new BackstageClient(config: BackstageClientConfig): BackstageClient;
 ```
 
-Defined in: [client.ts:276](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L276)
+Defined in: [client.ts:330](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L330)
 
 #### Parameters
 
@@ -36,7 +36,7 @@ Defined in: [client.ts:276](https://github.com/ticketlayer/backstage-sdk-ts/blob
 clearAccessToken(): void;
 ```
 
-Defined in: [client.ts:330](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L330)
+Defined in: [client.ts:384](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L384)
 
 Clear the access token
 
@@ -52,7 +52,7 @@ Clear the access token
 getAccessToken(): string | undefined;
 ```
 
-Defined in: [client.ts:337](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L337)
+Defined in: [client.ts:391](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L391)
 
 Get the current access token
 
@@ -68,7 +68,7 @@ Get the current access token
 getRefreshToken(): string | undefined;
 ```
 
-Defined in: [client.ts:351](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L351)
+Defined in: [client.ts:405](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L405)
 
 Get the current refresh token
 
@@ -84,7 +84,7 @@ Get the current refresh token
 setAccessToken(token: string): void;
 ```
 
-Defined in: [client.ts:323](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L323)
+Defined in: [client.ts:377](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L377)
 
 Set the access token for authenticated requests
 
@@ -106,7 +106,7 @@ Set the access token for authenticated requests
 setRefreshToken(token: string): void;
 ```
 
-Defined in: [client.ts:344](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L344)
+Defined in: [client.ts:398](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L398)
 
 Set the refresh token
 
@@ -178,7 +178,7 @@ accounts: {
 };
 ```
 
-Defined in: [client.ts:767](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L767)
+Defined in: [client.ts:841](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L841)
 
 Accounts methods
 
@@ -436,7 +436,7 @@ authentication: {
 };
 ```
 
-Defined in: [client.ts:595](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L595)
+Defined in: [client.ts:669](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L669)
 
 Authentication methods
 
@@ -614,7 +614,7 @@ refresh
 
 ```ts
 billing: {
-  cancelSubscription: (organisationId: string, subscriptionId: string) => Promise<{
+  cancelSubscription: (subscriptionId: string) => Promise<{
      cancelledAt: string | null;
      createdAt: string;
      credits: number;
@@ -635,7 +635,16 @@ billing: {
      currentBalance: number;
      reason: string | null;
   }>;
-  createPurchase: (organisationId: string, request: {
+  createPurchase: (request: {
+     billingAddress?: {
+        city: string;
+        country: string;
+        line1: string;
+        line2?: string;
+        name?: string;
+        postal_code: string;
+        state?: string;
+     };
      currency?: string;
      email?: string;
      packageId: string;
@@ -696,7 +705,8 @@ billing: {
            | "refund";
      };
   }>;
-  createSubscription: (organisationId: string, request: {
+  createSetupIntent: () => Promise<string>;
+  createSubscription: (request: {
      currency?: string;
      email?: string;
      interval: "month" | "year";
@@ -718,7 +728,8 @@ billing: {
      status: "active" | "cancelled" | "paused" | "past_due" | "ended";
      updatedAt: string;
   }>;
-  getAutoTopup: (organisationId: string) => Promise<
+  deletePaymentMethod: (paymentMethodId: string) => Promise<boolean>;
+  getAutoTopup: () => Promise<
      | {
      attemptsToday: number;
      createdAt: string;
@@ -732,7 +743,7 @@ billing: {
      updatedAt: string;
    }
     | null>;
-  getBalance: (organisationId: string) => Promise<{
+  getBalance: () => Promise<{
      balance: number;
      createdAt: string;
      id: string;
@@ -745,7 +756,7 @@ billing: {
      suspendedReason: string | null;
      updatedAt: string;
   }>;
-  getInvoice: (organisationId: string, invoiceId: string) => Promise<{
+  getInvoice: (invoiceId: string) => Promise<{
      amountDue: string;
      amountPaid: string;
      createdAt: string;
@@ -764,7 +775,7 @@ billing: {
      type: "purchase" | "subscription" | "payg";
      updatedAt: string;
   }>;
-  listInvoices: (organisationId: string, options?: {
+  listInvoices: (options?: {
      limit?: string;
      page?: string;
      status?: string;
@@ -798,7 +809,19 @@ billing: {
      isActive: boolean;
      name: string;
   }[]>;
-  listPayments: (organisationId: string, options?: {
+  listPaymentMethods: () => Promise<{
+     card: {
+        brand: string;
+        expMonth: number;
+        expYear: number;
+        last4: string;
+     };
+     createdAt: string;
+     id: string;
+     isDefault: boolean;
+     type: "card";
+  }[]>;
+  listPayments: (options?: {
      limit?: string;
      page?: string;
      status?: string;
@@ -817,7 +840,7 @@ billing: {
      status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
      updatedAt: string;
   }[]>;
-  listSubscriptions: (organisationId: string) => Promise<{
+  listSubscriptions: () => Promise<{
      cancelledAt: string | null;
      createdAt: string;
      credits: number;
@@ -833,7 +856,7 @@ billing: {
      status: "active" | "cancelled" | "paused" | "past_due" | "ended";
      updatedAt: string;
   }[]>;
-  listTransactions: (organisationId: string, options?: {
+  listTransactions: (options?: {
      limit?: string;
      page?: string;
      type?: string;
@@ -855,11 +878,39 @@ billing: {
         | "adjustment"
         | "refund";
   }[]>;
-  updateAutoTopup: (organisationId: string, request: {
+  savePaymentMethod: (request: {
+     paymentMethodId: string;
+     setAsDefault?: boolean;
+   }) => Promise<{
+     card: {
+        brand: string;
+        expMonth: number;
+        expYear: number;
+        last4: string;
+     };
+     createdAt: string;
+     id: string;
+     isDefault: boolean;
+     type: "card";
+  }>;
+  setDefaultPaymentMethod: (paymentMethodId: string) => Promise<{
+     card: {
+        brand: string;
+        expMonth: number;
+        expYear: number;
+        last4: string;
+     };
+     createdAt: string;
+     id: string;
+     isDefault: boolean;
+     type: "card";
+  }>;
+  updateAutoTopup: (request: {
      enabled: boolean;
      thresholdCredits: number;
      topupPackageId: string;
-   }) => Promise<{
+   }) => Promise<
+     | {
      attemptsToday: number;
      createdAt: string;
      enabled: boolean;
@@ -870,18 +921,19 @@ billing: {
      thresholdCredits: number;
      topupPackageId: string;
      updatedAt: string;
-  } & Record<string, never>>;
+   }
+    | null>;
 };
 ```
 
-Defined in: [client.ts:1699](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L1699)
+Defined in: [client.ts:1773](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L1773)
 
 Billing methods
 
 #### cancelSubscription()
 
 ```ts
-cancelSubscription: (organisationId: string, subscriptionId: string) => Promise<{
+cancelSubscription: (subscriptionId: string) => Promise<{
   cancelledAt: string | null;
   createdAt: string;
   credits: number;
@@ -906,7 +958,6 @@ Cancel an active subscription
 
 | Parameter | Type |
 | ------ | ------ |
-| `organisationId` | `string` |
 | `subscriptionId` | `string` |
 
 ##### Returns
@@ -966,7 +1017,16 @@ checkCanSell
 #### createPurchase()
 
 ```ts
-createPurchase: (organisationId: string, request: {
+createPurchase: (request: {
+  billingAddress?: {
+     city: string;
+     country: string;
+     line1: string;
+     line2?: string;
+     name?: string;
+     postal_code: string;
+     state?: string;
+  };
   currency?: string;
   email?: string;
   packageId: string;
@@ -1036,8 +1096,15 @@ Purchase a credit package for an organisation
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `organisationId` | `string` | - |
-| `request` | \{ `currency?`: `string`; `email?`: `string`; `packageId`: `string`; `paymentMethodId`: `string`; \} | - |
+| `request` | \{ `billingAddress?`: \{ `city`: `string`; `country`: `string`; `line1`: `string`; `line2?`: `string`; `name?`: `string`; `postal_code`: `string`; `state?`: `string`; \}; `currency?`: `string`; `email?`: `string`; `packageId`: `string`; `paymentMethodId`: `string`; \} | - |
+| `request.billingAddress?` | \{ `city`: `string`; `country`: `string`; `line1`: `string`; `line2?`: `string`; `name?`: `string`; `postal_code`: `string`; `state?`: `string`; \} | - |
+| `request.billingAddress.city` | `string` | - |
+| `request.billingAddress.country` | `string` | - |
+| `request.billingAddress.line1` | `string` | - |
+| `request.billingAddress.line2?` | `string` | - |
+| `request.billingAddress.name?` | `string` | - |
+| `request.billingAddress.postal_code` | `string` | - |
+| `request.billingAddress.state?` | `string` | - |
 | `request.currency?` | `string` | - |
 | `request.email?` | `string` | Format: email |
 | `request.packageId` | `string` | - |
@@ -1106,10 +1173,27 @@ Purchase a credit package for an organisation
 
 createCreditPurchase
 
+#### createSetupIntent()
+
+```ts
+createSetupIntent: () => Promise<string>;
+```
+
+Create setup intent
+Create a Stripe setup intent for saving a new payment method
+
+##### Returns
+
+`Promise`\<`string`\>
+
+##### Operation Id
+
+createSetupIntent
+
 #### createSubscription()
 
 ```ts
-createSubscription: (organisationId: string, request: {
+createSubscription: (request: {
   currency?: string;
   email?: string;
   interval: "month" | "year";
@@ -1140,7 +1224,6 @@ Create a new credit subscription for an organisation
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `organisationId` | `string` | - |
 | `request` | \{ `currency?`: `string`; `email?`: `string`; `interval`: `"month"` \| `"year"`; `packageId`: `string`; `paymentMethodId`: `string`; \} | - |
 | `request.currency?` | `string` | - |
 | `request.email?` | `string` | Format: email |
@@ -1171,10 +1254,33 @@ Create a new credit subscription for an organisation
 
 createSubscription
 
+#### deletePaymentMethod()
+
+```ts
+deletePaymentMethod: (paymentMethodId: string) => Promise<boolean>;
+```
+
+Delete payment method
+Delete a saved payment method
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `paymentMethodId` | `string` |
+
+##### Returns
+
+`Promise`\<`boolean`\>
+
+##### Operation Id
+
+deletePaymentMethod
+
 #### getAutoTopup()
 
 ```ts
-getAutoTopup: (organisationId: string) => Promise<
+getAutoTopup: () => Promise<
   | {
   attemptsToday: number;
   createdAt: string;
@@ -1192,12 +1298,6 @@ getAutoTopup: (organisationId: string) => Promise<
 
 Get auto top-up configuration
 Get the auto top-up configuration for an organisation
-
-##### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `organisationId` | `string` |
 
 ##### Returns
 
@@ -1223,7 +1323,7 @@ getAutoTopup
 #### getBalance()
 
 ```ts
-getBalance: (organisationId: string) => Promise<{
+getBalance: () => Promise<{
   balance: number;
   createdAt: string;
   id: string;
@@ -1240,12 +1340,6 @@ getBalance: (organisationId: string) => Promise<{
 
 Get credit balance
 Get the current credit balance for an organisation
-
-##### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `organisationId` | `string` |
 
 ##### Returns
 
@@ -1270,7 +1364,7 @@ getCreditBalance
 #### getInvoice()
 
 ```ts
-getInvoice: (organisationId: string, invoiceId: string) => Promise<{
+getInvoice: (invoiceId: string) => Promise<{
   amountDue: string;
   amountPaid: string;
   createdAt: string;
@@ -1298,7 +1392,6 @@ Get a specific invoice by ID
 
 | Parameter | Type |
 | ------ | ------ |
-| `organisationId` | `string` |
 | `invoiceId` | `string` |
 
 ##### Returns
@@ -1330,7 +1423,7 @@ getInvoice
 #### listInvoices()
 
 ```ts
-listInvoices: (organisationId: string, options?: {
+listInvoices: (options?: {
   limit?: string;
   page?: string;
   status?: string;
@@ -1362,7 +1455,6 @@ List all invoices for an organisation
 
 | Parameter | Type |
 | ------ | ------ |
-| `organisationId` | `string` |
 | `options?` | \{ `limit?`: `string`; `page?`: `string`; `status?`: `string`; \} |
 | `options.limit?` | `string` |
 | `options.page?` | `string` |
@@ -1431,10 +1523,49 @@ List all available credit packages for purchase
 
 listCreditPackages
 
+#### listPaymentMethods()
+
+```ts
+listPaymentMethods: () => Promise<{
+  card: {
+     brand: string;
+     expMonth: number;
+     expYear: number;
+     last4: string;
+  };
+  createdAt: string;
+  id: string;
+  isDefault: boolean;
+  type: "card";
+}[]>;
+```
+
+List payment methods
+List all saved payment methods for the organisation
+
+##### Returns
+
+`Promise`\<\{
+  `card`: \{
+     `brand`: `string`;
+     `expMonth`: `number`;
+     `expYear`: `number`;
+     `last4`: `string`;
+  \};
+  `createdAt`: `string`;
+  `id`: `string`;
+  `isDefault`: `boolean`;
+  `type`: `"card"`;
+\}[]\>
+
+##### Operation Id
+
+listPaymentMethods
+
 #### listPayments()
 
 ```ts
-listPayments: (organisationId: string, options?: {
+listPayments: (options?: {
   limit?: string;
   page?: string;
   status?: string;
@@ -1462,7 +1593,6 @@ List all billing payments for an organisation
 
 | Parameter | Type |
 | ------ | ------ |
-| `organisationId` | `string` |
 | `options?` | \{ `limit?`: `string`; `page?`: `string`; `status?`: `string`; \} |
 | `options.limit?` | `string` |
 | `options.page?` | `string` |
@@ -1493,7 +1623,7 @@ listBillingPayments
 #### listSubscriptions()
 
 ```ts
-listSubscriptions: (organisationId: string) => Promise<{
+listSubscriptions: () => Promise<{
   cancelledAt: string | null;
   createdAt: string;
   credits: number;
@@ -1513,12 +1643,6 @@ listSubscriptions: (organisationId: string) => Promise<{
 
 List subscriptions
 List all subscriptions for an organisation
-
-##### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `organisationId` | `string` |
 
 ##### Returns
 
@@ -1546,7 +1670,7 @@ listSubscriptions
 #### listTransactions()
 
 ```ts
-listTransactions: (organisationId: string, options?: {
+listTransactions: (options?: {
   limit?: string;
   page?: string;
   type?: string;
@@ -1577,7 +1701,6 @@ List all credit transactions for an organisation
 
 | Parameter | Type |
 | ------ | ------ |
-| `organisationId` | `string` |
 | `options?` | \{ `limit?`: `string`; `page?`: `string`; `type?`: `string`; \} |
 | `options.limit?` | `string` |
 | `options.page?` | `string` |
@@ -1608,14 +1731,110 @@ List all credit transactions for an organisation
 
 listCreditTransactions
 
+#### savePaymentMethod()
+
+```ts
+savePaymentMethod: (request: {
+  paymentMethodId: string;
+  setAsDefault?: boolean;
+}) => Promise<{
+  card: {
+     brand: string;
+     expMonth: number;
+     expYear: number;
+     last4: string;
+  };
+  createdAt: string;
+  id: string;
+  isDefault: boolean;
+  type: "card";
+}>;
+```
+
+Save payment method
+Save a payment method after Stripe confirms the setup intent
+
+##### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `request` | \{ `paymentMethodId`: `string`; `setAsDefault?`: `boolean`; \} | - |
+| `request.paymentMethodId` | `string` | **Example** `pm_1234567890` |
+| `request.setAsDefault?` | `boolean` | **Example** `true` |
+
+##### Returns
+
+`Promise`\<\{
+  `card`: \{
+     `brand`: `string`;
+     `expMonth`: `number`;
+     `expYear`: `number`;
+     `last4`: `string`;
+  \};
+  `createdAt`: `string`;
+  `id`: `string`;
+  `isDefault`: `boolean`;
+  `type`: `"card"`;
+\}\>
+
+##### Operation Id
+
+savePaymentMethod
+
+#### setDefaultPaymentMethod()
+
+```ts
+setDefaultPaymentMethod: (paymentMethodId: string) => Promise<{
+  card: {
+     brand: string;
+     expMonth: number;
+     expYear: number;
+     last4: string;
+  };
+  createdAt: string;
+  id: string;
+  isDefault: boolean;
+  type: "card";
+}>;
+```
+
+Set default payment method
+Set a payment method as the default for the organisation
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `paymentMethodId` | `string` |
+
+##### Returns
+
+`Promise`\<\{
+  `card`: \{
+     `brand`: `string`;
+     `expMonth`: `number`;
+     `expYear`: `number`;
+     `last4`: `string`;
+  \};
+  `createdAt`: `string`;
+  `id`: `string`;
+  `isDefault`: `boolean`;
+  `type`: `"card"`;
+\}\>
+
+##### Operation Id
+
+setDefaultPaymentMethod
+
 #### updateAutoTopup()
 
 ```ts
-updateAutoTopup: (organisationId: string, request: {
+updateAutoTopup: (request: {
   enabled: boolean;
   thresholdCredits: number;
   topupPackageId: string;
-}) => Promise<{
+}) => Promise<
+  | {
   attemptsToday: number;
   createdAt: string;
   enabled: boolean;
@@ -1626,7 +1845,8 @@ updateAutoTopup: (organisationId: string, request: {
   thresholdCredits: number;
   topupPackageId: string;
   updatedAt: string;
-} & Record<string, never>>;
+}
+| null>;
 ```
 
 Update auto top-up configuration
@@ -1636,7 +1856,6 @@ Update the auto top-up configuration for an organisation
 
 | Parameter | Type |
 | ------ | ------ |
-| `organisationId` | `string` |
 | `request` | \{ `enabled`: `boolean`; `thresholdCredits`: `number`; `topupPackageId`: `string`; \} |
 | `request.enabled` | `boolean` |
 | `request.thresholdCredits` | `number` |
@@ -1644,7 +1863,8 @@ Update the auto top-up configuration for an organisation
 
 ##### Returns
 
-`Promise`\<\{
+`Promise`\<
+  \| \{
   `attemptsToday`: `number`;
   `createdAt`: `string`;
   `enabled`: `boolean`;
@@ -1655,7 +1875,8 @@ Update the auto top-up configuration for an organisation
   `thresholdCredits`: `number`;
   `topupPackageId`: `string`;
   `updatedAt`: `string`;
-\} & `Record`\<`string`, `never`\>\>
+\}
+  \| `null`\>
 
 ##### Operation Id
 
@@ -1816,7 +2037,7 @@ customers: {
 };
 ```
 
-Defined in: [client.ts:2194](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L2194)
+Defined in: [client.ts:2334](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L2334)
 
 Customers methods
 
@@ -2464,6 +2685,8 @@ events: (eventId: string) => {
   create: (request: {
      accountId: string;
      description?: string;
+     heroImageUrl?: any;
+     imageUrl?: any;
      layout?: {
         areas?: {
            capacity: number;
@@ -2486,12 +2709,15 @@ events: (eventId: string) => {
      name: string;
      offSaleDate?: string;
      onSaleDate?: string;
+     presentation?: any;
+     shortDescription?: any;
      status?:   | "draft"
         | "published"
         | "on_sale"
         | "sold_out"
         | "completed"
         | "cancelled";
+     subtitle?: any;
      tags?: string[];
      ticketTypes?: {
         description?: string;
@@ -2608,6 +2834,8 @@ events: (eventId: string) => {
   }>;
   update: (id: string, request: {
      description?: any;
+     heroImageUrl?: any;
+     imageUrl?: any;
      layout?: {
         areas?: {
            capacity: number;
@@ -2630,12 +2858,15 @@ events: (eventId: string) => {
      name?: string;
      offSaleDate?: any;
      onSaleDate?: any;
+     presentation?: any;
+     shortDescription?: any;
      status?:   | "draft"
         | "published"
         | "on_sale"
         | "sold_out"
         | "completed"
         | "cancelled";
+     subtitle?: any;
      tags?: string[];
      ticketTypes?: {
         description?: string;
@@ -2674,7 +2905,7 @@ events: (eventId: string) => {
 };
 ```
 
-Defined in: [client.ts:1130](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L1130)
+Defined in: [client.ts:1204](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L1204)
 
 Events methods
 Use events() to access nested resources: events(id).occurrences, priceschemes
@@ -2687,6 +2918,8 @@ Use events() to access nested resources: events(id).occurrences, priceschemes
 create: (request: {
   accountId: string;
   description?: string;
+  heroImageUrl?: any;
+  imageUrl?: any;
   layout?: {
      areas?: {
         capacity: number;
@@ -2709,12 +2942,15 @@ create: (request: {
   name: string;
   offSaleDate?: string;
   onSaleDate?: string;
+  presentation?: any;
+  shortDescription?: any;
   status?:   | "draft"
      | "published"
      | "on_sale"
      | "sold_out"
      | "completed"
      | "cancelled";
+  subtitle?: any;
   tags?: string[];
   ticketTypes?: {
      description?: string;
@@ -2759,9 +2995,11 @@ Create a new event in the organisation
 
 | Parameter | Type |
 | ------ | ------ |
-| `request` | \{ `accountId`: `string`; `description?`: `string`; `layout?`: \{ `areas?`: \{ `capacity`: `number`; `categoryId?`: `string`; `description?`: `string`; `displayOrder?`: `number`; `id?`: `string`; `name`: `string`; `type`: `"unallocated"` \| `"allocated"`; \}[]; `categories?`: \{ `color?`: `string`; `description?`: `string`; `displayOrder?`: `number`; `id?`: `string`; `name`: `string`; \}[]; `venueLayoutTemplateId?`: `string`; \}; `name`: `string`; `offSaleDate?`: `string`; `onSaleDate?`: `string`; `status?`: \| `"draft"` \| `"published"` \| `"on_sale"` \| `"sold_out"` \| `"completed"` \| `"cancelled"`; `tags?`: `string`[]; `ticketTypes?`: \{ `description?`: `string`; `displayOrder`: `number`; `id?`: `string`; `name`: `string`; \}[]; `timezone?`: `string`; `venueId?`: `any`; `venueName?`: `any`; \} |
+| `request` | \{ `accountId`: `string`; `description?`: `string`; `heroImageUrl?`: `any`; `imageUrl?`: `any`; `layout?`: \{ `areas?`: \{ `capacity`: `number`; `categoryId?`: `string`; `description?`: `string`; `displayOrder?`: `number`; `id?`: `string`; `name`: `string`; `type`: `"unallocated"` \| `"allocated"`; \}[]; `categories?`: \{ `color?`: `string`; `description?`: `string`; `displayOrder?`: `number`; `id?`: `string`; `name`: `string`; \}[]; `venueLayoutTemplateId?`: `string`; \}; `name`: `string`; `offSaleDate?`: `string`; `onSaleDate?`: `string`; `presentation?`: `any`; `shortDescription?`: `any`; `status?`: \| `"draft"` \| `"published"` \| `"on_sale"` \| `"sold_out"` \| `"completed"` \| `"cancelled"`; `subtitle?`: `any`; `tags?`: `string`[]; `ticketTypes?`: \{ `description?`: `string`; `displayOrder`: `number`; `id?`: `string`; `name`: `string`; \}[]; `timezone?`: `string`; `venueId?`: `any`; `venueName?`: `any`; \} |
 | `request.accountId` | `string` |
 | `request.description?` | `string` |
+| `request.heroImageUrl?` | `any` |
+| `request.imageUrl?` | `any` |
 | `request.layout?` | \{ `areas?`: \{ `capacity`: `number`; `categoryId?`: `string`; `description?`: `string`; `displayOrder?`: `number`; `id?`: `string`; `name`: `string`; `type`: `"unallocated"` \| `"allocated"`; \}[]; `categories?`: \{ `color?`: `string`; `description?`: `string`; `displayOrder?`: `number`; `id?`: `string`; `name`: `string`; \}[]; `venueLayoutTemplateId?`: `string`; \} |
 | `request.layout.areas?` | \{ `capacity`: `number`; `categoryId?`: `string`; `description?`: `string`; `displayOrder?`: `number`; `id?`: `string`; `name`: `string`; `type`: `"unallocated"` \| `"allocated"`; \}[] |
 | `request.layout.categories?` | \{ `color?`: `string`; `description?`: `string`; `displayOrder?`: `number`; `id?`: `string`; `name`: `string`; \}[] |
@@ -2769,7 +3007,10 @@ Create a new event in the organisation
 | `request.name` | `string` |
 | `request.offSaleDate?` | `string` |
 | `request.onSaleDate?` | `string` |
+| `request.presentation?` | `any` |
+| `request.shortDescription?` | `any` |
 | `request.status?` | \| `"draft"` \| `"published"` \| `"on_sale"` \| `"sold_out"` \| `"completed"` \| `"cancelled"` |
+| `request.subtitle?` | `any` |
 | `request.tags?` | `string`[] |
 | `request.ticketTypes?` | \{ `description?`: `string`; `displayOrder`: `number`; `id?`: `string`; `name`: `string`; \}[] |
 | `request.timezone?` | `string` |
@@ -3028,6 +3269,8 @@ listEvents
 ```ts
 update: (id: string, request: {
   description?: any;
+  heroImageUrl?: any;
+  imageUrl?: any;
   layout?: {
      areas?: {
         capacity: number;
@@ -3050,12 +3293,15 @@ update: (id: string, request: {
   name?: string;
   offSaleDate?: any;
   onSaleDate?: any;
+  presentation?: any;
+  shortDescription?: any;
   status?:   | "draft"
      | "published"
      | "on_sale"
      | "sold_out"
      | "completed"
      | "cancelled";
+  subtitle?: any;
   tags?: string[];
   ticketTypes?: {
      description?: string;
@@ -3101,8 +3347,10 @@ Update an existing event
 | Parameter | Type |
 | ------ | ------ |
 | `id` | `string` |
-| `request` | \{ `description?`: `any`; `layout?`: \{ `areas?`: \{ `capacity`: `number`; `categoryId?`: `string`; `description?`: `string`; `displayOrder?`: `number`; `id?`: `string`; `name`: `string`; `type`: `"unallocated"` \| `"allocated"`; \}[]; `categories?`: \{ `color?`: `string`; `description?`: `string`; `displayOrder?`: `number`; `id?`: `string`; `name`: `string`; \}[]; `venueLayoutTemplateId?`: `string`; \}; `name?`: `string`; `offSaleDate?`: `any`; `onSaleDate?`: `any`; `status?`: \| `"draft"` \| `"published"` \| `"on_sale"` \| `"sold_out"` \| `"completed"` \| `"cancelled"`; `tags?`: `string`[]; `ticketTypes?`: \{ `description?`: `string`; `displayOrder`: `number`; `id?`: `string`; `name`: `string`; \}[]; `timezone?`: `string`; `venueId?`: `any`; `venueName?`: `any`; \} |
+| `request` | \{ `description?`: `any`; `heroImageUrl?`: `any`; `imageUrl?`: `any`; `layout?`: \{ `areas?`: \{ `capacity`: `number`; `categoryId?`: `string`; `description?`: `string`; `displayOrder?`: `number`; `id?`: `string`; `name`: `string`; `type`: `"unallocated"` \| `"allocated"`; \}[]; `categories?`: \{ `color?`: `string`; `description?`: `string`; `displayOrder?`: `number`; `id?`: `string`; `name`: `string`; \}[]; `venueLayoutTemplateId?`: `string`; \}; `name?`: `string`; `offSaleDate?`: `any`; `onSaleDate?`: `any`; `presentation?`: `any`; `shortDescription?`: `any`; `status?`: \| `"draft"` \| `"published"` \| `"on_sale"` \| `"sold_out"` \| `"completed"` \| `"cancelled"`; `subtitle?`: `any`; `tags?`: `string`[]; `ticketTypes?`: \{ `description?`: `string`; `displayOrder`: `number`; `id?`: `string`; `name`: `string`; \}[]; `timezone?`: `string`; `venueId?`: `any`; `venueName?`: `any`; \} |
 | `request.description?` | `any` |
+| `request.heroImageUrl?` | `any` |
+| `request.imageUrl?` | `any` |
 | `request.layout?` | \{ `areas?`: \{ `capacity`: `number`; `categoryId?`: `string`; `description?`: `string`; `displayOrder?`: `number`; `id?`: `string`; `name`: `string`; `type`: `"unallocated"` \| `"allocated"`; \}[]; `categories?`: \{ `color?`: `string`; `description?`: `string`; `displayOrder?`: `number`; `id?`: `string`; `name`: `string`; \}[]; `venueLayoutTemplateId?`: `string`; \} |
 | `request.layout.areas?` | \{ `capacity`: `number`; `categoryId?`: `string`; `description?`: `string`; `displayOrder?`: `number`; `id?`: `string`; `name`: `string`; `type`: `"unallocated"` \| `"allocated"`; \}[] |
 | `request.layout.categories?` | \{ `color?`: `string`; `description?`: `string`; `displayOrder?`: `number`; `id?`: `string`; `name`: `string`; \}[] |
@@ -3110,7 +3358,10 @@ Update an existing event
 | `request.name?` | `string` |
 | `request.offSaleDate?` | `any` |
 | `request.onSaleDate?` | `any` |
+| `request.presentation?` | `any` |
+| `request.shortDescription?` | `any` |
 | `request.status?` | \| `"draft"` \| `"published"` \| `"on_sale"` \| `"sold_out"` \| `"completed"` \| `"cancelled"` |
+| `request.subtitle?` | `any` |
 | `request.tags?` | `string`[] |
 | `request.ticketTypes?` | \{ `description?`: `string`; `displayOrder`: `number`; `id?`: `string`; `name`: `string`; \}[] |
 | `request.timezone?` | `string` |
@@ -3148,6 +3399,312 @@ Update an existing event
 ###### Operation Id
 
 updateEvent
+
+***
+
+### feeProfiles
+
+```ts
+feeProfiles: {
+  create: (request: {
+     name: string;
+     serviceFeeEnabled?: boolean;
+     serviceFeeFixed?: number;
+     serviceFeeLabel?: string;
+     serviceFeePercent?: number;
+   }) => Promise<{
+     createdAt: string;
+     deletedAt: string | null;
+     id: string;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     serviceFeeEnabled: boolean;
+     serviceFeeFixed: string | null;
+     serviceFeeLabel: string | null;
+     serviceFeePercent: string | null;
+     updatedAt: string;
+  }>;
+  delete: (profileId: string) => Promise<boolean>;
+  get: (profileId: string) => Promise<{
+     createdAt: string;
+     deletedAt: string | null;
+     id: string;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     serviceFeeEnabled: boolean;
+     serviceFeeFixed: string | null;
+     serviceFeeLabel: string | null;
+     serviceFeePercent: string | null;
+     updatedAt: string;
+  }>;
+  list: () => Promise<{
+     createdAt: string;
+     deletedAt: string | null;
+     id: string;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     serviceFeeEnabled: boolean;
+     serviceFeeFixed: string | null;
+     serviceFeeLabel: string | null;
+     serviceFeePercent: string | null;
+     updatedAt: string;
+  }[]>;
+  update: (profileId: string, request: {
+     name?: string;
+     serviceFeeEnabled?: boolean;
+     serviceFeeFixed?: number;
+     serviceFeeLabel?: string;
+     serviceFeePercent?: number;
+   }) => Promise<{
+     createdAt: string;
+     deletedAt: string | null;
+     id: string;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     serviceFeeEnabled: boolean;
+     serviceFeeFixed: string | null;
+     serviceFeeLabel: string | null;
+     serviceFeePercent: string | null;
+     updatedAt: string;
+  }>;
+};
+```
+
+Defined in: [client.ts:3093](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L3093)
+
+Fee Profiles methods
+
+#### create()
+
+```ts
+create: (request: {
+  name: string;
+  serviceFeeEnabled?: boolean;
+  serviceFeeFixed?: number;
+  serviceFeeLabel?: string;
+  serviceFeePercent?: number;
+}) => Promise<{
+  createdAt: string;
+  deletedAt: string | null;
+  id: string;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  serviceFeeEnabled: boolean;
+  serviceFeeFixed: string | null;
+  serviceFeeLabel: string | null;
+  serviceFeePercent: string | null;
+  updatedAt: string;
+}>;
+```
+
+Create fee profile
+Create an org-level fee configuration that sales channels can reference
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `request` | \{ `name`: `string`; `serviceFeeEnabled?`: `boolean`; `serviceFeeFixed?`: `number`; `serviceFeeLabel?`: `string`; `serviceFeePercent?`: `number`; \} |
+| `request.name` | `string` |
+| `request.serviceFeeEnabled?` | `boolean` |
+| `request.serviceFeeFixed?` | `number` |
+| `request.serviceFeeLabel?` | `string` |
+| `request.serviceFeePercent?` | `number` |
+
+##### Returns
+
+`Promise`\<\{
+  `createdAt`: `string`;
+  `deletedAt`: `string` \| `null`;
+  `id`: `string`;
+  `isDeleted`: `boolean`;
+  `name`: `string`;
+  `organisationId`: `string`;
+  `serviceFeeEnabled`: `boolean`;
+  `serviceFeeFixed`: `string` \| `null`;
+  `serviceFeeLabel`: `string` \| `null`;
+  `serviceFeePercent`: `string` \| `null`;
+  `updatedAt`: `string`;
+\}\>
+
+##### Operation Id
+
+createFeeProfile
+
+#### delete()
+
+```ts
+delete: (profileId: string) => Promise<boolean>;
+```
+
+Delete fee profile
+Soft-delete a fee profile
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `profileId` | `string` |
+
+##### Returns
+
+`Promise`\<`boolean`\>
+
+##### Operation Id
+
+deleteFeeProfile
+
+#### get()
+
+```ts
+get: (profileId: string) => Promise<{
+  createdAt: string;
+  deletedAt: string | null;
+  id: string;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  serviceFeeEnabled: boolean;
+  serviceFeeFixed: string | null;
+  serviceFeeLabel: string | null;
+  serviceFeePercent: string | null;
+  updatedAt: string;
+}>;
+```
+
+Get fee profile
+Get a fee profile by ID
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `profileId` | `string` |
+
+##### Returns
+
+`Promise`\<\{
+  `createdAt`: `string`;
+  `deletedAt`: `string` \| `null`;
+  `id`: `string`;
+  `isDeleted`: `boolean`;
+  `name`: `string`;
+  `organisationId`: `string`;
+  `serviceFeeEnabled`: `boolean`;
+  `serviceFeeFixed`: `string` \| `null`;
+  `serviceFeeLabel`: `string` \| `null`;
+  `serviceFeePercent`: `string` \| `null`;
+  `updatedAt`: `string`;
+\}\>
+
+##### Operation Id
+
+getFeeProfile
+
+#### list()
+
+```ts
+list: () => Promise<{
+  createdAt: string;
+  deletedAt: string | null;
+  id: string;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  serviceFeeEnabled: boolean;
+  serviceFeeFixed: string | null;
+  serviceFeeLabel: string | null;
+  serviceFeePercent: string | null;
+  updatedAt: string;
+}[]>;
+```
+
+List fee profiles
+List the organisation's fee profiles
+
+##### Returns
+
+`Promise`\<\{
+  `createdAt`: `string`;
+  `deletedAt`: `string` \| `null`;
+  `id`: `string`;
+  `isDeleted`: `boolean`;
+  `name`: `string`;
+  `organisationId`: `string`;
+  `serviceFeeEnabled`: `boolean`;
+  `serviceFeeFixed`: `string` \| `null`;
+  `serviceFeeLabel`: `string` \| `null`;
+  `serviceFeePercent`: `string` \| `null`;
+  `updatedAt`: `string`;
+\}[]\>
+
+##### Operation Id
+
+listFeeProfiles
+
+#### update()
+
+```ts
+update: (profileId: string, request: {
+  name?: string;
+  serviceFeeEnabled?: boolean;
+  serviceFeeFixed?: number;
+  serviceFeeLabel?: string;
+  serviceFeePercent?: number;
+}) => Promise<{
+  createdAt: string;
+  deletedAt: string | null;
+  id: string;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  serviceFeeEnabled: boolean;
+  serviceFeeFixed: string | null;
+  serviceFeeLabel: string | null;
+  serviceFeePercent: string | null;
+  updatedAt: string;
+}>;
+```
+
+Update fee profile
+Update a fee profile
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `profileId` | `string` |
+| `request` | \{ `name?`: `string`; `serviceFeeEnabled?`: `boolean`; `serviceFeeFixed?`: `number`; `serviceFeeLabel?`: `string`; `serviceFeePercent?`: `number`; \} |
+| `request.name?` | `string` |
+| `request.serviceFeeEnabled?` | `boolean` |
+| `request.serviceFeeFixed?` | `number` |
+| `request.serviceFeeLabel?` | `string` |
+| `request.serviceFeePercent?` | `number` |
+
+##### Returns
+
+`Promise`\<\{
+  `createdAt`: `string`;
+  `deletedAt`: `string` \| `null`;
+  `id`: `string`;
+  `isDeleted`: `boolean`;
+  `name`: `string`;
+  `organisationId`: `string`;
+  `serviceFeeEnabled`: `boolean`;
+  `serviceFeeFixed`: `string` \| `null`;
+  `serviceFeeLabel`: `string` \| `null`;
+  `serviceFeePercent`: `string` \| `null`;
+  `updatedAt`: `string`;
+\}\>
+
+##### Operation Id
+
+updateFeeProfile
 
 ***
 
@@ -3251,7 +3808,7 @@ identityProviders: {
 };
 ```
 
-Defined in: [client.ts:845](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L845)
+Defined in: [client.ts:919](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L919)
 
 Identity Providers methods
 
@@ -3641,7 +4198,7 @@ inventory: {
 };
 ```
 
-Defined in: [client.ts:1897](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L1897)
+Defined in: [client.ts:2037](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L2037)
 
 Inventory methods
 
@@ -4071,7 +4628,7 @@ inventoryHolds: {
 };
 ```
 
-Defined in: [client.ts:2161](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L2161)
+Defined in: [client.ts:2301](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L2301)
 
 Inventory Holds methods
 
@@ -4323,7 +4880,7 @@ inventoryReservations: {
 };
 ```
 
-Defined in: [client.ts:2046](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L2046)
+Defined in: [client.ts:2186](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L2186)
 
 Inventory Reservations methods
 
@@ -4808,7 +5365,7 @@ inventorySeats: {
 };
 ```
 
-Defined in: [client.ts:2006](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L2006)
+Defined in: [client.ts:2146](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L2146)
 
 Inventory Seats methods
 
@@ -5016,7 +5573,7 @@ me: {
 };
 ```
 
-Defined in: [client.ts:672](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L672)
+Defined in: [client.ts:746](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L746)
 
 Me methods
 
@@ -5166,6 +5723,70 @@ Get the current user's role assignments with role info (name, description). Does
 ##### Operation Id
 
 getMyRoles
+
+***
+
+### meta
+
+```ts
+meta: {
+  versions: () => Promise<{
+     current: string;
+     resolved: string;
+     versions: {
+        breakingChanges: string[];
+        date: string;
+        deprecatedAt: string | null;
+        status: "current" | "supported" | "deprecated" | "sunset";
+        summary: string;
+        sunsetAt: string | null;
+     }[];
+  }>;
+};
+```
+
+Defined in: [client.ts:651](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L651)
+
+Meta methods
+
+#### versions()
+
+```ts
+versions: () => Promise<{
+  current: string;
+  resolved: string;
+  versions: {
+     breakingChanges: string[];
+     date: string;
+     deprecatedAt: string | null;
+     status: "current" | "supported" | "deprecated" | "sunset";
+     summary: string;
+     sunsetAt: string | null;
+  }[];
+}>;
+```
+
+List API versions
+Lists all dated API versions with their lifecycle status. Pin a version per-request with the TL-Version header; organisations are pinned to the version current at signup by default.
+
+##### Returns
+
+`Promise`\<\{
+  `current`: `string`;
+  `resolved`: `string`;
+  `versions`: \{
+     `breakingChanges`: `string`[];
+     `date`: `string`;
+     `deprecatedAt`: `string` \| `null`;
+     `status`: `"current"` \| `"supported"` \| `"deprecated"` \| `"sunset"`;
+     `summary`: `string`;
+     `sunsetAt`: `string` \| `null`;
+  \}[];
+\}\>
+
+##### Operation Id
+
+listApiVersions
 
 ***
 
@@ -6012,7 +6633,7 @@ orders: {
 };
 ```
 
-Defined in: [client.ts:2290](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L2290)
+Defined in: [client.ts:2430](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L2430)
 
 Orders methods
 
@@ -7922,6 +8543,7 @@ validateOrder
 ```ts
 organisations: {
   get: (id: string) => Promise<{
+     apiVersion: string;
      createdAt: string;
      id: string;
      logoUrl?: string;
@@ -7934,6 +8556,7 @@ organisations: {
      updatedAt: string;
   }>;
   update: (id: string, request: {
+     apiVersion?: string;
      logoUrl?: string;
      metadata?: {
       [key: string]: unknown;
@@ -7942,6 +8565,7 @@ organisations: {
      primaryColor?: string;
      secondaryColor?: string;
    }) => Promise<{
+     apiVersion: string;
      createdAt: string;
      id: string;
      logoUrl?: string;
@@ -7956,7 +8580,7 @@ organisations: {
 };
 ```
 
-Defined in: [client.ts:735](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L735)
+Defined in: [client.ts:809](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L809)
 
 Organisations methods
 
@@ -7964,6 +8588,7 @@ Organisations methods
 
 ```ts
 get: (id: string) => Promise<{
+  apiVersion: string;
   createdAt: string;
   id: string;
   logoUrl?: string;
@@ -7989,6 +8614,7 @@ Get organisation details including branding information
 ##### Returns
 
 `Promise`\<\{
+  `apiVersion`: `string`;
   `createdAt`: `string`;
   `id`: `string`;
   `logoUrl?`: `string`;
@@ -8009,6 +8635,7 @@ getOrganisation
 
 ```ts
 update: (id: string, request: {
+  apiVersion?: string;
   logoUrl?: string;
   metadata?: {
    [key: string]: unknown;
@@ -8017,6 +8644,7 @@ update: (id: string, request: {
   primaryColor?: string;
   secondaryColor?: string;
 }) => Promise<{
+  apiVersion: string;
   createdAt: string;
   id: string;
   logoUrl?: string;
@@ -8038,7 +8666,8 @@ Update organisation details and branding (owner permission required)
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `id` | `string` | - |
-| `request` | \{ `logoUrl?`: `string`; `metadata?`: \{ \[`key`: `string`\]: `unknown`; \}; `name?`: `string`; `primaryColor?`: `string`; `secondaryColor?`: `string`; \} | - |
+| `request` | \{ `apiVersion?`: `string`; `logoUrl?`: `string`; `metadata?`: \{ \[`key`: `string`\]: `unknown`; \}; `name?`: `string`; `primaryColor?`: `string`; `secondaryColor?`: `string`; \} | - |
+| `request.apiVersion?` | `string` | **Description** Pin the organisation to a dated API version. Must be a known, non-sunset version (see GET /meta/versions). **Example** `2026-06-13` |
 | `request.logoUrl?` | `string` | Format: uri **Description** URL to organisation logo **Example** `https://example.com/logo.png` |
 | `request.metadata?` | \{ \[`key`: `string`\]: `unknown`; \} | **Description** Additional metadata **Example** `{ * "industry": "Technology", * "size": "Medium" * }` |
 | `request.name?` | `string` | **Description** Organisation name **Example** `Acme Corporation` |
@@ -8048,6 +8677,7 @@ Update organisation details and branding (owner permission required)
 ##### Returns
 
 `Promise`\<\{
+  `apiVersion`: `string`;
   `createdAt`: `string`;
   `id`: `string`;
   `logoUrl?`: `string`;
@@ -8108,13 +8738,13 @@ paymentProviders: {
         | "in_person_card"
         | "in_person_cash"
         | "cheque"[];
-     type:   | "bank_transfer"
-        | "cash"
-        | "stripe_connect"
+     type:   | "stripe_connect"
         | "stripe_direct"
         | "adyen"
         | "square"
-        | "paypal";
+        | "paypal"
+        | "cash"
+        | "bank_transfer";
    }) => Promise<{
      accountId: string | null;
      applicationFee:   | {
@@ -8165,13 +8795,13 @@ paymentProviders: {
         | "in_person_card"
         | "in_person_cash"
        | "cheque")[];
-     type:   | "bank_transfer"
-        | "cash"
-        | "stripe_connect"
+     type:   | "stripe_connect"
         | "stripe_direct"
         | "adyen"
         | "square"
-        | "paypal";
+        | "paypal"
+        | "cash"
+        | "bank_transfer";
      updatedAt: string;
   }>;
   delete: (providerId: string) => Promise<{
@@ -8228,13 +8858,13 @@ paymentProviders: {
         | "in_person_card"
         | "in_person_cash"
        | "cheque")[];
-     type:   | "bank_transfer"
-        | "cash"
-        | "stripe_connect"
+     type:   | "stripe_connect"
         | "stripe_direct"
         | "adyen"
         | "square"
-        | "paypal";
+        | "paypal"
+        | "cash"
+        | "bank_transfer";
      updatedAt: string;
   }>;
   getDefault: () => Promise<{
@@ -8287,13 +8917,13 @@ paymentProviders: {
         | "in_person_card"
         | "in_person_cash"
        | "cheque")[];
-     type:   | "bank_transfer"
-        | "cash"
-        | "stripe_connect"
+     type:   | "stripe_connect"
         | "stripe_direct"
         | "adyen"
         | "square"
-        | "paypal";
+        | "paypal"
+        | "cash"
+        | "bank_transfer";
      updatedAt: string;
   }>;
   list: (options?: {
@@ -8310,13 +8940,13 @@ paymentProviders: {
         | "in_person_cash"
         | "cheque";
      status?: "active" | "inactive" | "pending_setup";
-     type?:   | "bank_transfer"
-        | "cash"
-        | "stripe_connect"
+     type?:   | "stripe_connect"
         | "stripe_direct"
         | "adyen"
         | "square"
-        | "paypal";
+        | "paypal"
+        | "cash"
+        | "bank_transfer";
    }) => Promise<{
      pagination: {
         limit: number;
@@ -8374,13 +9004,13 @@ paymentProviders: {
            | "in_person_card"
            | "in_person_cash"
           | "cheque")[];
-        type:   | "bank_transfer"
-           | "cash"
-           | "stripe_connect"
+        type:   | "stripe_connect"
            | "stripe_direct"
            | "adyen"
            | "square"
-           | "paypal";
+           | "paypal"
+           | "cash"
+           | "bank_transfer";
         updatedAt: string;
      }[];
   }>;
@@ -8471,19 +9101,19 @@ paymentProviders: {
         | "in_person_card"
         | "in_person_cash"
        | "cheque")[];
-     type:   | "bank_transfer"
-        | "cash"
-        | "stripe_connect"
+     type:   | "stripe_connect"
         | "stripe_direct"
         | "adyen"
         | "square"
-        | "paypal";
+        | "paypal"
+        | "cash"
+        | "bank_transfer";
      updatedAt: string;
   }>;
 };
 ```
 
-Defined in: [client.ts:2582](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L2582)
+Defined in: [client.ts:2722](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L2722)
 
 Payment Providers methods
 
@@ -8528,13 +9158,13 @@ create: (request: {
      | "in_person_card"
      | "in_person_cash"
      | "cheque"[];
-  type:   | "bank_transfer"
-     | "cash"
-     | "stripe_connect"
+  type:   | "stripe_connect"
      | "stripe_direct"
      | "adyen"
      | "square"
-     | "paypal";
+     | "paypal"
+     | "cash"
+     | "bank_transfer";
 }) => Promise<{
   accountId: string | null;
   applicationFee:   | {
@@ -8585,13 +9215,13 @@ create: (request: {
      | "in_person_card"
      | "in_person_cash"
     | "cheque")[];
-  type:   | "bank_transfer"
-     | "cash"
-     | "stripe_connect"
+  type:   | "stripe_connect"
      | "stripe_direct"
      | "adyen"
      | "square"
-     | "paypal";
+     | "paypal"
+     | "cash"
+     | "bank_transfer";
   updatedAt: string;
 }>;
 ```
@@ -8603,7 +9233,7 @@ Create a new payment provider configuration
 
 | Parameter | Type |
 | ------ | ------ |
-| `request` | \{ `accountId?`: `string`; `applicationFee?`: \{ `type`: `"percentage"` \| `"fixed"`; `value`: `number`; \}; `capabilities?`: \{ `maxAmount?`: `number`; `minAmount?`: `number`; `requiresCustomerAction?`: `boolean`; `supportedCurrencies?`: `string`[]; `supportsDelayedCapture?`: `boolean`; `supportsInstantCapture?`: `boolean`; `supportsPartialRefunds?`: `boolean`; `supportsRefunds?`: `boolean`; \}; `configuration`: `Record`\<`string`, `any`\>; `description?`: `string`; `feeStructure?`: \{ `currency?`: `string`; `fixed?`: `number`; `percentage?`: `number`; `type`: `"percentage"` \| `"fixed"` \| `"percentage_plus_fixed"`; \}; `integrationServiceUrl?`: `string`; `integrationServiceVersion?`: `string`; `integrationType?`: `"ticketlayer_pay"` \| `"self_service"`; `isDefault?`: `boolean`; `metadata?`: `Record`\<`string`, `any`\>; `name`: `string`; `priority?`: `number`; `supportedPaymentTypes`: \| `"bank_transfer"` \| `"online_card"` \| `"online_bank_transfer"` \| `"online_wallet"` \| `"in_person_card"` \| `"in_person_cash"` \| `"cheque"`[]; `type`: \| `"bank_transfer"` \| `"cash"` \| `"stripe_connect"` \| `"stripe_direct"` \| `"adyen"` \| `"square"` \| `"paypal"`; \} |
+| `request` | \{ `accountId?`: `string`; `applicationFee?`: \{ `type`: `"percentage"` \| `"fixed"`; `value`: `number`; \}; `capabilities?`: \{ `maxAmount?`: `number`; `minAmount?`: `number`; `requiresCustomerAction?`: `boolean`; `supportedCurrencies?`: `string`[]; `supportsDelayedCapture?`: `boolean`; `supportsInstantCapture?`: `boolean`; `supportsPartialRefunds?`: `boolean`; `supportsRefunds?`: `boolean`; \}; `configuration`: `Record`\<`string`, `any`\>; `description?`: `string`; `feeStructure?`: \{ `currency?`: `string`; `fixed?`: `number`; `percentage?`: `number`; `type`: `"percentage"` \| `"fixed"` \| `"percentage_plus_fixed"`; \}; `integrationServiceUrl?`: `string`; `integrationServiceVersion?`: `string`; `integrationType?`: `"ticketlayer_pay"` \| `"self_service"`; `isDefault?`: `boolean`; `metadata?`: `Record`\<`string`, `any`\>; `name`: `string`; `priority?`: `number`; `supportedPaymentTypes`: \| `"bank_transfer"` \| `"online_card"` \| `"online_bank_transfer"` \| `"online_wallet"` \| `"in_person_card"` \| `"in_person_cash"` \| `"cheque"`[]; `type`: \| `"stripe_connect"` \| `"stripe_direct"` \| `"adyen"` \| `"square"` \| `"paypal"` \| `"cash"` \| `"bank_transfer"`; \} |
 | `request.accountId?` | `string` |
 | `request.applicationFee?` | \{ `type`: `"percentage"` \| `"fixed"`; `value`: `number`; \} |
 | `request.applicationFee.type` | `"percentage"` \| `"fixed"` |
@@ -8632,7 +9262,7 @@ Create a new payment provider configuration
 | `request.name` | `string` |
 | `request.priority?` | `number` |
 | `request.supportedPaymentTypes` | \| `"bank_transfer"` \| `"online_card"` \| `"online_bank_transfer"` \| `"online_wallet"` \| `"in_person_card"` \| `"in_person_cash"` \| `"cheque"`[] |
-| `request.type` | \| `"bank_transfer"` \| `"cash"` \| `"stripe_connect"` \| `"stripe_direct"` \| `"adyen"` \| `"square"` \| `"paypal"` |
+| `request.type` | \| `"stripe_connect"` \| `"stripe_direct"` \| `"adyen"` \| `"square"` \| `"paypal"` \| `"cash"` \| `"bank_transfer"` |
 
 ##### Returns
 
@@ -8686,13 +9316,13 @@ Create a new payment provider configuration
      \| `"in_person_card"`
      \| `"in_person_cash"`
     \| `"cheque"`)[];
-  `type`:   \| `"bank_transfer"`
-     \| `"cash"`
-     \| `"stripe_connect"`
+  `type`:   \| `"stripe_connect"`
      \| `"stripe_direct"`
      \| `"adyen"`
      \| `"square"`
-     \| `"paypal"`;
+     \| `"paypal"`
+     \| `"cash"`
+     \| `"bank_transfer"`;
   `updatedAt`: `string`;
 \}\>
 
@@ -8782,13 +9412,13 @@ get: (providerId: string) => Promise<{
      | "in_person_card"
      | "in_person_cash"
     | "cheque")[];
-  type:   | "bank_transfer"
-     | "cash"
-     | "stripe_connect"
+  type:   | "stripe_connect"
      | "stripe_direct"
      | "adyen"
      | "square"
-     | "paypal";
+     | "paypal"
+     | "cash"
+     | "bank_transfer";
   updatedAt: string;
 }>;
 ```
@@ -8854,13 +9484,13 @@ Get a specific payment provider by ID
      \| `"in_person_card"`
      \| `"in_person_cash"`
     \| `"cheque"`)[];
-  `type`:   \| `"bank_transfer"`
-     \| `"cash"`
-     \| `"stripe_connect"`
+  `type`:   \| `"stripe_connect"`
      \| `"stripe_direct"`
      \| `"adyen"`
      \| `"square"`
-     \| `"paypal"`;
+     \| `"paypal"`
+     \| `"cash"`
+     \| `"bank_transfer"`;
   `updatedAt`: `string`;
 \}\>
 
@@ -8921,13 +9551,13 @@ getDefault: () => Promise<{
      | "in_person_card"
      | "in_person_cash"
     | "cheque")[];
-  type:   | "bank_transfer"
-     | "cash"
-     | "stripe_connect"
+  type:   | "stripe_connect"
      | "stripe_direct"
      | "adyen"
      | "square"
-     | "paypal";
+     | "paypal"
+     | "cash"
+     | "bank_transfer";
   updatedAt: string;
 }>;
 ```
@@ -8987,13 +9617,13 @@ Get the default payment provider for the account/organisation
      \| `"in_person_card"`
      \| `"in_person_cash"`
     \| `"cheque"`)[];
-  `type`:   \| `"bank_transfer"`
-     \| `"cash"`
-     \| `"stripe_connect"`
+  `type`:   \| `"stripe_connect"`
      \| `"stripe_direct"`
      \| `"adyen"`
      \| `"square"`
-     \| `"paypal"`;
+     \| `"paypal"`
+     \| `"cash"`
+     \| `"bank_transfer"`;
   `updatedAt`: `string`;
 \}\>
 
@@ -9018,13 +9648,13 @@ list: (options?: {
      | "in_person_cash"
      | "cheque";
   status?: "active" | "inactive" | "pending_setup";
-  type?:   | "bank_transfer"
-     | "cash"
-     | "stripe_connect"
+  type?:   | "stripe_connect"
      | "stripe_direct"
      | "adyen"
      | "square"
-     | "paypal";
+     | "paypal"
+     | "cash"
+     | "bank_transfer";
 }) => Promise<{
   pagination: {
      limit: number;
@@ -9082,13 +9712,13 @@ list: (options?: {
         | "in_person_card"
         | "in_person_cash"
        | "cheque")[];
-     type:   | "bank_transfer"
-        | "cash"
-        | "stripe_connect"
+     type:   | "stripe_connect"
         | "stripe_direct"
         | "adyen"
         | "square"
-        | "paypal";
+        | "paypal"
+        | "cash"
+        | "bank_transfer";
      updatedAt: string;
   }[];
 }>;
@@ -9101,7 +9731,7 @@ List all payment providers with optional filtering and pagination
 
 | Parameter | Type |
 | ------ | ------ |
-| `options?` | \{ `accountId?`: `string`; `integrationType?`: `"ticketlayer_pay"` \| `"self_service"`; `isDefault?`: `string`; `limit?`: `string`; `page?`: `string`; `paymentType?`: \| `"bank_transfer"` \| `"online_card"` \| `"online_bank_transfer"` \| `"online_wallet"` \| `"in_person_card"` \| `"in_person_cash"` \| `"cheque"`; `status?`: `"active"` \| `"inactive"` \| `"pending_setup"`; `type?`: \| `"bank_transfer"` \| `"cash"` \| `"stripe_connect"` \| `"stripe_direct"` \| `"adyen"` \| `"square"` \| `"paypal"`; \} |
+| `options?` | \{ `accountId?`: `string`; `integrationType?`: `"ticketlayer_pay"` \| `"self_service"`; `isDefault?`: `string`; `limit?`: `string`; `page?`: `string`; `paymentType?`: \| `"bank_transfer"` \| `"online_card"` \| `"online_bank_transfer"` \| `"online_wallet"` \| `"in_person_card"` \| `"in_person_cash"` \| `"cheque"`; `status?`: `"active"` \| `"inactive"` \| `"pending_setup"`; `type?`: \| `"stripe_connect"` \| `"stripe_direct"` \| `"adyen"` \| `"square"` \| `"paypal"` \| `"cash"` \| `"bank_transfer"`; \} |
 | `options.accountId?` | `string` |
 | `options.integrationType?` | `"ticketlayer_pay"` \| `"self_service"` |
 | `options.isDefault?` | `string` |
@@ -9109,7 +9739,7 @@ List all payment providers with optional filtering and pagination
 | `options.page?` | `string` |
 | `options.paymentType?` | \| `"bank_transfer"` \| `"online_card"` \| `"online_bank_transfer"` \| `"online_wallet"` \| `"in_person_card"` \| `"in_person_cash"` \| `"cheque"` |
 | `options.status?` | `"active"` \| `"inactive"` \| `"pending_setup"` |
-| `options.type?` | \| `"bank_transfer"` \| `"cash"` \| `"stripe_connect"` \| `"stripe_direct"` \| `"adyen"` \| `"square"` \| `"paypal"` |
+| `options.type?` | \| `"stripe_connect"` \| `"stripe_direct"` \| `"adyen"` \| `"square"` \| `"paypal"` \| `"cash"` \| `"bank_transfer"` |
 
 ##### Returns
 
@@ -9170,13 +9800,13 @@ List all payment providers with optional filtering and pagination
         \| `"in_person_card"`
         \| `"in_person_cash"`
        \| `"cheque"`)[];
-     `type`:   \| `"bank_transfer"`
-        \| `"cash"`
-        \| `"stripe_connect"`
+     `type`:   \| `"stripe_connect"`
         \| `"stripe_direct"`
         \| `"adyen"`
         \| `"square"`
-        \| `"paypal"`;
+        \| `"paypal"`
+        \| `"cash"`
+        \| `"bank_transfer"`;
      `updatedAt`: `string`;
   \}[];
 \}\>
@@ -9275,13 +9905,13 @@ update: (providerId: string, request: {
      | "in_person_card"
      | "in_person_cash"
     | "cheque")[];
-  type:   | "bank_transfer"
-     | "cash"
-     | "stripe_connect"
+  type:   | "stripe_connect"
      | "stripe_direct"
      | "adyen"
      | "square"
-     | "paypal";
+     | "paypal"
+     | "cash"
+     | "bank_transfer";
   updatedAt: string;
 }>;
 ```
@@ -9375,13 +10005,13 @@ Update an existing payment provider configuration
      \| `"in_person_card"`
      \| `"in_person_cash"`
     \| `"cheque"`)[];
-  `type`:   \| `"bank_transfer"`
-     \| `"cash"`
-     \| `"stripe_connect"`
+  `type`:   \| `"stripe_connect"`
      \| `"stripe_direct"`
      \| `"adyen"`
      \| `"square"`
-     \| `"paypal"`;
+     \| `"paypal"`
+     \| `"cash"`
+     \| `"bank_transfer"`;
   `updatedAt`: `string`;
 \}\>
 
@@ -9410,58 +10040,6 @@ payments: {
      organisationId: string;
      paidAt: string | null;
      status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
-     updatedAt: string;
-   } & {
-     accountId: string;
-     amount: number;
-     applicationFee: number | null;
-     cancelledAt: string | null;
-     capturedAt: string | null;
-     clientSecret: string | null;
-     createdAt: string;
-     currency: string;
-     expiresAt: string | null;
-     externalPaymentId: string | null;
-     failedAt: string | null;
-     failureCode: string | null;
-     failureMessage: string | null;
-     id: string;
-     isPartialPayment: boolean;
-     metadata:   | {
-      [key: string]: unknown;
-      }
-        | null;
-     netAmount: number | null;
-     orderId: string;
-     orderNumber: string;
-     organisationId: string;
-     paymentMethod:   | {
-        brand: string | null;
-        expiryMonth: number | null;
-        expiryYear: number | null;
-        last4: string | null;
-        type: "card" | "bank_transfer" | "cash" | "wallet";
-      }
-        | null;
-     paymentProviderId: string;
-     paymentType:   | "bank_transfer"
-        | "online_card"
-        | "online_bank_transfer"
-        | "online_wallet"
-        | "in_person_card"
-        | "in_person_cash"
-        | "cheque";
-     processingFee: number | null;
-     redirectUrl: string | null;
-     remainingBalance: number | null;
-     status:   | "cancelled"
-        | "pending"
-        | "succeeded"
-        | "failed"
-        | "processing"
-        | "expired"
-        | "requires_action"
-        | "created";
      updatedAt: string;
   }>;
   create: (request: {
@@ -9495,58 +10073,6 @@ payments: {
      organisationId: string;
      paidAt: string | null;
      status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
-     updatedAt: string;
-   } & {
-     accountId: string;
-     amount: number;
-     applicationFee: number | null;
-     cancelledAt: string | null;
-     capturedAt: string | null;
-     clientSecret: string | null;
-     createdAt: string;
-     currency: string;
-     expiresAt: string | null;
-     externalPaymentId: string | null;
-     failedAt: string | null;
-     failureCode: string | null;
-     failureMessage: string | null;
-     id: string;
-     isPartialPayment: boolean;
-     metadata:   | {
-      [key: string]: unknown;
-      }
-        | null;
-     netAmount: number | null;
-     orderId: string;
-     orderNumber: string;
-     organisationId: string;
-     paymentMethod:   | {
-        brand: string | null;
-        expiryMonth: number | null;
-        expiryYear: number | null;
-        last4: string | null;
-        type: "card" | "bank_transfer" | "cash" | "wallet";
-      }
-        | null;
-     paymentProviderId: string;
-     paymentType:   | "bank_transfer"
-        | "online_card"
-        | "online_bank_transfer"
-        | "online_wallet"
-        | "in_person_card"
-        | "in_person_cash"
-        | "cheque";
-     processingFee: number | null;
-     redirectUrl: string | null;
-     remainingBalance: number | null;
-     status:   | "cancelled"
-        | "pending"
-        | "succeeded"
-        | "failed"
-        | "processing"
-        | "expired"
-        | "requires_action"
-        | "created";
      updatedAt: string;
   }>;
   createRefund: (paymentId: string, request: {
@@ -9587,58 +10113,6 @@ payments: {
      paidAt: string | null;
      status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
      updatedAt: string;
-   } & {
-     accountId: string;
-     amount: number;
-     applicationFee: number | null;
-     cancelledAt: string | null;
-     capturedAt: string | null;
-     clientSecret: string | null;
-     createdAt: string;
-     currency: string;
-     expiresAt: string | null;
-     externalPaymentId: string | null;
-     failedAt: string | null;
-     failureCode: string | null;
-     failureMessage: string | null;
-     id: string;
-     isPartialPayment: boolean;
-     metadata:   | {
-      [key: string]: unknown;
-      }
-        | null;
-     netAmount: number | null;
-     orderId: string;
-     orderNumber: string;
-     organisationId: string;
-     paymentMethod:   | {
-        brand: string | null;
-        expiryMonth: number | null;
-        expiryYear: number | null;
-        last4: string | null;
-        type: "card" | "bank_transfer" | "cash" | "wallet";
-      }
-        | null;
-     paymentProviderId: string;
-     paymentType:   | "bank_transfer"
-        | "online_card"
-        | "online_bank_transfer"
-        | "online_wallet"
-        | "in_person_card"
-        | "in_person_cash"
-        | "cheque";
-     processingFee: number | null;
-     redirectUrl: string | null;
-     remainingBalance: number | null;
-     status:   | "cancelled"
-        | "pending"
-        | "succeeded"
-        | "failed"
-        | "processing"
-        | "expired"
-        | "requires_action"
-        | "created";
-     updatedAt: string;
   }>;
   list: (options?: {
      fromDate?: string;
@@ -9662,7 +10136,21 @@ payments: {
         | "requires_action"
         | "created";
      toDate?: string;
-  }) => Promise<any>;
+   }) => Promise<{
+     amount: string;
+     createdAt: string;
+     currency: string;
+     failedAt: string | null;
+     failureCode: string | null;
+     failureMessage: string | null;
+     id: string;
+     invoiceId: string | null;
+     method: string | null;
+     organisationId: string;
+     paidAt: string | null;
+     status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+     updatedAt: string;
+  }[]>;
   listRefunds: (paymentId: string) => Promise<{
      amount: number;
      completedAt: string | null;
@@ -9685,7 +10173,7 @@ payments: {
 };
 ```
 
-Defined in: [client.ts:2484](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L2484)
+Defined in: [client.ts:2624](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L2624)
 
 Payments methods
 
@@ -9707,58 +10195,6 @@ cancel: (paymentId: string, request: {
   organisationId: string;
   paidAt: string | null;
   status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
-  updatedAt: string;
-} & {
-  accountId: string;
-  amount: number;
-  applicationFee: number | null;
-  cancelledAt: string | null;
-  capturedAt: string | null;
-  clientSecret: string | null;
-  createdAt: string;
-  currency: string;
-  expiresAt: string | null;
-  externalPaymentId: string | null;
-  failedAt: string | null;
-  failureCode: string | null;
-  failureMessage: string | null;
-  id: string;
-  isPartialPayment: boolean;
-  metadata:   | {
-   [key: string]: unknown;
-   }
-     | null;
-  netAmount: number | null;
-  orderId: string;
-  orderNumber: string;
-  organisationId: string;
-  paymentMethod:   | {
-     brand: string | null;
-     expiryMonth: number | null;
-     expiryYear: number | null;
-     last4: string | null;
-     type: "card" | "bank_transfer" | "cash" | "wallet";
-   }
-     | null;
-  paymentProviderId: string;
-  paymentType:   | "bank_transfer"
-     | "online_card"
-     | "online_bank_transfer"
-     | "online_wallet"
-     | "in_person_card"
-     | "in_person_cash"
-     | "cheque";
-  processingFee: number | null;
-  redirectUrl: string | null;
-  remainingBalance: number | null;
-  status:   | "cancelled"
-     | "pending"
-     | "succeeded"
-     | "failed"
-     | "processing"
-     | "expired"
-     | "requires_action"
-     | "created";
   updatedAt: string;
 }>;
 ```
@@ -9789,58 +10225,6 @@ Cancel a pending payment
   `organisationId`: `string`;
   `paidAt`: `string` \| `null`;
   `status`: `"cancelled"` \| `"pending"` \| `"succeeded"` \| `"failed"` \| `"refunded"`;
-  `updatedAt`: `string`;
-\} & \{
-  `accountId`: `string`;
-  `amount`: `number`;
-  `applicationFee`: `number` \| `null`;
-  `cancelledAt`: `string` \| `null`;
-  `capturedAt`: `string` \| `null`;
-  `clientSecret`: `string` \| `null`;
-  `createdAt`: `string`;
-  `currency`: `string`;
-  `expiresAt`: `string` \| `null`;
-  `externalPaymentId`: `string` \| `null`;
-  `failedAt`: `string` \| `null`;
-  `failureCode`: `string` \| `null`;
-  `failureMessage`: `string` \| `null`;
-  `id`: `string`;
-  `isPartialPayment`: `boolean`;
-  `metadata`:   \| \{
-   \[`key`: `string`\]: `unknown`;
-   \}
-     \| `null`;
-  `netAmount`: `number` \| `null`;
-  `orderId`: `string`;
-  `orderNumber`: `string`;
-  `organisationId`: `string`;
-  `paymentMethod`:   \| \{
-     `brand`: `string` \| `null`;
-     `expiryMonth`: `number` \| `null`;
-     `expiryYear`: `number` \| `null`;
-     `last4`: `string` \| `null`;
-     `type`: `"card"` \| `"bank_transfer"` \| `"cash"` \| `"wallet"`;
-   \}
-     \| `null`;
-  `paymentProviderId`: `string`;
-  `paymentType`:   \| `"bank_transfer"`
-     \| `"online_card"`
-     \| `"online_bank_transfer"`
-     \| `"online_wallet"`
-     \| `"in_person_card"`
-     \| `"in_person_cash"`
-     \| `"cheque"`;
-  `processingFee`: `number` \| `null`;
-  `redirectUrl`: `string` \| `null`;
-  `remainingBalance`: `number` \| `null`;
-  `status`:   \| `"cancelled"`
-     \| `"pending"`
-     \| `"succeeded"`
-     \| `"failed"`
-     \| `"processing"`
-     \| `"expired"`
-     \| `"requires_action"`
-     \| `"created"`;
   `updatedAt`: `string`;
 \}\>
 
@@ -9883,58 +10267,6 @@ create: (request: {
   paidAt: string | null;
   status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
   updatedAt: string;
-} & {
-  accountId: string;
-  amount: number;
-  applicationFee: number | null;
-  cancelledAt: string | null;
-  capturedAt: string | null;
-  clientSecret: string | null;
-  createdAt: string;
-  currency: string;
-  expiresAt: string | null;
-  externalPaymentId: string | null;
-  failedAt: string | null;
-  failureCode: string | null;
-  failureMessage: string | null;
-  id: string;
-  isPartialPayment: boolean;
-  metadata:   | {
-   [key: string]: unknown;
-   }
-     | null;
-  netAmount: number | null;
-  orderId: string;
-  orderNumber: string;
-  organisationId: string;
-  paymentMethod:   | {
-     brand: string | null;
-     expiryMonth: number | null;
-     expiryYear: number | null;
-     last4: string | null;
-     type: "card" | "bank_transfer" | "cash" | "wallet";
-   }
-     | null;
-  paymentProviderId: string;
-  paymentType:   | "bank_transfer"
-     | "online_card"
-     | "online_bank_transfer"
-     | "online_wallet"
-     | "in_person_card"
-     | "in_person_cash"
-     | "cheque";
-  processingFee: number | null;
-  redirectUrl: string | null;
-  remainingBalance: number | null;
-  status:   | "cancelled"
-     | "pending"
-     | "succeeded"
-     | "failed"
-     | "processing"
-     | "expired"
-     | "requires_action"
-     | "created";
-  updatedAt: string;
 }>;
 ```
 
@@ -9973,58 +10305,6 @@ Create a new payment for an order
   `organisationId`: `string`;
   `paidAt`: `string` \| `null`;
   `status`: `"cancelled"` \| `"pending"` \| `"succeeded"` \| `"failed"` \| `"refunded"`;
-  `updatedAt`: `string`;
-\} & \{
-  `accountId`: `string`;
-  `amount`: `number`;
-  `applicationFee`: `number` \| `null`;
-  `cancelledAt`: `string` \| `null`;
-  `capturedAt`: `string` \| `null`;
-  `clientSecret`: `string` \| `null`;
-  `createdAt`: `string`;
-  `currency`: `string`;
-  `expiresAt`: `string` \| `null`;
-  `externalPaymentId`: `string` \| `null`;
-  `failedAt`: `string` \| `null`;
-  `failureCode`: `string` \| `null`;
-  `failureMessage`: `string` \| `null`;
-  `id`: `string`;
-  `isPartialPayment`: `boolean`;
-  `metadata`:   \| \{
-   \[`key`: `string`\]: `unknown`;
-   \}
-     \| `null`;
-  `netAmount`: `number` \| `null`;
-  `orderId`: `string`;
-  `orderNumber`: `string`;
-  `organisationId`: `string`;
-  `paymentMethod`:   \| \{
-     `brand`: `string` \| `null`;
-     `expiryMonth`: `number` \| `null`;
-     `expiryYear`: `number` \| `null`;
-     `last4`: `string` \| `null`;
-     `type`: `"card"` \| `"bank_transfer"` \| `"cash"` \| `"wallet"`;
-   \}
-     \| `null`;
-  `paymentProviderId`: `string`;
-  `paymentType`:   \| `"bank_transfer"`
-     \| `"online_card"`
-     \| `"online_bank_transfer"`
-     \| `"online_wallet"`
-     \| `"in_person_card"`
-     \| `"in_person_cash"`
-     \| `"cheque"`;
-  `processingFee`: `number` \| `null`;
-  `redirectUrl`: `string` \| `null`;
-  `remainingBalance`: `number` \| `null`;
-  `status`:   \| `"cancelled"`
-     \| `"pending"`
-     \| `"succeeded"`
-     \| `"failed"`
-     \| `"processing"`
-     \| `"expired"`
-     \| `"requires_action"`
-     \| `"created"`;
   `updatedAt`: `string`;
 \}\>
 
@@ -10118,58 +10398,6 @@ get: (paymentId: string) => Promise<{
   paidAt: string | null;
   status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
   updatedAt: string;
-} & {
-  accountId: string;
-  amount: number;
-  applicationFee: number | null;
-  cancelledAt: string | null;
-  capturedAt: string | null;
-  clientSecret: string | null;
-  createdAt: string;
-  currency: string;
-  expiresAt: string | null;
-  externalPaymentId: string | null;
-  failedAt: string | null;
-  failureCode: string | null;
-  failureMessage: string | null;
-  id: string;
-  isPartialPayment: boolean;
-  metadata:   | {
-   [key: string]: unknown;
-   }
-     | null;
-  netAmount: number | null;
-  orderId: string;
-  orderNumber: string;
-  organisationId: string;
-  paymentMethod:   | {
-     brand: string | null;
-     expiryMonth: number | null;
-     expiryYear: number | null;
-     last4: string | null;
-     type: "card" | "bank_transfer" | "cash" | "wallet";
-   }
-     | null;
-  paymentProviderId: string;
-  paymentType:   | "bank_transfer"
-     | "online_card"
-     | "online_bank_transfer"
-     | "online_wallet"
-     | "in_person_card"
-     | "in_person_cash"
-     | "cheque";
-  processingFee: number | null;
-  redirectUrl: string | null;
-  remainingBalance: number | null;
-  status:   | "cancelled"
-     | "pending"
-     | "succeeded"
-     | "failed"
-     | "processing"
-     | "expired"
-     | "requires_action"
-     | "created";
-  updatedAt: string;
 }>;
 ```
 
@@ -10197,58 +10425,6 @@ Get a specific payment by ID
   `organisationId`: `string`;
   `paidAt`: `string` \| `null`;
   `status`: `"cancelled"` \| `"pending"` \| `"succeeded"` \| `"failed"` \| `"refunded"`;
-  `updatedAt`: `string`;
-\} & \{
-  `accountId`: `string`;
-  `amount`: `number`;
-  `applicationFee`: `number` \| `null`;
-  `cancelledAt`: `string` \| `null`;
-  `capturedAt`: `string` \| `null`;
-  `clientSecret`: `string` \| `null`;
-  `createdAt`: `string`;
-  `currency`: `string`;
-  `expiresAt`: `string` \| `null`;
-  `externalPaymentId`: `string` \| `null`;
-  `failedAt`: `string` \| `null`;
-  `failureCode`: `string` \| `null`;
-  `failureMessage`: `string` \| `null`;
-  `id`: `string`;
-  `isPartialPayment`: `boolean`;
-  `metadata`:   \| \{
-   \[`key`: `string`\]: `unknown`;
-   \}
-     \| `null`;
-  `netAmount`: `number` \| `null`;
-  `orderId`: `string`;
-  `orderNumber`: `string`;
-  `organisationId`: `string`;
-  `paymentMethod`:   \| \{
-     `brand`: `string` \| `null`;
-     `expiryMonth`: `number` \| `null`;
-     `expiryYear`: `number` \| `null`;
-     `last4`: `string` \| `null`;
-     `type`: `"card"` \| `"bank_transfer"` \| `"cash"` \| `"wallet"`;
-   \}
-     \| `null`;
-  `paymentProviderId`: `string`;
-  `paymentType`:   \| `"bank_transfer"`
-     \| `"online_card"`
-     \| `"online_bank_transfer"`
-     \| `"online_wallet"`
-     \| `"in_person_card"`
-     \| `"in_person_cash"`
-     \| `"cheque"`;
-  `processingFee`: `number` \| `null`;
-  `redirectUrl`: `string` \| `null`;
-  `remainingBalance`: `number` \| `null`;
-  `status`:   \| `"cancelled"`
-     \| `"pending"`
-     \| `"succeeded"`
-     \| `"failed"`
-     \| `"processing"`
-     \| `"expired"`
-     \| `"requires_action"`
-     \| `"created"`;
   `updatedAt`: `string`;
 \}\>
 
@@ -10281,7 +10457,21 @@ list: (options?: {
      | "requires_action"
      | "created";
   toDate?: string;
-}) => Promise<any>;
+}) => Promise<{
+  amount: string;
+  createdAt: string;
+  currency: string;
+  failedAt: string | null;
+  failureCode: string | null;
+  failureMessage: string | null;
+  id: string;
+  invoiceId: string | null;
+  method: string | null;
+  organisationId: string;
+  paidAt: string | null;
+  status: "cancelled" | "pending" | "succeeded" | "failed" | "refunded";
+  updatedAt: string;
+}[]>;
 ```
 
 List payments
@@ -10303,7 +10493,21 @@ List all payments with optional filtering and pagination
 
 ##### Returns
 
-`Promise`\<`any`\>
+`Promise`\<\{
+  `amount`: `string`;
+  `createdAt`: `string`;
+  `currency`: `string`;
+  `failedAt`: `string` \| `null`;
+  `failureCode`: `string` \| `null`;
+  `failureMessage`: `string` \| `null`;
+  `id`: `string`;
+  `invoiceId`: `string` \| `null`;
+  `method`: `string` \| `null`;
+  `organisationId`: `string`;
+  `paidAt`: `string` \| `null`;
+  `status`: `"cancelled"` \| `"pending"` \| `"succeeded"` \| `"failed"` \| `"refunded"`;
+  `updatedAt`: `string`;
+\}[]\>
 
 ##### Operation Id
 
@@ -10370,6 +10574,243 @@ listPaymentRefunds
 
 ***
 
+### presaleCodes
+
+```ts
+presaleCodes: {
+  create: (request: {
+     accountId: string;
+     benefit: string;
+     benefitExpiresAt?: string;
+     channelId?: string;
+     code: string;
+     expiresAt?: string;
+     maxRedemptions?: number;
+   }) => Promise<{
+     accountId: string;
+     benefit: string;
+     benefitExpiresAt: string | null;
+     channelId: string | null;
+     code: string;
+     createdAt: string;
+     createdBy: string | null;
+     expiresAt: string | null;
+     id: string;
+     isActive: boolean;
+     maxRedemptions: number | null;
+     organisationId: string;
+     redemptionCount: number;
+     updatedAt: string;
+  }>;
+  deactivate: (codeId: string) => Promise<{
+     accountId: string;
+     benefit: string;
+     benefitExpiresAt: string | null;
+     channelId: string | null;
+     code: string;
+     createdAt: string;
+     createdBy: string | null;
+     expiresAt: string | null;
+     id: string;
+     isActive: boolean;
+     maxRedemptions: number | null;
+     organisationId: string;
+     redemptionCount: number;
+     updatedAt: string;
+  }>;
+  list: () => Promise<{
+     accountId: string;
+     benefit: string;
+     benefitExpiresAt: string | null;
+     channelId: string | null;
+     code: string;
+     createdAt: string;
+     createdBy: string | null;
+     expiresAt: string | null;
+     id: string;
+     isActive: boolean;
+     maxRedemptions: number | null;
+     organisationId: string;
+     redemptionCount: number;
+     updatedAt: string;
+  }[]>;
+};
+```
+
+Defined in: [client.ts:3048](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L3048)
+
+Presale Codes methods
+
+#### create()
+
+```ts
+create: (request: {
+  accountId: string;
+  benefit: string;
+  benefitExpiresAt?: string;
+  channelId?: string;
+  code: string;
+  expiresAt?: string;
+  maxRedemptions?: number;
+}) => Promise<{
+  accountId: string;
+  benefit: string;
+  benefitExpiresAt: string | null;
+  channelId: string | null;
+  code: string;
+  createdAt: string;
+  createdBy: string | null;
+  expiresAt: string | null;
+  id: string;
+  isActive: boolean;
+  maxRedemptions: number | null;
+  organisationId: string;
+  redemptionCount: number;
+  updatedAt: string;
+}>;
+```
+
+Create presale code
+Create a shareable presale code that grants a benefit on redemption
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `request` | \{ `accountId`: `string`; `benefit`: `string`; `benefitExpiresAt?`: `string`; `channelId?`: `string`; `code`: `string`; `expiresAt?`: `string`; `maxRedemptions?`: `number`; \} |
+| `request.accountId` | `string` |
+| `request.benefit` | `string` |
+| `request.benefitExpiresAt?` | `string` |
+| `request.channelId?` | `string` |
+| `request.code` | `string` |
+| `request.expiresAt?` | `string` |
+| `request.maxRedemptions?` | `number` |
+
+##### Returns
+
+`Promise`\<\{
+  `accountId`: `string`;
+  `benefit`: `string`;
+  `benefitExpiresAt`: `string` \| `null`;
+  `channelId`: `string` \| `null`;
+  `code`: `string`;
+  `createdAt`: `string`;
+  `createdBy`: `string` \| `null`;
+  `expiresAt`: `string` \| `null`;
+  `id`: `string`;
+  `isActive`: `boolean`;
+  `maxRedemptions`: `number` \| `null`;
+  `organisationId`: `string`;
+  `redemptionCount`: `number`;
+  `updatedAt`: `string`;
+\}\>
+
+##### Operation Id
+
+createPresaleCode
+
+#### deactivate()
+
+```ts
+deactivate: (codeId: string) => Promise<{
+  accountId: string;
+  benefit: string;
+  benefitExpiresAt: string | null;
+  channelId: string | null;
+  code: string;
+  createdAt: string;
+  createdBy: string | null;
+  expiresAt: string | null;
+  id: string;
+  isActive: boolean;
+  maxRedemptions: number | null;
+  organisationId: string;
+  redemptionCount: number;
+  updatedAt: string;
+}>;
+```
+
+Deactivate presale code
+Deactivate a presale code so it can no longer be redeemed
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `codeId` | `string` |
+
+##### Returns
+
+`Promise`\<\{
+  `accountId`: `string`;
+  `benefit`: `string`;
+  `benefitExpiresAt`: `string` \| `null`;
+  `channelId`: `string` \| `null`;
+  `code`: `string`;
+  `createdAt`: `string`;
+  `createdBy`: `string` \| `null`;
+  `expiresAt`: `string` \| `null`;
+  `id`: `string`;
+  `isActive`: `boolean`;
+  `maxRedemptions`: `number` \| `null`;
+  `organisationId`: `string`;
+  `redemptionCount`: `number`;
+  `updatedAt`: `string`;
+\}\>
+
+##### Operation Id
+
+deactivatePresaleCode
+
+#### list()
+
+```ts
+list: () => Promise<{
+  accountId: string;
+  benefit: string;
+  benefitExpiresAt: string | null;
+  channelId: string | null;
+  code: string;
+  createdAt: string;
+  createdBy: string | null;
+  expiresAt: string | null;
+  id: string;
+  isActive: boolean;
+  maxRedemptions: number | null;
+  organisationId: string;
+  redemptionCount: number;
+  updatedAt: string;
+}[]>;
+```
+
+List presale codes
+List the organisation's presale codes visible to the caller
+
+##### Returns
+
+`Promise`\<\{
+  `accountId`: `string`;
+  `benefit`: `string`;
+  `benefitExpiresAt`: `string` \| `null`;
+  `channelId`: `string` \| `null`;
+  `code`: `string`;
+  `createdAt`: `string`;
+  `createdBy`: `string` \| `null`;
+  `expiresAt`: `string` \| `null`;
+  `id`: `string`;
+  `isActive`: `boolean`;
+  `maxRedemptions`: `number` \| `null`;
+  `organisationId`: `string`;
+  `redemptionCount`: `number`;
+  `updatedAt`: `string`;
+\}[]\>
+
+##### Operation Id
+
+listPresaleCodes
+
+***
+
 ### roles
 
 ```ts
@@ -10433,7 +10874,7 @@ roles: {
 };
 ```
 
-Defined in: [client.ts:972](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L972)
+Defined in: [client.ts:1046](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L1046)
 
 Roles methods
 
@@ -10649,6 +11090,4279 @@ updateRole
 
 ***
 
+### sales
+
+```ts
+sales: {
+  get: (eventId: string) => Promise<{
+     currency: string | null;
+     description: string | null;
+     heroImageUrl: string | null;
+     id: string;
+     imageUrl: string | null;
+     name: string;
+     occurrences: {
+        endDate: string;
+        endsAt: string | null;
+        endTime: string;
+        id: string;
+        startDate: string;
+        startsAt: string | null;
+        startTime: string;
+        status: string;
+        ticketTypes: {
+           categoryId: string;
+           categoryName: string;
+           currency: string;
+           description: string | null;
+           ticketTypeId: string;
+           ticketTypeName: string;
+           unitPrice: number;
+        }[];
+        timezone: string;
+     }[];
+     presentation:   | {
+        buttonSize?: "small" | "medium" | "large";
+        cinemaGradient?: {
+           position: "bottom" | "center";
+           strength: 20 | 50 | 70;
+        };
+        heroLayout?: {
+           size: "small" | "medium" | "large";
+           type: "hero" | "cinema";
+        };
+        navbar?: {
+           transparent?: boolean;
+        };
+        twoColumnSplit?: [number, number];
+      }
+        | null;
+     priceFrom: number | null;
+     shortDescription: string | null;
+     status: string;
+     subtitle: string | null;
+     timezone: string;
+     venueCity: string | null;
+     venueId: string | null;
+     venueName: string | null;
+  }>;
+  getTheme: () => Promise<{
+     brand: {
+      [key: string]: unknown;
+     };
+     colors: {
+      [key: string]: unknown;
+     };
+     design?:   | {
+      [key: string]: unknown;
+      }
+        | null;
+     id: string;
+     name: string;
+     shape: {
+      [key: string]: unknown;
+     };
+     typography: {
+      [key: string]: unknown;
+     };
+  }>;
+  resolveChannel: (options?: {
+     domain: string;
+   }) => Promise<{
+     channel: {
+        id: string;
+        name: string;
+        slug: string;
+     };
+     publishableKey: string | null;
+  }>;
+};
+```
+
+Defined in: [client.ts:3446](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L3446)
+
+Sales methods
+
+#### get()
+
+```ts
+get: (eventId: string) => Promise<{
+  currency: string | null;
+  description: string | null;
+  heroImageUrl: string | null;
+  id: string;
+  imageUrl: string | null;
+  name: string;
+  occurrences: {
+     endDate: string;
+     endsAt: string | null;
+     endTime: string;
+     id: string;
+     startDate: string;
+     startsAt: string | null;
+     startTime: string;
+     status: string;
+     ticketTypes: {
+        categoryId: string;
+        categoryName: string;
+        currency: string;
+        description: string | null;
+        ticketTypeId: string;
+        ticketTypeName: string;
+        unitPrice: number;
+     }[];
+     timezone: string;
+  }[];
+  presentation:   | {
+     buttonSize?: "small" | "medium" | "large";
+     cinemaGradient?: {
+        position: "bottom" | "center";
+        strength: 20 | 50 | 70;
+     };
+     heroLayout?: {
+        size: "small" | "medium" | "large";
+        type: "hero" | "cinema";
+     };
+     navbar?: {
+        transparent?: boolean;
+     };
+     twoColumnSplit?: [number, number];
+   }
+     | null;
+  priceFrom: number | null;
+  shortDescription: string | null;
+  status: string;
+  subtitle: string | null;
+  timezone: string;
+  venueCity: string | null;
+  venueId: string | null;
+  venueName: string | null;
+}>;
+```
+
+Get event catalogue detail
+Catalogue detail for an event listed on this channel: occurrences with their priced ticket-type offers. Benefit-gated types are included only when the request carries a customer token holding the benefit. Returns 404 if the event is not listed on this channel.
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `eventId` | `string` |
+
+##### Returns
+
+`Promise`\<\{
+  `currency`: `string` \| `null`;
+  `description`: `string` \| `null`;
+  `heroImageUrl`: `string` \| `null`;
+  `id`: `string`;
+  `imageUrl`: `string` \| `null`;
+  `name`: `string`;
+  `occurrences`: \{
+     `endDate`: `string`;
+     `endsAt`: `string` \| `null`;
+     `endTime`: `string`;
+     `id`: `string`;
+     `startDate`: `string`;
+     `startsAt`: `string` \| `null`;
+     `startTime`: `string`;
+     `status`: `string`;
+     `ticketTypes`: \{
+        `categoryId`: `string`;
+        `categoryName`: `string`;
+        `currency`: `string`;
+        `description`: `string` \| `null`;
+        `ticketTypeId`: `string`;
+        `ticketTypeName`: `string`;
+        `unitPrice`: `number`;
+     \}[];
+     `timezone`: `string`;
+  \}[];
+  `presentation`:   \| \{
+     `buttonSize?`: `"small"` \| `"medium"` \| `"large"`;
+     `cinemaGradient?`: \{
+        `position`: `"bottom"` \| `"center"`;
+        `strength`: `20` \| `50` \| `70`;
+     \};
+     `heroLayout?`: \{
+        `size`: `"small"` \| `"medium"` \| `"large"`;
+        `type`: `"hero"` \| `"cinema"`;
+     \};
+     `navbar?`: \{
+        `transparent?`: `boolean`;
+     \};
+     `twoColumnSplit?`: \[`number`, `number`\];
+   \}
+     \| `null`;
+  `priceFrom`: `number` \| `null`;
+  `shortDescription`: `string` \| `null`;
+  `status`: `string`;
+  `subtitle`: `string` \| `null`;
+  `timezone`: `string`;
+  `venueCity`: `string` \| `null`;
+  `venueId`: `string` \| `null`;
+  `venueName`: `string` \| `null`;
+\}\>
+
+##### Operation Id
+
+getSalesEvent
+
+#### getTheme()
+
+```ts
+getTheme: () => Promise<{
+  brand: {
+   [key: string]: unknown;
+  };
+  colors: {
+   [key: string]: unknown;
+  };
+  design?:   | {
+   [key: string]: unknown;
+   }
+     | null;
+  id: string;
+  name: string;
+  shape: {
+   [key: string]: unknown;
+  };
+  typography: {
+   [key: string]: unknown;
+  };
+}>;
+```
+
+Get channel theme
+The channel's resolved (inheritance-merged) theme for SSR injection. Returns 404 if the channel has neither its own theme nor an organisation base theme.
+
+##### Returns
+
+`Promise`\<\{
+  `brand`: \{
+   \[`key`: `string`\]: `unknown`;
+  \};
+  `colors`: \{
+   \[`key`: `string`\]: `unknown`;
+  \};
+  `design?`:   \| \{
+   \[`key`: `string`\]: `unknown`;
+   \}
+     \| `null`;
+  `id`: `string`;
+  `name`: `string`;
+  `shape`: \{
+   \[`key`: `string`\]: `unknown`;
+  \};
+  `typography`: \{
+   \[`key`: `string`\]: `unknown`;
+  \};
+\}\>
+
+##### Operation Id
+
+getSalesTheme
+
+#### resolveChannel()
+
+```ts
+resolveChannel: (options?: {
+  domain: string;
+}) => Promise<{
+  channel: {
+     id: string;
+     name: string;
+     slug: string;
+  };
+  publishableKey: string | null;
+}>;
+```
+
+Resolve a channel by domain
+Public tenant resolution for hosted surfaces: maps a hostname (the channel's configured subdomain or custom domain) to its channel summary and publishable key. No authentication; rate-limited.
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `options?` | \{ `domain`: `string`; \} |
+| `options.domain?` | `string` |
+
+##### Returns
+
+`Promise`\<\{
+  `channel`: \{
+     `id`: `string`;
+     `name`: `string`;
+     `slug`: `string`;
+  \};
+  `publishableKey`: `string` \| `null`;
+\}\>
+
+##### Operation Id
+
+resolveSalesChannel
+
+***
+
+### salesCarts
+
+```ts
+salesCarts: {
+  addItem: (cartId: string, request: {
+     categoryId: string;
+     eventLayoutAreaId?: string;
+     eventLayoutSeatIds?: string[];
+     eventOccurrenceId: string;
+     quantity?: number;
+     ticketTypeId: string;
+   }) => Promise<{
+     currency: string | null;
+     expiresAt: string;
+     id: string;
+     items: {
+        categoryName: string;
+        currency: string;
+        eventName: string;
+        eventOccurrenceId: string;
+        id: string;
+        quantity: number;
+        subtotal: number;
+        ticketTypeName: string;
+        unitPrice: number;
+     }[];
+     itemsSubtotal: number;
+     orderId: string | null;
+     status: string;
+  }>;
+  checkout: (cartId: string, request: {
+     customer?: {
+        email: string;
+        firstName?: string;
+        lastName?: string;
+        marketingConsent?: boolean;
+        phone?: string;
+     };
+     customerNotes?: string;
+     metadata?: Record<string, any>;
+   }) => Promise<{
+     cart: {
+        currency: string | null;
+        expiresAt: string;
+        id: string;
+        items: {
+           categoryName: string;
+           currency: string;
+           eventName: string;
+           eventOccurrenceId: string;
+           id: string;
+           quantity: number;
+           subtotal: number;
+           ticketTypeName: string;
+           unitPrice: number;
+        }[];
+        itemsSubtotal: number;
+        orderId: string | null;
+        status: string;
+     };
+     order: {
+        createdAt: string;
+        currency: string;
+        expiresAt: string | null;
+        id: string;
+        items: {
+           description: string | null;
+           name: string;
+           quantity: number;
+           subtotal: string;
+           type: string;
+           unitPrice: string;
+        }[];
+        orderNumber: string;
+        paymentStatus: string;
+        status: string;
+        subtotal: string;
+        total: string;
+        totalFees: string;
+        totalTax: string;
+     };
+     orderAccessToken: string;
+  }>;
+  create: (request: {
+     metadata?: Record<string, any>;
+   }) => Promise<{
+     currency: string | null;
+     expiresAt: string;
+     id: string;
+     items: {
+        categoryName: string;
+        currency: string;
+        eventName: string;
+        eventOccurrenceId: string;
+        id: string;
+        quantity: number;
+        subtotal: number;
+        ticketTypeName: string;
+        unitPrice: number;
+     }[];
+     itemsSubtotal: number;
+     orderId: string | null;
+     status: string;
+  }>;
+  get: (cartId: string) => Promise<{
+     currency: string | null;
+     expiresAt: string;
+     id: string;
+     items: {
+        categoryName: string;
+        currency: string;
+        eventName: string;
+        eventOccurrenceId: string;
+        id: string;
+        quantity: number;
+        subtotal: number;
+        ticketTypeName: string;
+        unitPrice: number;
+     }[];
+     itemsSubtotal: number;
+     orderId: string | null;
+     status: string;
+  }>;
+  removeItem: (cartId: string, itemId: string) => Promise<{
+     currency: string | null;
+     expiresAt: string;
+     id: string;
+     items: {
+        categoryName: string;
+        currency: string;
+        eventName: string;
+        eventOccurrenceId: string;
+        id: string;
+        quantity: number;
+        subtotal: number;
+        ticketTypeName: string;
+        unitPrice: number;
+     }[];
+     itemsSubtotal: number;
+     orderId: string | null;
+     status: string;
+  }>;
+};
+```
+
+Defined in: [client.ts:3234](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L3234)
+
+Sales Carts methods
+
+#### addItem()
+
+```ts
+addItem: (cartId: string, request: {
+  categoryId: string;
+  eventLayoutAreaId?: string;
+  eventLayoutSeatIds?: string[];
+  eventOccurrenceId: string;
+  quantity?: number;
+  ticketTypeId: string;
+}) => Promise<{
+  currency: string | null;
+  expiresAt: string;
+  id: string;
+  items: {
+     categoryName: string;
+     currency: string;
+     eventName: string;
+     eventOccurrenceId: string;
+     id: string;
+     quantity: number;
+     subtotal: number;
+     ticketTypeName: string;
+     unitPrice: number;
+  }[];
+  itemsSubtotal: number;
+  orderId: string | null;
+  status: string;
+}>;
+```
+
+Add cart item
+Add an item to the cart, taking a real inventory reservation with the channel's TTL
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `cartId` | `string` |
+| `request` | \{ `categoryId`: `string`; `eventLayoutAreaId?`: `string`; `eventLayoutSeatIds?`: `string`[]; `eventOccurrenceId`: `string`; `quantity?`: `number`; `ticketTypeId`: `string`; \} |
+| `request.categoryId` | `string` |
+| `request.eventLayoutAreaId?` | `string` |
+| `request.eventLayoutSeatIds?` | `string`[] |
+| `request.eventOccurrenceId` | `string` |
+| `request.quantity?` | `number` |
+| `request.ticketTypeId` | `string` |
+
+##### Returns
+
+`Promise`\<\{
+  `currency`: `string` \| `null`;
+  `expiresAt`: `string`;
+  `id`: `string`;
+  `items`: \{
+     `categoryName`: `string`;
+     `currency`: `string`;
+     `eventName`: `string`;
+     `eventOccurrenceId`: `string`;
+     `id`: `string`;
+     `quantity`: `number`;
+     `subtotal`: `number`;
+     `ticketTypeName`: `string`;
+     `unitPrice`: `number`;
+  \}[];
+  `itemsSubtotal`: `number`;
+  `orderId`: `string` \| `null`;
+  `status`: `string`;
+\}\>
+
+##### Operation Id
+
+addSalesCartItem
+
+#### checkout()
+
+```ts
+checkout: (cartId: string, request: {
+  customer?: {
+     email: string;
+     firstName?: string;
+     lastName?: string;
+     marketingConsent?: boolean;
+     phone?: string;
+  };
+  customerNotes?: string;
+  metadata?: Record<string, any>;
+}) => Promise<{
+  cart: {
+     currency: string | null;
+     expiresAt: string;
+     id: string;
+     items: {
+        categoryName: string;
+        currency: string;
+        eventName: string;
+        eventOccurrenceId: string;
+        id: string;
+        quantity: number;
+        subtotal: number;
+        ticketTypeName: string;
+        unitPrice: number;
+     }[];
+     itemsSubtotal: number;
+     orderId: string | null;
+     status: string;
+  };
+  order: {
+     createdAt: string;
+     currency: string;
+     expiresAt: string | null;
+     id: string;
+     items: {
+        description: string | null;
+        name: string;
+        quantity: number;
+        subtotal: string;
+        type: string;
+        unitPrice: string;
+     }[];
+     orderNumber: string;
+     paymentStatus: string;
+     status: string;
+     subtotal: string;
+     total: string;
+     totalFees: string;
+     totalTax: string;
+  };
+  orderAccessToken: string;
+}>;
+```
+
+Checkout cart
+Convert the cart into an order. Returns an order access token for possession-based guest access (confirmation page, payment status polling).
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `cartId` | `string` |
+| `request` | \{ `customer?`: \{ `email`: `string`; `firstName?`: `string`; `lastName?`: `string`; `marketingConsent?`: `boolean`; `phone?`: `string`; \}; `customerNotes?`: `string`; `metadata?`: `Record`\<`string`, `any`\>; \} |
+| `request.customer?` | \{ `email`: `string`; `firstName?`: `string`; `lastName?`: `string`; `marketingConsent?`: `boolean`; `phone?`: `string`; \} |
+| `request.customer.email` | `string` |
+| `request.customer.firstName?` | `string` |
+| `request.customer.lastName?` | `string` |
+| `request.customer.marketingConsent?` | `boolean` |
+| `request.customer.phone?` | `string` |
+| `request.customerNotes?` | `string` |
+| `request.metadata?` | `Record`\<`string`, `any`\> |
+
+##### Returns
+
+`Promise`\<\{
+  `cart`: \{
+     `currency`: `string` \| `null`;
+     `expiresAt`: `string`;
+     `id`: `string`;
+     `items`: \{
+        `categoryName`: `string`;
+        `currency`: `string`;
+        `eventName`: `string`;
+        `eventOccurrenceId`: `string`;
+        `id`: `string`;
+        `quantity`: `number`;
+        `subtotal`: `number`;
+        `ticketTypeName`: `string`;
+        `unitPrice`: `number`;
+     \}[];
+     `itemsSubtotal`: `number`;
+     `orderId`: `string` \| `null`;
+     `status`: `string`;
+  \};
+  `order`: \{
+     `createdAt`: `string`;
+     `currency`: `string`;
+     `expiresAt`: `string` \| `null`;
+     `id`: `string`;
+     `items`: \{
+        `description`: `string` \| `null`;
+        `name`: `string`;
+        `quantity`: `number`;
+        `subtotal`: `string`;
+        `type`: `string`;
+        `unitPrice`: `string`;
+     \}[];
+     `orderNumber`: `string`;
+     `paymentStatus`: `string`;
+     `status`: `string`;
+     `subtotal`: `string`;
+     `total`: `string`;
+     `totalFees`: `string`;
+     `totalTax`: `string`;
+  \};
+  `orderAccessToken`: `string`;
+\}\>
+
+##### Operation Id
+
+checkoutSalesCart
+
+#### create()
+
+```ts
+create: (request: {
+  metadata?: Record<string, any>;
+}) => Promise<{
+  currency: string | null;
+  expiresAt: string;
+  id: string;
+  items: {
+     categoryName: string;
+     currency: string;
+     eventName: string;
+     eventOccurrenceId: string;
+     id: string;
+     quantity: number;
+     subtotal: number;
+     ticketTypeName: string;
+     unitPrice: number;
+  }[];
+  itemsSubtotal: number;
+  orderId: string | null;
+  status: string;
+}>;
+```
+
+Create cart
+Create a cart on this channel. Customer identity comes only from a verified customer token, never from the body.
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `request` | \{ `metadata?`: `Record`\<`string`, `any`\>; \} |
+| `request.metadata?` | `Record`\<`string`, `any`\> |
+
+##### Returns
+
+`Promise`\<\{
+  `currency`: `string` \| `null`;
+  `expiresAt`: `string`;
+  `id`: `string`;
+  `items`: \{
+     `categoryName`: `string`;
+     `currency`: `string`;
+     `eventName`: `string`;
+     `eventOccurrenceId`: `string`;
+     `id`: `string`;
+     `quantity`: `number`;
+     `subtotal`: `number`;
+     `ticketTypeName`: `string`;
+     `unitPrice`: `number`;
+  \}[];
+  `itemsSubtotal`: `number`;
+  `orderId`: `string` \| `null`;
+  `status`: `string`;
+\}\>
+
+##### Operation Id
+
+createSalesCart
+
+#### get()
+
+```ts
+get: (cartId: string) => Promise<{
+  currency: string | null;
+  expiresAt: string;
+  id: string;
+  items: {
+     categoryName: string;
+     currency: string;
+     eventName: string;
+     eventOccurrenceId: string;
+     id: string;
+     quantity: number;
+     subtotal: number;
+     ticketTypeName: string;
+     unitPrice: number;
+  }[];
+  itemsSubtotal: number;
+  orderId: string | null;
+  status: string;
+}>;
+```
+
+Get cart
+Get a cart with its items
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `cartId` | `string` |
+
+##### Returns
+
+`Promise`\<\{
+  `currency`: `string` \| `null`;
+  `expiresAt`: `string`;
+  `id`: `string`;
+  `items`: \{
+     `categoryName`: `string`;
+     `currency`: `string`;
+     `eventName`: `string`;
+     `eventOccurrenceId`: `string`;
+     `id`: `string`;
+     `quantity`: `number`;
+     `subtotal`: `number`;
+     `ticketTypeName`: `string`;
+     `unitPrice`: `number`;
+  \}[];
+  `itemsSubtotal`: `number`;
+  `orderId`: `string` \| `null`;
+  `status`: `string`;
+\}\>
+
+##### Operation Id
+
+getSalesCart
+
+#### removeItem()
+
+```ts
+removeItem: (cartId: string, itemId: string) => Promise<{
+  currency: string | null;
+  expiresAt: string;
+  id: string;
+  items: {
+     categoryName: string;
+     currency: string;
+     eventName: string;
+     eventOccurrenceId: string;
+     id: string;
+     quantity: number;
+     subtotal: number;
+     ticketTypeName: string;
+     unitPrice: number;
+  }[];
+  itemsSubtotal: number;
+  orderId: string | null;
+  status: string;
+}>;
+```
+
+Remove cart item
+Remove an item from the cart, releasing its reservation
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `cartId` | `string` |
+| `itemId` | `string` |
+
+##### Returns
+
+`Promise`\<\{
+  `currency`: `string` \| `null`;
+  `expiresAt`: `string`;
+  `id`: `string`;
+  `items`: \{
+     `categoryName`: `string`;
+     `currency`: `string`;
+     `eventName`: `string`;
+     `eventOccurrenceId`: `string`;
+     `id`: `string`;
+     `quantity`: `number`;
+     `subtotal`: `number`;
+     `ticketTypeName`: `string`;
+     `unitPrice`: `number`;
+  \}[];
+  `itemsSubtotal`: `number`;
+  `orderId`: `string` \| `null`;
+  `status`: `string`;
+\}\>
+
+##### Operation Id
+
+removeSalesCartItem
+
+***
+
+### salesChannels
+
+```ts
+salesChannels: (channelId: string) => {
+  carts: {
+     addItem: (cartId: string, request: {
+        categoryId: string;
+        eventLayoutAreaId?: string;
+        eventLayoutSeatIds?: string[];
+        eventOccurrenceId: string;
+        quantity?: number;
+        ticketTypeId: string;
+      }) => Promise<{
+        cart: {
+           accountId: string;
+           channelId: string;
+           createdAt: string;
+           currency: string | null;
+           customerId: string | null;
+           expiresAt: string;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           orderId: string | null;
+           organisationId: string;
+           status: "active" | "expired" | "checked_out" | "abandoned";
+           updatedAt: string;
+        };
+        items: {
+           cartId: string;
+           categoryId: string;
+           createdAt: string;
+           eventLayoutAreaId: string | null;
+           eventLayoutSeatId: string | null;
+           eventOccurrenceId: string;
+           id: string;
+           notes: string | null;
+           organisationId: string;
+           priceSnapshot: {
+              categoryName: string;
+              currency: string;
+              eventId: string;
+              eventName: string;
+              priceSchemeId: string;
+              ticketTypeName: string;
+              unitPrice: number;
+           };
+           quantity: number;
+           reservationId: string;
+           ticketTypeId: string;
+        }[];
+     }>;
+     checkout: (cartId: string, request: {
+        customerId?: string;
+        customerNotes?: string;
+        discount?: {
+           amount?: number;
+           label?: string;
+           percent?: number;
+           reason: string;
+        };
+        metadata?: Record<string, any>;
+      }) => Promise<{
+        cart: {
+           accountId: string;
+           channelId: string;
+           createdAt: string;
+           currency: string | null;
+           customerId: string | null;
+           expiresAt: string;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           orderId: string | null;
+           organisationId: string;
+           status: "active" | "expired" | "checked_out" | "abandoned";
+           updatedAt: string;
+        };
+        order: {
+           accountId: string;
+           createdAt: string;
+           currency: string;
+           customerId: string | null;
+           expiresAt: string | null;
+           id: string;
+           items: {
+              description: ... | ...;
+              id: string;
+              name: string;
+              orderId: string;
+              quantity: number;
+              subtotal: string;
+              type: string;
+              unitPrice: string;
+           }[];
+           orderNumber: string;
+           organisationId: string;
+           paymentStatus: string;
+           status: string;
+           subtotal: string;
+           total: string;
+           totalFees: string;
+           totalPaid: string;
+           totalTax: string;
+           updatedAt: string;
+        };
+     }>;
+     create: (request: {
+        customerId?: string;
+        metadata?: Record<string, any>;
+      }) => Promise<{
+        cart: {
+           accountId: string;
+           channelId: string;
+           createdAt: string;
+           currency: string | null;
+           customerId: string | null;
+           expiresAt: string;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           orderId: string | null;
+           organisationId: string;
+           status: "active" | "expired" | "checked_out" | "abandoned";
+           updatedAt: string;
+        };
+        items: {
+           cartId: string;
+           categoryId: string;
+           createdAt: string;
+           eventLayoutAreaId: string | null;
+           eventLayoutSeatId: string | null;
+           eventOccurrenceId: string;
+           id: string;
+           notes: string | null;
+           organisationId: string;
+           priceSnapshot: {
+              categoryName: string;
+              currency: string;
+              eventId: string;
+              eventName: string;
+              priceSchemeId: string;
+              ticketTypeName: string;
+              unitPrice: number;
+           };
+           quantity: number;
+           reservationId: string;
+           ticketTypeId: string;
+        }[];
+     }>;
+     get: (cartId: string) => Promise<{
+        cart: {
+           accountId: string;
+           channelId: string;
+           createdAt: string;
+           currency: string | null;
+           customerId: string | null;
+           expiresAt: string;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           orderId: string | null;
+           organisationId: string;
+           status: "active" | "expired" | "checked_out" | "abandoned";
+           updatedAt: string;
+        };
+        items: {
+           cartId: string;
+           categoryId: string;
+           createdAt: string;
+           eventLayoutAreaId: string | null;
+           eventLayoutSeatId: string | null;
+           eventOccurrenceId: string;
+           id: string;
+           notes: string | null;
+           organisationId: string;
+           priceSnapshot: {
+              categoryName: string;
+              currency: string;
+              eventId: string;
+              eventName: string;
+              priceSchemeId: string;
+              ticketTypeName: string;
+              unitPrice: number;
+           };
+           quantity: number;
+           reservationId: string;
+           ticketTypeId: string;
+        }[];
+     }>;
+     removeItem: (cartId: string, itemId: string) => Promise<{
+        cart: {
+           accountId: string;
+           channelId: string;
+           createdAt: string;
+           currency: string | null;
+           customerId: string | null;
+           expiresAt: string;
+           id: string;
+           metadata:   | {
+            [key: string]: unknown;
+            }
+              | null;
+           orderId: string | null;
+           organisationId: string;
+           status: "active" | "expired" | "checked_out" | "abandoned";
+           updatedAt: string;
+        };
+        items: {
+           cartId: string;
+           categoryId: string;
+           createdAt: string;
+           eventLayoutAreaId: string | null;
+           eventLayoutSeatId: string | null;
+           eventOccurrenceId: string;
+           id: string;
+           notes: string | null;
+           organisationId: string;
+           priceSnapshot: {
+              categoryName: string;
+              currency: string;
+              eventId: string;
+              eventName: string;
+              priceSchemeId: string;
+              ticketTypeName: string;
+              unitPrice: number;
+           };
+           quantity: number;
+           reservationId: string;
+           ticketTypeId: string;
+        }[];
+     }>;
+  };
+  keys: {
+     issue: (request: {
+        keyType: "publishable" | "secret";
+        name: string;
+      }) => Promise<{
+        key: {
+           channelId: string;
+           createdAt: string;
+           id: string;
+           keyType: "publishable" | "secret";
+           last4: string;
+           name: string;
+           status: "active" | "revoked" | "compromised";
+        };
+        keyMaterial: string;
+        warning?: string;
+     }>;
+     list: () => Promise<{
+        channelId: string;
+        createdAt: string;
+        id: string;
+        keyType: "publishable" | "secret";
+        last4: string;
+        lastUsedAt: string | null;
+        name: string;
+        publishableKey: string | null;
+        revokedAt: string | null;
+        status: "active" | "revoked" | "compromised";
+     }[]>;
+     revoke: (keyId: string, request: {
+        reason?: string;
+      }) => Promise<{
+        id: string;
+        revokedAt: string | null;
+        status: "active" | "revoked" | "compromised";
+     }>;
+  };
+  listings: {
+     create: (request: {
+        eventId: string;
+        saleEndsAt?: string;
+        saleStartsAt?: string;
+      }) => Promise<{
+        channelId: string;
+        createdAt: string;
+        createdBy: string | null;
+        eventId: string;
+        id: string;
+        isActive: boolean;
+        organisationId: string;
+        saleEndsAt: string | null;
+        saleStartsAt: string | null;
+        updatedAt: string;
+     }>;
+     delete: (listingId: string) => Promise<boolean>;
+     list: () => Promise<{
+        channelId: string;
+        createdAt: string;
+        createdBy: string | null;
+        eventId: string;
+        id: string;
+        isActive: boolean;
+        organisationId: string;
+        saleEndsAt: string | null;
+        saleStartsAt: string | null;
+        updatedAt: string;
+     }[]>;
+  };
+} & {
+  create: (request: {
+     accountId: string;
+     channelTags?: string[];
+     channelType:   | "website"
+        | "embed"
+        | "box_office"
+        | "kiosk"
+        | "reseller_api"
+        | "internal";
+     checkoutTtlSeconds?: number;
+     customerConfig?: {
+        allowGuestCheckout?: boolean;
+        collectAddress?: boolean;
+        collectPhone?: boolean;
+        requireLogin?: boolean;
+     };
+     customerFacing?: {
+        allowedOrigins?: any[];
+        customDomain?: string;
+        enabled?: boolean;
+        magicLinkBaseUrl?: string;
+        partnerIdentity?: {
+           algorithm: "RS256" | "RS384" | "RS512" | "ES256" | "ES384" | "ES512";
+           issuer: string;
+           publicKeyPem: string;
+        };
+        subdomain?: string;
+     };
+     description?: string;
+     eventFilter?: {
+        channelTags?: string[];
+        mode: "all" | "tagged";
+     };
+     feeProfileId?: string;
+     name: string;
+     pricingConfig?: {
+        includeFeesInPrice?: boolean;
+        showMemberPricing?: boolean;
+        showOriginalPrice?: boolean;
+     };
+     receivingAccountId?: string;
+     reservationTtlSeconds?: number;
+     slug: string;
+   }) => Promise<{
+     accountId: string;
+     channelTags: string[];
+     channelType:   | "website"
+        | "embed"
+        | "box_office"
+        | "kiosk"
+        | "reseller_api"
+        | "internal";
+     checkoutTtlSeconds: number;
+     createdAt: string;
+     customerConfig: {
+        allowGuestCheckout: boolean;
+        collectAddress: boolean;
+        collectPhone: boolean;
+        requireLogin: boolean;
+     };
+     customerFacing: {
+        allowedOrigins: string[];
+        customDomain?: string;
+        enabled: boolean;
+        magicLinkBaseUrl?: string;
+        partnerIdentity?: {
+           algorithm: string;
+           issuer: string;
+           publicKeyPem: string;
+        };
+        subdomain?: string;
+     };
+     deletedAt: string | null;
+     description: string | null;
+     eventFilter: {
+        channelTags?: string[];
+        mode: "all" | "tagged";
+     };
+     feeProfileId: string | null;
+     id: string;
+     isActive: boolean;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     pricingConfig: {
+        includeFeesInPrice: boolean;
+        showMemberPricing: boolean;
+        showOriginalPrice: boolean;
+     };
+     receivingAccountId: string;
+     reservationTtlSeconds: number;
+     slug: string;
+     themeId: string | null;
+     updatedAt: string;
+  }>;
+  delete: (channelId: string) => Promise<boolean>;
+  get: (channelId: string) => Promise<{
+     accountId: string;
+     channelTags: string[];
+     channelType:   | "website"
+        | "embed"
+        | "box_office"
+        | "kiosk"
+        | "reseller_api"
+        | "internal";
+     checkoutTtlSeconds: number;
+     createdAt: string;
+     customerConfig: {
+        allowGuestCheckout: boolean;
+        collectAddress: boolean;
+        collectPhone: boolean;
+        requireLogin: boolean;
+     };
+     customerFacing: {
+        allowedOrigins: string[];
+        customDomain?: string;
+        enabled: boolean;
+        magicLinkBaseUrl?: string;
+        partnerIdentity?: {
+           algorithm: string;
+           issuer: string;
+           publicKeyPem: string;
+        };
+        subdomain?: string;
+     };
+     deletedAt: string | null;
+     description: string | null;
+     eventFilter: {
+        channelTags?: string[];
+        mode: "all" | "tagged";
+     };
+     feeProfileId: string | null;
+     id: string;
+     isActive: boolean;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     pricingConfig: {
+        includeFeesInPrice: boolean;
+        showMemberPricing: boolean;
+        showOriginalPrice: boolean;
+     };
+     receivingAccountId: string;
+     reservationTtlSeconds: number;
+     slug: string;
+     themeId: string | null;
+     updatedAt: string;
+  }>;
+  list: () => Promise<{
+     accountId: string;
+     channelTags: string[];
+     channelType:   | "website"
+        | "embed"
+        | "box_office"
+        | "kiosk"
+        | "reseller_api"
+        | "internal";
+     checkoutTtlSeconds: number;
+     createdAt: string;
+     customerConfig: {
+        allowGuestCheckout: boolean;
+        collectAddress: boolean;
+        collectPhone: boolean;
+        requireLogin: boolean;
+     };
+     customerFacing: {
+        allowedOrigins: string[];
+        customDomain?: string;
+        enabled: boolean;
+        magicLinkBaseUrl?: string;
+        partnerIdentity?: {
+           algorithm: string;
+           issuer: string;
+           publicKeyPem: string;
+        };
+        subdomain?: string;
+     };
+     deletedAt: string | null;
+     description: string | null;
+     eventFilter: {
+        channelTags?: string[];
+        mode: "all" | "tagged";
+     };
+     feeProfileId: string | null;
+     id: string;
+     isActive: boolean;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     pricingConfig: {
+        includeFeesInPrice: boolean;
+        showMemberPricing: boolean;
+        showOriginalPrice: boolean;
+     };
+     receivingAccountId: string;
+     reservationTtlSeconds: number;
+     slug: string;
+     themeId: string | null;
+     updatedAt: string;
+  }[]>;
+  update: (channelId: string, request: {
+     channelTags?: string[];
+     checkoutTtlSeconds?: number;
+     customerConfig?: {
+        allowGuestCheckout?: boolean;
+        collectAddress?: boolean;
+        collectPhone?: boolean;
+        requireLogin?: boolean;
+     };
+     customerFacing?: {
+        allowedOrigins?: any[];
+        customDomain?: string;
+        enabled?: boolean;
+        magicLinkBaseUrl?: string;
+        partnerIdentity?: {
+           algorithm: "RS256" | "RS384" | "RS512" | "ES256" | "ES384" | "ES512";
+           issuer: string;
+           publicKeyPem: string;
+        };
+        subdomain?: string;
+     };
+     description?: string;
+     eventFilter?: {
+        channelTags?: string[];
+        mode: "all" | "tagged";
+     };
+     feeProfileId?: any;
+     isActive?: boolean;
+     name?: string;
+     paymentProviderId?: any;
+     pricingConfig?: {
+        includeFeesInPrice?: boolean;
+        showMemberPricing?: boolean;
+        showOriginalPrice?: boolean;
+     };
+     receivingAccountId?: string;
+     reservationTtlSeconds?: number;
+   }) => Promise<{
+     accountId: string;
+     channelTags: string[];
+     channelType:   | "website"
+        | "embed"
+        | "box_office"
+        | "kiosk"
+        | "reseller_api"
+        | "internal";
+     checkoutTtlSeconds: number;
+     createdAt: string;
+     customerConfig: {
+        allowGuestCheckout: boolean;
+        collectAddress: boolean;
+        collectPhone: boolean;
+        requireLogin: boolean;
+     };
+     customerFacing: {
+        allowedOrigins: string[];
+        customDomain?: string;
+        enabled: boolean;
+        magicLinkBaseUrl?: string;
+        partnerIdentity?: {
+           algorithm: string;
+           issuer: string;
+           publicKeyPem: string;
+        };
+        subdomain?: string;
+     };
+     deletedAt: string | null;
+     description: string | null;
+     eventFilter: {
+        channelTags?: string[];
+        mode: "all" | "tagged";
+     };
+     feeProfileId: string | null;
+     id: string;
+     isActive: boolean;
+     isDeleted: boolean;
+     name: string;
+     organisationId: string;
+     pricingConfig: {
+        includeFeesInPrice: boolean;
+        showMemberPricing: boolean;
+        showOriginalPrice: boolean;
+     };
+     receivingAccountId: string;
+     reservationTtlSeconds: number;
+     slug: string;
+     themeId: string | null;
+     updatedAt: string;
+  }>;
+};
+```
+
+Defined in: [client.ts:2820](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L2820)
+
+Sales Channels methods
+Use salesChannels() to access nested resources: salesChannels(id).keys, listings, carts
+
+#### Type Declaration
+
+##### create()
+
+```ts
+create: (request: {
+  accountId: string;
+  channelTags?: string[];
+  channelType:   | "website"
+     | "embed"
+     | "box_office"
+     | "kiosk"
+     | "reseller_api"
+     | "internal";
+  checkoutTtlSeconds?: number;
+  customerConfig?: {
+     allowGuestCheckout?: boolean;
+     collectAddress?: boolean;
+     collectPhone?: boolean;
+     requireLogin?: boolean;
+  };
+  customerFacing?: {
+     allowedOrigins?: any[];
+     customDomain?: string;
+     enabled?: boolean;
+     magicLinkBaseUrl?: string;
+     partnerIdentity?: {
+        algorithm: "RS256" | "RS384" | "RS512" | "ES256" | "ES384" | "ES512";
+        issuer: string;
+        publicKeyPem: string;
+     };
+     subdomain?: string;
+  };
+  description?: string;
+  eventFilter?: {
+     channelTags?: string[];
+     mode: "all" | "tagged";
+  };
+  feeProfileId?: string;
+  name: string;
+  pricingConfig?: {
+     includeFeesInPrice?: boolean;
+     showMemberPricing?: boolean;
+     showOriginalPrice?: boolean;
+  };
+  receivingAccountId?: string;
+  reservationTtlSeconds?: number;
+  slug: string;
+}) => Promise<{
+  accountId: string;
+  channelTags: string[];
+  channelType:   | "website"
+     | "embed"
+     | "box_office"
+     | "kiosk"
+     | "reseller_api"
+     | "internal";
+  checkoutTtlSeconds: number;
+  createdAt: string;
+  customerConfig: {
+     allowGuestCheckout: boolean;
+     collectAddress: boolean;
+     collectPhone: boolean;
+     requireLogin: boolean;
+  };
+  customerFacing: {
+     allowedOrigins: string[];
+     customDomain?: string;
+     enabled: boolean;
+     magicLinkBaseUrl?: string;
+     partnerIdentity?: {
+        algorithm: string;
+        issuer: string;
+        publicKeyPem: string;
+     };
+     subdomain?: string;
+  };
+  deletedAt: string | null;
+  description: string | null;
+  eventFilter: {
+     channelTags?: string[];
+     mode: "all" | "tagged";
+  };
+  feeProfileId: string | null;
+  id: string;
+  isActive: boolean;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  pricingConfig: {
+     includeFeesInPrice: boolean;
+     showMemberPricing: boolean;
+     showOriginalPrice: boolean;
+  };
+  receivingAccountId: string;
+  reservationTtlSeconds: number;
+  slug: string;
+  themeId: string | null;
+  updatedAt: string;
+}>;
+```
+
+Create sales channel
+Create a sales channel: a policy bundle describing where and under what commercial rules tickets are sold
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `request` | \{ `accountId`: `string`; `channelTags?`: `string`[]; `channelType`: \| `"website"` \| `"embed"` \| `"box_office"` \| `"kiosk"` \| `"reseller_api"` \| `"internal"`; `checkoutTtlSeconds?`: `number`; `customerConfig?`: \{ `allowGuestCheckout?`: `boolean`; `collectAddress?`: `boolean`; `collectPhone?`: `boolean`; `requireLogin?`: `boolean`; \}; `customerFacing?`: \{ `allowedOrigins?`: `any`[]; `customDomain?`: `string`; `enabled?`: `boolean`; `magicLinkBaseUrl?`: `string`; `partnerIdentity?`: \{ `algorithm`: `"RS256"` \| `"RS384"` \| `"RS512"` \| `"ES256"` \| `"ES384"` \| `"ES512"`; `issuer`: `string`; `publicKeyPem`: `string`; \}; `subdomain?`: `string`; \}; `description?`: `string`; `eventFilter?`: \{ `channelTags?`: `string`[]; `mode`: `"all"` \| `"tagged"`; \}; `feeProfileId?`: `string`; `name`: `string`; `pricingConfig?`: \{ `includeFeesInPrice?`: `boolean`; `showMemberPricing?`: `boolean`; `showOriginalPrice?`: `boolean`; \}; `receivingAccountId?`: `string`; `reservationTtlSeconds?`: `number`; `slug`: `string`; \} |
+| `request.accountId` | `string` |
+| `request.channelTags?` | `string`[] |
+| `request.channelType` | \| `"website"` \| `"embed"` \| `"box_office"` \| `"kiosk"` \| `"reseller_api"` \| `"internal"` |
+| `request.checkoutTtlSeconds?` | `number` |
+| `request.customerConfig?` | \{ `allowGuestCheckout?`: `boolean`; `collectAddress?`: `boolean`; `collectPhone?`: `boolean`; `requireLogin?`: `boolean`; \} |
+| `request.customerConfig.allowGuestCheckout?` | `boolean` |
+| `request.customerConfig.collectAddress?` | `boolean` |
+| `request.customerConfig.collectPhone?` | `boolean` |
+| `request.customerConfig.requireLogin?` | `boolean` |
+| `request.customerFacing?` | \{ `allowedOrigins?`: `any`[]; `customDomain?`: `string`; `enabled?`: `boolean`; `magicLinkBaseUrl?`: `string`; `partnerIdentity?`: \{ `algorithm`: `"RS256"` \| `"RS384"` \| `"RS512"` \| `"ES256"` \| `"ES384"` \| `"ES512"`; `issuer`: `string`; `publicKeyPem`: `string`; \}; `subdomain?`: `string`; \} |
+| `request.customerFacing.allowedOrigins?` | `any`[] |
+| `request.customerFacing.customDomain?` | `string` |
+| `request.customerFacing.enabled?` | `boolean` |
+| `request.customerFacing.magicLinkBaseUrl?` | `string` |
+| `request.customerFacing.partnerIdentity?` | \{ `algorithm`: `"RS256"` \| `"RS384"` \| `"RS512"` \| `"ES256"` \| `"ES384"` \| `"ES512"`; `issuer`: `string`; `publicKeyPem`: `string`; \} |
+| `request.customerFacing.partnerIdentity.algorithm` | `"RS256"` \| `"RS384"` \| `"RS512"` \| `"ES256"` \| `"ES384"` \| `"ES512"` |
+| `request.customerFacing.partnerIdentity.issuer` | `string` |
+| `request.customerFacing.partnerIdentity.publicKeyPem` | `string` |
+| `request.customerFacing.subdomain?` | `string` |
+| `request.description?` | `string` |
+| `request.eventFilter?` | \{ `channelTags?`: `string`[]; `mode`: `"all"` \| `"tagged"`; \} |
+| `request.eventFilter.channelTags?` | `string`[] |
+| `request.eventFilter.mode` | `"all"` \| `"tagged"` |
+| `request.feeProfileId?` | `string` |
+| `request.name` | `string` |
+| `request.pricingConfig?` | \{ `includeFeesInPrice?`: `boolean`; `showMemberPricing?`: `boolean`; `showOriginalPrice?`: `boolean`; \} |
+| `request.pricingConfig.includeFeesInPrice?` | `boolean` |
+| `request.pricingConfig.showMemberPricing?` | `boolean` |
+| `request.pricingConfig.showOriginalPrice?` | `boolean` |
+| `request.receivingAccountId?` | `string` |
+| `request.reservationTtlSeconds?` | `number` |
+| `request.slug` | `string` |
+
+###### Returns
+
+`Promise`\<\{
+  `accountId`: `string`;
+  `channelTags`: `string`[];
+  `channelType`:   \| `"website"`
+     \| `"embed"`
+     \| `"box_office"`
+     \| `"kiosk"`
+     \| `"reseller_api"`
+     \| `"internal"`;
+  `checkoutTtlSeconds`: `number`;
+  `createdAt`: `string`;
+  `customerConfig`: \{
+     `allowGuestCheckout`: `boolean`;
+     `collectAddress`: `boolean`;
+     `collectPhone`: `boolean`;
+     `requireLogin`: `boolean`;
+  \};
+  `customerFacing`: \{
+     `allowedOrigins`: `string`[];
+     `customDomain?`: `string`;
+     `enabled`: `boolean`;
+     `magicLinkBaseUrl?`: `string`;
+     `partnerIdentity?`: \{
+        `algorithm`: `string`;
+        `issuer`: `string`;
+        `publicKeyPem`: `string`;
+     \};
+     `subdomain?`: `string`;
+  \};
+  `deletedAt`: `string` \| `null`;
+  `description`: `string` \| `null`;
+  `eventFilter`: \{
+     `channelTags?`: `string`[];
+     `mode`: `"all"` \| `"tagged"`;
+  \};
+  `feeProfileId`: `string` \| `null`;
+  `id`: `string`;
+  `isActive`: `boolean`;
+  `isDeleted`: `boolean`;
+  `name`: `string`;
+  `organisationId`: `string`;
+  `pricingConfig`: \{
+     `includeFeesInPrice`: `boolean`;
+     `showMemberPricing`: `boolean`;
+     `showOriginalPrice`: `boolean`;
+  \};
+  `receivingAccountId`: `string`;
+  `reservationTtlSeconds`: `number`;
+  `slug`: `string`;
+  `themeId`: `string` \| `null`;
+  `updatedAt`: `string`;
+\}\>
+
+###### Operation Id
+
+createSalesChannel
+
+##### delete()
+
+```ts
+delete: (channelId: string) => Promise<boolean>;
+```
+
+Delete sales channel
+Soft-delete a sales channel
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `channelId` | `string` |
+
+###### Returns
+
+`Promise`\<`boolean`\>
+
+###### Operation Id
+
+deleteSalesChannel
+
+##### get()
+
+```ts
+get: (channelId: string) => Promise<{
+  accountId: string;
+  channelTags: string[];
+  channelType:   | "website"
+     | "embed"
+     | "box_office"
+     | "kiosk"
+     | "reseller_api"
+     | "internal";
+  checkoutTtlSeconds: number;
+  createdAt: string;
+  customerConfig: {
+     allowGuestCheckout: boolean;
+     collectAddress: boolean;
+     collectPhone: boolean;
+     requireLogin: boolean;
+  };
+  customerFacing: {
+     allowedOrigins: string[];
+     customDomain?: string;
+     enabled: boolean;
+     magicLinkBaseUrl?: string;
+     partnerIdentity?: {
+        algorithm: string;
+        issuer: string;
+        publicKeyPem: string;
+     };
+     subdomain?: string;
+  };
+  deletedAt: string | null;
+  description: string | null;
+  eventFilter: {
+     channelTags?: string[];
+     mode: "all" | "tagged";
+  };
+  feeProfileId: string | null;
+  id: string;
+  isActive: boolean;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  pricingConfig: {
+     includeFeesInPrice: boolean;
+     showMemberPricing: boolean;
+     showOriginalPrice: boolean;
+  };
+  receivingAccountId: string;
+  reservationTtlSeconds: number;
+  slug: string;
+  themeId: string | null;
+  updatedAt: string;
+}>;
+```
+
+Get sales channel
+Get a sales channel by ID
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `channelId` | `string` |
+
+###### Returns
+
+`Promise`\<\{
+  `accountId`: `string`;
+  `channelTags`: `string`[];
+  `channelType`:   \| `"website"`
+     \| `"embed"`
+     \| `"box_office"`
+     \| `"kiosk"`
+     \| `"reseller_api"`
+     \| `"internal"`;
+  `checkoutTtlSeconds`: `number`;
+  `createdAt`: `string`;
+  `customerConfig`: \{
+     `allowGuestCheckout`: `boolean`;
+     `collectAddress`: `boolean`;
+     `collectPhone`: `boolean`;
+     `requireLogin`: `boolean`;
+  \};
+  `customerFacing`: \{
+     `allowedOrigins`: `string`[];
+     `customDomain?`: `string`;
+     `enabled`: `boolean`;
+     `magicLinkBaseUrl?`: `string`;
+     `partnerIdentity?`: \{
+        `algorithm`: `string`;
+        `issuer`: `string`;
+        `publicKeyPem`: `string`;
+     \};
+     `subdomain?`: `string`;
+  \};
+  `deletedAt`: `string` \| `null`;
+  `description`: `string` \| `null`;
+  `eventFilter`: \{
+     `channelTags?`: `string`[];
+     `mode`: `"all"` \| `"tagged"`;
+  \};
+  `feeProfileId`: `string` \| `null`;
+  `id`: `string`;
+  `isActive`: `boolean`;
+  `isDeleted`: `boolean`;
+  `name`: `string`;
+  `organisationId`: `string`;
+  `pricingConfig`: \{
+     `includeFeesInPrice`: `boolean`;
+     `showMemberPricing`: `boolean`;
+     `showOriginalPrice`: `boolean`;
+  \};
+  `receivingAccountId`: `string`;
+  `reservationTtlSeconds`: `number`;
+  `slug`: `string`;
+  `themeId`: `string` \| `null`;
+  `updatedAt`: `string`;
+\}\>
+
+###### Operation Id
+
+getSalesChannel
+
+##### list()
+
+```ts
+list: () => Promise<{
+  accountId: string;
+  channelTags: string[];
+  channelType:   | "website"
+     | "embed"
+     | "box_office"
+     | "kiosk"
+     | "reseller_api"
+     | "internal";
+  checkoutTtlSeconds: number;
+  createdAt: string;
+  customerConfig: {
+     allowGuestCheckout: boolean;
+     collectAddress: boolean;
+     collectPhone: boolean;
+     requireLogin: boolean;
+  };
+  customerFacing: {
+     allowedOrigins: string[];
+     customDomain?: string;
+     enabled: boolean;
+     magicLinkBaseUrl?: string;
+     partnerIdentity?: {
+        algorithm: string;
+        issuer: string;
+        publicKeyPem: string;
+     };
+     subdomain?: string;
+  };
+  deletedAt: string | null;
+  description: string | null;
+  eventFilter: {
+     channelTags?: string[];
+     mode: "all" | "tagged";
+  };
+  feeProfileId: string | null;
+  id: string;
+  isActive: boolean;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  pricingConfig: {
+     includeFeesInPrice: boolean;
+     showMemberPricing: boolean;
+     showOriginalPrice: boolean;
+  };
+  receivingAccountId: string;
+  reservationTtlSeconds: number;
+  slug: string;
+  themeId: string | null;
+  updatedAt: string;
+}[]>;
+```
+
+List sales channels
+List the organisation's sales channels visible to the caller
+
+###### Returns
+
+`Promise`\<\{
+  `accountId`: `string`;
+  `channelTags`: `string`[];
+  `channelType`:   \| `"website"`
+     \| `"embed"`
+     \| `"box_office"`
+     \| `"kiosk"`
+     \| `"reseller_api"`
+     \| `"internal"`;
+  `checkoutTtlSeconds`: `number`;
+  `createdAt`: `string`;
+  `customerConfig`: \{
+     `allowGuestCheckout`: `boolean`;
+     `collectAddress`: `boolean`;
+     `collectPhone`: `boolean`;
+     `requireLogin`: `boolean`;
+  \};
+  `customerFacing`: \{
+     `allowedOrigins`: `string`[];
+     `customDomain?`: `string`;
+     `enabled`: `boolean`;
+     `magicLinkBaseUrl?`: `string`;
+     `partnerIdentity?`: \{
+        `algorithm`: `string`;
+        `issuer`: `string`;
+        `publicKeyPem`: `string`;
+     \};
+     `subdomain?`: `string`;
+  \};
+  `deletedAt`: `string` \| `null`;
+  `description`: `string` \| `null`;
+  `eventFilter`: \{
+     `channelTags?`: `string`[];
+     `mode`: `"all"` \| `"tagged"`;
+  \};
+  `feeProfileId`: `string` \| `null`;
+  `id`: `string`;
+  `isActive`: `boolean`;
+  `isDeleted`: `boolean`;
+  `name`: `string`;
+  `organisationId`: `string`;
+  `pricingConfig`: \{
+     `includeFeesInPrice`: `boolean`;
+     `showMemberPricing`: `boolean`;
+     `showOriginalPrice`: `boolean`;
+  \};
+  `receivingAccountId`: `string`;
+  `reservationTtlSeconds`: `number`;
+  `slug`: `string`;
+  `themeId`: `string` \| `null`;
+  `updatedAt`: `string`;
+\}[]\>
+
+###### Operation Id
+
+listSalesChannels
+
+##### update()
+
+```ts
+update: (channelId: string, request: {
+  channelTags?: string[];
+  checkoutTtlSeconds?: number;
+  customerConfig?: {
+     allowGuestCheckout?: boolean;
+     collectAddress?: boolean;
+     collectPhone?: boolean;
+     requireLogin?: boolean;
+  };
+  customerFacing?: {
+     allowedOrigins?: any[];
+     customDomain?: string;
+     enabled?: boolean;
+     magicLinkBaseUrl?: string;
+     partnerIdentity?: {
+        algorithm: "RS256" | "RS384" | "RS512" | "ES256" | "ES384" | "ES512";
+        issuer: string;
+        publicKeyPem: string;
+     };
+     subdomain?: string;
+  };
+  description?: string;
+  eventFilter?: {
+     channelTags?: string[];
+     mode: "all" | "tagged";
+  };
+  feeProfileId?: any;
+  isActive?: boolean;
+  name?: string;
+  paymentProviderId?: any;
+  pricingConfig?: {
+     includeFeesInPrice?: boolean;
+     showMemberPricing?: boolean;
+     showOriginalPrice?: boolean;
+  };
+  receivingAccountId?: string;
+  reservationTtlSeconds?: number;
+}) => Promise<{
+  accountId: string;
+  channelTags: string[];
+  channelType:   | "website"
+     | "embed"
+     | "box_office"
+     | "kiosk"
+     | "reseller_api"
+     | "internal";
+  checkoutTtlSeconds: number;
+  createdAt: string;
+  customerConfig: {
+     allowGuestCheckout: boolean;
+     collectAddress: boolean;
+     collectPhone: boolean;
+     requireLogin: boolean;
+  };
+  customerFacing: {
+     allowedOrigins: string[];
+     customDomain?: string;
+     enabled: boolean;
+     magicLinkBaseUrl?: string;
+     partnerIdentity?: {
+        algorithm: string;
+        issuer: string;
+        publicKeyPem: string;
+     };
+     subdomain?: string;
+  };
+  deletedAt: string | null;
+  description: string | null;
+  eventFilter: {
+     channelTags?: string[];
+     mode: "all" | "tagged";
+  };
+  feeProfileId: string | null;
+  id: string;
+  isActive: boolean;
+  isDeleted: boolean;
+  name: string;
+  organisationId: string;
+  pricingConfig: {
+     includeFeesInPrice: boolean;
+     showMemberPricing: boolean;
+     showOriginalPrice: boolean;
+  };
+  receivingAccountId: string;
+  reservationTtlSeconds: number;
+  slug: string;
+  themeId: string | null;
+  updatedAt: string;
+}>;
+```
+
+Update sales channel
+Update a sales channel's configuration
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `channelId` | `string` |
+| `request` | \{ `channelTags?`: `string`[]; `checkoutTtlSeconds?`: `number`; `customerConfig?`: \{ `allowGuestCheckout?`: `boolean`; `collectAddress?`: `boolean`; `collectPhone?`: `boolean`; `requireLogin?`: `boolean`; \}; `customerFacing?`: \{ `allowedOrigins?`: `any`[]; `customDomain?`: `string`; `enabled?`: `boolean`; `magicLinkBaseUrl?`: `string`; `partnerIdentity?`: \{ `algorithm`: `"RS256"` \| `"RS384"` \| `"RS512"` \| `"ES256"` \| `"ES384"` \| `"ES512"`; `issuer`: `string`; `publicKeyPem`: `string`; \}; `subdomain?`: `string`; \}; `description?`: `string`; `eventFilter?`: \{ `channelTags?`: `string`[]; `mode`: `"all"` \| `"tagged"`; \}; `feeProfileId?`: `any`; `isActive?`: `boolean`; `name?`: `string`; `paymentProviderId?`: `any`; `pricingConfig?`: \{ `includeFeesInPrice?`: `boolean`; `showMemberPricing?`: `boolean`; `showOriginalPrice?`: `boolean`; \}; `receivingAccountId?`: `string`; `reservationTtlSeconds?`: `number`; \} |
+| `request.channelTags?` | `string`[] |
+| `request.checkoutTtlSeconds?` | `number` |
+| `request.customerConfig?` | \{ `allowGuestCheckout?`: `boolean`; `collectAddress?`: `boolean`; `collectPhone?`: `boolean`; `requireLogin?`: `boolean`; \} |
+| `request.customerConfig.allowGuestCheckout?` | `boolean` |
+| `request.customerConfig.collectAddress?` | `boolean` |
+| `request.customerConfig.collectPhone?` | `boolean` |
+| `request.customerConfig.requireLogin?` | `boolean` |
+| `request.customerFacing?` | \{ `allowedOrigins?`: `any`[]; `customDomain?`: `string`; `enabled?`: `boolean`; `magicLinkBaseUrl?`: `string`; `partnerIdentity?`: \{ `algorithm`: `"RS256"` \| `"RS384"` \| `"RS512"` \| `"ES256"` \| `"ES384"` \| `"ES512"`; `issuer`: `string`; `publicKeyPem`: `string`; \}; `subdomain?`: `string`; \} |
+| `request.customerFacing.allowedOrigins?` | `any`[] |
+| `request.customerFacing.customDomain?` | `string` |
+| `request.customerFacing.enabled?` | `boolean` |
+| `request.customerFacing.magicLinkBaseUrl?` | `string` |
+| `request.customerFacing.partnerIdentity?` | \{ `algorithm`: `"RS256"` \| `"RS384"` \| `"RS512"` \| `"ES256"` \| `"ES384"` \| `"ES512"`; `issuer`: `string`; `publicKeyPem`: `string`; \} |
+| `request.customerFacing.partnerIdentity.algorithm` | `"RS256"` \| `"RS384"` \| `"RS512"` \| `"ES256"` \| `"ES384"` \| `"ES512"` |
+| `request.customerFacing.partnerIdentity.issuer` | `string` |
+| `request.customerFacing.partnerIdentity.publicKeyPem` | `string` |
+| `request.customerFacing.subdomain?` | `string` |
+| `request.description?` | `string` |
+| `request.eventFilter?` | \{ `channelTags?`: `string`[]; `mode`: `"all"` \| `"tagged"`; \} |
+| `request.eventFilter.channelTags?` | `string`[] |
+| `request.eventFilter.mode` | `"all"` \| `"tagged"` |
+| `request.feeProfileId?` | `any` |
+| `request.isActive?` | `boolean` |
+| `request.name?` | `string` |
+| `request.paymentProviderId?` | `any` |
+| `request.pricingConfig?` | \{ `includeFeesInPrice?`: `boolean`; `showMemberPricing?`: `boolean`; `showOriginalPrice?`: `boolean`; \} |
+| `request.pricingConfig.includeFeesInPrice?` | `boolean` |
+| `request.pricingConfig.showMemberPricing?` | `boolean` |
+| `request.pricingConfig.showOriginalPrice?` | `boolean` |
+| `request.receivingAccountId?` | `string` |
+| `request.reservationTtlSeconds?` | `number` |
+
+###### Returns
+
+`Promise`\<\{
+  `accountId`: `string`;
+  `channelTags`: `string`[];
+  `channelType`:   \| `"website"`
+     \| `"embed"`
+     \| `"box_office"`
+     \| `"kiosk"`
+     \| `"reseller_api"`
+     \| `"internal"`;
+  `checkoutTtlSeconds`: `number`;
+  `createdAt`: `string`;
+  `customerConfig`: \{
+     `allowGuestCheckout`: `boolean`;
+     `collectAddress`: `boolean`;
+     `collectPhone`: `boolean`;
+     `requireLogin`: `boolean`;
+  \};
+  `customerFacing`: \{
+     `allowedOrigins`: `string`[];
+     `customDomain?`: `string`;
+     `enabled`: `boolean`;
+     `magicLinkBaseUrl?`: `string`;
+     `partnerIdentity?`: \{
+        `algorithm`: `string`;
+        `issuer`: `string`;
+        `publicKeyPem`: `string`;
+     \};
+     `subdomain?`: `string`;
+  \};
+  `deletedAt`: `string` \| `null`;
+  `description`: `string` \| `null`;
+  `eventFilter`: \{
+     `channelTags?`: `string`[];
+     `mode`: `"all"` \| `"tagged"`;
+  \};
+  `feeProfileId`: `string` \| `null`;
+  `id`: `string`;
+  `isActive`: `boolean`;
+  `isDeleted`: `boolean`;
+  `name`: `string`;
+  `organisationId`: `string`;
+  `pricingConfig`: \{
+     `includeFeesInPrice`: `boolean`;
+     `showMemberPricing`: `boolean`;
+     `showOriginalPrice`: `boolean`;
+  \};
+  `receivingAccountId`: `string`;
+  `reservationTtlSeconds`: `number`;
+  `slug`: `string`;
+  `themeId`: `string` \| `null`;
+  `updatedAt`: `string`;
+\}\>
+
+###### Operation Id
+
+updateSalesChannel
+
+***
+
+### salesCustomerAuth
+
+```ts
+salesCustomerAuth: {
+  magicLink: (request: {
+     email?: string;
+     phone?: string;
+  }) => Promise<boolean>;
+};
+```
+
+Defined in: [client.ts:3183](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L3183)
+
+Sales Customer Auth methods
+
+#### magicLink()
+
+```ts
+magicLink: (request: {
+  email?: string;
+  phone?: string;
+}) => Promise<boolean>;
+```
+
+Request magic link
+Start a magic-link sign-in for a customer. Always reports success — account existence is never revealed.
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `request` | \{ `email?`: `string`; `phone?`: `string`; \} |
+| `request.email?` | `string` |
+| `request.phone?` | `string` |
+
+##### Returns
+
+`Promise`\<`boolean`\>
+
+##### Operation Id
+
+requestSalesMagicLink
+
+***
+
+### salesCustomers
+
+```ts
+salesCustomers: {
+  create: (request: {
+     email: string;
+     firstName?: string;
+     lastName?: string;
+     marketingConsent?: boolean;
+     phone?: string;
+   }) => Promise<{
+     email: string;
+     firstName: string | null;
+     id: string;
+     lastName: string | null;
+  }>;
+  get: (customerId: string) => Promise<{
+     email: string;
+     firstName: string | null;
+     id: string;
+     lastName: string | null;
+  }>;
+  update: (customerId: string, request: {
+     firstName?: string;
+     lastName?: string;
+     phone?: string;
+   }) => Promise<{
+     email: string;
+     firstName: string | null;
+     id: string;
+     lastName: string | null;
+  }>;
+};
+```
+
+Defined in: [client.ts:3381](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L3381)
+
+Sales Customers methods
+
+#### create()
+
+```ts
+create: (request: {
+  email: string;
+  firstName?: string;
+  lastName?: string;
+  marketingConsent?: boolean;
+  phone?: string;
+}) => Promise<{
+  email: string;
+  firstName: string | null;
+  id: string;
+  lastName: string | null;
+}>;
+```
+
+Create customer
+Provenance-scoped channel CRM (secret keys only). Reuses the org's existing record for the email and grants the channel access; there is no list or search.
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `request` | \{ `email`: `string`; `firstName?`: `string`; `lastName?`: `string`; `marketingConsent?`: `boolean`; `phone?`: `string`; \} |
+| `request.email` | `string` |
+| `request.firstName?` | `string` |
+| `request.lastName?` | `string` |
+| `request.marketingConsent?` | `boolean` |
+| `request.phone?` | `string` |
+
+##### Returns
+
+`Promise`\<\{
+  `email`: `string`;
+  `firstName`: `string` \| `null`;
+  `id`: `string`;
+  `lastName`: `string` \| `null`;
+\}\>
+
+##### Operation Id
+
+createSalesCustomer
+
+#### get()
+
+```ts
+get: (customerId: string) => Promise<{
+  email: string;
+  firstName: string | null;
+  id: string;
+  lastName: string | null;
+}>;
+```
+
+Get customer
+Get a customer the channel holds an access grant for (created through it, or who bought through it)
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `customerId` | `string` |
+
+##### Returns
+
+`Promise`\<\{
+  `email`: `string`;
+  `firstName`: `string` \| `null`;
+  `id`: `string`;
+  `lastName`: `string` \| `null`;
+\}\>
+
+##### Operation Id
+
+getSalesCustomer
+
+#### update()
+
+```ts
+update: (customerId: string, request: {
+  firstName?: string;
+  lastName?: string;
+  phone?: string;
+}) => Promise<{
+  email: string;
+  firstName: string | null;
+  id: string;
+  lastName: string | null;
+}>;
+```
+
+Update customer
+Update a customer the channel holds an access grant for. The update surface is deliberately small — email changes go through the org's staff.
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `customerId` | `string` |
+| `request` | \{ `firstName?`: `string`; `lastName?`: `string`; `phone?`: `string`; \} |
+| `request.firstName?` | `string` |
+| `request.lastName?` | `string` |
+| `request.phone?` | `string` |
+
+##### Returns
+
+`Promise`\<\{
+  `email`: `string`;
+  `firstName`: `string` \| `null`;
+  `id`: `string`;
+  `lastName`: `string` \| `null`;
+\}\>
+
+##### Operation Id
+
+updateSalesCustomer
+
+***
+
+### salesCustomerTokens
+
+```ts
+salesCustomerTokens: {
+  create: (request: {
+     proof: any;
+   }) => Promise<{
+     customer: {
+        email: string;
+        firstName: string | null;
+        id: string;
+        lastName: string | null;
+     };
+     customerToken: string;
+     expiresIn: number;
+  }>;
+  refresh: () => Promise<{
+     customer: {
+        email: string;
+        firstName: string | null;
+        id: string;
+        lastName: string | null;
+     };
+     customerToken: string;
+     expiresIn: number;
+  }>;
+};
+```
+
+Defined in: [client.ts:3202](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L3202)
+
+Sales Customer Tokens methods
+
+#### create()
+
+```ts
+create: (request: {
+  proof: any;
+}) => Promise<{
+  customer: {
+     email: string;
+     firstName: string | null;
+     id: string;
+     lastName: string | null;
+  };
+  customerToken: string;
+  expiresIn: number;
+}>;
+```
+
+Exchange identity proof for customer token
+Exchange an identity proof (magic-link code or partner assertion) for a short-lived customer token bound to this channel. Identity is exchanged, never asserted.
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `request` | \{ `proof`: `any`; \} |
+| `request.proof` | `any` |
+
+##### Returns
+
+`Promise`\<\{
+  `customer`: \{
+     `email`: `string`;
+     `firstName`: `string` \| `null`;
+     `id`: `string`;
+     `lastName`: `string` \| `null`;
+  \};
+  `customerToken`: `string`;
+  `expiresIn`: `number`;
+\}\>
+
+##### Operation Id
+
+createSalesCustomerToken
+
+#### refresh()
+
+```ts
+refresh: () => Promise<{
+  customer: {
+     email: string;
+     firstName: string | null;
+     id: string;
+     lastName: string | null;
+  };
+  customerToken: string;
+  expiresIn: number;
+}>;
+```
+
+Refresh a customer token
+Re-signs a still-valid customer token (presented via X-Customer-Token) for a fresh 30 minutes, carrying the original 24-hour absolute ceiling forward. Once the ceiling passes the customer must re-authenticate.
+
+##### Returns
+
+`Promise`\<\{
+  `customer`: \{
+     `email`: `string`;
+     `firstName`: `string` \| `null`;
+     `id`: `string`;
+     `lastName`: `string` \| `null`;
+  \};
+  `customerToken`: `string`;
+  `expiresIn`: `number`;
+\}\>
+
+##### Operation Id
+
+refreshSalesCustomerToken
+
+***
+
+### salesListings
+
+```ts
+salesListings: {
+  list: () => Promise<{
+     channel: {
+        id: string;
+        name: string;
+        slug: string;
+     };
+     listings: {
+        currency: string | null;
+        eventId: string;
+        id: string;
+        imageUrl: string | null;
+        name: string | null;
+        nextOccurrenceAt: string | null;
+        priceFrom: number | null;
+        saleEndsAt: string | null;
+        saleStartsAt: string | null;
+        shortDescription: string | null;
+        subtitle: string | null;
+        venueCity: string | null;
+        venueName: string | null;
+     }[];
+  }>;
+};
+```
+
+Defined in: [client.ts:3165](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L3165)
+
+Sales Listings methods
+
+#### list()
+
+```ts
+list: () => Promise<{
+  channel: {
+     id: string;
+     name: string;
+     slug: string;
+  };
+  listings: {
+     currency: string | null;
+     eventId: string;
+     id: string;
+     imageUrl: string | null;
+     name: string | null;
+     nextOccurrenceAt: string | null;
+     priceFrom: number | null;
+     saleEndsAt: string | null;
+     saleStartsAt: string | null;
+     shortDescription: string | null;
+     subtitle: string | null;
+     venueCity: string | null;
+     venueName: string | null;
+  }[];
+}>;
+```
+
+List active listings
+What is on sale through this channel right now. The channel is resolved from the key, never from a parameter.
+
+##### Returns
+
+`Promise`\<\{
+  `channel`: \{
+     `id`: `string`;
+     `name`: `string`;
+     `slug`: `string`;
+  \};
+  `listings`: \{
+     `currency`: `string` \| `null`;
+     `eventId`: `string`;
+     `id`: `string`;
+     `imageUrl`: `string` \| `null`;
+     `name`: `string` \| `null`;
+     `nextOccurrenceAt`: `string` \| `null`;
+     `priceFrom`: `number` \| `null`;
+     `saleEndsAt`: `string` \| `null`;
+     `saleStartsAt`: `string` \| `null`;
+     `shortDescription`: `string` \| `null`;
+     `subtitle`: `string` \| `null`;
+     `venueCity`: `string` \| `null`;
+     `venueName`: `string` \| `null`;
+  \}[];
+\}\>
+
+##### Operation Id
+
+listSalesListings
+
+***
+
+### salesMyOrders
+
+```ts
+salesMyOrders: {
+  list: () => Promise<{
+     createdAt: string;
+     currency: string;
+     expiresAt: string | null;
+     id: string;
+     items: {
+        description: string | null;
+        name: string;
+        quantity: number;
+        subtotal: string;
+        type: string;
+        unitPrice: string;
+     }[];
+     orderNumber: string;
+     paymentStatus: string;
+     status: string;
+     subtotal: string;
+     total: string;
+     totalFees: string;
+     totalTax: string;
+  }[]>;
+};
+```
+
+Defined in: [client.ts:3307](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L3307)
+
+Sales My Orders methods
+
+#### list()
+
+```ts
+list: () => Promise<{
+  createdAt: string;
+  currency: string;
+  expiresAt: string | null;
+  id: string;
+  items: {
+     description: string | null;
+     name: string;
+     quantity: number;
+     subtotal: string;
+     type: string;
+     unitPrice: string;
+  }[];
+  orderNumber: string;
+  paymentStatus: string;
+  status: string;
+  subtotal: string;
+  total: string;
+  totalFees: string;
+  totalTax: string;
+}[]>;
+```
+
+List my orders
+The verified customer's own orders. Requires a customer token — orders cannot be listed with key or possession credentials alone.
+
+##### Returns
+
+`Promise`\<\{
+  `createdAt`: `string`;
+  `currency`: `string`;
+  `expiresAt`: `string` \| `null`;
+  `id`: `string`;
+  `items`: \{
+     `description`: `string` \| `null`;
+     `name`: `string`;
+     `quantity`: `number`;
+     `subtotal`: `string`;
+     `type`: `string`;
+     `unitPrice`: `string`;
+  \}[];
+  `orderNumber`: `string`;
+  `paymentStatus`: `string`;
+  `status`: `string`;
+  `subtotal`: `string`;
+  `total`: `string`;
+  `totalFees`: `string`;
+  `totalTax`: `string`;
+\}[]\>
+
+##### Operation Id
+
+listMySalesOrders
+
+***
+
+### salesOrderPayments
+
+```ts
+salesOrderPayments: {
+  create: (orderId: string, request: {
+     paymentType?: "online_card" | "online_bank_transfer" | "online_wallet";
+     returnUrl?: string;
+   }) => Promise<{
+     amount: string;
+     connectedAccountId: string | null;
+     currency: string;
+     externalPaymentUrl: string | null;
+     id: string;
+     orderId: string;
+     paymentType: string;
+     providerClientSecret: string | null;
+     providerType: string | null;
+     publishableKey: string | null;
+     status: string;
+  }>;
+};
+```
+
+Defined in: [client.ts:3343](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L3343)
+
+Sales Order Payments methods
+
+#### create()
+
+```ts
+create: (orderId: string, request: {
+  paymentType?: "online_card" | "online_bank_transfer" | "online_wallet";
+  returnUrl?: string;
+}) => Promise<{
+  amount: string;
+  connectedAccountId: string | null;
+  currency: string;
+  externalPaymentUrl: string | null;
+  id: string;
+  orderId: string;
+  paymentType: string;
+  providerClientSecret: string | null;
+  providerType: string | null;
+  publishableKey: string | null;
+  status: string;
+}>;
+```
+
+Create order payment
+Initiate payment for the order's outstanding balance through the channel's payment provider
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `orderId` | `string` |
+| `request` | \{ `paymentType?`: `"online_card"` \| `"online_bank_transfer"` \| `"online_wallet"`; `returnUrl?`: `string`; \} |
+| `request.paymentType?` | `"online_card"` \| `"online_bank_transfer"` \| `"online_wallet"` |
+| `request.returnUrl?` | `string` |
+
+##### Returns
+
+`Promise`\<\{
+  `amount`: `string`;
+  `connectedAccountId`: `string` \| `null`;
+  `currency`: `string`;
+  `externalPaymentUrl`: `string` \| `null`;
+  `id`: `string`;
+  `orderId`: `string`;
+  `paymentType`: `string`;
+  `providerClientSecret`: `string` \| `null`;
+  `providerType`: `string` \| `null`;
+  `publishableKey`: `string` \| `null`;
+  `status`: `string`;
+\}\>
+
+##### Operation Id
+
+createSalesOrderPayment
+
+***
+
+### salesOrders
+
+```ts
+salesOrders: {
+  get: (orderId: string) => Promise<{
+     createdAt: string;
+     currency: string;
+     expiresAt: string | null;
+     id: string;
+     items: {
+        description: string | null;
+        name: string;
+        quantity: number;
+        subtotal: string;
+        type: string;
+        unitPrice: string;
+     }[];
+     orderNumber: string;
+     paymentStatus: string;
+     status: string;
+     subtotal: string;
+     total: string;
+     totalFees: string;
+     totalTax: string;
+  }>;
+};
+```
+
+Defined in: [client.ts:3325](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L3325)
+
+Sales Orders methods
+
+#### get()
+
+```ts
+get: (orderId: string) => Promise<{
+  createdAt: string;
+  currency: string;
+  expiresAt: string | null;
+  id: string;
+  items: {
+     description: string | null;
+     name: string;
+     quantity: number;
+     subtotal: string;
+     type: string;
+     unitPrice: string;
+  }[];
+  orderNumber: string;
+  paymentStatus: string;
+  status: string;
+  subtotal: string;
+  total: string;
+  totalFees: string;
+  totalTax: string;
+}>;
+```
+
+Get order
+Get an order on this channel. Access requires a secret key (own channel), an X-Order-Access-Token header (guest possession) or a customer token (own orders).
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `orderId` | `string` |
+
+##### Returns
+
+`Promise`\<\{
+  `createdAt`: `string`;
+  `currency`: `string`;
+  `expiresAt`: `string` \| `null`;
+  `id`: `string`;
+  `items`: \{
+     `description`: `string` \| `null`;
+     `name`: `string`;
+     `quantity`: `number`;
+     `subtotal`: `string`;
+     `type`: `string`;
+     `unitPrice`: `string`;
+  \}[];
+  `orderNumber`: `string`;
+  `paymentStatus`: `string`;
+  `status`: `string`;
+  `subtotal`: `string`;
+  `total`: `string`;
+  `totalFees`: `string`;
+  `totalTax`: `string`;
+\}\>
+
+##### Operation Id
+
+getSalesOrder
+
+***
+
+### salesPresaleCodes
+
+```ts
+salesPresaleCodes: {
+  redeem: (request: {
+     code: string;
+   }) => Promise<{
+     alreadyHeld: boolean;
+     benefit: string;
+  }>;
+};
+```
+
+Defined in: [client.ts:3427](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L3427)
+
+Sales Presale Codes methods
+
+#### redeem()
+
+```ts
+redeem: (request: {
+  code: string;
+}) => Promise<{
+  alreadyHeld: boolean;
+  benefit: string;
+}>;
+```
+
+Redeem presale code
+A verified customer redeems a presale code for its benefit; gated pricing unlocks immediately. Requires a customer token.
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `request` | \{ `code`: `string`; \} |
+| `request.code` | `string` |
+
+##### Returns
+
+`Promise`\<\{
+  `alreadyHeld`: `boolean`;
+  `benefit`: `string`;
+\}\>
+
+##### Operation Id
+
+redeemSalesPresaleCode
+
+***
+
+### salesRefundRequests
+
+```ts
+salesRefundRequests: {
+  create: (orderId: string, request: {
+     reason?: string;
+     type: "refund" | "exchange";
+   }) => Promise<{
+     createdAt: string;
+     id: string;
+     orderId: string;
+     reason: string | null;
+     status: string;
+     type: string;
+  }>;
+};
+```
+
+Defined in: [client.ts:3362](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L3362)
+
+Sales Refund Requests methods
+
+#### create()
+
+```ts
+create: (orderId: string, request: {
+  reason?: string;
+  type: "refund" | "exchange";
+}) => Promise<{
+  createdAt: string;
+  id: string;
+  orderId: string;
+  reason: string | null;
+  status: string;
+  type: string;
+}>;
+```
+
+Request refund or exchange
+File a refund or exchange request for the order within the resolved refund policy. Requester identity is derived from the credential, never from the body.
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `orderId` | `string` |
+| `request` | \{ `reason?`: `string`; `type`: `"refund"` \| `"exchange"`; \} |
+| `request.reason?` | `string` |
+| `request.type` | `"refund"` \| `"exchange"` |
+
+##### Returns
+
+`Promise`\<\{
+  `createdAt`: `string`;
+  `id`: `string`;
+  `orderId`: `string`;
+  `reason`: `string` \| `null`;
+  `status`: `string`;
+  `type`: `string`;
+\}\>
+
+##### Operation Id
+
+createSalesOrderRefundRequest
+
+***
+
+### themes
+
+```ts
+themes: {
+  create: (request: {
+     brand?: {
+        displayName?: string;
+        faviconUrl?: string;
+        logoDarkUrl?: string;
+        logoUrl?: string;
+     };
+     colors?: {
+        accent?: string;
+        accentForeground?: string;
+        background?: string;
+        border?: string;
+        destructive?: string;
+        destructiveForeground?: string;
+        foreground?: string;
+        input?: string;
+        muted?: string;
+        mutedForeground?: string;
+        primary?: string;
+        primaryForeground?: string;
+        ring?: string;
+        secondary?: string;
+        secondaryForeground?: string;
+        success?: string;
+        successForeground?: string;
+        warning?: string;
+        warningForeground?: string;
+     };
+     description?: string;
+     design?: {
+        cinemaGradient?: {
+           position: "bottom" | "center";
+           strength: 20 | 50 | 70;
+        };
+        heroLayout?: {
+           size: "small" | "medium" | "large";
+           type: "hero" | "cinema";
+        };
+      } & {
+      [key: string]: unknown;
+     };
+     extendsThemeId?: string;
+     isActive?: boolean;
+     isBaseTheme?: boolean;
+     name: string;
+     shape?: {
+        radiusFull?: string;
+        radiusLg?: string;
+        radiusMd?: string;
+        radiusNone?: string;
+        radiusSm?: string;
+     };
+     typography?: {
+        baseSize?: string;
+        fontFamily?: string;
+        fontFamilyMono?: string;
+        scaleRatio?: number;
+     };
+   }) => Promise<{
+     brand: {
+        displayName?: string;
+        faviconUrl?: string;
+        logoDarkUrl?: string;
+        logoUrl?: string;
+     };
+     colors: {
+        accent?: string;
+        accentForeground?: string;
+        background?: string;
+        border?: string;
+        destructive?: string;
+        destructiveForeground?: string;
+        foreground?: string;
+        input?: string;
+        muted?: string;
+        mutedForeground?: string;
+        primary?: string;
+        primaryForeground?: string;
+        ring?: string;
+        secondary?: string;
+        secondaryForeground?: string;
+        success?: string;
+        successForeground?: string;
+        warning?: string;
+        warningForeground?: string;
+     };
+     createdAt: string;
+     description: string | null;
+     design:   | {
+        cinemaGradient?: {
+           position: "bottom" | "center";
+           strength: 20 | 50 | 70;
+        };
+        heroLayout?: {
+           size: "small" | "medium" | "large";
+           type: "hero" | "cinema";
+        };
+      }
+        | null;
+     extendsThemeId: string | null;
+     id: string;
+     isActive: boolean;
+     isBaseTheme: boolean;
+     name: string;
+     organisationId: string;
+     shape: {
+        radiusFull?: string;
+        radiusLg?: string;
+        radiusMd?: string;
+        radiusNone?: string;
+        radiusSm?: string;
+     };
+     typography: {
+        baseSize?: string;
+        fontFamily?: string;
+        fontFamilyMono?: string;
+        scaleRatio?: number;
+     };
+     updatedAt: string;
+  }>;
+  delete: (id: string) => Promise<boolean>;
+  get: (id: string) => Promise<{
+     brand: {
+        displayName?: string;
+        faviconUrl?: string;
+        logoDarkUrl?: string;
+        logoUrl?: string;
+     };
+     colors: {
+        accent?: string;
+        accentForeground?: string;
+        background?: string;
+        border?: string;
+        destructive?: string;
+        destructiveForeground?: string;
+        foreground?: string;
+        input?: string;
+        muted?: string;
+        mutedForeground?: string;
+        primary?: string;
+        primaryForeground?: string;
+        ring?: string;
+        secondary?: string;
+        secondaryForeground?: string;
+        success?: string;
+        successForeground?: string;
+        warning?: string;
+        warningForeground?: string;
+     };
+     createdAt: string;
+     description: string | null;
+     design:   | {
+        cinemaGradient?: {
+           position: "bottom" | "center";
+           strength: 20 | 50 | 70;
+        };
+        heroLayout?: {
+           size: "small" | "medium" | "large";
+           type: "hero" | "cinema";
+        };
+      }
+        | null;
+     extendsThemeId: string | null;
+     id: string;
+     isActive: boolean;
+     isBaseTheme: boolean;
+     name: string;
+     organisationId: string;
+     shape: {
+        radiusFull?: string;
+        radiusLg?: string;
+        radiusMd?: string;
+        radiusNone?: string;
+        radiusSm?: string;
+     };
+     typography: {
+        baseSize?: string;
+        fontFamily?: string;
+        fontFamilyMono?: string;
+        scaleRatio?: number;
+     };
+     updatedAt: string;
+  }>;
+  list: () => Promise<{
+     brand: {
+        displayName?: string;
+        faviconUrl?: string;
+        logoDarkUrl?: string;
+        logoUrl?: string;
+     };
+     colors: {
+        accent?: string;
+        accentForeground?: string;
+        background?: string;
+        border?: string;
+        destructive?: string;
+        destructiveForeground?: string;
+        foreground?: string;
+        input?: string;
+        muted?: string;
+        mutedForeground?: string;
+        primary?: string;
+        primaryForeground?: string;
+        ring?: string;
+        secondary?: string;
+        secondaryForeground?: string;
+        success?: string;
+        successForeground?: string;
+        warning?: string;
+        warningForeground?: string;
+     };
+     createdAt: string;
+     description: string | null;
+     design:   | {
+        cinemaGradient?: {
+           position: "bottom" | "center";
+           strength: 20 | 50 | 70;
+        };
+        heroLayout?: {
+           size: "small" | "medium" | "large";
+           type: "hero" | "cinema";
+        };
+      }
+        | null;
+     extendsThemeId: string | null;
+     id: string;
+     isActive: boolean;
+     isBaseTheme: boolean;
+     name: string;
+     organisationId: string;
+     shape: {
+        radiusFull?: string;
+        radiusLg?: string;
+        radiusMd?: string;
+        radiusNone?: string;
+        radiusSm?: string;
+     };
+     typography: {
+        baseSize?: string;
+        fontFamily?: string;
+        fontFamilyMono?: string;
+        scaleRatio?: number;
+     };
+     updatedAt: string;
+  }[]>;
+  resolved: (id: string) => Promise<{
+     brand: {
+        displayName?: string;
+        faviconUrl?: string;
+        logoDarkUrl?: string;
+        logoUrl?: string;
+     };
+     colors: {
+        accent?: string;
+        accentForeground?: string;
+        background?: string;
+        border?: string;
+        destructive?: string;
+        destructiveForeground?: string;
+        foreground?: string;
+        input?: string;
+        muted?: string;
+        mutedForeground?: string;
+        primary?: string;
+        primaryForeground?: string;
+        ring?: string;
+        secondary?: string;
+        secondaryForeground?: string;
+        success?: string;
+        successForeground?: string;
+        warning?: string;
+        warningForeground?: string;
+     };
+     description: string | null;
+     design:   | {
+        cinemaGradient?: {
+           position: "bottom" | "center";
+           strength: 20 | 50 | 70;
+        };
+        heroLayout?: {
+           size: "small" | "medium" | "large";
+           type: "hero" | "cinema";
+        };
+      }
+        | null;
+     extendsThemeId: string | null;
+     id: string;
+     isActive: boolean;
+     isBaseTheme: boolean;
+     name: string;
+     organisationId: string;
+     shape: {
+        radiusFull?: string;
+        radiusLg?: string;
+        radiusMd?: string;
+        radiusNone?: string;
+        radiusSm?: string;
+     };
+     typography: {
+        baseSize?: string;
+        fontFamily?: string;
+        fontFamilyMono?: string;
+        scaleRatio?: number;
+     };
+  }>;
+  update: (id: string, request: {
+     brand?: {
+        displayName?: string;
+        faviconUrl?: string;
+        logoDarkUrl?: string;
+        logoUrl?: string;
+     };
+     colors?: {
+        accent?: string;
+        accentForeground?: string;
+        background?: string;
+        border?: string;
+        destructive?: string;
+        destructiveForeground?: string;
+        foreground?: string;
+        input?: string;
+        muted?: string;
+        mutedForeground?: string;
+        primary?: string;
+        primaryForeground?: string;
+        ring?: string;
+        secondary?: string;
+        secondaryForeground?: string;
+        success?: string;
+        successForeground?: string;
+        warning?: string;
+        warningForeground?: string;
+     };
+     description?: any;
+     design?: any;
+     extendsThemeId?: any;
+     isActive?: boolean;
+     isBaseTheme?: boolean;
+     name?: string;
+     shape?: {
+        radiusFull?: string;
+        radiusLg?: string;
+        radiusMd?: string;
+        radiusNone?: string;
+        radiusSm?: string;
+     };
+     typography?: {
+        baseSize?: string;
+        fontFamily?: string;
+        fontFamilyMono?: string;
+        scaleRatio?: number;
+     };
+   }) => Promise<{
+     brand: {
+        displayName?: string;
+        faviconUrl?: string;
+        logoDarkUrl?: string;
+        logoUrl?: string;
+     };
+     colors: {
+        accent?: string;
+        accentForeground?: string;
+        background?: string;
+        border?: string;
+        destructive?: string;
+        destructiveForeground?: string;
+        foreground?: string;
+        input?: string;
+        muted?: string;
+        mutedForeground?: string;
+        primary?: string;
+        primaryForeground?: string;
+        ring?: string;
+        secondary?: string;
+        secondaryForeground?: string;
+        success?: string;
+        successForeground?: string;
+        warning?: string;
+        warningForeground?: string;
+     };
+     createdAt: string;
+     description: string | null;
+     design:   | {
+        cinemaGradient?: {
+           position: "bottom" | "center";
+           strength: 20 | 50 | 70;
+        };
+        heroLayout?: {
+           size: "small" | "medium" | "large";
+           type: "hero" | "cinema";
+        };
+      }
+        | null;
+     extendsThemeId: string | null;
+     id: string;
+     isActive: boolean;
+     isBaseTheme: boolean;
+     name: string;
+     organisationId: string;
+     shape: {
+        radiusFull?: string;
+        radiusLg?: string;
+        radiusMd?: string;
+        radiusNone?: string;
+        radiusSm?: string;
+     };
+     typography: {
+        baseSize?: string;
+        fontFamily?: string;
+        fontFamilyMono?: string;
+        scaleRatio?: number;
+     };
+     updatedAt: string;
+  }>;
+};
+```
+
+Defined in: [client.ts:3495](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L3495)
+
+Themes methods
+
+#### create()
+
+```ts
+create: (request: {
+  brand?: {
+     displayName?: string;
+     faviconUrl?: string;
+     logoDarkUrl?: string;
+     logoUrl?: string;
+  };
+  colors?: {
+     accent?: string;
+     accentForeground?: string;
+     background?: string;
+     border?: string;
+     destructive?: string;
+     destructiveForeground?: string;
+     foreground?: string;
+     input?: string;
+     muted?: string;
+     mutedForeground?: string;
+     primary?: string;
+     primaryForeground?: string;
+     ring?: string;
+     secondary?: string;
+     secondaryForeground?: string;
+     success?: string;
+     successForeground?: string;
+     warning?: string;
+     warningForeground?: string;
+  };
+  description?: string;
+  design?: {
+     cinemaGradient?: {
+        position: "bottom" | "center";
+        strength: 20 | 50 | 70;
+     };
+     heroLayout?: {
+        size: "small" | "medium" | "large";
+        type: "hero" | "cinema";
+     };
+   } & {
+   [key: string]: unknown;
+  };
+  extendsThemeId?: string;
+  isActive?: boolean;
+  isBaseTheme?: boolean;
+  name: string;
+  shape?: {
+     radiusFull?: string;
+     radiusLg?: string;
+     radiusMd?: string;
+     radiusNone?: string;
+     radiusSm?: string;
+  };
+  typography?: {
+     baseSize?: string;
+     fontFamily?: string;
+     fontFamilyMono?: string;
+     scaleRatio?: number;
+  };
+}) => Promise<{
+  brand: {
+     displayName?: string;
+     faviconUrl?: string;
+     logoDarkUrl?: string;
+     logoUrl?: string;
+  };
+  colors: {
+     accent?: string;
+     accentForeground?: string;
+     background?: string;
+     border?: string;
+     destructive?: string;
+     destructiveForeground?: string;
+     foreground?: string;
+     input?: string;
+     muted?: string;
+     mutedForeground?: string;
+     primary?: string;
+     primaryForeground?: string;
+     ring?: string;
+     secondary?: string;
+     secondaryForeground?: string;
+     success?: string;
+     successForeground?: string;
+     warning?: string;
+     warningForeground?: string;
+  };
+  createdAt: string;
+  description: string | null;
+  design:   | {
+     cinemaGradient?: {
+        position: "bottom" | "center";
+        strength: 20 | 50 | 70;
+     };
+     heroLayout?: {
+        size: "small" | "medium" | "large";
+        type: "hero" | "cinema";
+     };
+   }
+     | null;
+  extendsThemeId: string | null;
+  id: string;
+  isActive: boolean;
+  isBaseTheme: boolean;
+  name: string;
+  organisationId: string;
+  shape: {
+     radiusFull?: string;
+     radiusLg?: string;
+     radiusMd?: string;
+     radiusNone?: string;
+     radiusSm?: string;
+  };
+  typography: {
+     baseSize?: string;
+     fontFamily?: string;
+     fontFamilyMono?: string;
+     scaleRatio?: number;
+  };
+  updatedAt: string;
+}>;
+```
+
+Create theme
+Create a new branding/design theme
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `request` | \{ `brand?`: \{ `displayName?`: `string`; `faviconUrl?`: `string`; `logoDarkUrl?`: `string`; `logoUrl?`: `string`; \}; `colors?`: \{ `accent?`: `string`; `accentForeground?`: `string`; `background?`: `string`; `border?`: `string`; `destructive?`: `string`; `destructiveForeground?`: `string`; `foreground?`: `string`; `input?`: `string`; `muted?`: `string`; `mutedForeground?`: `string`; `primary?`: `string`; `primaryForeground?`: `string`; `ring?`: `string`; `secondary?`: `string`; `secondaryForeground?`: `string`; `success?`: `string`; `successForeground?`: `string`; `warning?`: `string`; `warningForeground?`: `string`; \}; `description?`: `string`; `design?`: \{ `cinemaGradient?`: \{ `position`: `"bottom"` \| `"center"`; `strength`: `20` \| `50` \| `70`; \}; `heroLayout?`: \{ `size`: `"small"` \| `"medium"` \| `"large"`; `type`: `"hero"` \| `"cinema"`; \}; \} & \{ \[`key`: `string`\]: `unknown`; \}; `extendsThemeId?`: `string`; `isActive?`: `boolean`; `isBaseTheme?`: `boolean`; `name`: `string`; `shape?`: \{ `radiusFull?`: `string`; `radiusLg?`: `string`; `radiusMd?`: `string`; `radiusNone?`: `string`; `radiusSm?`: `string`; \}; `typography?`: \{ `baseSize?`: `string`; `fontFamily?`: `string`; `fontFamilyMono?`: `string`; `scaleRatio?`: `number`; \}; \} |
+| `request.brand?` | \{ `displayName?`: `string`; `faviconUrl?`: `string`; `logoDarkUrl?`: `string`; `logoUrl?`: `string`; \} |
+| `request.brand.displayName?` | `string` |
+| `request.brand.faviconUrl?` | `string` |
+| `request.brand.logoDarkUrl?` | `string` |
+| `request.brand.logoUrl?` | `string` |
+| `request.colors?` | \{ `accent?`: `string`; `accentForeground?`: `string`; `background?`: `string`; `border?`: `string`; `destructive?`: `string`; `destructiveForeground?`: `string`; `foreground?`: `string`; `input?`: `string`; `muted?`: `string`; `mutedForeground?`: `string`; `primary?`: `string`; `primaryForeground?`: `string`; `ring?`: `string`; `secondary?`: `string`; `secondaryForeground?`: `string`; `success?`: `string`; `successForeground?`: `string`; `warning?`: `string`; `warningForeground?`: `string`; \} |
+| `request.colors.accent?` | `string` |
+| `request.colors.accentForeground?` | `string` |
+| `request.colors.background?` | `string` |
+| `request.colors.border?` | `string` |
+| `request.colors.destructive?` | `string` |
+| `request.colors.destructiveForeground?` | `string` |
+| `request.colors.foreground?` | `string` |
+| `request.colors.input?` | `string` |
+| `request.colors.muted?` | `string` |
+| `request.colors.mutedForeground?` | `string` |
+| `request.colors.primary?` | `string` |
+| `request.colors.primaryForeground?` | `string` |
+| `request.colors.ring?` | `string` |
+| `request.colors.secondary?` | `string` |
+| `request.colors.secondaryForeground?` | `string` |
+| `request.colors.success?` | `string` |
+| `request.colors.successForeground?` | `string` |
+| `request.colors.warning?` | `string` |
+| `request.colors.warningForeground?` | `string` |
+| `request.description?` | `string` |
+| `request.design?` | \{ `cinemaGradient?`: \{ `position`: `"bottom"` \| `"center"`; `strength`: `20` \| `50` \| `70`; \}; `heroLayout?`: \{ `size`: `"small"` \| `"medium"` \| `"large"`; `type`: `"hero"` \| `"cinema"`; \}; \} & \{ \[`key`: `string`\]: `unknown`; \} |
+| `request.extendsThemeId?` | `string` |
+| `request.isActive?` | `boolean` |
+| `request.isBaseTheme?` | `boolean` |
+| `request.name` | `string` |
+| `request.shape?` | \{ `radiusFull?`: `string`; `radiusLg?`: `string`; `radiusMd?`: `string`; `radiusNone?`: `string`; `radiusSm?`: `string`; \} |
+| `request.shape.radiusFull?` | `string` |
+| `request.shape.radiusLg?` | `string` |
+| `request.shape.radiusMd?` | `string` |
+| `request.shape.radiusNone?` | `string` |
+| `request.shape.radiusSm?` | `string` |
+| `request.typography?` | \{ `baseSize?`: `string`; `fontFamily?`: `string`; `fontFamilyMono?`: `string`; `scaleRatio?`: `number`; \} |
+| `request.typography.baseSize?` | `string` |
+| `request.typography.fontFamily?` | `string` |
+| `request.typography.fontFamilyMono?` | `string` |
+| `request.typography.scaleRatio?` | `number` |
+
+##### Returns
+
+`Promise`\<\{
+  `brand`: \{
+     `displayName?`: `string`;
+     `faviconUrl?`: `string`;
+     `logoDarkUrl?`: `string`;
+     `logoUrl?`: `string`;
+  \};
+  `colors`: \{
+     `accent?`: `string`;
+     `accentForeground?`: `string`;
+     `background?`: `string`;
+     `border?`: `string`;
+     `destructive?`: `string`;
+     `destructiveForeground?`: `string`;
+     `foreground?`: `string`;
+     `input?`: `string`;
+     `muted?`: `string`;
+     `mutedForeground?`: `string`;
+     `primary?`: `string`;
+     `primaryForeground?`: `string`;
+     `ring?`: `string`;
+     `secondary?`: `string`;
+     `secondaryForeground?`: `string`;
+     `success?`: `string`;
+     `successForeground?`: `string`;
+     `warning?`: `string`;
+     `warningForeground?`: `string`;
+  \};
+  `createdAt`: `string`;
+  `description`: `string` \| `null`;
+  `design`:   \| \{
+     `cinemaGradient?`: \{
+        `position`: `"bottom"` \| `"center"`;
+        `strength`: `20` \| `50` \| `70`;
+     \};
+     `heroLayout?`: \{
+        `size`: `"small"` \| `"medium"` \| `"large"`;
+        `type`: `"hero"` \| `"cinema"`;
+     \};
+   \}
+     \| `null`;
+  `extendsThemeId`: `string` \| `null`;
+  `id`: `string`;
+  `isActive`: `boolean`;
+  `isBaseTheme`: `boolean`;
+  `name`: `string`;
+  `organisationId`: `string`;
+  `shape`: \{
+     `radiusFull?`: `string`;
+     `radiusLg?`: `string`;
+     `radiusMd?`: `string`;
+     `radiusNone?`: `string`;
+     `radiusSm?`: `string`;
+  \};
+  `typography`: \{
+     `baseSize?`: `string`;
+     `fontFamily?`: `string`;
+     `fontFamilyMono?`: `string`;
+     `scaleRatio?`: `number`;
+  \};
+  `updatedAt`: `string`;
+\}\>
+
+##### Operation Id
+
+createTheme
+
+#### delete()
+
+```ts
+delete: (id: string) => Promise<boolean>;
+```
+
+Delete theme
+Soft-delete a theme
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `id` | `string` |
+
+##### Returns
+
+`Promise`\<`boolean`\>
+
+##### Operation Id
+
+deleteTheme
+
+#### get()
+
+```ts
+get: (id: string) => Promise<{
+  brand: {
+     displayName?: string;
+     faviconUrl?: string;
+     logoDarkUrl?: string;
+     logoUrl?: string;
+  };
+  colors: {
+     accent?: string;
+     accentForeground?: string;
+     background?: string;
+     border?: string;
+     destructive?: string;
+     destructiveForeground?: string;
+     foreground?: string;
+     input?: string;
+     muted?: string;
+     mutedForeground?: string;
+     primary?: string;
+     primaryForeground?: string;
+     ring?: string;
+     secondary?: string;
+     secondaryForeground?: string;
+     success?: string;
+     successForeground?: string;
+     warning?: string;
+     warningForeground?: string;
+  };
+  createdAt: string;
+  description: string | null;
+  design:   | {
+     cinemaGradient?: {
+        position: "bottom" | "center";
+        strength: 20 | 50 | 70;
+     };
+     heroLayout?: {
+        size: "small" | "medium" | "large";
+        type: "hero" | "cinema";
+     };
+   }
+     | null;
+  extendsThemeId: string | null;
+  id: string;
+  isActive: boolean;
+  isBaseTheme: boolean;
+  name: string;
+  organisationId: string;
+  shape: {
+     radiusFull?: string;
+     radiusLg?: string;
+     radiusMd?: string;
+     radiusNone?: string;
+     radiusSm?: string;
+  };
+  typography: {
+     baseSize?: string;
+     fontFamily?: string;
+     fontFamilyMono?: string;
+     scaleRatio?: number;
+  };
+  updatedAt: string;
+}>;
+```
+
+Get theme
+Get a specific theme by ID
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `id` | `string` |
+
+##### Returns
+
+`Promise`\<\{
+  `brand`: \{
+     `displayName?`: `string`;
+     `faviconUrl?`: `string`;
+     `logoDarkUrl?`: `string`;
+     `logoUrl?`: `string`;
+  \};
+  `colors`: \{
+     `accent?`: `string`;
+     `accentForeground?`: `string`;
+     `background?`: `string`;
+     `border?`: `string`;
+     `destructive?`: `string`;
+     `destructiveForeground?`: `string`;
+     `foreground?`: `string`;
+     `input?`: `string`;
+     `muted?`: `string`;
+     `mutedForeground?`: `string`;
+     `primary?`: `string`;
+     `primaryForeground?`: `string`;
+     `ring?`: `string`;
+     `secondary?`: `string`;
+     `secondaryForeground?`: `string`;
+     `success?`: `string`;
+     `successForeground?`: `string`;
+     `warning?`: `string`;
+     `warningForeground?`: `string`;
+  \};
+  `createdAt`: `string`;
+  `description`: `string` \| `null`;
+  `design`:   \| \{
+     `cinemaGradient?`: \{
+        `position`: `"bottom"` \| `"center"`;
+        `strength`: `20` \| `50` \| `70`;
+     \};
+     `heroLayout?`: \{
+        `size`: `"small"` \| `"medium"` \| `"large"`;
+        `type`: `"hero"` \| `"cinema"`;
+     \};
+   \}
+     \| `null`;
+  `extendsThemeId`: `string` \| `null`;
+  `id`: `string`;
+  `isActive`: `boolean`;
+  `isBaseTheme`: `boolean`;
+  `name`: `string`;
+  `organisationId`: `string`;
+  `shape`: \{
+     `radiusFull?`: `string`;
+     `radiusLg?`: `string`;
+     `radiusMd?`: `string`;
+     `radiusNone?`: `string`;
+     `radiusSm?`: `string`;
+  \};
+  `typography`: \{
+     `baseSize?`: `string`;
+     `fontFamily?`: `string`;
+     `fontFamilyMono?`: `string`;
+     `scaleRatio?`: `number`;
+  \};
+  `updatedAt`: `string`;
+\}\>
+
+##### Operation Id
+
+getTheme
+
+#### list()
+
+```ts
+list: () => Promise<{
+  brand: {
+     displayName?: string;
+     faviconUrl?: string;
+     logoDarkUrl?: string;
+     logoUrl?: string;
+  };
+  colors: {
+     accent?: string;
+     accentForeground?: string;
+     background?: string;
+     border?: string;
+     destructive?: string;
+     destructiveForeground?: string;
+     foreground?: string;
+     input?: string;
+     muted?: string;
+     mutedForeground?: string;
+     primary?: string;
+     primaryForeground?: string;
+     ring?: string;
+     secondary?: string;
+     secondaryForeground?: string;
+     success?: string;
+     successForeground?: string;
+     warning?: string;
+     warningForeground?: string;
+  };
+  createdAt: string;
+  description: string | null;
+  design:   | {
+     cinemaGradient?: {
+        position: "bottom" | "center";
+        strength: 20 | 50 | 70;
+     };
+     heroLayout?: {
+        size: "small" | "medium" | "large";
+        type: "hero" | "cinema";
+     };
+   }
+     | null;
+  extendsThemeId: string | null;
+  id: string;
+  isActive: boolean;
+  isBaseTheme: boolean;
+  name: string;
+  organisationId: string;
+  shape: {
+     radiusFull?: string;
+     radiusLg?: string;
+     radiusMd?: string;
+     radiusNone?: string;
+     radiusSm?: string;
+  };
+  typography: {
+     baseSize?: string;
+     fontFamily?: string;
+     fontFamilyMono?: string;
+     scaleRatio?: number;
+  };
+  updatedAt: string;
+}[]>;
+```
+
+List themes
+List all branding/design themes for the organisation
+
+##### Returns
+
+`Promise`\<\{
+  `brand`: \{
+     `displayName?`: `string`;
+     `faviconUrl?`: `string`;
+     `logoDarkUrl?`: `string`;
+     `logoUrl?`: `string`;
+  \};
+  `colors`: \{
+     `accent?`: `string`;
+     `accentForeground?`: `string`;
+     `background?`: `string`;
+     `border?`: `string`;
+     `destructive?`: `string`;
+     `destructiveForeground?`: `string`;
+     `foreground?`: `string`;
+     `input?`: `string`;
+     `muted?`: `string`;
+     `mutedForeground?`: `string`;
+     `primary?`: `string`;
+     `primaryForeground?`: `string`;
+     `ring?`: `string`;
+     `secondary?`: `string`;
+     `secondaryForeground?`: `string`;
+     `success?`: `string`;
+     `successForeground?`: `string`;
+     `warning?`: `string`;
+     `warningForeground?`: `string`;
+  \};
+  `createdAt`: `string`;
+  `description`: `string` \| `null`;
+  `design`:   \| \{
+     `cinemaGradient?`: \{
+        `position`: `"bottom"` \| `"center"`;
+        `strength`: `20` \| `50` \| `70`;
+     \};
+     `heroLayout?`: \{
+        `size`: `"small"` \| `"medium"` \| `"large"`;
+        `type`: `"hero"` \| `"cinema"`;
+     \};
+   \}
+     \| `null`;
+  `extendsThemeId`: `string` \| `null`;
+  `id`: `string`;
+  `isActive`: `boolean`;
+  `isBaseTheme`: `boolean`;
+  `name`: `string`;
+  `organisationId`: `string`;
+  `shape`: \{
+     `radiusFull?`: `string`;
+     `radiusLg?`: `string`;
+     `radiusMd?`: `string`;
+     `radiusNone?`: `string`;
+     `radiusSm?`: `string`;
+  \};
+  `typography`: \{
+     `baseSize?`: `string`;
+     `fontFamily?`: `string`;
+     `fontFamilyMono?`: `string`;
+     `scaleRatio?`: `number`;
+  \};
+  `updatedAt`: `string`;
+\}[]\>
+
+##### Operation Id
+
+listThemes
+
+#### resolved()
+
+```ts
+resolved: (id: string) => Promise<{
+  brand: {
+     displayName?: string;
+     faviconUrl?: string;
+     logoDarkUrl?: string;
+     logoUrl?: string;
+  };
+  colors: {
+     accent?: string;
+     accentForeground?: string;
+     background?: string;
+     border?: string;
+     destructive?: string;
+     destructiveForeground?: string;
+     foreground?: string;
+     input?: string;
+     muted?: string;
+     mutedForeground?: string;
+     primary?: string;
+     primaryForeground?: string;
+     ring?: string;
+     secondary?: string;
+     secondaryForeground?: string;
+     success?: string;
+     successForeground?: string;
+     warning?: string;
+     warningForeground?: string;
+  };
+  description: string | null;
+  design:   | {
+     cinemaGradient?: {
+        position: "bottom" | "center";
+        strength: 20 | 50 | 70;
+     };
+     heroLayout?: {
+        size: "small" | "medium" | "large";
+        type: "hero" | "cinema";
+     };
+   }
+     | null;
+  extendsThemeId: string | null;
+  id: string;
+  isActive: boolean;
+  isBaseTheme: boolean;
+  name: string;
+  organisationId: string;
+  shape: {
+     radiusFull?: string;
+     radiusLg?: string;
+     radiusMd?: string;
+     radiusNone?: string;
+     radiusSm?: string;
+  };
+  typography: {
+     baseSize?: string;
+     fontFamily?: string;
+     fontFamilyMono?: string;
+     scaleRatio?: number;
+  };
+}>;
+```
+
+Get resolved theme
+Get a theme with its inheritance chain deep-merged (parent tokens overridden by the child)
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `id` | `string` |
+
+##### Returns
+
+`Promise`\<\{
+  `brand`: \{
+     `displayName?`: `string`;
+     `faviconUrl?`: `string`;
+     `logoDarkUrl?`: `string`;
+     `logoUrl?`: `string`;
+  \};
+  `colors`: \{
+     `accent?`: `string`;
+     `accentForeground?`: `string`;
+     `background?`: `string`;
+     `border?`: `string`;
+     `destructive?`: `string`;
+     `destructiveForeground?`: `string`;
+     `foreground?`: `string`;
+     `input?`: `string`;
+     `muted?`: `string`;
+     `mutedForeground?`: `string`;
+     `primary?`: `string`;
+     `primaryForeground?`: `string`;
+     `ring?`: `string`;
+     `secondary?`: `string`;
+     `secondaryForeground?`: `string`;
+     `success?`: `string`;
+     `successForeground?`: `string`;
+     `warning?`: `string`;
+     `warningForeground?`: `string`;
+  \};
+  `description`: `string` \| `null`;
+  `design`:   \| \{
+     `cinemaGradient?`: \{
+        `position`: `"bottom"` \| `"center"`;
+        `strength`: `20` \| `50` \| `70`;
+     \};
+     `heroLayout?`: \{
+        `size`: `"small"` \| `"medium"` \| `"large"`;
+        `type`: `"hero"` \| `"cinema"`;
+     \};
+   \}
+     \| `null`;
+  `extendsThemeId`: `string` \| `null`;
+  `id`: `string`;
+  `isActive`: `boolean`;
+  `isBaseTheme`: `boolean`;
+  `name`: `string`;
+  `organisationId`: `string`;
+  `shape`: \{
+     `radiusFull?`: `string`;
+     `radiusLg?`: `string`;
+     `radiusMd?`: `string`;
+     `radiusNone?`: `string`;
+     `radiusSm?`: `string`;
+  \};
+  `typography`: \{
+     `baseSize?`: `string`;
+     `fontFamily?`: `string`;
+     `fontFamilyMono?`: `string`;
+     `scaleRatio?`: `number`;
+  \};
+\}\>
+
+##### Operation Id
+
+getResolvedTheme
+
+#### update()
+
+```ts
+update: (id: string, request: {
+  brand?: {
+     displayName?: string;
+     faviconUrl?: string;
+     logoDarkUrl?: string;
+     logoUrl?: string;
+  };
+  colors?: {
+     accent?: string;
+     accentForeground?: string;
+     background?: string;
+     border?: string;
+     destructive?: string;
+     destructiveForeground?: string;
+     foreground?: string;
+     input?: string;
+     muted?: string;
+     mutedForeground?: string;
+     primary?: string;
+     primaryForeground?: string;
+     ring?: string;
+     secondary?: string;
+     secondaryForeground?: string;
+     success?: string;
+     successForeground?: string;
+     warning?: string;
+     warningForeground?: string;
+  };
+  description?: any;
+  design?: any;
+  extendsThemeId?: any;
+  isActive?: boolean;
+  isBaseTheme?: boolean;
+  name?: string;
+  shape?: {
+     radiusFull?: string;
+     radiusLg?: string;
+     radiusMd?: string;
+     radiusNone?: string;
+     radiusSm?: string;
+  };
+  typography?: {
+     baseSize?: string;
+     fontFamily?: string;
+     fontFamilyMono?: string;
+     scaleRatio?: number;
+  };
+}) => Promise<{
+  brand: {
+     displayName?: string;
+     faviconUrl?: string;
+     logoDarkUrl?: string;
+     logoUrl?: string;
+  };
+  colors: {
+     accent?: string;
+     accentForeground?: string;
+     background?: string;
+     border?: string;
+     destructive?: string;
+     destructiveForeground?: string;
+     foreground?: string;
+     input?: string;
+     muted?: string;
+     mutedForeground?: string;
+     primary?: string;
+     primaryForeground?: string;
+     ring?: string;
+     secondary?: string;
+     secondaryForeground?: string;
+     success?: string;
+     successForeground?: string;
+     warning?: string;
+     warningForeground?: string;
+  };
+  createdAt: string;
+  description: string | null;
+  design:   | {
+     cinemaGradient?: {
+        position: "bottom" | "center";
+        strength: 20 | 50 | 70;
+     };
+     heroLayout?: {
+        size: "small" | "medium" | "large";
+        type: "hero" | "cinema";
+     };
+   }
+     | null;
+  extendsThemeId: string | null;
+  id: string;
+  isActive: boolean;
+  isBaseTheme: boolean;
+  name: string;
+  organisationId: string;
+  shape: {
+     radiusFull?: string;
+     radiusLg?: string;
+     radiusMd?: string;
+     radiusNone?: string;
+     radiusSm?: string;
+  };
+  typography: {
+     baseSize?: string;
+     fontFamily?: string;
+     fontFamilyMono?: string;
+     scaleRatio?: number;
+  };
+  updatedAt: string;
+}>;
+```
+
+Update theme
+Update an existing theme
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `id` | `string` |
+| `request` | \{ `brand?`: \{ `displayName?`: `string`; `faviconUrl?`: `string`; `logoDarkUrl?`: `string`; `logoUrl?`: `string`; \}; `colors?`: \{ `accent?`: `string`; `accentForeground?`: `string`; `background?`: `string`; `border?`: `string`; `destructive?`: `string`; `destructiveForeground?`: `string`; `foreground?`: `string`; `input?`: `string`; `muted?`: `string`; `mutedForeground?`: `string`; `primary?`: `string`; `primaryForeground?`: `string`; `ring?`: `string`; `secondary?`: `string`; `secondaryForeground?`: `string`; `success?`: `string`; `successForeground?`: `string`; `warning?`: `string`; `warningForeground?`: `string`; \}; `description?`: `any`; `design?`: `any`; `extendsThemeId?`: `any`; `isActive?`: `boolean`; `isBaseTheme?`: `boolean`; `name?`: `string`; `shape?`: \{ `radiusFull?`: `string`; `radiusLg?`: `string`; `radiusMd?`: `string`; `radiusNone?`: `string`; `radiusSm?`: `string`; \}; `typography?`: \{ `baseSize?`: `string`; `fontFamily?`: `string`; `fontFamilyMono?`: `string`; `scaleRatio?`: `number`; \}; \} |
+| `request.brand?` | \{ `displayName?`: `string`; `faviconUrl?`: `string`; `logoDarkUrl?`: `string`; `logoUrl?`: `string`; \} |
+| `request.brand.displayName?` | `string` |
+| `request.brand.faviconUrl?` | `string` |
+| `request.brand.logoDarkUrl?` | `string` |
+| `request.brand.logoUrl?` | `string` |
+| `request.colors?` | \{ `accent?`: `string`; `accentForeground?`: `string`; `background?`: `string`; `border?`: `string`; `destructive?`: `string`; `destructiveForeground?`: `string`; `foreground?`: `string`; `input?`: `string`; `muted?`: `string`; `mutedForeground?`: `string`; `primary?`: `string`; `primaryForeground?`: `string`; `ring?`: `string`; `secondary?`: `string`; `secondaryForeground?`: `string`; `success?`: `string`; `successForeground?`: `string`; `warning?`: `string`; `warningForeground?`: `string`; \} |
+| `request.colors.accent?` | `string` |
+| `request.colors.accentForeground?` | `string` |
+| `request.colors.background?` | `string` |
+| `request.colors.border?` | `string` |
+| `request.colors.destructive?` | `string` |
+| `request.colors.destructiveForeground?` | `string` |
+| `request.colors.foreground?` | `string` |
+| `request.colors.input?` | `string` |
+| `request.colors.muted?` | `string` |
+| `request.colors.mutedForeground?` | `string` |
+| `request.colors.primary?` | `string` |
+| `request.colors.primaryForeground?` | `string` |
+| `request.colors.ring?` | `string` |
+| `request.colors.secondary?` | `string` |
+| `request.colors.secondaryForeground?` | `string` |
+| `request.colors.success?` | `string` |
+| `request.colors.successForeground?` | `string` |
+| `request.colors.warning?` | `string` |
+| `request.colors.warningForeground?` | `string` |
+| `request.description?` | `any` |
+| `request.design?` | `any` |
+| `request.extendsThemeId?` | `any` |
+| `request.isActive?` | `boolean` |
+| `request.isBaseTheme?` | `boolean` |
+| `request.name?` | `string` |
+| `request.shape?` | \{ `radiusFull?`: `string`; `radiusLg?`: `string`; `radiusMd?`: `string`; `radiusNone?`: `string`; `radiusSm?`: `string`; \} |
+| `request.shape.radiusFull?` | `string` |
+| `request.shape.radiusLg?` | `string` |
+| `request.shape.radiusMd?` | `string` |
+| `request.shape.radiusNone?` | `string` |
+| `request.shape.radiusSm?` | `string` |
+| `request.typography?` | \{ `baseSize?`: `string`; `fontFamily?`: `string`; `fontFamilyMono?`: `string`; `scaleRatio?`: `number`; \} |
+| `request.typography.baseSize?` | `string` |
+| `request.typography.fontFamily?` | `string` |
+| `request.typography.fontFamilyMono?` | `string` |
+| `request.typography.scaleRatio?` | `number` |
+
+##### Returns
+
+`Promise`\<\{
+  `brand`: \{
+     `displayName?`: `string`;
+     `faviconUrl?`: `string`;
+     `logoDarkUrl?`: `string`;
+     `logoUrl?`: `string`;
+  \};
+  `colors`: \{
+     `accent?`: `string`;
+     `accentForeground?`: `string`;
+     `background?`: `string`;
+     `border?`: `string`;
+     `destructive?`: `string`;
+     `destructiveForeground?`: `string`;
+     `foreground?`: `string`;
+     `input?`: `string`;
+     `muted?`: `string`;
+     `mutedForeground?`: `string`;
+     `primary?`: `string`;
+     `primaryForeground?`: `string`;
+     `ring?`: `string`;
+     `secondary?`: `string`;
+     `secondaryForeground?`: `string`;
+     `success?`: `string`;
+     `successForeground?`: `string`;
+     `warning?`: `string`;
+     `warningForeground?`: `string`;
+  \};
+  `createdAt`: `string`;
+  `description`: `string` \| `null`;
+  `design`:   \| \{
+     `cinemaGradient?`: \{
+        `position`: `"bottom"` \| `"center"`;
+        `strength`: `20` \| `50` \| `70`;
+     \};
+     `heroLayout?`: \{
+        `size`: `"small"` \| `"medium"` \| `"large"`;
+        `type`: `"hero"` \| `"cinema"`;
+     \};
+   \}
+     \| `null`;
+  `extendsThemeId`: `string` \| `null`;
+  `id`: `string`;
+  `isActive`: `boolean`;
+  `isBaseTheme`: `boolean`;
+  `name`: `string`;
+  `organisationId`: `string`;
+  `shape`: \{
+     `radiusFull?`: `string`;
+     `radiusLg?`: `string`;
+     `radiusMd?`: `string`;
+     `radiusNone?`: `string`;
+     `radiusSm?`: `string`;
+  \};
+  `typography`: \{
+     `baseSize?`: `string`;
+     `fontFamily?`: `string`;
+     `fontFamilyMono?`: `string`;
+     `scaleRatio?`: `number`;
+  \};
+  `updatedAt`: `string`;
+\}\>
+
+##### Operation Id
+
+updateTheme
+
+***
+
 ### userAccountRoles
 
 ```ts
@@ -10780,7 +15494,7 @@ userAccountRoles: {
 };
 ```
 
-Defined in: [client.ts:1044](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L1044)
+Defined in: [client.ts:1118](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L1118)
 
 User Account Roles methods
 
@@ -11188,7 +15902,7 @@ userInvitations: {
   }>;
   list: (options?: {
      organisationId?: string;
-     status?: "pending" | "expired" | "redeemed" | "all";
+     status?: "pending" | "expired" | "all" | "redeemed";
    }) => Promise<{
      code: string;
      createdAt: string;
@@ -11212,7 +15926,7 @@ userInvitations: {
 };
 ```
 
-Defined in: [client.ts:895](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L895)
+Defined in: [client.ts:969](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L969)
 
 User Invitations methods
 
@@ -11343,7 +16057,7 @@ getUserInvitation
 ```ts
 list: (options?: {
   organisationId?: string;
-  status?: "pending" | "expired" | "redeemed" | "all";
+  status?: "pending" | "expired" | "all" | "redeemed";
 }) => Promise<{
   code: string;
   createdAt: string;
@@ -11363,9 +16077,9 @@ List all user invitations for the organisation
 
 | Parameter | Type |
 | ------ | ------ |
-| `options?` | \{ `organisationId?`: `string`; `status?`: `"pending"` \| `"expired"` \| `"redeemed"` \| `"all"`; \} |
+| `options?` | \{ `organisationId?`: `string`; `status?`: `"pending"` \| `"expired"` \| `"all"` \| `"redeemed"`; \} |
 | `options.organisationId?` | `string` |
-| `options.status?` | `"pending"` \| `"expired"` \| `"redeemed"` \| `"all"` |
+| `options.status?` | `"pending"` \| `"expired"` \| `"all"` \| `"redeemed"` |
 
 ##### Returns
 
@@ -12051,6 +16765,7 @@ venues: (id: string) => {
 } & {
   create: (request: {
      accountId: string;
+     city?: string;
      coordinates?: {
         latitude: number;
         longitude: number;
@@ -12159,6 +16874,7 @@ venues: (id: string) => {
      }[];
   }>;
   update: (id: string, request: {
+     city?: string;
      coordinates?: any;
      country?: string;
      description?: string;
@@ -12198,7 +16914,7 @@ venues: (id: string) => {
 };
 ```
 
-Defined in: [client.ts:1369](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L1369)
+Defined in: [client.ts:1443](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L1443)
 
 Venues methods
 Use venues() to access nested resources: venues(id).venuelayouts, venuelayoutareas, venuelayoutcategories, venuelayoutseats
@@ -12210,6 +16926,7 @@ Use venues() to access nested resources: venues(id).venuelayouts, venuelayoutare
 ```ts
 create: (request: {
   accountId: string;
+  city?: string;
   coordinates?: {
      latitude: number;
      longitude: number;
@@ -12258,8 +16975,9 @@ Create a new venue in the organisation
 
 | Parameter | Type |
 | ------ | ------ |
-| `request` | \{ `accountId`: `string`; `coordinates?`: \{ `latitude`: `number`; `longitude`: `number`; \}; `country?`: `string`; `description?`: `string`; `email?`: `string`; `features?`: `string`[]; `name`: `string`; `phone?`: `string`; `status?`: `"active"` \| `"archived"`; `streetAddress?`: `string`; `tags?`: `string`[]; `timezone?`: `string`; `website?`: `string`; \} |
+| `request` | \{ `accountId`: `string`; `city?`: `string`; `coordinates?`: \{ `latitude`: `number`; `longitude`: `number`; \}; `country?`: `string`; `description?`: `string`; `email?`: `string`; `features?`: `string`[]; `name`: `string`; `phone?`: `string`; `status?`: `"active"` \| `"archived"`; `streetAddress?`: `string`; `tags?`: `string`[]; `timezone?`: `string`; `website?`: `string`; \} |
 | `request.accountId` | `string` |
+| `request.city?` | `string` |
 | `request.coordinates?` | \{ `latitude`: `number`; `longitude`: `number`; \} |
 | `request.coordinates.latitude` | `number` |
 | `request.coordinates.longitude` | `number` |
@@ -12508,6 +17226,7 @@ listVenues
 
 ```ts
 update: (id: string, request: {
+  city?: string;
   coordinates?: any;
   country?: string;
   description?: string;
@@ -12554,7 +17273,8 @@ Update an existing venue
 | Parameter | Type |
 | ------ | ------ |
 | `id` | `string` |
-| `request` | \{ `coordinates?`: `any`; `country?`: `string`; `description?`: `string`; `email?`: `any`; `features?`: `string`[]; `name?`: `string`; `phone?`: `any`; `status?`: `"active"` \| `"archived"`; `streetAddress?`: `string`; `tags?`: `string`[]; `timezone?`: `string`; `website?`: `any`; \} |
+| `request` | \{ `city?`: `string`; `coordinates?`: `any`; `country?`: `string`; `description?`: `string`; `email?`: `any`; `features?`: `string`[]; `name?`: `string`; `phone?`: `any`; `status?`: `"active"` \| `"archived"`; `streetAddress?`: `string`; `tags?`: `string`[]; `timezone?`: `string`; `website?`: `any`; \} |
+| `request.city?` | `string` |
 | `request.coordinates?` | `any` |
 | `request.country?` | `string` |
 | `request.description?` | `string` |

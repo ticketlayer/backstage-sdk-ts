@@ -1,12 +1,12 @@
-[**@ticketlayer/backstage-sdk**](../README.md)
+[**@ticketlayer/backstage**](../README.md)
 
 ***
 
-[@ticketlayer/backstage-sdk](../README.md) / BackstageClientConfig
+[@ticketlayer/backstage](../README.md) / BackstageClientConfig
 
 # Interface: BackstageClientConfig
 
-Defined in: [client.ts:229](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L229)
+Defined in: [client.ts:276](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L276)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [client.ts:229](https://github.com/ticketlayer/backstage-sdk-ts/blob
 optional accessToken: string;
 ```
 
-Defined in: [client.ts:242](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L242)
+Defined in: [client.ts:289](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L289)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [client.ts:242](https://github.com/ticketlayer/backstage-sdk-ts/blob
 optional authMode: AuthMode;
 ```
 
-Defined in: [client.ts:236](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L236)
+Defined in: [client.ts:283](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L283)
 
 Authentication mode:
 - 'bearer': Use Authorization header with access/refresh tokens (default)
@@ -40,7 +40,7 @@ Authentication mode:
 baseUrl: string;
 ```
 
-Defined in: [client.ts:230](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L230)
+Defined in: [client.ts:277](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L277)
 
 ***
 
@@ -50,7 +50,7 @@ Defined in: [client.ts:230](https://github.com/ticketlayer/backstage-sdk-ts/blob
 optional debug: boolean | DebugConfig;
 ```
 
-Defined in: [client.ts:241](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L241)
+Defined in: [client.ts:288](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L288)
 
 Enable debug mode for logging all SDK operations.
 Can be a boolean (enables all logging) or a DebugConfig object for fine-grained control.
@@ -63,7 +63,7 @@ Can be a boolean (enables all logging) or a DebugConfig object for fine-grained 
 optional headers: Record<string, string>;
 ```
 
-Defined in: [client.ts:261](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L261)
+Defined in: [client.ts:308](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L308)
 
 ***
 
@@ -73,7 +73,7 @@ Defined in: [client.ts:261](https://github.com/ticketlayer/backstage-sdk-ts/blob
 optional onAuthFailure: () => Promise<boolean>;
 ```
 
-Defined in: [client.ts:255](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L255)
+Defined in: [client.ts:302](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L302)
 
 Called when a 401 is received. Return true if refresh was successful and the request should be retried.
 If not provided, default behaviour depends on authMode:
@@ -92,7 +92,7 @@ If not provided, default behaviour depends on authMode:
 optional onTokenRefresh: (accessToken: string, refreshToken: string) => void | Promise<void>;
 ```
 
-Defined in: [client.ts:248](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L248)
+Defined in: [client.ts:295](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L295)
 
 Called after successful token refresh (bearer mode only).
 Use this to persist the new tokens.
@@ -116,7 +116,7 @@ Use this to persist the new tokens.
 optional refreshEndpoint: string;
 ```
 
-Defined in: [client.ts:260](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L260)
+Defined in: [client.ts:307](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L307)
 
 Custom refresh endpoint.
 Default: '/api/oauth/refresh' for cookie mode, '/v1/auth/refresh' for bearer mode
@@ -129,4 +129,4 @@ Default: '/api/oauth/refresh' for cookie mode, '/v1/auth/refresh' for bearer mod
 optional refreshToken: string;
 ```
 
-Defined in: [client.ts:243](https://github.com/ticketlayer/backstage-sdk-ts/blob/0100185a818fc71675f9b834ebda1549f01396de/src/client.ts#L243)
+Defined in: [client.ts:290](https://github.com/ticketlayer/backstage-sdk-ts/blob/db5fdbff5f45ecfd806de67a2c5f759c2717f694/src/client.ts#L290)

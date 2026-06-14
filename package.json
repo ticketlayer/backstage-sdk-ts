@@ -1,5 +1,5 @@
 {
-  "name": "@ticketlayer/backstage-sdk",
+  "name": "@ticketlayer/backstage",
   "version": "0.1.1",
   "description": "TypeScript SDK for Backstage API",
   "main": "./dist/index.js",
@@ -39,6 +39,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.31.0",
     "@types/node": "^20.10.0",
     "openapi-typescript": "^7.4.3",
     "openapi-typescript-codegen": "^0.29.0",

@@ -1,4 +1,10 @@
 /**
+ * GENERATED FILE — do not edit by hand.
+ * Generated from Backstage API spec 1.0.0
+ * by backstage-sdk-tooling 0.1.0 on 2026-06-14T00:54:53.404Z.
+ * Regenerate with `tt sdk local` (or backstage-sdk-tooling `npm run generate`).
+ */
+/**
  * Backstage API Client
  * 
  * Auto-generated wrapper with token management and convenience methods
@@ -12,6 +18,7 @@ type AddAreaResponse = components['schemas']['AddAreaResponse'];
 type AddCategoryResponse = components['schemas']['AddCategoryResponse'];
 type AddLineItemResponse = components['schemas']['AddLineItemResponse'];
 type AddSeatResponse = components['schemas']['AddSeatResponse'];
+type AssetResponse = components['schemas']['AssetResponse'];
 type AssignRoleRequest = components['schemas']['AssignRoleRequest'];
 type AssignRoleResponse = components['schemas']['AssignRoleResponse'];
 type BlockCustomerResponse = components['schemas']['BlockCustomerResponse'];
@@ -37,6 +44,8 @@ type CreatePurchaseRequest = components['schemas']['CreatePurchaseRequest'];
 type CreateRefundResponse = components['schemas']['CreateRefundResponse'];
 type CreateRoleRequest = components['schemas']['CreateRoleRequest'];
 type CreateRoleResponse = components['schemas']['CreateRoleResponse'];
+type CreateSalesOrderPaymentResponse = components['schemas']['CreateSalesOrderPaymentResponse'];
+type CreateSalesRefundRequestResponse = components['schemas']['CreateSalesRefundRequestResponse'];
 type CreateSetupIntentResponse = components['schemas']['CreateSetupIntentResponse'];
 type CreateSubscriptionRequest = components['schemas']['CreateSubscriptionRequest'];
 type CreateSubscriptionResponse = components['schemas']['CreateSubscriptionResponse'];
@@ -46,22 +55,30 @@ type CreateVenueLayoutResponse = components['schemas']['CreateVenueLayoutRespons
 type CreateVenueResponse = components['schemas']['CreateVenueResponse'];
 type DeleteAccountResponse = components['schemas']['DeleteAccountResponse'];
 type DeleteAreaResponse = components['schemas']['DeleteAreaResponse'];
+type DeleteAssetResponse = components['schemas']['DeleteAssetResponse'];
 type DeleteCategoryResponse = components['schemas']['DeleteCategoryResponse'];
 type DeleteEventOccurrenceResponse = components['schemas']['DeleteEventOccurrenceResponse'];
 type DeleteEventResponse = components['schemas']['DeleteEventResponse'];
+type DeleteFeeProfileResponse = components['schemas']['DeleteFeeProfileResponse'];
 type DeleteInventoryResponse = components['schemas']['DeleteInventoryResponse'];
 type DeletePaymentMethodResponse = components['schemas']['DeletePaymentMethodResponse'];
 type DeletePaymentProviderResponse = components['schemas']['DeletePaymentProviderResponse'];
 type DeletePriceSchemeResponse = components['schemas']['DeletePriceSchemeResponse'];
 type DeleteRoleResponse = components['schemas']['DeleteRoleResponse'];
+type DeleteSalesChannelListingResponse = components['schemas']['DeleteSalesChannelListingResponse'];
+type DeleteSalesChannelResponse = components['schemas']['DeleteSalesChannelResponse'];
 type DeleteSeatResponse = components['schemas']['DeleteSeatResponse'];
+type DeleteThemeResponse = components['schemas']['DeleteThemeResponse'];
+type DeleteTicketTemplateResponse = components['schemas']['DeleteTicketTemplateResponse'];
 type DeleteUserInvitationResponse = components['schemas']['DeleteUserInvitationResponse'];
 type DeleteVenueLayoutResponse = components['schemas']['DeleteVenueLayoutResponse'];
 type DeleteVenueResponse = components['schemas']['DeleteVenueResponse'];
 type ExtendReservationResponse = components['schemas']['ExtendReservationResponse'];
 type FederateRequest = components['schemas']['FederateRequest'];
+type FeeProfileResponse = components['schemas']['FeeProfileResponse'];
 type GenerateSeatsResponse = components['schemas']['GenerateSeatsResponse'];
 type GetAccountResponse = components['schemas']['GetAccountResponse'];
+type GetApiVersionsResponse = components['schemas']['GetApiVersionsResponse'];
 type GetAuditLogResponse = components['schemas']['GetAuditLogResponse'];
 type GetAutoTopupResponse = components['schemas']['GetAutoTopupResponse'];
 type GetBalanceResponse = components['schemas']['GetBalanceResponse'];
@@ -75,6 +92,7 @@ type GetMeOrganisationsResponse = components['schemas']['GetMeOrganisationsRespo
 type GetMePermissionsResponse = components['schemas']['GetMePermissionsResponse'];
 type GetMeResponse = components['schemas']['GetMeResponse'];
 type GetMeRolesResponse = components['schemas']['GetMeRolesResponse'];
+type GetOrderPassesResponse = components['schemas']['GetOrderPassesResponse'];
 type GetOrderResponse = components['schemas']['GetOrderResponse'];
 type GetOrganisationResponse = components['schemas']['GetOrganisationResponse'];
 type GetPaymentProviderResponse = components['schemas']['GetPaymentProviderResponse'];
@@ -83,28 +101,39 @@ type GetPaymentStatusResponse = components['schemas']['GetPaymentStatusResponse'
 type GetPriceSchemeResponse = components['schemas']['GetPriceSchemeResponse'];
 type GetReservationResponse = components['schemas']['GetReservationResponse'];
 type GetRoleResponse = components['schemas']['GetRoleResponse'];
+type GetSalesListingsResponse = components['schemas']['GetSalesListingsResponse'];
+type GetSalesOrderResponse = components['schemas']['GetSalesOrderResponse'];
 type GetUserInvitationResponse = components['schemas']['GetUserInvitationResponse'];
 type GetVenueLayoutResponse = components['schemas']['GetVenueLayoutResponse'];
 type GetVenueResponse = components['schemas']['GetVenueResponse'];
 type InitiatePaymentResponse = components['schemas']['InitiatePaymentResponse'];
+type IssueSalesChannelKeyResponse = components['schemas']['IssueSalesChannelKeyResponse'];
 type ListAccountsResponse = components['schemas']['ListAccountsResponse'];
+type ListAssetsResponse = components['schemas']['ListAssetsResponse'];
 type ListCustomersResponse = components['schemas']['ListCustomersResponse'];
 type ListEventOccurrencesResponse = components['schemas']['ListEventOccurrencesResponse'];
 type ListEventsResponse = components['schemas']['ListEventsResponse'];
+type ListFeeProfilesResponse = components['schemas']['ListFeeProfilesResponse'];
 type ListIdentityProvidersResponse = components['schemas']['ListIdentityProvidersResponse'];
 type ListInventoryResponse = components['schemas']['ListInventoryResponse'];
 type ListInvoicesResponse = components['schemas']['ListInvoicesResponse'];
+type ListMySalesOrdersResponse = components['schemas']['ListMySalesOrdersResponse'];
 type ListOrdersResponse = components['schemas']['ListOrdersResponse'];
 type ListPackagesResponse = components['schemas']['ListPackagesResponse'];
 type ListPaymentMethodsResponse = components['schemas']['ListPaymentMethodsResponse'];
 type ListPaymentProvidersResponse = components['schemas']['ListPaymentProvidersResponse'];
 type ListPaymentsResponse = components['schemas']['ListPaymentsResponse'];
+type ListPresaleCodesResponse = components['schemas']['ListPresaleCodesResponse'];
 type ListPriceSchemesResponse = components['schemas']['ListPriceSchemesResponse'];
 type ListRefundsResponse = components['schemas']['ListRefundsResponse'];
 type ListReservationsResponse = components['schemas']['ListReservationsResponse'];
 type ListRolesResponse = components['schemas']['ListRolesResponse'];
+type ListSalesChannelKeysResponse = components['schemas']['ListSalesChannelKeysResponse'];
+type ListSalesChannelListingsResponse = components['schemas']['ListSalesChannelListingsResponse'];
+type ListSalesChannelsResponse = components['schemas']['ListSalesChannelsResponse'];
 type ListSeatsResponse = components['schemas']['ListSeatsResponse'];
 type ListSubscriptionsResponse = components['schemas']['ListSubscriptionsResponse'];
+type ListTicketTemplatesResponse = components['schemas']['ListTicketTemplatesResponse'];
 type ListTransactionsResponse = components['schemas']['ListTransactionsResponse'];
 type ListUserAccountRolesResponse = components['schemas']['ListUserAccountRolesResponse'];
 type ListUserInvitationsResponse = components['schemas']['ListUserInvitationsResponse'];
@@ -112,9 +141,12 @@ type ListVenueLayoutsResponse = components['schemas']['ListVenueLayoutsResponse'
 type ListVenuesResponse = components['schemas']['ListVenuesResponse'];
 type LoginRequest = components['schemas']['LoginRequest'];
 type LoginResponse = components['schemas']['LoginResponse'];
+type PresaleCodeResponse = components['schemas']['PresaleCodeResponse'];
 type PurchaseResult = components['schemas']['PurchaseResult'];
 type RedeemInvitationRequest = components['schemas']['RedeemInvitationRequest'];
 type RedeemInvitationResponse = components['schemas']['RedeemInvitationResponse'];
+type RedeemPassResult = components['schemas']['RedeemPassResult'];
+type RedeemSalesPresaleCodeResponse = components['schemas']['RedeemSalesPresaleCodeResponse'];
 type RefreshTokenRequest = components['schemas']['RefreshTokenRequest'];
 type RefreshTokenResponse = components['schemas']['RefreshTokenResponse'];
 type ReleaseHoldResponse = components['schemas']['ReleaseHoldResponse'];
@@ -123,10 +155,27 @@ type RemoveAssignmentResponse = components['schemas']['RemoveAssignmentResponse'
 type RemoveLineItemResponse = components['schemas']['RemoveLineItemResponse'];
 type ResendUserInvitationResponse = components['schemas']['ResendUserInvitationResponse'];
 type ReserveInventoryResponse = components['schemas']['ReserveInventoryResponse'];
+type ResolvedThemeResponse = components['schemas']['ResolvedThemeResponse'];
+type RevokeSalesChannelKeyResponse = components['schemas']['RevokeSalesChannelKeyResponse'];
+type SalesCartResponse = components['schemas']['SalesCartResponse'];
+type SalesChannelListingResponse = components['schemas']['SalesChannelListingResponse'];
+type SalesChannelResponse = components['schemas']['SalesChannelResponse'];
+type SalesCheckoutResponse = components['schemas']['SalesCheckoutResponse'];
+type SalesCustomerResponse = components['schemas']['SalesCustomerResponse'];
+type SalesCustomerTokenResponse = components['schemas']['SalesCustomerTokenResponse'];
+type SalesEventDetailResponse = components['schemas']['SalesEventDetailResponse'];
+type SalesMagicLinkResponse = components['schemas']['SalesMagicLinkResponse'];
+type SalesResolveChannelResponse = components['schemas']['SalesResolveChannelResponse'];
+type SalesThemeResponse = components['schemas']['SalesThemeResponse'];
 type SavePaymentMethodRequest = components['schemas']['SavePaymentMethodRequest'];
 type SavePaymentMethodResponse = components['schemas']['SavePaymentMethodResponse'];
 type SetDefaultPaymentMethodResponse = components['schemas']['SetDefaultPaymentMethodResponse'];
+type StaffCartResponse = components['schemas']['StaffCartResponse'];
+type StaffCheckoutResponse = components['schemas']['StaffCheckoutResponse'];
 type SyncSeatsResponse = components['schemas']['SyncSeatsResponse'];
+type ThemeListResponse = components['schemas']['ThemeListResponse'];
+type ThemeResponse = components['schemas']['ThemeResponse'];
+type TicketTemplateResponse = components['schemas']['TicketTemplateResponse'];
 type TransitionOrderStatusResponse = components['schemas']['TransitionOrderStatusResponse'];
 type UnblockCustomerResponse = components['schemas']['UnblockCustomerResponse'];
 type UpdateAccountResponse = components['schemas']['UpdateAccountResponse'];
@@ -266,6 +315,13 @@ export interface BackstageClientConfig {
   refreshEndpoint?: string;
   headers?: Record<string, string>;
 }
+
+/**
+ * The dated API version (TL-Version) this SDK speaks. Stamped at generation
+ * time; the server keeps serving this version's behaviour even as the API
+ * evolves. See https://docs.ticketlayer.com/api/versions
+ */
+export const API_DATED_VERSION = '2026-06-13';
 
 export class BackstageClient {
   private baseUrl: string;
@@ -485,6 +541,8 @@ export class BackstageClient {
     
     const headers: Record<string, string> = {
       'Content-Type': 'application/json',
+      // Pin the dated API version this SDK was generated against
+      'TL-Version': API_DATED_VERSION,
       ...this.headers,
       ...(options.headers as Record<string, string> || {}),
     };
@@ -594,6 +652,24 @@ export class BackstageClient {
     
     return result;
   }
+
+  /**
+   * Meta methods
+   */
+  meta = {
+            /**
+     * List API versions
+     * Lists all dated API versions with their lifecycle status. Pin a version per-request with the TL-Version header; organisations are pinned to the version current at signup by default.
+     * @operationId listApiVersions
+     */
+        versions: async () => {
+      const response = await this.request<GetApiVersionsResponse>(`/meta/versions`, {
+        method: 'GET'
+      });
+
+      return response;
+        }
+  };
 
   /**
    * Authentication methods
@@ -1232,7 +1308,7 @@ priceschemes: {
      * Create a new price scheme for an event
      * @operationId createEventPriceScheme
      */
-        create: async (request: { name: string; description?: string; status?: 'draft' | 'active' | 'archived'; parentPriceSchemeId?: string; ticketPrices?: { categoryId: string; typeId: string; price: number; currency?: 'GBP' | 'USD' | 'EUR' | 'AUD' | 'CAD' }[] }) => {
+        create: async (request: { name: string; description?: string; status?: 'draft' | 'active' | 'archived'; parentPriceSchemeId?: string; ticketPrices?: ({ categoryId: string; typeId: string; price: number; currency?: 'GBP' | 'USD' | 'EUR' | 'AUD' | 'CAD' })[] }) => {
           const response = await this.request<CreatePriceSchemeResponse>(`/events/${eventId}/price-schemes`, {
             method: 'POST',
             body: JSON.stringify(request)
@@ -1259,7 +1335,7 @@ priceschemes: {
      * Update an existing price scheme
      * @operationId updateEventPriceScheme
      */
-        update: async (priceSchemeId: string, request: { name?: string; description?: any; status?: 'draft' | 'active' | 'archived'; ticketPrices?: { categoryId: string; typeId: string; price: number; currency?: 'GBP' | 'USD' | 'EUR' | 'AUD' | 'CAD' }[] }) => {
+        update: async (priceSchemeId: string, request: { name?: string; description?: any; status?: 'draft' | 'active' | 'archived'; ticketPrices?: ({ categoryId: string; typeId: string; price: number; currency?: 'GBP' | 'USD' | 'EUR' | 'AUD' | 'CAD' })[] }) => {
           const response = await this.request<UpdatePriceSchemeResponse>(`/events/${eventId}/price-schemes/${priceSchemeId}`, {
             method: 'PATCH',
             body: JSON.stringify(request)
@@ -1312,7 +1388,7 @@ priceschemes: {
      * Create a new event in the organisation
      * @operationId createEvent
      */
-        create: async (request: { accountId: string; name: string; description?: string; status?: 'draft' | 'published' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled'; venueId?: any; venueName?: any; timezone?: string; onSaleDate?: string; offSaleDate?: string; tags?: string[]; ticketTypes?: { id?: string; name: string; description?: string; displayOrder: number }[]; layout?: { categories?: { id?: string; name: string; description?: string; displayOrder?: number; color?: string }[]; areas?: { id?: string; name: string; description?: string; type: 'unallocated' | 'allocated'; capacity: number; categoryId?: string; displayOrder?: number }[]; venueLayoutTemplateId?: string } }) => {
+        create: async (request: { accountId: string; name: string; subtitle?: any; description?: string; shortDescription?: any; imageUrl?: any; heroImageUrl?: any; presentation?: any; status?: 'draft' | 'published' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled'; venueId?: any; venueName?: any; timezone?: string; onSaleDate?: string; offSaleDate?: string; tags?: string[]; ticketTypes?: { id?: string; name: string; description?: string; displayOrder: number }[]; layout?: { categories?: { id?: string; name: string; description?: string; displayOrder?: number; color?: string }[]; areas?: ({ id?: string; name: string; description?: string; type: 'unallocated' | 'allocated'; capacity: number; categoryId?: string; displayOrder?: number })[]; venueLayoutTemplateId?: string } }) => {
       const response = await this.request<CreateEventResponse>(`/events`, {
         method: 'POST',
         body: JSON.stringify(request)
@@ -1344,7 +1420,7 @@ priceschemes: {
      * Update an existing event
      * @operationId updateEvent
      */
-        update: async (id: string, request: { name?: string; description?: any; status?: 'draft' | 'published' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled'; venueId?: any; venueName?: any; timezone?: string; onSaleDate?: any; offSaleDate?: any; tags?: string[]; ticketTypes?: { id?: string; name: string; description?: string; displayOrder: number }[]; layout?: { categories?: { id?: string; name: string; description?: string; displayOrder?: number; color?: string }[]; areas?: { id?: string; name: string; description?: string; type: 'unallocated' | 'allocated'; capacity: number; categoryId?: string; displayOrder?: number }[]; venueLayoutTemplateId?: string } }) => {
+        update: async (id: string, request: { name?: string; subtitle?: any; description?: any; shortDescription?: any; imageUrl?: any; heroImageUrl?: any; presentation?: any; status?: 'draft' | 'published' | 'on_sale' | 'sold_out' | 'completed' | 'cancelled'; venueId?: any; venueName?: any; timezone?: string; onSaleDate?: any; offSaleDate?: any; tags?: string[]; ticketTypes?: { id?: string; name: string; description?: string; displayOrder: number }[]; layout?: { categories?: { id?: string; name: string; description?: string; displayOrder?: number; color?: string }[]; areas?: ({ id?: string; name: string; description?: string; type: 'unallocated' | 'allocated'; capacity: number; categoryId?: string; displayOrder?: number })[]; venueLayoutTemplateId?: string } }) => {
       const response = await this.request<UpdateEventResponse>(`/events/${id}`, {
         method: 'PATCH',
         body: JSON.stringify(request)
@@ -1402,7 +1478,7 @@ priceschemes: {
      * Create a new layout for a venue
      * @operationId createVenueLayout
      */
-        create: async (request: { name: string; description?: string; status?: 'active' | 'archived'; totalCapacity?: number; floors?: { id?: string; name: string; displayOrder: number; description?: string }[]; categories?: { id?: string; name: string; description?: string; displayOrder: number; color?: string }[]; areas?: { id?: string; name: string; description?: string; type: 'unallocated' | 'allocated'; status?: 'active' | 'inactive'; floorId?: string; capacity: number; displayOrder: number; color?: string; sections?: { id?: string; name: string; displayOrder: number; description?: string }[]; position?: { x: number; y: number; width: number; height: number }; seats?: { id?: string; sectionId?: string; section?: string; row: string; number: string; label: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }[] }[]; decorations?: { id?: string; type: 'stage' | 'pillar' | 'barrier' | 'aisle' | 'wall' | 'exit' | 'entrance' | 'bar' | 'restroom' | 'label' | 'custom'; name?: string; position: { x: number; y: number; width: number; height: number; rotation?: number }; label?: string; style?: { fill?: string; stroke?: string; fontSize?: number; fontWeight?: string } }[]; tags?: string[] }) => {
+        create: async (request: { name: string; description?: string; status?: 'active' | 'archived'; totalCapacity?: number; floors?: { id?: string; name: string; displayOrder: number; description?: string }[]; categories?: { id?: string; name: string; description?: string; displayOrder: number; color?: string }[]; areas?: ({ id?: string; name: string; description?: string; type: 'unallocated' | 'allocated'; status?: 'active' | 'inactive'; floorId?: string; capacity: number; displayOrder: number; color?: string; sections?: { id?: string; name: string; displayOrder: number; description?: string }[]; position?: { x: number; y: number; width: number; height: number }; seats?: ({ id?: string; sectionId?: string; section?: string; row: string; number: string; label: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: ('aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center')[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string })[] })[]; decorations?: ({ id?: string; type: 'stage' | 'pillar' | 'barrier' | 'aisle' | 'wall' | 'exit' | 'entrance' | 'bar' | 'restroom' | 'label' | 'custom'; name?: string; position: { x: number; y: number; width: number; height: number; rotation?: number }; label?: string; style?: { fill?: string; stroke?: string; fontSize?: number; fontWeight?: string } })[]; tags?: string[] }) => {
           const response = await this.request<CreateVenueLayoutResponse>(`/venues/${id}/layouts`, {
             method: 'POST',
             body: JSON.stringify(request)
@@ -1429,7 +1505,7 @@ priceschemes: {
      * Update an existing venue layout
      * @operationId updateVenueLayout
      */
-        update: async (layoutId: string, request: { name?: string; description?: string; status?: 'active' | 'archived'; totalCapacity?: number; floors?: { id?: string; name: string; displayOrder: number; description?: string }[]; categories?: { id?: string; name: string; description?: string; displayOrder: number; color?: string }[]; areas?: { id?: string; name: string; description?: string; type: 'unallocated' | 'allocated'; status?: 'active' | 'inactive'; floorId?: string; capacity: number; displayOrder: number; color?: string; sections?: { id?: string; name: string; displayOrder: number; description?: string }[]; position?: { x: number; y: number; width: number; height: number }; seats?: { id?: string; sectionId?: string; section?: string; row: string; number: string; label: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }[] }[]; decorations?: { id?: string; type: 'stage' | 'pillar' | 'barrier' | 'aisle' | 'wall' | 'exit' | 'entrance' | 'bar' | 'restroom' | 'label' | 'custom'; name?: string; position: { x: number; y: number; width: number; height: number; rotation?: number }; label?: string; style?: { fill?: string; stroke?: string; fontSize?: number; fontWeight?: string } }[]; tags?: string[] }) => {
+        update: async (layoutId: string, request: { name?: string; description?: string; status?: 'active' | 'archived'; totalCapacity?: number; floors?: { id?: string; name: string; displayOrder: number; description?: string }[]; categories?: { id?: string; name: string; description?: string; displayOrder: number; color?: string }[]; areas?: ({ id?: string; name: string; description?: string; type: 'unallocated' | 'allocated'; status?: 'active' | 'inactive'; floorId?: string; capacity: number; displayOrder: number; color?: string; sections?: { id?: string; name: string; displayOrder: number; description?: string }[]; position?: { x: number; y: number; width: number; height: number }; seats?: ({ id?: string; sectionId?: string; section?: string; row: string; number: string; label: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: ('aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center')[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string })[] })[]; decorations?: ({ id?: string; type: 'stage' | 'pillar' | 'barrier' | 'aisle' | 'wall' | 'exit' | 'entrance' | 'bar' | 'restroom' | 'label' | 'custom'; name?: string; position: { x: number; y: number; width: number; height: number; rotation?: number }; label?: string; style?: { fill?: string; stroke?: string; fontSize?: number; fontWeight?: string } })[]; tags?: string[] }) => {
           const response = await this.request<UpdateVenueLayoutResponse>(`/venues/${id}/layouts/${layoutId}`, {
             method: 'PATCH',
             body: JSON.stringify(request)
@@ -1541,7 +1617,7 @@ venuelayoutseats: {
      * Add a single seat to an allocated seating area
      * @operationId addSeatToArea
      */
-        addSeat: async (layoutId: string, areaId: string, request: { section?: string; row: string; number: string; label?: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }) => {
+        addSeat: async (layoutId: string, areaId: string, request: { section?: string; row: string; number: string; label?: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: ('aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center')[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }) => {
           const response = await this.request<AddSeatResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}/seats`, {
             method: 'POST',
             body: JSON.stringify(request)
@@ -1555,7 +1631,7 @@ venuelayoutseats: {
      * Add multiple seats to an allocated seating area at once
      * @operationId bulkAddSeatsToArea
      */
-        bulkAddSeats: async (layoutId: string, areaId: string, request: { seats: { section?: string; row: string; number: string; label?: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }[] }) => {
+        bulkAddSeats: async (layoutId: string, areaId: string, request: { seats: ({ section?: string; row: string; number: string; label?: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: ('aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center')[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string })[] }) => {
           const response = await this.request<BulkAddSeatsResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}/seats/bulk`, {
             method: 'POST',
             body: JSON.stringify(request)
@@ -1583,7 +1659,7 @@ venuelayoutseats: {
      * Replace all seats in an allocated seating area with the provided seats. Used by the visual seating map editor for full saves.
      * @operationId syncSeatsInArea
      */
-        syncSeats: async (layoutId: string, areaId: string, request: { seats: { id?: string; section?: string; row: string; number: string; label?: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }[]; clearExisting?: boolean }) => {
+        syncSeats: async (layoutId: string, areaId: string, request: { seats: ({ id?: string; section?: string; row: string; number: string; label?: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: ('aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center')[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string })[]; clearExisting?: boolean }) => {
           const response = await this.request<SyncSeatsResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}/seats/sync`, {
             method: 'PUT',
             body: JSON.stringify(request)
@@ -1597,7 +1673,7 @@ venuelayoutseats: {
      * Update a seat in an allocated seating area
      * @operationId updateSeatInArea
      */
-        updateSeat: async (layoutId: string, areaId: string, seatId: string, request: { section?: string; row?: string; number?: string; label?: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: 'aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center'[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }) => {
+        updateSeat: async (layoutId: string, areaId: string, seatId: string, request: { section?: string; row?: string; number?: string; label?: string; categoryId?: string; status?: 'available' | 'blocked' | 'accessible' | 'held' | 'removed'; holdType?: string; attributes?: ('aisle_left' | 'aisle_right' | 'accessible' | 'wheelchair_space' | 'companion_seat' | 'easy_access' | 'obstructed_view' | 'restricted_view' | 'excellent_view' | 'stage_view' | 'extra_legroom' | 'premium_comfort' | 'front_row' | 'back_row' | 'center')[]; companionSeats?: string[]; companionTo?: string; position?: { x: number; y: number; rotation?: number }; internalNotes?: string; publicNotes?: string }) => {
           const response = await this.request<UpdateSeatResponse>(`/venues/${id}/layouts/${layoutId}/areas/${areaId}/seats/${seatId}`, {
             method: 'PATCH',
             body: JSON.stringify(request)
@@ -1648,7 +1724,7 @@ venuelayoutseats: {
      * Create a new venue in the organisation
      * @operationId createVenue
      */
-        create: async (request: { accountId: string; name: string; description?: string; status?: 'active' | 'archived'; streetAddress?: string; country?: string; coordinates?: { longitude: number; latitude: number }; timezone?: string; phone?: string; email?: string; website?: string; features?: string[]; tags?: string[] }) => {
+        create: async (request: { accountId: string; name: string; description?: string; status?: 'active' | 'archived'; streetAddress?: string; city?: string; country?: string; coordinates?: { longitude: number; latitude: number }; timezone?: string; phone?: string; email?: string; website?: string; features?: string[]; tags?: string[] }) => {
       const response = await this.request<CreateVenueResponse>(`/venues`, {
         method: 'POST',
         body: JSON.stringify(request)
@@ -1675,7 +1751,7 @@ venuelayoutseats: {
      * Update an existing venue
      * @operationId updateVenue
      */
-        update: async (id: string, request: { name?: string; description?: string; status?: 'active' | 'archived'; streetAddress?: string; country?: string; coordinates?: any; timezone?: string; phone?: any; email?: any; website?: any; features?: string[]; tags?: string[] }) => {
+        update: async (id: string, request: { name?: string; description?: string; status?: 'active' | 'archived'; streetAddress?: string; city?: string; country?: string; coordinates?: any; timezone?: string; phone?: any; email?: any; website?: any; features?: string[]; tags?: string[] }) => {
       const response = await this.request<UpdateVenueResponse>(`/venues/${id}`, {
         method: 'PATCH',
         body: JSON.stringify(request)
@@ -2365,7 +2441,7 @@ venuelayoutseats: {
      * Create a new order with optional line items
      * @operationId createOrder
      */
-        create: async (request: { accountId: string; customerId?: string; currency?: string; channel?: string; isGuestCheckout?: boolean; customerNotes?: string; internalNotes?: string; metadata?: Record<string, any>; expiresInMinutes?: number; items?: { type: 'ticket' | 'product' | 'addon' | 'fee' | 'tax' | 'discount'; name: string; description?: string; unitPrice: string; quantity?: number; ticketDetails?: Record<string, any>; productDetails?: Record<string, any>; feeDetails?: Record<string, any>; metadata?: Record<string, any> }[] }) => {
+        create: async (request: { accountId: string; customerId?: string; currency?: string; channel?: string; isGuestCheckout?: boolean; customerNotes?: string; internalNotes?: string; metadata?: Record<string, any>; expiresInMinutes?: number; items?: ({ type: 'ticket' | 'product' | 'addon' | 'fee' | 'tax' | 'discount'; name: string; description?: string; unitPrice: number; quantity?: number; ticketDetails?: Record<string, any>; productDetails?: Record<string, any>; feeDetails?: Record<string, any>; metadata?: Record<string, any> })[] }) => {
       const response = await this.request<CreateOrderResponse>(`/orders`, {
         method: 'POST',
         body: JSON.stringify(request)
@@ -2417,7 +2493,7 @@ venuelayoutseats: {
      * Update an existing order
      * @operationId updateOrder
      */
-        update: async (orderId: string, request: { customerId?: string; customerNotes?: string; internalNotes?: string; metadata?: Record<string, any>; extendExpiry?: boolean; addItems?: { type: 'ticket' | 'product' | 'addon' | 'fee' | 'tax' | 'discount'; name: string; description?: string; unitPrice: string; quantity?: number; ticketDetails?: Record<string, any>; productDetails?: Record<string, any>; feeDetails?: Record<string, any>; metadata?: Record<string, any> }[]; updateItems?: { itemId: string; updates: { quantity?: number; unitPrice?: string; metadata?: Record<string, any> } }[]; removeItems?: string[] }) => {
+        update: async (orderId: string, request: { customerId?: string; customerNotes?: string; internalNotes?: string; metadata?: Record<string, any>; extendExpiry?: boolean; addItems?: ({ type: 'ticket' | 'product' | 'addon' | 'fee' | 'tax' | 'discount'; name: string; description?: string; unitPrice: number; quantity?: number; ticketDetails?: Record<string, any>; productDetails?: Record<string, any>; feeDetails?: Record<string, any>; metadata?: Record<string, any> })[]; updateItems?: { itemId: string; updates: { quantity?: number; unitPrice?: number; metadata?: Record<string, any> } }[]; removeItems?: string[] }) => {
       const response = await this.request<UpdateOrderResponse>(`/orders/${orderId}`, {
         method: 'PATCH',
         body: JSON.stringify(request)
@@ -2486,7 +2562,7 @@ venuelayoutseats: {
      * Add a line item to an order
      * @operationId addOrderLineItem
      */
-        addItem: async (orderId: string, request: { type: 'ticket' | 'product' | 'addon' | 'fee' | 'tax' | 'discount'; name: string; description?: string; unitPrice: string; quantity?: number; ticketDetails?: Record<string, any>; productDetails?: Record<string, any>; feeDetails?: Record<string, any>; metadata?: Record<string, any> }) => {
+        addItem: async (orderId: string, request: { type: 'ticket' | 'product' | 'addon' | 'fee' | 'tax' | 'discount'; name: string; description?: string; unitPrice: number; quantity?: number; ticketDetails?: Record<string, any>; productDetails?: Record<string, any>; feeDetails?: Record<string, any>; metadata?: Record<string, any> }) => {
       const response = await this.request<AddLineItemResponse>(`/orders/${orderId}/items`, {
         method: 'POST',
         body: JSON.stringify(request)
@@ -2500,7 +2576,7 @@ venuelayoutseats: {
      * Update a line item in an order
      * @operationId updateOrderLineItem
      */
-        updateItem: async (orderId: string, itemId: string, request: { quantity?: number; unitPrice?: string; metadata?: Record<string, any> }) => {
+        updateItem: async (orderId: string, itemId: string, request: { quantity?: number; unitPrice?: number; metadata?: Record<string, any> }) => {
       const response = await this.request<UpdateLineItemResponse>(`/orders/${orderId}/items/${itemId}`, {
         method: 'PATCH',
         body: JSON.stringify(request)
@@ -2547,6 +2623,46 @@ venuelayoutseats: {
       });
 
       return response;
+        },
+
+            /**
+     * Download a pass as a PDF ticket
+     * Render and stream a single pass as a PDF ticket (application/pdf). Staff surface; browsers fetch this directly rather than through the typed SDK.
+     * @operationId getOrderPassPdf
+     */
+        getPassPdf: async (orderId: string, passId: string) => {
+      const response = await this.request<any>(`/orders/${orderId}/passes/${passId}/ticket.pdf`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Get order passes
+     * List the passes, entitlements and redemptions issued for an order (the order's tickets). Staff surface — includes the redemption barcode.
+     * @operationId getOrderPasses
+     */
+        getPasses: async (orderId: string) => {
+      const response = await this.request<GetOrderPassesResponse>(`/orders/${orderId}/passes`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Print a pass to a device
+     * Render the pass to its canonical SVG and dispatch it as a print job to a printer device. Returns the device command id (poll the devices command for status).
+     * @operationId printPass
+     */
+        printPass: async (orderId: string, passId: string, request: { printerId: string; type?: 'print.ticket' | 'print.label' | 'print.receipt' }) => {
+      const response = await this.request<any>(`/orders/${orderId}/passes/${passId}/print`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
         }
   };
 
@@ -2586,11 +2702,11 @@ venuelayoutseats: {
       const queryString = params.toString();
       const requestPath = queryString ? `/payments?${queryString}` : `/payments`;
 
-      const response = await this.request<any>(requestPath, {
+      const response = await this.request<ListPaymentsResponse>(requestPath, {
         method: 'GET'
       });
 
-      return response;
+      return response.payments;
         },
 
             /**
@@ -2657,7 +2773,7 @@ venuelayoutseats: {
      * Create a new payment provider configuration
      * @operationId createPaymentProvider
      */
-        create: async (request: { accountId?: string; type: 'stripe_connect' | 'stripe_direct' | 'adyen' | 'square' | 'paypal' | 'cash' | 'bank_transfer'; name: string; description?: string; integrationType?: 'ticketlayer_pay' | 'self_service'; integrationServiceUrl?: string; integrationServiceVersion?: string; configuration: Record<string, any>; supportedPaymentTypes: 'online_card' | 'online_bank_transfer' | 'online_wallet' | 'in_person_card' | 'in_person_cash' | 'bank_transfer' | 'cheque'[]; capabilities?: { supportsInstantCapture?: boolean; supportsDelayedCapture?: boolean; supportsRefunds?: boolean; supportsPartialRefunds?: boolean; requiresCustomerAction?: boolean; supportedCurrencies?: string[]; maxAmount?: number; minAmount?: number }; isDefault?: boolean; priority?: number; feeStructure?: { type: 'percentage' | 'fixed' | 'percentage_plus_fixed'; percentage?: number; fixed?: number; currency?: string }; applicationFee?: { type: 'percentage' | 'fixed'; value: number }; metadata?: Record<string, any> }) => {
+        create: async (request: { accountId?: string; type: 'stripe_connect' | 'stripe_direct' | 'adyen' | 'square' | 'paypal' | 'cash' | 'bank_transfer'; name: string; description?: string; integrationType?: 'ticketlayer_pay' | 'self_service'; integrationServiceUrl?: string; integrationServiceVersion?: string; configuration: Record<string, any>; supportedPaymentTypes: ('online_card' | 'online_bank_transfer' | 'online_wallet' | 'in_person_card' | 'in_person_cash' | 'bank_transfer' | 'cheque')[]; capabilities?: { supportsInstantCapture?: boolean; supportsDelayedCapture?: boolean; supportsRefunds?: boolean; supportsPartialRefunds?: boolean; requiresCustomerAction?: boolean; supportedCurrencies?: string[]; maxAmount?: number; minAmount?: number }; isDefault?: boolean; priority?: number; feeStructure?: { type: 'percentage' | 'fixed' | 'percentage_plus_fixed'; percentage?: number; fixed?: number; currency?: string }; applicationFee?: { type: 'percentage' | 'fixed'; value: number }; metadata?: Record<string, any> }) => {
       const response = await this.request<CreatePaymentProviderResponse>(`/payment-providers`, {
         method: 'POST',
         body: JSON.stringify(request)
@@ -2722,7 +2838,7 @@ venuelayoutseats: {
      * Update an existing payment provider configuration
      * @operationId updatePaymentProvider
      */
-        update: async (providerId: string, request: { name?: string; description?: string; status?: 'active' | 'inactive' | 'pending_setup'; integrationServiceUrl?: string; integrationServiceVersion?: string; configuration?: Record<string, any>; supportedPaymentTypes?: 'online_card' | 'online_bank_transfer' | 'online_wallet' | 'in_person_card' | 'in_person_cash' | 'bank_transfer' | 'cheque'[]; capabilities?: { supportsInstantCapture?: boolean; supportsDelayedCapture?: boolean; supportsRefunds?: boolean; supportsPartialRefunds?: boolean; requiresCustomerAction?: boolean; supportedCurrencies?: string[]; maxAmount?: number; minAmount?: number }; isDefault?: boolean; priority?: number; feeStructure?: { type: 'percentage' | 'fixed' | 'percentage_plus_fixed'; percentage?: number; fixed?: number; currency?: string }; applicationFee?: { type: 'percentage' | 'fixed'; value: number }; metadata?: Record<string, any> }) => {
+        update: async (providerId: string, request: { name?: string; description?: string; status?: 'active' | 'inactive' | 'pending_setup'; integrationServiceUrl?: string; integrationServiceVersion?: string; configuration?: Record<string, any>; supportedPaymentTypes?: ('online_card' | 'online_bank_transfer' | 'online_wallet' | 'in_person_card' | 'in_person_cash' | 'bank_transfer' | 'cheque')[]; capabilities?: { supportsInstantCapture?: boolean; supportsDelayedCapture?: boolean; supportsRefunds?: boolean; supportsPartialRefunds?: boolean; requiresCustomerAction?: boolean; supportedCurrencies?: string[]; maxAmount?: number; minAmount?: number }; isDefault?: boolean; priority?: number; feeStructure?: { type: 'percentage' | 'fixed' | 'percentage_plus_fixed'; percentage?: number; fixed?: number; currency?: string }; applicationFee?: { type: 'percentage' | 'fixed'; value: number }; metadata?: Record<string, any> }) => {
       const response = await this.request<UpdatePaymentProviderResponse>(`/payment-providers/${providerId}`, {
         method: 'PATCH',
         body: JSON.stringify(request)
@@ -2738,6 +2854,1637 @@ venuelayoutseats: {
      */
         delete: async (providerId: string) => {
       const response = await this.request<DeletePaymentProviderResponse>(`/payment-providers/${providerId}`, {
+        method: 'DELETE'
+      });
+
+      return response;
+        }
+  };
+
+  /**
+   * Sales Channels methods
+   * Use salesChannels() to access nested resources: salesChannels(id).keys, listings, carts
+   */
+  salesChannels = Object.assign(
+    (channelId: string) => ({
+      keys: {
+            /**
+     * Issue channel key
+     * Issue a publishable (tlpk_) or secret (tlsk_) key for the channel. Secret key material is returned exactly once.
+     * @operationId issueSalesChannelKey
+     */
+        issue: async (request: { keyType: 'publishable' | 'secret'; name: string }) => {
+          const response = await this.request<IssueSalesChannelKeyResponse>(`/sales-channels/${channelId}/keys`, {
+            method: 'POST',
+            body: JSON.stringify(request)
+          });
+
+          return response;
+        },
+
+            /**
+     * List channel keys
+     * List the channel's keys. Secret key material is never returned; publishable keys are public by design.
+     * @operationId listSalesChannelKeys
+     */
+        list: async () => {
+          const response = await this.request<ListSalesChannelKeysResponse>(`/sales-channels/${channelId}/keys`, {
+            method: 'GET'
+          });
+
+          return response.keys;
+        },
+
+            /**
+     * Revoke channel key
+     * Revoke a channel key so it can no longer authenticate
+     * @operationId revokeSalesChannelKey
+     */
+        revoke: async (keyId: string, request: { reason?: string }) => {
+          const response = await this.request<RevokeSalesChannelKeyResponse>(`/sales-channels/${channelId}/keys/${keyId}/revoke`, {
+            method: 'POST',
+            body: JSON.stringify(request)
+          });
+
+          return response.key;
+        }
+      },
+listings: {
+            /**
+     * List event on channel
+     * List an event on the channel, optionally within a sale window. An event is never published globally — it is listed on channels.
+     * @operationId createSalesChannelListing
+     */
+        create: async (request: { eventId: string; saleStartsAt?: string; saleEndsAt?: string }) => {
+          const response = await this.request<SalesChannelListingResponse>(`/sales-channels/${channelId}/listings`, {
+            method: 'POST',
+            body: JSON.stringify(request)
+          });
+
+          return response.listing;
+        },
+
+            /**
+     * List channel listings
+     * List the events listed on the channel
+     * @operationId listSalesChannelListings
+     */
+        list: async () => {
+          const response = await this.request<ListSalesChannelListingsResponse>(`/sales-channels/${channelId}/listings`, {
+            method: 'GET'
+          });
+
+          return response.listings;
+        },
+
+            /**
+     * Remove channel listing
+     * Remove an event listing from the channel
+     * @operationId deleteSalesChannelListing
+     */
+        delete: async (listingId: string) => {
+          const response = await this.request<DeleteSalesChannelListingResponse>(`/sales-channels/${channelId}/listings/${listingId}`, {
+            method: 'DELETE'
+          });
+
+          return response.deleted;
+        }
+      },
+carts: {
+            /**
+     * Create staff cart
+     * Create a cart on the channel as a staff actor. Trusted actors may act on behalf of a customer they have looked up.
+     * @operationId createStaffCart
+     */
+        create: async (request: { customerId?: string; metadata?: Record<string, any> }) => {
+          const response = await this.request<StaffCartResponse>(`/sales-channels/${channelId}/carts`, {
+            method: 'POST',
+            body: JSON.stringify(request)
+          });
+
+          return response;
+        },
+
+            /**
+     * Get staff cart
+     * Get a cart with its items
+     * @operationId getStaffCart
+     */
+        get: async (cartId: string) => {
+          const response = await this.request<StaffCartResponse>(`/sales-channels/${channelId}/carts/${cartId}`, {
+            method: 'GET'
+          });
+
+          return response;
+        },
+
+            /**
+     * Add staff cart item
+     * Add an item to the cart, taking a real inventory reservation
+     * @operationId addStaffCartItem
+     */
+        addItem: async (cartId: string, request: { eventOccurrenceId: string; categoryId: string; ticketTypeId: string; quantity?: number; eventLayoutAreaId?: string; eventLayoutSeatIds?: string[] }) => {
+          const response = await this.request<StaffCartResponse>(`/sales-channels/${channelId}/carts/${cartId}/items`, {
+            method: 'POST',
+            body: JSON.stringify(request)
+          });
+
+          return response;
+        },
+
+            /**
+     * Remove staff cart item
+     * Remove an item from the cart, releasing its reservation
+     * @operationId removeStaffCartItem
+     */
+        removeItem: async (cartId: string, itemId: string) => {
+          const response = await this.request<StaffCartResponse>(`/sales-channels/${channelId}/carts/${cartId}/items/${itemId}`, {
+            method: 'DELETE'
+          });
+
+          return response;
+        },
+
+            /**
+     * Checkout staff cart
+     * Convert the cart into an order. Manual discounts require the orders.applydiscount permission.
+     * @operationId checkoutStaffCart
+     */
+        checkout: async (cartId: string, request: { customerId?: string; customerNotes?: string; metadata?: Record<string, any>; discount?: { amount?: number; percent?: number; label?: string; reason: string } }) => {
+          const response = await this.request<StaffCheckoutResponse>(`/sales-channels/${channelId}/carts/${cartId}/checkout`, {
+            method: 'POST',
+            body: JSON.stringify(request)
+          });
+
+          return response;
+        }
+      }
+    }),
+    {
+            /**
+     * Create sales channel
+     * Create a sales channel: a policy bundle describing where and under what commercial rules tickets are sold
+     * @operationId createSalesChannel
+     */
+        create: async (request: { accountId: string; name: string; slug: string; description?: string; channelType: 'website' | 'embed' | 'box_office' | 'kiosk' | 'reseller_api' | 'internal'; channelTags?: string[]; eventFilter?: { mode: 'all' | 'tagged'; channelTags?: string[] }; pricingConfig?: { showMemberPricing?: boolean; showOriginalPrice?: boolean; includeFeesInPrice?: boolean }; customerConfig?: { requireLogin?: boolean; allowGuestCheckout?: boolean; collectPhone?: boolean; collectAddress?: boolean }; customerFacing?: { enabled?: boolean; subdomain?: string; customDomain?: string; allowedOrigins?: any[]; magicLinkBaseUrl?: string; partnerIdentity?: { issuer: string; publicKeyPem: string; algorithm: 'RS256' | 'RS384' | 'RS512' | 'ES256' | 'ES384' | 'ES512' } }; reservationTtlSeconds?: number; checkoutTtlSeconds?: number; receivingAccountId?: string; feeProfileId?: string }) => {
+      const response = await this.request<SalesChannelResponse>(`/sales-channels`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.channel;
+        },
+
+            /**
+     * List sales channels
+     * List the organisation's sales channels visible to the caller
+     * @operationId listSalesChannels
+     */
+        list: async () => {
+      const response = await this.request<ListSalesChannelsResponse>(`/sales-channels`, {
+        method: 'GET'
+      });
+
+      return response.channels;
+        },
+
+            /**
+     * Get sales channel
+     * Get a sales channel by ID
+     * @operationId getSalesChannel
+     */
+        get: async (channelId: string) => {
+      const response = await this.request<SalesChannelResponse>(`/sales-channels/${channelId}`, {
+        method: 'GET'
+      });
+
+      return response.channel;
+        },
+
+            /**
+     * Update sales channel
+     * Update a sales channel's configuration
+     * @operationId updateSalesChannel
+     */
+        update: async (channelId: string, request: { name?: string; description?: string; channelTags?: string[]; eventFilter?: { mode: 'all' | 'tagged'; channelTags?: string[] }; pricingConfig?: { showMemberPricing?: boolean; showOriginalPrice?: boolean; includeFeesInPrice?: boolean }; customerConfig?: { requireLogin?: boolean; allowGuestCheckout?: boolean; collectPhone?: boolean; collectAddress?: boolean }; customerFacing?: { enabled?: boolean; subdomain?: string; customDomain?: string; allowedOrigins?: any[]; magicLinkBaseUrl?: string; partnerIdentity?: { issuer: string; publicKeyPem: string; algorithm: 'RS256' | 'RS384' | 'RS512' | 'ES256' | 'ES384' | 'ES512' } }; reservationTtlSeconds?: number; checkoutTtlSeconds?: number; receivingAccountId?: string; feeProfileId?: any; paymentProviderId?: any; themeId?: any; isActive?: boolean }) => {
+      const response = await this.request<SalesChannelResponse>(`/sales-channels/${channelId}`, {
+        method: 'PATCH',
+        body: JSON.stringify(request)
+      });
+
+      return response.channel;
+        },
+
+            /**
+     * Delete sales channel
+     * Soft-delete a sales channel
+     * @operationId deleteSalesChannel
+     */
+        delete: async (channelId: string) => {
+      const response = await this.request<DeleteSalesChannelResponse>(`/sales-channels/${channelId}`, {
+        method: 'DELETE'
+      });
+
+      return response.deleted;
+        }
+    }
+  );
+
+  /**
+   * Presale Codes methods
+   */
+  presaleCodes = {
+            /**
+     * Create presale code
+     * Create a shareable presale code that grants a benefit on redemption
+     * @operationId createPresaleCode
+     */
+        create: async (request: { accountId: string; code: string; benefit: string; channelId?: string; maxRedemptions?: number; expiresAt?: string; benefitExpiresAt?: string }) => {
+      const response = await this.request<PresaleCodeResponse>(`/presale-codes`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.presaleCode;
+        },
+
+            /**
+     * List presale codes
+     * List the organisation's presale codes visible to the caller
+     * @operationId listPresaleCodes
+     */
+        list: async () => {
+      const response = await this.request<ListPresaleCodesResponse>(`/presale-codes`, {
+        method: 'GET'
+      });
+
+      return response.presaleCodes;
+        },
+
+            /**
+     * Deactivate presale code
+     * Deactivate a presale code so it can no longer be redeemed
+     * @operationId deactivatePresaleCode
+     */
+        deactivate: async (codeId: string) => {
+      const response = await this.request<PresaleCodeResponse>(`/presale-codes/${codeId}/deactivate`, {
+        method: 'POST'
+      });
+
+      return response.presaleCode;
+        }
+  };
+
+  /**
+   * Fee Profiles methods
+   */
+  feeProfiles = {
+            /**
+     * Create fee profile
+     * Create an org-level fee configuration that sales channels can reference
+     * @operationId createFeeProfile
+     */
+        create: async (request: { name: string; serviceFeeEnabled?: boolean; serviceFeePercent?: number; serviceFeeFixed?: number; serviceFeeLabel?: string }) => {
+      const response = await this.request<FeeProfileResponse>(`/fee-profiles`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.feeProfile;
+        },
+
+            /**
+     * List fee profiles
+     * List the organisation's fee profiles
+     * @operationId listFeeProfiles
+     */
+        list: async () => {
+      const response = await this.request<ListFeeProfilesResponse>(`/fee-profiles`, {
+        method: 'GET'
+      });
+
+      return response.feeProfiles;
+        },
+
+            /**
+     * Get fee profile
+     * Get a fee profile by ID
+     * @operationId getFeeProfile
+     */
+        get: async (profileId: string) => {
+      const response = await this.request<FeeProfileResponse>(`/fee-profiles/${profileId}`, {
+        method: 'GET'
+      });
+
+      return response.feeProfile;
+        },
+
+            /**
+     * Update fee profile
+     * Update a fee profile
+     * @operationId updateFeeProfile
+     */
+        update: async (profileId: string, request: { name?: string; serviceFeeEnabled?: boolean; serviceFeePercent?: number; serviceFeeFixed?: number; serviceFeeLabel?: string }) => {
+      const response = await this.request<FeeProfileResponse>(`/fee-profiles/${profileId}`, {
+        method: 'PATCH',
+        body: JSON.stringify(request)
+      });
+
+      return response.feeProfile;
+        },
+
+            /**
+     * Delete fee profile
+     * Soft-delete a fee profile
+     * @operationId deleteFeeProfile
+     */
+        delete: async (profileId: string) => {
+      const response = await this.request<DeleteFeeProfileResponse>(`/fee-profiles/${profileId}`, {
+        method: 'DELETE'
+      });
+
+      return response.deleted;
+        }
+  };
+
+  /**
+   * Sales Listings methods
+   */
+  salesListings = {
+            /**
+     * List active listings
+     * What is on sale through this channel right now. The channel is resolved from the key, never from a parameter.
+     * @operationId listSalesListings
+     */
+        list: async () => {
+      const response = await this.request<GetSalesListingsResponse>(`/sales/listings`, {
+        method: 'GET'
+      });
+
+      return response;
+        }
+  };
+
+  /**
+   * Sales Customer Auth methods
+   */
+  salesCustomerAuth = {
+            /**
+     * Request magic link
+     * Start a magic-link sign-in for a customer. Always reports success — account existence is never revealed.
+     * @operationId requestSalesMagicLink
+     */
+        magicLink: async (request: { email?: string; phone?: string }) => {
+      const response = await this.request<SalesMagicLinkResponse>(`/sales/customer-auth/magic-link`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.sent;
+        }
+  };
+
+  /**
+   * Sales Customer Tokens methods
+   */
+  salesCustomerTokens = {
+            /**
+     * Exchange identity proof for customer token
+     * Exchange an identity proof (magic-link code or partner assertion) for a short-lived customer token bound to this channel. Identity is exchanged, never asserted.
+     * @operationId createSalesCustomerToken
+     */
+        create: async (request: { proof: any }) => {
+      const response = await this.request<SalesCustomerTokenResponse>(`/sales/customer-tokens`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Refresh a customer token
+     * Re-signs a still-valid customer token (presented via X-Customer-Token) for a fresh 30 minutes, carrying the original 24-hour absolute ceiling forward. Once the ceiling passes the customer must re-authenticate.
+     * @operationId refreshSalesCustomerToken
+     */
+        refresh: async () => {
+      const response = await this.request<SalesCustomerTokenResponse>(`/sales/customer-tokens/refresh`, {
+        method: 'POST'
+      });
+
+      return response;
+        }
+  };
+
+  /**
+   * Sales Carts methods
+   */
+  salesCarts = {
+            /**
+     * Create cart
+     * Create a cart on this channel. Customer identity comes only from a verified customer token, never from the body.
+     * @operationId createSalesCart
+     */
+        create: async (request: { metadata?: Record<string, any> }) => {
+      const response = await this.request<SalesCartResponse>(`/sales/carts`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.cart;
+        },
+
+            /**
+     * Get cart
+     * Get a cart with its items
+     * @operationId getSalesCart
+     */
+        get: async (cartId: string) => {
+      const response = await this.request<SalesCartResponse>(`/sales/carts/${cartId}`, {
+        method: 'GET'
+      });
+
+      return response.cart;
+        },
+
+            /**
+     * Add cart item
+     * Add an item to the cart, taking a real inventory reservation with the channel's TTL
+     * @operationId addSalesCartItem
+     */
+        addItem: async (cartId: string, request: { eventOccurrenceId: string; categoryId: string; ticketTypeId: string; quantity?: number; eventLayoutAreaId?: string; eventLayoutSeatIds?: string[] }) => {
+      const response = await this.request<SalesCartResponse>(`/sales/carts/${cartId}/items`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.cart;
+        },
+
+            /**
+     * Remove cart item
+     * Remove an item from the cart, releasing its reservation
+     * @operationId removeSalesCartItem
+     */
+        removeItem: async (cartId: string, itemId: string) => {
+      const response = await this.request<SalesCartResponse>(`/sales/carts/${cartId}/items/${itemId}`, {
+        method: 'DELETE'
+      });
+
+      return response.cart;
+        },
+
+            /**
+     * Checkout cart
+     * Convert the cart into an order. Returns an order access token for possession-based guest access (confirmation page, payment status polling).
+     * @operationId checkoutSalesCart
+     */
+        checkout: async (cartId: string, request: { customerNotes?: string; metadata?: Record<string, any>; customer?: { email: string; firstName?: string; lastName?: string; phone?: string; marketingConsent?: boolean } }) => {
+      const response = await this.request<SalesCheckoutResponse>(`/sales/carts/${cartId}/checkout`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        }
+  };
+
+  /**
+   * Sales My Orders methods
+   */
+  salesMyOrders = {
+            /**
+     * List my orders
+     * The verified customer's own orders. Requires a customer token — orders cannot be listed with key or possession credentials alone.
+     * @operationId listMySalesOrders
+     */
+        list: async () => {
+      const response = await this.request<ListMySalesOrdersResponse>(`/sales/my-orders`, {
+        method: 'GET'
+      });
+
+      return response.orders;
+        }
+  };
+
+  /**
+   * Sales Orders methods
+   */
+  salesOrders = {
+            /**
+     * Get order
+     * Get an order on this channel. Access requires a secret key (own channel), an X-Order-Access-Token header (guest possession) or a customer token (own orders).
+     * @operationId getSalesOrder
+     */
+        get: async (orderId: string) => {
+      const response = await this.request<GetSalesOrderResponse>(`/sales/orders/${orderId}`, {
+        method: 'GET'
+      });
+
+      return response.order;
+        },
+
+            /**
+     * Download a ticket PDF
+     * Render and stream a pass as a PDF ticket (application/pdf) for the holder. Order-access gated. Browsers fetch this directly rather than through the typed SDK.
+     * @operationId getSalesOrderTicketPdf
+     */
+        ticketPdf: async (orderId: string, passId: string) => {
+      const response = await this.request<any>(`/sales/orders/${orderId}/passes/${passId}/ticket.pdf`, {
+        method: 'GET'
+      });
+
+      return response;
+        }
+  };
+
+  /**
+   * Sales Order Payments methods
+   */
+  salesOrderPayments = {
+            /**
+     * Create order payment
+     * Initiate payment for the order's outstanding balance through the channel's payment provider
+     * @operationId createSalesOrderPayment
+     */
+        create: async (orderId: string, request: { paymentType?: 'online_card' | 'online_bank_transfer' | 'online_wallet'; returnUrl?: string }) => {
+      const response = await this.request<CreateSalesOrderPaymentResponse>(`/sales/orders/${orderId}/payments`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.payment;
+        }
+  };
+
+  /**
+   * Sales Refund Requests methods
+   */
+  salesRefundRequests = {
+            /**
+     * Request refund or exchange
+     * File a refund or exchange request for the order within the resolved refund policy. Requester identity is derived from the credential, never from the body.
+     * @operationId createSalesOrderRefundRequest
+     */
+        create: async (orderId: string, request: { type: 'refund' | 'exchange'; reason?: string }) => {
+      const response = await this.request<CreateSalesRefundRequestResponse>(`/sales/orders/${orderId}/refund-requests`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.request;
+        }
+  };
+
+  /**
+   * Sales Customers methods
+   */
+  salesCustomers = {
+            /**
+     * Create customer
+     * Provenance-scoped channel CRM (secret keys only). Reuses the org's existing record for the email and grants the channel access; there is no list or search.
+     * @operationId createSalesCustomer
+     */
+        create: async (request: { email: string; firstName?: string; lastName?: string; phone?: string; marketingConsent?: boolean }) => {
+      const response = await this.request<SalesCustomerResponse>(`/sales/customers`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.customer;
+        },
+
+            /**
+     * Get customer
+     * Get a customer the channel holds an access grant for (created through it, or who bought through it)
+     * @operationId getSalesCustomer
+     */
+        get: async (customerId: string) => {
+      const response = await this.request<SalesCustomerResponse>(`/sales/customers/${customerId}`, {
+        method: 'GET'
+      });
+
+      return response.customer;
+        },
+
+            /**
+     * Update customer
+     * Update a customer the channel holds an access grant for. The update surface is deliberately small — email changes go through the org's staff.
+     * @operationId updateSalesCustomer
+     */
+        update: async (customerId: string, request: { firstName?: string; lastName?: string; phone?: string }) => {
+      const response = await this.request<SalesCustomerResponse>(`/sales/customers/${customerId}`, {
+        method: 'PATCH',
+        body: JSON.stringify(request)
+      });
+
+      return response.customer;
+        }
+  };
+
+  /**
+   * Sales Presale Codes methods
+   */
+  salesPresaleCodes = {
+            /**
+     * Redeem presale code
+     * A verified customer redeems a presale code for its benefit; gated pricing unlocks immediately. Requires a customer token.
+     * @operationId redeemSalesPresaleCode
+     */
+        redeem: async (request: { code: string }) => {
+      const response = await this.request<RedeemSalesPresaleCodeResponse>(`/sales/presale-codes/redeem`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        }
+  };
+
+  /**
+   * Sales methods
+   */
+  sales = {
+            /**
+     * Resolve a channel by domain
+     * Public tenant resolution for hosted surfaces: maps a hostname (the channel's configured subdomain or custom domain) to its channel summary and publishable key. No authentication; rate-limited.
+     * @operationId resolveSalesChannel
+     */
+        resolveChannel: async (options?: { domain: string }) => {
+      const params = new URLSearchParams();
+      if (options?.domain !== undefined) params.append('domain', String(options.domain));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/sales/channel?${queryString}` : `/sales/channel`;
+
+      const response = await this.request<SalesResolveChannelResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Get event catalogue detail
+     * Catalogue detail for an event listed on this channel: occurrences with their priced ticket-type offers. Benefit-gated types are included only when the request carries a customer token holding the benefit. Returns 404 if the event is not listed on this channel.
+     * @operationId getSalesEvent
+     */
+        get: async (eventId: string) => {
+      const response = await this.request<SalesEventDetailResponse>(`/sales/events/${eventId}`, {
+        method: 'GET'
+      });
+
+      return response.event;
+        },
+
+            /**
+     * Get channel theme
+     * The channel's resolved (inheritance-merged) theme for SSR injection. Returns 404 if the channel has neither its own theme nor an organisation base theme.
+     * @operationId getSalesTheme
+     */
+        getTheme: async () => {
+      const response = await this.request<SalesThemeResponse>(`/sales/theme`, {
+        method: 'GET'
+      });
+
+      return response.theme;
+        }
+  };
+
+  /**
+   * Themes methods
+   */
+  themes = {
+            /**
+     * List themes
+     * List all branding/design themes for the organisation
+     * @operationId listThemes
+     */
+        list: async () => {
+      const response = await this.request<ThemeListResponse>(`/themes`, {
+        method: 'GET'
+      });
+
+      return response.themes;
+        },
+
+            /**
+     * Create theme
+     * Create a new branding/design theme
+     * @operationId createTheme
+     */
+        create: async (request: { name: string; description?: string; extendsThemeId?: string; isBaseTheme?: boolean; isActive?: boolean; brand?: components['schemas']['ThemeBrandInput']; colors?: components['schemas']['ThemeColorsInput']; typography?: components['schemas']['ThemeTypographyInput']; shape?: components['schemas']['ThemeShapeInput']; design?: components['schemas']['ThemeDesignInput'] }) => {
+      const response = await this.request<ThemeResponse>(`/themes`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.theme;
+        },
+
+            /**
+     * Get theme
+     * Get a specific theme by ID
+     * @operationId getTheme
+     */
+        get: async (id: string) => {
+      const response = await this.request<ThemeResponse>(`/themes/${id}`, {
+        method: 'GET'
+      });
+
+      return response.theme;
+        },
+
+            /**
+     * Update theme
+     * Update an existing theme
+     * @operationId updateTheme
+     */
+        update: async (id: string, request: { name?: string; description?: any; extendsThemeId?: any; isBaseTheme?: boolean; isActive?: boolean; brand?: components['schemas']['ThemeBrandInput']; colors?: components['schemas']['ThemeColorsInput']; typography?: components['schemas']['ThemeTypographyInput']; shape?: components['schemas']['ThemeShapeInput']; design?: any }) => {
+      const response = await this.request<ThemeResponse>(`/themes/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify(request)
+      });
+
+      return response.theme;
+        },
+
+            /**
+     * Delete theme
+     * Soft-delete a theme
+     * @operationId deleteTheme
+     */
+        delete: async (id: string) => {
+      const response = await this.request<DeleteThemeResponse>(`/themes/${id}`, {
+        method: 'DELETE'
+      });
+
+      return response.deleted;
+        },
+
+            /**
+     * Get resolved theme
+     * Get a theme with its inheritance chain deep-merged (parent tokens overridden by the child)
+     * @operationId getResolvedTheme
+     */
+        resolved: async (id: string) => {
+      const response = await this.request<ResolvedThemeResponse>(`/themes/${id}/resolved`, {
+        method: 'GET'
+      });
+
+      return response.theme;
+        }
+  };
+
+  /**
+   * passes methods
+   * Use passes() to access nested resources: passes(id).entitlements
+   */
+  passes = Object.assign(
+    (passeId: string) => ({
+      entitlements: {
+            /**
+     * Redeem a pass
+     * Redeem a pass by its barcode at a gate. Idempotent under an Idempotency-Key header. Returns an outcome of valid, duplicate, or void. (Basic implementation: status + limit only; the full rules engine is part of the scanning/Go stream.)
+     * @operationId redeemPass
+     */
+        redeem: async (barcode: string, request: { deviceId?: string; location?: string; idempotencyKey?: string }) => {
+          const response = await this.request<RedeemPassResult>(`/passes/${barcode}/redeem`, {
+            method: 'POST',
+            body: JSON.stringify(request)
+          });
+
+          return response;
+        }
+      }
+    }),
+    {
+
+    }
+  );
+
+  /**
+   * Ticket Templates methods
+   */
+  ticketTemplates = {
+            /**
+     * List ticket templates
+     * List the organisation's ticket/pass templates (the designer layouts).
+     * @operationId listTicketTemplates
+     */
+        list: async (options?: { status?: 'draft' | 'active' | 'archived'; eventId?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.status !== undefined) params.append('status', String(options.status));
+      if (options?.eventId !== undefined) params.append('eventId', String(options.eventId));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/ticket-templates?${queryString}` : `/ticket-templates`;
+
+      const response = await this.request<ListTicketTemplatesResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response.templates;
+        },
+
+            /**
+     * Create ticket template
+     * Create a ticket/pass template. layout is the renderer-agnostic block model.
+     * @operationId createTicketTemplate
+     */
+        create: async (request: { name: string; type?: 'ticket' | 'eticket' | 'label' | 'receipt'; description?: any; layout?: { page: { width: number; height: number; background?: { color?: string } }; blocks: ({ id: string; type: 'text' | 'qr' | 'barcode' | 'image' | 'rect'; x: number; y: number; width: number; height: number })[] }; scopeEventId?: any; scopeTicketTypeId?: any; scopeChannelId?: any; themeId?: any; status?: 'draft' | 'active' | 'archived'; isDefault?: boolean; accountId?: any }) => {
+      const response = await this.request<TicketTemplateResponse>(`/ticket-templates`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.template;
+        },
+
+            /**
+     * Get ticket template
+     * Get a ticket/pass template by id.
+     * @operationId getTicketTemplate
+     */
+        get: async (id: string) => {
+      const response = await this.request<TicketTemplateResponse>(`/ticket-templates/${id}`, {
+        method: 'GET'
+      });
+
+      return response.template;
+        },
+
+            /**
+     * Update ticket template
+     * Update a ticket/pass template. Saving a new layout bumps its version.
+     * @operationId updateTicketTemplate
+     */
+        update: async (id: string, request: { name?: string; type?: 'ticket' | 'eticket' | 'label' | 'receipt'; description?: any; layout?: { page: { width: number; height: number; background?: { color?: string } }; blocks: ({ id: string; type: 'text' | 'qr' | 'barcode' | 'image' | 'rect'; x: number; y: number; width: number; height: number })[] }; scopeEventId?: any; scopeTicketTypeId?: any; scopeChannelId?: any; themeId?: any; status?: 'draft' | 'active' | 'archived'; isDefault?: boolean }) => {
+      const response = await this.request<TicketTemplateResponse>(`/ticket-templates/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify(request)
+      });
+
+      return response.template;
+        },
+
+            /**
+     * Delete ticket template
+     * Soft-delete a ticket/pass template.
+     * @operationId deleteTicketTemplate
+     */
+        delete: async (id: string) => {
+      const response = await this.request<DeleteTicketTemplateResponse>(`/ticket-templates/${id}`, {
+        method: 'DELETE'
+      });
+
+      return response.deleted;
+        }
+  };
+
+  /**
+   * Scan Configs methods
+   */
+  scanConfigs = {
+            /**
+     * Create a scan configuration
+     * Create a scanner scope (events + entitlement/gate/time filters + allowed operations). Delegation-gated: the author must hold entitlements.redeem on the account.
+     * @operationId createScanConfig
+     */
+        create: async (request: { accountId: string; name: string; eventFilter: { mode: 'all' | 'events' | 'occurrences'; eventIds?: string[]; occurrenceIds?: string[] }; entitlementFilter?: { types?: string[]; ticketTypeIds?: string[]; entitlementIds?: string[]; tags?: string[] }; allowedKinds: ('validate' | 'redeem' | 'reverse')[]; gates?: string[]; validFrom?: string; validUntil?: string }) => {
+      const response = await this.request<any>(`/scan-configs`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * List scan configurations
+     * 
+     * @operationId listScanConfigs
+     */
+        list: async () => {
+      const response = await this.request<any>(`/scan-configs`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Get a scan configuration
+     * 
+     * @operationId getScanConfig
+     */
+        get: async (configId: string) => {
+      const response = await this.request<any>(`/scan-configs/${configId}`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Update a scan configuration
+     * 
+     * @operationId updateScanConfig
+     */
+        update: async (configId: string, request: { accountId?: string; name?: string; eventFilter?: { mode: 'all' | 'events' | 'occurrences'; eventIds?: string[]; occurrenceIds?: string[] }; entitlementFilter?: { types?: string[]; ticketTypeIds?: string[]; entitlementIds?: string[]; tags?: string[] }; allowedKinds?: ('validate' | 'redeem' | 'reverse')[]; gates?: string[]; validFrom?: string; validUntil?: string; status?: 'active' | 'archived' }) => {
+      const response = await this.request<any>(`/scan-configs/${configId}`, {
+        method: 'PATCH',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Delete a scan configuration
+     * 
+     * @operationId deleteScanConfig
+     */
+        delete: async (configId: string) => {
+      const response = await this.request<any>(`/scan-configs/${configId}`, {
+        method: 'DELETE'
+      });
+
+      return response;
+        },
+
+            /**
+     * Assign scanner devices to a configuration
+     * Replace the set of scanner devices driven by this config. A device has at most one active config.
+     * @operationId setScanConfigDevices
+     */
+        setDevices: async (configId: string, request: { deviceIds: string[] }) => {
+      const response = await this.request<any>(`/scan-configs/${configId}/devices`, {
+        method: 'PUT',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        }
+  };
+
+  /**
+   * Scan methods
+   */
+  scan = {
+            /**
+     * Get the device scan scope
+     * The calling scanner device’s resolved configuration (scope + allowed operations). Device JWT only.
+     * @operationId getScanConfigForDevice
+     */
+        config: async () => {
+      const response = await this.request<any>(`/scan/config`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Get the offline validation dataset
+     * The entitlements in scope, as a cursored delta (pass ?since= the prior cursor). Device JWT only.
+     * @operationId getScanManifest
+     */
+        manifest: async (options?: { since?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.since !== undefined) params.append('since', String(options.since));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/scan/manifest?${queryString}` : `/scan/manifest`;
+
+      const response = await this.request<any>(requestPath, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Submit scan operations
+     * Batch of ScanOperations — applied in occurredAt order, idempotent on opId, duplicates recorded + noted. Device JWT only.
+     * @operationId submitScanOperations
+     */
+        operations: async (request: { operations: ({ opId: string; kind: 'validate' | 'redeem' | 'reverse'; passBarcode: string; entitlementId?: string; occurredAt: string; seq?: number; gate?: string; reverseOf?: string; originDeviceId?: string; locationId?: string; actor?: { type: 'device' | 'user'; id: string }; hopPath?: string[] })[] }) => {
+      const response = await this.request<any>(`/scan/operations`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        }
+  };
+
+  /**
+   * Scans methods
+   */
+  scans = {
+            /**
+     * List scans (staff reporting)
+     * Redemption/scan history, account-filtered, faceted by occurrence/event/device/status.
+     * @operationId listScans
+     */
+        list: async (options?: { occurrenceId?: string; eventId?: string; deviceId?: string; status?: 'validated' | 'redeemed' | 'rejected' | 'reversed'; from?: string; to?: string; limit?: number }) => {
+      const params = new URLSearchParams();
+      if (options?.occurrenceId !== undefined) params.append('occurrenceId', String(options.occurrenceId));
+      if (options?.eventId !== undefined) params.append('eventId', String(options.eventId));
+      if (options?.deviceId !== undefined) params.append('deviceId', String(options.deviceId));
+      if (options?.status !== undefined) params.append('status', String(options.status));
+      if (options?.from !== undefined) params.append('from', String(options.from));
+      if (options?.to !== undefined) params.append('to', String(options.to));
+      if (options?.limit !== undefined) params.append('limit', String(options.limit));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/scans?${queryString}` : `/scans`;
+
+      const response = await this.request<any>(requestPath, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Reverse a redemption
+     * Supervisor undo of a mistaken scan: the redemption becomes reversed and the entitlement gets its consumption back.
+     * @operationId reverseRedemption
+     */
+        reverse: async (redemptionId: string, request: { reason?: string }) => {
+      const response = await this.request<any>(`/redemptions/${redemptionId}/reverse`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        }
+  };
+
+  /**
+   * assets methods
+   * Use assets() to access nested resources: assets(id).assets
+   */
+  assets = Object.assign(
+    (assetId: string) => ({
+      assets: {
+            /**
+     * List assets
+     * List the organisation's tracked assets (uploads + renders). Filter by purpose/owner.
+     * @operationId listAssets
+     */
+        list: async (options?: { q?: string; purpose?: string; ownerType?: string; ownerId?: string; accountId?: string }) => {
+          const params = new URLSearchParams();
+          if (options?.q !== undefined) params.append('q', String(options.q));
+          if (options?.purpose !== undefined) params.append('purpose', String(options.purpose));
+          if (options?.ownerType !== undefined) params.append('ownerType', String(options.ownerType));
+          if (options?.ownerId !== undefined) params.append('ownerId', String(options.ownerId));
+          if (options?.accountId !== undefined) params.append('accountId', String(options.accountId));
+          const queryString = params.toString();
+          const requestPath = queryString ? `/assets?${queryString}` : `/assets`;
+
+          const response = await this.request<ListAssetsResponse>(requestPath, {
+            method: 'GET'
+          });
+
+          return response.assets;
+        },
+
+            /**
+     * Upload an asset
+     * Upload a file (multipart/form-data; field "file") to central storage and track it. Metadata fields (purpose, ownerType, ownerId, accountId, visibility, cdn) accompany the file.
+     * @operationId uploadAsset
+     */
+        upload: async (request: { name?: string; purpose?: 'event_image' | 'organisation_logo' | 'account_logo' | 'user_avatar' | 'ticket_template_asset' | 'rendered_pass' | 'rendered_receipt' | 'export' | 'other'; ownerType?: string; ownerId?: string; accountId?: string; visibility?: 'public' | 'private'; cdn?: any }) => {
+          const response = await this.request<AssetResponse>(`/assets`, {
+            method: 'POST',
+            body: JSON.stringify(request)
+          });
+
+          return response.asset;
+        },
+
+            /**
+     * Get an asset
+     * Get a tracked asset by id.
+     * @operationId getAsset
+     */
+        get: async (id: string) => {
+          const response = await this.request<AssetResponse>(`/assets/${id}`, {
+            method: 'GET'
+          });
+
+          return response.asset;
+        },
+
+            /**
+     * Delete an asset
+     * Soft-delete a tracked asset (bytes are left in storage for later GC).
+     * @operationId deleteAsset
+     */
+        delete: async (id: string) => {
+          const response = await this.request<DeleteAssetResponse>(`/assets/${id}`, {
+            method: 'DELETE'
+          });
+
+          return response.deleted;
+        }
+      }
+    }),
+    {
+
+    }
+  );
+
+  /**
+   * Device Pairing methods
+   */
+  devicePairing = {
+            /**
+     * Start device pairing
+     * A device begins pairing and receives a user code + device code (unauthenticated).
+     * @operationId startDevicePairing
+     */
+        start: async (request: { type: 'relay' | 'scanner' | 'kiosk' | 'signage'; name?: string; platform?: { os?: string; osVersion?: string; appVersion?: string; hostname?: string; arch?: string } }) => {
+      const response = await this.request<any>(`/devices/pairing`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Poll device pairing status
+     * The device polls pairing status, authenticated by its device code (query or X-Device-Code header).
+     * @operationId getDevicePairing
+     */
+        getStatus: async (pairingId: string) => {
+      const response = await this.request<any>(`/devices/pairing/${pairingId}`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Claim a device pairing
+     * Staff claim a pending pairing for their organisation, naming the device and granting roles.
+     * @operationId claimDevicePairing
+     */
+        claim: async (request: { userCode: string; name: string; accountId: string; locationId?: string; accountRoles: { accountId: string; roleId: string }[] }) => {
+      const response = await this.request<any>(`/devices/pairing/claim`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Confirm device adoption
+     * The device confirms adoption and receives its id + one-time secret (device-code auth).
+     * @operationId confirmDevicePairing
+     */
+        confirm: async (pairingId: string, request: { deviceCode: string }) => {
+      const response = await this.request<any>(`/devices/pairing/${pairingId}/confirm`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Reject device adoption
+     * The device rejects adoption; the pairing is invalidated (device-code auth).
+     * @operationId rejectDevicePairing
+     */
+        reject: async (pairingId: string, request: { deviceCode: string }) => {
+      const response = await this.request<any>(`/devices/pairing/${pairingId}/reject`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        }
+  };
+
+  /**
+   * Device Auth methods
+   */
+  deviceAuth = {
+            /**
+     * Mint a device token
+     * Exchange (deviceId, deviceSecret) for a short-lived device JWT.
+     * @operationId issueDeviceToken
+     */
+        issueToken: async (request: { deviceId: string; deviceSecret: string }) => {
+      const response = await this.request<any>(`/devices/token`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Device JWKS
+     * Public keys for offline Local Command Token verification by relays.
+     * @operationId getDeviceJwks
+     */
+        jwks: async () => {
+      const response = await this.request<any>(`/devices/jwks`, {
+        method: 'GET'
+      });
+
+      return response;
+        }
+  };
+
+  /**
+   * Device Self methods
+   */
+  deviceSelf = {
+            /**
+     * Get own device record
+     * The device fetches its own record, granted roles and local config (device JWT).
+     * @operationId getDeviceMe
+     */
+        getMe: async () => {
+      const response = await this.request<any>(`/devices/me`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Send a device heartbeat
+     * Reports presence + peripheral status; returns hints (commandsPending, cert renewal, JWKS version).
+     * @operationId deviceHeartbeat
+     */
+        heartbeat: async (request: { appVersion?: string; localPort?: number; lanAddresses?: { ip: string; interface: string }[]; peripheralStatuses?: { clientKey: string; status: Record<string, any> }[] }) => {
+      const response = await this.request<any>(`/devices/me/heartbeat`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Declare peripherals
+     * Full-replacement declaration of the relay’s peripherals; returns the stable device id per clientKey.
+     * @operationId declareDevicePeripherals
+     */
+        declarePeripherals: async (request: { peripherals: ({ clientKey: string; kind: string; name: string; attachment?: 'child' | 'routed'; vendor?: string; model?: string; capabilities?: Record<string, any>; address?: { host: string; port: number }; provider?: string })[] }) => {
+      const response = await this.request<any>(`/devices/me/peripherals`, {
+        method: 'PUT',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Long-poll for commands
+     * Holds up to `wait` seconds (max 25) and returns pending commands, marking them delivered.
+     * @operationId fetchDeviceCommands
+     */
+        fetchCommands: async (options?: { wait?: number }) => {
+      const params = new URLSearchParams();
+      if (options?.wait !== undefined) params.append('wait', String(options.wait));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/devices/me/commands?${queryString}` : `/devices/me/commands`;
+
+      const response = await this.request<any>(requestPath, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Report command progress
+     * Optional in-flight progress update (e.g. payment terminal awaiting card).
+     * @operationId reportCommandProgress
+     */
+        reportProgress: async (commandId: string, request: { progress: Record<string, any> }) => {
+      const response = await this.request<any>(`/devices/me/commands/${commandId}/progress`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Report command result
+     * Terminal result (completed|failed). Idempotent — the first terminal result wins.
+     * @operationId reportCommandResult
+     */
+        reportResult: async (commandId: string, request: { status: 'completed' | 'failed'; result?: Record<string, any> }) => {
+      const response = await this.request<any>(`/devices/me/commands/${commandId}/result`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Upload device events
+     * Batch (≤500) idempotent upload of device-operational events; per-item accepted|duplicate.
+     * @operationId ingestDeviceEvents
+     */
+        ingestEvents: async (request: { events: { id: string; type: string; occurredAt: string; payload?: Record<string, any> }[] }) => {
+      const response = await this.request<any>(`/devices/me/events`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Get local TLS certificate
+     * Fetch (or trigger issuance of) the device’s local-control-plane TLS cert + key.
+     * @operationId getDeviceCertificate
+     */
+        getCertificate: async () => {
+      const response = await this.request<any>(`/devices/me/certificate`, {
+        method: 'GET'
+      });
+
+      return response;
+        }
+  };
+
+  /**
+   * Devices methods
+   */
+  devices = {
+            /**
+     * List printers
+     * Org-wide list of printer peripherals with status + capabilities, for the print-target picker.
+     * @operationId listPrinters
+     */
+        printers: async () => {
+      const response = await this.request<any>(`/devices/printers`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Print capability & standard-media catalog
+     * The canonical print capabilities and standard media sizes designs are authored against.
+     * @operationId getDeviceMediaCatalog
+     */
+        mediaCatalog: async () => {
+      const response = await this.request<any>(`/devices/media-catalog`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * List devices
+     * List top-level devices (relays/scanners/kiosks) for the organisation.
+     * @operationId listDevices
+     */
+        list: async (options?: { accountId?: string; type?: string; status?: 'active' | 'revoked'; connectivity?: 'unknown' | 'online' | 'offline'; locationId?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.accountId !== undefined) params.append('accountId', String(options.accountId));
+      if (options?.type !== undefined) params.append('type', String(options.type));
+      if (options?.status !== undefined) params.append('status', String(options.status));
+      if (options?.connectivity !== undefined) params.append('connectivity', String(options.connectivity));
+      if (options?.locationId !== undefined) params.append('locationId', String(options.locationId));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/devices?${queryString}` : `/devices`;
+
+      const response = await this.request<any>(requestPath, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Get device
+     * Get a device with its peripherals and live status.
+     * @operationId getDevice
+     */
+        get: async (deviceId: string) => {
+      const response = await this.request<any>(`/devices/${deviceId}`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Update device
+     * Rename or relocate a device.
+     * @operationId updateDevice
+     */
+        update: async (deviceId: string, request: { name?: string; locationId?: any }) => {
+      const response = await this.request<any>(`/devices/${deviceId}`, {
+        method: 'PATCH',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Delete device
+     * Soft-delete a revoked device.
+     * @operationId deleteDevice
+     */
+        delete: async (deviceId: string) => {
+      const response = await this.request<any>(`/devices/${deviceId}`, {
+        method: 'DELETE'
+      });
+
+      return response;
+        },
+
+            /**
+     * Revoke device
+     * Revoke a device and kill its credentials immediately.
+     * @operationId revokeDevice
+     */
+        revoke: async (deviceId: string) => {
+      const response = await this.request<any>(`/devices/${deviceId}/revoke`, {
+        method: 'POST'
+      });
+
+      return response;
+        },
+
+            /**
+     * Assign device roles
+     * Replace a device’s account-role assignments.
+     * @operationId assignDeviceRoles
+     */
+        assignRoles: async (deviceId: string, request: { accountRoles: { accountId: string; roleId: string }[] }) => {
+      const response = await this.request<any>(`/devices/${deviceId}/roles`, {
+        method: 'PUT',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Rotate device credential
+     * Issue a new device secret; existing credentials grace-expire.
+     * @operationId rotateDeviceCredential
+     */
+        rotateCredential: async (deviceId: string, request: { graceSeconds?: number }) => {
+      const response = await this.request<any>(`/devices/${deviceId}/credentials/rotate`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Dispatch a command
+     * Queue a command for a device or one of its peripherals. Idempotent on Idempotency-Key.
+     * @operationId dispatchDeviceCommand
+     */
+        dispatchCommand: async (deviceId: string, request: { type: string; payload?: Record<string, any>; peripheralId?: string; idempotencyKey?: string }) => {
+      const response = await this.request<any>(`/devices/${deviceId}/commands`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * List device commands
+     * Command history for a device (most recent first).
+     * @operationId listDeviceCommands
+     */
+        listCommands: async (deviceId: string) => {
+      const response = await this.request<any>(`/devices/${deviceId}/commands`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Get a command
+     * Get a single command’s status/result by id (poll for completion).
+     * @operationId getDeviceCommand
+     */
+        getCommand: async (commandId: string) => {
+      const response = await this.request<any>(`/devices/commands/${commandId}`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * List device events
+     * The device-operational event log (most recent first).
+     * @operationId listDeviceEvents
+     */
+        listEvents: async (deviceId: string) => {
+      const response = await this.request<any>(`/devices/${deviceId}/events`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Mint a Local Command Token
+     * Mint a short-lived, capability-scoped token a browser POS presents to the device’s local control plane.
+     * @operationId mintLocalToken
+     */
+        mintLocalToken: async (deviceId: string, request: { allowedCommandTypes?: string[]; ttlSeconds?: number; accountIds?: string[] }) => {
+      const response = await this.request<any>(`/devices/${deviceId}/local-tokens`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        }
+  };
+
+  /**
+   * Locations methods
+   */
+  locations = {
+            /**
+     * Create location
+     * 
+     * @operationId createLocation
+     */
+        create: async (request: { accountId: string; name: string; description?: string }) => {
+      const response = await this.request<any>(`/locations`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * List locations
+     * 
+     * @operationId listLocations
+     */
+        list: async () => {
+      const response = await this.request<any>(`/locations`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Get location
+     * 
+     * @operationId getLocation
+     */
+        get: async (locationId: string) => {
+      const response = await this.request<any>(`/locations/${locationId}`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Update location
+     * 
+     * @operationId updateLocation
+     */
+        update: async (locationId: string, request: { name?: string; description?: any }) => {
+      const response = await this.request<any>(`/locations/${locationId}`, {
+        method: 'PATCH',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Delete location
+     * 
+     * @operationId deleteLocation
+     */
+        delete: async (locationId: string) => {
+      const response = await this.request<any>(`/locations/${locationId}`, {
         method: 'DELETE'
       });
 
