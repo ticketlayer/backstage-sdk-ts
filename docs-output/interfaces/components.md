@@ -33270,7 +33270,7 @@ sent: boolean;
 
 ###### Description
 
-Always true — success is reported regardless of whether the contact exists (no account enumeration)
+Always true - success is reported regardless of whether the contact exists (no account enumeration)
 
 ###### Example
 

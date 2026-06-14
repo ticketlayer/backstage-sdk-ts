@@ -13233,7 +13233,7 @@ magicLink: (request: {
 ```
 
 Request magic link
-Start a magic-link sign-in for a customer. Always reports success — account existence is never revealed.
+Start a magic-link sign-in for a customer. Always reports success - account existence is never revealed.
 
 ##### Parameters
 
@@ -13385,7 +13385,7 @@ update: (customerId: string, request: {
 ```
 
 Update customer
-Update a customer the channel holds an access grant for. The update surface is deliberately small — email changes go through the org's staff.
+Update a customer the channel holds an access grant for. The update surface is deliberately small - email changes go through the org's staff.
 
 ##### Parameters
 
@@ -13679,7 +13679,7 @@ list: () => Promise<{
 ```
 
 List my orders
-The verified customer's own orders. Requires a customer token — orders cannot be listed with key or possession credentials alone.
+The verified customer's own orders. Requires a customer token - orders cannot be listed with key or possession credentials alone.
 
 ##### Returns
 

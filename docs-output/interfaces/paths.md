@@ -111629,7 +111629,7 @@ List event on channel
 
 ##### Description
 
-List an event on the channel, optionally within a sale window. An event is never published globally — it is listed on channels.
+List an event on the channel, optionally within a sale window. An event is never published globally - it is listed on channels.
 
 ##### post.parameters
 
@@ -117842,7 +117842,7 @@ Request magic link
 
 ##### Description
 
-Start a magic-link sign-in for a customer. Always reports success — account existence is never revealed.
+Start a magic-link sign-in for a customer. Always reports success - account existence is never revealed.
 
 ##### post.parameters
 
@@ -118018,7 +118018,7 @@ sent: boolean;
 
 ###### Description
 
-Always true — success is reported regardless of whether the contact exists (no account enumeration)
+Always true - success is reported regardless of whether the contact exists (no account enumeration)
 
 ###### Example
 
@@ -120982,7 +120982,7 @@ Update customer
 
 ##### Description
 
-Update a customer the channel holds an access grant for. The update surface is deliberately small — email changes go through the org's staff.
+Update a customer the channel holds an access grant for. The update surface is deliberately small - email changes go through the org's staff.
 
 ##### patch.parameters
 
@@ -123340,7 +123340,7 @@ List my orders
 
 ##### Description
 
-The verified customer's own orders. Requires a customer token — orders cannot be listed with key or possession credentials alone.
+The verified customer's own orders. Requires a customer token - orders cannot be listed with key or possession credentials alone.
 
 ##### get.parameters
 

@@ -1,7 +1,7 @@
 /**
- * GENERATED FILE — do not edit by hand.
+ * GENERATED FILE - do not edit by hand.
  * Generated from Backstage API spec 1.0.0
- * by backstage-sdk-tooling 0.1.0 on 2026-06-14T00:54:53.404Z.
+ * by backstage-sdk-tooling 0.1.0 on 2026-06-14T22:11:25.904Z.
  * Regenerate with `tt sdk local` (or backstage-sdk-tooling `npm run generate`).
  */
 /**
@@ -18,6 +18,7 @@ type AddAreaResponse = components['schemas']['AddAreaResponse'];
 type AddCategoryResponse = components['schemas']['AddCategoryResponse'];
 type AddLineItemResponse = components['schemas']['AddLineItemResponse'];
 type AddSeatResponse = components['schemas']['AddSeatResponse'];
+type AiTopupResult = components['schemas']['AiTopupResult'];
 type AssetResponse = components['schemas']['AssetResponse'];
 type AssignRoleRequest = components['schemas']['AssignRoleRequest'];
 type AssignRoleResponse = components['schemas']['AssignRoleResponse'];
@@ -31,6 +32,7 @@ type CancelSubscriptionResponse = components['schemas']['CancelSubscriptionRespo
 type CheckAvailabilityResponse = components['schemas']['CheckAvailabilityResponse'];
 type ConfirmReservationResponse = components['schemas']['ConfirmReservationResponse'];
 type CreateAccountResponse = components['schemas']['CreateAccountResponse'];
+type CreateAiTopupRequest = components['schemas']['CreateAiTopupRequest'];
 type CreateCustomerResponse = components['schemas']['CreateCustomerResponse'];
 type CreateEventOccurrenceResponse = components['schemas']['CreateEventOccurrenceResponse'];
 type CreateEventResponse = components['schemas']['CreateEventResponse'];
@@ -53,6 +55,10 @@ type CreateUserInvitationRequest = components['schemas']['CreateUserInvitationRe
 type CreateUserInvitationResponse = components['schemas']['CreateUserInvitationResponse'];
 type CreateVenueLayoutResponse = components['schemas']['CreateVenueLayoutResponse'];
 type CreateVenueResponse = components['schemas']['CreateVenueResponse'];
+type CreateWebhookEndpoint = components['schemas']['CreateWebhookEndpoint'];
+type DashboardDeleteResponse = components['schemas']['DashboardDeleteResponse'];
+type DashboardListResponse = components['schemas']['DashboardListResponse'];
+type DashboardResponse = components['schemas']['DashboardResponse'];
 type DeleteAccountResponse = components['schemas']['DeleteAccountResponse'];
 type DeleteAreaResponse = components['schemas']['DeleteAreaResponse'];
 type DeleteAssetResponse = components['schemas']['DeleteAssetResponse'];
@@ -78,6 +84,7 @@ type FederateRequest = components['schemas']['FederateRequest'];
 type FeeProfileResponse = components['schemas']['FeeProfileResponse'];
 type GenerateSeatsResponse = components['schemas']['GenerateSeatsResponse'];
 type GetAccountResponse = components['schemas']['GetAccountResponse'];
+type GetAiBalanceResponse = components['schemas']['GetAiBalanceResponse'];
 type GetApiVersionsResponse = components['schemas']['GetApiVersionsResponse'];
 type GetAuditLogResponse = components['schemas']['GetAuditLogResponse'];
 type GetAutoTopupResponse = components['schemas']['GetAutoTopupResponse'];
@@ -109,6 +116,7 @@ type GetVenueResponse = components['schemas']['GetVenueResponse'];
 type InitiatePaymentResponse = components['schemas']['InitiatePaymentResponse'];
 type IssueSalesChannelKeyResponse = components['schemas']['IssueSalesChannelKeyResponse'];
 type ListAccountsResponse = components['schemas']['ListAccountsResponse'];
+type ListAiPackagesResponse = components['schemas']['ListAiPackagesResponse'];
 type ListAssetsResponse = components['schemas']['ListAssetsResponse'];
 type ListCustomersResponse = components['schemas']['ListCustomersResponse'];
 type ListEventOccurrencesResponse = components['schemas']['ListEventOccurrencesResponse'];
@@ -153,6 +161,12 @@ type ReleaseHoldResponse = components['schemas']['ReleaseHoldResponse'];
 type ReleaseReservationResponse = components['schemas']['ReleaseReservationResponse'];
 type RemoveAssignmentResponse = components['schemas']['RemoveAssignmentResponse'];
 type RemoveLineItemResponse = components['schemas']['RemoveLineItemResponse'];
+type ReportInventoryResponse = components['schemas']['ReportInventoryResponse'];
+type ReportMetaResponse = components['schemas']['ReportMetaResponse'];
+type ReportQueryResponse = components['schemas']['ReportQueryResponse'];
+type ReportSummaryResponse = components['schemas']['ReportSummaryResponse'];
+type ReportTemplateListResponse = components['schemas']['ReportTemplateListResponse'];
+type ReportTimeseriesResponse = components['schemas']['ReportTimeseriesResponse'];
 type ResendUserInvitationResponse = components['schemas']['ResendUserInvitationResponse'];
 type ReserveInventoryResponse = components['schemas']['ReserveInventoryResponse'];
 type ResolvedThemeResponse = components['schemas']['ResolvedThemeResponse'];
@@ -169,6 +183,9 @@ type SalesResolveChannelResponse = components['schemas']['SalesResolveChannelRes
 type SalesThemeResponse = components['schemas']['SalesThemeResponse'];
 type SavePaymentMethodRequest = components['schemas']['SavePaymentMethodRequest'];
 type SavePaymentMethodResponse = components['schemas']['SavePaymentMethodResponse'];
+type SavedReportDeleteResponse = components['schemas']['SavedReportDeleteResponse'];
+type SavedReportListResponse = components['schemas']['SavedReportListResponse'];
+type SavedReportResponse = components['schemas']['SavedReportResponse'];
 type SetDefaultPaymentMethodResponse = components['schemas']['SetDefaultPaymentMethodResponse'];
 type StaffCartResponse = components['schemas']['StaffCartResponse'];
 type StaffCheckoutResponse = components['schemas']['StaffCheckoutResponse'];
@@ -202,6 +219,7 @@ type UpdateUserAccountRolesRequest = components['schemas']['UpdateUserAccountRol
 type UpdateUserAccountRolesResponse = components['schemas']['UpdateUserAccountRolesResponse'];
 type UpdateVenueLayoutResponse = components['schemas']['UpdateVenueLayoutResponse'];
 type UpdateVenueResponse = components['schemas']['UpdateVenueResponse'];
+type UpdateWebhookEndpoint = components['schemas']['UpdateWebhookEndpoint'];
 type ValidateOrderResponse = components['schemas']['ValidateOrderResponse'];
 
 /**
@@ -313,6 +331,13 @@ export interface BackstageClientConfig {
    * Default: '/api/oauth/refresh' for cookie mode, '/v1/auth/refresh' for bearer mode
    */
   refreshEndpoint?: string;
+  /**
+   * Resolves the organisation slug sent as the X-Ticketlayer-Org header in
+   * cookie mode. Pass a function so the org can change at runtime (e.g. an org
+   * switcher) without recreating the client. If omitted or it returns
+   * undefined, the SDK falls back to deriving the org from the subdomain.
+   */
+  organisationSlug?: string | (() => string | undefined);
   headers?: Record<string, string>;
 }
 
@@ -332,6 +357,7 @@ export class BackstageClient {
   private onTokenRefresh?: (accessToken: string, refreshToken: string) => void | Promise<void>;
   private onAuthFailure?: () => Promise<boolean>;
   private refreshEndpoint: string;
+  private organisationSlug?: string | (() => string | undefined);
   private debugConfig: DebugConfig | null;
   private logger: { log: (...args: unknown[]) => void; error: (...args: unknown[]) => void };
 
@@ -342,6 +368,7 @@ export class BackstageClient {
     this.refreshToken = config.refreshToken;
     this.onTokenRefresh = config.onTokenRefresh;
     this.onAuthFailure = config.onAuthFailure;
+    this.organisationSlug = config.organisationSlug;
     this.headers = config.headers || {};
     
     // Set default refresh endpoint based on auth mode
@@ -436,6 +463,27 @@ export class BackstageClient {
    * Extract organisation slug from subdomain (browser only)
    * e.g., "jamie-test-org.backstage.local.t9r.dev" -> "jamie-test-org"
    */
+  /**
+   * Resolve the organisation slug for the X-Ticketlayer-Org header. Prefers the
+   * configured organisationSlug (string or resolver fn) so apps on a shared
+   * (non-subdomain) host can supply the current org explicitly, falling back to
+   * subdomain derivation for the legacy per-org-subdomain hosting.
+   */
+  private resolveOrgSlug(): string | undefined {
+    // If the consumer supplies an org (string or resolver fn) we trust it
+    // exclusively - even when it resolves to undefined - rather than guessing
+    // from the subdomain. On a shared host the subdomain's first label is the
+    // app itself (e.g. "backstage"), which is not a valid org. Subdomain
+    // derivation is only the fallback when no organisationSlug is configured
+    // (legacy per-org-subdomain hosting).
+    if (this.organisationSlug !== undefined) {
+      return typeof this.organisationSlug === 'function'
+        ? this.organisationSlug()
+        : this.organisationSlug;
+    }
+    return this.getOrgFromSubdomain();
+  }
+
   private getOrgFromSubdomain(): string | undefined {
     if (typeof window === 'undefined') {
       return undefined;
@@ -560,7 +608,7 @@ export class BackstageClient {
       }
       
       // Add organisation context header (required by API for OAuth tokens)
-      const orgSlug = this.getOrgFromSubdomain();
+      const orgSlug = this.resolveOrgSlug();
       if (orgSlug) {
         headers['X-Ticketlayer-Org'] = orgSlug;
       }
@@ -2036,6 +2084,65 @@ venuelayoutseats: {
       });
 
       return response.paymentMethod;
+        },
+
+            /**
+     * List AI credit packages
+     * List the AI-credit top-up packages available for purchase
+     * @operationId listAiCreditPackages
+     */
+        listAiPackages: async () => {
+      const response = await this.request<ListAiPackagesResponse>(`/billing/ai/packages`, {
+        method: 'GET'
+      });
+
+      return response.packages;
+        },
+
+            /**
+     * Get AI credit balance
+     * Get the organisation's AI-credit (Cue) wallet balance
+     * @operationId getAiBalance
+     */
+        getAiBalance: async () => {
+      const response = await this.request<GetAiBalanceResponse>(`/billing/ai/balance`, {
+        method: 'GET'
+      });
+
+      return response.aiBalance;
+        },
+
+            /**
+     * List AI credit transactions
+     * List the AI-credit wallet transaction history
+     * @operationId listAiCreditTransactions
+     */
+        listAiTransactions: async (options?: { page?: string; limit?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.page !== undefined) params.append('page', String(options.page));
+      if (options?.limit !== undefined) params.append('limit', String(options.limit));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/billing/ai/transactions?${queryString}` : `/billing/ai/transactions`;
+
+      const response = await this.request<ListTransactionsResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response.transactions;
+        },
+
+            /**
+     * Top up AI credits
+     * Purchase AI credits directly (separate from the bundle included with ticket-credit purchases)
+     * @operationId createAiTopup
+     */
+        createAiTopup: async (request: CreateAiTopupRequest) => {
+      const response = await this.request<AiTopupResult>(`/billing/ai-topup`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
         }
   };
 
@@ -2359,12 +2466,14 @@ venuelayoutseats: {
      * List all customers with optional filtering and pagination
      * @operationId listCustomers
      */
-        list: async (options?: { search?: string; email?: string; accountId?: string; isBlocked?: string; page?: string; limit?: string }) => {
+        list: async (options?: { search?: string; email?: string; accountId?: string; isBlocked?: string; updatedSince?: string; cursor?: string; page?: string; limit?: string }) => {
       const params = new URLSearchParams();
       if (options?.search !== undefined) params.append('search', String(options.search));
       if (options?.email !== undefined) params.append('email', String(options.email));
       if (options?.accountId !== undefined) params.append('accountId', String(options.accountId));
       if (options?.isBlocked !== undefined) params.append('isBlocked', String(options.isBlocked));
+      if (options?.updatedSince !== undefined) params.append('updatedSince', String(options.updatedSince));
+      if (options?.cursor !== undefined) params.append('cursor', String(options.cursor));
       if (options?.page !== undefined) params.append('page', String(options.page));
       if (options?.limit !== undefined) params.append('limit', String(options.limit));
       const queryString = params.toString();
@@ -2455,13 +2564,15 @@ venuelayoutseats: {
      * List all orders with optional filtering and pagination
      * @operationId listOrders
      */
-        list: async (options?: { status?: 'pending' | 'confirmed' | 'processing' | 'completed' | 'cancelled' | 'refunded' | 'expired' | 'failed'; customerId?: string; channel?: string; fromDate?: string; toDate?: string; search?: string; page?: string; limit?: string }) => {
+        list: async (options?: { status?: 'pending' | 'confirmed' | 'processing' | 'completed' | 'cancelled' | 'refunded' | 'expired' | 'failed'; customerId?: string; channel?: string; fromDate?: string; toDate?: string; updatedSince?: string; cursor?: string; search?: string; page?: string; limit?: string }) => {
       const params = new URLSearchParams();
       if (options?.status !== undefined) params.append('status', String(options.status));
       if (options?.customerId !== undefined) params.append('customerId', String(options.customerId));
       if (options?.channel !== undefined) params.append('channel', String(options.channel));
       if (options?.fromDate !== undefined) params.append('fromDate', String(options.fromDate));
       if (options?.toDate !== undefined) params.append('toDate', String(options.toDate));
+      if (options?.updatedSince !== undefined) params.append('updatedSince', String(options.updatedSince));
+      if (options?.cursor !== undefined) params.append('cursor', String(options.cursor));
       if (options?.search !== undefined) params.append('search', String(options.search));
       if (options?.page !== undefined) params.append('page', String(options.page));
       if (options?.limit !== undefined) params.append('limit', String(options.limit));
@@ -2640,7 +2751,7 @@ venuelayoutseats: {
 
             /**
      * Get order passes
-     * List the passes, entitlements and redemptions issued for an order (the order's tickets). Staff surface — includes the redemption barcode.
+     * List the passes, entitlements and redemptions issued for an order (the order's tickets). Staff surface - includes the redemption barcode.
      * @operationId getOrderPasses
      */
         getPasses: async (orderId: string) => {
@@ -2912,7 +3023,7 @@ venuelayoutseats: {
 listings: {
             /**
      * List event on channel
-     * List an event on the channel, optionally within a sale window. An event is never published globally — it is listed on channels.
+     * List an event on the channel, optionally within a sale window. An event is never published globally - it is listed on channels.
      * @operationId createSalesChannelListing
      */
         create: async (request: { eventId: string; saleStartsAt?: string; saleEndsAt?: string }) => {
@@ -3231,7 +3342,7 @@ carts: {
   salesCustomerAuth = {
             /**
      * Request magic link
-     * Start a magic-link sign-in for a customer. Always reports success — account existence is never revealed.
+     * Start a magic-link sign-in for a customer. Always reports success - account existence is never revealed.
      * @operationId requestSalesMagicLink
      */
         magicLink: async (request: { email?: string; phone?: string }) => {
@@ -3355,7 +3466,7 @@ carts: {
   salesMyOrders = {
             /**
      * List my orders
-     * The verified customer's own orders. Requires a customer token — orders cannot be listed with key or possession credentials alone.
+     * The verified customer's own orders. Requires a customer token - orders cannot be listed with key or possession credentials alone.
      * @operationId listMySalesOrders
      */
         list: async () => {
@@ -3469,7 +3580,7 @@ carts: {
 
             /**
      * Update customer
-     * Update a customer the channel holds an access grant for. The update surface is deliberately small — email changes go through the org's staff.
+     * Update a customer the channel holds an access grant for. The update surface is deliberately small - email changes go through the org's staff.
      * @operationId updateSalesCustomer
      */
         update: async (customerId: string, request: { firstName?: string; lastName?: string; phone?: string }) => {
@@ -3863,7 +3974,7 @@ carts: {
 
             /**
      * Submit scan operations
-     * Batch of ScanOperations — applied in occurredAt order, idempotent on opId, duplicates recorded + noted. Device JWT only.
+     * Batch of ScanOperations - applied in occurredAt order, idempotent on opId, duplicates recorded + noted. Device JWT only.
      * @operationId submitScanOperations
      */
         operations: async (request: { operations: ({ opId: string; kind: 'validate' | 'redeem' | 'reverse'; passBarcode: string; entitlementId?: string; occurredAt: string; seq?: number; gate?: string; reverseOf?: string; originDeviceId?: string; locationId?: string; actor?: { type: 'device' | 'user'; id: string }; hopPath?: string[] })[] }) => {
@@ -4179,7 +4290,7 @@ carts: {
 
             /**
      * Report command result
-     * Terminal result (completed|failed). Idempotent — the first terminal result wins.
+     * Terminal result (completed|failed). Idempotent - the first terminal result wins.
      * @operationId reportCommandResult
      */
         reportResult: async (commandId: string, request: { status: 'completed' | 'failed'; result?: Record<string, any> }) => {
@@ -4485,6 +4596,496 @@ carts: {
      */
         delete: async (locationId: string) => {
       const response = await this.request<any>(`/locations/${locationId}`, {
+        method: 'DELETE'
+      });
+
+      return response;
+        }
+  };
+
+  /**
+   * Reports methods
+   */
+  reports = {
+            /**
+     * Sales summary KPIs
+     * Headline realised-sales KPIs (gross, net-to-organiser, fees, tax, tickets, AOV) per currency. Money is integer minor units. Tenant- and account-scoped via the analytics principal.
+     * @operationId getReportsSummary
+     */
+        summary: async (options?: { eventId?: string; from?: string; to?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.eventId !== undefined) params.append('eventId', String(options.eventId));
+      if (options?.from !== undefined) params.append('from', String(options.from));
+      if (options?.to !== undefined) params.append('to', String(options.to));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/reports/summary?${queryString}` : `/reports/summary`;
+
+      const response = await this.request<ReportSummaryResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Sales over time
+     * Gross revenue and tickets sold bucketed by day/week/month, per currency.
+     * @operationId getReportsTimeseries
+     */
+        timeseries: async (options?: { eventId?: string; from?: string; to?: string; granularity?: 'day' | 'week' | 'month' }) => {
+      const params = new URLSearchParams();
+      if (options?.eventId !== undefined) params.append('eventId', String(options.eventId));
+      if (options?.from !== undefined) params.append('from', String(options.from));
+      if (options?.to !== undefined) params.append('to', String(options.to));
+      if (options?.granularity !== undefined) params.append('granularity', String(options.granularity));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/reports/timeseries?${queryString}` : `/reports/timeseries`;
+
+      const response = await this.request<ReportTimeseriesResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Inventory sell-through
+     * Current sell-through and utilisation per occurrence.
+     * @operationId getReportsInventory
+     */
+        inventory: async (options?: { eventId?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.eventId !== undefined) params.append('eventId', String(options.eventId));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/reports/inventory?${queryString}` : `/reports/inventory`;
+
+      const response = await this.request<ReportInventoryResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Semantic model
+     * The semantic model (data models, measures, dimensions) the caller may explore - drives the explorer pickers and grounds NL queries.
+     * @operationId getReportsMeta
+     */
+        meta: async () => {
+      const response = await this.request<ReportMetaResponse>(`/reports/meta`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Run an ad-hoc query
+     * Execute an arbitrary (validated + guarded) Insights query. Tenant- and account-scoped via the analytics principal; data models/members restricted and cost capped.
+     * @operationId runReportsQuery
+     */
+        query: async (request: { query: { measures?: string[]; dimensions?: string[]; timeDimensions?: ({ dimension: string; granularity?: 'hour' | 'day' | 'week' | 'month' | 'quarter' | 'year'; dateRange?: any })[]; filters?: { member: string; operator: string; values?: string[] }[]; segments?: string[]; order?: any; limit?: number; offset?: number; timezone?: string } }) => {
+      const response = await this.request<ReportQueryResponse>(`/reports/query`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * List saved reports
+     * List the saved reports the caller may see in their organisation.
+     * @operationId listSavedReports
+     */
+        savedList: async (options?: { accountId?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.accountId !== undefined) params.append('accountId', String(options.accountId));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/reports/saved?${queryString}` : `/reports/saved`;
+
+      const response = await this.request<SavedReportListResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Create a saved report
+     * Persist a cube query + viz + slicer params as a reusable report.
+     * @operationId createSavedReport
+     */
+        savedCreate: async (request: { name: string; description?: string; accountId?: string; query: { measures?: string[]; dimensions?: string[]; timeDimensions?: ({ dimension: string; granularity?: 'hour' | 'day' | 'week' | 'month' | 'quarter' | 'year'; dateRange?: any })[]; filters?: { member: string; operator: string; values?: string[] }[]; segments?: string[]; order?: any; limit?: number; offset?: number; timezone?: string }; params?: ({ kind: 'timeRange' | 'groupBy' | 'filter' | 'compare'; member?: string; label?: string; allowed?: string[] })[]; viz?: { type: 'table' | 'line' | 'bar' | 'area' | 'pie' | 'kpi'; x?: string; y?: any; series?: string } }) => {
+      const response = await this.request<SavedReportResponse>(`/reports/saved`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Get a saved report
+     * 
+     * @operationId getSavedReport
+     */
+        savedGet: async (id: string) => {
+      const response = await this.request<SavedReportResponse>(`/reports/saved/${id}`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Update a saved report
+     * 
+     * @operationId updateSavedReport
+     */
+        savedUpdate: async (id: string, request: { name?: string; description?: string; accountId?: string; query?: { measures?: string[]; dimensions?: string[]; timeDimensions?: ({ dimension: string; granularity?: 'hour' | 'day' | 'week' | 'month' | 'quarter' | 'year'; dateRange?: any })[]; filters?: { member: string; operator: string; values?: string[] }[]; segments?: string[]; order?: any; limit?: number; offset?: number; timezone?: string }; params?: ({ kind: 'timeRange' | 'groupBy' | 'filter' | 'compare'; member?: string; label?: string; allowed?: string[] })[]; viz?: { type: 'table' | 'line' | 'bar' | 'area' | 'pie' | 'kpi'; x?: string; y?: any; series?: string } }) => {
+      const response = await this.request<SavedReportResponse>(`/reports/saved/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Delete a saved report
+     * 
+     * @operationId deleteSavedReport
+     */
+        savedDelete: async (id: string) => {
+      const response = await this.request<SavedReportDeleteResponse>(`/reports/saved/${id}`, {
+        method: 'DELETE'
+      });
+
+      return response;
+        },
+
+            /**
+     * Run a saved report
+     * Execute a saved report, optionally merging slicer overrides onto its base query (re-validated + re-scoped).
+     * @operationId runSavedReport
+     */
+        savedRun: async (id: string, request: { overrides?: { measures?: string[]; dimensions?: string[]; timeDimensions?: ({ dimension: string; granularity?: 'hour' | 'day' | 'week' | 'month' | 'quarter' | 'year'; dateRange?: any })[]; filters?: { member: string; operator: string; values?: string[] }[]; segments?: string[]; order?: any; limit?: number; offset?: number; timezone?: string } }) => {
+      const response = await this.request<ReportQueryResponse>(`/reports/saved/${id}/run`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * List dashboards
+     * 
+     * @operationId listDashboards
+     */
+        dashboardList: async (options?: { accountId?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.accountId !== undefined) params.append('accountId', String(options.accountId));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/reports/dashboards?${queryString}` : `/reports/dashboards`;
+
+      const response = await this.request<DashboardListResponse>(requestPath, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Create a dashboard
+     * 
+     * @operationId createDashboard
+     */
+        dashboardCreate: async (request: { name: string; description?: string; accountId?: string; layout?: ({ tileId: string; title?: string; reportId?: string; query?: { measures?: string[]; dimensions?: string[]; timeDimensions?: ({ dimension: string; granularity?: 'hour' | 'day' | 'week' | 'month' | 'quarter' | 'year'; dateRange?: any })[]; filters?: { member: string; operator: string; values?: string[] }[]; segments?: string[]; order?: any; limit?: number; offset?: number; timezone?: string }; viz?: { type: 'table' | 'line' | 'bar' | 'area' | 'pie' | 'kpi'; x?: string; y?: any; series?: string }; x: number; y: number; w: number; h: number })[]; globalFilters?: ({ key: string; label: string; control: 'dateRange' | 'select' | 'multiselect'; member?: string; members?: Record<string, any>; default?: any })[] }) => {
+      const response = await this.request<DashboardResponse>(`/reports/dashboards`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Get a dashboard
+     * 
+     * @operationId getDashboard
+     */
+        dashboardGet: async (id: string) => {
+      const response = await this.request<DashboardResponse>(`/reports/dashboards/${id}`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Update a dashboard
+     * 
+     * @operationId updateDashboard
+     */
+        dashboardUpdate: async (id: string, request: { name?: string; description?: string; accountId?: string; layout?: ({ tileId: string; title?: string; reportId?: string; query?: { measures?: string[]; dimensions?: string[]; timeDimensions?: ({ dimension: string; granularity?: 'hour' | 'day' | 'week' | 'month' | 'quarter' | 'year'; dateRange?: any })[]; filters?: { member: string; operator: string; values?: string[] }[]; segments?: string[]; order?: any; limit?: number; offset?: number; timezone?: string }; viz?: { type: 'table' | 'line' | 'bar' | 'area' | 'pie' | 'kpi'; x?: string; y?: any; series?: string }; x: number; y: number; w: number; h: number })[]; globalFilters?: ({ key: string; label: string; control: 'dateRange' | 'select' | 'multiselect'; member?: string; members?: Record<string, any>; default?: any })[] }) => {
+      const response = await this.request<DashboardResponse>(`/reports/dashboards/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Delete a dashboard
+     * 
+     * @operationId deleteDashboard
+     */
+        dashboardDelete: async (id: string) => {
+      const response = await this.request<DashboardDeleteResponse>(`/reports/dashboards/${id}`, {
+        method: 'DELETE'
+      });
+
+      return response;
+        },
+
+            /**
+     * List standard templates
+     * The standard library of report/dashboard templates that can be installed.
+     * @operationId listReportTemplates
+     */
+        templateList: async () => {
+      const response = await this.request<ReportTemplateListResponse>(`/reports/templates`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Install a template
+     * Clone a standard template into the org: creates its saved reports + a dashboard the org then owns.
+     * @operationId installReportTemplate
+     */
+        templateInstall: async (key: string) => {
+      const response = await this.request<DashboardResponse>(`/reports/templates/${key}/install`, {
+        method: 'POST'
+      });
+
+      return response;
+        }
+  };
+
+  /**
+   * Webhook Endpoints methods
+   */
+  webhookEndpoints = {
+            /**
+     * Create a webhook endpoint
+     * Register a URL to receive signed POSTs for the chosen public event types. The signing `secret` is returned ONCE in this response and is never retrievable again.
+     * @operationId createWebhookEndpoint
+     */
+        create: async (request: CreateWebhookEndpoint) => {
+      const response = await this.request<any>(`/webhook-endpoints`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * List webhook endpoints
+     * 
+     * @operationId listWebhookEndpoints
+     */
+        list: async (options?: { accountId?: string }) => {
+      const params = new URLSearchParams();
+      if (options?.accountId !== undefined) params.append('accountId', String(options.accountId));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/webhook-endpoints?${queryString}` : `/webhook-endpoints`;
+
+      const response = await this.request<any>(requestPath, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Get a webhook endpoint
+     * 
+     * @operationId getWebhookEndpoint
+     */
+        get: async (endpointId: string) => {
+      const response = await this.request<any>(`/webhook-endpoints/${endpointId}`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Update a webhook endpoint
+     * 
+     * @operationId updateWebhookEndpoint
+     */
+        update: async (endpointId: string, request: UpdateWebhookEndpoint) => {
+      const response = await this.request<any>(`/webhook-endpoints/${endpointId}`, {
+        method: 'PATCH',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Delete a webhook endpoint
+     * 
+     * @operationId deleteWebhookEndpoint
+     */
+        delete: async (endpointId: string) => {
+      const response = await this.request<any>(`/webhook-endpoints/${endpointId}`, {
+        method: 'DELETE'
+      });
+
+      return response;
+        },
+
+            /**
+     * Send a test delivery
+     * Enqueue a sample signed delivery to the endpoint to verify connectivity.
+     * @operationId testWebhookEndpoint
+     */
+        test: async (endpointId: string) => {
+      const response = await this.request<any>(`/webhook-endpoints/${endpointId}/test`, {
+        method: 'POST'
+      });
+
+      return response;
+        }
+  };
+
+  /**
+   * Webhook Event Types methods
+   */
+  webhookEventTypes = {
+            /**
+     * List subscribable webhook event types
+     * 
+     * @operationId listWebhookEventTypes
+     */
+        list: async () => {
+      const response = await this.request<any>(`/webhook-event-types`, {
+        method: 'GET'
+      });
+
+      return response;
+        }
+  };
+
+  /**
+   * Webhook Deliveries methods
+   */
+  webhookDeliveries = {
+            /**
+     * List recent inbound webhook events (ingress log)
+     * 
+     * @operationId listInboundWebhooks
+     */
+        listInbound: async () => {
+      const response = await this.request<any>(`/webhook-inbound`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * List webhook deliveries
+     * The delivery log - every attempt, its status, response and retry schedule.
+     * @operationId listWebhookDeliveries
+     */
+        list: async (options?: { endpointId?: string; limit?: number }) => {
+      const params = new URLSearchParams();
+      if (options?.endpointId !== undefined) params.append('endpointId', String(options.endpointId));
+      if (options?.limit !== undefined) params.append('limit', String(options.limit));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/webhook-deliveries?${queryString}` : `/webhook-deliveries`;
+
+      const response = await this.request<any>(requestPath, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Get a webhook delivery
+     * 
+     * @operationId getWebhookDelivery
+     */
+        get: async (deliveryId: string) => {
+      const response = await this.request<any>(`/webhook-deliveries/${deliveryId}`, {
+        method: 'GET'
+      });
+
+      return response;
+        }
+  };
+
+  /**
+   * Integrations methods
+   */
+  integrations = {
+            /**
+     * List the integration marketplace
+     * The marketplace catalogue (connected apps + provider integrations) with this org’s status for each.
+     * @operationId listIntegrations
+     */
+        list: async () => {
+      const response = await this.request<any>(`/integrations`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * List connected OAuth apps for the org
+     * 
+     * @operationId listConnectedApps
+     */
+        listConnectedApps: async () => {
+      const response = await this.request<any>(`/integrations/connected-apps`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Get an integration
+     * 
+     * @operationId getIntegration
+     */
+        get: async (id: string) => {
+      const response = await this.request<any>(`/integrations/${id}`, {
+        method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Revoke a connected app
+     * 
+     * @operationId revokeIntegrationConnection
+     */
+        revokeConnection: async (id: string) => {
+      const response = await this.request<any>(`/integrations/${id}/connection`, {
         method: 'DELETE'
       });
 
