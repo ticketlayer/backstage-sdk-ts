@@ -9,6 +9,11 @@
       "types": "./dist/index.d.ts",
       "require": "./dist/index.js",
       "import": "./dist/index.js"
+    },
+    "./embed": {
+      "types": "./dist/embed/index.d.ts",
+      "require": "./dist/embed/index.js",
+      "import": "./dist/embed/index.js"
     }
   },
   "scripts": {
@@ -50,5 +55,12 @@
   },
   "dependencies": {
     "cross-fetch": "^4.0.0"
+  },
+  "typesVersions": {
+    "*": {
+      "embed": [
+        "./dist/embed/index.d.ts"
+      ]
+    }
   }
 }
