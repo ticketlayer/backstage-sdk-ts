@@ -32,3 +32,4 @@ Thumbs.db
 
 # OpenAPI spec (updated by automation)
 openapi.json
+spec/
