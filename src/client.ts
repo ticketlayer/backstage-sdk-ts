@@ -225,6 +225,22 @@ type ValidateOrderResponse = components['schemas']['ValidateOrderResponse'];
 /**
  * Custom error class for API errors with error code support
  */
+/** Response of POST /embed/sessions (minted server-side with an org API key). */
+export interface EmbedSession {
+  token: string;
+  expiresAt: string;
+  accountId: string;
+  organisation: { id: string; slug: string };
+}
+
+/** Response of GET /embed/sessions/current (the session behind a bearer token). */
+export interface EmbedSessionInfo {
+  organisation: { id: string; slug: string };
+  accountId: string;
+  scopes: string[];
+  expiresAt: string;
+}
+
 export class BackstageAPIError extends Error {
   public readonly code: string;
   public readonly statusCode: number;
@@ -312,7 +328,12 @@ export interface BackstageClientConfig {
    * Can be a boolean (enables all logging) or a DebugConfig object for fine-grained control.
    */
   debug?: boolean | DebugConfig;
-  accessToken?: string;
+  /**
+   * Bearer token (bearer mode). A resolver function is read on every request,
+   * so a host that rotates tokens (an embed session refreshed by its parent
+   * window) never has to recreate the client.
+   */
+  accessToken?: string | (() => string | undefined);
   refreshToken?: string;
   /**
    * Called after successful token refresh (bearer mode only).
@@ -332,10 +353,11 @@ export interface BackstageClientConfig {
    */
   refreshEndpoint?: string;
   /**
-   * Resolves the organisation slug sent as the X-Ticketlayer-Org header in
-   * cookie mode. Pass a function so the org can change at runtime (e.g. an org
-   * switcher) without recreating the client. If omitted or it returns
-   * undefined, the SDK falls back to deriving the org from the subdomain.
+   * Resolves the organisation slug sent as the X-Ticketlayer-Org header. Pass
+   * a function so the org can change at runtime (e.g. an org switcher) without
+   * recreating the client. In cookie mode, if omitted or it returns undefined,
+   * the SDK falls back to deriving the org from the subdomain. In bearer mode
+   * the header is only sent when this is configured (embed sessions need it).
    */
   organisationSlug?: string | (() => string | undefined);
   headers?: Record<string, string>;
@@ -351,7 +373,7 @@ export const API_DATED_VERSION = '2026-06-13';
 export class BackstageClient {
   private baseUrl: string;
   private authMode: AuthMode;
-  private accessToken?: string;
+  private accessToken?: string | (() => string | undefined);
   private refreshToken?: string;
   private headers: Record<string, string>;
   private onTokenRefresh?: (accessToken: string, refreshToken: string) => void | Promise<void>;
@@ -424,7 +446,7 @@ export class BackstageClient {
    * Get the current access token
    */
   getAccessToken(): string | undefined {
-    return this.accessToken;
+    return typeof this.accessToken === 'function' ? this.accessToken() : this.accessToken;
   }
 
   /**
@@ -595,9 +617,20 @@ export class BackstageClient {
       ...(options.headers as Record<string, string> || {}),
     };
 
-    // For bearer mode, add Authorization header
-    if (this.authMode === 'bearer' && this.accessToken) {
-      headers['Authorization'] = `Bearer ${this.accessToken}`;
+    // For bearer mode, add Authorization header (static token or resolver)
+    if (this.authMode === 'bearer') {
+      const bearerToken = this.getAccessToken();
+      if (bearerToken) {
+        headers['Authorization'] = `Bearer ${bearerToken}`;
+      }
+      // Only an explicitly configured org is sent in bearer mode - the
+      // subdomain fallback is a cookie-mode convention.
+      if (this.organisationSlug !== undefined) {
+        const orgSlug = this.resolveOrgSlug();
+        if (orgSlug) {
+          headers['X-Ticketlayer-Org'] = orgSlug;
+        }
+      }
     }
     
     // For cookie mode, read access_token from cookie and send as Authorization header
@@ -640,8 +673,11 @@ export class BackstageClient {
       
       if (refreshSuccessful) {
         // Update headers with new token (for bearer mode)
-        if (this.authMode === 'bearer' && this.accessToken) {
-          headers['Authorization'] = `Bearer ${this.accessToken}`;
+        if (this.authMode === 'bearer') {
+          const newBearerToken = this.getAccessToken();
+          if (newBearerToken) {
+            headers['Authorization'] = `Bearer ${newBearerToken}`;
+          }
         }
         // For cookie mode, the cookie was updated by the refresh endpoint
         // Re-read it for the retry request
@@ -700,6 +736,38 @@ export class BackstageClient {
     
     return result;
   }
+
+  /**
+   * Embed session methods (partner-hosted Backstage widgets)
+   */
+  embed = {
+            /**
+     * Create embed session
+     * Mint a short-lived embed session for one account, using an organisation API key. The token is a bearer token limited to that account and the given scopes; hand it to the embed loader, never to the browser as a long-lived credential.
+     * @operationId createEmbedSession
+     */
+        createSession: async (request: { accountId: string; scopes?: string[]; [key: string]: unknown }) => {
+      const response = await this.request<EmbedSession>(`/embed/sessions`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Get current embed session
+     * Describe the embed session behind the bearer token: organisation, account, scopes and expiry.
+     * @operationId getCurrentEmbedSession
+     */
+        currentSession: async () => {
+      const response = await this.request<EmbedSessionInfo>(`/embed/sessions/current`, {
+        method: 'GET'
+      });
+
+      return response;
+        }
+  };
 
   /**
    * Meta methods
@@ -2757,6 +2825,19 @@ venuelayoutseats: {
         getPasses: async (orderId: string) => {
       const response = await this.request<GetOrderPassesResponse>(`/orders/${orderId}/passes`, {
         method: 'GET'
+      });
+
+      return response;
+        },
+
+            /**
+     * Resend order confirmation email
+     * Resend the buyer's confirmation email for a confirmed order, with the ticket PDFs attached. Bypasses the once-per-order send marker. Staff surface.
+     * @operationId resendOrderConfirmation
+     */
+        resendConfirmation: async (orderId: string) => {
+      const response = await this.request<{ sent: boolean; recipient: string | null; messageId?: string; skippedReason?: 'already_sent' | 'no_recipient' | 'not_configured' | 'order_not_confirmed'; attachments: number }>(`/orders/${orderId}/resend-confirmation`, {
+        method: 'POST'
       });
 
       return response;
