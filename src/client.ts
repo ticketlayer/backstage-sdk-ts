@@ -103,6 +103,14 @@ type GetOrderPassesResponse = components['schemas']['GetOrderPassesResponse'];
 type GetOrderResponse = components['schemas']['GetOrderResponse'];
 type GetOrganisationResponse = components['schemas']['GetOrganisationResponse'];
 type GetPaymentProviderResponse = components['schemas']['GetPaymentProviderResponse'];
+type TicketlayerPayStatus = components['schemas']['TicketlayerPayStatus'];
+type EnableTicketlayerPayResponse = components['schemas']['EnableTicketlayerPayResponse'];
+type ConnectOnboardingSession = components['schemas']['ConnectOnboardingSession'];
+type ConnectOnboardingLinkResponse = components['schemas']['ConnectOnboardingLinkResponse'];
+type StripeConnectProvider = components['schemas']['StripeConnectProvider'];
+type LinkStripeConnectResponse = components['schemas']['LinkStripeConnectResponse'];
+type PaymentProviderAccount = components['schemas']['PaymentProviderAccount'];
+type ApplicationFee = components['schemas']['ApplicationFee'];
 type GetPaymentResponse = components['schemas']['GetPaymentResponse'];
 type GetPaymentStatusResponse = components['schemas']['GetPaymentStatusResponse'];
 type GetPriceSchemeResponse = components['schemas']['GetPriceSchemeResponse'];
@@ -2965,7 +2973,7 @@ venuelayoutseats: {
      * Create a new payment provider configuration
      * @operationId createPaymentProvider
      */
-        create: async (request: { accountId?: string; type: 'stripe_connect' | 'stripe_direct' | 'adyen' | 'square' | 'paypal' | 'cash' | 'bank_transfer'; name: string; description?: string; integrationType?: 'ticketlayer_pay' | 'self_service'; integrationServiceUrl?: string; integrationServiceVersion?: string; configuration: Record<string, any>; supportedPaymentTypes: ('online_card' | 'online_bank_transfer' | 'online_wallet' | 'in_person_card' | 'in_person_cash' | 'bank_transfer' | 'cheque')[]; capabilities?: { supportsInstantCapture?: boolean; supportsDelayedCapture?: boolean; supportsRefunds?: boolean; supportsPartialRefunds?: boolean; requiresCustomerAction?: boolean; supportedCurrencies?: string[]; maxAmount?: number; minAmount?: number }; isDefault?: boolean; priority?: number; feeStructure?: { type: 'percentage' | 'fixed' | 'percentage_plus_fixed'; percentage?: number; fixed?: number; currency?: string }; applicationFee?: { type: 'percentage' | 'fixed'; value: number }; metadata?: Record<string, any> }) => {
+        create: async (request: { accountId?: string; type: 'stripe_connect' | 'stripe_direct' | 'adyen' | 'square' | 'paypal' | 'cash' | 'bank_transfer'; name: string; description?: string; integrationType?: 'ticketlayer_pay' | 'self_service'; integrationServiceUrl?: string; integrationServiceVersion?: string; configuration: Record<string, any>; supportedPaymentTypes: ('online_card' | 'online_bank_transfer' | 'online_wallet' | 'in_person_card' | 'in_person_cash' | 'bank_transfer' | 'cheque')[]; capabilities?: { supportsInstantCapture?: boolean; supportsDelayedCapture?: boolean; supportsRefunds?: boolean; supportsPartialRefunds?: boolean; requiresCustomerAction?: boolean; supportedCurrencies?: string[]; maxAmount?: number; minAmount?: number }; isDefault?: boolean; priority?: number; feeStructure?: { type: 'percentage' | 'fixed' | 'percentage_plus_fixed'; percentage?: number; fixed?: number; currency?: string }; applicationFee?: ApplicationFee; metadata?: Record<string, any> }) => {
       const response = await this.request<CreatePaymentProviderResponse>(`/payment-providers`, {
         method: 'POST',
         body: JSON.stringify(request)
@@ -3030,7 +3038,7 @@ venuelayoutseats: {
      * Update an existing payment provider configuration
      * @operationId updatePaymentProvider
      */
-        update: async (providerId: string, request: { name?: string; description?: string; status?: 'active' | 'inactive' | 'pending_setup'; integrationServiceUrl?: string; integrationServiceVersion?: string; configuration?: Record<string, any>; supportedPaymentTypes?: ('online_card' | 'online_bank_transfer' | 'online_wallet' | 'in_person_card' | 'in_person_cash' | 'bank_transfer' | 'cheque')[]; capabilities?: { supportsInstantCapture?: boolean; supportsDelayedCapture?: boolean; supportsRefunds?: boolean; supportsPartialRefunds?: boolean; requiresCustomerAction?: boolean; supportedCurrencies?: string[]; maxAmount?: number; minAmount?: number }; isDefault?: boolean; priority?: number; feeStructure?: { type: 'percentage' | 'fixed' | 'percentage_plus_fixed'; percentage?: number; fixed?: number; currency?: string }; applicationFee?: { type: 'percentage' | 'fixed'; value: number }; metadata?: Record<string, any> }) => {
+        update: async (providerId: string, request: { name?: string; description?: string; status?: 'active' | 'inactive' | 'pending_setup'; integrationServiceUrl?: string; integrationServiceVersion?: string; configuration?: Record<string, any>; supportedPaymentTypes?: ('online_card' | 'online_bank_transfer' | 'online_wallet' | 'in_person_card' | 'in_person_cash' | 'bank_transfer' | 'cheque')[]; capabilities?: { supportsInstantCapture?: boolean; supportsDelayedCapture?: boolean; supportsRefunds?: boolean; supportsPartialRefunds?: boolean; requiresCustomerAction?: boolean; supportedCurrencies?: string[]; maxAmount?: number; minAmount?: number }; isDefault?: boolean; priority?: number; feeStructure?: { type: 'percentage' | 'fixed' | 'percentage_plus_fixed'; percentage?: number; fixed?: number; currency?: string }; applicationFee?: ApplicationFee; metadata?: Record<string, any> }) => {
       const response = await this.request<UpdatePaymentProviderResponse>(`/payment-providers/${providerId}`, {
         method: 'PATCH',
         body: JSON.stringify(request)
@@ -3050,7 +3058,159 @@ venuelayoutseats: {
       });
 
       return response;
-        }
+        },
+
+            /**
+     * Enable Ticketlayer Pay
+     * Vend the organisation's connected account on Ticketlayer's Stripe platform and create its Ticketlayer Pay provider. Idempotent: a second call returns the existing provider.
+     * @operationId enableTicketlayerPay
+     */
+        enableTicketlayerPay: async (request: { displayName?: string; contactEmail?: string; country?: string; currency?: string; metadata?: Record<string, any> } = {}) => {
+      const response = await this.request<EnableTicketlayerPayResponse>(`/payment-providers/ticketlayer-pay/enable`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Ticketlayer Pay status
+     * Onboarding and charge state of the organisation's Ticketlayer Pay account; refresh=true re-reads Stripe first.
+     * @operationId getTicketlayerPay
+     */
+        getTicketlayerPay: async (options?: { refresh?: 'true' | 'false' | '1' | '0' }) => {
+      const params = new URLSearchParams();
+      if (options?.refresh !== undefined) params.append('refresh', String(options.refresh));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/payment-providers/ticketlayer-pay?${queryString}` : `/payment-providers/ticketlayer-pay`;
+
+      const response = await this.request<{ status: TicketlayerPayStatus }>(requestPath, {
+        method: 'GET'
+      });
+
+      return response.status;
+        },
+
+            /**
+     * Account Session for embedded Ticketlayer Pay onboarding
+     * Mints a Stripe Account Session for the embedded account-onboarding, account-management and notification-banner components.
+     * @operationId createTicketlayerPayOnboardingSession
+     */
+        createTicketlayerPayOnboardingSession: async () => {
+      const response = await this.request<{ session: ConnectOnboardingSession }>(`/payment-providers/ticketlayer-pay/onboarding-session`, {
+        method: 'POST'
+      });
+
+      return response.session;
+        },
+
+            /**
+     * Hosted onboarding link for Ticketlayer Pay
+     * @operationId createTicketlayerPayOnboardingLink
+     */
+        createTicketlayerPayOnboardingLink: async (request: { returnUrl: string; refreshUrl: string }) => {
+      const response = await this.request<ConnectOnboardingLinkResponse>(`/payment-providers/ticketlayer-pay/onboarding-link`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.link;
+        },
+
+            /**
+     * Link the organisation's own Stripe account
+     * Validates the keys against Stripe, stores them encrypted, registers the webhook endpoints and creates (or re-keys) the organisation's stripe_connect provider.
+     * @operationId linkStripeConnect
+     */
+        linkStripeConnect: async (request: { secretKey: string; publishableKey: string; defaultMode: 'direct' | 'connected'; name?: string; applicationFee?: ApplicationFee | null; refundApplicationFee?: boolean }) => {
+      const response = await this.request<LinkStripeConnectResponse>(`/payment-providers/stripe-connect`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * The organisation's Stripe Connect provider
+     * @operationId getStripeConnect
+     */
+        getStripeConnect: async () => {
+      const response = await this.request<{ provider: StripeConnectProvider | null }>(`/payment-providers/stripe-connect`, {
+        method: 'GET'
+      });
+
+      return response.provider;
+        },
+
+            /**
+     * Per-Account routing rows on a Stripe Connect provider
+     * @operationId listPaymentProviderAccounts
+     */
+        listAccounts: async (providerId: string) => {
+      const response = await this.request<{ accounts: PaymentProviderAccount[] }>(`/payment-providers/${providerId}/accounts`, {
+        method: 'GET'
+      });
+
+      return response.accounts;
+        },
+
+            /**
+     * One Account's routing on a Stripe Connect provider
+     * @operationId getPaymentProviderAccount
+     */
+        getAccount: async (providerId: string, accountId: string, options?: { refresh?: 'true' | 'false' | '1' | '0' }) => {
+      const params = new URLSearchParams();
+      if (options?.refresh !== undefined) params.append('refresh', String(options.refresh));
+      const queryString = params.toString();
+      const requestPath = queryString ? `/payment-providers/${providerId}/accounts/${accountId}?${queryString}` : `/payment-providers/${providerId}/accounts/${accountId}`;
+
+      const response = await this.request<{ account: PaymentProviderAccount | null }>(requestPath, {
+        method: 'GET'
+      });
+
+      return response.account;
+        },
+
+            /**
+     * Set how an Account charges through a Stripe Connect provider
+     * direct charges the organisation's own Stripe account; connected links the given connected account, reuses the one already on the row, or vends a new Stripe v2 account (Stripe liable, no dashboard) for this Account.
+     * @operationId setPaymentProviderAccountMode
+     */
+        setAccountMode: async (providerId: string, accountId: string, request: { mode: 'direct' | 'connected'; connectedAccountId?: string; displayName?: string; contactEmail?: string; country?: string; currency?: string }) => {
+      const response = await this.request<{ account: PaymentProviderAccount }>(`/payment-providers/${providerId}/accounts/${accountId}`, {
+        method: 'PUT',
+        body: JSON.stringify(request)
+      });
+
+      return response.account;
+        },
+
+            /**
+     * Account Session for embedded onboarding of an Account's connected account
+     * @operationId createPaymentProviderAccountOnboardingSession
+     */
+        createAccountOnboardingSession: async (providerId: string, accountId: string) => {
+      const response = await this.request<{ session: ConnectOnboardingSession }>(`/payment-providers/${providerId}/accounts/${accountId}/onboarding-session`, {
+        method: 'POST'
+      });
+
+      return response.session;
+        },
+
+            /**
+     * Hosted onboarding link for an Account's connected account
+     * @operationId createPaymentProviderAccountOnboardingLink
+     */
+        createAccountOnboardingLink: async (providerId: string, accountId: string, request: { returnUrl: string; refreshUrl: string }) => {
+      const response = await this.request<ConnectOnboardingLinkResponse>(`/payment-providers/${providerId}/accounts/${accountId}/onboarding-link`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response.link;
+        },
   };
 
   /**
