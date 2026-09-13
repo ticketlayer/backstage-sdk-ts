@@ -48,12 +48,30 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Test
+        run: npm test
+
+      # Publishing needs the org secret NPM_TOKEN. Until it is set the release
+      # step is skipped with a notice, so the build and tests still gate main.
+      - name: Check publishing credentials
+        id: npm
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ -z "$NPM_TOKEN" ]; then
+            echo "::notice::NPM_TOKEN is not set - skipping version/publish. Set the org secret NPM_TOKEN to enable releases of @ticketlayer/backstage."
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Create release PR or publish
+        if: steps.npm.outputs.configured == 'true'
         uses: changesets/action@v1
         with:
           publish: npx changeset publish
-          title: 'Release @ticketlayer/backstage-sdk'
-          commit: 'Release @ticketlayer/backstage-sdk'
+          title: 'Release @ticketlayer/backstage'
+          commit: 'Release @ticketlayer/backstage'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
