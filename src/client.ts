@@ -1,7 +1,7 @@
 /**
  * GENERATED FILE - do not edit by hand.
  * Generated from Backstage API spec 1.0.0
- * by backstage-sdk-tooling 0.1.0 on 2026-09-15T01:37:31.435Z.
+ * by backstage-sdk-tooling 0.1.0 on 2026-09-15T02:24:27.755Z.
  * Regenerate with `tt sdk local` (or backstage-sdk-tooling `npm run generate`).
  */
 /**
@@ -636,6 +636,14 @@ export class BackstageClient {
       const bearerToken = this.getAccessToken();
       if (bearerToken) {
         headers['Authorization'] = `Bearer ${bearerToken}`;
+      }
+      // Only an explicitly configured org is sent in bearer mode - the
+      // subdomain fallback is a cookie-mode convention.
+      if (this.organisationSlug !== undefined) {
+        const orgSlug = this.resolveOrgSlug();
+        if (orgSlug) {
+          headers['X-Ticketlayer-Org'] = orgSlug;
+        }
       }
     }
     
