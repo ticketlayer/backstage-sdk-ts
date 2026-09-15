@@ -1,3 +1,14 @@
+#
+# Publishing authenticates with npm **trusted publishing**: the job proves it
+# is this workflow, in this repository, with a GitHub OIDC token, and npm
+# hands back a short-lived credential. There is no NPM_TOKEN to leak, rotate
+# or forget to renew, and provenance attestations are generated automatically.
+#
+# This only works because npm has a trusted publisher registered for
+# @ticketlayer/backstage. If that registration is missing, or names a
+# different workflow file, the publish fails loudly with an auth error - which is the point. The
+# old behaviour skipped publishing with a green tick when the token was
+# absent.
 name: Release SDK
 
 on:
@@ -13,7 +24,7 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-      id-token: write   # npm provenance
+      id-token: write   # the OIDC token trusted publishing exchanges
     steps:
       - uses: actions/checkout@v4
         with:
@@ -21,9 +32,15 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
+
+      # Node 22 ships npm 10; the OIDC exchange that trusted publishing runs
+      # on landed in npm 11.5.1. Without this the publish falls back to
+      # looking for a token it no longer has.
+      - name: Use an npm that can do the OIDC exchange
+        run: npm install -g npm@^11.5.1
 
       - run: npm ci
 
@@ -53,20 +70,8 @@ jobs:
 
       # Publishing needs the org secret NPM_TOKEN. Until it is set the release
       # step is skipped with a notice, so the build and tests still gate main.
-      - name: Check publishing credentials
-        id: npm
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          if [ -z "$NPM_TOKEN" ]; then
-            echo "::notice::NPM_TOKEN is not set - skipping version/publish. Set the org secret NPM_TOKEN to enable releases of @ticketlayer/backstage."
-            echo "configured=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "configured=true" >> "$GITHUB_OUTPUT"
-          fi
 
       - name: Create release PR or publish
-        if: steps.npm.outputs.configured == 'true'
         uses: changesets/action@v1
         with:
           publish: npx changeset publish
@@ -74,5 +79,3 @@ jobs:
           commit: 'Release @ticketlayer/backstage'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NPM_CONFIG_PROVENANCE: 'true'
