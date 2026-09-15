@@ -16,16 +16,37 @@
       "import": "./dist/embed/index.js"
     }
   },
+  "typesVersions": {
+    "*": {
+      "embed": [
+        "./dist/embed/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "generate": "npm run generate:client && npm run build",
-    "generate:client": "openapi-typescript openapi.json -o src/generated/schema.ts && openapi-typescript-codegen --input openapi.json --output src/generated --client fetch",
+    "generate:client": "openapi-typescript openapi.json -o src/generated/types.ts",
+    "prebuild": "node scripts/write-version.mjs",
     "build": "tsc",
-    "clean": "rm -rf dist src/generated",
+    "clean": "rm -rf dist src/generated src/version.ts",
     "prepublishOnly": "npm run build",
     "publish:npm": "npm publish --access public",
     "docs": "typedoc",
     "docs:gen": "typedoc",
     "test": "npm run build && node --test test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ticketlayer/backstage-sdk-ts.git"
+  },
+  "homepage": "https://docs.ticketlayer.com/sdks/backstage",
+  "bugs": {
+    "url": "https://github.com/ticketlayer/backstage-sdk-ts/issues"
   },
   "keywords": [
     "backstage",
@@ -36,31 +57,27 @@
   ],
   "author": "Ticketlayer",
   "license": "MIT",
-  "files": [
-    "dist",
-    "README.md"
-  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
+  },
+  "ticketlayer": {
+    "spec": "1.0.0",
+    "apiVersion": "2026-06-13",
+    "generator": "backstage-sdk-tooling 0.1.0"
+  },
+  "dependencies": {
+    "cross-fetch": "^4.0.0"
   },
   "devDependencies": {
     "@changesets/cli": "^2.31.0",
     "@types/node": "^20.10.0",
     "openapi-typescript": "^7.4.3",
-    "openapi-typescript-codegen": "^0.29.0",
     "typedoc": "^0.28.4",
     "typedoc-plugin-markdown": "^4.6.0",
     "typescript": "^5.9.2"
-  },
-  "dependencies": {
-    "cross-fetch": "^4.0.0"
-  },
-  "typesVersions": {
-    "*": {
-      "embed": [
-        "./dist/embed/index.d.ts"
-      ]
-    }
   }
 }
