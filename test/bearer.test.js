@@ -65,11 +65,16 @@ test('bearer mode without organisationSlug sends no org header (no subdomain gue
     assert.strictEqual(calls[0].init.headers['X-Ticketlayer-Org'], undefined);
   }));
 
+// The accessor and method names come from the OpenAPI document - the tag
+// ("Embed Sessions") names the group, sdkMethod names the call. This test
+// asserted client.embed.createSession(), which the hand-written client
+// happened to expose; the catalogue has always said embedSessions.create.
+// The catalogue wins, so the test follows it.
 test('the embed session methods hit /embed/sessions', () =>
   withFetch(async (calls) => {
     const client = new BackstageClient({ baseUrl: 'http://api.test', accessToken: 'tok', organisationSlug: 'lorc' });
-    await client.embed.currentSession();
-    await client.embed.createSession({ accountId: 'acc_1', scopes: ['events.read'] });
+    await client.embedSessions.current();
+    await client.embedSessions.create({ accountId: 'acc_1', scopes: ['events.read'] });
     assert.strictEqual(calls[0].url, 'http://api.test/v1/embed/sessions/current');
     assert.strictEqual(calls[1].url, 'http://api.test/v1/embed/sessions');
     assert.strictEqual(calls[1].init.method, 'POST');
