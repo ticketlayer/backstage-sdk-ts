@@ -1,7 +1,7 @@
 /**
  * GENERATED FILE - do not edit by hand.
  * Generated from Backstage API spec 1.0.0
- * by backstage-sdk-tooling 0.1.0 on 2026-06-14T22:11:25.904Z.
+ * by backstage-sdk-tooling 0.1.0 on 2026-09-15T01:37:31.435Z.
  * Regenerate with `tt sdk local` (or backstage-sdk-tooling `npm run generate`).
  */
 /**
@@ -12,6 +12,7 @@
  */
 
 import type { components } from './generated/types';
+import { SDK_NAME, SDK_VERSION } from './version';
 
 // Extract schema types
 type AddAreaResponse = components['schemas']['AddAreaResponse'];
@@ -31,6 +32,7 @@ type CancelPaymentResponse = components['schemas']['CancelPaymentResponse'];
 type CancelSubscriptionResponse = components['schemas']['CancelSubscriptionResponse'];
 type CheckAvailabilityResponse = components['schemas']['CheckAvailabilityResponse'];
 type ConfirmReservationResponse = components['schemas']['ConfirmReservationResponse'];
+type ConnectOnboardingLinkResponse = components['schemas']['ConnectOnboardingLinkResponse'];
 type CreateAccountResponse = components['schemas']['CreateAccountResponse'];
 type CreateAiTopupRequest = components['schemas']['CreateAiTopupRequest'];
 type CreateCustomerResponse = components['schemas']['CreateCustomerResponse'];
@@ -56,6 +58,7 @@ type CreateUserInvitationResponse = components['schemas']['CreateUserInvitationR
 type CreateVenueLayoutResponse = components['schemas']['CreateVenueLayoutResponse'];
 type CreateVenueResponse = components['schemas']['CreateVenueResponse'];
 type CreateWebhookEndpoint = components['schemas']['CreateWebhookEndpoint'];
+type CurrentEmbedSession = components['schemas']['CurrentEmbedSession'];
 type DashboardDeleteResponse = components['schemas']['DashboardDeleteResponse'];
 type DashboardListResponse = components['schemas']['DashboardListResponse'];
 type DashboardResponse = components['schemas']['DashboardResponse'];
@@ -79,6 +82,8 @@ type DeleteTicketTemplateResponse = components['schemas']['DeleteTicketTemplateR
 type DeleteUserInvitationResponse = components['schemas']['DeleteUserInvitationResponse'];
 type DeleteVenueLayoutResponse = components['schemas']['DeleteVenueLayoutResponse'];
 type DeleteVenueResponse = components['schemas']['DeleteVenueResponse'];
+type EmbedSessionCreated = components['schemas']['EmbedSessionCreated'];
+type EnableTicketlayerPayResponse = components['schemas']['EnableTicketlayerPayResponse'];
 type ExtendReservationResponse = components['schemas']['ExtendReservationResponse'];
 type FederateRequest = components['schemas']['FederateRequest'];
 type FeeProfileResponse = components['schemas']['FeeProfileResponse'];
@@ -103,14 +108,6 @@ type GetOrderPassesResponse = components['schemas']['GetOrderPassesResponse'];
 type GetOrderResponse = components['schemas']['GetOrderResponse'];
 type GetOrganisationResponse = components['schemas']['GetOrganisationResponse'];
 type GetPaymentProviderResponse = components['schemas']['GetPaymentProviderResponse'];
-type TicketlayerPayStatus = components['schemas']['TicketlayerPayStatus'];
-type EnableTicketlayerPayResponse = components['schemas']['EnableTicketlayerPayResponse'];
-type ConnectOnboardingSession = components['schemas']['ConnectOnboardingSession'];
-type ConnectOnboardingLinkResponse = components['schemas']['ConnectOnboardingLinkResponse'];
-type StripeConnectProvider = components['schemas']['StripeConnectProvider'];
-type LinkStripeConnectResponse = components['schemas']['LinkStripeConnectResponse'];
-type PaymentProviderAccount = components['schemas']['PaymentProviderAccount'];
-type ApplicationFee = components['schemas']['ApplicationFee'];
 type GetPaymentResponse = components['schemas']['GetPaymentResponse'];
 type GetPaymentStatusResponse = components['schemas']['GetPaymentStatusResponse'];
 type GetPriceSchemeResponse = components['schemas']['GetPriceSchemeResponse'];
@@ -123,6 +120,7 @@ type GetVenueLayoutResponse = components['schemas']['GetVenueLayoutResponse'];
 type GetVenueResponse = components['schemas']['GetVenueResponse'];
 type InitiatePaymentResponse = components['schemas']['InitiatePaymentResponse'];
 type IssueSalesChannelKeyResponse = components['schemas']['IssueSalesChannelKeyResponse'];
+type LinkStripeConnectResponse = components['schemas']['LinkStripeConnectResponse'];
 type ListAccountsResponse = components['schemas']['ListAccountsResponse'];
 type ListAiPackagesResponse = components['schemas']['ListAiPackagesResponse'];
 type ListAssetsResponse = components['schemas']['ListAssetsResponse'];
@@ -135,6 +133,7 @@ type ListInventoryResponse = components['schemas']['ListInventoryResponse'];
 type ListInvoicesResponse = components['schemas']['ListInvoicesResponse'];
 type ListMySalesOrdersResponse = components['schemas']['ListMySalesOrdersResponse'];
 type ListOrdersResponse = components['schemas']['ListOrdersResponse'];
+type ListOrgApiKeysResponse = components['schemas']['ListOrgApiKeysResponse'];
 type ListPackagesResponse = components['schemas']['ListPackagesResponse'];
 type ListPaymentMethodsResponse = components['schemas']['ListPaymentMethodsResponse'];
 type ListPaymentProvidersResponse = components['schemas']['ListPaymentProvidersResponse'];
@@ -157,6 +156,9 @@ type ListVenueLayoutsResponse = components['schemas']['ListVenueLayoutsResponse'
 type ListVenuesResponse = components['schemas']['ListVenuesResponse'];
 type LoginRequest = components['schemas']['LoginRequest'];
 type LoginResponse = components['schemas']['LoginResponse'];
+type OrgApiKeyCreated = components['schemas']['OrgApiKeyCreated'];
+type OrgApiKeyRevoked = components['schemas']['OrgApiKeyRevoked'];
+type PartnerAccountProvisioned = components['schemas']['PartnerAccountProvisioned'];
 type PresaleCodeResponse = components['schemas']['PresaleCodeResponse'];
 type PurchaseResult = components['schemas']['PurchaseResult'];
 type RedeemInvitationRequest = components['schemas']['RedeemInvitationRequest'];
@@ -175,6 +177,7 @@ type ReportQueryResponse = components['schemas']['ReportQueryResponse'];
 type ReportSummaryResponse = components['schemas']['ReportSummaryResponse'];
 type ReportTemplateListResponse = components['schemas']['ReportTemplateListResponse'];
 type ReportTimeseriesResponse = components['schemas']['ReportTimeseriesResponse'];
+type ResendOrderConfirmationResponse = components['schemas']['ResendOrderConfirmationResponse'];
 type ResendUserInvitationResponse = components['schemas']['ResendUserInvitationResponse'];
 type ReserveInventoryResponse = components['schemas']['ReserveInventoryResponse'];
 type ResolvedThemeResponse = components['schemas']['ResolvedThemeResponse'];
@@ -233,22 +236,6 @@ type ValidateOrderResponse = components['schemas']['ValidateOrderResponse'];
 /**
  * Custom error class for API errors with error code support
  */
-/** Response of POST /embed/sessions (minted server-side with an org API key). */
-export interface EmbedSession {
-  token: string;
-  expiresAt: string;
-  accountId: string;
-  organisation: { id: string; slug: string };
-}
-
-/** Response of GET /embed/sessions/current (the session behind a bearer token). */
-export interface EmbedSessionInfo {
-  organisation: { id: string; slug: string };
-  accountId: string;
-  scopes: string[];
-  expiresAt: string;
-}
-
 export class BackstageAPIError extends Error {
   public readonly code: string;
   public readonly statusCode: number;
@@ -361,11 +348,10 @@ export interface BackstageClientConfig {
    */
   refreshEndpoint?: string;
   /**
-   * Resolves the organisation slug sent as the X-Ticketlayer-Org header. Pass
-   * a function so the org can change at runtime (e.g. an org switcher) without
-   * recreating the client. In cookie mode, if omitted or it returns undefined,
-   * the SDK falls back to deriving the org from the subdomain. In bearer mode
-   * the header is only sent when this is configured (embed sessions need it).
+   * Resolves the organisation slug sent as the X-Ticketlayer-Org header in
+   * cookie mode. Pass a function so the org can change at runtime (e.g. an org
+   * switcher) without recreating the client. If omitted or it returns
+   * undefined, the SDK falls back to deriving the org from the subdomain.
    */
   organisationSlug?: string | (() => string | undefined);
   headers?: Record<string, string>;
@@ -377,6 +363,24 @@ export interface BackstageClientConfig {
  * evolves. See https://docs.ticketlayer.com/api/versions
  */
 export const API_DATED_VERSION = '2026-06-13';
+
+/** Best-effort description of the JavaScript runtime, for the TL-Client header. */
+function describeRuntime(): string {
+  const g = globalThis as Record<string, any>;
+  if (g.navigator?.product === 'ReactNative') return 'react-native';
+  if (typeof g.window !== 'undefined' && typeof g.document !== 'undefined') return 'browser';
+  if (g.process?.versions?.node) return `node/${g.process.versions.node}`;
+  if (g.EdgeRuntime) return 'edge';
+  return 'unknown';
+}
+
+/**
+ * Identifies this SDK build to the API, sent as the TL-Client request header:
+ * `ticketlayer-backstage/<package version> (<runtime>)`. SDK_VERSION comes from
+ * src/version.ts, which the package's prebuild writes from package.json so the
+ * header always names the version npm published.
+ */
+export const SDK_CLIENT_HEADER = `${SDK_NAME.replace(/^@/, '').replace('/', '-')}/${SDK_VERSION} (${describeRuntime()})`;
 
 export class BackstageClient {
   private baseUrl: string;
@@ -621,6 +625,8 @@ export class BackstageClient {
       'Content-Type': 'application/json',
       // Pin the dated API version this SDK was generated against
       'TL-Version': API_DATED_VERSION,
+      // Identify the SDK build (package version + runtime)
+      'TL-Client': SDK_CLIENT_HEADER,
       ...this.headers,
       ...(options.headers as Record<string, string> || {}),
     };
@@ -630,14 +636,6 @@ export class BackstageClient {
       const bearerToken = this.getAccessToken();
       if (bearerToken) {
         headers['Authorization'] = `Bearer ${bearerToken}`;
-      }
-      // Only an explicitly configured org is sent in bearer mode - the
-      // subdomain fallback is a cookie-mode convention.
-      if (this.organisationSlug !== undefined) {
-        const orgSlug = this.resolveOrgSlug();
-        if (orgSlug) {
-          headers['X-Ticketlayer-Org'] = orgSlug;
-        }
       }
     }
     
@@ -680,7 +678,8 @@ export class BackstageClient {
       const refreshSuccessful = await this.attemptTokenRefresh();
       
       if (refreshSuccessful) {
-        // Update headers with new token (for bearer mode)
+        // Update headers with new token (for bearer mode). Read through the
+        // resolver: a host that rotates tokens has a new one by now.
         if (this.authMode === 'bearer') {
           const newBearerToken = this.getAccessToken();
           if (newBearerToken) {
@@ -744,38 +743,6 @@ export class BackstageClient {
     
     return result;
   }
-
-  /**
-   * Embed session methods (partner-hosted Backstage widgets)
-   */
-  embed = {
-            /**
-     * Create embed session
-     * Mint a short-lived embed session for one account, using an organisation API key. The token is a bearer token limited to that account and the given scopes; hand it to the embed loader, never to the browser as a long-lived credential.
-     * @operationId createEmbedSession
-     */
-        createSession: async (request: { accountId: string; scopes?: string[]; [key: string]: unknown }) => {
-      const response = await this.request<EmbedSession>(`/embed/sessions`, {
-        method: 'POST',
-        body: JSON.stringify(request)
-      });
-
-      return response;
-        },
-
-            /**
-     * Get current embed session
-     * Describe the embed session behind the bearer token: organisation, account, scopes and expiry.
-     * @operationId getCurrentEmbedSession
-     */
-        currentSession: async () => {
-      const response = await this.request<EmbedSessionInfo>(`/embed/sessions/current`, {
-        method: 'GET'
-      });
-
-      return response;
-        }
-  };
 
   /**
    * Meta methods
@@ -1326,6 +1293,102 @@ export class BackstageClient {
       });
 
       return response.assignments;
+        }
+  };
+
+  /**
+   * Partners methods
+   */
+  partners = {
+            /**
+     * Provision a partner customer account
+     * For a partner server authenticated with an organisation API key (tlak_). Creates an account inside the caller's organisation, a website sales channel for it and a publishable key. Requires the accounts.write, saleschannels.write and saleschannelkeys.write scopes.
+     * @operationId createPartnerAccount
+     */
+        createAccount: async (request: { name: string; status?: 'active' | 'inactive'; channelName?: string; channelSlug?: string }) => {
+      const response = await this.request<PartnerAccountProvisioned>(`/partners/accounts`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        }
+  };
+
+  /**
+   * API Keys methods
+   */
+  apiKeys = {
+            /**
+     * Create an organisation API key
+     * Creates a long-lived key a partner server uses to call this API and to mint embed sessions. The key material is in this response once. Users only (requires apikeys.create).
+     * @operationId createApiKey
+     */
+        create: async (request: { name: string; scopes: string[]; accountId?: string; expiresAt?: any }) => {
+      const response = await this.request<OrgApiKeyCreated>(`/api-keys`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * List organisation API keys
+     * Lists every key of the organisation, revoked ones included. Key material is never returned. Users only (requires apikeys.read).
+     * @operationId listApiKeys
+     */
+        list: async () => {
+      const response = await this.request<ListOrgApiKeysResponse>(`/api-keys`, {
+        method: 'GET'
+      });
+
+      return response.apiKeys;
+        },
+
+            /**
+     * Revoke an organisation API key
+     * Revokes the key immediately; embed sessions it already minted run to their expiry. Users only (requires apikeys.revoke).
+     * @operationId revokeApiKey
+     */
+        revoke: async (id: string) => {
+      const response = await this.request<OrgApiKeyRevoked>(`/api-keys/${id}`, {
+        method: 'DELETE'
+      });
+
+      return response.apiKey;
+        }
+  };
+
+  /**
+   * Embed Sessions methods
+   */
+  embedSessions = {
+            /**
+     * Mint an embed session
+     * For a partner server authenticated with an organisation API key (tlak_). Mints a short-lived token pinned to one account of the key's organisation, carrying a subset of the key's scopes, for an embedded Backstage widget. User tokens and embed tokens are refused.
+     * @operationId createEmbedSession
+     */
+        create: async (request: { accountId: string; scopes?: string[]; ttlSeconds?: number }) => {
+      const response = await this.request<EmbedSessionCreated>(`/embed/sessions`, {
+        method: 'POST',
+        body: JSON.stringify(request)
+      });
+
+      return response;
+        },
+
+            /**
+     * Describe the current embed session
+     * For an embedded widget authenticated with an embed session token: the organisation, account, scopes and expiry of the session, so the widget can bootstrap without decoding the token.
+     * @operationId getCurrentEmbedSession
+     */
+        current: async () => {
+      const response = await this.request<CurrentEmbedSession>(`/embed/sessions/current`, {
+        method: 'GET'
+      });
+
+      return response;
         }
   };
 
@@ -2826,6 +2889,19 @@ venuelayoutseats: {
         },
 
             /**
+     * Resend order confirmation email
+     * Resend the buyer's confirmation email for a confirmed order, with the ticket PDFs attached and a link to the hosted confirmation page. Bypasses the once-per-order send marker. Staff surface.
+     * @operationId resendOrderConfirmation
+     */
+        resendConfirmation: async (orderId: string) => {
+      const response = await this.request<ResendOrderConfirmationResponse>(`/orders/${orderId}/resend-confirmation`, {
+        method: 'POST'
+      });
+
+      return response;
+        },
+
+            /**
      * Get order passes
      * List the passes, entitlements and redemptions issued for an order (the order's tickets). Staff surface - includes the redemption barcode.
      * @operationId getOrderPasses
@@ -2833,19 +2909,6 @@ venuelayoutseats: {
         getPasses: async (orderId: string) => {
       const response = await this.request<GetOrderPassesResponse>(`/orders/${orderId}/passes`, {
         method: 'GET'
-      });
-
-      return response;
-        },
-
-            /**
-     * Resend order confirmation email
-     * Resend the buyer's confirmation email for a confirmed order, with the ticket PDFs attached. Bypasses the once-per-order send marker. Staff surface.
-     * @operationId resendOrderConfirmation
-     */
-        resendConfirmation: async (orderId: string) => {
-      const response = await this.request<{ sent: boolean; recipient: string | null; messageId?: string; skippedReason?: 'already_sent' | 'no_recipient' | 'not_configured' | 'order_not_confirmed'; attachments: number }>(`/orders/${orderId}/resend-confirmation`, {
-        method: 'POST'
       });
 
       return response;
@@ -2973,7 +3036,7 @@ venuelayoutseats: {
      * Create a new payment provider configuration
      * @operationId createPaymentProvider
      */
-        create: async (request: { accountId?: string; type: 'stripe_connect' | 'stripe_direct' | 'adyen' | 'square' | 'paypal' | 'cash' | 'bank_transfer'; name: string; description?: string; integrationType?: 'ticketlayer_pay' | 'self_service'; integrationServiceUrl?: string; integrationServiceVersion?: string; configuration: Record<string, any>; supportedPaymentTypes: ('online_card' | 'online_bank_transfer' | 'online_wallet' | 'in_person_card' | 'in_person_cash' | 'bank_transfer' | 'cheque')[]; capabilities?: { supportsInstantCapture?: boolean; supportsDelayedCapture?: boolean; supportsRefunds?: boolean; supportsPartialRefunds?: boolean; requiresCustomerAction?: boolean; supportedCurrencies?: string[]; maxAmount?: number; minAmount?: number }; isDefault?: boolean; priority?: number; feeStructure?: { type: 'percentage' | 'fixed' | 'percentage_plus_fixed'; percentage?: number; fixed?: number; currency?: string }; applicationFee?: ApplicationFee; metadata?: Record<string, any> }) => {
+        create: async (request: { accountId?: string; type: 'stripe_connect' | 'stripe_direct' | 'adyen' | 'square' | 'paypal' | 'cash' | 'bank_transfer'; name: string; description?: string; integrationType?: 'ticketlayer_pay' | 'self_service'; integrationServiceUrl?: string; integrationServiceVersion?: string; configuration: Record<string, any>; supportedPaymentTypes: ('online_card' | 'online_bank_transfer' | 'online_wallet' | 'in_person_card' | 'in_person_cash' | 'bank_transfer' | 'cheque')[]; capabilities?: { supportsInstantCapture?: boolean; supportsDelayedCapture?: boolean; supportsRefunds?: boolean; supportsPartialRefunds?: boolean; requiresCustomerAction?: boolean; supportedCurrencies?: string[]; maxAmount?: number; minAmount?: number }; isDefault?: boolean; priority?: number; feeStructure?: { type: 'percentage' | 'fixed' | 'percentage_plus_fixed'; percentage?: number; fixed?: number; currency?: string }; applicationFee?: any; metadata?: Record<string, any> }) => {
       const response = await this.request<CreatePaymentProviderResponse>(`/payment-providers`, {
         method: 'POST',
         body: JSON.stringify(request)
@@ -3038,7 +3101,7 @@ venuelayoutseats: {
      * Update an existing payment provider configuration
      * @operationId updatePaymentProvider
      */
-        update: async (providerId: string, request: { name?: string; description?: string; status?: 'active' | 'inactive' | 'pending_setup'; integrationServiceUrl?: string; integrationServiceVersion?: string; configuration?: Record<string, any>; supportedPaymentTypes?: ('online_card' | 'online_bank_transfer' | 'online_wallet' | 'in_person_card' | 'in_person_cash' | 'bank_transfer' | 'cheque')[]; capabilities?: { supportsInstantCapture?: boolean; supportsDelayedCapture?: boolean; supportsRefunds?: boolean; supportsPartialRefunds?: boolean; requiresCustomerAction?: boolean; supportedCurrencies?: string[]; maxAmount?: number; minAmount?: number }; isDefault?: boolean; priority?: number; feeStructure?: { type: 'percentage' | 'fixed' | 'percentage_plus_fixed'; percentage?: number; fixed?: number; currency?: string }; applicationFee?: ApplicationFee; metadata?: Record<string, any> }) => {
+        update: async (providerId: string, request: { name?: string; description?: string; status?: 'active' | 'inactive' | 'pending_setup'; integrationServiceUrl?: string; integrationServiceVersion?: string; configuration?: Record<string, any>; supportedPaymentTypes?: ('online_card' | 'online_bank_transfer' | 'online_wallet' | 'in_person_card' | 'in_person_cash' | 'bank_transfer' | 'cheque')[]; capabilities?: { supportsInstantCapture?: boolean; supportsDelayedCapture?: boolean; supportsRefunds?: boolean; supportsPartialRefunds?: boolean; requiresCustomerAction?: boolean; supportedCurrencies?: string[]; maxAmount?: number; minAmount?: number }; isDefault?: boolean; priority?: number; feeStructure?: { type: 'percentage' | 'fixed' | 'percentage_plus_fixed'; percentage?: number; fixed?: number; currency?: string }; applicationFee?: components['schemas']['ApplicationFee']; metadata?: Record<string, any> }) => {
       const response = await this.request<UpdatePaymentProviderResponse>(`/payment-providers/${providerId}`, {
         method: 'PATCH',
         body: JSON.stringify(request)
@@ -3065,7 +3128,7 @@ venuelayoutseats: {
      * Vend the organisation's connected account on Ticketlayer's Stripe platform and create its Ticketlayer Pay provider. Idempotent: a second call returns the existing provider.
      * @operationId enableTicketlayerPay
      */
-        enableTicketlayerPay: async (request: { displayName?: string; contactEmail?: string; country?: string; currency?: string; metadata?: Record<string, any> } = {}) => {
+        enableTicketlayerPay: async (request: { displayName?: string; contactEmail?: string; country?: string; currency?: string; metadata?: Record<string, any> }) => {
       const response = await this.request<EnableTicketlayerPayResponse>(`/payment-providers/ticketlayer-pay/enable`, {
         method: 'POST',
         body: JSON.stringify(request)
@@ -3079,17 +3142,17 @@ venuelayoutseats: {
      * Onboarding and charge state of the organisation's Ticketlayer Pay account; refresh=true re-reads Stripe first.
      * @operationId getTicketlayerPay
      */
-        getTicketlayerPay: async (options?: { refresh?: 'true' | 'false' | '1' | '0' }) => {
+        getTicketlayerPay: async (options?: { refresh?: '0' | '1' | 'true' | 'false' }) => {
       const params = new URLSearchParams();
       if (options?.refresh !== undefined) params.append('refresh', String(options.refresh));
       const queryString = params.toString();
       const requestPath = queryString ? `/payment-providers/ticketlayer-pay?${queryString}` : `/payment-providers/ticketlayer-pay`;
 
-      const response = await this.request<{ status: TicketlayerPayStatus }>(requestPath, {
+      const response = await this.request<any>(requestPath, {
         method: 'GET'
       });
 
-      return response.status;
+      return response;
         },
 
             /**
@@ -3098,15 +3161,16 @@ venuelayoutseats: {
      * @operationId createTicketlayerPayOnboardingSession
      */
         createTicketlayerPayOnboardingSession: async () => {
-      const response = await this.request<{ session: ConnectOnboardingSession }>(`/payment-providers/ticketlayer-pay/onboarding-session`, {
+      const response = await this.request<any>(`/payment-providers/ticketlayer-pay/onboarding-session`, {
         method: 'POST'
       });
 
-      return response.session;
+      return response;
         },
 
             /**
      * Hosted onboarding link for Ticketlayer Pay
+     * 
      * @operationId createTicketlayerPayOnboardingLink
      */
         createTicketlayerPayOnboardingLink: async (request: { returnUrl: string; refreshUrl: string }) => {
@@ -3123,7 +3187,7 @@ venuelayoutseats: {
      * Validates the keys against Stripe, stores them encrypted, registers the webhook endpoints and creates (or re-keys) the organisation's stripe_connect provider.
      * @operationId linkStripeConnect
      */
-        linkStripeConnect: async (request: { secretKey: string; publishableKey: string; defaultMode: 'direct' | 'connected'; name?: string; applicationFee?: ApplicationFee | null; refundApplicationFee?: boolean }) => {
+        linkStripeConnect: async (request: { secretKey: string; publishableKey: string; defaultMode: 'direct' | 'connected'; name?: string; applicationFee?: any; refundApplicationFee?: boolean }) => {
       const response = await this.request<LinkStripeConnectResponse>(`/payment-providers/stripe-connect`, {
         method: 'POST',
         body: JSON.stringify(request)
@@ -3134,43 +3198,46 @@ venuelayoutseats: {
 
             /**
      * The organisation's Stripe Connect provider
+     * 
      * @operationId getStripeConnect
      */
         getStripeConnect: async () => {
-      const response = await this.request<{ provider: StripeConnectProvider | null }>(`/payment-providers/stripe-connect`, {
+      const response = await this.request<any>(`/payment-providers/stripe-connect`, {
         method: 'GET'
       });
 
-      return response.provider;
+      return response;
         },
 
             /**
      * Per-Account routing rows on a Stripe Connect provider
+     * 
      * @operationId listPaymentProviderAccounts
      */
         listAccounts: async (providerId: string) => {
-      const response = await this.request<{ accounts: PaymentProviderAccount[] }>(`/payment-providers/${providerId}/accounts`, {
+      const response = await this.request<any>(`/payment-providers/${providerId}/accounts`, {
         method: 'GET'
       });
 
-      return response.accounts;
+      return response;
         },
 
             /**
      * One Account's routing on a Stripe Connect provider
+     * 
      * @operationId getPaymentProviderAccount
      */
-        getAccount: async (providerId: string, accountId: string, options?: { refresh?: 'true' | 'false' | '1' | '0' }) => {
+        getAccount: async (providerId: string, accountId: string, options?: { refresh?: '0' | '1' | 'true' | 'false' }) => {
       const params = new URLSearchParams();
       if (options?.refresh !== undefined) params.append('refresh', String(options.refresh));
       const queryString = params.toString();
       const requestPath = queryString ? `/payment-providers/${providerId}/accounts/${accountId}?${queryString}` : `/payment-providers/${providerId}/accounts/${accountId}`;
 
-      const response = await this.request<{ account: PaymentProviderAccount | null }>(requestPath, {
+      const response = await this.request<any>(requestPath, {
         method: 'GET'
       });
 
-      return response.account;
+      return response;
         },
 
             /**
@@ -3179,28 +3246,30 @@ venuelayoutseats: {
      * @operationId setPaymentProviderAccountMode
      */
         setAccountMode: async (providerId: string, accountId: string, request: { mode: 'direct' | 'connected'; connectedAccountId?: string; displayName?: string; contactEmail?: string; country?: string; currency?: string }) => {
-      const response = await this.request<{ account: PaymentProviderAccount }>(`/payment-providers/${providerId}/accounts/${accountId}`, {
+      const response = await this.request<any>(`/payment-providers/${providerId}/accounts/${accountId}`, {
         method: 'PUT',
         body: JSON.stringify(request)
       });
 
-      return response.account;
+      return response;
         },
 
             /**
      * Account Session for embedded onboarding of an Account's connected account
+     * 
      * @operationId createPaymentProviderAccountOnboardingSession
      */
         createAccountOnboardingSession: async (providerId: string, accountId: string) => {
-      const response = await this.request<{ session: ConnectOnboardingSession }>(`/payment-providers/${providerId}/accounts/${accountId}/onboarding-session`, {
+      const response = await this.request<any>(`/payment-providers/${providerId}/accounts/${accountId}/onboarding-session`, {
         method: 'POST'
       });
 
-      return response.session;
+      return response;
         },
 
             /**
      * Hosted onboarding link for an Account's connected account
+     * 
      * @operationId createPaymentProviderAccountOnboardingLink
      */
         createAccountOnboardingLink: async (providerId: string, accountId: string, request: { returnUrl: string; refreshUrl: string }) => {
@@ -3210,7 +3279,7 @@ venuelayoutseats: {
       });
 
       return response.link;
-        },
+        }
   };
 
   /**
